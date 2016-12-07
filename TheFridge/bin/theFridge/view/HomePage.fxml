@@ -35,7 +35,7 @@
                               <Circle fill="#f7c048bf" radius="25.0" stroke="#ffffff00" strokeType="INSIDE" />
                               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
                                  <image>
-                                    <Image url="@../../../../../Downloads/home.png" />
+                                    <Image url="theFridge/picture/home.png" />
                                  </image>
                               </ImageView>
                            </children>
@@ -56,7 +56,7 @@
                               <Circle fill="#dde6f0" radius="25.0" stroke="#ffffff00" strokeType="INSIDE" />
                               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
                                  <image>
-                                    <Image url="@../../../../../Downloads/open-book.png" />
+                                    <Image url="theFridge/picture/open-book.png" />
                                  </image>
                               </ImageView>
                            </children>
@@ -74,7 +74,7 @@
                               <Circle fill="#dde6f0" radius="25.0" stroke="#ffffff00" strokeType="INSIDE" />
                               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
                                  <image>
-                                    <Image url="@../../../../../Downloads/fertillizer.png" />
+                                    <Image url="theFridge/picture/fertillizer.png" />
                                  </image>
                               </ImageView>
                            </children>
@@ -92,7 +92,7 @@
                               <Circle fill="#dde6f0" radius="25.0" stroke="#ffffff00" strokeType="INSIDE" />
                               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
                                  <image>
-                                    <Image url="@../../../../../Downloads/chicken.png" />
+                                    <Image url="theFridge/picture/chicken.png" />
                                  </image>
                               </ImageView>
                            </children>
@@ -110,7 +110,7 @@
                               <Circle fill="#dde6f0" radius="25.0" stroke="#ffffff00" strokeType="INSIDE" />
                               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
                                  <image>
-                                    <Image url="@../../../../../Downloads/quiz-on-computer-with-question-signs-around.png" />
+                                    <Image url="theFridge/picture/quiz-on-computer-with-question-signs-around.png" />
                                  </image>
                               </ImageView>
                            </children>
@@ -128,7 +128,7 @@
                               <Circle fill="#dde6f0" radius="25.0" stroke="#ffffff00" strokeType="INSIDE" />
                               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
                                  <image>
-                                    <Image url="@../../../../../Downloads/gift.png" />
+                                    <Image url="theFridge/picture/gift.png" />
                                  </image>
                               </ImageView>
                            </children>

@@ -45,7 +45,7 @@ public class RecipePageController {
 	private Button quackBtn;
 	
 	@FXML void playAudio(ActionEvent event){
-		String quack = "src/navigationBar/sound/quack.mp3";
+		String quack = "src/theFridge/sound/quack.mp3";
 
 		Media sound = new Media(new File(quack).toURI().toString());
 		MediaPlayer mediaPlayer = new MediaPlayer(sound);
@@ -91,7 +91,7 @@ public class RecipePageController {
 			root = FXMLLoader.load(getClass().getResource(""));
 		}
 		else if(event.getSource().equals(foodScene)){
-			root = FXMLLoader.load(getClass().getResource("/theFridge/view/ShoppingList.fxml"));
+			root = FXMLLoader.load(getClass().getResource("/theFridge/view/ShoppingListPage.fxml"));
 		}
 		else if(event.getSource().equals(quizScene)){
 			root = FXMLLoader.load(getClass().getResource(""));
