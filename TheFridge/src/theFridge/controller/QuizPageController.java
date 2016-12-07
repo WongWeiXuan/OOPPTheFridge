@@ -1,28 +1,23 @@
 package theFridge.controller;
 
-import java.io.File;
 import java.io.IOException;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 
 import javafx.scene.layout.VBox;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-public class RecipePageController {
+public class QuizPageController {
 	@FXML
 	private AnchorPane Anchor;
 	@FXML
@@ -41,17 +36,7 @@ public class RecipePageController {
 	private VBox quizScene;
 	@FXML
 	private VBox prizeScene;
-	@FXML
-	private Button quackBtn;
-	
-	@FXML void playAudio(ActionEvent event){
-		String quack = "src/theFridge/sound/quack.mp3";
 
-		Media sound = new Media(new File(quack).toURI().toString());
-		MediaPlayer mediaPlayer = new MediaPlayer(sound);
-		mediaPlayer.play();
-	}
-	
 	@FXML
 	public void showNavigation(MouseEvent event){
 		Timeline timeline = new Timeline();
@@ -79,7 +64,8 @@ public class RecipePageController {
 	@FXML
 	public void changeScene(MouseEvent event) throws IOException {
 		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/HomePage.fxml"));	
+		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/HomePage.fxml"));
+		
 		
 		if(event.getSource().equals(homeScene)){
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/HomePage.fxml"));
