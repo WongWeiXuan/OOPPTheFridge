@@ -17,7 +17,7 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: rgba(128, 128, 128, 0.25);" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: rgba(128, 128, 128, 0.25);" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="qz1.view.QuizOneController">
    <children>
       <TextFlow layoutX="622.90625" layoutY="14.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="1280.0" style="-fx-background-color: black;" textAlignment="CENTER" AnchorPane.bottomAnchor="730.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -64,7 +64,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <JFXButton buttonType="RAISED" minWidth="200.0" prefHeight="70.0" prefWidth="200.0" ripplerFill="BLACK" style="-fx-background-color: #5CF1F1;" text="Choice 1" GridPane.halignment="CENTER">
+                  <JFXButton fx:id="choiceBtn1" buttonType="RAISED" minWidth="200.0" prefHeight="70.0" prefWidth="200.0" ripplerFill="BLACK" style="-fx-background-color: #5CF1F1;" text="Choice 1" GridPane.halignment="CENTER">
                      <GridPane.margin>
                         <Insets />
                      </GridPane.margin>
@@ -72,17 +72,17 @@
                         <Font name="Garamond" size="18.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton buttonType="RAISED" minWidth="200.0" prefHeight="70.0" prefWidth="200.0" ripplerFill="BLACK" style="-fx-background-color: #5CF1F1;" text="Choice 2" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+                  <JFXButton fx:id="choiceBtn2" buttonType="RAISED" minWidth="200.0" prefHeight="70.0" prefWidth="200.0" ripplerFill="BLACK" style="-fx-background-color: #5CF1F1;" text="Choice 2" GridPane.columnIndex="1" GridPane.halignment="CENTER">
                      <font>
                         <Font name="Garamond" size="18.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton buttonType="RAISED" minWidth="200.0" prefHeight="70.0" prefWidth="200.0" ripplerFill="BLACK" style="-fx-background-color: #5CF1F1;" text="Choice 3" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                  <JFXButton fx:id="choiceBtn3" buttonType="RAISED" minWidth="200.0" prefHeight="70.0" prefWidth="200.0" ripplerFill="BLACK" style="-fx-background-color: #5CF1F1;" text="Choice 3" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                      <font>
                         <Font name="Garamond" size="18.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton buttonType="RAISED" minWidth="200.0" prefHeight="70.0" prefWidth="200.0" ripplerFill="BLACK" style="-fx-background-color: #5CF1F1;" text="Choice 4" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                  <JFXButton fx:id="choiceBtn4" buttonType="RAISED" minWidth="200.0" prefHeight="70.0" prefWidth="200.0" ripplerFill="BLACK" style="-fx-background-color: #5CF1F1;" text="Choice 4" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                      <font>
                         <Font name="Garamond" size="18.0" />
                      </font>
@@ -240,5 +240,3 @@
       </AnchorPane>
    </children>
 </AnchorPane>
-
-
