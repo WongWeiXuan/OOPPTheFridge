@@ -66,23 +66,24 @@ public class NavigationFXMLController {
 	
 	@FXML
 	public void changeScene(MouseEvent event) throws IOException {
-		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow(); //Getting and setting the existing/opened stage to new stage
-		Parent root = null; //(Parent)FXMLLoader.load(getClass().getResource("/navigationBar/view/NavigationFXML.fxml"));
+		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+		Parent root = null; //(Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/HomePage.fxml"));
+		
 		
 		if(event.getSource().equals(homeScene)){
-			root = FXMLLoader.load(getClass().getResource("/navigationBar/view/HomePage.fxml"));
+			root = FXMLLoader.load(getClass().getResource("/theFridge/view/HomePage.fxml"));
 		}
 		else if(event.getSource().equals(recipeScene)){
-			root = FXMLLoader.load(getClass().getResource("/navigationBar/view/RecipePage.fxml"));
+			root = FXMLLoader.load(getClass().getResource("/theFridge/view/RecipePage.fxml"));
 		}
 		else if(event.getSource().equals(compostScene)){
-			root = FXMLLoader.load(getClass().getResource(""));
+			root = FXMLLoader.load(getClass().getResource("/theFridge/view/Page1.fxml"));
 		}
 		else if(event.getSource().equals(foodScene)){
-			root = FXMLLoader.load(getClass().getResource("/navigationBar/view/ShoppingList.fxml"));
+			root = FXMLLoader.load(getClass().getResource("/theFridge/view/ShoppingListPage.fxml"));
 		}
 		else if(event.getSource().equals(quizScene)){
-			root = FXMLLoader.load(getClass().getResource(""));
+			root = FXMLLoader.load(getClass().getResource("/theFridge/view/QuizPage.fxml"));
 		}
 		else if(event.getSource().equals(prizeScene)){
 			root = FXMLLoader.load(getClass().getResource(""));
@@ -90,6 +91,6 @@ public class NavigationFXMLController {
 
  		stage.setScene(new Scene(root));
  	    stage.show();
-	}	
+	}
 	
 }

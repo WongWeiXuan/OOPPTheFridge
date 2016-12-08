@@ -148,7 +148,7 @@
       </AnchorPane>
    </left>
    <center>
-      <Text fx:id="text" fill="#ffbd00" onMouseEntered="#showWord" strokeType="OUTSIDE" strokeWidth="0.0" text="Woof Woof!" BorderPane.alignment="CENTER">
+      <Text fx:id="text" fill="#ffbd00" onMouseEntered="#showWord" strokeType="OUTSIDE" strokeWidth="0.0" text="Woof Woof! (Testing)" BorderPane.alignment="CENTER">
          <font>
             <Font size="96.0" />
          </font>
