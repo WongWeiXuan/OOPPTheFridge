@@ -1,6 +1,9 @@
 package theFridge.controller;
 
+import java.io.File;
 import java.io.IOException;
+
+import com.google.zxing.WriterException;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -16,6 +19,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import theFridge.model.ShoppingListQRCodePageModel;
+import javafx.event.ActionEvent;
 
 public class ShoppingListController {
 	@FXML
@@ -64,7 +69,7 @@ public class ShoppingListController {
 	@FXML
 	public void changeScene(MouseEvent event) throws IOException {
 		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/HomePage.fxml"));
+		Parent root = null; //(Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/HomePage.fxml"));
 		
 		
 		if(event.getSource().equals(homeScene)){
@@ -88,5 +93,15 @@ public class ShoppingListController {
 
  		stage.setScene(new Scene(root));
  	    stage.show();
+	}
+
+	@FXML public void changeToGeneratePage(ActionEvent event) throws IOException, WriterException {
+		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/ShoppingListPage.fxml"));
+		root = FXMLLoader.load(getClass().getResource("/theFridge/view/ShoppingListQRCodePage.fxml"));
+		stage.setScene(new Scene(root));
+ 	    stage.show();
+ 	    File filePath = new File("src/theFridge/picture/QrCode.png");
+ 	    ShoppingListQRCodePageModel.createQRImage(filePath, "Hello, World!", "png");
 	}
 }

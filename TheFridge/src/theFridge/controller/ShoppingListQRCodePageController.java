@@ -1,53 +1,46 @@
 package theFridge.controller;
 
 import java.io.IOException;
+
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Node;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
+
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
-
-public class Page1Controller {
-
-    @FXML
-    private TableColumn<?, ?> table1;
-    @FXML
-    private TableColumn<?, ?> table2;
-    @FXML
-    private Button btnGenerateMultiple;
-    @FXML
-    private AnchorPane Anchor;
-    @FXML
-    private VBox naviPreview;
-    @FXML
-    private VBox navi;
-    @FXML
-    private VBox homeScene;
-    @FXML
-    private VBox recipeScene;
-    @FXML
-    private VBox compostScene;
-    @FXML
-    private VBox foodScene;
-    @FXML
-    private VBox quizScene;
-
-    @FXML
-    private VBox prizeScene;
-    
-
+public class ShoppingListQRCodePageController {
+	@FXML
+	private AnchorPane Anchor;
+	@FXML
+	private VBox naviPreview;
+	@FXML
+	private VBox navi;
+	@FXML
+	private VBox homeScene;
+	@FXML
+	private VBox recipeScene;
+	@FXML
+	private VBox compostScene;
+	@FXML
+	private VBox foodScene;
+	@FXML
+	private VBox quizScene;
+	@FXML
+	private VBox prizeScene;
+	@FXML 
+	private ImageView QRCode;
+	
 	@FXML
 	public void showNavigation(MouseEvent event){
 		Timeline timeline = new Timeline();
@@ -75,23 +68,23 @@ public class Page1Controller {
 	@FXML
 	public void changeScene(MouseEvent event) throws IOException {
 		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/FC/view/Page1.fxml"));
+		Parent root = null; //(Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/HomePage.fxml"));
 		
 		
 		if(event.getSource().equals(homeScene)){
-			root = FXMLLoader.load(getClass().getResource(""));
+			root = FXMLLoader.load(getClass().getResource("/theFridge/view/HomePage.fxml"));
 		}
 		else if(event.getSource().equals(recipeScene)){
-			root = FXMLLoader.load(getClass().getResource(""));
+			root = FXMLLoader.load(getClass().getResource("/theFridge/view/RecipePage.fxml"));
 		}
 		else if(event.getSource().equals(compostScene)){
 			root = FXMLLoader.load(getClass().getResource(""));
 		}
 		else if(event.getSource().equals(foodScene)){
-			root = FXMLLoader.load(getClass().getResource("FC/view/ShoppingList.fxml"));
+			root = FXMLLoader.load(getClass().getResource("/theFridge/view/ShoppingListPage.fxml"));
 		}
 		else if(event.getSource().equals(quizScene)){
-			root = FXMLLoader.load(getClass().getResource(""));
+			root = FXMLLoader.load(getClass().getResource("/theFridge/view/QuizPage.fxml"));
 		}
 		else if(event.getSource().equals(prizeScene)){
 			root = FXMLLoader.load(getClass().getResource(""));
@@ -101,18 +94,8 @@ public class Page1Controller {
  	    stage.show();
 	}
 	
-	@FXML
-	public void generateTwo(ActionEvent event)throws IOException {
-			Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-			Parent root = (Parent)FXMLLoader.load(getClass().getResource("/FC/view/Page1.fxml"));
-			root = FXMLLoader.load(getClass().getResource("/FC/view/Page2.fxml"));
-			stage.setScene(new Scene(root));
-	 	    stage.show();
-	}
-	
-	
-	@FXML
-	public void showMultipleFood(ActionEvent event){
-		
+	public void run(){
+		Image image = new Image("src/theFridge/picture/QrCode.png");
+		QRCode.setImage(image);
 	}
 }

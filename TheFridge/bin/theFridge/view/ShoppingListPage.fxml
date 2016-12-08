@@ -26,7 +26,7 @@
                <children>
                   <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="The Fridge">
                      <font>
-                        <Font name="System Bold" size="85.0" />
+                        <Font name="System Bold" size="48.0" />
                      </font>
                   </Text>
                </children>
@@ -310,7 +310,7 @@
                                           <Insets top="20.0" />
                                        </VBox.margin>
                                        <children>
-                                          <JFXButton alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" prefHeight="65.0" prefWidth="151.0" ripplerFill="#1868c4" style="-fx-background-color: #17c4c6;" text="Generate " textAlignment="CENTER" textFill="WHITE" />
+                                          <JFXButton alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" onAction="#changeToGeneratePage" prefHeight="65.0" prefWidth="151.0" ripplerFill="#1868c4" style="-fx-background-color: #17c4c6;" text="Generate " textAlignment="CENTER" textFill="WHITE" />
                                        </children>
                                     </TextFlow>
                                  </children>
