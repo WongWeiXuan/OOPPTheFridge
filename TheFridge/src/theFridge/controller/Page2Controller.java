@@ -88,7 +88,7 @@ public class Page2Controller {
 	@FXML
 	public void changeScene(MouseEvent event) throws IOException {
 		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/FC/view/Page2.fxml"));
+		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/Page2.fxml"));
 		
 		
 		if(event.getSource().equals(homeScene)){
@@ -121,8 +121,8 @@ public class Page2Controller {
 	}
 	public void goMain(ActionEvent event) throws IOException {
 		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/FC/view/Page2.fxml"));
-		root = FXMLLoader.load(getClass().getResource("/FC/view/Page1.fxml"));
+		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/Page2.fxml"));
+		root = FXMLLoader.load(getClass().getResource("/theFridge/view/Page1.fxml"));
 		stage.setScene(new Scene(root));
  	    stage.show();
 	}
