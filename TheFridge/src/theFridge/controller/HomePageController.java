@@ -73,7 +73,7 @@ public class HomePageController {
 	@FXML
 	public void changeScene(MouseEvent event) throws IOException {
 		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/HomePage.fxml"));
+		Parent root = null; //(Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/HomePage.fxml"));
 		
 		
 		if(event.getSource().equals(homeScene)){
@@ -121,17 +121,13 @@ public class HomePageController {
 		
 		Random rand = new Random();
 		
-		for(int i= 0; i < numOfLetters; i++){
-			String displayWord = "";
-			displayWord = word.substring(i, i+1);
-			
-			for(int a=0; a < numOfLetters; a++){
-				int randomNum = rand.nextInt(36);
-				displayWord += Characters[randomNum];
-				
-				text.setText(displayWord);
-			}
+		String displayWord = "";
+		
+		for(int a=0; a < numOfLetters; a++){
+			int randomNum = rand.nextInt(36);
+			displayWord += Characters[randomNum];
 		}
+		text.setText(displayWord);
 		
 	}
 }

@@ -74,7 +74,7 @@ public class ShoppingListController {
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/RecipePage.fxml"));
 		}
 		else if(event.getSource().equals(compostScene)){
-			root = FXMLLoader.load(getClass().getResource(""));
+			root = FXMLLoader.load(getClass().getResource("/theFridge/view/"));
 		}
 		else if(event.getSource().equals(foodScene)){
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/ShoppingListPage.fxml"));
@@ -83,7 +83,7 @@ public class ShoppingListController {
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/QuizPage.fxml"));
 		}
 		else if(event.getSource().equals(prizeScene)){
-			root = FXMLLoader.load(getClass().getResource(""));
+			root = FXMLLoader.load(getClass().getResource("/theFridge/view/"));
 		}
 
  		stage.setScene(new Scene(root));
