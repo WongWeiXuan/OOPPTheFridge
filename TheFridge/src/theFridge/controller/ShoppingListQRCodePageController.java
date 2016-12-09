@@ -39,7 +39,7 @@ public class ShoppingListQRCodePageController {
 	@FXML
 	private VBox prizeScene;
 	@FXML 
-	private ImageView QRCode;
+	private ImageView Testing;
 	
 	@FXML
 	public void showNavigation(MouseEvent event){
@@ -78,7 +78,7 @@ public class ShoppingListQRCodePageController {
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/RecipePage.fxml"));
 		}
 		else if(event.getSource().equals(compostScene)){
-			root = FXMLLoader.load(getClass().getResource(""));
+			root = FXMLLoader.load(getClass().getResource("/theFridge/view/Page1.fxml"));
 		}
 		else if(event.getSource().equals(foodScene)){
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/ShoppingListPage.fxml"));
@@ -93,9 +93,10 @@ public class ShoppingListQRCodePageController {
  		stage.setScene(new Scene(root));
  	    stage.show();
 	}
-	
-	public void run(){
+
+	@FXML 
+	public void run(MouseEvent event) {
 		Image image = new Image("src/theFridge/picture/QrCode.png");
-		QRCode.setImage(image);
+		Testing.setImage(image);
 	}
 }

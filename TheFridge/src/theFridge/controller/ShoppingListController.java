@@ -79,7 +79,7 @@ public class ShoppingListController {
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/RecipePage.fxml"));
 		}
 		else if(event.getSource().equals(compostScene)){
-			root = FXMLLoader.load(getClass().getResource("/theFridge/view/"));
+			root = FXMLLoader.load(getClass().getResource("/theFridge/view/Page1.fxml"));
 		}
 		else if(event.getSource().equals(foodScene)){
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/ShoppingListPage.fxml"));
@@ -88,14 +88,15 @@ public class ShoppingListController {
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/QuizPage.fxml"));
 		}
 		else if(event.getSource().equals(prizeScene)){
-			root = FXMLLoader.load(getClass().getResource("/theFridge/view/"));
+			root = FXMLLoader.load(getClass().getResource(""));
 		}
 
  		stage.setScene(new Scene(root));
  	    stage.show();
 	}
 
-	@FXML public void changeToGeneratePage(ActionEvent event) throws IOException, WriterException {
+	@FXML 
+	public void changeToGeneratePage(ActionEvent event) throws IOException, WriterException {
 		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
 		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/ShoppingListPage.fxml"));
 		root = FXMLLoader.load(getClass().getResource("/theFridge/view/ShoppingListQRCodePage.fxml"));

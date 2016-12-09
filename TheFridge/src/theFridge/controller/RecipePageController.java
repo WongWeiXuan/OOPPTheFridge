@@ -79,7 +79,8 @@ public class RecipePageController {
 	@FXML
 	public void changeScene(MouseEvent event) throws IOException {
 		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-		Parent root = null; //(Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/HomePage.fxml"));	
+		Parent root = null; //(Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/HomePage.fxml"));
+		
 		
 		if(event.getSource().equals(homeScene)){
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/HomePage.fxml"));
@@ -88,7 +89,7 @@ public class RecipePageController {
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/RecipePage.fxml"));
 		}
 		else if(event.getSource().equals(compostScene)){
-			root = FXMLLoader.load(getClass().getResource(""));
+			root = FXMLLoader.load(getClass().getResource("/theFridge/view/Page1.fxml"));
 		}
 		else if(event.getSource().equals(foodScene)){
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/ShoppingListPage.fxml"));

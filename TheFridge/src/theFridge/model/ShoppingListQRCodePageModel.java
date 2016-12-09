@@ -32,10 +32,10 @@ public class ShoppingListQRCodePageModel {
 		image.createGraphics();
 
 		Graphics2D graphics = (Graphics2D) image.getGraphics();
-		graphics.setColor(Color.WHITE);
+		graphics.setColor(new Color(128, 128, 128));
 		graphics.fillRect(0, 0, matrixWidth, matrixWidth);
 		// Paint and save the image using the ByteMatrix
-		graphics.setColor(Color.BLUE);
+		graphics.setColor(Color.WHITE);
 
 		for (int i = 0; i < matrixWidth; i++) {
 			for (int j = 0; j < matrixWidth; j++) {
