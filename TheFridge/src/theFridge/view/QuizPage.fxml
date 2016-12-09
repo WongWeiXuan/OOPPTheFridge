@@ -36,7 +36,7 @@
                <children>
                   <AnchorPane fx:id="Anchor" maxWidth="300.0" prefHeight="600.0" prefWidth="150.0">
                      <children>
-                        <VBox fx:id="naviPreview" alignment="CENTER" maxWidth="150.0" onMouseEntered="#showNavigation" prefHeight="600.0" prefWidth="150.0" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <VBox fx:id="naviPreview" alignment="CENTER" maxWidth="150.0" onMouseEntered="#showNavigation" prefHeight="600.0" prefWidth="150.0" spacing="20.0" style="-fx-background-color: rgba(128,128,128,0.25);" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <Circle fill="#dde6f0" radius="15.0" stroke="TRANSPARENT" strokeType="INSIDE" />
                               <Circle fill="#dde6f0" radius="15.0" stroke="TRANSPARENT" strokeType="INSIDE" />
@@ -166,7 +166,7 @@
                         </VBox>
                      </children>
                   </AnchorPane>
-                  <VBox alignment="TOP_CENTER" prefHeight="728.0" prefWidth="1123.0" style="-fx-background-color: rgba(128,128,128,0.25);" HBox.hgrow="ALWAYS">
+                  <VBox alignment="TOP_CENTER" prefHeight="728.0" prefWidth="1123.0" style="-fx-background-color: rgba(128,128,128);" HBox.hgrow="ALWAYS">
                      <children>
                         <TextFlow prefHeight="96.0" prefWidth="980.0" textAlignment="CENTER">
                            <children>
@@ -180,7 +180,7 @@
                               </Label>
                            </children>
                            <VBox.margin>
-                              <Insets right="130.0" />
+                              <Insets />
                            </VBox.margin>
                         </TextFlow>
                         <TextFlow prefHeight="66.0" prefWidth="1130.0" textAlignment="CENTER" VBox.vgrow="ALWAYS">
@@ -195,7 +195,7 @@
                               </Label>
                            </children>
                            <VBox.margin>
-                              <Insets right="130.0" />
+                              <Insets />
                            </VBox.margin>
                         </TextFlow>
                         <StackPane prefHeight="110.0" prefWidth="1130.0">
@@ -204,7 +204,7 @@
                               <Arc fill="DODGERBLUE" length="270.0" radiusX="50.0" radiusY="50.0" startAngle="90.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
                            </children>
                            <VBox.margin>
-                              <Insets right="130.0" />
+                              <Insets />
                            </VBox.margin>
                         </StackPane>
                         <GridPane alignment="CENTER" prefHeight="200.0" prefWidth="1020.0" VBox.vgrow="NEVER">
@@ -251,18 +251,15 @@
                               </JFXButton>
                            </children>
                            <VBox.margin>
-                              <Insets bottom="100.0" right="130.0" top="90.0" />
+                              <Insets bottom="100.0" top="90.0" />
                            </VBox.margin>
                         </GridPane>
                         <TextFlow prefHeight="66.0" prefWidth="980.0" style="-fx-background-color: black;" textAlignment="CENTER">
                            <children>
-                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="592.0" text="Points Earned: " textAlignment="CENTER" textFill="WHITE">
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="194.0" text="Points Earned: " textAlignment="CENTER" textFill="WHITE">
                                  <font>
                                     <Font name="Garamond" size="24.0" />
                                  </font>
-                                 <padding>
-                                    <Insets right="120.0" />
-                                 </padding>
                               </Label>
                            </children>
                            <padding>
@@ -274,7 +271,7 @@
                         </TextFlow>
                      </children>
                      <HBox.margin>
-                        <Insets />
+                        <Insets right="150.0" />
                      </HBox.margin>
                   </VBox>
                </children>
