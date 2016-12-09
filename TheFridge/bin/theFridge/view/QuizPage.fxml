@@ -23,7 +23,7 @@
    <children>
       <VBox prefHeight="800.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <TextFlow prefHeight="72.0" prefWidth="200.0" textAlignment="CENTER">
+            <TextFlow prefHeight="72.0" prefWidth="200.0" style="-fx-background-color: black;" textAlignment="CENTER">
                <children>
                   <Label text="The Fridge" textAlignment="CENTER" textFill="WHITE">
                      <font>
@@ -174,28 +174,40 @@
                                  <font>
                                     <Font name="Garamond" size="36.0" />
                                  </font>
+                                 <padding>
+                                    <Insets top="20.0" />
+                                 </padding>
                               </Label>
                            </children>
+                           <VBox.margin>
+                              <Insets right="130.0" />
+                           </VBox.margin>
                         </TextFlow>
-                        <TextFlow prefHeight="86.0" prefWidth="980.0" textAlignment="CENTER" VBox.vgrow="ALWAYS">
+                        <TextFlow prefHeight="66.0" prefWidth="1130.0" textAlignment="CENTER" VBox.vgrow="ALWAYS">
                            <children>
                               <Label text="Time Left:" textFill="WHITE">
                                  <font>
                                     <Font name="Garamond" size="24.0" />
                                  </font>
                                  <padding>
-                                    <Insets top="20.0" />
+                                    <Insets top="10.0" />
                                  </padding>
                               </Label>
                            </children>
+                           <VBox.margin>
+                              <Insets right="130.0" />
+                           </VBox.margin>
                         </TextFlow>
-                        <StackPane prefHeight="146.0" prefWidth="980.0">
+                        <StackPane prefHeight="110.0" prefWidth="1130.0">
                            <children>
                               <Circle fill="#1f6bff" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
                               <Arc fill="DODGERBLUE" length="270.0" radiusX="50.0" radiusY="50.0" startAngle="90.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
                            </children>
+                           <VBox.margin>
+                              <Insets right="130.0" />
+                           </VBox.margin>
                         </StackPane>
-                        <GridPane alignment="CENTER" prefHeight="200.0" prefWidth="980.0" VBox.vgrow="NEVER">
+                        <GridPane alignment="CENTER" prefHeight="200.0" prefWidth="1020.0" VBox.vgrow="NEVER">
                           <columnConstraints>
                             <ColumnConstraints hgrow="SOMETIMES" minWidth="200.0" prefWidth="100.0" />
                             <ColumnConstraints hgrow="SOMETIMES" minWidth="200.0" prefWidth="100.0" />
@@ -239,15 +251,18 @@
                               </JFXButton>
                            </children>
                            <VBox.margin>
-                              <Insets bottom="100.0" top="100.0" />
+                              <Insets bottom="100.0" right="130.0" top="90.0" />
                            </VBox.margin>
                         </GridPane>
-                        <TextFlow style="-fx-background-color: black;" textAlignment="CENTER">
+                        <TextFlow prefHeight="66.0" prefWidth="980.0" style="-fx-background-color: black;" textAlignment="CENTER">
                            <children>
-                              <Label alignment="CENTER" contentDisplay="CENTER" text="Points Earned: " textAlignment="CENTER" textFill="WHITE">
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="592.0" text="Points Earned: " textAlignment="CENTER" textFill="WHITE">
                                  <font>
                                     <Font name="Garamond" size="24.0" />
                                  </font>
+                                 <padding>
+                                    <Insets right="120.0" />
+                                 </padding>
                               </Label>
                            </children>
                            <padding>
@@ -259,7 +274,7 @@
                         </TextFlow>
                      </children>
                      <HBox.margin>
-                        <Insets right="150.0" />
+                        <Insets />
                      </HBox.margin>
                   </VBox>
                </children>

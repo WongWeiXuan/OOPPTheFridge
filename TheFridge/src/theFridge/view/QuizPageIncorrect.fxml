@@ -10,7 +10,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: rgba(128, 128, 128, 0.25);" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TextFlow layoutX="623.0" layoutY="150.0" prefHeight="80.0" prefWidth="1280.0" style="-fx-background-color: maroon;" textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <TextFlow layoutX="623.0" layoutY="150.0" prefHeight="85.0" prefWidth="1280.0" style="-fx-background-color: maroon;" textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label prefHeight="83.0" prefWidth="453.0" text="Incorrect Answer!" textAlignment="CENTER" textFill="WHITE">
                <font>
@@ -22,67 +22,74 @@
             </Label>
          </children>
       </TextFlow>
-      <TextFlow layoutX="623.0" layoutY="156.0" prefHeight="60.0" prefWidth="1280.0" textAlignment="CENTER" AnchorPane.bottomAnchor="584.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="156.0">
+      <VBox layoutY="156.0" prefHeight="716.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="85.0">
          <children>
-            <VBox alignment="CENTER" prefWidth="271.0">
+            <TextFlow prefHeight="60.0" prefWidth="1280.0" textAlignment="CENTER">
                <children>
-                  <Label prefHeight="60.0" prefWidth="269.0" style="-fx-background-color: #009688;" text="Correct Answer:">
-                     <font>
-                        <Font name="Garamond" size="36.0" />
-                     </font>
-                     <padding>
-                        <Insets left="20.0" />
-                     </padding>
-                  </Label>
-                  <TextFlow prefHeight="120.0" prefWidth="269.0" style="-fx-background-color: white;" textAlignment="CENTER">
+                  <VBox alignment="CENTER" prefWidth="271.0">
                      <children>
-                        <JFXButton buttonType="RAISED" ripplerFill="BLACK" style="-fx-background-color: green;" text="Choice 1" textFill="WHITE">
+                        <Label prefHeight="60.0" prefWidth="269.0" style="-fx-background-color: #009688;" text="Correct Answer:">
                            <font>
-                              <Font name="Garamond" size="24.0" />
+                              <Font name="Garamond" size="36.0" />
                            </font>
-                        </JFXButton>
-                     </children>
-                     <padding>
-                        <Insets top="40.0" />
-                     </padding>
-                  </TextFlow>
-               </children>
-            </VBox>
-         </children>
-      </TextFlow>
-      <TextFlow layoutX="623.0" layoutY="375.0" prefHeight="60.0" prefWidth="1280.0" textAlignment="CENTER" AnchorPane.bottomAnchor="365.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="375.0">
-         <children>
-            <VBox>
-               <children>
-                  <Label prefHeight="60.0" prefWidth="500.0" style="-fx-background-color: #009688;" text="Explanation">
-                     <font>
-                        <Font name="Garamond" size="36.0" />
-                     </font>
-                     <padding>
-                        <Insets left="160.0" />
-                     </padding>
-                  </Label>
-                  <TextFlow prefHeight="130.0" prefWidth="500.0" style="-fx-background-color: white;" textAlignment="CENTER">
-                     <children>
-                        <Label prefHeight="22.0" prefWidth="210.0">
-                           <font>
-                              <Font name="Garamond" size="18.0" />
-                           </font>
+                           <padding>
+                              <Insets left="20.0" />
+                           </padding>
                         </Label>
+                        <TextFlow prefHeight="120.0" prefWidth="269.0" style="-fx-background-color: white;" textAlignment="CENTER">
+                           <children>
+                              <JFXButton buttonType="RAISED" ripplerFill="BLACK" style="-fx-background-color: green;" text="Choice 1" textFill="WHITE">
+                                 <font>
+                                    <Font name="Garamond" size="24.0" />
+                                 </font>
+                              </JFXButton>
+                           </children>
+                           <padding>
+                              <Insets top="40.0" />
+                           </padding>
+                        </TextFlow>
                      </children>
-                  </TextFlow>
+                  </VBox>
                </children>
-            </VBox>
+               <VBox.margin>
+                  <Insets bottom="70.0" top="100.0" />
+               </VBox.margin>
+            </TextFlow>
+            <TextFlow prefHeight="60.0" prefWidth="1280.0" textAlignment="CENTER" VBox.vgrow="ALWAYS">
+               <children>
+                  <VBox>
+                     <children>
+                        <Label prefHeight="60.0" prefWidth="500.0" style="-fx-background-color: #009688;" text="Explanation">
+                           <font>
+                              <Font name="Garamond" size="36.0" />
+                           </font>
+                           <padding>
+                              <Insets left="160.0" />
+                           </padding>
+                        </Label>
+                        <TextFlow prefHeight="130.0" prefWidth="500.0" style="-fx-background-color: white;" textAlignment="CENTER">
+                           <children>
+                              <Label prefHeight="22.0" prefWidth="210.0">
+                                 <font>
+                                    <Font name="Garamond" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </TextFlow>
+                     </children>
+                  </VBox>
+               </children>
+            </TextFlow>
+            <TextFlow prefHeight="85.0" prefWidth="1280.0" textAlignment="CENTER">
+               <children>
+                  <JFXButton buttonType="RAISED" prefHeight="50.0" prefWidth="170.0" ripplerFill="BLACK" style="-fx-background-color: yellow;" text="Got it!">
+                     <font>
+                        <Font name="Garamond" size="36.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </TextFlow>
          </children>
-      </TextFlow>
-      <TextFlow layoutX="524.0" layoutY="715.0" prefHeight="85.0" prefWidth="1280.0" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-         <children>
-            <JFXButton buttonType="RAISED" prefHeight="50.0" prefWidth="170.0" ripplerFill="BLACK" style="-fx-background-color: yellow;" text="Got it!">
-               <font>
-                  <Font name="Garamond" size="36.0" />
-               </font>
-            </JFXButton>
-         </children>
-      </TextFlow>
+      </VBox>
    </children>
 </AnchorPane>
