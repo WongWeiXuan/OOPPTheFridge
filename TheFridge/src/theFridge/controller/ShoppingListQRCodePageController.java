@@ -1,5 +1,7 @@
 package theFridge.controller;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import javafx.animation.KeyFrame;
@@ -40,6 +42,10 @@ public class ShoppingListQRCodePageController {
 	private VBox prizeScene;
 	@FXML 
 	private ImageView Testing;
+	
+	public void initialize(){
+		
+	}
 	
 	@FXML
 	public void showNavigation(MouseEvent event){
@@ -94,9 +100,11 @@ public class ShoppingListQRCodePageController {
  	    stage.show();
 	}
 
+	
 	@FXML 
-	public void run(MouseEvent event) {
-		Image image = new Image("src/theFridge/picture/QrCode.png");
+	public void run() throws FileNotFoundException{
+		Image image = new Image(new FileInputStream("src/theFridge/picture/QrCode.png"));
 		Testing.setImage(image);
 	}
+	
 }
