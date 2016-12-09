@@ -140,7 +140,7 @@ public class ShoppingListController {
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/QuizPage.fxml"));
 		}
 		else if(event.getSource().equals(prizeScene)){
-			root = FXMLLoader.load(getClass().getResource(""));
+			root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemVoucherPage.fxml"));
 		}
 
  		stage.setScene(new Scene(root));

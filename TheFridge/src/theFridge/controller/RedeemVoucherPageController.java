@@ -17,7 +17,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-public class QuizPageController {
+public class RedeemVoucherPageController {
 	@FXML
 	private AnchorPane Anchor;
 	@FXML
@@ -38,7 +38,7 @@ public class QuizPageController {
 	private VBox prizeScene;
 
 	@FXML
-	public void showNavigation(MouseEvent event){
+	public void showNavigation(MouseEvent event) {
 		Timeline timeline = new Timeline();
 		KeyValue naviXValue = new KeyValue(navi.layoutXProperty(), 0);
 		KeyValue naviPreviewOpacity = new KeyValue(naviPreview.opacityProperty(), 0);
@@ -50,7 +50,7 @@ public class QuizPageController {
 	}
 	
 	@FXML
-	public void hideNavigation(MouseEvent event){
+	public void hideNavigation(MouseEvent event) {
 		Timeline timeline = new Timeline();
 		KeyValue naviXValue = new KeyValue(navi.layoutXProperty(), -150);
 		KeyValue naviPreviewOpacity = new KeyValue(naviPreview.opacityProperty(), 1);
@@ -60,9 +60,9 @@ public class QuizPageController {
 		timeline.getKeyFrames().addAll(keyFrame);
 		timeline.play();
 	}
-	
+
 	@FXML
-	public void changeScene(MouseEvent event) throws IOException {
+	public void changeScene(MouseEvent event) throws IOException{
 		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
 		Parent root = null; //(Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/HomePage.fxml"));
 		
@@ -85,8 +85,9 @@ public class QuizPageController {
 		else if(event.getSource().equals(prizeScene)){
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemVoucherPage.fxml"));
 		}
-
- 		stage.setScene(new Scene(root));
+		
+		stage.setScene(new Scene(root));
  	    stage.show();
 	}
+	
 }
