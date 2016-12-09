@@ -1,7 +1,9 @@
 package theFridge.controller;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import com.google.zxing.WriterException;
@@ -12,6 +14,8 @@ import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -25,8 +29,6 @@ import javafx.util.Duration;
 import theFridge.model.ShoppingListQRCodePageModel;
 import javafx.event.ActionEvent;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-
 import com.jfoenix.controls.JFXListView;
 
 public class ShoppingListController {
@@ -49,39 +51,108 @@ public class ShoppingListController {
 	@FXML
 	private VBox prizeScene;
 	@FXML
-	private GridPane StocksGrid;
-	@FXML
 	private JFXButton addStocks;
-	@FXML
-	private GridPane ListGrid;
 	@FXML
 	private JFXButton addList;
 	@FXML 
-	private JFXListView<HBox> listView;
+	private JFXListView<GridPane> StocklistView;
+	@FXML 
+	private JFXListView<GridPane> ListlistView;
 	
 	@FXML
-	public void initialize(){
-		/*
-		Scanner sc = new Scanner("StockList.txt");
+	public void initialize() throws FileNotFoundException{
+		//Stock listView
+		File sklt = new File("src/theFridge/controller/StockList.txt");
+		Scanner sc = new Scanner(sklt);
 		ArrayList<String> sl = new ArrayList<String>();
 		while(sc.hasNextLine()){
 			sl.add(sc.nextLine());
 		}
+		sc.close();
+		
+		GridPane GridPaneTitle = new GridPane();
+		Label lbl1 = new Label("Stock");
+		lbl1.setMinWidth(500);
+		lbl1.setPrefWidth(500);
+		lbl1.setAlignment(Pos.CENTER_LEFT);
+		Label lbl2 = new Label("Amount");
+		lbl2.setMinWidth(100);
+		lbl2.setPrefWidth(100);
+		lbl2.setAlignment(Pos.CENTER);
+		Label lbl3 = new Label("Minimum");
+		lbl3.setMinWidth(100);
+		lbl3.setPrefWidth(100);
+		lbl3.setAlignment(Pos.CENTER);
+		GridPaneTitle.add(lbl1, 0, 0);
+		GridPaneTitle.add(lbl2, 1, 0);
+		GridPaneTitle.add(lbl3, 2, 0);
+		GridPaneTitle.setPadding(new Insets(10, 10, 10, 10));
+		StocklistView.getItems().add(GridPaneTitle);
+		
 		for(String a:sl){
-			
-				
-			
+			Scanner in = new Scanner(a);
+			int i = 0;
+			GridPane gridpane = new GridPane();
+			in.useDelimiter("~");
+			while(in.hasNext()){
+				Label lbl = new Label(in.next());
+				gridpane.add(lbl, i, 0);
+				if(i == 0){
+					lbl.setMinWidth(500);
+					lbl.setPrefWidth(500);
+					lbl.setAlignment(Pos.CENTER_LEFT);
+				}else{
+					lbl.setMinWidth(100);
+					lbl.setPrefWidth(100);
+					lbl.setAlignment(Pos.CENTER);
+				}
+				i++;
+			}
+			StocklistView.getItems().add(gridpane);
+			in.close();
 		}
-		*/
-		Label lbl1 = new Label("Banana");
-		Label lbl2 = new Label("1");
-		Label lbl3 = new Label("3");
-		HBox hbox = new HBox(lbl1, lbl2, lbl3);
-		Label lbl11 = new Label("Pineapple");
-		Label lbl12 = new Label("5");
-		Label lbl13 = new Label("3");
-		HBox hbox1 = new HBox(lbl11, lbl12, lbl13);
-		listView.getItems().addAll(hbox, hbox1);
+		//List listView
+		ArrayList<String> sl1 = new ArrayList<String>();
+		sl1.add("Banana~2");
+		sl1.add("Carrot~1");
+		
+		GridPane GridPaneTitle1 = new GridPane();
+		Label lbl11 = new Label("Shopping List");
+		lbl11.setMinWidth(200);
+		lbl11.setPrefWidth(200);
+		lbl11.setAlignment(Pos.CENTER_LEFT);
+		Label lbl12 = new Label("Amount");
+		lbl12.setMinWidth(100);
+		lbl12.setPrefWidth(100);
+		lbl12.setAlignment(Pos.CENTER);
+		GridPaneTitle1.add(lbl11, 0, 0);
+		GridPaneTitle1.add(lbl12, 1, 0);
+		GridPaneTitle1.setPadding(new Insets(10, 10, 10, 10));
+		ListlistView.getItems().add(GridPaneTitle1);
+		
+		for(String a:sl1){
+			Scanner in = new Scanner(a);
+			int i = 0;
+			GridPane gridpane = new GridPane();
+			in.useDelimiter("~");
+			while(in.hasNext()){
+				Label lbl = new Label(in.next());
+				gridpane.add(lbl, i, 0);
+				if(i == 0){
+					lbl.setMinWidth(200);
+					lbl.setPrefWidth(200);
+					lbl.setAlignment(Pos.CENTER_LEFT);
+				}else{
+					lbl.setMinWidth(100);
+					lbl.setPrefWidth(100);
+					lbl.setAlignment(Pos.CENTER);
+				}
+				i++;
+			}
+			ListlistView.getItems().add(gridpane);
+			in.close();
+		}
+		
 	}
 	
 	@FXML
