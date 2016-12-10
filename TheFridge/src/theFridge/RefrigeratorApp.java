@@ -12,14 +12,7 @@ public class RefrigeratorApp extends Application{
 	@Override
 	public void start(Stage primaryStage) throws Exception{
 		try {
-			Screen screen = Screen.getPrimary();
-			Rectangle2D bounds = screen.getVisualBounds();
-			primaryStage.setX(bounds.getMinX());
-			primaryStage.setY(bounds.getMinY());
-			primaryStage.setWidth(bounds.getWidth());
-			primaryStage.setHeight(bounds.getHeight());
-			primaryStage.setMaximized(true);
-			Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/HomePage.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/LoginPage.fxml"));
 			Scene scene = new Scene(root);
 			primaryStage.setScene(scene);
 		    primaryStage.show();
