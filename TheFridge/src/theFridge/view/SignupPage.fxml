@@ -62,7 +62,7 @@
                         </VBox>
                         <TextFlow textAlignment="CENTER">
                            <children>
-                              <JFXButton buttonType="RAISED" ripplerFill="BLACK" style="-fx-background-color: yellow;" text="Login">
+                              <JFXButton fx:id="loginBtn" buttonType="RAISED" onAction="#goToLoginPage" ripplerFill="BLACK" style="-fx-background-color: yellow;" text="Login">
                                  <font>
                                     <Font name="Garamond" size="24.0" />
                                  </font>
@@ -120,7 +120,7 @@
                   </GridPane>
                   <TextFlow textAlignment="CENTER">
                      <children>
-                        <JFXButton buttonType="RAISED" ripplerFill="BLACK" style="-fx-background-color: yellow;" text="Create account">
+                        <JFXButton fx:id="createAccount" buttonType="RAISED" onAction="#createAccount" ripplerFill="BLACK" style="-fx-background-color: yellow;" text="Create account">
                            <font>
                               <Font name="Garamond" size="24.0" />
                            </font>
