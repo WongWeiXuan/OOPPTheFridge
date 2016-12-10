@@ -4,6 +4,8 @@ import java.io.IOException;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,19 +14,23 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import theFridge.model.First;
 
 
 public class Page1Controller {
 
     @FXML
-    private TableColumn<?, ?> table1;
+    private TableColumn<First, String> table1;
     @FXML
-    private TableColumn<?, ?> table2;
+    private TableColumn<First, String> table2;
+    @FXML
+    private TableView tableView1;
     @FXML
     private Button btnGenerateMultiple;
     @FXML
@@ -115,4 +121,18 @@ public class Page1Controller {
 	public void showMultipleFood(ActionEvent event){
 		
 	}
+	    	 TableView<First> table = new TableView<>();
+		     ObservableList<First> data = FXCollections.observableArrayList(
+		            new First("ggr", "grgr"),
+		            new First("Isabella", "Johnson"),
+		            new First("Ethan", "Williams"),
+		            new First("Emma", "Jones"),
+		            new First("Michael", "Brown"));
+	    
+	    private void initialize() {
+	        // Initialize the person table with the two columns.
+	       // table1.setCellValueFactory(cellData -> cellData.getValue().getFoodCanCompost());
+	        //table1.setCellValueFactory(cellData -> cellData.getValue().First());
+	        
+	    }
 }
