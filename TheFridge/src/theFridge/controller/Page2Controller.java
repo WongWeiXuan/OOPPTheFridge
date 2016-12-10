@@ -1,7 +1,11 @@
 package theFridge.controller;
 
 import javafx.fxml.FXML;
+import java.io.File;
+import java.net.URL;
+import java.util.ResourceBundle;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -14,6 +18,9 @@ import java.io.IOException;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
+import javafx.beans.binding.Binding;
+import javafx.beans.binding.Bindings;
+import javafx.beans.property.DoubleProperty;
 import javafx.event.ActionEvent;
 
 import javafx.scene.control.Label;
@@ -25,10 +32,12 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 
 import javafx.scene.media.MediaView;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.Media;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-public class Page2Controller {
+public class Page2Controller implements Initializable {
 	@FXML
 	private AnchorPane Anchor;
 	@FXML
@@ -51,6 +60,10 @@ public class Page2Controller {
 	private Label chosenFood;
 	@FXML
 	private MediaView video;
+	@FXML
+	private MediaPlayer mp;
+	@FXML
+	private Media me;
 	@FXML
 	private TextField enterGrams;
 	@FXML
@@ -126,4 +139,35 @@ public class Page2Controller {
 		stage.setScene(new Scene(root));
  	    stage.show();
 	}
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		String path = new File("src/theFridge/sound/PPAP.mp4").getAbsolutePath();
+		me = new Media(new File(path).toURI().toString());
+		mp = new MediaPlayer(me);
+		video.setMediaPlayer(mp);
+		mp.setAutoPlay(true);
+		DoubleProperty width = video.fitWidthProperty();
+		DoubleProperty height = video.fitHeightProperty();
+	}
+	public void play(ActionEvent event){
+		mp.play();
+	}
+	public void pause(ActionEvent event){
+		mp.pause();
+	}
+	public void fast(ActionEvent event){
+		mp.setRate(2);
+	}
+	public void slow(ActionEvent event){
+		mp.setRate(.5);
+	}
+	public void restart(ActionEvent event){
+		mp.seek(mp.getStartTime());
+		mp.play();
+	}
+
+	
+	
+	
+	
 }
