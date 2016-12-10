@@ -21,6 +21,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 
 import javafx.scene.layout.VBox;
@@ -28,8 +29,12 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import theFridge.model.ShoppingListQRCodePageModel;
 import javafx.event.ActionEvent;
-import javafx.scene.layout.GridPane;
+import javafx.event.EventHandler;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
+
 import com.jfoenix.controls.JFXListView;
+import com.jfoenix.controls.JFXPopup;
 
 public class ShoppingListController {
 	@FXML
@@ -55,9 +60,13 @@ public class ShoppingListController {
 	@FXML
 	private JFXButton addList;
 	@FXML 
-	private JFXListView<GridPane> StocklistView;
+	private JFXListView<HBox> StocklistView;
 	@FXML 
-	private JFXListView<GridPane> ListlistView;
+	private JFXListView<HBox> ListlistView;
+	@FXML
+	private JFXPopup Popup;
+	@FXML 
+	private JFXPopup Popup1;
 	
 	@FXML
 	public void initialize() throws FileNotFoundException{
@@ -70,7 +79,7 @@ public class ShoppingListController {
 		}
 		sc.close();
 		
-		GridPane GridPaneTitle = new GridPane();
+		HBox HBoxTitle = new HBox();
 		Label lbl1 = new Label("Stock");
 		lbl1.setMinWidth(500);
 		lbl1.setPrefWidth(500);
@@ -83,20 +92,18 @@ public class ShoppingListController {
 		lbl3.setMinWidth(100);
 		lbl3.setPrefWidth(100);
 		lbl3.setAlignment(Pos.CENTER);
-		GridPaneTitle.add(lbl1, 0, 0);
-		GridPaneTitle.add(lbl2, 1, 0);
-		GridPaneTitle.add(lbl3, 2, 0);
-		GridPaneTitle.setPadding(new Insets(10, 10, 10, 10));
-		StocklistView.getItems().add(GridPaneTitle);
+		HBoxTitle.getChildren().addAll(lbl1, lbl2, lbl3);
+		HBoxTitle.setPadding(new Insets(10, 10, 10, 10));
+		StocklistView.getItems().add(HBoxTitle);
 		
 		for(String a:sl){
 			Scanner in = new Scanner(a);
 			int i = 0;
-			GridPane gridpane = new GridPane();
+			HBox hbox = new HBox();
 			in.useDelimiter("~");
 			while(in.hasNext()){
 				Label lbl = new Label(in.next());
-				gridpane.add(lbl, i, 0);
+				hbox.getChildren().add(lbl);
 				if(i == 0){
 					lbl.setMinWidth(500);
 					lbl.setPrefWidth(500);
@@ -106,9 +113,16 @@ public class ShoppingListController {
 					lbl.setPrefWidth(100);
 					lbl.setAlignment(Pos.CENTER);
 				}
+				hbox.setOnMouseClicked(new EventHandler<MouseEvent>() {
+					public void handle(MouseEvent event) {
+						if(event.getButton() == MouseButton.SECONDARY){
+							Popup.show(JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.RIGHT);
+						}
+					}
+		        });
 				i++;
 			}
-			StocklistView.getItems().add(gridpane);
+			StocklistView.getItems().add(hbox);
 			in.close();
 		}
 		//List listView
@@ -116,7 +130,7 @@ public class ShoppingListController {
 		sl1.add("Banana~2");
 		sl1.add("Carrot~1");
 		
-		GridPane GridPaneTitle1 = new GridPane();
+		HBox HBoxTitle1 = new HBox();
 		Label lbl11 = new Label("Shopping List");
 		lbl11.setMinWidth(200);
 		lbl11.setPrefWidth(200);
@@ -125,44 +139,163 @@ public class ShoppingListController {
 		lbl12.setMinWidth(100);
 		lbl12.setPrefWidth(100);
 		lbl12.setAlignment(Pos.CENTER);
-		GridPaneTitle1.add(lbl11, 0, 0);
-		GridPaneTitle1.add(lbl12, 1, 0);
-		GridPaneTitle1.setPadding(new Insets(10, 10, 10, 10));
-		ListlistView.getItems().add(GridPaneTitle1);
+		HBoxTitle1.getChildren().addAll(lbl11, lbl12);
+		HBoxTitle1.setPadding(new Insets(10, 10, 10, 10));
+		HBox.setHgrow(lbl11, Priority.ALWAYS);
+		ListlistView.getItems().add(HBoxTitle1);
 		
 		for(String a:sl1){
 			Scanner in = new Scanner(a);
 			int i = 0;
-			GridPane gridpane = new GridPane();
+			HBox hbox = new HBox();
 			in.useDelimiter("~");
 			while(in.hasNext()){
 				Label lbl = new Label(in.next());
-				gridpane.add(lbl, i, 0);
+				hbox.getChildren().add(lbl);
 				if(i == 0){
 					lbl.setMinWidth(200);
 					lbl.setPrefWidth(200);
 					lbl.setAlignment(Pos.CENTER_LEFT);
+					HBox.setHgrow(lbl, Priority.ALWAYS);
 				}else{
 					lbl.setMinWidth(100);
 					lbl.setPrefWidth(100);
 					lbl.setAlignment(Pos.CENTER);
 				}
+				hbox.setOnMouseClicked(new EventHandler<MouseEvent>() {
+					public void handle(MouseEvent event) {
+						if(event.getButton() == MouseButton.SECONDARY){
+							Popup1.show(JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.RIGHT);
+						}
+					}
+		        });
 				i++;
 			}
-			ListlistView.getItems().add(gridpane);
+			ListlistView.getItems().add(hbox);
 			in.close();
 		}
 		
+		startPopup();
+		startPopup1();
+	}
+	
+	private void startPopup() {
+		Label lbl1 = new Label("Edit");
+		lbl1.setMinWidth(100);
+		lbl1.setPrefWidth(100);
+		lbl1.setPadding(new Insets(10));
+		//Edit Items
+		lbl1.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent event) {
+				
+			}
+        });
+		Label lbl2 = new Label("Delete");
+		lbl2.setMinWidth(100);
+		lbl2.setPrefWidth(100);
+		lbl2.setPadding(new Insets(10));
+		//Remove Items
+		lbl2.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent event) {
+				int selectedIdx = StocklistView.getSelectionModel().getSelectedIndex();
+				if(selectedIdx != 0){
+					StocklistView.getItems().remove(selectedIdx);
+				}
+				Popup.close();
+			}
+        });
+		VBox vbox = new VBox(lbl1, lbl2);
+		Popup.setContent(vbox);
+		Popup.setSource(StocklistView);
+	}
+	
+	private void startPopup1() {
+		Label lbl1 = new Label("Edit");
+		lbl1.setMinWidth(100);
+		lbl1.setPrefWidth(100);
+		lbl1.setPadding(new Insets(10));
+		//Edit Items
+		lbl1.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent event) {
+				
+			}
+        });
+		Label lbl2 = new Label("Delete");
+		lbl2.setMinWidth(100);
+		lbl2.setPrefWidth(100);
+		lbl2.setPadding(new Insets(10));
+		//Remove Items
+		lbl2.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent event) {
+				int selectedIdx = ListlistView.getSelectionModel().getSelectedIndex();
+				if(selectedIdx != 0){
+					ListlistView.getItems().remove(selectedIdx);
+				}
+				Popup1.close();
+			}
+        });
+		VBox vbox = new VBox(lbl1, lbl2);
+		Popup1.setContent(vbox);
+		Popup1.setSource(ListlistView);
 	}
 	
 	@FXML
 	public void addItems(ActionEvent event){
 		if(event.getSource() == addStocks){
-			
+			HBox hbox = new HBox();
+			Label lbl1 = new Label("Corn");
+			lbl1.setMinWidth(500);
+			lbl1.setPrefWidth(500);
+			lbl1.setAlignment(Pos.CENTER_LEFT);
+			Label lbl2 = new Label("3");
+			lbl2.setMinWidth(100);
+			lbl2.setPrefWidth(100);
+			lbl2.setAlignment(Pos.CENTER);
+			Label lbl3 = new Label("2");
+			lbl3.setMinWidth(100);
+			lbl3.setPrefWidth(100);
+			lbl3.setAlignment(Pos.CENTER);
+			hbox.getChildren().addAll(lbl1, lbl2, lbl3);
+			StocklistView.getItems().add(hbox);
+			hbox.setOnMouseClicked(new EventHandler<MouseEvent>() {
+				public void handle(MouseEvent event) {
+					if(event.getButton() == MouseButton.SECONDARY){
+						Popup.show(JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.RIGHT);
+					}
+				}
+	        });
 		}
 		else if (event.getSource() == addList){
-			
+			HBox hbox = new HBox();
+			Label lbl1 = new Label("Corn");
+			lbl1.setMinWidth(500);
+			lbl1.setPrefWidth(500);
+			lbl1.setAlignment(Pos.CENTER_LEFT);
+			Label lbl2 = new Label("3");
+			lbl2.setMinWidth(100);
+			lbl2.setPrefWidth(100);
+			lbl2.setAlignment(Pos.CENTER);
+			hbox.getChildren().addAll(lbl1, lbl2);
+			ListlistView.getItems().add(hbox);
+			hbox.setOnMouseClicked(new EventHandler<MouseEvent>() {
+				public void handle(MouseEvent event) {
+					if(event.getButton() == MouseButton.SECONDARY){
+						Popup1.show(JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.RIGHT);
+					}
+				}
+	        });
 		}
+	}
+	
+	@FXML 
+	public void changeToGeneratePage(ActionEvent event) throws IOException, WriterException {
+		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/ShoppingListPage.fxml"));
+		root = FXMLLoader.load(getClass().getResource("/theFridge/view/ShoppingListQRCodePage.fxml"));
+		stage.setScene(new Scene(root));
+ 	    stage.show();
+ 	    File filePath = new File("src/theFridge/picture/QrCode.png");
+ 	    ShoppingListQRCodePageModel.createQRImage(filePath, "Hello World!", "png");
 	}
 	
 	@FXML
@@ -213,19 +346,8 @@ public class ShoppingListController {
 		else if(event.getSource().equals(prizeScene)){
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemVoucherPage.fxml"));
 		}
-
+		
  		stage.setScene(new Scene(root));
  	    stage.show();
-	}
-
-	@FXML 
-	public void changeToGeneratePage(ActionEvent event) throws IOException, WriterException {
-		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/ShoppingListPage.fxml"));
-		root = FXMLLoader.load(getClass().getResource("/theFridge/view/ShoppingListQRCodePage.fxml"));
-		stage.setScene(new Scene(root));
- 	    stage.show();
- 	    File filePath = new File("src/theFridge/picture/QrCode.png");
- 	    ShoppingListQRCodePageModel.createQRImage(filePath, "Hello World!", "png");
 	}
 }

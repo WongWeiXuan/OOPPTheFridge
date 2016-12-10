@@ -88,7 +88,7 @@ public class NavigationFXMLController {
 		else if(event.getSource().equals(prizeScene)){
 			root = FXMLLoader.load(getClass().getResource(""));
 		}
-
+		stage.setMaximized(true);
  		stage.setScene(new Scene(root));
  	    stage.show();
 	}

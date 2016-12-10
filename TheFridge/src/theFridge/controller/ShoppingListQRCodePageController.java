@@ -95,7 +95,7 @@ public class ShoppingListQRCodePageController {
 		else if(event.getSource().equals(prizeScene)){
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemVoucherPage.fxml"));
 		}
-
+		
  		stage.setScene(new Scene(root));
  	    stage.show();
 	}
