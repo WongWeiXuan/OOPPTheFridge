@@ -26,4 +26,13 @@ public class LoginPageController {
 		stage.setScene(new Scene(root));
  	    stage.show();
 	}
+	
+	@FXML
+	void goToSignupPage(ActionEvent event) throws IOException {
+		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/SignupPage.fxml"));
+		
+		stage.setScene(new Scene(root));
+ 	    stage.show();
+	}
 }

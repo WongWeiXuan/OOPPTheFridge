@@ -19,7 +19,7 @@ public class RefrigeratorApp extends Application{
 			primaryStage.setWidth(bounds.getWidth());
 			primaryStage.setHeight(bounds.getHeight());
 			primaryStage.setMaximized(true);
-			Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/HomePage.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/LoginPage.fxml"));
 			Scene scene = new Scene(root);
 			primaryStage.setScene(scene);
 		    primaryStage.show();
