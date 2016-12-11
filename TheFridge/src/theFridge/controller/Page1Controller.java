@@ -127,17 +127,30 @@ public class Page1Controller implements Initializable{
 		
 	}
 
-		     public ObservableList<First> data = FXCollections.observableArrayList(
-		            new First("ggr", "grgr"),
-		            new First("Isabella", "Johnson"),
-		            new First("Ethan", "Williams"),
-		            new First("Emma", "Jones"),
-		            new First("Michael", "Brown"));
+	public ObservableList<First> list = FXCollections.observableArrayList(
+		            new First("mushroom", "cheese"),
+		            new First("mushroom", "cheese"),
+		            new First("mushroom", "cheese"),
+		            new First("mushroom", "cheese"),
+		            new First("mushroom", "cheese"),
+		            new First("mushroom", "cheese"),
+		            new First("mushroom", "cheese"),
+		            new First("mushroom", "cheese"),
+		            new First("mushroom", "cheese"),
+		            new First("mushroom", "cheese"),
+		            new First("mushroom", "cheese"),
+		            new First("mushroom", "cheese"),
+		            new First("mushroom", "cheese"),
+		            new First("mushroom", "cheese"),
+		            new First("mushroom", "cheese"),
+		            new First("mushroom", "cheese"),
+		            new First("pizza", "pasta")
+		            );
 	    @Override
 	    public void initialize(URL location, ResourceBundle resources) {
-	        table1.setCellValueFactory(new PropertyValueFactory<First, String>("table1"));
-	        table2.setCellValueFactory(new PropertyValueFactory<First, String>("table2"));
-	        tableView1.setItems(data);
+	        table1.setCellValueFactory(new PropertyValueFactory<First, String>("foodCanCompost"));
+	        table2.setCellValueFactory(new PropertyValueFactory<First, String>("foodCannotCompost"));
+	        tableView1.setItems(list);
 	        
 	    }
 }
