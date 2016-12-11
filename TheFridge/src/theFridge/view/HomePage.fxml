@@ -27,7 +27,7 @@
                      <children>
                         <TextFlow textAlignment="CENTER">
                            <children>
-                              <Text fx:id="text" fill="WHITE" onMouseEntered="#showWord" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to the Fridge">
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to the Fridge">
                                  <font>
                                     <Font size="96.0" />
                                  </font>
