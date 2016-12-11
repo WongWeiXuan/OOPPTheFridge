@@ -24,7 +24,7 @@
                   </Label>
                </children>
             </TextFlow>
-            <VBox prefHeight="716.0" prefWidth="1280.0" style="-fx-background-color: F06292;" VBox.vgrow="ALWAYS">
+            <VBox prefHeight="716.0" prefWidth="1280.0" style="-fx-background-color: #F06292;" VBox.vgrow="ALWAYS">
                <children>
                   <TextFlow prefHeight="60.0" prefWidth="1280.0" textAlignment="CENTER">
                      <children>
