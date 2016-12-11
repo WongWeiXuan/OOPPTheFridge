@@ -1,25 +1,23 @@
 package theFridge.model;
 
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
 public class First {
-		String foodCanCompost;
-	 	String foodCannotCompost;
+		private final SimpleStringProperty foodCanCompost;
+	 	private final SimpleStringProperty foodCannotCompost;
 		
 		public First(String foodCanCompost, String foodCannotCompost) {
 			super();
-			this.foodCanCompost = foodCanCompost;
-			this.foodCannotCompost = foodCannotCompost;
+			this.foodCanCompost = new SimpleStringProperty(foodCanCompost);
+			this.foodCannotCompost = new SimpleStringProperty(foodCannotCompost);
 		}
+		
 		public String getFoodCanCompost() {
-			return foodCanCompost;
+			return foodCanCompost.get();
 		}
-		public void setFoodCanCompost(String foodCanCompost) {
-			this.foodCanCompost = foodCanCompost;
-		}
+		
 		public String getFoodCannotCompost() {
-			return foodCannotCompost;
-		}
-		public void setFoodCannotCompost(String foodCannotCompost) {
-			this.foodCannotCompost = foodCannotCompost;
+			return foodCannotCompost.get();
 		}
 		
 }

@@ -1,5 +1,7 @@
 package theFridge.controller;
 
+import java.net.URL;
+import java.util.ResourceBundle;
 import java.io.IOException;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -15,22 +17,25 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import javafx.fxml.Initializable;
 import theFridge.model.First;
 
 
-public class Page1Controller {
+
+public class Page1Controller implements Initializable{
 
     @FXML
     private TableColumn<First, String> table1;
     @FXML
     private TableColumn<First, String> table2;
     @FXML
-    private TableView tableView1;
+    private TableView<First> tableView1;
     @FXML
     private Button btnGenerateMultiple;
     @FXML
@@ -121,18 +126,18 @@ public class Page1Controller {
 	public void showMultipleFood(ActionEvent event){
 		
 	}
-	    	 TableView<First> table = new TableView<>();
-		     ObservableList<First> data = FXCollections.observableArrayList(
+
+		     public ObservableList<First> data = FXCollections.observableArrayList(
 		            new First("ggr", "grgr"),
 		            new First("Isabella", "Johnson"),
 		            new First("Ethan", "Williams"),
 		            new First("Emma", "Jones"),
 		            new First("Michael", "Brown"));
-	    
-	    private void initialize() {
-	        // Initialize the person table with the two columns.
-	       // table1.setCellValueFactory(cellData -> cellData.getValue().getFoodCanCompost());
-	        //table1.setCellValueFactory(cellData -> cellData.getValue().First());
+	    @Override
+	    public void initialize(URL location, ResourceBundle resources) {
+	        table1.setCellValueFactory(new PropertyValueFactory<First, String>("table1"));
+	        table2.setCellValueFactory(new PropertyValueFactory<First, String>("table2"));
+	        tableView1.setItems(data);
 	        
 	    }
 }

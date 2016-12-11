@@ -181,7 +181,7 @@
                   <Pane layoutY="130.0" prefHeight="614.0" prefWidth="1131.0" style="-fx-background-color: rgba000000000(240,98,146);">
                      <children>
                         <Pane layoutX="235.0" layoutY="-2.0" prefHeight="596.0" prefWidth="728.0" style="-fx-background-color: white;" />
-                        <JFXButton layoutX="36.0" layoutY="116.0" text="Change Profile Image" />
+                        <JFXButton layoutX="36.0" layoutY="116.0" onAction="#changeImage" text="Change Profile Image" />
                      </children>
                   </Pane>
                   <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="36.0" layoutY="30.0" AnchorPane.leftAnchor="20.0">
@@ -205,18 +205,18 @@
                                           <Font size="24.0" />
                                        </font>
                                     </Label>
-                                    <JFXButton prefHeight="48.0" prefWidth="90.0" text="Edit" />
+                                    <JFXButton onAction="#showUN" prefHeight="48.0" prefWidth="90.0" text="Edit" />
                                  </children>
                               </HBox>
                               <HBox prefHeight="146.0" prefWidth="630.0">
                                  <children>
                                     <JFXTextField maxWidth="515.0" minWidth="100.0" prefHeight="75.0" prefWidth="445.0" />
-                                    <JFXButton prefHeight="48.0" prefWidth="90.0" text="Save">
+                                    <JFXButton onAction="#saveUN" prefHeight="48.0" prefWidth="90.0" text="Save">
                                        <HBox.margin>
                                           <Insets right="10.0" top="20.0" />
                                        </HBox.margin>
                                     </JFXButton>
-                                    <JFXButton prefHeight="48.0" prefWidth="90.0" text="Cancel">
+                                    <JFXButton onAction="#cancel" prefHeight="48.0" prefWidth="90.0" text="Cancel">
                                        <HBox.margin>
                                           <Insets left="10.0" top="20.0" />
                                        </HBox.margin>
@@ -239,18 +239,18 @@
                                           <Font size="24.0" />
                                        </font>
                                     </Label>
-                                    <JFXButton prefHeight="48.0" prefWidth="90.0" text="Edit" />
+                                    <JFXButton onAction="#showPass" prefHeight="48.0" prefWidth="90.0" text="Edit" />
                                  </children>
                               </HBox>
                               <HBox prefHeight="83.0">
                                  <children>
                                     <JFXPasswordField maxWidth="480.0" minWidth="400.0" prefHeight="75.0" prefWidth="445.0" />
-                                    <JFXButton prefHeight="48.0" prefWidth="90.0" text="Save">
+                                    <JFXButton onAction="#savePass" prefHeight="48.0" prefWidth="90.0" text="Save">
                                        <HBox.margin>
                                           <Insets right="10.0" top="20.0" />
                                        </HBox.margin>
                                     </JFXButton>
-                                    <JFXButton prefHeight="48.0" prefWidth="90.0" text="Cancel">
+                                    <JFXButton onAction="#cancel" prefHeight="48.0" prefWidth="90.0" text="Cancel">
                                        <HBox.margin>
                                           <Insets left="10.0" top="20.0" />
                                        </HBox.margin>
@@ -273,18 +273,18 @@
                                           <Font size="24.0" />
                                        </font>
                                     </Label>
-                                    <JFXButton prefHeight="48.0" prefWidth="90.0" text="Edit" />
+                                    <JFXButton onAction="#showEM" prefHeight="48.0" prefWidth="90.0" text="Edit" />
                                  </children>
                               </HBox>
                               <HBox prefHeight="82.0">
                                  <children>
                                     <JFXTextField maxWidth="452.0" minWidth="400.0" prefHeight="75.0" prefWidth="445.0" />
-                                    <JFXButton prefHeight="48.0" prefWidth="90.0" text="Save">
+                                    <JFXButton onAction="#saveEM" prefHeight="48.0" prefWidth="90.0" text="Save">
                                        <HBox.margin>
                                           <Insets right="10.0" top="20.0" />
                                        </HBox.margin>
                                     </JFXButton>
-                                    <JFXButton prefHeight="48.0" prefWidth="90.0" text="Cancel">
+                                    <JFXButton onAction="#cancel" prefHeight="48.0" prefWidth="90.0" text="Cancel">
                                        <HBox.margin>
                                           <Insets left="10.0" top="20.0" />
                                        </HBox.margin>
