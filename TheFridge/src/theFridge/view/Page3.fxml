@@ -32,7 +32,7 @@
             </Label>
          </children>
       </TextFlow>
-      <HBox prefHeight="811.0" prefWidth="1082.0">
+      <HBox prefHeight="811.0" prefWidth="1082.0" style="-fx-background-color: rgba(240, 98, 146, 0.25);">
          <children>
             <AnchorPane>
                <children>
