@@ -164,7 +164,7 @@
                         </VBox>
                      </children>
                   </AnchorPane>
-                  <HBox style="-fx-background-color: rgba(233, 30, 99, 0.3);" HBox.hgrow="SOMETIMES">
+                  <HBox style="-fx-background-color: #FCE4EC;" HBox.hgrow="SOMETIMES">
                      <children>
                         <VBox HBox.hgrow="ALWAYS">
                            <children>
@@ -175,7 +175,7 @@
                                  <children>
                                     <TextFlow maxHeight="50.0" prefHeight="50.0" prefWidth="968.0" textAlignment="CENTER">
                                        <children>
-                                          <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter total amount of people in family: " />
+                                          <Text fill="#e91e63" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter total amount of people in family: " />
                                           <JFXComboBox editable="true" prefHeight="31.0" prefWidth="64.0" promptText="2" />
                                        </children>
                                     </TextFlow>

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXPasswordField?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
@@ -10,7 +9,6 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Circle?>
@@ -18,285 +16,271 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="theFridge.controller.ProfileController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="theFridge.controller.ProfileController">
    <children>
-      <TextFlow prefHeight="72.0" prefWidth="1280.0">
+      <VBox prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label alignment="CENTER" prefHeight="21.0" prefWidth="1281.0" text="The Fridge">
-               <font>
-                  <Font name="Garamond" size="48.0" />
-               </font>
-            </Label>
-         </children>
-      </TextFlow>
-      <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0">
-         <children>
-            <AnchorPane fx:id="Anchor" maxWidth="300.0" prefHeight="600.0" prefWidth="150.0" style="-fx-background-color: rgba(194,24,91);">
+            <TextFlow prefHeight="65.0" prefWidth="600.0" style="-fx-background-color: #C2185B;" textAlignment="CENTER">
                <children>
-                  <VBox fx:id="naviPreview" alignment="CENTER" maxWidth="150.0" onMouseEntered="#showNavigation" prefHeight="600.0" prefWidth="150.0" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <Circle fill="#dde6f0" radius="15.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle fill="#dde6f0" radius="15.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle fill="#dde6f0" radius="15.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle fill="#dde6f0" radius="15.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle fill="#dde6f0" radius="15.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle fill="#dde6f0" radius="15.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                     </children>
-                  </VBox>
-                  <VBox fx:id="navi" alignment="CENTER" layoutX="-150.0" maxWidth="150.0" onMouseExited="#hideNavigation" prefHeight="600.0" prefWidth="150.0" spacing="20.0" style="-fx-background-color: rgba(128,128,128,0.5);" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <VBox fx:id="homeScene" alignment="TOP_CENTER" onMouseClicked="#changeScene">
-                           <children>
-                              <StackPane prefHeight="150.0" prefWidth="100.0">
-                                 <children>
-                                    <Circle fill="#dde6f0" radius="25.0" stroke="#ffffff00" strokeType="INSIDE" />
-                                    <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
-                                       <image>
-                                          <Image url="theFridge/picture/home.png" />
-                                       </image>
-                                    </ImageView>
-                                 </children>
-                              </StackPane>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Garamond;" text="Home" />
-                           </children>
-                           <VBox.margin>
-                              <Insets top="20.0" />
-                           </VBox.margin>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </VBox>
-                        <VBox fx:id="recipeScene" alignment="TOP_CENTER" onMouseClicked="#changeScene" VBox.vgrow="ALWAYS">
-                           <children>
-                              <StackPane prefHeight="150.0" prefWidth="100.0">
-                                 <children>
-                                    <Circle fill="#dde6f0" radius="25.0" stroke="#ffffff00" strokeType="INSIDE" />
-                                    <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
-                                       <image>
-                                          <Image url="theFridge/picture/open-book.png" />
-                                       </image>
-                                    </ImageView>
-                                 </children>
-                              </StackPane>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Garamond;" text="Recipe Book" />
-                           </children>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </VBox>
-                        <VBox fx:id="compostScene" alignment="TOP_CENTER" onMouseClicked="#changeScene" VBox.vgrow="ALWAYS">
-                           <children>
-                              <StackPane prefHeight="150.0" prefWidth="100.0">
-                                 <children>
-                                    <Circle fill="#dde6f0" radius="25.0" stroke="#ffffff00" strokeType="INSIDE" />
-                                    <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
-                                       <image>
-                                          <Image url="theFridge/picture/fertillizer.png" />
-                                       </image>
-                                    </ImageView>
-                                 </children>
-                              </StackPane>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Garamond;" text="Compost Guide" />
-                           </children>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </VBox>
-                        <VBox fx:id="foodScene" alignment="TOP_CENTER" onMouseClicked="#changeScene" VBox.vgrow="ALWAYS">
-                           <children>
-                              <StackPane prefHeight="150.0" prefWidth="100.0">
-                                 <children>
-                                    <Circle fill="#dde6f0" radius="25.0" stroke="#ffffff00" strokeType="INSIDE" />
-                                    <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
-                                       <image>
-                                          <Image url="theFridge/picture/chicken.png" />
-                                       </image>
-                                    </ImageView>
-                                 </children>
-                              </StackPane>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Garamond;" text="Food Calculator" />
-                           </children>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </VBox>
-                        <VBox fx:id="quizScene" alignment="TOP_CENTER" onMouseClicked="#changeScene" VBox.vgrow="ALWAYS">
-                           <children>
-                              <StackPane prefHeight="150.0" prefWidth="100.0">
-                                 <children>
-                                    <Circle fill="#dde6f0" radius="25.0" stroke="#ffffff00" strokeType="INSIDE" />
-                                    <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
-                                       <image>
-                                          <Image url="theFridge/picture/quiz-on-computer-with-question-signs-around.png" />
-                                       </image>
-                                    </ImageView>
-                                 </children>
-                              </StackPane>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Garamond;" text="Quiz" />
-                           </children>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </VBox>
-                        <VBox fx:id="prizeScene" alignment="TOP_CENTER" onMouseClicked="#changeScene" VBox.vgrow="ALWAYS">
-                           <children>
-                              <StackPane prefHeight="150.0" prefWidth="100.0">
-                                 <children>
-                                    <Circle fill="#dde6f0" radius="25.0" stroke="#ffffff00" strokeType="INSIDE" />
-                                    <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
-                                       <image>
-                                          <Image url="theFridge/picture/gift.png" />
-                                       </image>
-                                    </ImageView>
-                                 </children>
-                              </StackPane>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Garamond;" text="Redeem Prizes" />
-                           </children>
-                           <VBox.margin>
-                              <Insets bottom="20.0" />
-                           </VBox.margin>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </VBox>
-                     </children>
-                  </VBox>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="The Fridge">
+                     <font>
+                        <Font name="Garamond" size="48.0" />
+                     </font>
+                  </Text>
                </children>
-            </AnchorPane>
-            <AnchorPane prefHeight="737.0" prefWidth="1131.0">
+            </TextFlow>
+            <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: rgba(240, 98, 146, 0.30);" VBox.vgrow="ALWAYS">
                <children>
-                  <Pane prefHeight="130.0" prefWidth="1131.0" style="-fx-background-color: rgba(233,30,99);">
+                  <AnchorPane fx:id="Anchor" maxWidth="300.0" prefHeight="600.0" prefWidth="150.0">
                      <children>
-                        <VBox layoutX="430.0" layoutY="33.0">
+                        <VBox fx:id="naviPreview" alignment="CENTER" maxWidth="150.0" onMouseEntered="#showNavigation" prefHeight="600.0" prefWidth="150.0" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <Label prefHeight="49.0" prefWidth="445.0" text="Darren Wong Wei Xuan">
-                                 <font>
-                                    <Font name="AR CHRISTY" size="36.0" />
-                                 </font>
-                              </Label>
+                              <Circle fill="#dde6f0" radius="15.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                              <Circle fill="#dde6f0" radius="15.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                              <Circle fill="#dde6f0" radius="15.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                              <Circle fill="#dde6f0" radius="15.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                              <Circle fill="#dde6f0" radius="15.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                              <Circle fill="#dde6f0" radius="15.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                           </children>
+                        </VBox>
+                        <VBox fx:id="navi" alignment="CENTER" layoutX="-150.0" maxWidth="150.0" onMouseExited="#hideNavigation" prefHeight="600.0" prefWidth="150.0" spacing="20.0" style="-fx-background-color: rgba(233, 30, 99, 0.3);" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <VBox fx:id="homeScene" alignment="TOP_CENTER" onMouseClicked="#changeScene">
+                                 <children>
+                                    <StackPane prefHeight="150.0" prefWidth="100.0">
+                                       <children>
+                                          <Circle fill="#dde6f0" radius="25.0" stroke="#ffffff00" strokeType="INSIDE" />
+                                          <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
+                                             <image>
+                                                <Image url="theFridge/picture/home.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </StackPane>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Garamond;" text="Home" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="20.0" />
+                                 </VBox.margin>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </VBox>
+                              <VBox fx:id="recipeScene" alignment="TOP_CENTER" onMouseClicked="#changeScene" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <StackPane prefHeight="150.0" prefWidth="100.0">
+                                       <children>
+                                          <Circle fill="#dde6f0" radius="25.0" stroke="#ffffff00" strokeType="INSIDE" />
+                                          <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
+                                             <image>
+                                                <Image url="theFridge/picture/open-book.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </StackPane>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Garamond;" text="Recipe Book" />
+                                 </children>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </VBox>
+                              <VBox fx:id="compostScene" alignment="TOP_CENTER" onMouseClicked="#changeScene" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <StackPane prefHeight="150.0" prefWidth="100.0">
+                                       <children>
+                                          <Circle fill="#dde6f0" radius="25.0" stroke="#ffffff00" strokeType="INSIDE" />
+                                          <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
+                                             <image>
+                                                <Image url="theFridge/picture/fertillizer.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </StackPane>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Garamond;" text="Compost Guide" />
+                                 </children>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </VBox>
+                              <VBox fx:id="foodScene" alignment="TOP_CENTER" onMouseClicked="#changeScene" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <StackPane prefHeight="150.0" prefWidth="100.0">
+                                       <children>
+                                          <Circle fill="#dde6f0" radius="25.0" stroke="#ffffff00" strokeType="INSIDE" />
+                                          <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
+                                             <image>
+                                                <Image url="theFridge/picture/chicken.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </StackPane>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Garamond;" text="Food Calculator" />
+                                 </children>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </VBox>
+                              <VBox fx:id="quizScene" alignment="TOP_CENTER" onMouseClicked="#changeScene" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <StackPane prefHeight="150.0" prefWidth="100.0">
+                                       <children>
+                                          <Circle fill="#dde6f0" radius="25.0" stroke="#ffffff00" strokeType="INSIDE" />
+                                          <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
+                                             <image>
+                                                <Image url="theFridge/picture/quiz-on-computer-with-question-signs-around.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </StackPane>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Garamond;" text="Quiz" />
+                                 </children>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </VBox>
+                              <VBox fx:id="prizeScene" alignment="TOP_CENTER" onMouseClicked="#changeScene" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <StackPane prefHeight="150.0" prefWidth="100.0">
+                                       <children>
+                                          <Circle fill="#dde6f0" radius="25.0" stroke="#ffffff00" strokeType="INSIDE" />
+                                          <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
+                                             <image>
+                                                <Image url="theFridge/picture/gift.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </StackPane>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Garamond;" text="Redeem Prizes" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" />
+                                 </VBox.margin>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </VBox>
                            </children>
                         </VBox>
                      </children>
-                  </Pane>
-                  <Pane layoutY="130.0" prefHeight="614.0" prefWidth="1131.0" style="-fx-background-color: rgba000000000(240,98,146);">
+                  </AnchorPane>
+                  <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #FCE4EC;" HBox.hgrow="ALWAYS">
                      <children>
-                        <Pane layoutX="235.0" layoutY="-2.0" prefHeight="596.0" prefWidth="728.0" style="-fx-background-color: white;" />
-                     </children>
-                  </Pane>
-                  <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="36.0" layoutY="30.0" AnchorPane.leftAnchor="20.0">
-                     <image>
-                        <Image url="@../picture/Profile%20Image.jpg" />
-                     </image>
-                  </ImageView>
-                  <VBox layoutX="297.0" layoutY="123.0" prefHeight="640.0" prefWidth="630.0">
-                     <children>
-                        <VBox prefHeight="213.0">
+                        <VBox prefHeight="200.0" prefWidth="100.0">
                            <children>
-                              <HBox prefHeight="100.0">
-                                 <children>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Username:" wrappingWidth="234.61376953125">
-                                       <font>
-                                          <Font size="36.0" />
-                                       </font>
-                                    </Text>
-                                    <Label alignment="CENTER" prefHeight="48.0" prefWidth="334.0" text="Label">
-                                       <font>
-                                          <Font size="24.0" />
-                                       </font>
-                                    </Label>
-                                    <JFXButton fx:id="btnEdit1" prefHeight="48.0" prefWidth="90.0" text="Edit" />
-                                 </children>
-                              </HBox>
-                              <HBox prefHeight="146.0" prefWidth="630.0">
-                                 <children>
-                                    <JFXTextField maxWidth="515.0" minWidth="100.0" prefHeight="75.0" prefWidth="445.0" />
-                                    <JFXButton fx:id="btnSave1" prefHeight="48.0" prefWidth="90.0" text="Save">
-                                       <HBox.margin>
-                                          <Insets right="10.0" top="20.0" />
-                                       </HBox.margin>
-                                    </JFXButton>
-                                    <JFXButton fx:id="btnCancel1" prefHeight="48.0" prefWidth="90.0" text="Cancel">
-                                       <HBox.margin>
-                                          <Insets left="10.0" top="20.0" />
-                                       </HBox.margin>
-                                    </JFXButton>
-                                 </children>
-                              </HBox>
+                              <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../picture/Profile%20Image.jpg" />
+                                 </image>
+                                 <VBox.margin>
+                                    <Insets top="50.0" />
+                                 </VBox.margin>
+                              </ImageView>
                            </children>
+                           <padding>
+                              <Insets left="20.0" right="20.0" />
+                           </padding>
                         </VBox>
-                        <VBox prefHeight="213.0">
+                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
                            <children>
-                              <HBox prefHeight="100.0">
+                              <VBox alignment="CENTER" prefHeight="200.0">
                                  <children>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" wrappingWidth="239.658203125">
+                                    <Label text="Darren Wei Xuan" textFill="#e91e63">
                                        <font>
-                                          <Font size="36.0" />
-                                       </font>
-                                    </Text>
-                                    <Label alignment="CENTER" prefHeight="48.0" prefWidth="334.0" text="Label">
-                                       <font>
-                                          <Font size="24.0" />
+                                          <Font size="29.0" />
                                        </font>
                                     </Label>
-                                    <JFXButton fx:id="btnEdit2" prefHeight="48.0" prefWidth="90.0" text="Edit" />
                                  </children>
-                              </HBox>
-                              <HBox prefHeight="83.0">
+                              </VBox>
+                              <VBox alignment="TOP_CENTER">
                                  <children>
-                                    <JFXPasswordField maxWidth="480.0" minWidth="400.0" prefHeight="75.0" prefWidth="445.0" />
-                                    <JFXButton fx:id="btnSave2" prefHeight="48.0" prefWidth="90.0" text="Save">
-                                       <HBox.margin>
-                                          <Insets right="10.0" top="20.0" />
-                                       </HBox.margin>
-                                    </JFXButton>
-                                    <JFXButton fx:id="btnCancel2" prefHeight="48.0" prefWidth="90.0" text="Cancel">
-                                       <HBox.margin>
-                                          <Insets left="10.0" top="20.0" />
-                                       </HBox.margin>
-                                    </JFXButton>
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <TextFlow prefWidth="200.0" HBox.hgrow="ALWAYS">
+                                             <children>
+                                                <Text fill="#e91e63" strokeType="OUTSIDE" strokeWidth="0.0" text="Username" />
+                                                <Label text="Label" textFill="#e91e63">
+                                                   <padding>
+                                                      <Insets left="50.0" />
+                                                   </padding></Label>
+                                             </children>
+                                          </TextFlow>
+                                          <JFXButton fx:id="btnEdit1" text="Edit" />
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <JFXTextField prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                                          <JFXButton fx:id="btnSave1" text="Save" />
+                                          <JFXButton fx:id="btnCancel1" text="Cancel" />
+                                       </children>
+                                    </HBox>
                                  </children>
-                              </HBox>
+                              </VBox>
+                              <VBox alignment="TOP_CENTER">
+                                 <children>
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <TextFlow prefWidth="200.0" HBox.hgrow="ALWAYS">
+                                             <children>
+                                                <Text fill="#e91e63" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" />
+                                                <Label text="Label" textFill="#e91e63">
+                                                   <padding>
+                                                      <Insets left="50.0" />
+                                                   </padding>
+                                                </Label>
+                                             </children>
+                                          </TextFlow>
+                                          <JFXButton fx:id="btnEdit2" text="Edit" />
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <JFXTextField prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                                          <JFXButton fx:id="btnSave2" text="Save" />
+                                          <JFXButton fx:id="btnCancel2" text="Cancel" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="TOP_CENTER" VBox.vgrow="SOMETIMES">
+                                 <children>
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <TextFlow prefWidth="200.0" HBox.hgrow="ALWAYS">
+                                             <children>
+                                                <Text fill="#e91e63" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" />
+                                                <Label text="Label" textFill="#e91e63">
+                                                   <padding>
+                                                      <Insets left="50.0" />
+                                                   </padding>
+                                                </Label>
+                                             </children>
+                                          </TextFlow>
+                                          <JFXButton fx:id="btnEdit3" text="Edit" />
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <JFXTextField prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                                          <JFXButton fx:id="btnSave3" text="Save" />
+                                          <JFXButton fx:id="btnCancel3" text="Cancel" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
                            </children>
-                        </VBox>
-                        <VBox prefHeight="213.0">
-                           <children>
-                              <HBox prefHeight="100.0">
-                                 <children>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="E-mail   :" wrappingWidth="234.7578125">
-                                       <font>
-                                          <Font size="36.0" />
-                                       </font>
-                                    </Text>
-                                    <Label alignment="CENTER" prefHeight="50.0" prefWidth="334.0" text="Label">
-                                       <font>
-                                          <Font size="24.0" />
-                                       </font>
-                                    </Label>
-                                    <JFXButton fx:id="btnEdit3" prefHeight="48.0" prefWidth="90.0" text="Edit" />
-                                 </children>
-                              </HBox>
-                              <HBox prefHeight="82.0">
-                                 <children>
-                                    <JFXTextField maxWidth="452.0" minWidth="400.0" prefHeight="75.0" prefWidth="445.0" />
-                                    <JFXButton fx:id="btnSave3" prefHeight="48.0" prefWidth="90.0" text="Save">
-                                       <HBox.margin>
-                                          <Insets right="10.0" top="20.0" />
-                                       </HBox.margin>
-                                    </JFXButton>
-                                    <JFXButton fx:id="btnCancel3" prefHeight="48.0" prefWidth="90.0" text="Cancel">
-                                       <HBox.margin>
-                                          <Insets left="10.0" top="20.0" />
-                                       </HBox.margin>
-                                    </JFXButton>
-                                 </children>
-                              </HBox>
-                           </children>
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
                         </VBox>
                      </children>
-                  </VBox>
+                     <HBox.margin>
+                        <Insets right="150.0" />
+                     </HBox.margin>
+                  </HBox>
                </children>
-            </AnchorPane>
+            </HBox>
          </children>
-      </HBox>
+      </VBox>
    </children>
-</VBox>
+</AnchorPane>
