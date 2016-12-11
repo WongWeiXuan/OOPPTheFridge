@@ -2,6 +2,9 @@ package theFridge.controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import com.jfoenix.controls.JFXComboBox;
+
 import java.io.IOException;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -54,9 +57,10 @@ public class Page1Controller implements Initializable{
     private VBox foodScene;
     @FXML
     private VBox quizScene;
-
     @FXML
     private VBox prizeScene;
+    @FXML
+    private JFXComboBox<String> choice;
     
 
 	@FXML
@@ -151,6 +155,10 @@ public class Page1Controller implements Initializable{
 	        table1.setCellValueFactory(new PropertyValueFactory<First, String>("foodCanCompost"));
 	        table2.setCellValueFactory(new PropertyValueFactory<First, String>("foodCannotCompost"));
 	        tableView1.setItems(list);
+	        choice.setItems(data);
 	        
 	    }
+	    ObservableList<String> data = FXCollections.observableArrayList("Chicken","Fish","Vegetable","Rice","Pasta","tomato","apple","sotongs");
+	    
+	   
 }

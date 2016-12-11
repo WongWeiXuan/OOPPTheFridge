@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
@@ -199,12 +198,7 @@
                                           <Font size="18.0" />
                                        </font>
                                     </Text>
-                                    <MenuButton mnemonicParsing="false" onAction="#showMultipleFood" prefHeight="31.0" prefWidth="1141.0" text="Select Food You Want To Compost">
-                                      <items>
-                                        <MenuItem mnemonicParsing="false" text="Action 1" />
-                                        <MenuItem mnemonicParsing="false" text="Action 2" />
-                                      </items>
-                                    </MenuButton>
+                                    <JFXComboBox fx:id="choice" prefHeight="31.0" prefWidth="586.0" promptText="Select Food You Want To Compost" />
                                     <TableView prefHeight="121.0" prefWidth="930.0" />
                                     <TableView prefHeight="173.0" prefWidth="1130.0">
                                       <columns>
