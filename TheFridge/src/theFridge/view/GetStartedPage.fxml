@@ -8,25 +8,32 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-<AnchorPane style="-fx-background-image: url(&quot;theFridge/picture/pasta-wallpapers-1.jpg&quot;); -fx-background-size: cover, auto; -fx-background-repeat: no-repeat;" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="theFridge.controller.GetStartedPageController">
+<AnchorPane prefHeight="800.0" prefWidth="1280.0" style="-fx-background-image: url(&quot;theFridge/picture/pasta-wallpapers-1.jpg&quot;); -fx-background-size: cover, auto; -fx-background-repeat: no-repeat;" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="theFridge.controller.GetStartedPageController">
    <children>
       <VBox prefHeight="800.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <TextFlow prefHeight="65.0" style="-fx-background-color: #C2185B;" textAlignment="CENTER">
+            <StackPane>
                <children>
-                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="The Fridge" textAlignment="CENTER">
-                     <font>
-                        <Font name="Garamond" size="48.0" />
-                     </font>
-                  </Text>
+                  <TextFlow prefHeight="65.0" style="-fx-background-color: #C2185B;" textAlignment="CENTER">
+                     <children>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="The Fridge" textAlignment="CENTER">
+                           <font>
+                              <Font name="Garamond" size="48.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </TextFlow>
+                  <Circle fx:id="profileCircle" fill="WHITE" onMouseClicked="#showProfileDropdown" radius="32.0" stroke="#ffffff00" strokeLineCap="ROUND" strokeType="INSIDE" StackPane.alignment="CENTER_RIGHT" />
                </children>
-            </TextFlow>
+            </StackPane>
             <VBox style="-fx-background-color: rgba(233, 30, 99,0.30);" VBox.vgrow="ALWAYS">
                <children>
                   <VBox alignment="CENTER" prefHeight="136.0" prefWidth="1280.0">

@@ -18,7 +18,7 @@ import java.io.IOException;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
-import javafx.beans.property.DoubleProperty;
+//import javafx.beans.property.DoubleProperty;
 import javafx.event.ActionEvent;
 
 import javafx.scene.control.Label;
@@ -119,8 +119,9 @@ public class Page2Controller implements Initializable {
 		}
 		else if(event.getSource().equals(prizeScene)){
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemVoucherPage.fxml"));
+			
 		}
-
+		mp.stop();
  		stage.setScene(new Scene(root));
  	    stage.show();
 	}
@@ -136,6 +137,7 @@ public class Page2Controller implements Initializable {
 		root = FXMLLoader.load(getClass().getResource("/theFridge/view/Page1.fxml"));
 		stage.setScene(new Scene(root));
  	    stage.show();
+ 	    mp.stop();
 	}
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -143,8 +145,8 @@ public class Page2Controller implements Initializable {
 		me = new Media(new File(path).toURI().toString());
 		mp = new MediaPlayer(me);
 		video.setMediaPlayer(mp);
-		DoubleProperty width = video.fitWidthProperty();
-		DoubleProperty height = video.fitHeightProperty();
+		//DoubleProperty width = video.fitWidthProperty();
+		//DoubleProperty height = video.fitHeightProperty();
 	}
 	public void play(ActionEvent event){
 		mp.play();

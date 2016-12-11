@@ -12,6 +12,8 @@ import com.jfoenix.controls.JFXButton;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
@@ -35,6 +37,7 @@ import javafx.scene.layout.Priority;
 
 import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXPopup;
+import com.jfoenix.controls.JFXComboBox;
 
 public class ShoppingListController {
 	@FXML
@@ -67,6 +70,8 @@ public class ShoppingListController {
 	private JFXPopup Popup;
 	@FXML 
 	private JFXPopup Popup1;
+	@FXML 
+	private JFXComboBox<String> comboBoxFamily;
 	
 	@FXML
 	public void initialize() throws FileNotFoundException{
@@ -177,6 +182,9 @@ public class ShoppingListController {
 		
 		startPopup();
 		startPopup1();
+		
+		ObservableList<String> data = FXCollections.observableArrayList("1","2","3","4","5","6","7","8");
+		comboBoxFamily.setItems(data);
 	}
 	
 	private void startPopup() {

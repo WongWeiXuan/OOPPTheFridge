@@ -3,7 +3,9 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
@@ -12,15 +14,20 @@
    <children>
       <VBox layoutY="-104.0" prefHeight="128.0" prefWidth="969.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <TextFlow prefHeight="65.0" style="-fx-background-color: #C2185B;" textAlignment="CENTER" VBox.vgrow="NEVER">
+            <StackPane VBox.vgrow="NEVER">
                <children>
-                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="The Fridge" textAlignment="CENTER">
-                     <font>
-                        <Font name="Garamond" size="48.0" />
-                     </font>
-                  </Text>
+                  <TextFlow prefHeight="65.0" style="-fx-background-color: #C2185B;" textAlignment="CENTER">
+                     <children>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="The Fridge" textAlignment="CENTER">
+                           <font>
+                              <Font name="Garamond" size="48.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </TextFlow>
+                  <Circle fx:id="profileCircle" fill="WHITE" onMouseClicked="#showProfileDropdown" radius="32.0" stroke="#ffffff00" strokeLineCap="ROUND" strokeType="INSIDE" strokeWidth="0.0" StackPane.alignment="CENTER_RIGHT" />
                </children>
-            </TextFlow>
+            </StackPane>
             <VBox VBox.vgrow="ALWAYS">
                <children>
                   <VBox alignment="BOTTOM_CENTER" prefHeight="490.0" prefWidth="1280.0" style="-fx-background-color: rgba(233, 30, 99,0.30);" VBox.vgrow="ALWAYS">

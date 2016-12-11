@@ -7,9 +7,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
-
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
 public class GetStartedPageController {
@@ -31,7 +33,19 @@ public class GetStartedPageController {
 	private VBox Leftover;
 	@FXML
 	private VBox Logout;
-
+	@FXML 
+	private Circle profileCircle;
+	
+	public void initialize(){
+		Image img = new Image("theFridge/picture/Profile Image.jpg");
+		profileCircle.setFill(new ImagePattern(img));
+	}
+	
+	@FXML 
+	public void showProfileDropdown(MouseEvent event) {
+		//TO-DO
+	}
+	
 	// Event Listener on VBox[#Profile].onMouseClicked
 	@FXML
 	public void changeScene(MouseEvent event) throws IOException {
@@ -71,4 +85,5 @@ public class GetStartedPageController {
  		stage.setScene(new Scene(root));
  	    stage.show();
 	}
+
 }

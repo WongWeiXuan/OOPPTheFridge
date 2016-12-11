@@ -176,7 +176,7 @@
                                     <TextFlow maxHeight="50.0" prefHeight="50.0" prefWidth="968.0" textAlignment="CENTER">
                                        <children>
                                           <Text fill="#e91e63" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter total amount of people in family: " />
-                                          <JFXComboBox editable="true" prefHeight="31.0" prefWidth="64.0" promptText="2" />
+                                          <JFXComboBox fx:id="comboBoxFamily" editable="true" prefHeight="31.0" prefWidth="64.0" promptText="2" />
                                        </children>
                                     </TextFlow>
                                     <JFXListView fx:id="StocklistView" VBox.vgrow="SOMETIMES" />

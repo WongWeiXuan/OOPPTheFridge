@@ -36,7 +36,7 @@
                               <Circle fill="#dde6f0" radius="15.0" stroke="TRANSPARENT" strokeType="INSIDE" />
                               <Circle fill="#dde6f0" radius="15.0" stroke="TRANSPARENT" strokeType="INSIDE" />
                               <Circle fill="#dde6f0" radius="15.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                              <Circle fill="#dde6f0" radius="15.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                              <Circle fill="#f5bf49c0" radius="15.0" stroke="TRANSPARENT" strokeType="INSIDE" />
                               <Circle fill="#dde6f0" radius="15.0" stroke="TRANSPARENT" strokeType="INSIDE" />
                               <Circle fill="#dde6f0" radius="15.0" stroke="TRANSPARENT" strokeType="INSIDE" />
                            </children>
@@ -104,7 +104,7 @@
                                  <children>
                                     <StackPane prefHeight="150.0" prefWidth="100.0">
                                        <children>
-                                          <Circle fill="#dde6f0" radius="25.0" stroke="#ffffff00" strokeType="INSIDE" />
+                                          <Circle fill="#f5bf49c0" radius="25.0" stroke="#ffffff00" strokeType="INSIDE" />
                                           <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
                                              <image>
                                                 <Image url="theFridge/picture/chicken.png" />
