@@ -2,6 +2,8 @@ package theFridge.controller;
 
 import java.io.IOException;
 
+import com.jfoenix.controls.JFXButton;
+
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -10,6 +12,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
@@ -45,6 +48,35 @@ public class ProfileController {
 
     @FXML
     private VBox prizeScene;
+    
+    @FXML
+    private JFXButton btnEdit1;
+    
+    @FXML
+    private JFXButton btnEdit2;
+    
+    @FXML
+    private JFXButton btnEdit3;
+    
+    @FXML
+    private JFXButton btnSave1;
+    
+    @FXML
+    private JFXButton btnSave2;
+    
+    @FXML
+    private JFXButton btnSave3;
+    
+    @FXML
+    private JFXButton btnCancel1;
+    
+    @FXML
+    private JFXButton btnCancel2;
+    
+    @FXML
+    private JFXButton btnCancel3;
+
+
 
     public void changeScene(MouseEvent event) throws IOException {
 		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
