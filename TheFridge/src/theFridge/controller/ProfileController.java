@@ -15,6 +15,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import javafx.event.ActionEvent;
 
 public class ProfileController {
 
@@ -95,5 +96,7 @@ public class ProfileController {
 		timeline.getKeyFrames().addAll(keyFrame);
 		timeline.play();
 	}
+	@FXML public void changeImage(ActionEvent event) {}
+	@FXML public void showUN(ActionEvent event) {}
 
 }
