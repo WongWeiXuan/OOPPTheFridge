@@ -43,7 +43,7 @@ public class GetStartedPageController {
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/Profile.fxml"));
 		}
 		else if(event.getSource().equals(Recipes)){
-			root = FXMLLoader.load(getClass().getResource("/theFridge/view/RecipePage.fxml"));
+			root = FXMLLoader.load(getClass().getResource("/theFridge/view/UglyFXML/ViewRecipes.fxml"));
 		}
 		else if(event.getSource().equals(Compost)){
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/Page1.fxml"));
@@ -61,7 +61,7 @@ public class GetStartedPageController {
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/ShoppingListPage.fxml"));
 		}
 		else if(event.getSource().equals(Leftover)){
-			root = FXMLLoader.load(getClass().getResource("/theFridge/view/.fxml"));
+			root = FXMLLoader.load(getClass().getResource("/theFridge/view/UglyFXML/FindingDish.fxml"));
 		}
 		else if(event.getSource().equals(Logout)){
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/.fxml"));
