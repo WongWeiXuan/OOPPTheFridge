@@ -64,7 +64,8 @@ public class GetStartedPageController {
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/UglyFXML/FindingDish.fxml"));
 		}
 		else if(event.getSource().equals(Logout)){
-			root = FXMLLoader.load(getClass().getResource("/theFridge/view/.fxml"));
+			root = FXMLLoader.load(getClass().getResource("/theFridge/view/LoginPage.fxml"));
+			stage.setMaximized(false);
 		}
 		
  		stage.setScene(new Scene(root));

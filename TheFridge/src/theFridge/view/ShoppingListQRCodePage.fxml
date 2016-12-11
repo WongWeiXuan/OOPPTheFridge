@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.image.Image?>
@@ -13,23 +14,20 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-<AnchorPane onMouseEntered="#run" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="theFridge.controller.ShoppingListQRCodePageController">
+<AnchorPane onMouseEntered="#run" prefHeight="800.0" prefWidth="1280.0" style="-fx-background-image: url(&quot;theFridge/picture/ZhGEqAP.jpg&quot;);" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="theFridge.controller.ShoppingListQRCodePageController">
    <children>
       <VBox prefHeight="800.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <TextFlow maxHeight="100.0" prefHeight="100.0" prefWidth="200.0" textAlignment="CENTER">
+            <TextFlow maxHeight="100.0" prefHeight="65.0" prefWidth="200.0" style="-fx-background-color: #C2185B;" textAlignment="CENTER">
                <children>
                   <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="The Fridge">
                      <font>
-                        <Font size="48.0" />
+                        <Font name="Garamond" size="48.0" />
                      </font>
                   </Text>
                </children>
-               <padding>
-                  <Insets top="10.0" />
-               </padding>
             </TextFlow>
-            <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: rgba(128,128,128,0.25);" VBox.vgrow="ALWAYS">
+            <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: rgba(240, 98, 146, 0.25);" VBox.vgrow="ALWAYS">
                <children>
                   <AnchorPane fx:id="Anchor" maxWidth="300.0" prefHeight="600.0" prefWidth="150.0">
                      <children>
@@ -43,7 +41,7 @@
                               <Circle fill="#dde6f0" radius="15.0" stroke="TRANSPARENT" strokeType="INSIDE" />
                            </children>
                         </VBox>
-                        <VBox fx:id="navi" alignment="CENTER" layoutX="-150.0" maxWidth="150.0" onMouseExited="#hideNavigation" prefHeight="600.0" prefWidth="150.0" spacing="20.0" style="-fx-background-color: rgba(128,128,128,0.5);" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <VBox fx:id="navi" alignment="CENTER" layoutX="-150.0" maxWidth="150.0" onMouseExited="#hideNavigation" prefHeight="600.0" prefWidth="150.0" spacing="20.0" style="-fx-background-color: rgba(233, 30, 99, 0.25);" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <VBox fx:id="homeScene" alignment="TOP_CENTER" onMouseClicked="#changeScene">
                                  <children>
@@ -163,17 +161,34 @@
                         </VBox>
                      </children>
                   </AnchorPane>
-                  <HBox alignment="CENTER" prefHeight="700.0" prefWidth="1130.0" style="-fx-background-color: rgba(128,128,128,0.25);" HBox.hgrow="ALWAYS">
+                  <AnchorPane style="-fx-background-color: #FCE4EC;" HBox.hgrow="ALWAYS">
+                     <children>
+                        <HBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <ImageView fx:id="Testing" fitHeight="531.0" fitWidth="707.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../picture/QrCode.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                        <HBox alignment="BOTTOM_RIGHT" layoutX="914.0" layoutY="668.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                           <children>
+                              <JFXButton fx:id="backBtn" buttonType="RAISED" onAction="#goBack" prefHeight="44.0" prefWidth="109.0" style="-fx-background-color: #3c71dd;" text="Back" textFill="WHITE">
+                                 <HBox.margin>
+                                    <Insets bottom="50.0" right="50.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="Garamond Bold" size="21.0" />
+                                 </font>
+                              </JFXButton>
+                           </children>
+                        </HBox>
+                     </children>
                      <HBox.margin>
                         <Insets right="150.0" />
                      </HBox.margin>
-                     <children>
-                        <ImageView fx:id="Testing" fitHeight="531.0" fitWidth="707.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../picture/QrCode.png" />
-                           </image></ImageView>
-                     </children>
-                  </HBox>
+                  </AnchorPane>
                </children>
             </HBox>
          </children>

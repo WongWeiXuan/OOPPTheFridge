@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class RefrigeratorApp extends Application{
 	@Override
@@ -13,6 +14,7 @@ public class RefrigeratorApp extends Application{
 			Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/LoginPage.fxml"));
 			Scene scene = new Scene(root);
 			primaryStage.setScene(scene);
+			//primaryStage.initStyle(StageStyle.UNDECORATED);
 		    primaryStage.show();
 		} 
 		catch(Exception e) {

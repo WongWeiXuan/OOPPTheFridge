@@ -20,6 +20,8 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.event.ActionEvent;
+import com.jfoenix.controls.JFXButton;
 
 public class ShoppingListQRCodePageController {
 	@FXML
@@ -42,9 +44,27 @@ public class ShoppingListQRCodePageController {
 	private VBox prizeScene;
 	@FXML 
 	private ImageView Testing;
+	@FXML 
+	private JFXButton backBtn;
 	
 	public void initialize(){
 		
+	}
+	
+	@FXML 
+	public void run() throws FileNotFoundException{
+		Image image = new Image(new FileInputStream("src/theFridge/picture/QrCode.png"));
+		Testing.setImage(image);
+	}
+	
+	@FXML public void goBack(ActionEvent event) throws IOException {
+		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/ShoppingListPage.fxml"));
+		
+		root = FXMLLoader.load(getClass().getResource("/theFridge/view/ShoppingListPage.fxml"));
+		
+		stage.setScene(new Scene(root));
+ 	    stage.show();
 	}
 	
 	@FXML
@@ -98,13 +118,6 @@ public class ShoppingListQRCodePageController {
 		
  		stage.setScene(new Scene(root));
  	    stage.show();
-	}
-
-	
-	@FXML 
-	public void run() throws FileNotFoundException{
-		Image image = new Image(new FileInputStream("src/theFridge/picture/QrCode.png"));
-		Testing.setImage(image);
 	}
 	
 }
