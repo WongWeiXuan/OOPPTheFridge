@@ -32,9 +32,9 @@
       </TextFlow>
       <HBox layoutX="-150.0" layoutY="64.0" style="-fx-background-color: #F06292;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="66.0">
          <children>
-            <AnchorPane fx:id="Anchor" maxWidth="300.0" prefHeight="736.0" prefWidth="150.0" style="-fx-background-color: #C2185B#C2185B;">
+            <AnchorPane fx:id="Anchor" maxWidth="300.0" prefHeight="736.0" prefWidth="150.0">
                <children>
-                  <VBox fx:id="naviPreview" alignment="CENTER" maxWidth="150.0" onMouseEntered="#showNavigation" prefHeight="600.0" prefWidth="150.0" spacing="20.0" style="-fx-background-color: rgba(128,128,128,0.25);" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <VBox fx:id="naviPreview" alignment="CENTER" maxWidth="150.0" onMouseEntered="#showNavigation" prefHeight="600.0" prefWidth="150.0" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <Circle fill="#dde6f0" radius="15.0" stroke="TRANSPARENT" strokeType="INSIDE" />
                         <Circle fill="#dde6f0" radius="15.0" stroke="TRANSPARENT" strokeType="INSIDE" />
@@ -44,7 +44,7 @@
                         <Circle fill="#dde6f0" radius="15.0" stroke="TRANSPARENT" strokeType="INSIDE" />
                      </children>
                   </VBox>
-                  <VBox fx:id="navi" alignment="CENTER" layoutX="-150.0" maxWidth="150.0" onMouseExited="#hideNavigation" prefHeight="600.0" prefWidth="150.0" spacing="20.0" style="-fx-background-color: rgba(128,128,128,0.5);" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <VBox fx:id="navi" alignment="CENTER" layoutX="-150.0" maxWidth="150.0" onMouseExited="#hideNavigation" prefHeight="600.0" prefWidth="150.0" spacing="20.0" style="-fx-background-color: rgba(233, 30, 99, 0.25);" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <VBox fx:id="homeScene" alignment="TOP_CENTER" onMouseClicked="#changeScene">
                            <children>
@@ -164,7 +164,7 @@
                   </VBox>
                </children>
             </AnchorPane>
-            <VBox alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="673.0" prefWidth="1019.0" style="-fx-background-color: rgba(128,128,128,0.5);" HBox.hgrow="ALWAYS">
+            <VBox alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="673.0" prefWidth="1019.0" style="-fx-background-color: rgba(233, 30, 99, 0.25);" HBox.hgrow="ALWAYS">
                <children>
                   <TextFlow prefHeight="75.0" prefWidth="1280.0" style="-fx-background-color: #009688;" textAlignment="CENTER">
                      <children>

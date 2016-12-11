@@ -166,7 +166,7 @@
                         </VBox>
                      </children>
                   </AnchorPane>
-                  <VBox alignment="TOP_CENTER" prefHeight="728.0" prefWidth="1123.0" style="-fx-background-color: rgba(128,128,128,0.5);" HBox.hgrow="ALWAYS">
+                  <VBox alignment="TOP_CENTER" prefHeight="728.0" prefWidth="1123.0" HBox.hgrow="ALWAYS">
                      <children>
                         <TextFlow prefHeight="96.0" prefWidth="980.0" textAlignment="CENTER">
                            <children>
@@ -254,7 +254,7 @@
                               <Insets bottom="100.0" top="90.0" />
                            </VBox.margin>
                         </GridPane>
-                        <TextFlow prefHeight="66.0" prefWidth="980.0" style="-fx-background-color: rgba(128,128,128,0.5);" textAlignment="CENTER">
+                        <TextFlow prefHeight="66.0" prefWidth="980.0" style="-fx-background-color: rgba(128,128,128,0.25);" textAlignment="CENTER">
                            <children>
                               <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="194.0" text="Points Earned: " textAlignment="CENTER" textFill="WHITE">
                                  <font>
