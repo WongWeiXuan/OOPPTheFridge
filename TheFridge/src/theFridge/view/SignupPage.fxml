@@ -98,17 +98,17 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <JFXTextField focusColor="WHITE" promptText="Enter username" style="-fx-border-color: black;" unFocusColor="WHITE">
+                        <JFXTextField focusColor="WHITE" labelFloat="true" promptText="Enter username" style="-fx-focus-color: black;" unFocusColor="WHITE">
                            <font>
                               <Font name="Garamond" size="24.0" />
                            </font>
                         </JFXTextField>
-                        <JFXTextField focusColor="WHITE" promptText="Enter email" style="-fx-border-color: black;" unFocusColor="WHITE" GridPane.rowIndex="1">
+                        <JFXTextField focusColor="WHITE" labelFloat="true" promptText="Enter email" style="-fx-focus-color: black;" unFocusColor="WHITE" GridPane.rowIndex="1">
                            <font>
                               <Font name="Garamond" size="24.0" />
                            </font>
                         </JFXTextField>
-                        <JFXPasswordField focusColor="WHITE" promptText="Enter password" style="-fx-border-color: black;" unFocusColor="WHITE" GridPane.rowIndex="2">
+                        <JFXPasswordField focusColor="WHITE" labelFloat="true" promptText="Enter password" style="-fx-focus-color: black;" unFocusColor="WHITE" GridPane.rowIndex="2">
                            <font>
                               <Font name="Garamond" size="24.0" />
                            </font>
