@@ -24,9 +24,9 @@
    <children>
       <VBox layoutX="-150.0" layoutY="-19.423828125" prefHeight="800.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <TextFlow prefHeight="72.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+            <TextFlow prefHeight="65.0" prefWidth="200.0" textAlignment="CENTER">
                <children>
-                  <Label alignment="CENTER" prefHeight="73.0" prefWidth="1280.0" text="The Fridge">
+                  <Label alignment="CENTER" prefHeight="73.0" prefWidth="1280.0" text="The Fridge" textAlignment="CENTER">
                      <font>
                         <Font name="Garamond" size="48.0" />
                      </font>
@@ -167,18 +167,22 @@
                         </VBox>
                      </children>
                   </AnchorPane>
-                  <AnchorPane>
+                  <AnchorPane HBox.hgrow="ALWAYS">
                      <children>
-                        <Pane prefHeight="733.0" prefWidth="1128.0" />
-                        <VBox layoutX="1.0">
+                        <Pane prefHeight="733.0" prefWidth="1128.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <VBox layoutX="1.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <VBox VBox.vgrow="ALWAYS">
+                              <VBox alignment="CENTER" VBox.vgrow="ALWAYS">
                                  <children>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Guide on how to compost food waste" textAlignment="CENTER" wrappingWidth="1126.57275390625">
-                                       <font>
-                                          <Font size="24.0" />
-                                       </font>
-                                    </Text>
+                                    <TextFlow textAlignment="CENTER">
+                                       <children>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Guide on how to compost food waste" textAlignment="CENTER" wrappingWidth="1126.57275390625">
+                                             <font>
+                                                <Font size="24.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                    </TextFlow>
                                     <TableView fx:id="tableView1" prefHeight="216.0" prefWidth="1113.0">
                                       <columns>
                                         <TableColumn fx:id="table1" prefWidth="565.0" text="Common Food You Can Compost" />
@@ -187,7 +191,7 @@
                                     </TableView>
                                  </children>
                               </VBox>
-                              <VBox prefHeight="485.0" prefWidth="1130.0" VBox.vgrow="ALWAYS">
+                              <VBox alignment="CENTER" prefHeight="485.0" prefWidth="1130.0" VBox.vgrow="ALWAYS">
                                  <children>
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Compost Single/ Multiple Food Waste" textAlignment="CENTER" wrappingWidth="1128.000024497509">
                                        <font>
@@ -219,6 +223,9 @@
                            </children>
                         </VBox>
                      </children>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
                   </AnchorPane>
                </children>
             </HBox>

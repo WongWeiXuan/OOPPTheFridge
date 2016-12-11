@@ -5,14 +5,10 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.media.MediaView?>
@@ -23,7 +19,7 @@
 
 <VBox xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="theFridge.controller.Page2Controller">
    <children>
-      <TextFlow prefHeight="72.0" prefWidth="1280.0">
+      <TextFlow prefHeight="72.0" prefWidth="1280.0" textAlignment="CENTER">
          <children>
             <Label alignment="CENTER" prefHeight="21.0" prefWidth="1282.0" text="The Fridge">
                <font>
@@ -32,9 +28,9 @@
             </Label>
          </children>
       </TextFlow>
-      <HBox prefHeight="800.0" prefWidth="1280.0">
+      <HBox prefHeight="800.0" prefWidth="1280.0" VBox.vgrow="ALWAYS">
          <children>
-            <AnchorPane fx:id="Anchor" prefHeight="600.0" prefWidth="150.0">
+            <AnchorPane fx:id="Anchor" maxWidth="300.0" prefHeight="600.0" prefWidth="150.0">
                <children>
                   <VBox fx:id="naviPreview" alignment="CENTER" maxWidth="150.0" onMouseEntered="#showNavigation" prefHeight="600.0" prefWidth="150.0" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
@@ -55,7 +51,7 @@
                                     <Circle fill="#dde6f0" radius="25.0" stroke="#ffffff00" strokeType="INSIDE" />
                                     <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
                                        <image>
-                                          <Image url="@../../../../../Downloads/home.png" />
+                                          <Image url="theFridge/picture/home.png" />
                                        </image>
                                     </ImageView>
                                  </children>
@@ -76,7 +72,7 @@
                                     <Circle fill="#dde6f0" radius="25.0" stroke="#ffffff00" strokeType="INSIDE" />
                                     <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
                                        <image>
-                                          <Image url="@../../../../../Downloads/open-book.png" />
+                                          <Image url="theFridge/picture/open-book.png" />
                                        </image>
                                     </ImageView>
                                  </children>
@@ -94,7 +90,7 @@
                                     <Circle fill="#dde6f0" radius="25.0" stroke="#ffffff00" strokeType="INSIDE" />
                                     <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
                                        <image>
-                                          <Image url="@../../../../../Downloads/fertillizer.png" />
+                                          <Image url="theFridge/picture/fertillizer.png" />
                                        </image>
                                     </ImageView>
                                  </children>
@@ -112,7 +108,7 @@
                                     <Circle fill="#dde6f0" radius="25.0" stroke="#ffffff00" strokeType="INSIDE" />
                                     <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
                                        <image>
-                                          <Image url="@../../../../../Downloads/chicken.png" />
+                                          <Image url="theFridge/picture/chicken.png" />
                                        </image>
                                     </ImageView>
                                  </children>
@@ -130,7 +126,7 @@
                                     <Circle fill="#dde6f0" radius="25.0" stroke="#ffffff00" strokeType="INSIDE" />
                                     <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
                                        <image>
-                                          <Image url="@../../../../../Downloads/quiz-on-computer-with-question-signs-around.png" />
+                                          <Image url="theFridge/picture/quiz-on-computer-with-question-signs-around.png" />
                                        </image>
                                     </ImageView>
                                  </children>
@@ -148,7 +144,7 @@
                                     <Circle fill="#dde6f0" radius="25.0" stroke="#ffffff00" strokeType="INSIDE" />
                                     <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
                                        <image>
-                                          <Image url="@../../../../../Downloads/gift.png" />
+                                          <Image url="theFridge/picture/gift.png" />
                                        </image>
                                     </ImageView>
                                  </children>
@@ -166,40 +162,26 @@
                   </VBox>
                </children>
             </AnchorPane>
-            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="798.0" prefWidth="1130.0">
+            <VBox alignment="TOP_CENTER" prefHeight="798.0" prefWidth="1130.0" HBox.hgrow="ALWAYS">
                <children>
-                  <Pane prefHeight="798.0" prefWidth="1130.0">
+                  <HBox alignment="CENTER">
                      <children>
-                        <TextArea layoutX="249.0" layoutY="615.0" prefHeight="169.0" />
-                        <HBox layoutX="304.0" layoutY="564.0" prefHeight="31.0" prefWidth="488.0">
+                        <TextFlow textAlignment="CENTER">
                            <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Enter the amount in grams" textAlignment="CENTER" wrappingWidth="220.5576171875">
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Compost Single Food Waste" textAlignment="CENTER" wrappingWidth="1129.9999713897705">
                                  <font>
-                                    <Font size="18.0" />
+                                    <Font size="24.0" />
                                  </font>
                               </Text>
-                              <TextField fx:id="enterGrams" prefHeight="31.0" prefWidth="207.0" />
-                              <Button fx:id="btnGo" mnemonicParsing="false" onAction="#go" prefHeight="31.0" prefWidth="67.0" text="Go" />
                            </children>
-                        </HBox>
-                     </children></Pane>
-                  <Text layoutX="1.0" layoutY="16.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Compost Single Food Waste" textAlignment="CENTER" wrappingWidth="1129.9999713897705" AnchorPane.bottomAnchor="766.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Text>
-                  <HBox alignment="CENTER" layoutX="201.0" layoutY="181.1865234375" AnchorPane.bottomAnchor="630.0" AnchorPane.leftAnchor="220.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="50.0">
-                     <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="You Have Chosen To Compost:" textAlignment="CENTER" wrappingWidth="212.27685546875" HBox.hgrow="ALWAYS" />
-                        <Label fx:id="chosenFood" prefHeight="21.0" prefWidth="86.0" text="Label" />
+                        </TextFlow>
+                        <Button fx:id="btnMain" mnemonicParsing="false" onAction="#goMain" text="Back To Main" />
                      </children>
                   </HBox>
-                  <BorderPane layoutX="275.0" layoutY="136.0" AnchorPane.bottomAnchor="362.0" AnchorPane.leftAnchor="275.0" AnchorPane.rightAnchor="255.0" AnchorPane.topAnchor="136.0">
-                     <center>
+                  <VBox alignment="CENTER">
+                     <children>
                         <MediaView fx:id="video" fitHeight="300.0" fitWidth="600.0" />
-                     </center>
-                     <bottom>
-                        <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                        <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
                               <JFXButton onAction="#play" prefHeight="31.0" prefWidth="144.0" text="play" />
                               <JFXButton onAction="#pause" prefHeight="31.0" prefWidth="125.0" text="pause" />
@@ -208,12 +190,24 @@
                               <JFXButton onAction="#restart" prefHeight="31.0" prefWidth="106.0" text="restart" />
                            </children>
                         </HBox>
-                     </bottom>
-                  </BorderPane>
-                  <Label fx:id="steps" alignment="CENTER" layoutX="201.0" layoutY="641.0" prefHeight="21.0" prefWidth="730.0" text="Nothing to be displayed" AnchorPane.leftAnchor="201.0" AnchorPane.rightAnchor="201.0" />
-                  <Button fx:id="btnMain" layoutX="1007.0" layoutY="16.0" mnemonicParsing="false" onAction="#goMain" text="Back To Main" />
+                     </children>
+                  </VBox>
+                  <TextFlow textAlignment="CENTER">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="You Have Chosen To Compost:" textAlignment="CENTER" wrappingWidth="212.27685546875" />
+                        <Label fx:id="chosenFood" prefHeight="21.0" prefWidth="86.0" text="Label" />
+                     </children>
+                  </TextFlow>
+                  <TextFlow textAlignment="CENTER">
+                     <children>
+                        <Label fx:id="steps" alignment="CENTER" prefHeight="21.0" prefWidth="730.0" text="Nothing to be displayed" />
+                     </children>
+                  </TextFlow>
                </children>
-            </AnchorPane>
+               <padding>
+                  <Insets right="150.0" />
+               </padding>
+            </VBox>
          </children>
       </HBox>
    </children>
