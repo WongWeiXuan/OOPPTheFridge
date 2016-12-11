@@ -145,7 +145,6 @@ public class Page2Controller implements Initializable {
 		me = new Media(new File(path).toURI().toString());
 		mp = new MediaPlayer(me);
 		video.setMediaPlayer(mp);
-		mp.setAutoPlay(true);
 		DoubleProperty width = video.fitWidthProperty();
 		DoubleProperty height = video.fitHeightProperty();
 	}
