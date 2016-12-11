@@ -10,6 +10,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Circle?>
@@ -17,7 +18,7 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-<VBox xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="theFridge.controller.ProfileController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="theFridge.controller.ProfileController">
    <children>
       <TextFlow prefHeight="72.0" prefWidth="1280.0">
          <children>
@@ -30,7 +31,7 @@
       </TextFlow>
       <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0">
          <children>
-            <AnchorPane fx:id="Anchor" maxWidth="300.0" prefHeight="600.0" prefWidth="150.0">
+            <AnchorPane fx:id="Anchor" maxWidth="300.0" prefHeight="600.0" prefWidth="150.0" style="-fx-background-color: rgba(194,24,91);">
                <children>
                   <VBox fx:id="naviPreview" alignment="CENTER" maxWidth="150.0" onMouseEntered="#showNavigation" prefHeight="600.0" prefWidth="150.0" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
@@ -162,77 +163,138 @@
                   </VBox>
                </children>
             </AnchorPane>
-            <AnchorPane prefHeight="800.0" prefWidth="1132.0">
+            <AnchorPane prefHeight="737.0" prefWidth="1131.0">
                <children>
-                  <VBox>
+                  <Pane prefHeight="130.0" prefWidth="1131.0" style="-fx-background-color: rgba(233,30,99);">
                      <children>
-                        <Label text="Darren Wong Wei Xuan">
-                           <font>
-                              <Font size="36.0" />
-                           </font>
-                        </Label>
-                        <ImageView fitHeight="255.0" fitWidth="257.0">
-                           <image>
-                              <Image url="@../../../../../../../Pictures/Saved%20Pictures/2290348556_a9a2be1059.jpg" />
-                           </image>
-                        </ImageView>
+                        <VBox layoutX="430.0" layoutY="33.0">
+                           <children>
+                              <Label prefHeight="49.0" prefWidth="445.0" text="Darren Wong Wei Xuan">
+                                 <font>
+                                    <Font name="AR CHRISTY" size="36.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </Pane>
+                  <Pane layoutY="130.0" prefHeight="614.0" prefWidth="1131.0" style="-fx-background-color: rgba000000000(240,98,146);">
+                     <children>
+                        <Pane layoutX="235.0" layoutY="-2.0" prefHeight="596.0" prefWidth="728.0" style="-fx-background-color: white;" />
+                        <JFXButton layoutX="36.0" layoutY="116.0" text="Change Profile Image" />
+                     </children>
+                  </Pane>
+                  <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="36.0" layoutY="30.0" AnchorPane.leftAnchor="20.0">
+                     <image>
+                        <Image url="@../picture/Profile%20Image.jpg" />
+                     </image>
+                  </ImageView>
+                  <VBox layoutX="297.0" layoutY="123.0" prefHeight="640.0" prefWidth="630.0">
+                     <children>
+                        <VBox prefHeight="213.0">
+                           <children>
+                              <HBox prefHeight="100.0">
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Username:" wrappingWidth="234.61376953125">
+                                       <font>
+                                          <Font size="36.0" />
+                                       </font>
+                                    </Text>
+                                    <Label alignment="CENTER" prefHeight="48.0" prefWidth="334.0" text="Label">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <JFXButton prefHeight="48.0" prefWidth="90.0" text="Edit" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="146.0" prefWidth="630.0">
+                                 <children>
+                                    <JFXTextField maxWidth="515.0" minWidth="100.0" prefHeight="75.0" prefWidth="445.0" />
+                                    <JFXButton prefHeight="48.0" prefWidth="90.0" text="Save">
+                                       <HBox.margin>
+                                          <Insets right="10.0" top="20.0" />
+                                       </HBox.margin>
+                                    </JFXButton>
+                                    <JFXButton prefHeight="48.0" prefWidth="90.0" text="Cancel">
+                                       <HBox.margin>
+                                          <Insets left="10.0" top="20.0" />
+                                       </HBox.margin>
+                                    </JFXButton>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="213.0">
+                           <children>
+                              <HBox prefHeight="100.0">
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" wrappingWidth="239.658203125">
+                                       <font>
+                                          <Font size="36.0" />
+                                       </font>
+                                    </Text>
+                                    <Label alignment="CENTER" prefHeight="48.0" prefWidth="334.0" text="Label">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <JFXButton prefHeight="48.0" prefWidth="90.0" text="Edit" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="83.0">
+                                 <children>
+                                    <JFXPasswordField maxWidth="480.0" minWidth="400.0" prefHeight="75.0" prefWidth="445.0" />
+                                    <JFXButton prefHeight="48.0" prefWidth="90.0" text="Save">
+                                       <HBox.margin>
+                                          <Insets right="10.0" top="20.0" />
+                                       </HBox.margin>
+                                    </JFXButton>
+                                    <JFXButton prefHeight="48.0" prefWidth="90.0" text="Cancel">
+                                       <HBox.margin>
+                                          <Insets left="10.0" top="20.0" />
+                                       </HBox.margin>
+                                    </JFXButton>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="213.0">
+                           <children>
+                              <HBox prefHeight="100.0">
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="E-mail   :" wrappingWidth="234.7578125">
+                                       <font>
+                                          <Font size="36.0" />
+                                       </font>
+                                    </Text>
+                                    <Label alignment="CENTER" prefHeight="50.0" prefWidth="334.0" text="Label">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <JFXButton prefHeight="48.0" prefWidth="90.0" text="Edit" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="82.0">
+                                 <children>
+                                    <JFXTextField maxWidth="452.0" minWidth="400.0" prefHeight="75.0" prefWidth="445.0" />
+                                    <JFXButton prefHeight="48.0" prefWidth="90.0" text="Save">
+                                       <HBox.margin>
+                                          <Insets right="10.0" top="20.0" />
+                                       </HBox.margin>
+                                    </JFXButton>
+                                    <JFXButton prefHeight="48.0" prefWidth="90.0" text="Cancel">
+                                       <HBox.margin>
+                                          <Insets left="10.0" top="20.0" />
+                                       </HBox.margin>
+                                    </JFXButton>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
                      </children>
                   </VBox>
-                  <HBox layoutX="491.0" layoutY="62.0" prefWidth="400.0" AnchorPane.leftAnchor="450.0" AnchorPane.topAnchor="60.0">
-                     <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Username:" wrappingWidth="175.61376953125">
-                           <font>
-                              <Font size="36.0" />
-                           </font>
-                        </Text>
-                        <Label alignment="CENTER" prefHeight="48.0" prefWidth="246.0" text="Label">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </HBox>
-                  <HBox layoutX="482.0" layoutY="270.0" prefHeight="50.0" prefWidth="400.0" AnchorPane.leftAnchor="450.0" AnchorPane.topAnchor="260.0">
-                     <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" wrappingWidth="167.658203125">
-                           <font>
-                              <Font size="36.0" />
-                           </font>
-                        </Text>
-                        <Label alignment="CENTER" prefHeight="50.0" prefWidth="246.0" text="Label">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </HBox>
-                  <HBox layoutX="482.0" layoutY="433.0" prefHeight="50.0" prefWidth="400.0" AnchorPane.leftAnchor="450.0" AnchorPane.topAnchor="460.0">
-                     <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="E-mail   :" wrappingWidth="161.7578125">
-                           <font>
-                              <Font size="36.0" />
-                           </font>
-                        </Text>
-                        <Label alignment="CENTER" prefHeight="50.0" prefWidth="246.0" text="Label">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </HBox>
-                  <JFXButton layoutX="947.0" layoutY="69.0" text="Edit" AnchorPane.leftAnchor="950.0" />
-                  <JFXButton layoutX="947.0" layoutY="269.0" text="Edit" AnchorPane.leftAnchor="950.0" />
-                  <JFXTextField layoutX="450.0" layoutY="136.0" maxWidth="400.0" minWidth="400.0" prefHeight="37.0" prefWidth="400.0" AnchorPane.topAnchor="160.0" />
-                  <JFXTextField layoutX="450.0" layoutY="363.0" maxWidth="400.0" minWidth="400.0" prefHeight="37.0" prefWidth="400.0" AnchorPane.topAnchor="160.0" />
-                  <JFXButton layoutX="938.0" layoutY="469.0" text="Edit" AnchorPane.leftAnchor="950.0" />
-                  <JFXPasswordField layoutX="450.0" layoutY="363.0" maxWidth="400.0" minWidth="400.0" prefHeight="37.0" prefWidth="400.0" AnchorPane.topAnchor="360.0" />
-                  <JFXTextField layoutX="450.0" layoutY="583.0" maxWidth="400.0" minWidth="400.0" prefHeight="37.0" prefWidth="400.0" AnchorPane.topAnchor="560.0" />
-                  <JFXButton layoutX="938.0" layoutY="163.0" text="Save" AnchorPane.leftAnchor="950.0" />
-                  <JFXButton layoutX="938.0" layoutY="363.0" text="Save" AnchorPane.leftAnchor="950.0" />
-                  <JFXButton layoutX="950.0" layoutY="563.0" text="Save" AnchorPane.leftAnchor="950.0" />
-                  <JFXButton layoutX="1011.0" layoutY="163.0" text="Cancel" AnchorPane.leftAnchor="1020.0" />
-                  <JFXButton layoutX="1011.0" layoutY="363.0" text="Cancel" AnchorPane.leftAnchor="1020.0" />
-                  <JFXButton layoutX="1020.0" layoutY="563.0" text="Cancel" AnchorPane.leftAnchor="1020.0" />
                </children>
             </AnchorPane>
          </children>
