@@ -23,7 +23,7 @@
    <children>
       <VBox prefHeight="800.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <TextFlow prefHeight="72.0" prefWidth="200.0" style="-fx-background-color: #C2185B;" textAlignment="CENTER">
+            <TextFlow prefHeight="72.0" prefWidth="200.0" style="-fx-background-color: black;" textAlignment="CENTER">
                <children>
                   <Label text="The Fridge" textAlignment="CENTER" textFill="WHITE">
                      <font>
