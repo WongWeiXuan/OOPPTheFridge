@@ -12,6 +12,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
@@ -74,6 +77,40 @@ public class ProfileController {
     
     @FXML
     private JFXButton btnCancel3;
+    
+    @FXML
+	private TextField UNText;
+    
+    @FXML
+	private PasswordField PassText;
+    
+    @FXML
+	private TextField EMText;
+    
+    @FXML
+	private Label UNLabel;
+    
+    @FXML
+	private Label PassLabel;
+    
+    @FXML
+	private Label EMLabel;
+    
+    @FXML
+    private VBox hideUN;
+    
+    @FXML
+    private VBox hidePass1;
+    
+    @FXML
+    private VBox hidePass2;
+    
+    @FXML
+    private VBox hidePass3;
+    
+    @FXML
+    private VBox hideEM;
+    
 
 
 
@@ -130,4 +167,30 @@ public class ProfileController {
 	@FXML public void changeImage(ActionEvent event) {}
 	@FXML public void showUN(ActionEvent event) {}
 
+	public void save1(ActionEvent event){
+		String username=UNText.getText();
+		UNLabel.setText(username);
+		UNText.setText("");
+	}
+	public void save2(ActionEvent event){
+		String password=PassText.getText();
+		PassLabel.setText(password);
+		PassText.setText("");
+		
+	}
+	public void save3(ActionEvent event){
+		String email=EMText.getText();
+		EMLabel.setText(email);
+		EMText.setText("");
+		
+	}
+	public void cancel1(ActionEvent event){
+		UNText.setText("");
+	}
+	public void cancel2(ActionEvent event){
+		PassText.setText("");
+	}
+	public void cancel3(ActionEvent event){
+		EMText.setText("");
+}
 }
