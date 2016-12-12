@@ -175,15 +175,11 @@
                         </Label>
                         <TextFlow textAlignment="CENTER">
                            <children>
-                              <TextFlow prefHeight="110.0" prefWidth="165.0" style="-fx-background-color: white;" textAlignment="CENTER">
-                                 <children>
-                                    <ImageView fitHeight="110.0" fitWidth="128.0">
-                                       <image>
-                                          <Image url="@../picture/Mail%20Sent.png" />
-                                       </image>
-                                    </ImageView>
-                                 </children>
-                              </TextFlow>
+                              <ImageView fitHeight="110.0" fitWidth="128.0">
+                                 <image>
+                                    <Image url="@../picture/Mail%20Sent.png" />
+                                 </image>
+                              </ImageView>
                            </children>
                            <VBox.margin>
                               <Insets top="30.0" />
