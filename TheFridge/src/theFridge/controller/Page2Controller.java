@@ -63,7 +63,7 @@ public class Page2Controller implements Initializable {
 	@FXML
 	private Media me;
 	@FXML
-	private TextField enterGrams;
+	private TextField grams;
 	@FXML
 	private Button btnGo;
 	@FXML
@@ -168,6 +168,11 @@ public class Page2Controller implements Initializable {
 		mp.stop();
 	}
 
+	public void getGrams(ActionEvent event){
+		String weight= grams.getText();
+		steps.setText(weight);
+		
+	}
 	
 	
 	
