@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ProgressIndicator?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -39,7 +40,7 @@
                               <Circle fill="#dde6f0" radius="15.0" stroke="TRANSPARENT" strokeType="INSIDE" />
                               <Circle fill="#dde6f0" radius="15.0" stroke="TRANSPARENT" strokeType="INSIDE" />
                               <Circle fill="#dde6f0" radius="15.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                              <Circle fill="#dde6f0" radius="15.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                              <Circle fill="#f5bf49bf" radius="15.0" stroke="TRANSPARENT" strokeType="INSIDE" />
                            </children>
                         </VBox>
                         <VBox fx:id="navi" alignment="CENTER" layoutX="-150.0" maxWidth="150.0" onMouseExited="#hideNavigation" prefHeight="600.0" prefWidth="150.0" spacing="20.0" style="-fx-background-color: rgba(233, 30, 99, 0.25);" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -141,7 +142,7 @@
                                  <children>
                                     <StackPane prefHeight="150.0" prefWidth="100.0">
                                        <children>
-                                          <Circle fill="#dde6f0" radius="25.0" stroke="#ffffff00" strokeType="INSIDE" />
+                                          <Circle fill="#f5bf49bf" radius="25.0" stroke="#ffffff00" strokeType="INSIDE" />
                                           <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
                                              <image>
                                                 <Image url="theFridge/picture/gift.png" />
@@ -164,21 +165,24 @@
                   </AnchorPane>
                   <VBox alignment="CENTER" style="-fx-background-color: #FCE4EC;" HBox.hgrow="ALWAYS">
                      <children>
-                        <Label text="Successful verification achieved" textFill="#e91e63">
+                        <Label text="You have chosen to use a 12-character promo code." textFill="#e91e63">
                            <font>
                               <Font name="Garamond" size="36.0" />
                            </font>
                         </Label>
-                        <Label text="Congratulations on redeeming the voucher!" textFill="#e91e63">
+                        <JFXButton buttonType="RAISED" ripplerFill="BLACK" style="-fx-background-color: yellow;" text="Click to generate">
                            <font>
-                              <Font name="Garamond" size="36.0" />
+                              <Font name="Garamond" size="24.0" />
                            </font>
-                        </Label>
-                        <ProgressIndicator prefHeight="130.0" prefWidth="150.0" progress="1.0">
                            <VBox.margin>
-                              <Insets top="20.0" />
+                              <Insets top="10.0" />
                            </VBox.margin>
-                        </ProgressIndicator>
+                        </JFXButton>
+                        <JFXTextField maxWidth="500.0" minWidth="500.0" prefHeight="50.0" prefWidth="500.0">
+                           <VBox.margin>
+                              <Insets top="50.0" />
+                           </VBox.margin>
+                        </JFXTextField>
                      </children>
                      <HBox.margin>
                         <Insets right="150.0" />
