@@ -8,7 +8,7 @@ import javafx.scene.input.MouseEvent;
 
 import javafx.scene.layout.VBox;
 
-public class QuizPageEndController {
+public class QuizBeginPageController {
 	@FXML
 	private AnchorPane Anchor;
 	@FXML

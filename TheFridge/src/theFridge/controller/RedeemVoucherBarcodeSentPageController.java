@@ -8,7 +8,7 @@ import javafx.scene.input.MouseEvent;
 
 import javafx.scene.layout.VBox;
 
-public class RedeemVoucherVerifyPageController {
+public class RedeemVoucherBarcodeSentPageController {
 	@FXML
 	private AnchorPane Anchor;
 	@FXML

@@ -1,14 +1,11 @@
 package theFridge.controller;
 
 import javafx.fxml.FXML;
-
-import javafx.scene.layout.AnchorPane;
-
 import javafx.scene.input.MouseEvent;
-
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 
-public class RedeemVoucherVerifiedPageController {
+public class RedeemVoucher12CharacterPageController {
 	@FXML
 	private AnchorPane Anchor;
 	@FXML

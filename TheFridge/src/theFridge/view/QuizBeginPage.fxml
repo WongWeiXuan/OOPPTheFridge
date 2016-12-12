@@ -3,11 +3,7 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
-<?import javafx.scene.chart.CategoryAxis?>
-<?import javafx.scene.chart.LineChart?>
-<?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ProgressIndicator?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -19,22 +15,22 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: #FCE4EC;" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: #FCE4EC;" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="theFridge.controller.QuizBeginPageController">
    <children>
       <VBox layoutX="-150.0" prefHeight="800.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <TextFlow prefHeight="66.0" prefWidth="1280.0" style="-fx-background-color: #C2185B;" textAlignment="CENTER">
+            <TextFlow prefHeight="73.0" prefWidth="1280.0" style="-fx-background-color: #C2185B;" textAlignment="CENTER">
                <children>
                   <Label text="The Fridge" textFill="WHITE">
                      <font>
-                        <Font name="Garamond" size="48.0" />
+                        <Font name="Garamond Bold" size="48.0" />
                      </font>
                   </Label>
                </children>
             </TextFlow>
-            <HBox style="-fx-background-color: rgba(240, 98, 146, 0.25);" VBox.vgrow="ALWAYS">
+            <HBox prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: rgba(240, 98, 146, 0.25);">
                <children>
-                  <AnchorPane fx:id="Anchor" maxWidth="300.0" prefHeight="736.0" prefWidth="150.0">
+                  <AnchorPane fx:id="Anchor" maxWidth="300.0" prefHeight="600.0" prefWidth="150.0">
                      <children>
                         <VBox fx:id="naviPreview" alignment="CENTER" maxWidth="150.0" onMouseEntered="#showNavigation" prefHeight="600.0" prefWidth="150.0" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
@@ -166,134 +162,43 @@
                         </VBox>
                      </children>
                   </AnchorPane>
-                  <VBox alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="673.0" prefWidth="1019.0" style="-fx-background-color: #FCE4EC;" HBox.hgrow="ALWAYS">
+                  <VBox alignment="CENTER" prefHeight="743.0" prefWidth="994.0" style="-fx-background-color: #FCE4EC;" HBox.hgrow="ALWAYS">
                      <children>
-                        <TextFlow prefHeight="75.0" prefWidth="1280.0" style="-fx-background-color: #009688;" textAlignment="CENTER">
-                           <children>
-                              <Label prefHeight="75.0" prefWidth="233.0" text="Quiz Completed" textAlignment="CENTER">
-                                 <font>
-                                    <Font name="Garamond" size="36.0" />
-                                 </font>
-                              </Label>
-                           </children>
+                        <Label text="Welcome to the Fridge Quiz" textFill="#e91e63">
+                           <font>
+                              <Font name="Garamond" size="48.0" />
+                           </font>
                            <VBox.margin>
-                              <Insets top="50.0" />
+                              <Insets right="110.0" />
                            </VBox.margin>
-                        </TextFlow>
-                        <HBox alignment="CENTER" VBox.vgrow="ALWAYS">
-                           <children>
-                              <VBox prefHeight="304.0" prefWidth="310.0">
-                                 <children>
-                                    <TextFlow prefHeight="52.0" prefWidth="310.0" style="-fx-background-color: #009688;" textAlignment="CENTER">
-                                       <children>
-                                          <Label prefHeight="52.0" prefWidth="72.0" text="Score:">
-                                             <font>
-                                                <Font name="Garamond" size="30.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                    </TextFlow>
-                                    <VBox prefHeight="253.0" prefWidth="310.0" style="-fx-background-color: white;">
-                                       <children>
-                                          <ProgressIndicator prefHeight="107.0" prefWidth="330.0" progress="0.4">
-                                             <VBox.margin>
-                                                <Insets top="40.0" />
-                                             </VBox.margin>
-                                          </ProgressIndicator>
-                                          <Label prefHeight="39.0" prefWidth="310.0" text="4/10 questions answered correctly">
-                                             <font>
-                                                <Font name="Garamond" size="20.0" />
-                                             </font>
-                                             <VBox.margin>
-                                                <Insets left="20.0" top="50.0" />
-                                             </VBox.margin>
-                                          </Label>
-                                       </children>
-                                    </VBox>
-                                 </children>
-                                 <HBox.margin>
-                                    <Insets right="10.0" />
-                                 </HBox.margin>
-                              </VBox>
-                              <VBox prefHeight="304.0" prefWidth="310.0">
-                                 <children>
-                                    <TextFlow prefHeight="52.0" prefWidth="310.0" style="-fx-background-color: #009688;" textAlignment="CENTER">
-                                       <children>
-                                          <Label prefHeight="54.0" prefWidth="65.0" text="Details">
-                                             <font>
-                                                <Font name="Garamond" size="24.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                    </TextFlow>
-                                    <TextFlow prefHeight="249.0" prefWidth="310.0" style="-fx-background-color: white;">
-                                       <children>
-                                          <LineChart prefHeight="250.0" prefWidth="310.0">
-                                            <xAxis>
-                                              <CategoryAxis side="BOTTOM" />
-                                            </xAxis>
-                                            <yAxis>
-                                              <NumberAxis side="LEFT" />
-                                            </yAxis>
-                                          </LineChart>
-                                       </children>
-                                    </TextFlow>
-                                 </children>
-                                 <HBox.margin>
-                                    <Insets right="10.0" />
-                                 </HBox.margin>
-                              </VBox>
-                              <VBox prefHeight="304.0" prefWidth="310.0">
-                                 <children>
-                                    <TextFlow prefHeight="52.0" prefWidth="310.0" style="-fx-background-color: #009688;" textAlignment="CENTER">
-                                       <children>
-                                          <Label prefHeight="53.0" prefWidth="288.0" text="Total Points Accumulated:">
-                                             <font>
-                                                <Font name="Garamond" size="24.0" />
-                                             </font>
-                                             <padding>
-                                                <Insets left="25.0" />
-                                             </padding>
-                                          </Label>
-                                       </children>
-                                       <VBox.margin>
-                                          <Insets />
-                                       </VBox.margin>
-                                    </TextFlow>
-                                    <TextFlow prefHeight="250.0" prefWidth="310.0" style="-fx-background-color: white;" textAlignment="CENTER">
-                                       <children>
-                                          <Label prefHeight="252.0" prefWidth="90.0" text="1200">
-                                             <font>
-                                                <Font name="Garamond" size="48.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                       <VBox.margin>
-                                          <Insets />
-                                       </VBox.margin>
-                                    </TextFlow>
-                                 </children>
-                              </VBox>
-                           </children>
+                        </Label>
+                        <Label text="Are you a food saver? Or a food waster?" textFill="#e91e63">
+                           <font>
+                              <Font name="Garamond" size="24.0" />
+                           </font>
                            <VBox.margin>
-                              <Insets top="80.0" />
+                              <Insets right="110.0" />
                            </VBox.margin>
-                        </HBox>
-                        <TextFlow prefHeight="90.0" prefWidth="1280.0" textAlignment="CENTER">
-                           <children>
-                              <JFXButton buttonType="RAISED" prefHeight="70.0" prefWidth="200.0" ripplerFill="BLACK" style="-fx-background-color: yellow;" text="Try again!">
-                                 <font>
-                                    <Font name="Garamond" size="36.0" />
-                                 </font>
-                              </JFXButton>
-                           </children>
+                        </Label>
+                        <Label text="Click &quot;Begin&quot; to find out!" textFill="#e91e63">
+                           <font>
+                              <Font name="Garamond" size="24.0" />
+                           </font>
                            <VBox.margin>
-                              <Insets />
+                              <Insets right="110.0" />
                            </VBox.margin>
-                        </TextFlow>
+                        </Label>
+                        <JFXButton buttonType="RAISED" prefHeight="70.0" prefWidth="200.0" ripplerFill="BLACK" style="-fx-background-color: #009688;" text="Begin" textFill="WHITE">
+                           <font>
+                              <Font name="Garamond" size="36.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets right="110.0" top="30.0" />
+                           </VBox.margin>
+                        </JFXButton>
                      </children>
                      <HBox.margin>
-                        <Insets right="150.0" />
+                        <Insets />
                      </HBox.margin>
                   </VBox>
                </children>
