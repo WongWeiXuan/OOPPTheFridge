@@ -26,6 +26,7 @@ public class LoginPageController {
 	@FXML
 	private JFXButton closeBtn;
 	
+	/*
 	@FXML
 	void closePlatform(ActionEvent event) {
 		Platform.exit();
@@ -36,6 +37,7 @@ public class LoginPageController {
 		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
 		stage.setIconified(true);
     }
+    */
 	
 	@FXML
 	void goToHomePage(ActionEvent event) throws IOException {
