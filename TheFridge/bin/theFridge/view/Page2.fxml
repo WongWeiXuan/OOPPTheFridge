@@ -3,7 +3,6 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -20,11 +19,11 @@
 
 <VBox xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="theFridge.controller.Page2Controller">
    <children>
-      <TextFlow prefHeight="72.0" prefWidth="1280.0" textAlignment="CENTER">
+      <TextFlow prefHeight="72.0" prefWidth="1280.0" style="-fx-background-color: #C2185B;" textAlignment="CENTER">
          <children>
-            <Label alignment="CENTER" prefHeight="21.0" prefWidth="1282.0" text="The Fridge">
+            <Label alignment="CENTER" prefHeight="21.0" prefWidth="1282.0" text="The Fridge" textFill="WHITE">
                <font>
-                  <Font name="Garamond" size="48.0" />
+                  <Font name="Garamond Bold" size="48.0" />
                </font>
             </Label>
          </children>
@@ -37,7 +36,7 @@
                      <children>
                         <Circle fill="#dde6f0" radius="15.0" stroke="TRANSPARENT" strokeType="INSIDE" />
                         <Circle fill="#dde6f0" radius="15.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle fill="#dde6f0" radius="15.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle fill="#f5bf49c0" radius="15.0" stroke="TRANSPARENT" strokeType="INSIDE" />
                         <Circle fill="#dde6f0" radius="15.0" stroke="TRANSPARENT" strokeType="INSIDE" />
                         <Circle fill="#dde6f0" radius="15.0" stroke="TRANSPARENT" strokeType="INSIDE" />
                         <Circle fill="#dde6f0" radius="15.0" stroke="TRANSPARENT" strokeType="INSIDE" />
@@ -88,7 +87,7 @@
                            <children>
                               <StackPane prefHeight="150.0" prefWidth="100.0">
                                  <children>
-                                    <Circle fill="#dde6f0" radius="25.0" stroke="#ffffff00" strokeType="INSIDE" />
+                                    <Circle fill="#f5bf49bf" radius="25.0" stroke="#ffffff00" strokeType="INSIDE" />
                                     <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
                                        <image>
                                           <Image url="theFridge/picture/fertillizer.png" />
@@ -163,13 +162,13 @@
                   </VBox>
                </children>
             </AnchorPane>
-            <VBox alignment="TOP_CENTER" prefHeight="798.0" prefWidth="1130.0" HBox.hgrow="ALWAYS">
+            <VBox alignment="TOP_CENTER" prefHeight="798.0" prefWidth="1130.0" style="-fx-background-color: #FCE4EC;" HBox.hgrow="ALWAYS">
                <children>
                   <HBox alignment="CENTER" prefHeight="32.0" prefWidth="1081.0">
                      <children>
                         <TextFlow textAlignment="CENTER">
                            <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Compost Single Food Waste" textAlignment="CENTER" wrappingWidth="1129.9999713897705">
+                              <Text fill="#e91e63" strokeType="OUTSIDE" strokeWidth="0.0" text="Compost Single Food Waste" textAlignment="CENTER" wrappingWidth="1129.9999713897705">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
@@ -183,13 +182,13 @@
                         <Insets />
                      </VBox.margin>
                      <children>
-                        <Button fx:id="btnMain" alignment="CENTER_RIGHT" minWidth="110.0" mnemonicParsing="false" onAction="#goMain" prefHeight="31.0" prefWidth="110.0" text="Back To Main" />
+                        <JFXButton fx:id="btnMain" buttonType="RAISED" onAction="#goMain" ripplerFill="BLACK" style="-fx-background-color: #3c71dd;" text="Back To Main" textFill="WHITE" />
                      </children>
                   </TextFlow>
                   <TextFlow prefHeight="22.0" prefWidth="930.0" textAlignment="CENTER">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="You Have Chosen To Compost:" textAlignment="CENTER" wrappingWidth="238.52880859375" />
-                        <Label fx:id="chosenFood" prefHeight="21.0" prefWidth="115.0" text="Label">
+                        <Text fill="#e91e63" strokeType="OUTSIDE" strokeWidth="0.0" text="You Have Chosen To Compost:" textAlignment="CENTER" wrappingWidth="238.52880859375" />
+                        <Label fx:id="chosenFood" prefHeight="21.0" prefWidth="115.0" text="Label" textFill="#e91e63">
                            <padding>
                               <Insets left="20.0" />
                            </padding></Label>
@@ -217,7 +216,7 @@
                      <children>
                         <HBox alignment="TOP_CENTER" prefHeight="31.0" prefWidth="980.0">
                            <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Enter Amount In Grams" textAlignment="CENTER" wrappingWidth="228.6708984375">
+                              <Text fill="#e91e63" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter Amount In Grams" textAlignment="CENTER" wrappingWidth="228.6708984375">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -234,7 +233,7 @@
                               </JFXButton>
                            </children>
                         </HBox>
-                        <Label fx:id="steps" alignment="CENTER" prefHeight="312.0" prefWidth="980.0" text="Nothing to be displayed" />
+                        <Label fx:id="steps" alignment="CENTER" prefHeight="312.0" prefWidth="980.0" text="Nothing to be displayed" textFill="#e91e63" />
                      </children>
                   </VBox>
                </children>

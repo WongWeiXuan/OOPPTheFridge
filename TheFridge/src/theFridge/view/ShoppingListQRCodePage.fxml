@@ -22,7 +22,7 @@
                <children>
                   <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="The Fridge">
                      <font>
-                        <Font name="Garamond" size="48.0" />
+                        <Font name="Garamond Bold" size="48.0" />
                      </font>
                   </Text>
                </children>
