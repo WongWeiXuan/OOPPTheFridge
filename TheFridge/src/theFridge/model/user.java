@@ -1,10 +1,10 @@
 package theFridge.model;
 
-public class user {
+public class User {
 	private String userName;
 	private String password;
 	private String eMail;
-	public user(String userName, String password, String eMail) {
+	public User(String userName, String password, String eMail) {
 		super();
 		this.userName = userName;
 		this.password = password;
