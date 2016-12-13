@@ -277,7 +277,7 @@
                                           <Insets />
                                        </VBox.margin>
                                     </GridPane>
-                                    <JFXButton buttonType="RAISED" ripplerFill="BLACK" style="-fx-background-color: yellow;" text="Click to generate a 12-character promo code instead">
+                                    <JFXButton fx:id="TwelveCharacterBtn" buttonType="RAISED" onAction="#goToPromoPage" ripplerFill="BLACK" style="-fx-background-color: yellow;" text="Click to generate a 12-character promo code instead">
                                        <font>
                                           <Font name="Garamond" size="24.0" />
                                        </font>

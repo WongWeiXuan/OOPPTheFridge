@@ -16,6 +16,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import javafx.event.ActionEvent;
+import com.jfoenix.controls.JFXButton;
 
 public class RedeemVoucherPageController {
 	@FXML
@@ -36,7 +38,19 @@ public class RedeemVoucherPageController {
 	private VBox quizScene;
 	@FXML
 	private VBox prizeScene;
+	@FXML 
+	private JFXButton TwelveCharacterBtn;
+	
 
+	@FXML 
+	public void goToPromoPage(ActionEvent event) throws IOException {
+		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemVoucher12CharacterPage.fxml"));
+		
+		stage.setScene(new Scene(root));
+		stage.show();
+	}
+	
 	@FXML
 	public void showNavigation(MouseEvent event) {
 		Timeline timeline = new Timeline();

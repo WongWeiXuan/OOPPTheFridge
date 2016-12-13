@@ -213,11 +213,11 @@
                         </HBox>
                      </children>
                   </VBox>
-                  <TextFlow prefHeight="300.0" prefWidth="980.0" style="-fx-background-color: white;" textAlignment="CENTER">
+                  <VBox alignment="TOP_CENTER" style="-fx-background-color: white;">
                      <children>
-                        <HBox prefHeight="31.0" prefWidth="980.0">
+                        <HBox alignment="TOP_CENTER" prefHeight="31.0" prefWidth="980.0">
                            <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Enter Amount In Grams" textAlignment="RIGHT" wrappingWidth="505.6708984375">
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Enter Amount In Grams" textAlignment="CENTER" wrappingWidth="228.6708984375">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -236,10 +236,7 @@
                         </HBox>
                         <Label fx:id="steps" alignment="CENTER" prefHeight="312.0" prefWidth="980.0" text="Nothing to be displayed" />
                      </children>
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                  </TextFlow>
+                  </VBox>
                </children>
                <HBox.margin>
                   <Insets right="150.0" />
