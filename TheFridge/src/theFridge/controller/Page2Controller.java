@@ -162,6 +162,7 @@ public class Page2Controller implements Initializable {
 	}
 	public void restart(ActionEvent event){
 		mp.seek(mp.getStartTime());
+		mp.setRate(1);
 		mp.play();
 	}
 	public void stop(ActionEvent event){
@@ -171,7 +172,8 @@ public class Page2Controller implements Initializable {
 
 	public void getGrams(ActionEvent event){
 		String weight= grams.getText();
-		steps.setText(weight);
+		steps.setText("You have entered " + weight + "grams of food\n" + "Please give me a A FOR MY HARDWORK");
+		
 		
 	}
 	
