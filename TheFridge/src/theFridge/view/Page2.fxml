@@ -178,11 +178,14 @@
                         </TextFlow>
                      </children>
                   </HBox>
-                  <Button fx:id="btnMain" alignment="CENTER" mnemonicParsing="false" onAction="#goMain" prefHeight="31.0" prefWidth="109.0" text="Back To Main">
+                  <TextFlow prefHeight="31.0" prefWidth="943.0" textAlignment="RIGHT">
                      <VBox.margin>
-                        <Insets left="800.0" />
+                        <Insets />
                      </VBox.margin>
-                  </Button>
+                     <children>
+                        <Button fx:id="btnMain" alignment="CENTER_RIGHT" minWidth="110.0" mnemonicParsing="false" onAction="#goMain" prefHeight="31.0" prefWidth="110.0" text="Back To Main" />
+                     </children>
+                  </TextFlow>
                   <TextFlow prefHeight="22.0" prefWidth="930.0" textAlignment="CENTER">
                      <children>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="You Have Chosen To Compost:" textAlignment="CENTER" wrappingWidth="238.52880859375" />
@@ -238,9 +241,9 @@
                      </VBox.margin>
                   </TextFlow>
                </children>
-               <padding>
+               <HBox.margin>
                   <Insets right="150.0" />
-               </padding>
+               </HBox.margin>
             </VBox>
          </children>
       </HBox>

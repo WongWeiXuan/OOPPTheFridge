@@ -19,10 +19,9 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TextFlow prefHeight="72.0" prefWidth="419.0">
+      <TextFlow prefHeight="72.0" prefWidth="419.0" textAlignment="CENTER">
          <children>
             <Label alignment="CENTER" prefHeight="57.0" prefWidth="1281.0" text="The Fridge" textAlignment="CENTER">
                <font>

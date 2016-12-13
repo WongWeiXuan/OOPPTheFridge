@@ -166,6 +166,7 @@ public class Page2Controller implements Initializable {
 	}
 	public void stop(ActionEvent event){
 		mp.stop();
+		mp.setRate(1);
 	}
 
 	public void getGrams(ActionEvent event){
