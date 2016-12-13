@@ -9,6 +9,7 @@ import javafx.scene.control.Button;
 
 import java.io.IOException;
 import theFridge.controller.ProfileController;
+import theFridge.model.First;
 
 import com.jfoenix.controls.JFXButton;
 
