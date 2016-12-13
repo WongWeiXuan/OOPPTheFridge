@@ -1,10 +1,11 @@
 package theFridge.controller;
 
 import java.io.IOException;
+//import javafx.stage.StageStyle;
 
 import com.jfoenix.controls.JFXButton;
-
-import javafx.application.Platform;
+import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,9 +13,10 @@ import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.text.TextFlow;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
-//import javafx.stage.StageStyle;
 
 public class LoginPageController {
 	@FXML
@@ -25,6 +27,18 @@ public class LoginPageController {
 	private JFXButton minimiseBtn;
 	@FXML
 	private JFXButton closeBtn;
+	@FXML
+	private JFXTextField tFUsername;
+	@FXML
+	private JFXPasswordField pFPassword;
+	@FXML
+	private Label usernameAlert;
+	@FXML
+	private Label passwordAlert;
+	@FXML
+	private TextFlow tFlowUsernameAlert;
+	@FXML
+	private TextFlow tFlowPasswordAlert;
 	
 	/*
 	@FXML
@@ -40,23 +54,36 @@ public class LoginPageController {
     */
 	
 	@FXML
-	void goToHomePage(ActionEvent event) throws IOException {
-		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/HomePage.fxml"));
+	public void goToHomePage(ActionEvent event) throws IOException {
+		String Username = tFUsername.getText();
+		String Password = pFPassword.getText();
 		
-		Screen screen = Screen.getPrimary();
-		Rectangle2D bounds = screen.getVisualBounds();
-		stage.setX(bounds.getMinX());
-		stage.setY(bounds.getMinY());
-		stage.setWidth(bounds.getWidth());
-		stage.setHeight(bounds.getHeight());
-		stage.setMaximized(true);
-		stage.setScene(new Scene(root));
- 	    stage.show();
+		if (Username.equals(" ")) {
+			tFlowUsernameAlert.setOpacity(1);
+			usernameAlert.setText("Please enter your username");
+		}
+		else if (Password.equals(" ")) {
+			tFlowPasswordAlert.setOpacity(1);
+			passwordAlert.setText("Please enter your password");
+		}
+		else {
+			Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+			Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/HomePage.fxml"));
+			
+			Screen screen = Screen.getPrimary();
+			Rectangle2D bounds = screen.getVisualBounds();
+			stage.setX(bounds.getMinX());
+			stage.setY(bounds.getMinY());
+			stage.setWidth(bounds.getWidth());
+			stage.setHeight(bounds.getHeight());
+			stage.setMaximized(true);
+			stage.setScene(new Scene(root));
+	 	    stage.show();
 	}
+}
 	
 	@FXML
-	void goToSignupPage(ActionEvent event) throws IOException {
+	public void goToSignupPage(ActionEvent event) throws IOException {
 		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
 		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/SignupPage.fxml"));
 		
