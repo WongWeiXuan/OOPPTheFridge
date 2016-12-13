@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.ImageInput?>
 <?import javafx.scene.image.Image?>
@@ -13,79 +14,80 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1920.0" style="-fx-background-color: #00000001;" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: #FCE4EC;" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button layoutX="600.0" layoutY="135.0" mnemonicParsing="false" prefHeight="150.0" prefWidth="350.0" style="-fx-background-color: orange; -fx-border-color: black;" text="View Recipes">
+      <Button layoutX="230.0" layoutY="160.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="300.0" style="-fx-background-color: orange; -fx-border-color: black;" text="View Recipes">
          <font>
-            <Font size="30.0" />
+            <Font size="24.0" />
          </font>
       </Button>
-      <Button layoutX="1500.0" layoutY="135.0" mnemonicParsing="false" prefHeight="150.0" prefWidth="350.0" style="-fx-background-color: orange; -fx-border-color: black;" text="Find a dish to make!">
+      <Button layoutX="890.0" layoutY="160.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="300.0" style="-fx-background-color: orange; -fx-border-color: black;" text="Find a dish to make!" wrapText="true">
          <font>
-            <Font size="30.0" />
+            <Font size="24.0" />
          </font>
       </Button>
-      <Button layoutX="1050.0" layoutY="135.0" mnemonicParsing="false" prefHeight="150.0" prefWidth="350.0" style="-fx-background-color: green; -fx-border-color: black;" text="Add/Edit a recipe">
+      <Button layoutX="560.0" layoutY="160.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="300.0" style="-fx-background-color: green; -fx-border-color: black;" text="Add/Edit a recipe">
          <font>
-            <Font size="30.0" />
+            <Font size="24.0" />
          </font>
       </Button>
-      <Text layoutX="800.0" layoutY="400.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recipe Name: ">
+      <Text layoutX="414.0" layoutY="352.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recipe Name: ">
          <font>
             <Font size="24.0" />
          </font></Text>
-      <Text layoutX="800.0" layoutY="450.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ingrediant 1: ">
+      <Text layoutX="414.0" layoutY="402.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ingrediant 1: ">
          <font>
             <Font size="24.0" />
          </font>
       </Text>
-      <Text layoutX="800.0" layoutY="500.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ingrediant 2: ">
+      <Text layoutX="414.0" layoutY="452.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ingrediant 2: ">
          <font>
             <Font size="24.0" />
          </font>
       </Text>
-      <Text layoutX="800.0" layoutY="550.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ingrediant 3:">
+      <Text layoutX="414.0" layoutY="502.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ingrediant 3:">
          <font>
             <Font size="24.0" />
          </font>
       </Text>
-      <Text layoutX="800.0" layoutY="600.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Image (Optional) :">
+      <Text layoutX="414.0" layoutY="552.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Image (Optional) :">
          <font>
             <Font size="24.0" />
          </font>
       </Text>
-      <Text layoutX="1024.0" layoutY="400.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tomato Aglio Olio">
+      <Text layoutX="638.0" layoutY="352.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tomato Aglio Olio">
          <font>
             <Font size="24.0" />
          </font>
       </Text>
-      <Text layoutX="1024.0" layoutY="450.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pasta">
+      <Text layoutX="638.0" layoutY="402.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pasta">
          <font>
             <Font size="24.0" />
          </font>
       </Text>
-      <Text layoutX="1024.0" layoutY="500.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tomatoes">
+      <Text layoutX="638.0" layoutY="452.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tomatoes">
          <font>
             <Font size="24.0" />
          </font>
       </Text>
-      <Text layoutX="1024.0" layoutY="550.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Olive oil">
+      <Text layoutX="638.0" layoutY="502.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Olive oil">
          <font>
             <Font size="24.0" />
          </font>
       </Text>
-      <Text layoutX="1024.0" layoutY="600.0" strokeType="OUTSIDE" strokeWidth="0.0" text="desktop/pictures/pasta.png">
+      <Text layoutX="638.0" layoutY="552.0" strokeType="OUTSIDE" strokeWidth="0.0" text="desktop/pictures/pasta.png">
          <font>
             <Font size="24.0" />
          </font>
       </Text>
-      <TextField alignment="CENTER" layoutX="945.0" layoutY="700.0" text="50 of 50">
+      <TextField alignment="CENTER" layoutX="559.0" layoutY="652.0" text="50 of 50">
          <font>
             <Font size="21.0" />
          </font>
       </TextField>
-      <Button layoutX="829.0" layoutY="670.0" mnemonicParsing="false" scaleX="0.33" scaleY="0.33" text="Button">
+      <Button layoutX="443.0" layoutY="622.0" mnemonicParsing="false" scaleX="0.33" scaleY="0.33" text="Button">
          <effect>
             <ImageInput>
                <source>
@@ -93,7 +95,7 @@
                </source>
             </ImageInput>
          </effect></Button>
-      <Button layoutX="1204.0" layoutY="670.0" mnemonicParsing="false" scaleX="0.33" scaleY="0.33" text="Button">
+      <Button layoutX="818.0" layoutY="622.0" mnemonicParsing="false" scaleX="0.33" scaleY="0.33" text="Button">
          <effect>
             <ImageInput>
                <source>
@@ -101,12 +103,12 @@
                </source>
             </ImageInput>
          </effect></Button>
-      <Button layoutX="1524.0" layoutY="359.0" mnemonicParsing="false" prefHeight="77.0" prefWidth="152.0" style="-fx-background-color: yellow; -fx-border-radius: 50;" text="Add in a new Recipe Here!" wrapText="true">
+      <Button layoutX="960.0" layoutY="303.0" mnemonicParsing="false" prefHeight="77.0" prefWidth="152.0" style="-fx-background-color: yellow; -fx-border-radius: 50;" text="Add in a new Recipe Here!" wrapText="true">
          <font>
             <Font size="21.0" />
          </font>
       </Button>
-      <VBox fx:id="naviPreview" alignment="CENTER" layoutX="10.0" layoutY="112.0" maxWidth="150.0" onMouseEntered="#showNavigation" prefHeight="600.0" prefWidth="150.0" spacing="20.0">
+      <VBox fx:id="naviPreview" alignment="CENTER" layoutX="10.0" layoutY="112.0" maxWidth="150.0" onMouseEntered="#showNavigation" prefHeight="600.0" prefWidth="150.0" spacing="20.0" style="-fx-background-color: #F06292;">
          <children>
             <Circle fill="#dde6f0" radius="15.0" stroke="TRANSPARENT" strokeType="INSIDE" />
             <Circle fill="#dde6f0" radius="15.0" stroke="TRANSPARENT" strokeType="INSIDE" />
@@ -362,5 +364,20 @@
             </VBox>
          </children>
       </VBox>
+      <Label layoutX="938.0" layoutY="10.0" text="The Fridge" textFill="WHITE">
+         <font>
+            <Font name="Garamond Bold" size="48.0" />
+         </font>
+      </Label>
+      <TextFlow prefHeight="66.0" prefWidth="1280.0" style="-fx-background-color: #C2185B;" textAlignment="CENTER">
+         <children>
+            <Label prefHeight="54.0" prefWidth="229.0" text="The Fridge" textFill="WHITE">
+               <font>
+                  <Font name="Garamond Bold" size="48.0" />
+               </font>
+            </Label>
+         </children>
+      </TextFlow>
+      <Button layoutX="949.0" layoutY="521.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="89.0" text="Browse" />
    </children>
 </AnchorPane>
