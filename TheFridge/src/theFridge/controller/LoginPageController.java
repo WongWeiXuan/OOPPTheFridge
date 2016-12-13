@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import com.jfoenix.controls.JFXButton;
 
-import javafx.application.Platform;
+//import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
