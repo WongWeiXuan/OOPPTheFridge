@@ -167,7 +167,7 @@
                      <children>
                         <VBox prefHeight="735.0" prefWidth="192.0">
                            <children>
-                              <BorderPane prefHeight="380.0" prefWidth="145.0">
+                              <BorderPane prefHeight="300.0" prefWidth="187.0">
                                  <VBox.margin>
                                     <Insets left="5.0" top="10.0" />
                                  </VBox.margin>
@@ -179,10 +179,21 @@
                                     </ImageView>
                                  </center>
                                  <bottom>
-                                    <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                                    <VBox prefHeight="120.0" prefWidth="187.0" BorderPane.alignment="CENTER">
                                        <children>
-                                          <Button fx:id="btnProfile1" mnemonicParsing="false" onAction="#goToMain" prefHeight="60.0" prefWidth="200.0" text="Basic Details" />
-                                          <Button fx:id="btnProfile2" mnemonicParsing="false" onAction="#goToSettings" prefHeight="60.0" prefWidth="196.0" text="Settings" />
+                                          <HBox alignment="TOP_RIGHT" style="-fx-background-color: black;">
+                                             <children>
+                                                <Button fx:id="btnProfile1" alignment="CENTER" mnemonicParsing="false" onAction="#goToMain" prefHeight="60.0" prefWidth="180.0" text="Basic Details">
+                                                   <font>
+                                                      <Font size="24.0" />
+                                                   </font>
+                                                </Button>
+                                             </children>
+                                          </HBox>
+                                          <Button fx:id="btnProfile2" mnemonicParsing="false" onAction="#goToSettings" prefHeight="60.0" prefWidth="196.0" text="Settings">
+                                             <font>
+                                                <Font size="24.0" />
+                                             </font></Button>
                                        </children>
                                     </VBox>
                                  </bottom>
@@ -207,6 +218,14 @@
                                  <children>
                                     <HBox prefHeight="100.0" prefWidth="200.0">
                                        <children>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0">
+                                             <image>
+                                                <Image url="@../picture/username.png" />
+                                             </image>
+                                             <HBox.margin>
+                                                <Insets left="5.0" right="10.0" top="10.0" />
+                                             </HBox.margin>
+                                          </ImageView>
                                           <TextFlow prefHeight="92.0" prefWidth="610.0">
                                              <children>
                                                 <Text fill="#e91e63" strokeType="OUTSIDE" strokeWidth="0.0" text="Username:">
@@ -236,6 +255,14 @@
                                  <children>
                                     <HBox prefHeight="100.0" prefWidth="200.0">
                                        <children>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0">
+                                             <image>
+                                                <Image url="@../picture/password.png" />
+                                             </image>
+                                             <HBox.margin>
+                                                <Insets left="5.0" right="10.0" top="7.0" />
+                                             </HBox.margin>
+                                          </ImageView>
                                           <TextFlow prefWidth="610.0">
                                              <children>
                                                 <Text fill="#e91e63" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:">
@@ -266,6 +293,14 @@
                                  <children>
                                     <HBox prefHeight="100.0" prefWidth="200.0">
                                        <children>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0">
+                                             <image>
+                                                <Image url="@../picture/email.png" />
+                                             </image>
+                                             <HBox.margin>
+                                                <Insets left="5.0" right="10.0" top="7.0" />
+                                             </HBox.margin>
+                                          </ImageView>
                                           <TextFlow prefWidth="610.0">
                                              <children>
                                                 <Text fill="#e91e63" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:" wrappingWidth="113.97265625">
@@ -296,6 +331,14 @@
                                  <children>
                                     <HBox prefHeight="100.0" prefWidth="200.0">
                                        <children>
+                                          <ImageView fitHeight="40.0" fitWidth="40.0">
+                                             <image>
+                                                <Image url="@../picture/country.png" />
+                                             </image>
+                                             <HBox.margin>
+                                                <Insets left="5.0" right="10.0" top="10.0" />
+                                             </HBox.margin>
+                                          </ImageView>
                                           <TextFlow>
                                              <children>
                                                 <Text fill="#e91e63" strokeType="OUTSIDE" strokeWidth="0.0" text="Location: ">
