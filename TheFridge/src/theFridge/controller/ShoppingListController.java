@@ -76,7 +76,7 @@ public class ShoppingListController {
 	@FXML
 	public void initialize() throws FileNotFoundException{
 		//Stock listView
-		File sklt = new File("src/theFridge/controller/StockList.txt");
+		File sklt = new File("src/theFridge/Files/StockList.txt");
 		Scanner sc = new Scanner(sklt);
 		ArrayList<String> sl = new ArrayList<String>();
 		while(sc.hasNextLine()){
