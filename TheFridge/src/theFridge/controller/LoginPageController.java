@@ -2,15 +2,11 @@ package theFridge.controller;
 
 import java.io.IOException;
 //import javafx.stage.StageStyle;
+//import javafx.application.Platform;
 
 import com.jfoenix.controls.JFXButton;
-<<<<<<< HEAD
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
-=======
-
-//import javafx.application.Platform;
->>>>>>> origin/master
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
