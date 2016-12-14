@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.TextFlow?>
+
+<VBox fx:id="Recipe" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="theFridge.controller.FoodCalculatorCaloriesCalculatorRecipeController">
+   <children>
+      <StackPane minHeight="50.0" prefHeight="50.0" style="-fx-background-color: Transparent;">
+         <children>
+            <Label fx:id="Time" minWidth="146.0" text="Breakfast" StackPane.alignment="BOTTOM_LEFT">
+               <font>
+                  <Font size="36.0" />
+               </font>
+               <StackPane.margin>
+                  <Insets right="101.0" />
+               </StackPane.margin>
+            </Label>
+            <Label fx:id="NumberOfCalories" text="Calories: 100" textAlignment="CENTER" StackPane.alignment="BOTTOM_RIGHT">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </StackPane>
+      <StackPane prefHeight="150.0" style="-fx-background-color: White;" VBox.vgrow="ALWAYS">
+         <children>
+            <JFXButton onAction="#deleteRecipe" ripplerFill="TRANSPARENT" text="X" textFill="RED" StackPane.alignment="TOP_LEFT">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXButton>
+            <HBox prefHeight="100.0">
+               <children>
+                  <VBox alignment="CENTER">
+                     <children>
+                        <TextFlow textAlignment="CENTER">
+                           <children>
+                              <Label fx:id="Measurements" text="2 Cups">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </TextFlow>
+                     </children>
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
+                  </VBox>
+                  <VBox alignment="CENTER" HBox.hgrow="ALWAYS">
+                     <children>
+                        <TextFlow textAlignment="CENTER">
+                           <children>
+                              <Label fx:id="FoodName" text="Strawberries">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </TextFlow>
+                     </children>
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
+                  </VBox>
+                  <ImageView fx:id="FoodImage" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" />
+               </children>
+            </HBox>
+         </children>
+      </StackPane>
+   </children>
+</VBox>

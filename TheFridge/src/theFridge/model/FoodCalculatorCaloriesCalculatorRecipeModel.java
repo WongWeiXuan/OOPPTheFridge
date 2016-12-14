@@ -8,6 +8,8 @@ import java.util.Scanner;
 public class FoodCalculatorCaloriesCalculatorRecipeModel{
 	private ArrayList<String>recipeList;
 	private int index;
+	private int meals;
+	private int calories;
 	
 	public FoodCalculatorCaloriesCalculatorRecipeModel() throws FileNotFoundException{
 		ArrayList<String> recipeList1 = new ArrayList<String>();
@@ -22,6 +24,7 @@ public class FoodCalculatorCaloriesCalculatorRecipeModel{
 		sc.close();
 		
 		recipeList = recipeList1;
+		this.index = 0;
 	}
 	
 	public FoodCalculatorCaloriesCalculatorRecipeModel(int index) throws FileNotFoundException{
@@ -61,5 +64,10 @@ public class FoodCalculatorCaloriesCalculatorRecipeModel{
 	public String getRecipeCalories(){
 		ArrayList<String>indiRecipe = getIndiRecipe(this.index);
 		return indiRecipe.get(2);
+	}
+	
+	public String getRecipeImage(){
+		ArrayList<String>indiRecipe = getIndiRecipe(this.index);
+		return indiRecipe.get(3);
 	}
 }

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.60">
+   <children>
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <JFXButton fx:id="Calculator" onAction="#goFood" />
+            <JFXButton fx:id="Shopping" onAction="#goFood" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

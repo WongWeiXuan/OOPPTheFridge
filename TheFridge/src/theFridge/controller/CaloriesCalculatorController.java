@@ -1,24 +1,17 @@
 package theFridge.controller;
 
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-
 import java.io.IOException;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.ScrollPane;
-
-import javafx.scene.layout.AnchorPane;
-
 import javafx.scene.input.MouseEvent;
-
-import javafx.scene.shape.Circle;
-
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.image.ImageView;
-import javafx.scene.control.Label;
+import javafx.scene.shape.Circle;
 
 public class CaloriesCalculatorController {
 	@FXML
@@ -46,9 +39,14 @@ public class CaloriesCalculatorController {
 	
 	@FXML
 	public void initialize() throws IOException{
+		
+		Node root = (Node)FXMLLoader.load(getClass().getResource("/theFridge/view/FoodCalculatorCaloriesCalculatorRecipe.fxml"));
+		Node root1 = (Node)FXMLLoader.load(getClass().getResource("/theFridge/view/FoodCalculatorCaloriesCalculatorRecipe.fxml"));
+		Node root2 = (Node)FXMLLoader.load(getClass().getResource("/theFridge/view/FoodCalculatorCaloriesCalculatorRecipe.fxml"));
+		
 		//~Receives methodB from FoodCalculatorCaloriesCalculatorRecipe
-		//VBox vbox = new VBox(update1, update2, update3);	
-		//Scrollpane.setContent(vbox);
+		VBox vbox = new VBox(root, root1, root2);	
+		Scrollpane.setContent(vbox);
 		Scrollpane.setStyle("-fx-background-color:transparent;");
 	}
 	
