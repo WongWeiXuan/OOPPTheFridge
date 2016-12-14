@@ -6,7 +6,10 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.TextFlow?>
@@ -85,69 +88,48 @@
                         </Label>
                      </children>
                   </TextFlow>
-                  <TextFlow>
+                  <GridPane hgap="5.0" vgap="20.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
                      <children>
-                        <JFXTextField fx:id="tFUsername" focusColor="WHITE" labelFloat="true" maxWidth="330.0" minWidth="320.0" prefHeight="52.0" prefWidth="330.0" promptText="Enter username" style="-fx-focus-color: black;" unFocusColor="WHITE">
-                           <font>
-                              <Font name="Garamond" size="24.0" />
-                           </font>
-                        </JFXTextField>
+                        <TextFlow>
+                           <children>
+                              <JFXTextField fx:id="tFUsername" focusColor="WHITE" labelFloat="true" maxWidth="330.0" minWidth="320.0" prefHeight="52.0" prefWidth="330.0" promptText="Enter username" style="-fx-focus-color: black;" unFocusColor="WHITE">
+                                 <font>
+                                    <Font name="Garamond" size="24.0" />
+                                 </font>
+                              </JFXTextField>
+                           </children>
+                        </TextFlow>
+                        <TextFlow GridPane.rowIndex="1">
+                           <children>
+                              <JFXTextField fx:id="tFEmail" focusColor="WHITE" labelFloat="true" maxWidth="330.0" minWidth="320.0" prefHeight="52.0" prefWidth="330.0" promptText="Enter email" style="-fx-focus-color: black;" unFocusColor="WHITE">
+                                 <font>
+                                    <Font name="Garamond" size="24.0" />
+                                 </font>
+                              </JFXTextField>
+                           </children>
+                        </TextFlow>
+                        <TextFlow GridPane.rowIndex="2">
+                           <children>
+                              <JFXPasswordField fx:id="pFPassword" focusColor="WHITE" labelFloat="true" maxWidth="330.0" minWidth="320.0" prefHeight="52.0" prefWidth="330.0" promptText="Enter password" style="-fx-focus-color: black;" unFocusColor="WHITE">
+                                 <font>
+                                    <Font name="Garamond" size="24.0" />
+                                 </font>
+                              </JFXPasswordField>
+                           </children>
+                        </TextFlow>
                      </children>
                      <VBox.margin>
-                        <Insets top="30.0" />
+                        <Insets top="70.0" />
                      </VBox.margin>
-                  </TextFlow>
-                  <TextFlow fx:id="tFlowUsernameAlert" opacity="0.0" style="-fx-background-color: #E91E63;">
-                     <children>
-                        <Label fx:id="usernameAlert" prefHeight="21.0" prefWidth="330.0" text="Label" textFill="WHITE">
-                           <font>
-                              <Font name="Garamond" size="18.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </TextFlow>
-                  <TextFlow>
-                     <children>
-                        <JFXTextField fx:id="tFEmail" focusColor="WHITE" labelFloat="true" maxWidth="330.0" minWidth="320.0" prefHeight="52.0" prefWidth="330.0" promptText="Enter email" style="-fx-focus-color: black;" unFocusColor="WHITE">
-                           <font>
-                              <Font name="Garamond" size="24.0" />
-                           </font>
-                        </JFXTextField>
-                     </children>
-                     <VBox.margin>
-                        <Insets top="20.0" />
-                     </VBox.margin>
-                  </TextFlow>
-                  <TextFlow fx:id="tFlowEmailAlert" opacity="0.0" style="-fx-background-color: #E91E63;">
-                     <children>
-                        <Label fx:id="emailAlert" prefHeight="21.0" prefWidth="330.0" text="Label" textFill="WHITE">
-                           <font>
-                              <Font name="Garamond" size="18.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </TextFlow>
-                  <TextFlow>
-                     <children>
-                        <JFXPasswordField fx:id="tFPassword" focusColor="WHITE" labelFloat="true" maxWidth="330.0" minWidth="320.0" prefHeight="52.0" prefWidth="330.0" promptText="Enter password" style="-fx-focus-color: black;" unFocusColor="WHITE">
-                           <font>
-                              <Font name="Garamond" size="24.0" />
-                           </font>
-                        </JFXPasswordField>
-                     </children>
-                     <VBox.margin>
-                        <Insets top="20.0" />
-                     </VBox.margin>
-                  </TextFlow>
-                  <TextFlow fx:id="tFlowPasswordAlert" opacity="0.0" style="-fx-background-color: #E91E63;">
-                     <children>
-                        <Label fx:id="passwordAlert" prefHeight="21.0" prefWidth="330.0" text="Label" textFill="WHITE">
-                           <font>
-                              <Font name="Garamond" size="18.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </TextFlow>
+                  </GridPane>
                   <TextFlow textAlignment="CENTER">
                      <children>
                         <JFXButton fx:id="createAccount" buttonType="RAISED" onAction="#createAccount" ripplerFill="BLACK" style="-fx-background-color: yellow;" text="Create account">
@@ -157,7 +139,7 @@
                         </JFXButton>
                      </children>
                      <VBox.margin>
-                        <Insets top="30.0" />
+                        <Insets top="50.0" />
                      </VBox.margin>
                   </TextFlow>
                </children>

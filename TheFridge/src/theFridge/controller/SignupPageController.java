@@ -26,19 +26,7 @@ public class SignupPageController {
 	@FXML
 	private JFXTextField tFEmail;
 	@FXML
-	private JFXPasswordField tFPassword;
-	@FXML
-	private Label usernameAlert;
-	@FXML
-	private Label emailAlert;
-	@FXML
-	private Label passwordAlert;
-	@FXML
-	private TextFlow tFlowUsernameAlert;
-	@FXML
-	private TextFlow tFlowEmailAlert;
-	@FXML
-	private TextFlow tFlowPasswordAlert;
+	private JFXPasswordField pFPassword;
 	
 	@FXML
 	void goToLoginPage(ActionEvent event) throws IOException {
@@ -51,6 +39,22 @@ public class SignupPageController {
 	
 	@FXML
 	void createAccount(ActionEvent event) {
+		String Username = tFUsername.getText();
+		String Password = pFPassword.getText();
+		String Email = tFEmail.getText();
 		
+		if (Username.equals(" ") || Username.equals(null)) {
+			tFUsername.setPromptText("Please fill in your username!");
+
+		}
+		else if (Password.equals(" ") || Password.equals(null)) {
+			pFPassword.setPromptText("Please fill in your password!");
+		}
+		else if (Email.equals(" ") || Email.equals(null)) {
+			tFEmail.setPromptText("Please fill in your email!");
+		}
+		else {
+			
+		}
 	}
 }

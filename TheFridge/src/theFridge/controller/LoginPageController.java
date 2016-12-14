@@ -5,6 +5,7 @@ import java.io.IOException;
 //import javafx.application.Platform;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
@@ -33,13 +34,7 @@ public class LoginPageController {
 	@FXML
 	private JFXPasswordField pFPassword;
 	@FXML
-	private Label usernameAlert;
-	@FXML
-	private Label passwordAlert;
-	@FXML
-	private TextFlow tFlowUsernameAlert;
-	@FXML
-	private TextFlow tFlowPasswordAlert;
+	private JFXCheckBox loginCheckBox;
 	
 	/*
 	@FXML
@@ -60,12 +55,11 @@ public class LoginPageController {
 		String Password = pFPassword.getText();
 		
 		if (Username.equals(" ") || Username.equals(null)) {
-			tFlowUsernameAlert.setOpacity(1);
-			usernameAlert.setText("Please enter your username");
+			tFUsername.setPromptText("Please fill in your username!");
+
 		}
-		else if (Password.equals(" ") || Username.equals(null)) {
-			tFlowPasswordAlert.setOpacity(1);
-			passwordAlert.setText("Please enter your password");
+		else if (Password.equals(" ") || Password.equals(null)) {
+			pFPassword.setPromptText("Please fill in your password!");
 		}
 		else {
 			Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
