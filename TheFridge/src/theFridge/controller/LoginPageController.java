@@ -63,7 +63,7 @@ public class LoginPageController {
 			tFlowUsernameAlert.setOpacity(1);
 			usernameAlert.setText("Please enter your username");
 		}
-		else if (Password.equals(" ")) {
+		else if (Password.equals(" ") || Username.equals(null)) {
 			tFlowPasswordAlert.setOpacity(1);
 			passwordAlert.setText("Please enter your password");
 		}
