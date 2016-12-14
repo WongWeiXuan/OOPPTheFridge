@@ -3,6 +3,7 @@ package theFridge.controller;
 import java.io.IOException;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 
 import javafx.event.ActionEvent;
@@ -25,7 +26,7 @@ public class SignupPageController {
 	@FXML
 	private JFXTextField tFEmail;
 	@FXML
-	private JFXTextField tFPassword;
+	private JFXPasswordField tFPassword;
 	@FXML
 	private Label usernameAlert;
 	@FXML
