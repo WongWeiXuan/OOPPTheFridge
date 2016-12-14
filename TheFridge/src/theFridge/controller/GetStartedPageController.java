@@ -57,13 +57,13 @@ public class GetStartedPageController {
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/Profile.fxml"));
 		}
 		else if(event.getSource().equals(Recipes)){
-			root = FXMLLoader.load(getClass().getResource("/theFridge/view/UglyFXML/ViewRecipes.fxml"));
+			root = FXMLLoader.load(getClass().getResource("/theFridge/view/ViewRecipes.fxml"));
 		}
 		else if(event.getSource().equals(Compost)){
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/Page1.fxml"));
 		}
 		else if(event.getSource().equals(Calculator)){
-			root = FXMLLoader.load(getClass().getResource("/theFridge/view/ShoppingListPage.fxml"));
+			root = FXMLLoader.load(getClass().getResource("/theFridge/view/CaloriesCalculator.fxml"));
 		}
 		else if(event.getSource().equals(Quiz)){
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/QuizPage.fxml"));
@@ -75,7 +75,7 @@ public class GetStartedPageController {
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/ShoppingListPage.fxml"));
 		}
 		else if(event.getSource().equals(Leftover)){
-			root = FXMLLoader.load(getClass().getResource("/theFridge/view/UglyFXML/FindingDish.fxml"));
+			root = FXMLLoader.load(getClass().getResource("/theFridge/view/FindingDish.fxml"));
 		}
 		else if(event.getSource().equals(Logout)){
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/LoginPage.fxml"));
