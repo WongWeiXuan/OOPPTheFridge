@@ -8,6 +8,7 @@ import javafx.scene.control.Label;
 
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
+import theFridge.model.FoodCalculatorCaloriesCalculatorRecipeModel;
 
 public class FoodCalculatorCaloriesCalculatorRecipeController {
 	@FXML
@@ -25,7 +26,7 @@ public class FoodCalculatorCaloriesCalculatorRecipeController {
 	
 	@FXML
 	public void initialize(){
-		Time.setText(/*methodA()*/);
+		Time.setText(FoodCalculatorCaloriesCalculatorRecipeModel(1, 1));
 		NumberOfCalories.setText(/*methodA()*/);
 		Measurements.setText(/*methodA()*/);
 		FoodName.setText(/*methodA()*/);
