@@ -47,8 +47,8 @@ public class CaloriesCalculatorController {
 	@FXML
 	public void initialize() throws IOException{
 		//~Receives methodB from FoodCalculatorCaloriesCalculatorRecipe
-		VBox vbox = new VBox(update1, update2, update3);	
-		Scrollpane.setContent(vbox);
+		//VBox vbox = new VBox(update1, update2, update3);	
+		//Scrollpane.setContent(vbox);
 		Scrollpane.setStyle("-fx-background-color:transparent;");
 	}
 	

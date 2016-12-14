@@ -2,10 +2,12 @@ package theFridge.controller;
 
 import javafx.fxml.FXML;
 
+import java.io.FileNotFoundException;
+
 import javafx.event.ActionEvent;
 
 import javafx.scene.control.Label;
-
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import theFridge.model.FoodCalculatorCaloriesCalculatorRecipeModel;
@@ -25,12 +27,24 @@ public class FoodCalculatorCaloriesCalculatorRecipeController {
 	private VBox Recipe;
 	
 	@FXML
-	public void initialize(){
-		Time.setText(FoodCalculatorCaloriesCalculatorRecipeModel(1, 1));
-		NumberOfCalories.setText(/*methodA()*/);
-		Measurements.setText(/*methodA()*/);
-		FoodName.setText(/*methodA()*/);
-		FoodImage.setText(/*methodA()*/);
+	public void initialize() throws FileNotFoundException{
+		//int meals = NumMeals.getText();
+		//for(int i = 0; i < meals; i++){}
+		
+		FoodCalculatorCaloriesCalculatorRecipeModel abc = new FoodCalculatorCaloriesCalculatorRecipeModel();
+		
+		//if(meals <=0){
+		//	System.out.print("Number must be at least 1");
+		//}
+		//else if(meals == 1){
+			Time.setText("Breakfast");
+		//}
+		
+		NumberOfCalories.setText("Calories: " + abc.getRecipeCalories());
+		Measurements.setText("1 Serving");
+		FoodName.setText(abc.getRecipeName());
+		Image image = new Image("theFridge/picture/Three-Strawberry-Red-Fruits-Wallpaper-Desktop.jpg");
+		FoodImage.setImage(image);
 		
 		//methodB(Recipe);
 	}
