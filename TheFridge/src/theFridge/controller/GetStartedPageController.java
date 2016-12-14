@@ -66,7 +66,7 @@ public class GetStartedPageController {
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/ShoppingListPage.fxml"));
 		}
 		else if(event.getSource().equals(Quiz)){
-			root = FXMLLoader.load(getClass().getResource("/theFridge/view/QuizPage.fxml"));
+			root = FXMLLoader.load(getClass().getResource("/theFridge/view/QuizBeginPage.fxml"));
 		}
 		else if(event.getSource().equals(Redeem)){
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemVoucherPage.fxml"));

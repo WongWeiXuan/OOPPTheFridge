@@ -59,7 +59,7 @@ public class LoginPageController {
 		String Username = tFUsername.getText();
 		String Password = pFPassword.getText();
 		
-		if (Username.equals(" ")) {
+		if (Username.equals(" ") || Username.equals(null)) {
 			tFlowUsernameAlert.setOpacity(1);
 			usernameAlert.setText("Please enter your username");
 		}

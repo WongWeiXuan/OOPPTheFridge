@@ -28,7 +28,7 @@
                   </Label>
                </children>
             </TextFlow>
-            <HBox prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: rgba(240, 98, 146, 0.25);">
+            <HBox prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: rgba(240, 98, 146, 0.25);" VBox.vgrow="ALWAYS">
                <children>
                   <AnchorPane fx:id="Anchor" maxWidth="300.0" prefHeight="600.0" prefWidth="150.0">
                      <children>

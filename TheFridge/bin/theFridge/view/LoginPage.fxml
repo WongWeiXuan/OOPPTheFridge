@@ -63,7 +63,7 @@
                         </VBox>
                         <TextFlow textAlignment="CENTER">
                            <children>
-                              <JFXButton fx:id="signupBtn" onAction="#goToSignupPage" style="-fx-background-color: yellow;" text="Sign up">
+                              <JFXButton fx:id="signupBtn" buttonType="RAISED" onAction="#goToSignupPage" ripplerFill="BLACK" style="-fx-background-color: yellow;" text="Sign up">
                                  <font>
                                     <Font name="Garamond" size="24.0" />
                                  </font>
