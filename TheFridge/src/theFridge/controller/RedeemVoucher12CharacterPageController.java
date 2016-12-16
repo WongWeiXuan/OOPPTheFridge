@@ -1,15 +1,20 @@
 package theFridge.controller;
 
 import java.io.IOException;
+import java.util.Random;
+
+import com.jfoenix.controls.JFXButton;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
@@ -35,6 +40,24 @@ public class RedeemVoucher12CharacterPageController {
 	private VBox quizScene;
 	@FXML
 	private VBox prizeScene;
+	@FXML
+	private JFXButton codeGenerator;
+	@FXML
+	private Label codeLabel;
+	
+	@FXML
+	public void generateCode(ActionEvent event) {
+		int codeSize = 12;
+		char[] chars = "abcdefghjkmnpqrstuvwxyzABCDEFGHJKMNPQRSTUVWXYZ23456789".toCharArray();
+		StringBuilder sb = new StringBuilder();
+		Random random = new Random();
+		for (int i = 0; i < codeSize; i++) {
+		    char c = chars[random.nextInt(chars.length)];
+		    sb.append(c);
+		}
+		String output = sb.toString();
+		codeLabel.setText(output);
+	}
 
 	@FXML
 	public void showNavigation(MouseEvent event) {

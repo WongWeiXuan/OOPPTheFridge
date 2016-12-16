@@ -127,7 +127,7 @@
                         <Insets top="90.0" />
                      </VBox.margin>
                   </GridPane>
-                  <JFXCheckBox fx:id="loginCheckBox" text="Keep me logged in">
+                  <JFXCheckBox fx:id="loginCheckBox" text="Remember me" unCheckedColor="BLACK">
                      <font>
                         <Font name="Garamond" size="18.0" />
                      </font>

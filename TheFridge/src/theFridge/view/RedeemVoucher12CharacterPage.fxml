@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
@@ -170,19 +169,22 @@
                               <Font name="Garamond" size="36.0" />
                            </font>
                         </Label>
-                        <JFXButton buttonType="RAISED" ripplerFill="BLACK" style="-fx-background-color: yellow;" text="Click to generate">
+                        <JFXButton fx:id="codeGenerator" buttonType="RAISED" onAction="#generateCode" ripplerFill="BLACK" style="-fx-background-color: yellow;" text="Click to generate">
                            <font>
                               <Font name="Garamond" size="24.0" />
                            </font>
                            <VBox.margin>
-                              <Insets top="10.0" />
+                              <Insets top="20.0" />
                            </VBox.margin>
                         </JFXButton>
-                        <JFXTextField maxWidth="500.0" minWidth="500.0" prefHeight="50.0" prefWidth="500.0">
+                        <Label fx:id="codeLabel" alignment="CENTER" prefHeight="40.0" prefWidth="500.0" textFill="#e91e63">
                            <VBox.margin>
-                              <Insets top="50.0" />
+                              <Insets top="70.0" />
                            </VBox.margin>
-                        </JFXTextField>
+                           <font>
+                              <Font name="Garamond" size="36.0" />
+                           </font>
+                        </Label>
                      </children>
                      <HBox.margin>
                         <Insets right="150.0" />
