@@ -43,4 +43,7 @@ public class User {
 	public void seteMail(String eMail) {
 		this.eMail = eMail;
 	}
+	public void checkUser(){
+		
+	}
 }
