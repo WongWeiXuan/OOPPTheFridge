@@ -1,4 +1,4 @@
-package theFridge.controller;
+package theFridge.controller.foodCalculator;
 
 import javafx.fxml.FXML;
 
@@ -37,6 +37,8 @@ public class FoodCalculatorCaloriesCalculatorRecipeController {
 		while(sc.hasNextInt()){
 			hi.add(sc.nextInt());
 		}
+		int numberOfServings = 0;
+		sc.close();
 		//int meals = NumMeals.getText();
 		//for(int i = 0; i < meals; i++){}
 		
@@ -50,7 +52,7 @@ public class FoodCalculatorCaloriesCalculatorRecipeController {
 		//}
 		
 		NumberOfCalories.setText("Calories: " + abc.getRecipeCalories());
-		Measurements.setText("1 Serving");
+		Measurements.setText(numberOfServings + " Serving");
 		FoodName.setText(abc.getRecipeName());
 		Image image = new Image(abc.getRecipeImage());
 		FoodImage.setImage(image);

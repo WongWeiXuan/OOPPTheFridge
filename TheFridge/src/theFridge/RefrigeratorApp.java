@@ -16,6 +16,7 @@ public class RefrigeratorApp extends Application{
 			Scene scene = new Scene(root);
 			primaryStage.setScene(scene);
 			primaryStage.getIcons().add(new Image("/theFridge/picture/fridge.png"));
+			primaryStage.setTitle("TheFridge");
 			//primaryStage.initStyle(StageStyle.UNDECORATED);
 		    primaryStage.show();
 		} 
