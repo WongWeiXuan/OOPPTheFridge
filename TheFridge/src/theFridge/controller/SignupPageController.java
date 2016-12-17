@@ -1,11 +1,14 @@
 package theFridge.controller;
 
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
@@ -32,7 +35,7 @@ public class SignupPageController {
 	private JFXPasswordField pFPassword;
 	
 	@FXML
-	void createAccount(ActionEvent event) throws IOException {
+	void createAccount(ActionEvent event) throws IOException, ParseException, ParseException{
 		String Username = tFUsername.getText();
 		String Password = pFPassword.getText();
 		String Email = tFEmail.getText();
@@ -47,23 +50,35 @@ public class SignupPageController {
 			tFEmail.setPromptText("Please fill in your email!");
 		}
 		else {
-			File file = new File("src/theFridge/Files/user.json");
-			file.createNewFile();
-			FileWriter fw= new FileWriter(file);
-			JSONObject JSONOBJECT= new JSONObject();
-			JSONArray userdata = new JSONArray();
-			JSONArray JSONARRAY1=new JSONArray();
-			JSONArray JSONARRAY2=new JSONArray();
-			JSONArray JSONARRAY3=new JSONArray();
-				JSONARRAY1.add(Username);
-				JSONOBJECT.put("Username", JSONARRAY1);
-				JSONARRAY2.add(Password);
-				JSONOBJECT.put("Password", JSONARRAY2);
-				JSONARRAY3.add(Email);
-				JSONOBJECT.put("Email", JSONARRAY3);
-				fw.write(JSONOBJECT.toJSONString());
-		    fw.flush();  
-		    fw.close();
+			JSONParser parser = new JSONParser();
+			
+			Object obj = parser.parse(new FileReader("src/theFridge/file/people.json"));
+			JSONObject jsonObject = (JSONObject) obj;
+			
+			JSONArray usernameArray = (JSONArray) jsonObject.get("Username"); 
+			usernameArray.add(Username);
+			
+			JSONArray passwordArray = (JSONArray) jsonObject.get("Password"); 
+			passwordArray.add(Password);
+			
+			JSONArray emailArray = (JSONArray) jsonObject.get("Email"); 
+			emailArray.add(Email);
+			
+			JSONObject jsonobject = new JSONObject();
+			jsonobject.put("Username", usernameArray);
+			jsonobject.put("Password", passwordArray);
+			jsonobject.put("Email", emailArray);
+			
+			try {
+				FileWriter fw = new FileWriter("src/theFridge/file/people.json");
+				fw.write(jsonobject.toJSONString());
+				fw.flush();
+				fw.close();
+
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 		    
 			Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
 			Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/LoginPage.fxml"));
@@ -71,7 +86,7 @@ public class SignupPageController {
 			stage.setScene(new Scene(root));
 	 	    stage.show();
 	 	    
-		}
+		
 		
 	}
 	
