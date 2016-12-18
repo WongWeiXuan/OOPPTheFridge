@@ -43,6 +43,8 @@ public class RedeemVoucher12CharacterPageController {
 	@FXML
 	private JFXButton codeGenerator;
 	@FXML
+	private JFXButton redeemBtn;
+	@FXML
 	private Label codeLabel;
 	
 	@FXML
@@ -57,6 +59,15 @@ public class RedeemVoucher12CharacterPageController {
 		}
 		String output = sb.toString();
 		codeLabel.setText(output);
+	}
+	
+	@FXML
+	public void goToRedeemPage(ActionEvent event) throws IOException {
+		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemVoucherPage.fxml"));
+		
+		stage.setScene(new Scene(root));
+ 	    stage.show();
 	}
 
 	@FXML
