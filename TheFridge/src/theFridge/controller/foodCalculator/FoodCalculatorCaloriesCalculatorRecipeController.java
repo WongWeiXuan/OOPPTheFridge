@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 import javafx.event.ActionEvent;
@@ -31,7 +32,7 @@ public class FoodCalculatorCaloriesCalculatorRecipeController {
 	@FXML
 	public void initialize() throws FileNotFoundException{
 		ArrayList<Integer>hi = new ArrayList<Integer>();
-		File file = new File("src/theFridge/Files/Recipes.txt");
+		File file = new File("src/theFridge/file/Recipes.txt");
 		Scanner sc = new Scanner(file);
 		sc.useDelimiter("~");
 		while(sc.hasNextInt()){
@@ -42,7 +43,7 @@ public class FoodCalculatorCaloriesCalculatorRecipeController {
 		//int meals = NumMeals.getText();
 		//for(int i = 0; i < meals; i++){}
 		
-		FoodCalculatorCaloriesCalculatorRecipeModel abc = new FoodCalculatorCaloriesCalculatorRecipeModel(1);
+		FoodCalculatorCaloriesCalculatorRecipeModel abc = new FoodCalculatorCaloriesCalculatorRecipeModel(new Random().nextInt(5));
 		
 		//if(meals <=0){
 		//	System.out.print("Number must be at least 1");

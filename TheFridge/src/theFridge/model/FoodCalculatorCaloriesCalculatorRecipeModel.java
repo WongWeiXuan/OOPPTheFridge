@@ -14,7 +14,7 @@ public class FoodCalculatorCaloriesCalculatorRecipeModel{
 	public FoodCalculatorCaloriesCalculatorRecipeModel() throws FileNotFoundException{
 		ArrayList<String> recipeList1 = new ArrayList<String>();
 		
-		File recipes = new File("src/theFridge/Files/Recipes.txt");
+		File recipes = new File("src/theFridge/file/Recipes.txt");
 		Scanner sc = new Scanner(recipes);
 		sc.useDelimiter("~");
 		
