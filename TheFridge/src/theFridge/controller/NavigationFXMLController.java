@@ -80,13 +80,13 @@ public class NavigationFXMLController {
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/Page1.fxml"));
 		}
 		else if(event.getSource().equals(foodScene)){
-			root = FXMLLoader.load(getClass().getResource("/theFridge/view/FoodCalculatorNavigation.fxml"));
+			root = FXMLLoader.load(getClass().getResource("/theFridge/view/foodCalculator/FoodCalculatorNavigation.fxml"));
 		}
 		else if(event.getSource().equals(quizScene)){
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/QuizPage.fxml"));
 		}
 		else if(event.getSource().equals(prizeScene)){
-			root = FXMLLoader.load(getClass().getResource(""));
+			root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemVoucherPage.fxml"));
 		}
 		stage.setMaximized(true);
  		stage.setScene(new Scene(root));

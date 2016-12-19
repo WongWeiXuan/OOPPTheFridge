@@ -46,7 +46,6 @@ public class GetStartedPageController {
 		//TO-DO
 	}
 	
-	// Event Listener on VBox[#Profile].onMouseClicked
 	@FXML
 	public void changeScene(MouseEvent event) throws IOException {
 		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();

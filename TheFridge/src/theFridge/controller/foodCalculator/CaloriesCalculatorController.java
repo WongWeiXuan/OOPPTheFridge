@@ -11,6 +11,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
+import theFridge.model.FoodCalculatorCaloriesCalculatorRecipeModel;
 
 public class CaloriesCalculatorController {
 	@FXML
@@ -36,15 +37,39 @@ public class CaloriesCalculatorController {
 	@FXML
 	private ScrollPane Scrollpane;
 	
+	FoodCalculatorCaloriesCalculatorRecipeModel model;
+	
 	@FXML
 	public void initialize() throws IOException{
-		
-		Node breakfast = (Node)FXMLLoader.load(getClass().getResource("/theFridge/view/foodCalculator/FoodCalculatorCaloriesCalculatorRecipe.fxml"));
-		Node lunch = (Node)FXMLLoader.load(getClass().getResource("/theFridge/view/foodCalculator/LunchCalories.fxml"));
-		Node dinner = (Node)FXMLLoader.load(getClass().getResource("/theFridge/view/foodCalculator/DinnerCalories.fxml"));
+		VBox vbox = null;
+		int meals = CaloriesCalculatorInputController.NumOfMeals;
+		System.out.println("MainCon Meals: " + meals);
+		if(meals == 1){
+			Node breakfast = (Node)FXMLLoader.load(getClass().getResource("/theFridge/view/foodCalculator/FoodCalculatorCaloriesCalculatorRecipe.fxml"));
+			vbox = new VBox(breakfast);	
+		}
+		else if(meals == 2){
+			Node breakfast = (Node)FXMLLoader.load(getClass().getResource("/theFridge/view/foodCalculator/FoodCalculatorCaloriesCalculatorRecipe.fxml"));
+			Node lunch = (Node)FXMLLoader.load(getClass().getResource("/theFridge/view/foodCalculator/LunchCalories.fxml"));
+			vbox = new VBox(breakfast, lunch);	
+		}
+		else if(meals == 3){
+			Node breakfast = (Node)FXMLLoader.load(getClass().getResource("/theFridge/view/foodCalculator/FoodCalculatorCaloriesCalculatorRecipe.fxml"));
+			Node lunch = (Node)FXMLLoader.load(getClass().getResource("/theFridge/view/foodCalculator/LunchCalories.fxml"));
+			Node dinner = (Node)FXMLLoader.load(getClass().getResource("/theFridge/view/foodCalculator/DinnerCalories.fxml"));
+			vbox = new VBox(breakfast, lunch, dinner);	
+		}
+		/*
+		else if(meals >= 4){
+			Node breakfast = (Node)FXMLLoader.load(getClass().getResource("/theFridge/view/foodCalculator/FoodCalculatorCaloriesCalculatorRecipe.fxml"));
+			Node lunch = (Node)FXMLLoader.load(getClass().getResource("/theFridge/view/foodCalculator/LunchCalories.fxml"));
+			for(int i = 0; i < meals; i++){
+				Node dinner = (Node)FXMLLoader.load(getClass().getResource("/theFridge/view/foodCalculator/DinnerCalories.fxml"));
+			}
+		}
+		*/
 		
 		//~Receives methodB from FoodCalculatorCaloriesCalculatorRecipe
-		VBox vbox = new VBox(breakfast, lunch, dinner);	
 		Scrollpane.setContent(vbox);
 		Scrollpane.setStyle("-fx-background-color:transparent;");
 	}

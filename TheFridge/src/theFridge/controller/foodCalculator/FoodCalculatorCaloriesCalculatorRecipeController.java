@@ -44,20 +44,14 @@ public class FoodCalculatorCaloriesCalculatorRecipeController {
 		//for(int i = 0; i < meals; i++){}
 		
 		FoodCalculatorCaloriesCalculatorRecipeModel abc = new FoodCalculatorCaloriesCalculatorRecipeModel(new Random().nextInt(5));
-		
-		//if(meals <=0){
-		//	System.out.print("Number must be at least 1");
-		//}
-		//else if(meals == 1){
-			Time.setText("Breakfast");
-		//}
-		
+		Time.setText("Breakfast");
 		NumberOfCalories.setText("Calories: " + abc.getRecipeCalories());
 		Measurements.setText(numberOfServings + " Serving");
 		FoodName.setText(abc.getRecipeName());
 		Image image = new Image(abc.getRecipeImage());
 		FoodImage.setImage(image);
 		
+		//System.out.print("Con2 Testing 1");	
 	}
 	
 	@FXML

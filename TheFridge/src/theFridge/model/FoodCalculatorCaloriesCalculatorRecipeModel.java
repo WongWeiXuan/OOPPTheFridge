@@ -5,12 +5,24 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import theFridge.controller.foodCalculator.CaloriesCalculatorInputController;
+
 public class FoodCalculatorCaloriesCalculatorRecipeModel{
 	private ArrayList<String>recipeList;
 	private int index;
-	private int meals;
-	private int calories;
+	private static int meals;
+	private static int calories;
 	
+	//Getter
+	public static int getMeals() {
+		return meals;
+	}
+
+	public static int getCalories() {
+		return calories;
+	}
+	//--------
+	//Initializing recipeList...
 	public FoodCalculatorCaloriesCalculatorRecipeModel() throws FileNotFoundException{
 		ArrayList<String> recipeList1 = new ArrayList<String>();
 		
@@ -24,14 +36,18 @@ public class FoodCalculatorCaloriesCalculatorRecipeModel{
 		sc.close();
 		
 		recipeList = recipeList1;
-		this.index = 0;
+		this.meals = CaloriesCalculatorInputController.NumOfMeals;
+		this.calories = CaloriesCalculatorInputController.NumOfCalories;
+		//System.out.println("Model: " + this.meals);
+		//System.out.println("Model: " + this.calories);
 	}
 	
+	//Get recipe based on Index
 	public FoodCalculatorCaloriesCalculatorRecipeModel(int index) throws FileNotFoundException{
 		this();
 		this.index = index;
 	}
-	
+	// Must deduce recipes lower then the calories
 	private ArrayList<String> getIndiRecipe(int index){
 		ArrayList<String> indiRecipe = new ArrayList<String>();
 		Scanner sc = new Scanner((recipeList).get(this.index));
@@ -43,7 +59,7 @@ public class FoodCalculatorCaloriesCalculatorRecipeModel{
 		
 		return indiRecipe;
 	}
-	
+	//---------------------------------------------
 	public String getRecipeName(){
 		ArrayList<String>indiRecipe = getIndiRecipe(this.index);
 		return indiRecipe.get(0);

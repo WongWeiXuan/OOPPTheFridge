@@ -4,13 +4,12 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 
-
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.60">
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="theFridge.controller.foodCalculator.FoodCalculatorNavigationController">
    <children>
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
-            <JFXButton fx:id="Calculator" onAction="#goFood" />
-            <JFXButton fx:id="Shopping" onAction="#goFood" />
+            <JFXButton fx:id="Calculator" onAction="#goFood" text="Calculator" />
+            <JFXButton fx:id="Shopping" onAction="#goFood" text="Shopping" />
          </children>
       </HBox>
    </children>
