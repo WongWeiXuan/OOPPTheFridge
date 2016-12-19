@@ -20,6 +20,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 public class SignupPageController {
@@ -33,6 +34,8 @@ public class SignupPageController {
 	private JFXTextField tFEmail;
 	@FXML
 	private JFXPasswordField pFPassword;
+	@FXML
+	private Label comment;
 	
 	@FXML
 	void createAccount(ActionEvent event) throws IOException, ParseException, ParseException{
@@ -41,13 +44,13 @@ public class SignupPageController {
 		String Email = tFEmail.getText();
 		
 		if (Username.equals("") || Username.equals(null)) {
-			tFUsername.setPromptText("Please fill in your username!");
+			comment.setText("Please fill in your username!");
 		}
 		else if (Password.equals("") || Password.equals(null)) {
-			pFPassword.setPromptText("Please fill in your password!");
+			comment.setText("Please fill in your password!");
 		}
 		else if (Email.equals("") || Email.equals(null)) {
-			tFEmail.setPromptText("Please fill in your email!");
+			comment.setText("Please fill in your email!");
 		}
 		else {
 			JSONParser parser = new JSONParser();

@@ -124,15 +124,27 @@
                         </TextFlow>
                      </children>
                      <VBox.margin>
-                        <Insets top="90.0" />
+                        <Insets top="70.0" />
                      </VBox.margin>
                   </GridPane>
+                  <TextFlow>
+                     <children>
+                        <Label fx:id="comment">
+                           <font>
+                              <Font name="Garamond" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets left="15.0" />
+                     </padding>
+                  </TextFlow>
                   <JFXCheckBox fx:id="loginCheckBox" text="Remember me" unCheckedColor="BLACK">
                      <font>
                         <Font name="Garamond" size="18.0" />
                      </font>
                      <VBox.margin>
-                        <Insets left="5.0" top="10.0" />
+                        <Insets left="5.0" top="20.0" />
                      </VBox.margin>
                   </JFXCheckBox>
                   <TextFlow textAlignment="CENTER">
@@ -144,7 +156,7 @@
                         </JFXButton>
                      </children>
                      <VBox.margin>
-                        <Insets top="40.0" />
+                        <Insets top="30.0" />
                      </VBox.margin>
                   </TextFlow>
                </children>

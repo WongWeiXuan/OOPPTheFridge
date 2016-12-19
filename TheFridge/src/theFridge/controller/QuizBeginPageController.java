@@ -2,9 +2,12 @@ package theFridge.controller;
 
 import java.io.IOException;
 
+import com.jfoenix.controls.JFXButton;
+
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
@@ -36,7 +39,18 @@ public class QuizBeginPageController {
 	private VBox quizScene;
 	@FXML
 	private VBox prizeScene;
+	@FXML
+	private JFXButton quizBtn;
 
+	@FXML
+	public void goToQuizPage(ActionEvent event) throws IOException {
+		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/QuizPage.fxml"));
+		
+		stage.setScene(new Scene(root));
+ 	    stage.show();
+	}
+	
 	@FXML
 	public void showNavigation(MouseEvent event){
 		Timeline timeline = new Timeline();

@@ -1,6 +1,12 @@
 package theFridge.controller;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+import com.jfoenix.controls.JFXButton;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -11,6 +17,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 
 import javafx.scene.layout.VBox;
@@ -36,6 +43,50 @@ public class QuizPageController {
 	private VBox quizScene;
 	@FXML
 	private VBox prizeScene;
+	@FXML
+	private JFXButton choiceBtn1;
+	@FXML
+	private JFXButton choiceBtn2;
+	@FXML
+	private JFXButton choiceBtn3;
+	@FXML
+	private JFXButton choiceBtn4;
+	@FXML
+	private Label question;
+	@FXML
+	private Label timeLeft;
+	@FXML
+	private Label timer;
+	@FXML
+	private Label pointsEarned;
+	
+	@FXML
+	public void initialize() throws FileNotFoundException{
+		File quizQtns = new File("src/theFridge/file/Quiz Questions.txt");
+		Scanner sc = new Scanner(quizQtns);
+		ArrayList<String> questionList = new ArrayList<String>();
+		while(sc.hasNextLine()){
+			questionList.add(sc.nextLine());
+		}
+		sc.close();
+		
+		int points = 0;
+		timer.setText("10");
+		boolean isCorrect = false;
+		
+		if (isCorrect = true) {
+			points += 20;
+			//Show popup
+		}
+		else {
+			//Show popup
+		}
+		
+		if (timer.equals("0") || timer.equals(null)) {
+			//Show popup
+		}
+		
+	}
 
 	@FXML
 	public void showNavigation(MouseEvent event){

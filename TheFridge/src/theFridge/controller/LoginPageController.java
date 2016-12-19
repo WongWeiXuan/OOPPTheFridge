@@ -16,6 +16,7 @@ import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Screen;
@@ -36,6 +37,8 @@ public class LoginPageController {
 	private JFXPasswordField pFPassword;
 	@FXML
 	private JFXCheckBox loginCheckBox;
+	@FXML
+	private Label comment;
 	
 	/*
 	@FXML
@@ -56,11 +59,11 @@ public class LoginPageController {
 		String Password = pFPassword.getText();
 		
 		if (Username.equals(" ") || Username.equals(null)) {
-			tFUsername.setPromptText("Please fill in your username!");
+			comment.setText("Please fill in your username!");
 
 		}
 		else if (Password.equals(" ") || Password.equals(null)) {
-			pFPassword.setPromptText("Please fill in your password!");
+			comment.setText("Please fill in your password!");
 		}
 		else {
 			Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();

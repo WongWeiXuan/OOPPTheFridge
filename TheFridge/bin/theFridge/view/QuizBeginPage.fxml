@@ -188,7 +188,7 @@
                               <Insets right="110.0" />
                            </VBox.margin>
                         </Label>
-                        <JFXButton buttonType="RAISED" prefHeight="70.0" prefWidth="200.0" ripplerFill="BLACK" style="-fx-background-color: #009688;" text="Begin" textFill="WHITE">
+                        <JFXButton fx:id="beginBtn" buttonType="RAISED" onAction="#goToQuizPage" prefHeight="70.0" prefWidth="200.0" ripplerFill="BLACK" style="-fx-background-color: #009688;" text="Begin" textFill="WHITE">
                            <font>
                               <Font name="Garamond" size="36.0" />
                            </font>
