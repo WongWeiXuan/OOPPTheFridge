@@ -59,6 +59,8 @@ public class QuizPageController {
 	private Label timer;
 	@FXML
 	private Label pointsEarned;
+	@FXML
+	private Label questionNo;
 	
 	@FXML
 	public void initialize() throws FileNotFoundException{
@@ -76,6 +78,7 @@ public class QuizPageController {
 		
 		if (isCorrect = true) {
 			points += 20;
+			pointsEarned.setText("Points earned: " + points);
 			//Show popup
 		}
 		else {
