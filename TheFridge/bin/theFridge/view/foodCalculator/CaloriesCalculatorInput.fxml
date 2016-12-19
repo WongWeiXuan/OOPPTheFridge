@@ -8,7 +8,7 @@
 <AnchorPane prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="theFridge.controller.foodCalculator.CaloriesCalculatorInputController">
    <children>
       <JFXTextField fx:id="calories" layoutX="547.0" layoutY="266.0" />
-      <Spinner fx:id="meals" layoutX="547.0" layoutY="355.0" />
+      <Spinner fx:id="meals" editable="true" layoutX="547.0" layoutY="355.0" />
       <JFXButton fx:id="goNext" layoutX="608.0" layoutY="497.0" onAction="#goNext" text="Go" />
    </children>
 </AnchorPane>

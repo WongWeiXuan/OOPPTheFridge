@@ -1,5 +1,6 @@
 package theFridge.controller;
 
+import java.io.File;
 import java.io.IOException;
 //import javafx.stage.StageStyle;
 //import javafx.application.Platform;
@@ -15,6 +16,8 @@ import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
@@ -72,8 +75,14 @@ public class LoginPageController {
 			stage.setMaximized(true);
 			stage.setScene(new Scene(root));
 	 	    stage.show();
+		}
+		//Quack2 is the new Quack
+		String quack = "src/theFridge/sound/quack2.mp3";
+
+		Media sound = new Media(new File(quack).toURI().toString());
+		MediaPlayer mediaPlayer = new MediaPlayer(sound);
+		mediaPlayer.play();
 	}
-}
 	
 	@FXML
 	public void goToSignupPage(ActionEvent event) throws IOException {
