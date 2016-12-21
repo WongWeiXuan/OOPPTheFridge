@@ -58,11 +58,11 @@ public class LoginPageController {
 		String Username = tFUsername.getText();
 		String Password = pFPassword.getText();
 		
-		if (Username.equals(" ") || Username.equals(null)) {
+		if (Username.equals("") || Username.equals(null)) {
 			comment.setText("Please fill in your username!");
 
 		}
-		else if (Password.equals(" ") || Password.equals(null)) {
+		else if (Password.equals("") || Password.equals(null)) {
 			comment.setText("Please fill in your password!");
 		}
 		else {
