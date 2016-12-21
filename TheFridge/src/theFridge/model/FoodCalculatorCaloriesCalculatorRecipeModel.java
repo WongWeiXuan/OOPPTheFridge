@@ -36,10 +36,8 @@ public class FoodCalculatorCaloriesCalculatorRecipeModel{
 		sc.close();
 		
 		recipeList = recipeList1;
-		this.meals = CaloriesCalculatorInputController.NumOfMeals;
-		this.calories = CaloriesCalculatorInputController.NumOfCalories;
-		//System.out.println("Model: " + this.meals);
-		//System.out.println("Model: " + this.calories);
+		FoodCalculatorCaloriesCalculatorRecipeModel.meals = CaloriesCalculatorInputController.NumOfMeals;
+		FoodCalculatorCaloriesCalculatorRecipeModel.calories = CaloriesCalculatorInputController.NumOfCalories;
 	}
 	
 	//Get recipe based on Index

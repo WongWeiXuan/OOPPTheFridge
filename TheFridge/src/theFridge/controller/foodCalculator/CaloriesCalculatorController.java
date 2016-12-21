@@ -53,7 +53,6 @@ public class CaloriesCalculatorController {
 	public void initialize() throws IOException{
 		VBox vbox = null;
 		int meals = CaloriesCalculatorInputController.NumOfMeals;
-		System.out.println("MainCon Meals: " + meals);
 		if(meals == 1){
 			Node breakfast = (Node)FXMLLoader.load(getClass().getResource("/theFridge/view/foodCalculator/FoodCalculatorCaloriesCalculatorRecipe.fxml"));
 			vbox = new VBox(breakfast);	
