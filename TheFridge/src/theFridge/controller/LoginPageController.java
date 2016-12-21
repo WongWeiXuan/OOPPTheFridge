@@ -1,9 +1,15 @@
 package theFridge.controller;
 
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 //import javafx.stage.StageStyle;
 //import javafx.application.Platform;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXCheckBox;
@@ -54,18 +60,30 @@ public class LoginPageController {
     */
 	
 	@FXML
-	public void goToHomePage(ActionEvent event) throws IOException {
+	public void goToHomePage(ActionEvent event) throws IOException, ParseException {
 		String Username = tFUsername.getText();
 		String Password = pFPassword.getText();
 		
-		if (Username.equals("") || Username.equals(null)) {
+		if (Username.equals(" ") || Username.equals(null)) {
 			comment.setText("Please fill in your username!");
 
 		}
-		else if (Password.equals("") || Password.equals(null)) {
+		else if (Password.equals(" ") || Password.equals(null)) {
 			comment.setText("Please fill in your password!");
 		}
 		else {
+			
+			JSONParser parser = new JSONParser();
+			
+			Object obj = parser.parse(new FileReader("src/theFridge/file/people.json"));
+			JSONObject jsonObject = (JSONObject) obj;
+			
+			JSONArray usernameArray = (JSONArray) jsonObject.get("Username"); 
+			usernameArray.add(Username);
+			
+			JSONArray passwordArray = (JSONArray) jsonObject.get("Password"); 
+			passwordArray.add(Password);
+			
 			Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
 			Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/HomePage.fxml"));
 			
