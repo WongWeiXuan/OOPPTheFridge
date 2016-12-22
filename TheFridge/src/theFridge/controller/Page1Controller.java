@@ -28,6 +28,7 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import javafx.fxml.Initializable;
 import theFridge.model.First;
+import theFridge.model.Last;
 
 
 
@@ -38,7 +39,11 @@ public class Page1Controller implements Initializable{
     @FXML
     private TableColumn<First, String> table2;
     @FXML
+    private TableColumn<Last, String> foodList;
+    @FXML
     private TableView<First> tableView1;
+    @FXML
+    private TableView<Last> foodCom;
     @FXML
     private Button btnGenerateMultiple;
     @FXML
@@ -159,6 +164,9 @@ public class Page1Controller implements Initializable{
 	        
 	    }
 	    ObservableList<String> data = FXCollections.observableArrayList("Chicken","Fish","Vegetable","Rice","Pasta","tomato","apple","sotongs");
-	    
+	    ObservableList<String> a;
+	    public void chosen1(ActionEvent event){
+	    	a= choice.getItems();
+	    }
 	   
 }

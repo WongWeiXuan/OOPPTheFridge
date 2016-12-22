@@ -199,12 +199,12 @@
                                     <Font size="18.0" />
                                  </font>
                               </Text>
-                              <JFXComboBox fx:id="choice" prefHeight="31.0" prefWidth="586.0" promptText="Select Food You Want To Compost">
+                              <JFXComboBox fx:id="choice" onAction="#chosen1" prefHeight="31.0" prefWidth="586.0" promptText="Select Food You Want To Compost">
                                  <VBox.margin>
                                     <Insets top="20.0" />
                                  </VBox.margin>
                               </JFXComboBox>
-                              <TableView prefHeight="258.0" prefWidth="980.0">
+                              <TableView fx:id="foodCom" prefHeight="258.0" prefWidth="980.0">
                                 <columns>
                                   <TableColumn prefWidth="1129.0" text="Composition Of Food" />
                                 </columns>
