@@ -14,7 +14,11 @@ import org.json.simple.parser.ParseException;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXSpinner;
 import com.jfoenix.controls.JFXTextField;
+
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -27,6 +31,7 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 public class LoginPageController {
 	@FXML
@@ -45,6 +50,8 @@ public class LoginPageController {
 	private JFXCheckBox loginCheckBox;
 	@FXML
 	private Label comment;
+	@FXML
+	private JFXSpinner spinner;
 	
 	/*
 	@FXML
@@ -64,14 +71,49 @@ public class LoginPageController {
 		String Username = tFUsername.getText();
 		String Password = pFPassword.getText();
 		
-		if (Username.equals("") || Username.equals(null)) {
+		if (Username.equals(" ") || Username.equals(null)) {
 			comment.setText("Please fill in your username!");
 
 		}
-		else if (Password.equals("") || Password.equals(null)) {
+		else if (Password.equals(" ") || Password.equals(null)) {
 			comment.setText("Please fill in your password!");
 		}
 		else {
+			spinner.setOpacity(1);
+			loginBtn.setOpacity(0);
+			
+			Timeline timeline = new Timeline();
+			KeyFrame keyFrame = new KeyFrame(
+					Duration.seconds(2), 
+					first -> {
+							Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+							Parent root = null;
+							try {
+								root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/HomePage.fxml"));
+							} catch (IOException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+							
+							Screen screen = Screen.getPrimary();
+							Rectangle2D bounds = screen.getVisualBounds();
+							stage.setX(bounds.getMinX());
+							stage.setY(bounds.getMinY());
+							stage.setWidth(bounds.getWidth());
+							stage.setHeight(bounds.getHeight());
+							stage.setMaximized(true);
+							stage.setScene(new Scene(root));
+					 	    stage.show();
+							
+					 	    //Quack2 is the new Quack
+							String quack = "src/theFridge/sound/quack2.mp3";
+
+							Media sound = new Media(new File(quack).toURI().toString());
+							MediaPlayer mediaPlayer = new MediaPlayer(sound);
+							mediaPlayer.play();
+					});
+	    	timeline.getKeyFrames().addAll(keyFrame);
+			timeline.play();
 			
 			JSONParser parser = new JSONParser();
 			
@@ -83,26 +125,7 @@ public class LoginPageController {
 			
 			JSONArray passwordArray = (JSONArray) jsonObject.get("Password"); 
 			passwordArray.add(Password);
-			
-			Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-			Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/HomePage.fxml"));
-			
-			Screen screen = Screen.getPrimary();
-			Rectangle2D bounds = screen.getVisualBounds();
-			stage.setX(bounds.getMinX());
-			stage.setY(bounds.getMinY());
-			stage.setWidth(bounds.getWidth());
-			stage.setHeight(bounds.getHeight());
-			stage.setMaximized(true);
-			stage.setScene(new Scene(root));
-	 	    stage.show();
 		}
-		//Quack2 is the new Quack
-		String quack = "src/theFridge/sound/quack2.mp3";
-
-		Media sound = new Media(new File(quack).toURI().toString());
-		MediaPlayer mediaPlayer = new MediaPlayer(sound);
-		mediaPlayer.play();
 	}
 	
 	@FXML
