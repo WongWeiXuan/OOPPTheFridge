@@ -92,59 +92,50 @@ public class LoginPageController {
 		else if (Password.equals(" ") || Password.equals(null)) {
 			comment.setText("Please fill in your password!");
 		}
-		                           //This is a comment so you can login without entering anything for now
 		else if (!Username.equals("") /*|| !Username.equals(null)*/ && !Password.equals("") /*|| !Password.equals(null)*/) {
-			//Checking JSON username
+			//Checking JSON username & password
 			for (int i = 0; i < usernameArray.size(); i++) {
-				if (!Username.equals(usernameArray.get(i))) {
-					comment.setText("Error! You are not registered yet.");
-				}
-			}
-			//Checking JSON password
-			for (int i = 0; i < passwordArray.size(); i++) {
-				if (!Password.equals(passwordArray.get(i))) {
-					comment.setText("Error! You are not registered yet.");
-				}
-			}
-		}                   //Take away spacing when all else is done
-		else if (!Username.equals(" ") /*|| !Username.equals(null)*/ && !Password.equals(" ") /*|| !Password.equals(null)*/) {
-			
-			//Making a spinner upon clicking login
-			spinner.setOpacity(1);
-			loginBtn.setOpacity(0);
-			
-			Timeline timeline = new Timeline();
-			KeyFrame keyFrame = new KeyFrame(
-					Duration.seconds(2), 
-					first -> {
-							Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-							Parent root = null;
-							try {
-								root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/HomePage.fxml"));
-							} catch (IOException e) {
-								// TODO Auto-generated catch block
-								e.printStackTrace();
-							}
-							
-							Screen screen = Screen.getPrimary();
-							Rectangle2D bounds = screen.getVisualBounds();
-							stage.setX(bounds.getMinX());
-							stage.setY(bounds.getMinY());
-							stage.setWidth(bounds.getWidth());
-							stage.setHeight(bounds.getHeight());
-							stage.setMaximized(true);
-							stage.setScene(new Scene(root));
-					 	    stage.show();
-							
-					 	    //Quack2 is the new Quack
-							String quack = "src/theFridge/sound/quack2.mp3";
+				if (Username.equals(usernameArray.get(i)) && Password.equals(passwordArray.get(i))) {
+					spinner.setOpacity(1);
+					loginBtn.setOpacity(0);
+					
+					Timeline timeline = new Timeline();
+					KeyFrame keyFrame = new KeyFrame(
+							Duration.seconds(2), 
+							first -> {
+									Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+									Parent root = null;
+									try {
+										root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/HomePage.fxml"));
+									} catch (IOException e) {
+										// TODO Auto-generated catch block
+										e.printStackTrace();
+									}
+									
+									Screen screen = Screen.getPrimary();
+									Rectangle2D bounds = screen.getVisualBounds();
+									stage.setX(bounds.getMinX());
+									stage.setY(bounds.getMinY());
+									stage.setWidth(bounds.getWidth());
+									stage.setHeight(bounds.getHeight());
+									stage.setMaximized(true);
+									stage.setScene(new Scene(root));
+							 	    stage.show();
+									
+							 	    //Quack2 is the new Quack
+									String quack = "src/theFridge/sound/quack2.mp3";
 
-							Media sound = new Media(new File(quack).toURI().toString());
-							MediaPlayer mediaPlayer = new MediaPlayer(sound);
-							mediaPlayer.play();
-					});
-	    	timeline.getKeyFrames().addAll(keyFrame);
-			timeline.play();
+									Media sound = new Media(new File(quack).toURI().toString());
+									MediaPlayer mediaPlayer = new MediaPlayer(sound);
+									mediaPlayer.play();
+							});
+			    	timeline.getKeyFrames().addAll(keyFrame);
+					timeline.play();
+				}
+			}
+		}
+		else {
+			comment.setText("Error! You are not registered yet.");
 		}
 	}
 	
