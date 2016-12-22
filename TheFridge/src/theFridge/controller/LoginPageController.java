@@ -83,10 +83,12 @@ public class LoginPageController {
 		passwordArray.add(Password);
 		
 		//If username is empty
+		                    //Take away spacing when all else is done
 		if (Username.equals(" ") || Username.equals(null)) {
 			comment.setText("Please fill in your username!");
 		}
 		//If password is empty
+		                    //Take away spacing when all else is done
 		else if (Password.equals(" ") || Password.equals(null)) {
 			comment.setText("Please fill in your password!");
 		}
@@ -104,8 +106,8 @@ public class LoginPageController {
 					comment.setText("Error! You are not registered yet.");
 				}
 			}
-		}
-		else {
+		}                   //Take away spacing when all else is done
+		else if (!Username.equals(" ") /*|| !Username.equals(null)*/ && !Password.equals(" ") /*|| !Password.equals(null)*/) {
 			
 			//Making a spinner upon clicking login
 			spinner.setOpacity(1);
