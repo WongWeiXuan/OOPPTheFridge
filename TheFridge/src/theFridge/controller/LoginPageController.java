@@ -71,14 +71,43 @@ public class LoginPageController {
 		String Username = tFUsername.getText();
 		String Password = pFPassword.getText();
 		
+		JSONParser parser = new JSONParser();
+		
+		Object obj = parser.parse(new FileReader("src/theFridge/file/people.json"));
+		JSONObject jsonObject = (JSONObject) obj;
+		
+		JSONArray usernameArray = (JSONArray) jsonObject.get("Username"); 
+		usernameArray.add(Username);
+		
+		JSONArray passwordArray = (JSONArray) jsonObject.get("Password"); 
+		passwordArray.add(Password);
+		
+		//Input username validation
 		if (Username.equals(" ") || Username.equals(null)) {
 			comment.setText("Please fill in your username!");
-
 		}
+		//Input password validation
 		else if (Password.equals(" ") || Password.equals(null)) {
 			comment.setText("Please fill in your password!");
 		}
+		                           //This is a comment so you can login without entering anything for now
+		if (!Username.equals("") /*|| !Username.equals(null)*/ && !Password.equals("") /*|| !Password.equals(null)*/) {
+			//Checking JSON username
+			for (int i = 0; i < usernameArray.size(); i++) {
+				if (!Username.equals(usernameArray.get(i))) {
+					comment.setText("Error! You are not registered yet.");
+				}
+			}
+			//Checking JSON password
+			for (int i = 0; i < passwordArray.size(); i++) {
+				if (!Password.equals(passwordArray.get(i))) {
+					comment.setText("Error! You are not registered yet.");
+				}
+			}
+		}
 		else {
+			
+			//Making a spinner upon clicking login
 			spinner.setOpacity(1);
 			loginBtn.setOpacity(0);
 			
@@ -114,17 +143,6 @@ public class LoginPageController {
 					});
 	    	timeline.getKeyFrames().addAll(keyFrame);
 			timeline.play();
-			
-			JSONParser parser = new JSONParser();
-			
-			Object obj = parser.parse(new FileReader("src/theFridge/file/people.json"));
-			JSONObject jsonObject = (JSONObject) obj;
-			
-			JSONArray usernameArray = (JSONArray) jsonObject.get("Username"); 
-			usernameArray.add(Username);
-			
-			JSONArray passwordArray = (JSONArray) jsonObject.get("Password"); 
-			passwordArray.add(Password);
 		}
 	}
 	
