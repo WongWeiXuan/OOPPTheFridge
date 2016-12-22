@@ -82,16 +82,16 @@ public class LoginPageController {
 		JSONArray passwordArray = (JSONArray) jsonObject.get("Password"); 
 		passwordArray.add(Password);
 		
-		//Input username validation
+		//If username is empty
 		if (Username.equals(" ") || Username.equals(null)) {
 			comment.setText("Please fill in your username!");
 		}
-		//Input password validation
+		//If password is empty
 		else if (Password.equals(" ") || Password.equals(null)) {
 			comment.setText("Please fill in your password!");
 		}
 		                           //This is a comment so you can login without entering anything for now
-		if (!Username.equals("") /*|| !Username.equals(null)*/ && !Password.equals("") /*|| !Password.equals(null)*/) {
+		else if (!Username.equals("") /*|| !Username.equals(null)*/ && !Password.equals("") /*|| !Password.equals(null)*/) {
 			//Checking JSON username
 			for (int i = 0; i < usernameArray.size(); i++) {
 				if (!Username.equals(usernameArray.get(i))) {
