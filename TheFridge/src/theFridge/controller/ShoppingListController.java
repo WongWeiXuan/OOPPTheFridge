@@ -182,9 +182,6 @@ public class ShoppingListController {
 		
 		startPopup();
 		startPopup1();
-		
-		ObservableList<String> data = FXCollections.observableArrayList("1","2","3","4","5","6","7","8");
-		comboBoxFamily.setItems(data);
 	}
 	
 	private void startPopup() {

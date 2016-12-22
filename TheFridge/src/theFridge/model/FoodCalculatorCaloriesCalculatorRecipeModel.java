@@ -10,11 +10,11 @@ import theFridge.controller.foodCalculator.CaloriesCalculatorInputController;
 public class FoodCalculatorCaloriesCalculatorRecipeModel{
 	private ArrayList<String>recipeList;
 	private int index;
-	private static int meals;
+	private static String meals;
 	private static int calories;
 	
 	//Getter
-	public static int getMeals() {
+	public static String getMeals() {
 		return meals;
 	}
 

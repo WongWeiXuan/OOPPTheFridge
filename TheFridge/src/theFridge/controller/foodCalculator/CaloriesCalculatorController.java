@@ -11,7 +11,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -46,26 +45,23 @@ public class CaloriesCalculatorController {
 	@FXML
 	private VBox vboxContainer;
 	
-	FoodCalculatorCaloriesCalculatorRecipeModel model;
-	
-	
 	@FXML
 	public void initialize() throws IOException{
 		VBox vbox = null;
-		int meals = CaloriesCalculatorInputController.NumOfMeals;
-		if(meals == 1){
+		String meals = CaloriesCalculatorInputController.NumOfMeals;
+		if(meals == "Breakfast"){
 			Node breakfast = (Node)FXMLLoader.load(getClass().getResource("/theFridge/view/foodCalculator/FoodCalculatorCaloriesCalculatorRecipe.fxml"));
 			vbox = new VBox(breakfast);	
 		}
-		else if(meals == 2){
+		else if(meals == "Lunch"){
 			Node lunch = (Node)FXMLLoader.load(getClass().getResource("/theFridge/view/foodCalculator/LunchCalories.fxml"));
 			vbox = new VBox(lunch);	
 		}
-		else if(meals == 3){
+		else if(meals == "Dinner"){
 			Node dinner = (Node)FXMLLoader.load(getClass().getResource("/theFridge/view/foodCalculator/DinnerCalories.fxml"));
 			vbox = new VBox(dinner);	
 		}
-		else if(meals >= 4){
+		else if(meals == "Snacks"){
 			Node snack = (Node)FXMLLoader.load(getClass().getResource("/theFridge/view/foodCalculator/LunchCalories.fxml"));
 			vbox = new VBox(snack);
 		}
