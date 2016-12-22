@@ -43,7 +43,7 @@ public class FoodCalculatorCaloriesCalculatorRecipeController {
 		//int meals = NumMeals.getText();
 		//for(int i = 0; i < meals; i++){}
 		
-		FoodCalculatorCaloriesCalculatorRecipeModel abc = new FoodCalculatorCaloriesCalculatorRecipeModel(new Random().nextInt(5));
+		FoodCalculatorCaloriesCalculatorRecipeModel abc = new FoodCalculatorCaloriesCalculatorRecipeModel(new Random().nextInt(7));
 		Time.setText("Breakfast");
 		NumberOfCalories.setText("Calories: " + abc.getRecipeCalories());
 		Measurements.setText(numberOfServings + " Serving");

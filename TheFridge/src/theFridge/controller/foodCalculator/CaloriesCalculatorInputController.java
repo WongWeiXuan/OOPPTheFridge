@@ -101,8 +101,6 @@ public class CaloriesCalculatorInputController {
     @FXML
     void goNext(ActionEvent event) throws IOException {
     	NumOfCalories = Integer.parseInt(calories.getText());
-    	System.out.println("Con1 Number of Meals: " + NumOfMeals);
-    	System.out.println("Con1 Number Of Calories: " + NumOfCalories);
     	//Change scene
     	Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
 		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/foodCalculator/CaloriesCalculatorInput.fxml"));
