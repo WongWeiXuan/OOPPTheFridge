@@ -186,7 +186,7 @@
                                        <children>
                                           <HBox alignment="TOP_RIGHT" prefHeight="60.0" prefWidth="180.0" style="-fx-background-color: black;">
                                              <children>
-                                                <JFXButton buttonType="RAISED" prefHeight="60.0" prefWidth="180.0" ripplerFill="#070707" style="-fx-background-color: white;" text="Basic Details">
+                                                <JFXButton fx:id="btnProfile1" buttonType="RAISED" prefHeight="60.0" prefWidth="180.0" ripplerFill="#070707" style="-fx-background-color: white;" text="Basic Details">
                                                    <font>
                                                       <Font name="Garamond" size="24.0" />
                                                    </font>
@@ -196,7 +196,7 @@
                                                 <Insets />
                                              </VBox.margin>
                                           </HBox>
-                                          <JFXButton buttonType="RAISED" prefHeight="60.0" prefWidth="190.0" ripplerFill="BLACK" style="-fx-background-color: white;" text="Settings">
+                                          <JFXButton fx:id="btnProfile2" buttonType="RAISED" onAction="#goToSettings" prefHeight="60.0" prefWidth="190.0" ripplerFill="BLACK" style="-fx-background-color: white;" text="Settings">
                                              <font>
                                                 <Font name="Garamond" size="24.0" />
                                              </font>

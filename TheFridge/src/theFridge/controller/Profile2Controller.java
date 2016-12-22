@@ -49,9 +49,9 @@ public class Profile2Controller {
 	@FXML
 	private VBox prizeScene;
 	@FXML
-	private Button btnProfile1;
+	private JFXButton btnProfile1;
 	@FXML
-	private Button btnProfile2;
+	private JFXButton btnProfile2;
 	@FXML
 	private TextField NText;
 	@FXML
