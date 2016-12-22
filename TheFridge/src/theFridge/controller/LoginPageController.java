@@ -77,22 +77,20 @@ public class LoginPageController {
 		JSONObject jsonObject = (JSONObject) obj;
 		
 		JSONArray usernameArray = (JSONArray) jsonObject.get("Username"); 
-		usernameArray.add(Username);
 		
 		JSONArray passwordArray = (JSONArray) jsonObject.get("Password"); 
-		passwordArray.add(Password);
 		
 		//If username is empty
 		                    //Take away spacing when all else is done
-		if (Username.equals(" ") || Username.equals(null)) {
+		if (Username.equals("") || Username.equals(null)) {
 			comment.setText("Please fill in your username!");
 		}
 		//If password is empty
 		                    //Take away spacing when all else is done
-		else if (Password.equals(" ") || Password.equals(null)) {
+		else if (Password.equals("") || Password.equals(null)) {
 			comment.setText("Please fill in your password!");
 		}
-		else if (!Username.equals("") /*|| !Username.equals(null)*/ && !Password.equals("") /*|| !Password.equals(null)*/) {
+		else if (!Username.equals("") || !Username.equals(null) && !Password.equals("") || !Password.equals(null)) {
 			//Checking JSON username & password
 			for (int i = 0; i < usernameArray.size(); i++) {
 				if (Username.equals(usernameArray.get(i)) && Password.equals(passwordArray.get(i))) {
@@ -131,11 +129,13 @@ public class LoginPageController {
 							});
 			    	timeline.getKeyFrames().addAll(keyFrame);
 					timeline.play();
+					
+					comment.setOpacity(0);
+				}
+				else {
+					comment.setText("Error! You are not registered yet.");
 				}
 			}
-		}
-		else {
-			comment.setText("Error! You are not registered yet.");
 		}
 	}
 	
