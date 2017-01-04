@@ -74,10 +74,66 @@
                         </TextFlow>
                      </children>
                   </VBox>
-                  <VBox prefHeight="300.0" prefWidth="350.0" style="-fx-background-color: #F06292;" />
+                  <VBox prefHeight="300.0" prefWidth="350.0" style="-fx-background-color: F06292;">
+                     <children>
+                        <TextFlow textAlignment="CENTER">
+                           <children>
+                              <Label text="The Fridge" textFill="WHITE">
+                                 <font>
+                                    <Font name="Garamond" size="48.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </TextFlow>
+                        <TextFlow prefHeight="45.0" prefWidth="350.0" textAlignment="CENTER">
+                           <children>
+                              <Label text="Don't Have an Account?" textFill="WHITE">
+                                 <font>
+                                    <Font name="Garamond" size="30.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets top="5.0" />
+                                 </padding>
+                              </Label>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="20.0" />
+                           </VBox.margin>
+                        </TextFlow>
+                        <VBox alignment="CENTER">
+                           <children>
+                              <Label text="Sign up to access" textFill="WHITE">
+                                 <font>
+                                    <Font name="Garamond" size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label text="All our wonderful features!" textFill="WHITE">
+                                 <font>
+                                    <Font name="Garamond" size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="40.0" />
+                           </VBox.margin>
+                        </VBox>
+                        <TextFlow textAlignment="CENTER">
+                           <children>
+                              <JFXButton buttonType="RAISED" ripplerFill="BLACK" style="-fx-background-color: yellow;" text="Sign up">
+                                 <font>
+                                    <Font name="Garamond" size="24.0" />
+                                 </font>
+                              </JFXButton>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="40.0" />
+                           </VBox.margin>
+                        </TextFlow>
+                     </children>
+                  </VBox>
                </children>
             </HBox>
-            <VBox layoutX="500.0" layoutY="81.0" prefHeight="430.0" prefWidth="330.0" style="-fx-background-color: white;">
+            <VBox layoutX="500.0" layoutY="80.0" prefHeight="430.0" prefWidth="330.0" style="-fx-background-color: white;">
                <children>
                   <TextFlow prefHeight="50.0" prefWidth="330.0" style="-fx-background-color: #009688;" textAlignment="CENTER">
                      <children>
