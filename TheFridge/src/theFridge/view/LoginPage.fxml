@@ -138,7 +138,7 @@
             </HBox>
             <StackPane layoutX="170.0" layoutY="80.0" prefHeight="430.0" prefWidth="330.0">
                <children>
-                  <VBox prefHeight="430.0" prefWidth="330.0" style="-fx-background-color: white;">
+                  <VBox fx:id="signupField" opacity="0.0" prefHeight="430.0" prefWidth="330.0" style="-fx-background-color: white;">
                      <children>
                         <TextFlow prefHeight="50.0" prefWidth="330.0" style="-fx-background-color: #009688;" textAlignment="CENTER">
                            <children>
@@ -220,7 +220,7 @@
                         </TextFlow>
                      </children>
                   </VBox>
-                  <VBox prefHeight="430.0" prefWidth="330.0" style="-fx-background-color: white;">
+                  <VBox fx:id="loginField" prefHeight="430.0" prefWidth="330.0" style="-fx-background-color: white;">
                      <children>
                         <TextFlow prefHeight="50.0" prefWidth="320.0" style="-fx-background-color: #009688;" textAlignment="CENTER">
                            <children>

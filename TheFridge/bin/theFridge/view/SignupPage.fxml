@@ -133,7 +133,7 @@
                   </VBox>
                </children>
             </HBox>
-            <VBox layoutX="500.0" layoutY="81.0" prefHeight="430.0" prefWidth="330.0" style="-fx-background-color: white;">
+            <VBox layoutX="500.0" layoutY="80.0" prefHeight="430.0" prefWidth="330.0" style="-fx-background-color: white;">
                <children>
                   <TextFlow prefHeight="50.0" prefWidth="330.0" style="-fx-background-color: #009688;" textAlignment="CENTER">
                      <children>

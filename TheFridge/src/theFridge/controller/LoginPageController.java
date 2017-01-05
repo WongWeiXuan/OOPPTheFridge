@@ -2,6 +2,7 @@ package theFridge.controller;
 
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 //import javafx.stage.StageStyle;
 //import javafx.application.Platform;
@@ -27,6 +28,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Screen;
@@ -52,6 +54,22 @@ public class LoginPageController {
 	private Label comment;
 	@FXML
 	private JFXSpinner spinner;
+	@FXML
+	private VBox loginField;
+	@FXML
+	// === Stackpaned the white box from signup with login's one ===
+	private JFXTextField tFUsername1;
+	@FXML
+	private JFXTextField tFEmail;
+	@FXML
+	private JFXPasswordField pFPassword1;
+	@FXML
+	private JFXButton createAccount;
+	@FXML
+	private Label comment1;
+	@FXML
+	private VBox signupField; // Initial opacity = 0
+	// =============================================================
 	
 	/*
 	@FXML
@@ -80,18 +98,16 @@ public class LoginPageController {
 		
 		JSONArray passwordArray = (JSONArray) jsonObject.get("Password"); 
 		
-		//If username is empty
-		                    //Take away spacing when all else is done
+		// If username is empty
 		if (Username.equals("") || Username.equals(null)) {
 			comment.setText("Please fill in your username!");
 		}
-		//If password is empty
-		                    //Take away spacing when all else is done
+		// If password is empty
 		else if (Password.equals("") || Password.equals(null)) {
 			comment.setText("Please fill in your password!");
 		}
 		else if (!Username.equals("") || !Username.equals(null) && !Password.equals("") || !Password.equals(null)) {
-			//Checking JSON username & password
+			// Checking JSON username & password
 			for (int i = 0; i < usernameArray.size(); i++) {
 				if (Username.equals(usernameArray.get(i)) && Password.equals(passwordArray.get(i))) {
 					spinner.setOpacity(1);
@@ -137,6 +153,62 @@ public class LoginPageController {
 				}
 			}
 		}
+	}
+	
+	@FXML
+	void createAccount(ActionEvent event) throws IOException, ParseException, ParseException{
+		String Username = tFUsername.getText();
+		String Password = pFPassword.getText();
+		String Email = tFEmail.getText();
+		
+		if (Username.equals("") || Username.equals(null)) {
+			comment1.setText("Please fill in your username!");
+		}
+		else if (Password.equals("") || Password.equals(null)) {
+			comment1.setText("Please fill in your password!");
+		}
+		else if (Email.equals("") || Email.equals(null)) {
+			comment1.setText("Please fill in your email!");
+		}
+		else {
+			JSONParser parser = new JSONParser();
+			
+			Object obj = parser.parse(new FileReader("src/theFridge/file/people.json"));
+			JSONObject jsonObject = (JSONObject) obj;
+			
+			JSONArray usernameArray = (JSONArray) jsonObject.get("Username"); 
+			usernameArray.add(Username);
+			
+			JSONArray passwordArray = (JSONArray) jsonObject.get("Password"); 
+			passwordArray.add(Password);
+			
+			JSONArray emailArray = (JSONArray) jsonObject.get("Email"); 
+			emailArray.add(Email);
+			
+			JSONObject jsonobject = new JSONObject();
+			jsonobject.put("Username", usernameArray);
+			jsonobject.put("Password", passwordArray);
+			jsonobject.put("Email", emailArray);
+			
+			try {
+				FileWriter fw = new FileWriter("src/theFridge/file/people.json");
+				fw.write(jsonobject.toJSONString());
+				fw.flush();
+				fw.close();
+
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		    
+			Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+			Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/LoginPage.fxml"));
+			
+			stage.setScene(new Scene(root));
+	 	    stage.show();
+	 	    
+		
+		
 	}
 	
 	@FXML
