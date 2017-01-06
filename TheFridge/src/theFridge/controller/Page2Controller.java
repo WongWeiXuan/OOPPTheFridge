@@ -150,6 +150,7 @@ public class Page2Controller implements Initializable {
 	}
 	public void play(ActionEvent event){
 		mp.play();
+		mp.setRate(1);
 	}
 	public void pause(ActionEvent event){
 		mp.pause();

@@ -100,7 +100,7 @@
                                                       </TextFlow>
                                                       <TextFlow minHeight="180.0" prefHeight="180.0" prefWidth="186.0" textAlignment="CENTER" VBox.vgrow="ALWAYS">
                                                          <children>
-                                                            <Text fill="#880e4f" strokeType="OUTSIDE" strokeWidth="0.0" text="Your profile on click duh??">
+                                                            <Text fill="#880e4f" strokeType="OUTSIDE" strokeWidth="0.0" text="All about me">
                                                                <font>
                                                                   <Font name="Garamond" size="36.0" />
                                                                </font>
@@ -150,7 +150,7 @@
                                                       </TextFlow>
                                                       <TextFlow minHeight="180.0" prefHeight="180.0" prefWidth="186.0" textAlignment="CENTER" VBox.vgrow="ALWAYS">
                                                          <children>
-                                                            <Text fill="#880e4f" strokeType="OUTSIDE" strokeWidth="0.0" text="Your profile on click duh??">
+                                                            <Text fill="#880e4f" strokeType="OUTSIDE" strokeWidth="0.0" text="Like the name suggests">
                                                                <font>
                                                                   <Font name="Garamond" size="36.0" />
                                                                </font>
@@ -200,7 +200,7 @@
                                                       </TextFlow>
                                                       <TextFlow minHeight="180.0" prefHeight="180.0" prefWidth="186.0" textAlignment="CENTER" VBox.vgrow="ALWAYS">
                                                          <children>
-                                                            <Text fill="#880e4f" strokeType="OUTSIDE" strokeWidth="0.0" text="Your profile on click duh??">
+                                                            <Text fill="#880e4f" strokeType="OUTSIDE" strokeWidth="0.0" text="Learning to compost">
                                                                <font>
                                                                   <Font name="Garamond" size="36.0" />
                                                                </font>
@@ -250,7 +250,7 @@
                                                       </TextFlow>
                                                       <TextFlow minHeight="180.0" prefHeight="180.0" prefWidth="186.0" textAlignment="CENTER" VBox.vgrow="ALWAYS">
                                                          <children>
-                                                            <Text fill="#880e4f" strokeType="OUTSIDE" strokeWidth="0.0" text="Your profile on click duh??">
+                                                            <Text fill="#880e4f" strokeType="OUTSIDE" strokeWidth="0.0" text="What should I eat?">
                                                                <font>
                                                                   <Font name="Garamond" size="36.0" />
                                                                </font>
@@ -300,7 +300,7 @@
                                                       </TextFlow>
                                                       <TextFlow minHeight="180.0" prefHeight="180.0" prefWidth="186.0" textAlignment="CENTER" VBox.vgrow="ALWAYS">
                                                          <children>
-                                                            <Text fill="#880e4f" strokeType="OUTSIDE" strokeWidth="0.0" text="Your profile on click duh??">
+                                                            <Text fill="#880e4f" strokeType="OUTSIDE" strokeWidth="0.0" text="Test me">
                                                                <font>
                                                                   <Font name="Garamond" size="36.0" />
                                                                </font>
@@ -350,7 +350,7 @@
                                                       </TextFlow>
                                                       <TextFlow minHeight="180.0" prefHeight="180.0" prefWidth="186.0" textAlignment="CENTER" VBox.vgrow="ALWAYS">
                                                          <children>
-                                                            <Text fill="#880e4f" strokeType="OUTSIDE" strokeWidth="0.0" text="Your profile on click duh??">
+                                                            <Text fill="#880e4f" strokeType="OUTSIDE" strokeWidth="0.0" text="Prizes to be won">
                                                                <font>
                                                                   <Font name="Garamond" size="36.0" />
                                                                </font>
@@ -400,7 +400,7 @@
                                                       </TextFlow>
                                                       <TextFlow minHeight="180.0" prefHeight="180.0" prefWidth="186.0" textAlignment="CENTER" VBox.vgrow="ALWAYS">
                                                          <children>
-                                                            <Text fill="#880e4f" strokeType="OUTSIDE" strokeWidth="0.0" text="Your profile on click duh??">
+                                                            <Text fill="#880e4f" strokeType="OUTSIDE" strokeWidth="0.0" text="Ingredients to buy">
                                                                <font>
                                                                   <Font name="Garamond" size="36.0" />
                                                                </font>
@@ -450,7 +450,7 @@
                                                       </TextFlow>
                                                       <TextFlow minHeight="180.0" prefHeight="180.0" prefWidth="186.0" textAlignment="CENTER" VBox.vgrow="ALWAYS">
                                                          <children>
-                                                            <Text fill="#880e4f" strokeType="OUTSIDE" strokeWidth="0.0" text="Your profile on click duh??">
+                                                            <Text fill="#880e4f" strokeType="OUTSIDE" strokeWidth="0.0" text="Our recipe archive of just 5">
                                                                <font>
                                                                   <Font name="Garamond" size="36.0" />
                                                                </font>
@@ -500,7 +500,7 @@
                                                       </TextFlow>
                                                       <TextFlow minHeight="180.0" prefHeight="180.0" prefWidth="186.0" textAlignment="CENTER" VBox.vgrow="ALWAYS">
                                                          <children>
-                                                            <Text fill="#880e4f" strokeType="OUTSIDE" strokeWidth="0.0" text="Your profile on click duh??">
+                                                            <Text fill="#880e4f" strokeType="OUTSIDE" strokeWidth="0.0" text="You leaving? :(">
                                                                <font>
                                                                   <Font name="Garamond" size="36.0" />
                                                                </font>
