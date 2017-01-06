@@ -65,7 +65,7 @@
                         </VBox>
                         <TextFlow textAlignment="CENTER">
                            <children>
-                              <JFXButton buttonType="RAISED" ripplerFill="BLACK" style="-fx-background-color: yellow;" text="Login">
+                              <JFXButton fx:id="loginBtn1" buttonType="RAISED" onAction="#showLoginPart" ripplerFill="BLACK" style="-fx-background-color: yellow;" text="Login">
                                  <font>
                                     <Font name="Garamond" size="24.0" />
                                  </font>
@@ -122,7 +122,7 @@
                         </VBox>
                         <TextFlow textAlignment="CENTER">
                            <children>
-                              <JFXButton fx:id="signupBtn" buttonType="RAISED" onAction="#goToSignupPage" ripplerFill="BLACK" style="-fx-background-color: yellow;" text="Sign up">
+                              <JFXButton fx:id="signupBtn" buttonType="RAISED" onAction="#showSignupPart" ripplerFill="BLACK" style="-fx-background-color: yellow;" text="Sign up">
                                  <font>
                                     <Font name="Garamond" size="24.0" />
                                  </font>
@@ -136,7 +136,7 @@
                   </VBox>
                </children>
             </HBox>
-            <StackPane layoutX="170.0" layoutY="80.0" prefHeight="430.0" prefWidth="330.0">
+            <StackPane fx:id="fieldForm" layoutX="170.0" layoutY="80.0" prefHeight="430.0" prefWidth="330.0">
                <children>
                   <VBox fx:id="signupField" opacity="0.0" prefHeight="430.0" prefWidth="330.0" style="-fx-background-color: white;">
                      <children>

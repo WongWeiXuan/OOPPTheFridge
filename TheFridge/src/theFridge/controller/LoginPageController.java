@@ -19,6 +19,7 @@ import com.jfoenix.controls.JFXSpinner;
 import com.jfoenix.controls.JFXTextField;
 
 import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -28,6 +29,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -56,8 +58,10 @@ public class LoginPageController {
 	private JFXSpinner spinner;
 	@FXML
 	private VBox loginField;
-	@FXML
 	// === Stackpaned the white box from signup with login's one ===
+	@FXML
+	private StackPane fieldForm;
+	@FXML
 	private JFXTextField tFUsername1;
 	@FXML
 	private JFXTextField tFEmail;
@@ -67,6 +71,8 @@ public class LoginPageController {
 	private JFXButton createAccount;
 	@FXML
 	private Label comment1;
+	@FXML
+	private JFXButton loginBtn1;
 	@FXML
 	private VBox signupField; // Initial opacity = 0
 	// =============================================================
@@ -212,11 +218,32 @@ public class LoginPageController {
 	}
 	
 	@FXML
-	public void goToSignupPage(ActionEvent event) throws IOException {
-		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+	public void showSignupPart(ActionEvent event) throws IOException {
+		Timeline timeline = new Timeline();
+		KeyValue K1 = new KeyValue(fieldForm.layoutXProperty(), 500);
+		KeyValue K2 = new KeyValue(loginField.opacityProperty(), 0);
+		KeyValue K3 = new KeyValue(signupField.opacityProperty(), 1);
+		KeyFrame keyFrame = new KeyFrame(Duration.millis(200), K1, K2, K3);
+		
+		timeline.getKeyFrames().addAll(keyFrame);
+		timeline.play();
+		
+		/*Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
 		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/SignupPage.fxml"));
 		
 		stage.setScene(new Scene(root));
- 	    stage.show();
+ 	    stage.show();*/
+	}
+	
+	@FXML
+	public void showLoginPart(ActionEvent event) throws IOException {
+		Timeline timeline = new Timeline();
+		KeyValue K1 = new KeyValue(fieldForm.layoutXProperty(), 170);
+		KeyValue K2 = new KeyValue(loginField.opacityProperty(), 1);
+		KeyValue K3 = new KeyValue(signupField.opacityProperty(), 0);
+		KeyFrame keyFrame = new KeyFrame(Duration.millis(200), K1, K2, K3);
+		
+		timeline.getKeyFrames().addAll(keyFrame);
+		timeline.play();
 	}
 }
