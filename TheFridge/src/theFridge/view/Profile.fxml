@@ -163,7 +163,7 @@
                         </VBox>
                      </children>
                   </AnchorPane>
-                  <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-image: url(&quot;theFridge/picture/grass.jpg&quot;);" HBox.hgrow="ALWAYS">
+                  <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-image: url(&quot;theFridge/picture/backgroundnice.jpg&quot;);" HBox.hgrow="ALWAYS">
                      <children>
                         <VBox prefHeight="735.0" prefWidth="192.0">
                            <children>
