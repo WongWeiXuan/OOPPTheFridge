@@ -100,18 +100,34 @@ public class CaloriesCalculatorInputController {
     
     @FXML
     void goNext(ActionEvent event) throws IOException {
-    	NumOfCalories = Integer.parseInt(calories.getText());
-    	//Change scene
-    	Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/foodCalculator/CaloriesCalculatorInput.fxml"));
-		
-		root = FXMLLoader.load(getClass().getResource("/theFridge/view/foodCalculator/CaloriesCalculator.fxml"));
-		stage.setScene(new Scene(root));
-		stage.show();
+    	String caloriesText = calories.getText();
+    	System.out.print(caloriesText);
+    	if(caloriesText != null || caloriesText != ""){
+    		try{
+    			if(Integer.parseInt(caloriesText) < 0){
+        			System.out.print("Enter number above 0 please... Surprisingly this is for me to see");
+        		}
+        		else if(Integer.parseInt(caloriesText) >= 0){
+        			NumOfCalories = Integer.parseInt(caloriesText);
+        			//Change scene
+        	    	Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+        			Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/foodCalculator/CaloriesCalculator.fxml"));
+        			
+        			stage.setScene(new Scene(root));
+        			stage.show();
+        		}
+    		}
+    		catch(Exception e){
+    			System.out.println("Enter number please... Surprisingly this is for me to see");
+    			System.out.println(e);
+    		}
+    	}
     }
 
 	@FXML 
-	public void showUserDropdown(MouseEvent event) {}
+	public void showUserDropdown(MouseEvent event) {
+		
+	}
 
 	@FXML
 	public void showNavigation(MouseEvent event){
@@ -141,7 +157,6 @@ public class CaloriesCalculatorInputController {
 	public void changeScene(MouseEvent event) throws IOException {
 		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
 		Parent root = null; //(Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/HomePage.fxml"));
-		
 		
 		if(event.getSource().equals(homeScene)){
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/HomePage.fxml"));

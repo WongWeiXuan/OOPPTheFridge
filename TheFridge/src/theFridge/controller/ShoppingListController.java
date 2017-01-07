@@ -28,6 +28,7 @@ import javafx.scene.input.MouseEvent;
 
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import theFridge.model.ShoppingListQRCodePageModel;
 import javafx.event.ActionEvent;
@@ -245,7 +246,13 @@ public class ShoppingListController {
 	}
 	
 	@FXML
-	public void addItems(ActionEvent event){
+	public void addItems(ActionEvent event) throws IOException{
+		Stage stage = new Stage();
+		Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/ShoppingListAddPage.fxml"));
+		stage.setScene(new Scene(root));
+		stage.initStyle(StageStyle.UNDECORATED);
+		stage.show();
+		
 		if(event.getSource() == addStocks){
 			HBox hbox = new HBox();
 			Label lbl1 = new Label("Corn");
