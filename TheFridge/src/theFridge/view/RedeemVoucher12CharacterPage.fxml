@@ -164,18 +164,6 @@
                   </AnchorPane>
                   <VBox alignment="CENTER" style="-fx-background-color: #FCE4EC;" HBox.hgrow="ALWAYS">
                      <children>
-                        <VBox alignment="TOP_RIGHT" prefWidth="960.0">
-                           <children>
-                              <JFXButton fx:id="redeemBtn" buttonType="RAISED" onAction="#goToRedeemPage" ripplerFill="BLACK" style="-fx-background-color: yellow;" text="Redeem again!">
-                                 <font>
-                                    <Font name="Garamond" size="18.0" />
-                                 </font>
-                              </JFXButton>
-                           </children>
-                           <VBox.margin>
-                              <Insets right="20.0" />
-                           </VBox.margin>
-                        </VBox>
                         <VBox alignment="CENTER" prefHeight="650.0" prefWidth="980.0">
                            <children>
                               <Label text="You have chosen to use a 12-character promo code." textFill="#e91e63">
@@ -200,6 +188,18 @@
                                  </VBox.margin>
                               </Label>
                            </children>
+                        </VBox>
+                        <VBox alignment="TOP_RIGHT" prefWidth="960.0">
+                           <children>
+                              <JFXButton fx:id="redeemBtn" buttonType="RAISED" onAction="#goToRedeemPage" ripplerFill="BLACK" style="-fx-background-color: yellow;" text="Redeem again!">
+                                 <font>
+                                    <Font name="Garamond" size="18.0" />
+                                 </font>
+                              </JFXButton>
+                           </children>
+                           <VBox.margin>
+                              <Insets right="100.0" />
+                           </VBox.margin>
                         </VBox>
                      </children>
                      <HBox.margin>

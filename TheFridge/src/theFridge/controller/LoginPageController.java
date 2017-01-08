@@ -205,16 +205,13 @@ public class LoginPageController {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-		}
-		    
+			
 			Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
 			Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/LoginPage.fxml"));
 			
 			stage.setScene(new Scene(root));
 	 	    stage.show();
-	 	    
-		
-		
+		}
 	}
 	
 	@FXML
@@ -222,8 +219,10 @@ public class LoginPageController {
 		Timeline timeline = new Timeline();
 		KeyValue K1 = new KeyValue(fieldForm.layoutXProperty(), 500);
 		KeyValue K2 = new KeyValue(loginField.opacityProperty(), 0);
-		KeyValue K3 = new KeyValue(signupField.opacityProperty(), 1);
-		KeyFrame keyFrame = new KeyFrame(Duration.millis(200), K1, K2, K3);
+		KeyValue K3 = new KeyValue(loginField.visibleProperty(), false);
+		KeyValue K4 = new KeyValue(signupField.opacityProperty(), 1);
+		KeyValue K5 = new KeyValue(signupField.visibleProperty(), true);
+		KeyFrame keyFrame = new KeyFrame(Duration.millis(200), K1, K2, K3, K4, K5);
 		
 		timeline.getKeyFrames().addAll(keyFrame);
 		timeline.play();
@@ -240,8 +239,10 @@ public class LoginPageController {
 		Timeline timeline = new Timeline();
 		KeyValue K1 = new KeyValue(fieldForm.layoutXProperty(), 170);
 		KeyValue K2 = new KeyValue(loginField.opacityProperty(), 1);
-		KeyValue K3 = new KeyValue(signupField.opacityProperty(), 0);
-		KeyFrame keyFrame = new KeyFrame(Duration.millis(200), K1, K2, K3);
+		KeyValue K3 = new KeyValue(loginField.visibleProperty(), true);
+		KeyValue K4 = new KeyValue(signupField.opacityProperty(), 0);
+		KeyValue K5 = new KeyValue(signupField.visibleProperty(), false);
+		KeyFrame keyFrame = new KeyFrame(Duration.millis(200), K1, K2, K3, K4, K5);
 		
 		timeline.getKeyFrames().addAll(keyFrame);
 		timeline.play();

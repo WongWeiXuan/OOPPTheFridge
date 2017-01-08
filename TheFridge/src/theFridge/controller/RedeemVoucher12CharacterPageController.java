@@ -59,6 +59,8 @@ public class RedeemVoucher12CharacterPageController {
 		}
 		String output = sb.toString();
 		codeLabel.setText(output);
+		
+		codeGenerator.setDisable(true);
 	}
 	
 	@FXML
