@@ -221,10 +221,10 @@ public class LoginPageController {
 		KeyValue K2 = new KeyValue(loginField.opacityProperty(), 0);
 		KeyValue K3 = new KeyValue(loginField.visibleProperty(), false);
 		KeyValue K4 = new KeyValue(signupField.opacityProperty(), 1);
-		KeyValue K5 = new KeyValue(signupField.visibleProperty(), true);
-		KeyFrame keyFrame = new KeyFrame(Duration.millis(200), K1, K2, K3, K4, K5);
+		KeyFrame keyFrame0 = new KeyFrame(Duration.millis(10), K4);
+		KeyFrame keyFrame = new KeyFrame(Duration.millis(200), K1, K2, K3);
 		
-		timeline.getKeyFrames().addAll(keyFrame);
+		timeline.getKeyFrames().addAll(keyFrame0, keyFrame);
 		timeline.play();
 		
 		/*Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
@@ -241,10 +241,10 @@ public class LoginPageController {
 		KeyValue K2 = new KeyValue(loginField.opacityProperty(), 1);
 		KeyValue K3 = new KeyValue(loginField.visibleProperty(), true);
 		KeyValue K4 = new KeyValue(signupField.opacityProperty(), 0);
-		KeyValue K5 = new KeyValue(signupField.visibleProperty(), false);
-		KeyFrame keyFrame = new KeyFrame(Duration.millis(200), K1, K2, K3, K4, K5);
+		KeyFrame keyFrame = new KeyFrame(Duration.millis(200), K1, K2, K4);
+		KeyFrame keyFrame1 = new KeyFrame(Duration.millis(10), K3);
 		
-		timeline.getKeyFrames().addAll(keyFrame);
+		timeline.getKeyFrames().addAll(keyFrame, keyFrame1);
 		timeline.play();
 	}
 }
