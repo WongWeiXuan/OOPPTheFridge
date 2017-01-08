@@ -1,6 +1,12 @@
 package theFridge.controller;
 
+import java.io.FileReader;
 import java.io.IOException;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 import com.jfoenix.controls.JFXButton;
 
@@ -88,6 +94,10 @@ public class ProfileController {
     @FXML
     private VBox hideEM;
     
+    public void ch(){
+    NLabel.setText("hello");
+    }
+    
 	public void changeScene(MouseEvent event) throws IOException {
 		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
 		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/HomePage.fxml"));
@@ -141,23 +151,6 @@ public class ProfileController {
 	@FXML public void changeImage(ActionEvent event) {}
 	@FXML public void showUN(ActionEvent event) {}
 	
-	//public void save1(ActionEvent event){
-	//	String username=UNText.getText();
-	//	UNLabel.setText(username);
-	//	UNText.setText("");
-	//}
-	//public void save2(ActionEvent event){
-	//	String password=PassText.getText();
-	//	PassLabel.setText(password);
-	//	PassText.setText("");
-		
-	//}
-	//public void save3(ActionEvent event){
-	//	String email=EMText.getText();
-	//	EMLabel.setText(email);
-	//	EMText.setText("");
-		
-	//}
 	public void goToSettings(ActionEvent event)throws IOException {
 		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
 		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/Profile.fxml"));
@@ -173,6 +166,6 @@ public class ProfileController {
  	    stage.show();
 }
 	
-
+		
 
 }

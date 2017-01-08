@@ -89,11 +89,11 @@ public class LoginPageController {
 		stage.setIconified(true);
     }
     */
-	
 	@FXML
 	public void goToHomePage(ActionEvent event) throws IOException, ParseException {
 		String Username = tFUsername.getText();
 		String Password = pFPassword.getText();
+		
 		
 		JSONParser parser = new JSONParser();
 		
