@@ -94,10 +94,6 @@ public class ProfileController {
     @FXML
     private VBox hideEM;
     
-    public void ch(){
-    NLabel.setText("hello");
-    }
-    
 	public void changeScene(MouseEvent event) throws IOException {
 		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
 		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/HomePage.fxml"));

@@ -106,6 +106,8 @@ public class Profile2Controller {
 	private HBox hbox6;
 	@FXML
 	private HBox hbox7;
+	@FXML
+	private VBox box0;
 
 	// Event Listener on VBox[#naviPreview].onMouseEntered
 	@FXML
@@ -219,6 +221,7 @@ public class Profile2Controller {
 		hbox6.setVisible(false);
 		EMText.setText("");
 		Eemail.setVisible(true);
+		
 	}
 	// Event Listener on JFXButton[#btnSave4].onAction
 	@FXML
