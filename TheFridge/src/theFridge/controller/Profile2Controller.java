@@ -108,6 +108,16 @@ public class Profile2Controller {
 	private HBox hbox7;
 	@FXML
 	private VBox box0;
+	@FXML
+	private HBox hBox0;
+	@FXML
+	private HBox hBox1;
+	@FXML
+	private HBox hBox2;
+	@FXML
+	private HBox hBox3;
+	@FXML
+	private HBox hBox4;
 
 	// Event Listener on VBox[#naviPreview].onMouseEntered
 	@FXML
@@ -183,6 +193,7 @@ public class Profile2Controller {
 		hbox.setVisible(false);
 		NText.setText("");
 		Ename.setVisible(true);
+		hBox0.setVisible(true);
 	}
 	// Event Listener on JFXButton[#btnSave1].onAction
 	@FXML
@@ -195,6 +206,7 @@ public class Profile2Controller {
 		hbox2.setVisible(false);
 		UNText.setText("");
 		Eusername.setVisible(true);
+		hBox1.setVisible(true);
 	}
 	// Event Listener on JFXButton[#btnSave2].onAction
 	@FXML
@@ -209,6 +221,7 @@ public class Profile2Controller {
 		hbox5.setVisible(false);
 		PassText.setText("");
 		Epassword.setVisible(true);
+		hBox2.setVisible(true);
 	}
 	// Event Listener on JFXButton[#btnSave3].onAction
 	@FXML
@@ -221,6 +234,7 @@ public class Profile2Controller {
 		hbox6.setVisible(false);
 		EMText.setText("");
 		Eemail.setVisible(true);
+		hBox3.setVisible(true);
 		
 	}
 	// Event Listener on JFXButton[#btnSave4].onAction
@@ -234,6 +248,7 @@ public class Profile2Controller {
 		hbox7.setVisible(false);
 		LText.setText("");
 		Elocation.setVisible(true);
+		hBox4.setVisible(true);
 	}
 	@FXML
 	public void goToMain(ActionEvent event)throws IOException {
@@ -246,11 +261,13 @@ public class Profile2Controller {
 	public void editname(ActionEvent event){
 		hbox.setVisible(true);
 		Ename.setVisible(false);
+		hBox0.setVisible(false);
 	}
 	
 	public void edituserName(ActionEvent event){
 		hbox2.setVisible(true);
 		Eusername.setVisible(false);
+		hBox1.setVisible(false);
 	}
 	
 	public void editpassword(ActionEvent event){
@@ -258,16 +275,19 @@ public class Profile2Controller {
 		hbox4.setVisible(true);
 		hbox5.setVisible(true);
 		Epassword.setVisible(false);
+		hBox2.setVisible(false);
 	}
 	
 	public void editemail(ActionEvent event){
 		hbox6.setVisible(true);
 		Eemail.setVisible(false);
+		hBox3.setVisible(false);
 	}
 	
 	public void editlocation(ActionEvent event){
 		hbox7.setVisible(true);
 		Elocation.setVisible(false);
+		hBox4.setVisible(false);
 	}
 	
 }
