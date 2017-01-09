@@ -4,8 +4,8 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollBar?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.ImageInput?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -19,42 +19,92 @@
 
 <AnchorPane prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: #FCE4EC;" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button layoutX="230.0" layoutY="160.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="300.0" style="-fx-background-color: green; -fx-border-color: black;" text="View Recipes">
+      <Button fx:id="viewrecipebtn" layoutX="230.0" layoutY="160.0" mnemonicParsing="false" onMouseClicked="#viewRecipe" prefHeight="100.0" prefWidth="300.0" style="-fx-background-color: Green; -fx-border-color: black;" text="View Recipes">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <TextArea layoutX="241.0" layoutY="312.0" prefHeight="304.0" prefWidth="500.0" text="Tomato Aglio Olio &#10;&#10;Ingredients needed :&#10;-Pasta&#10;-Tomato&#10;-Olive Oil&#10;">
+      <Button fx:id="findrecipebtn" layoutX="890.0" layoutY="160.0" mnemonicParsing="false" onMouseClicked="#findRecipe" prefHeight="100.0" prefWidth="300.0" style="-fx-background-color: orange; -fx-border-color: black;" text="Find a dish to make!" wrapText="true">
          <font>
-            <Font size="27.0" />
+            <Font size="24.0" />
          </font>
-      </TextArea>
-      <TextArea layoutX="749.0" layoutY="261.0" prefHeight="304.0" prefWidth="302.0" scaleX="0.63" scaleY="0.63">
+      </Button>
+      <Button fx:id="addrecipebtn" layoutX="560.0" layoutY="160.0" mnemonicParsing="false" onMouseClicked="#addRecipe" prefHeight="100.0" prefWidth="300.0" style="-fx-background-color: orange; -fx-border-color: black;" text="Add a recipe">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <Text layoutX="268.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recipe Name: ">
+         <font>
+            <Font size="24.0" />
+         </font></Text>
+      <Text layoutX="268.0" layoutY="402.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ingrediant 1: ">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="268.0" layoutY="452.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ingrediant 2: ">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="268.0" layoutY="502.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ingrediant 3:">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="268.0" layoutY="552.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Image: :">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text fx:id="recipenametxt" layoutX="459.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tomato Aglio Olio">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text fx:id="ingre1txt" layoutX="459.0" layoutY="402.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pasta">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text fx:id="ingre2txt" layoutX="459.0" layoutY="452.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tomatoes">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text fx:id="ingre3txt" layoutX="459.0" layoutY="502.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Olive oil">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <TextField fx:id="indexbox" alignment="CENTER" layoutX="559.0" layoutY="712.0" text="1 of 50">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </TextField>
+      <Button fx:id="leftbtn" layoutX="389.0" layoutY="619.0" mnemonicParsing="false" onMouseClicked="#goLeft" prefHeight="243.0" prefWidth="229.0" scaleX="0.33" scaleY="0.33" text="Button">
          <effect>
             <ImageInput>
                <source>
-                  <Image url="file:/C:/Users/Nic/Desktop/tp.JPG" />
+                  <Image url="file:/C:/Users/Nic/Desktop/leftarrow.png" />
                </source>
             </ImageInput>
-         </effect>
-      </TextArea>
-      <ScrollBar layoutX="1234.0" layoutY="309.0" orientation="VERTICAL" prefHeight="340.0" prefWidth="38.0" />
-      <Button layoutX="890.0" layoutY="160.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="300.0" style="-fx-background-color: orange; -fx-border-color: black;" text="Find a dish to make!">
+         </effect></Button>
+      <Button fx:id="rightbtn" layoutX="732.0" layoutY="613.0" mnemonicParsing="false" onMouseClicked="#goRight" prefHeight="255.0" prefWidth="300.0" scaleX="0.33" scaleY="0.33" text="Button">
+         <effect>
+            <ImageInput>
+               <source>
+                  <Image url="file:/C:/Users/Nic/Desktop/rightarrow.png" />
+               </source>
+            </ImageInput>
+         </effect></Button>
+      <Button fx:id="addnewrecipebtn" layoutX="1028.0" layoutY="303.0" mnemonicParsing="false" onMouseClicked="#addNewRecipe" prefHeight="77.0" prefWidth="152.0" style="-fx-background-color: yellow; -fx-border-color: black;" text="Add in a new Recipe Here!" wrapText="true">
          <font>
-            <Font size="24.0" />
+            <Font size="20.0" />
          </font>
       </Button>
-      <Button layoutX="560.0" layoutY="160.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="300.0" style="-fx-background-color: orange; -fx-border-color: black;" text="Add/Edit a recipe">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Button>
-      <Text layoutX="260.0" layoutY="675.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Added by: xxx" wrappingWidth="215.6708984375">
-         <font>
-            <Font size="30.0" />
-         </font>
-      </Text>
-      <VBox fx:id="naviPreview" alignment="CENTER" layoutX="8.0" layoutY="91.0" maxWidth="150.0" onMouseEntered="#showNavigation" prefHeight="600.0" prefWidth="150.0" spacing="20.0" style="-fx-background-color: #F06292;">
+      <VBox fx:id="naviPreview" alignment="CENTER" layoutX="10.0" layoutY="112.0" maxWidth="150.0" onMouseEntered="#showNavigation" prefHeight="600.0" prefWidth="150.0" spacing="20.0" style="-fx-background-color: #F06292;">
          <children>
             <Circle fill="#dde6f0" radius="15.0" stroke="TRANSPARENT" strokeType="INSIDE" />
             <Circle fill="#dde6f0" radius="15.0" stroke="TRANSPARENT" strokeType="INSIDE" />
@@ -64,7 +114,7 @@
             <Circle fill="#dde6f0" radius="15.0" stroke="TRANSPARENT" strokeType="INSIDE" />
          </children>
       </VBox>
-      <VBox fx:id="navi" alignment="CENTER" layoutX="-142.0" layoutY="91.0" maxWidth="150.0" onMouseExited="#hideNavigation" prefHeight="600.0" prefWidth="150.0" spacing="20.0" style="-fx-background-color: rgba(128,128,128,0.5);">
+      <VBox fx:id="navi" alignment="CENTER" layoutX="-140.0" layoutY="10.0" maxWidth="150.0" onMouseExited="#hideNavigation" prefHeight="600.0" prefWidth="150.0" spacing="20.0" style="-fx-background-color: rgba(128,128,128,0.5);">
          <children>
             <VBox fx:id="homeScene" alignment="TOP_CENTER" onMouseClicked="#changeScene">
                <children>
@@ -115,6 +165,16 @@
                               <Image url="@../../../../Downloads/fertillizer.png" />
                            </image>
                         </ImageView>
+                        <VBox fx:id="naviPreview1" alignment="CENTER" maxWidth="150.0" onMouseEntered="#showNavigation" prefHeight="600.0" prefWidth="150.0" spacing="20.0">
+                           <children>
+                              <Circle fill="#dde6f0" radius="15.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                              <Circle fill="#dde6f0" radius="15.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                              <Circle fill="#dde6f0" radius="15.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                              <Circle fill="#dde6f0" radius="15.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                              <Circle fill="#dde6f0" radius="15.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                              <Circle fill="#dde6f0" radius="15.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                           </children>
+                        </VBox>
                      </children>
                   </StackPane>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Garamond;" text="Compost Guide" />
@@ -182,14 +242,167 @@
             </VBox>
          </children>
       </VBox>
+      <VBox fx:id="navi1" alignment="CENTER" layoutX="-140.0" layoutY="100.0" maxWidth="150.0" onMouseExited="#hideNavigation" prefHeight="600.0" prefWidth="150.0" spacing="20.0" style="-fx-background-color: rgba(128,128,128,0.5);">
+         <children>
+            <VBox fx:id="homeScene1" alignment="TOP_CENTER" onMouseClicked="#changeScene">
+               <children>
+                  <StackPane prefHeight="150.0" prefWidth="100.0">
+                     <children>
+                        <Circle fill="#dde6f0" radius="25.0" stroke="#ffffff00" strokeType="INSIDE" />
+                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
+                           <image>
+                              <Image url="@../../../../Downloads/home.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </StackPane>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Garamond;" text="Home" />
+               </children>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </VBox>
+            <VBox fx:id="recipeScene1" alignment="TOP_CENTER" onMouseClicked="#changeScene" VBox.vgrow="ALWAYS">
+               <children>
+                  <StackPane prefHeight="150.0" prefWidth="100.0">
+                     <children>
+                        <Circle fill="#dde6f0" radius="25.0" stroke="#ffffff00" strokeType="INSIDE" />
+                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
+                           <image>
+                              <Image url="@../../../../Downloads/open-book.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </StackPane>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Garamond;" text="Recipe Book" />
+               </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </VBox>
+            <VBox fx:id="compostScene1" alignment="TOP_CENTER" onMouseClicked="#changeScene" VBox.vgrow="ALWAYS">
+               <children>
+                  <StackPane prefHeight="150.0" prefWidth="100.0">
+                     <children>
+                        <Circle fill="#dde6f0" radius="25.0" stroke="#ffffff00" strokeType="INSIDE" />
+                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
+                           <image>
+                              <Image url="@../../../../Downloads/fertillizer.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </StackPane>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Garamond;" text="Compost Guide" />
+               </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </VBox>
+            <VBox fx:id="foodScene1" alignment="TOP_CENTER" onMouseClicked="#changeScene" VBox.vgrow="ALWAYS">
+               <children>
+                  <StackPane prefHeight="150.0" prefWidth="100.0">
+                     <children>
+                        <Circle fill="#dde6f0" radius="25.0" stroke="#ffffff00" strokeType="INSIDE" />
+                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
+                           <image>
+                              <Image url="@../../../../Downloads/chicken.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </StackPane>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Garamond;" text="Food Calculator" />
+               </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </VBox>
+            <VBox fx:id="quizScene1" alignment="TOP_CENTER" onMouseClicked="#changeScene" VBox.vgrow="ALWAYS">
+               <children>
+                  <StackPane prefHeight="150.0" prefWidth="100.0">
+                     <children>
+                        <Circle fill="#dde6f0" radius="25.0" stroke="#ffffff00" strokeType="INSIDE" />
+                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
+                           <image>
+                              <Image url="@../../../../Downloads/quiz-on-computer-with-question-signs-around.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </StackPane>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Garamond;" text="Quiz" />
+               </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </VBox>
+            <VBox fx:id="prizeScene1" alignment="TOP_CENTER" onMouseClicked="#changeScene" VBox.vgrow="ALWAYS">
+               <children>
+                  <StackPane prefHeight="150.0" prefWidth="100.0">
+                     <children>
+                        <Circle fill="#dde6f0" radius="25.0" stroke="#ffffff00" strokeType="INSIDE" />
+                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
+                           <image>
+                              <Image url="@../../../../Downloads/gift.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </StackPane>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Garamond;" text="Redeem Prizes" />
+               </children>
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </VBox>
+         </children>
+      </VBox>
+      <Label layoutX="938.0" layoutY="10.0" text="The Fridge" textFill="WHITE">
+         <font>
+            <Font name="Garamond Bold" size="48.0" />
+         </font>
+      </Label>
       <TextFlow prefHeight="66.0" prefWidth="1280.0" style="-fx-background-color: #C2185B;" textAlignment="CENTER">
          <children>
-            <Label text="The Fridge" textFill="WHITE">
+            <Label prefHeight="54.0" prefWidth="229.0" text="The Fridge" textFill="WHITE">
                <font>
                   <Font name="Garamond Bold" size="48.0" />
                </font>
             </Label>
          </children>
       </TextFlow>
+      <Button fx:id="deleterecipebtn" layoutX="1028.0" layoutY="404.0" mnemonicParsing="false" onMouseClicked="#deleteRecipe" prefHeight="77.0" prefWidth="152.0" style="-fx-background-color: red; -fx-border-color: black;" text="Delete This Recipe!" wrapText="true">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <TextArea fx:id="recipeimg" layoutX="314.0" layoutY="448.0" prefHeight="243.0" prefWidth="292.0" scaleX="0.3" scaleY="0.3">
+         <effect>
+            <ImageInput>
+               <source>
+                  <Image url="file:/C:/Users/Nic/Desktop/tp.JPG" />
+               </source>
+            </ImageInput>
+         </effect>
+      </TextArea>
+      <Text layoutX="720.0" layoutY="373.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Steps:" wrappingWidth="87.59999424219131">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Text>
+      <TextArea fx:id="stepstxt" layoutX="735.0" layoutY="397.0" prefHeight="266.0" prefWidth="262.0" text="Step 1: Boil pasta in boiling water &#10;until soft&#10;&#10;Step 2: Pre-heat pan with olive oil &#10;for a minute&#10;&#10;Step 3: Grill tomatoes on olive oil &#10;in a pan&#10;&#10;Step 4: Pour pasta into pan and &#10;mix well" />
+      <Text layoutX="268.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Added By:">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text fx:id="recipebytxt" layoutX="459.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Alexstrasza">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>
