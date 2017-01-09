@@ -106,6 +106,8 @@ public class Profile2Controller {
 	private HBox hbox6;
 	@FXML
 	private HBox hbox7;
+	@FXML
+	private VBox box0;
 
 	// Event Listener on VBox[#naviPreview].onMouseEntered
 	@FXML
@@ -180,6 +182,7 @@ public class Profile2Controller {
 	public void cancel0(ActionEvent event) {
 		hbox.setVisible(false);
 		NText.setText("");
+		Ename.setVisible(true);
 	}
 	// Event Listener on JFXButton[#btnSave1].onAction
 	@FXML
@@ -190,6 +193,8 @@ public class Profile2Controller {
 	@FXML
 	public void cancel1(ActionEvent event) {
 		hbox2.setVisible(false);
+		UNText.setText("");
+		Eusername.setVisible(true);
 	}
 	// Event Listener on JFXButton[#btnSave2].onAction
 	@FXML
@@ -202,6 +207,8 @@ public class Profile2Controller {
 		hbox3.setVisible(false);
 		hbox4.setVisible(false);
 		hbox5.setVisible(false);
+		PassText.setText("");
+		Epassword.setVisible(true);
 	}
 	// Event Listener on JFXButton[#btnSave3].onAction
 	@FXML
@@ -212,6 +219,9 @@ public class Profile2Controller {
 	@FXML
 	public void cancel3(ActionEvent event) {
 		hbox6.setVisible(false);
+		EMText.setText("");
+		Eemail.setVisible(true);
+		
 	}
 	// Event Listener on JFXButton[#btnSave4].onAction
 	@FXML
@@ -222,6 +232,8 @@ public class Profile2Controller {
 	@FXML
 	public void cancel4(ActionEvent event) {
 		hbox7.setVisible(false);
+		LText.setText("");
+		Elocation.setVisible(true);
 	}
 	@FXML
 	public void goToMain(ActionEvent event)throws IOException {
@@ -233,24 +245,29 @@ public class Profile2Controller {
 }
 	public void editname(ActionEvent event){
 		hbox.setVisible(true);
+		Ename.setVisible(false);
 	}
 	
 	public void edituserName(ActionEvent event){
 		hbox2.setVisible(true);
+		Eusername.setVisible(false);
 	}
 	
 	public void editpassword(ActionEvent event){
 		hbox3.setVisible(true);
 		hbox4.setVisible(true);
 		hbox5.setVisible(true);
+		Epassword.setVisible(false);
 	}
 	
 	public void editemail(ActionEvent event){
 		hbox6.setVisible(true);
+		Eemail.setVisible(false);
 	}
 	
 	public void editlocation(ActionEvent event){
 		hbox7.setVisible(true);
+		Elocation.setVisible(false);
 	}
 	
 }
