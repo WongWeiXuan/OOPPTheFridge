@@ -206,7 +206,7 @@
                               </JFXComboBox>
                               <TableView fx:id="foodCom" prefHeight="258.0" prefWidth="980.0">
                                 <columns>
-                                  <TableColumn prefWidth="1129.0" text="Composition Of Food" />
+                                  <TableColumn fx:id="foodCom1" prefWidth="1129.0" text="Composition Of Food" />
                                 </columns>
                                  <VBox.margin>
                                     <Insets top="20.0" />

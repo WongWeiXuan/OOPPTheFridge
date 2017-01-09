@@ -3,6 +3,8 @@ package theFridge.controller;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javax.swing.JComboBox;
+
 import com.jfoenix.controls.JFXComboBox;
 
 import java.io.IOException;
@@ -39,11 +41,11 @@ public class Page1Controller implements Initializable{
     @FXML
     private TableColumn<First, String> table2;
     @FXML
-    private TableColumn<Last, String> foodList;
-    @FXML
     private TableView<First> tableView1;
     @FXML
-    private TableView<Last> foodCom;
+    private TableView<String> foodCom;
+    @FXML
+    private TableColumn<Last, String> foodCom1;
     @FXML
     private Button btnGenerateMultiple;
     @FXML
@@ -160,13 +162,19 @@ public class Page1Controller implements Initializable{
 	        table1.setCellValueFactory(new PropertyValueFactory<First, String>("foodCanCompost"));
 	        table2.setCellValueFactory(new PropertyValueFactory<First, String>("foodCannotCompost"));
 	        tableView1.setItems(list);
-	        choice.setItems(data);
-	        
+	        choice.setItems(data);  
 	    }
+	    
 	    ObservableList<String> data = FXCollections.observableArrayList("Chicken","Fish","Vegetable","Rice","Pasta","tomato","apple","sotongs");
-	    ObservableList<String> a;
+	    
 	    public void chosen1(ActionEvent event){
-	    	a= choice.getItems();
+	    	String s = choice.getValue().toString();
+	    	ObservableList<String> a = FXCollections.observableArrayList(s);
+	    	Last p = new Last(s);
+	    	foodCom.setItems(a);
+	        foodCom1.setCellValueFactory(new PropertyValueFactory<Last, String>("foodCombi"));
+	    	
 	    }
+	    
 	   
 }
