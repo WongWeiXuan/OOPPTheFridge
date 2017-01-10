@@ -76,6 +76,10 @@ public class QuizPageController {
 		timer.setText("10");
 		boolean isCorrect = false;
 		
+		//QuizQuestionModel Q1 = new QuizQuestionModel();
+		//QuizChoicesModel  S1 = new QuizChoicesModel();
+		//QuizExplanationsModel E1 = new QuizExplanationsModel();
+		
 		if (isCorrect = true) {
 			points += 20;
 			pointsEarned.setText("Points earned: " + points);
