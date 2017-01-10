@@ -37,7 +37,7 @@ import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-public class LoginPageController {
+public class LoginSignupPageController {
 	@FXML
 	private JFXButton loginBtn;
 	@FXML
@@ -177,6 +177,16 @@ public class LoginPageController {
 			comment1.setText("Please fill in your email!");
 		}
 		else {
+			/* 
+			SignupModel Person = new SignupModel(String username, String password, String email);
+			Person.setUsername(Username);
+			Person.setPassword(Password);
+			Person.setEmail(Email);
+			
+			ArrayList<SignupModel> personList = new ArrayList<SignupModel>();
+			personList.add(Person);
+			 */
+			
 			JSONParser parser = new JSONParser();
 			
 			Object obj = parser.parse(new FileReader("src/theFridge/file/people.json"));
@@ -206,12 +216,13 @@ public class LoginPageController {
 				e.printStackTrace();
 			}
 			
-			Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-			Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/LoginPage.fxml"));
 			
-			stage.setScene(new Scene(root));
-	 	    stage.show();
 		}
+		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/LoginPage.fxml"));
+		
+		stage.setScene(new Scene(root));
+ 	    stage.show();
 	}
 	
 	@FXML
