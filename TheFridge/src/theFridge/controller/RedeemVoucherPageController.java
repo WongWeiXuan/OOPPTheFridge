@@ -11,6 +11,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 
 import javafx.scene.layout.VBox;
@@ -39,8 +40,79 @@ public class RedeemVoucherPageController {
 	@FXML
 	private VBox prizeScene;
 	@FXML 
-	private JFXButton TwelveCharacterBtn;
+	private JFXButton TwelveCharacterBtn1;
+	@FXML 
+	private JFXButton TwelveCharacterBtn2;
+	@FXML 
+	private JFXButton TwelveCharacterBtn3;
+	@FXML 
+	private JFXButton TwelveCharacterBtn4;
+	@FXML
+	private Label totalPoints;
+	@FXML
+	private VBox voucher1;
+	@FXML
+	private VBox voucher2;
+	@FXML
+	private VBox voucher3;
+	@FXML
+	private VBox voucher4;
+	@FXML
+	private VBox main1;
+	@FXML
+	private VBox main2;
+	@FXML
+	private VBox main3;
+	@FXML
+	private VBox main4;
+	@FXML
+	private VBox show1;
+	@FXML
+	private VBox show2;
+	@FXML
+	private VBox show3;
+	@FXML
+	private VBox show4;
 	
+	@FXML
+	public void show(MouseEvent event) {
+		if (event.getSource().equals(voucher1)) {
+			main1.setVisible(false);
+			show1.setVisible(true);
+		}
+		else if (event.getSource().equals(voucher2)) {
+			main2.setVisible(false);
+			show2.setVisible(true);
+		}
+		else if (event.getSource().equals(voucher3)) {
+			main3.setVisible(false);
+			show3.setVisible(true);
+		}
+		else if (event.getSource().equals(voucher4)) {
+			main4.setVisible(false);
+			show4.setVisible(true);
+		}
+	}
+	
+	@FXML
+	public void hide(MouseEvent event) {
+		if (event.getSource().equals(voucher1)) {
+			main1.setVisible(true);
+			show1.setVisible(false);
+		}
+		else if (event.getSource().equals(voucher2)) {
+			main2.setVisible(true);
+			show2.setVisible(false);
+		}
+		else if (event.getSource().equals(voucher3)) {
+			main3.setVisible(true);
+			show3.setVisible(false);
+		}
+		else if (event.getSource().equals(voucher4)) {
+			main4.setVisible(true);
+			show4.setVisible(false);
+		}
+	}
 
 	@FXML 
 	public void goToPromoPage(ActionEvent event) throws IOException {

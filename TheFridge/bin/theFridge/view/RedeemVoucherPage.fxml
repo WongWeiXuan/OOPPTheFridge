@@ -169,26 +169,47 @@
                      <children>
                         <VBox alignment="CENTER">
                            <children>
-                              <Label text="Choose Your Vouchers!" textFill="#e91e63">
-                                 <font>
-                                    <Font name="Garamond" size="45.0" />
-                                 </font>
-                              </Label>
-                              <Label text="Click to send a barcode to your email" textFill="#e91e63">
-                                 <font>
-                                    <Font name="Garamond" size="24.0" />
-                                 </font>
-                              </Label>
+                              <VBox alignment="CENTER">
+                                 <children>
+                                    <Label text="Choose Your Vouchers!" textFill="#e91e63">
+                                       <font>
+                                          <Font name="Garamond" size="45.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="Click to send a barcode to your email" textFill="#e91e63">
+                                       <font>
+                                          <Font name="Garamond" size="24.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER">
+                                 <children>
+                                    <Label text="Your total points: ">
+                                       <font>
+                                          <Font name="Garamond Bold" size="36.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="totalPoints" opacity="0.0">
+                                       <font>
+                                          <Font name="Garamond Bold" size="36.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="30.0" />
+                                 </VBox.margin>
+                              </VBox>
                            </children>
                            <VBox.margin>
-                              <Insets top="170.0" />
+                              <Insets top="130.0" />
                            </VBox.margin>
                         </VBox>
                         <TextFlow prefHeight="172.0" prefWidth="1280.0" textAlignment="CENTER">
                            <children>
                               <VBox alignment="CENTER">
                                  <children>
-                                    <GridPane hgap="5.0" prefHeight="250.0" prefWidth="680.0">
+                                    <GridPane hgap="5.0" prefHeight="250.0" prefWidth="900.0">
                                        <columnConstraints>
                                           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
                                           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
@@ -205,7 +226,7 @@
                                                 <Font name="Garamond" size="20.0" />
                                              </font>
                                              <GridPane.margin>
-                                                <Insets left="25.0" />
+                                                <Insets left="50.0" />
                                              </GridPane.margin>
                                           </JFXButton>
                                           <JFXButton fx:id="TwelveCharacterBtn2" alignment="CENTER" buttonType="RAISED" layoutX="25.0" layoutY="135.0" onAction="#goToPromoPage" ripplerFill="BLACK" style="-fx-background-color: yellow;" text="Promo Code" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1">
@@ -213,7 +234,7 @@
                                                 <Font name="Garamond" size="20.0" />
                                              </font>
                                              <GridPane.margin>
-                                                <Insets left="25.0" />
+                                                <Insets left="50.0" />
                                              </GridPane.margin>
                                           </JFXButton>
                                           <JFXButton fx:id="TwelveCharacterBtn3" alignment="CENTER" buttonType="RAISED" layoutX="25.0" layoutY="135.0" onAction="#goToPromoPage" ripplerFill="BLACK" style="-fx-background-color: yellow;" text="Promo Code" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="1">
@@ -221,7 +242,7 @@
                                                 <Font name="Garamond" size="20.0" />
                                              </font>
                                              <GridPane.margin>
-                                                <Insets left="25.0" />
+                                                <Insets left="50.0" />
                                              </GridPane.margin>
                                           </JFXButton>
                                           <JFXButton fx:id="TwelveCharacterBtn4" alignment="CENTER" buttonType="RAISED" layoutX="25.0" layoutY="135.0" onAction="#goToPromoPage" ripplerFill="BLACK" style="-fx-background-color: yellow;" text="Promo Code" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="1">
@@ -229,114 +250,218 @@
                                                 <Font name="Garamond" size="20.0" />
                                              </font>
                                              <GridPane.margin>
-                                                <Insets left="25.0" />
+                                                <Insets left="50.0" />
                                              </GridPane.margin>
                                           </JFXButton>
-                                          <VBox alignment="CENTER" prefHeight="150.0" prefWidth="170.0" style="-fx-background-color: rgba(240, 98, 146, 0.25); -fx-background-radius: 20;">
+                                          <VBox fx:id="voucher1" alignment="CENTER" onMouseEntered="#show" onMouseExited="#hide" prefHeight="150.0" prefWidth="250.0" style="-fx-background-color: rgba(240, 98, 146, 0.25); -fx-background-radius: 20;">
                                              <children>
-                                                <VBox alignment="CENTER" prefHeight="130.0" prefWidth="170.0">
+                                                <StackPane>
                                                    <children>
-                                                      <TextFlow textAlignment="CENTER">
+                                                      <VBox fx:id="main1" alignment="CENTER">
                                                          <children>
-                                                            <Label text="NTUC">
+                                                            <VBox alignment="CENTER" prefHeight="130.0" prefWidth="170.0">
+                                                               <children>
+                                                                  <TextFlow textAlignment="CENTER">
+                                                                     <children>
+                                                                        <Label text="NTUC">
+                                                                           <font>
+                                                                              <Font name="Garamond Bold" size="24.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                     </children>
+                                                                  </TextFlow>
+                                                                  <ImageView fitHeight="56.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@../picture/Mail.png" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                               </children>
+                                                            </VBox>
+                                                            <VBox alignment="CENTER">
+                                                               <children>
+                                                                  <Label text="10 000 points">
+                                                                     <font>
+                                                                        <Font name="Garamond Bold" size="24.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                            </VBox>
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox fx:id="show1" alignment="CENTER" prefHeight="150.0" prefWidth="250.0" visible="false">
+                                                         <children>
+                                                            <Label text="Click to send a">
+                                                               <font>
+                                                                  <Font name="Garamond Bold" size="24.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label text="barcode to email">
                                                                <font>
                                                                   <Font name="Garamond Bold" size="24.0" />
                                                                </font>
                                                             </Label>
                                                          </children>
-                                                      </TextFlow>
-                                                      <ImageView fitHeight="56.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
-                                                         <image>
-                                                            <Image url="@../picture/Mail.png" />
-                                                         </image>
-                                                      </ImageView>
+                                                      </VBox>
                                                    </children>
-                                                </VBox>
-                                                <Label text="10 000 points">
-                                                   <font>
-                                                      <Font name="Garamond Bold" size="24.0" />
-                                                   </font>
-                                                </Label>
+                                                </StackPane>
                                              </children></VBox>
-                                          <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="150.0" prefWidth="170.0" style="-fx-background-color: rgba(240, 98, 146, 0.25); -fx-background-radius: 20;" GridPane.columnIndex="1">
+                                          <VBox fx:id="voucher2" alignment="CENTER" layoutX="10.0" layoutY="10.0" onMouseEntered="#show" onMouseExited="#hide" prefHeight="150.0" prefWidth="250.0" style="-fx-background-color: rgba(240, 98, 146, 0.25); -fx-background-radius: 20;" GridPane.columnIndex="1">
                                              <children>
-                                                <VBox alignment="CENTER" prefHeight="130.0">
+                                                <StackPane>
                                                    <children>
-                                                      <TextFlow textAlignment="CENTER">
+                                                      <VBox fx:id="main2" alignment="CENTER">
                                                          <children>
-                                                            <Label text="Cold Storage">
+                                                            <VBox alignment="CENTER" prefHeight="130.0">
+                                                               <children>
+                                                                  <TextFlow textAlignment="CENTER">
+                                                                     <children>
+                                                                        <Label text="Cold Storage">
+                                                                           <font>
+                                                                              <Font name="Garamond Bold" size="24.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                     </children>
+                                                                  </TextFlow>
+                                                                  <ImageView fitHeight="56.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@../picture/Mail.png" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                               </children>
+                                                            </VBox>
+                                                            <VBox alignment="CENTER">
+                                                               <children>
+                                                                  <Label text="10 000 points">
+                                                                     <font>
+                                                                        <Font name="Garamond Bold" size="24.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                            </VBox>
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox fx:id="show2" alignment="CENTER" prefHeight="150.0" prefWidth="250.0" visible="false">
+                                                         <children>
+                                                            <Label text="Click to send a">
+                                                               <font>
+                                                                  <Font name="Garamond Bold" size="24.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label text="barcode to email">
                                                                <font>
                                                                   <Font name="Garamond Bold" size="24.0" />
                                                                </font>
                                                             </Label>
                                                          </children>
-                                                      </TextFlow>
-                                                      <ImageView fitHeight="56.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
-                                                         <image>
-                                                            <Image url="@../picture/Mail.png" />
-                                                         </image>
-                                                      </ImageView>
+                                                      </VBox>
                                                    </children>
-                                                </VBox>
-                                                <Label text="10 000 points">
-                                                   <font>
-                                                      <Font name="Garamond Bold" size="24.0" />
-                                                   </font>
-                                                </Label>
+                                                </StackPane>
                                              </children>
                                           </VBox>
-                                          <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="150.0" prefWidth="170.0" style="-fx-background-color: rgba(240, 98, 146, 0.25); -fx-background-radius: 20;" GridPane.columnIndex="2">
+                                          <VBox fx:id="voucher3" alignment="CENTER" layoutX="10.0" layoutY="10.0" onMouseEntered="#show" onMouseExited="#hide" prefHeight="150.0" prefWidth="250.0" style="-fx-background-color: rgba(240, 98, 146, 0.25); -fx-background-radius: 20;" GridPane.columnIndex="2">
                                              <children>
-                                                <VBox alignment="CENTER" prefHeight="130.0">
+                                                <StackPane>
                                                    <children>
-                                                      <TextFlow textAlignment="CENTER">
+                                                      <VBox fx:id="main3" alignment="CENTER">
                                                          <children>
-                                                            <Label text="Placeholder">
+                                                            <VBox alignment="CENTER" prefHeight="130.0">
+                                                               <children>
+                                                                  <TextFlow textAlignment="CENTER">
+                                                                     <children>
+                                                                        <Label text="Placeholder">
+                                                                           <font>
+                                                                              <Font name="Garamond Bold" size="24.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                     </children>
+                                                                  </TextFlow>
+                                                                  <ImageView fitHeight="56.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@../picture/Mail.png" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                               </children>
+                                                            </VBox>
+                                                            <VBox alignment="CENTER">
+                                                               <children>
+                                                                  <Label text="10 000 points">
+                                                                     <font>
+                                                                        <Font name="Garamond Bold" size="24.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                            </VBox>
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox fx:id="show3" alignment="CENTER" prefHeight="150.0" prefWidth="250.0" visible="false">
+                                                         <children>
+                                                            <Label text="Click to send a">
+                                                               <font>
+                                                                  <Font name="Garamond Bold" size="24.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label text="barcode to email">
                                                                <font>
                                                                   <Font name="Garamond Bold" size="24.0" />
                                                                </font>
                                                             </Label>
                                                          </children>
-                                                      </TextFlow>
-                                                      <ImageView fitHeight="56.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
-                                                         <image>
-                                                            <Image url="@../picture/Mail.png" />
-                                                         </image>
-                                                      </ImageView>
+                                                      </VBox>
                                                    </children>
-                                                </VBox>
-                                                <Label text="10 000 points">
-                                                   <font>
-                                                      <Font name="Garamond Bold" size="24.0" />
-                                                   </font>
-                                                </Label>
+                                                </StackPane>
                                              </children>
                                           </VBox>
-                                          <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="150.0" prefWidth="170.0" style="-fx-background-color: rgba(240, 98, 146, 0.25); -fx-background-radius: 20;" GridPane.columnIndex="3">
+                                          <VBox fx:id="voucher4" alignment="CENTER" layoutX="10.0" layoutY="10.0" onMouseEntered="#show" onMouseExited="#hide" prefHeight="150.0" prefWidth="250.0" style="-fx-background-color: rgba(240, 98, 146, 0.25); -fx-background-radius: 20;" GridPane.columnIndex="3">
                                              <children>
-                                                <VBox alignment="CENTER" prefHeight="130.0">
+                                                <StackPane>
                                                    <children>
-                                                      <TextFlow textAlignment="CENTER">
+                                                      <VBox fx:id="main4" alignment="CENTER">
                                                          <children>
-                                                            <Label text="Placeholder">
+                                                            <VBox alignment="CENTER" prefHeight="130.0">
+                                                               <children>
+                                                                  <TextFlow textAlignment="CENTER">
+                                                                     <children>
+                                                                        <Label text="Placeholder">
+                                                                           <font>
+                                                                              <Font name="Garamond Bold" size="24.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                     </children>
+                                                                  </TextFlow>
+                                                                  <ImageView fitHeight="56.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@../picture/Mail.png" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                               </children>
+                                                            </VBox>
+                                                            <VBox alignment="CENTER">
+                                                               <children>
+                                                                  <Label text="10 000 points">
+                                                                     <font>
+                                                                        <Font name="Garamond Bold" size="24.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                            </VBox>
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox fx:id="show4" alignment="CENTER" prefHeight="150.0" prefWidth="250.0" visible="false">
+                                                         <children>
+                                                            <Label text="Click to send a">
+                                                               <font>
+                                                                  <Font name="Garamond Bold" size="24.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label text="barcode to email">
                                                                <font>
                                                                   <Font name="Garamond Bold" size="24.0" />
                                                                </font>
                                                             </Label>
                                                          </children>
-                                                      </TextFlow>
-                                                      <ImageView fitHeight="56.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
-                                                         <image>
-                                                            <Image url="@../picture/Mail.png" />
-                                                         </image>
-                                                      </ImageView>
+                                                      </VBox>
                                                    </children>
-                                                </VBox>
-                                                <Label text="10 000 points">
-                                                   <font>
-                                                      <Font name="Garamond Bold" size="24.0" />
-                                                   </font>
-                                                </Label>
+                                                </StackPane>
                                              </children>
                                           </VBox>
                                        </children>
@@ -348,7 +473,7 @@
                               </VBox>
                            </children>
                            <VBox.margin>
-                              <Insets top="150.0" />
+                              <Insets top="100.0" />
                            </VBox.margin>
                         </TextFlow>
                      </children>
