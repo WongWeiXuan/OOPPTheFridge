@@ -38,7 +38,7 @@ public class SignupPageController {
 	private Label comment;
 	
 	@FXML
-	void createAccount(ActionEvent event) throws IOException, ParseException, ParseException{
+	public void createAccount(ActionEvent event) throws IOException, ParseException, ParseException{
 		String Username = tFUsername.getText();
 		String Password = pFPassword.getText();
 		String Email = tFEmail.getText();
@@ -53,6 +53,16 @@ public class SignupPageController {
 			comment.setText("Please fill in your email!");
 		}
 		else {
+			/* 
+			SignupModel Person = new SignupModel(String username, String password, String email);
+			Person.setUsername(Username);
+			Person.setPassword(Password);
+			Person.setEmail(Email);
+			
+			ArrayList<SignupModel> personList = new ArrayList<SignupModel>();
+			personList.add(Person);
+			 */
+			
 			JSONParser parser = new JSONParser();
 			
 			Object obj = parser.parse(new FileReader("src/theFridge/file/people.json"));
@@ -88,13 +98,10 @@ public class SignupPageController {
 			
 			stage.setScene(new Scene(root));
 	 	    stage.show();
-	 	    
-		
-		
 	}
 	
 	@FXML
-	void goToLoginPage(ActionEvent event) throws IOException {
+	public void goToLoginPage(ActionEvent event) throws IOException {
 		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
 		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/LoginPage.fxml"));
 		

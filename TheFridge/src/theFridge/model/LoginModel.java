@@ -8,7 +8,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 public class LoginModel {
-	@SuppressWarnings("unchecked")
+	/*@SuppressWarnings("unchecked")
 	public static void main(String[] args) throws IOException{
 	File file= new File("src/theFridge/model/LoginModel.json");
 	JSONObject JSONOBJECT= new JSONObject();
@@ -27,8 +27,30 @@ public class LoginModel {
     fileWriter.write(JSONOBJECT.toJSONString());  
     fileWriter.flush();  
     fileWriter.close();  
-
+	*/
+	private String username;
+	private String password;
+	
+	public LoginModel(String username, String password) {
+		super();
+		this.username = username;
+		this.password = password;
 	}
-	
-	
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
 }
+
