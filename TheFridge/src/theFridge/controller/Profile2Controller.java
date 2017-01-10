@@ -14,6 +14,7 @@ import theFridge.model.First;
 import com.jfoenix.controls.JFXButton;
 
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -118,6 +119,16 @@ public class Profile2Controller {
 	private HBox hBox3;
 	@FXML
 	private HBox hBox4;
+	@FXML
+	private ImageView image0;
+	@FXML
+	private ImageView image1;
+	@FXML
+	private ImageView image2;
+	@FXML
+	private ImageView image3;
+	@FXML
+	private ImageView image4;
 
 	// Event Listener on VBox[#naviPreview].onMouseEntered
 	@FXML
@@ -288,6 +299,45 @@ public class Profile2Controller {
 		hbox7.setVisible(true);
 		Elocation.setVisible(false);
 		hBox4.setVisible(false);
+	}
+	
+	public void showImage0 (MouseEvent event) {
+		image0.setOpacity(1);
+	}
+	
+	public void hideImage0 (MouseEvent event) {
+		image0.setOpacity(0);
+	}
+	
+	public void showImage1 (MouseEvent event) {
+		image1.setOpacity(1);
+	}
+	public void hideImage1 (MouseEvent event) {
+		image1.setOpacity(0);
+	}
+	
+	public void showImage2 (MouseEvent event) {
+		image2.setOpacity(1);
+	}
+	
+	public void hideImage2 (MouseEvent event) {
+		image2.setOpacity(0);
+	}
+	
+	public void showImage3 (MouseEvent event) {
+		image3.setOpacity(1);
+	}
+	
+	public void hideImage3 (MouseEvent event) {
+		image3.setOpacity(0);
+	}
+	
+	public void showImage4 (MouseEvent event) {
+		image4.setOpacity(1);
+	}
+	
+	public void hideImage4 (MouseEvent event) {
+		image4.setOpacity(0);
 	}
 	
 }
