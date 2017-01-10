@@ -217,7 +217,7 @@ public class GetStartedPageController {
 	@FXML
 	public void changeScene(MouseEvent event) throws IOException {
 		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/LoginPage.fxml"));
+		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/LoginSignupPage.fxml"));
 		
 		
 		if(event.getSource().equals(Profile)){
@@ -245,7 +245,7 @@ public class GetStartedPageController {
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/FindingDish.fxml"));
 		}
 		else if(event.getSource().equals(Logout)){
-			root = FXMLLoader.load(getClass().getResource("/theFridge/view/LoginPage.fxml"));
+			root = FXMLLoader.load(getClass().getResource("/theFridge/view/LoginSignupPage.fxml"));
 			stage.setMaximized(false);
 		}
 		

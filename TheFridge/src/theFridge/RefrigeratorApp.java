@@ -12,7 +12,7 @@ public class RefrigeratorApp extends Application{
 	@Override
 	public void start(Stage primaryStage) throws Exception{
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/LoginPage.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/LoginSignupPage.fxml"));
 			Scene scene = new Scene(root);
 			primaryStage.setScene(scene);
 			primaryStage.getIcons().add(new Image("/theFridge/picture/fridge.png"));
