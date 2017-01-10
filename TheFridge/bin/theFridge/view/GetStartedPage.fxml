@@ -19,563 +19,559 @@
 
 <AnchorPane prefHeight="800.0" prefWidth="1280.0" style="-fx-background-image: url(&quot;theFridge/picture/pasta-wallpapers-1.jpg&quot;); -fx-background-size: cover, auto; -fx-background-repeat: no-repeat;" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="theFridge.controller.GetStartedPageController">
    <children>
-      <VBox prefHeight="800.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox style="-fx-background-color: rgba(233, 30, 99,0.30);" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="65.0">
          <children>
-            <AnchorPane>
+            <VBox alignment="CENTER" prefHeight="136.0" prefWidth="1280.0">
                <children>
-                  <TextFlow maxHeight="65.0" minHeight="65.0" minWidth="357.0" prefHeight="65.0" style="-fx-background-color: #C2185B;" textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <TextFlow textAlignment="CENTER">
                      <children>
-                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="The Fridge">
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Features" wrappingWidth="583.6708984375">
                            <font>
-                              <Font name="Garamond Bold" size="48.0" />
+                              <Font name="Garamond" size="36.0" />
                            </font>
                         </Text>
                      </children>
-                     <padding>
-                        <Insets left="64.0" right="64.0" />
-                     </padding>
                   </TextFlow>
-                  <StackPane fx:id="dropdownMenu" layoutX="357.0" layoutY="-135.0" style="-fx-background-color: #FCE4EC;" AnchorPane.rightAnchor="-150.0" AnchorPane.topAnchor="-255.0">
-                     <children>
-                        <VBox fx:id="dropdownWord" alignment="TOP_CENTER" maxHeight="320.0" maxWidth="150.0" minHeight="320.0" minWidth="150.0" opacity="0.0" prefHeight="320.0" prefWidth="150.0">
-                           <children>
-                              <VBox fx:id="ProfileMenu" alignment="CENTER" maxHeight="80.0" maxWidth="150.0" minHeight="80.0" minWidth="150.0" onMouseClicked="#menuChangeScene" prefHeight="80.0" prefWidth="150.0">
-                                 <children>
-                                    <TextFlow textAlignment="CENTER">
-                                       <children>
-                                          <Text fill="#c2185b" strokeType="OUTSIDE" strokeWidth="0.0" text="Profile" />
-                                       </children>
-                                    </TextFlow>
-                                 </children>
-                                 <VBox.margin>
-                                    <Insets top="80.0" />
-                                 </VBox.margin>
-                              </VBox>
-                              <VBox fx:id="SettingMenu" alignment="CENTER" maxHeight="80.0" maxWidth="150.0" minHeight="80.0" minWidth="150.0" onMouseClicked="#menuChangeScene" prefHeight="80.0" prefWidth="150.0">
-                                 <children>
-                                    <TextFlow textAlignment="CENTER">
-                                       <children>
-                                          <Text fill="#c2185b" strokeType="OUTSIDE" strokeWidth="0.0" text="Setting" />
-                                       </children>
-                                    </TextFlow>
-                                 </children>
-                              </VBox>
-                              <VBox fx:id="LogoutMenu" alignment="CENTER" maxHeight="80.0" maxWidth="150.0" minHeight="80.0" minWidth="150.0" onMouseClicked="#menuChangeScene" prefHeight="80.0" prefWidth="150.0">
-                                 <children>
-                                    <TextFlow textAlignment="CENTER">
-                                       <children>
-                                          <Text fill="#c2185b" strokeType="OUTSIDE" strokeWidth="0.0" text="Logout" />
-                                       </children>
-                                    </TextFlow>
-                                 </children>
-                              </VBox>
-                           </children>
-                        </VBox>
-                        <VBox fx:id="dropdownBackground" maxHeight="200.0" maxWidth="150.0" minHeight="200.0" minWidth="150.0" prefHeight="200.0" prefWidth="150.0" />
-                     </children>
-                  </StackPane>
-                  <Circle fx:id="profileCircle" fill="WHITE" layoutX="32.0" layoutY="97.0" onMouseClicked="#showUserDropdown" radius="32.0" stroke="#ffffff00" strokeType="INSIDE" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <Line endX="20.0" fill="BLACK" startX="-10.0" stroke="#82b1ff" strokeWidth="8.0">
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
+                  </Line>
                </children>
-            </AnchorPane>
-            <VBox style="-fx-background-color: rgba(233, 30, 99,0.30);" VBox.vgrow="ALWAYS">
+            </VBox>
+            <VBox VBox.vgrow="ALWAYS">
                <children>
-                  <VBox alignment="CENTER" prefHeight="136.0" prefWidth="1280.0">
+                  <HBox prefHeight="110.0" prefWidth="1280.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <TextFlow textAlignment="CENTER">
+                        <GridPane hgap="20.0" HBox.hgrow="ALWAYS">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="424.0" minHeight="10.0" prefHeight="299.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="312.0" minHeight="10.0" prefHeight="300.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
                            <children>
-                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Features" wrappingWidth="583.6708984375">
-                                 <font>
-                                    <Font name="Garamond" size="36.0" />
-                                 </font>
-                              </Text>
-                           </children>
-                        </TextFlow>
-                        <Line endX="20.0" fill="BLACK" startX="-10.0" stroke="#82b1ff" strokeWidth="8.0">
-                           <VBox.margin>
-                              <Insets top="5.0" />
-                           </VBox.margin>
-                        </Line>
-                     </children>
-                  </VBox>
-                  <VBox VBox.vgrow="ALWAYS">
-                     <children>
-                        <HBox prefHeight="110.0" prefWidth="1280.0" VBox.vgrow="ALWAYS">
-                           <children>
-                              <GridPane hgap="20.0" HBox.hgrow="ALWAYS">
-                                 <columnConstraints>
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                                 </columnConstraints>
-                                 <rowConstraints>
-                                    <RowConstraints maxHeight="424.0" minHeight="10.0" prefHeight="299.0" vgrow="SOMETIMES" />
-                                    <RowConstraints maxHeight="312.0" minHeight="10.0" prefHeight="300.0" vgrow="SOMETIMES" />
-                                 </rowConstraints>
+                              <VBox fx:id="Profile" alignment="CENTER" maxHeight="300.0" maxWidth="300.0" onMouseClicked="#changeScene" onMouseEntered="#showExtraInfo" onMouseExited="#hideExtraInfo" prefHeight="259.0" prefWidth="200.0" style="-fx-background-color: #FCE4EC; -fx-background-radius: 20;" GridPane.hgrow="NEVER" GridPane.vgrow="NEVER">
                                  <children>
-                                    <VBox fx:id="Profile" alignment="CENTER" maxHeight="300.0" maxWidth="300.0" onMouseClicked="#changeScene" onMouseEntered="#showExtraInfo" onMouseExited="#hideExtraInfo" prefHeight="259.0" prefWidth="200.0" style="-fx-background-color: #FCE4EC; -fx-background-radius: 20;" GridPane.hgrow="NEVER" GridPane.vgrow="NEVER">
-                                       <children>
-                                          <ImageView fitHeight="147.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                                             <VBox.margin>
-                                                <Insets bottom="10.0" top="10.0" />
-                                             </VBox.margin>
-                                             <image>
-                                                <Image url="@../picture/Picture1.png" />
-                                             </image>
-                                          </ImageView>
-                                          <ScrollPane fx:id="ProfileScroll" disable="true" fitToWidth="true" hbarPolicy="NEVER" style="-fx-background: #FCE4EC; -fx-border-color: #FCE4EC; -fx-opacity: 1.0;" vbarPolicy="NEVER" vmax="2.0">
-                                             <content>
-                                                <VBox prefHeight="300.0" prefWidth="200.0">
+                                    <ImageView fitHeight="147.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" top="10.0" />
+                                       </VBox.margin>
+                                       <image>
+                                          <Image url="@../picture/Picture1.png" />
+                                       </image>
+                                    </ImageView>
+                                    <ScrollPane fx:id="ProfileScroll" disable="true" fitToWidth="true" hbarPolicy="NEVER" style="-fx-background: #FCE4EC; -fx-border-color: #FCE4EC; -fx-opacity: 1.0;" vbarPolicy="NEVER" vmax="2.0">
+                                       <content>
+                                          <VBox prefHeight="300.0" prefWidth="200.0">
+                                             <children>
+                                                <TextFlow minHeight="120.0" prefHeight="120.0" prefWidth="186.0" textAlignment="CENTER">
                                                    <children>
-                                                      <TextFlow minHeight="120.0" prefHeight="120.0" prefWidth="186.0" textAlignment="CENTER">
-                                                         <children>
-                                                            <Text fill="#880e4f" strokeType="OUTSIDE" strokeWidth="0.0" text="Profile">
-                                                               <font>
-                                                                  <Font name="Garamond" size="36.0" />
-                                                               </font>
-                                                            </Text>
-                                                         </children>
-                                                         <padding>
-                                                            <Insets top="20.0" />
-                                                         </padding>
-                                                      </TextFlow>
-                                                      <TextFlow minHeight="180.0" prefHeight="180.0" prefWidth="186.0" textAlignment="CENTER" VBox.vgrow="ALWAYS">
-                                                         <children>
-                                                            <Text fill="#880e4f" strokeType="OUTSIDE" strokeWidth="0.0" text="All about me">
-                                                               <font>
-                                                                  <Font name="Garamond" size="36.0" />
-                                                               </font>
-                                                            </Text>
-                                                         </children>
-                                                         <VBox.margin>
-                                                            <Insets bottom="20.0" top="20.0" />
-                                                         </VBox.margin>
-                                                      </TextFlow>
+                                                      <Text fill="#880e4f" strokeType="OUTSIDE" strokeWidth="0.0" text="Profile">
+                                                         <font>
+                                                            <Font name="Garamond" size="36.0" />
+                                                         </font>
+                                                      </Text>
                                                    </children>
-                                                </VBox>
-                                             </content>
-                                             <VBox.margin>
-                                                <Insets bottom="5.0" left="5.0" right="5.0" />
-                                             </VBox.margin>
-                                          </ScrollPane>
-                                       </children>
-                                       <GridPane.margin>
-                                          <Insets bottom="20.0" />
-                                       </GridPane.margin>
-                                    </VBox>
-                                    <VBox fx:id="Recipes" alignment="CENTER" maxHeight="300.0" maxWidth="300.0" onMouseClicked="#changeScene" onMouseEntered="#showExtraInfo" onMouseExited="#hideExtraInfo" prefHeight="259.0" prefWidth="200.0" style="-fx-background-color: #FCE4EC; -fx-background-radius: 20;" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.vgrow="NEVER">
-                                       <children>
-                                          <ImageView fitHeight="147.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../picture/Picture2.png" />
-                                             </image>
-                                             <VBox.margin>
-                                                <Insets bottom="10.0" top="10.0" />
-                                             </VBox.margin>
-                                          </ImageView>
-                                          <ScrollPane fx:id="RecipeScroll" disable="true" fitToWidth="true" hbarPolicy="NEVER" style="-fx-background: #FCE4EC; -fx-border-color: #FCE4EC; -fx-opacity: 1.0;" vbarPolicy="NEVER" vmax="2.0">
-                                             <content>
-                                                <VBox prefHeight="300.0" prefWidth="200.0">
+                                                   <padding>
+                                                      <Insets top="20.0" />
+                                                   </padding>
+                                                </TextFlow>
+                                                <TextFlow minHeight="180.0" prefHeight="180.0" prefWidth="186.0" textAlignment="CENTER" VBox.vgrow="ALWAYS">
                                                    <children>
-                                                      <TextFlow minHeight="120.0" prefHeight="120.0" prefWidth="186.0" textAlignment="CENTER">
-                                                         <children>
-                                                            <Text fill="#880e4f" strokeType="OUTSIDE" strokeWidth="0.0" text="Search Recipes">
-                                                               <font>
-                                                                  <Font name="Garamond" size="36.0" />
-                                                               </font>
-                                                            </Text>
-                                                         </children>
-                                                         <padding>
-                                                            <Insets top="20.0" />
-                                                         </padding>
-                                                      </TextFlow>
-                                                      <TextFlow minHeight="180.0" prefHeight="180.0" prefWidth="186.0" textAlignment="CENTER" VBox.vgrow="ALWAYS">
-                                                         <children>
-                                                            <Text fill="#880e4f" strokeType="OUTSIDE" strokeWidth="0.0" text="Like the name suggests">
-                                                               <font>
-                                                                  <Font name="Garamond" size="36.0" />
-                                                               </font>
-                                                            </Text>
-                                                         </children>
-                                                         <VBox.margin>
-                                                            <Insets bottom="20.0" top="20.0" />
-                                                         </VBox.margin>
-                                                      </TextFlow>
+                                                      <Text fill="#880e4f" strokeType="OUTSIDE" strokeWidth="0.0" text="All about me">
+                                                         <font>
+                                                            <Font name="Garamond" size="36.0" />
+                                                         </font>
+                                                      </Text>
                                                    </children>
-                                                </VBox>
-                                             </content>
-                                             <VBox.margin>
-                                                <Insets bottom="5.0" left="5.0" right="5.0" />
-                                             </VBox.margin>
-                                          </ScrollPane>
-                                       </children>
-                                       <GridPane.margin>
-                                          <Insets bottom="20.0" />
-                                       </GridPane.margin>
-                                    </VBox>
-                                    <VBox fx:id="Compost" alignment="CENTER" maxHeight="300.0" maxWidth="300.0" onMouseClicked="#changeScene" onMouseEntered="#showExtraInfo" onMouseExited="#hideExtraInfo" prefHeight="259.0" prefWidth="200.0" style="-fx-background-color: #FCE4EC; -fx-background-radius: 20;" GridPane.columnIndex="2" GridPane.hgrow="NEVER" GridPane.vgrow="NEVER">
-                                       <children>
-                                          <ImageView fitHeight="147.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../picture/Picture3.png" />
-                                             </image>
-                                             <VBox.margin>
-                                                <Insets bottom="10.0" top="10.0" />
-                                             </VBox.margin>
-                                          </ImageView>
-                                          <ScrollPane fx:id="CompostScroll" disable="true" fitToWidth="true" hbarPolicy="NEVER" style="-fx-background: #FCE4EC; -fx-border-color: #FCE4EC; -fx-opacity: 1.0;" vbarPolicy="NEVER" vmax="2.0">
-                                             <content>
-                                                <VBox prefHeight="300.0" prefWidth="200.0">
-                                                   <children>
-                                                      <TextFlow minHeight="120.0" prefHeight="120.0" prefWidth="186.0" textAlignment="CENTER">
-                                                         <children>
-                                                            <Text fill="#880e4f" strokeType="OUTSIDE" strokeWidth="0.0" text="Food Compost">
-                                                               <font>
-                                                                  <Font name="Garamond" size="36.0" />
-                                                               </font>
-                                                            </Text>
-                                                         </children>
-                                                         <padding>
-                                                            <Insets top="20.0" />
-                                                         </padding>
-                                                      </TextFlow>
-                                                      <TextFlow minHeight="180.0" prefHeight="180.0" prefWidth="186.0" textAlignment="CENTER" VBox.vgrow="ALWAYS">
-                                                         <children>
-                                                            <Text fill="#880e4f" strokeType="OUTSIDE" strokeWidth="0.0" text="Learning to compost">
-                                                               <font>
-                                                                  <Font name="Garamond" size="36.0" />
-                                                               </font>
-                                                            </Text>
-                                                         </children>
-                                                         <VBox.margin>
-                                                            <Insets bottom="20.0" top="20.0" />
-                                                         </VBox.margin>
-                                                      </TextFlow>
-                                                   </children>
-                                                </VBox>
-                                             </content>
-                                             <VBox.margin>
-                                                <Insets bottom="5.0" left="5.0" right="5.0" />
-                                             </VBox.margin>
-                                          </ScrollPane>
-                                       </children>
-                                       <GridPane.margin>
-                                          <Insets bottom="20.0" />
-                                       </GridPane.margin>
-                                    </VBox>
-                                    <VBox fx:id="Random" alignment="CENTER" maxHeight="300.0" maxWidth="300.0" onMouseClicked="#changeScene" onMouseEntered="#showExtraInfo" onMouseExited="#hideExtraInfo" prefHeight="259.0" prefWidth="200.0" style="-fx-background-color: #FCE4EC; -fx-background-radius: 20;" GridPane.columnIndex="3" GridPane.hgrow="NEVER" GridPane.vgrow="NEVER">
-                                       <children>
-                                          <ImageView fitHeight="147.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../picture/Picture4.png" />
-                                             </image>
-                                             <VBox.margin>
-                                                <Insets bottom="10.0" top="10.0" />
-                                             </VBox.margin>
-                                          </ImageView>
-                                          <ScrollPane fx:id="RandomScroll" disable="true" fitToWidth="true" hbarPolicy="NEVER" style="-fx-background: #FCE4EC; -fx-border-color: #FCE4EC; -fx-opacity: 1.0;" vbarPolicy="NEVER" vmax="2.0">
-                                             <content>
-                                                <VBox prefHeight="300.0" prefWidth="200.0">
-                                                   <children>
-                                                      <TextFlow minHeight="120.0" prefHeight="120.0" prefWidth="186.0" textAlignment="CENTER">
-                                                         <children>
-                                                            <Text fill="#880e4f" strokeType="OUTSIDE" strokeWidth="0.0" text="Food Randomizer">
-                                                               <font>
-                                                                  <Font name="Garamond" size="36.0" />
-                                                               </font>
-                                                            </Text>
-                                                         </children>
-                                                         <padding>
-                                                            <Insets top="20.0" />
-                                                         </padding>
-                                                      </TextFlow>
-                                                      <TextFlow minHeight="180.0" prefHeight="180.0" prefWidth="186.0" textAlignment="CENTER" VBox.vgrow="ALWAYS">
-                                                         <children>
-                                                            <Text fill="#880e4f" strokeType="OUTSIDE" strokeWidth="0.0" text="What should I eat?">
-                                                               <font>
-                                                                  <Font name="Garamond" size="36.0" />
-                                                               </font>
-                                                            </Text>
-                                                         </children>
-                                                         <VBox.margin>
-                                                            <Insets bottom="20.0" top="20.0" />
-                                                         </VBox.margin>
-                                                      </TextFlow>
-                                                   </children>
-                                                </VBox>
-                                             </content>
-                                             <VBox.margin>
-                                                <Insets bottom="5.0" left="5.0" right="5.0" />
-                                             </VBox.margin>
-                                          </ScrollPane>
-                                       </children>
-                                       <GridPane.margin>
-                                          <Insets bottom="20.0" />
-                                       </GridPane.margin>
-                                    </VBox>
-                                    <VBox fx:id="Quiz" alignment="CENTER" maxHeight="300.0" maxWidth="300.0" onMouseClicked="#changeScene" onMouseEntered="#showExtraInfo" onMouseExited="#hideExtraInfo" prefHeight="259.0" prefWidth="200.0" style="-fx-background-color: #FCE4EC; -fx-background-radius: 20;" GridPane.columnIndex="4" GridPane.hgrow="NEVER" GridPane.vgrow="NEVER">
-                                       <children>
-                                          <ImageView fitHeight="147.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../picture/Picture5.png" />
-                                             </image>
-                                             <VBox.margin>
-                                                <Insets bottom="10.0" top="10.0" />
-                                             </VBox.margin>
-                                          </ImageView>
-                                          <ScrollPane fx:id="QuizScroll" disable="true" fitToWidth="true" hbarPolicy="NEVER" style="-fx-background: #FCE4EC; -fx-border-color: #FCE4EC; -fx-opacity: 1.0;" vbarPolicy="NEVER" vmax="2.0">
-                                             <content>
-                                                <VBox prefHeight="300.0" prefWidth="200.0">
-                                                   <children>
-                                                      <TextFlow minHeight="120.0" prefHeight="120.0" prefWidth="186.0" textAlignment="CENTER">
-                                                         <children>
-                                                            <Text fill="#880e4f" strokeType="OUTSIDE" strokeWidth="0.0" text="Quiz">
-                                                               <font>
-                                                                  <Font name="Garamond" size="36.0" />
-                                                               </font>
-                                                            </Text>
-                                                         </children>
-                                                         <padding>
-                                                            <Insets top="20.0" />
-                                                         </padding>
-                                                      </TextFlow>
-                                                      <TextFlow minHeight="180.0" prefHeight="180.0" prefWidth="186.0" textAlignment="CENTER" VBox.vgrow="ALWAYS">
-                                                         <children>
-                                                            <Text fill="#880e4f" strokeType="OUTSIDE" strokeWidth="0.0" text="Test me">
-                                                               <font>
-                                                                  <Font name="Garamond" size="36.0" />
-                                                               </font>
-                                                            </Text>
-                                                         </children>
-                                                         <VBox.margin>
-                                                            <Insets bottom="20.0" top="20.0" />
-                                                         </VBox.margin>
-                                                      </TextFlow>
-                                                   </children>
-                                                </VBox>
-                                             </content>
-                                             <VBox.margin>
-                                                <Insets bottom="5.0" left="5.0" right="5.0" />
-                                             </VBox.margin>
-                                          </ScrollPane>
-                                       </children>
-                                       <GridPane.margin>
-                                          <Insets bottom="20.0" />
-                                       </GridPane.margin>
-                                    </VBox>
-                                    <VBox fx:id="Redeem" alignment="CENTER" maxWidth="300.0" onMouseClicked="#changeScene" onMouseEntered="#showExtraInfo" onMouseExited="#hideExtraInfo" prefHeight="259.0" prefWidth="200.0" style="-fx-background-color: #FCE4EC; -fx-background-radius: 20;" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.vgrow="NEVER">
-                                       <children>
-                                          <ImageView fitHeight="147.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../picture/Picture6.png" />
-                                             </image>
-                                             <VBox.margin>
-                                                <Insets bottom="10.0" top="10.0" />
-                                             </VBox.margin>
-                                          </ImageView>
-                                          <ScrollPane fx:id="RedeemScroll" disable="true" fitToWidth="true" hbarPolicy="NEVER" style="-fx-background: #FCE4EC; -fx-border-color: #FCE4EC; -fx-opacity: 1.0;" vbarPolicy="NEVER" vmax="2.0">
-                                             <content>
-                                                <VBox prefHeight="300.0" prefWidth="200.0">
-                                                   <children>
-                                                      <TextFlow minHeight="120.0" prefHeight="120.0" prefWidth="186.0" textAlignment="CENTER">
-                                                         <children>
-                                                            <Text fill="#880e4f" strokeType="OUTSIDE" strokeWidth="0.0" text="Redeem">
-                                                               <font>
-                                                                  <Font name="Garamond" size="36.0" />
-                                                               </font>
-                                                            </Text>
-                                                         </children>
-                                                         <padding>
-                                                            <Insets top="20.0" />
-                                                         </padding>
-                                                      </TextFlow>
-                                                      <TextFlow minHeight="180.0" prefHeight="180.0" prefWidth="186.0" textAlignment="CENTER" VBox.vgrow="ALWAYS">
-                                                         <children>
-                                                            <Text fill="#880e4f" strokeType="OUTSIDE" strokeWidth="0.0" text="Prizes to be won">
-                                                               <font>
-                                                                  <Font name="Garamond" size="36.0" />
-                                                               </font>
-                                                            </Text>
-                                                         </children>
-                                                         <VBox.margin>
-                                                            <Insets bottom="20.0" top="20.0" />
-                                                         </VBox.margin>
-                                                      </TextFlow>
-                                                   </children>
-                                                </VBox>
-                                             </content>
-                                             <VBox.margin>
-                                                <Insets bottom="5.0" left="5.0" right="5.0" />
-                                             </VBox.margin>
-                                          </ScrollPane>
-                                       </children>
-                                       <GridPane.margin>
-                                          <Insets bottom="20.0" />
-                                       </GridPane.margin>
-                                    </VBox>
-                                    <VBox fx:id="Shopping" alignment="CENTER" maxWidth="300.0" onMouseClicked="#changeScene" onMouseEntered="#showExtraInfo" onMouseExited="#hideExtraInfo" prefHeight="259.0" prefWidth="200.0" style="-fx-background-color: #FCE4EC; -fx-background-radius: 20;" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.vgrow="NEVER">
-                                       <children>
-                                          <ImageView fitHeight="147.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../picture/Picture7.png" />
-                                             </image>
-                                             <VBox.margin>
-                                                <Insets bottom="10.0" top="10.0" />
-                                             </VBox.margin>
-                                          </ImageView>
-                                          <ScrollPane fx:id="ShoppingScroll" disable="true" fitToWidth="true" hbarPolicy="NEVER" style="-fx-background: #FCE4EC; -fx-border-color: #FCE4EC; -fx-opacity: 1.0;" vbarPolicy="NEVER" vmax="2.0">
-                                             <content>
-                                                <VBox prefHeight="300.0" prefWidth="200.0">
-                                                   <children>
-                                                      <TextFlow minHeight="120.0" prefHeight="120.0" prefWidth="186.0" textAlignment="CENTER">
-                                                         <children>
-                                                            <Text fill="#880e4f" strokeType="OUTSIDE" strokeWidth="0.0" text="Shopping List">
-                                                               <font>
-                                                                  <Font name="Garamond" size="36.0" />
-                                                               </font>
-                                                            </Text>
-                                                         </children>
-                                                         <padding>
-                                                            <Insets top="20.0" />
-                                                         </padding>
-                                                      </TextFlow>
-                                                      <TextFlow minHeight="180.0" prefHeight="180.0" prefWidth="186.0" textAlignment="CENTER" VBox.vgrow="ALWAYS">
-                                                         <children>
-                                                            <Text fill="#880e4f" strokeType="OUTSIDE" strokeWidth="0.0" text="Ingredients to buy">
-                                                               <font>
-                                                                  <Font name="Garamond" size="36.0" />
-                                                               </font>
-                                                            </Text>
-                                                         </children>
-                                                         <VBox.margin>
-                                                            <Insets bottom="20.0" top="20.0" />
-                                                         </VBox.margin>
-                                                      </TextFlow>
-                                                   </children>
-                                                </VBox>
-                                             </content>
-                                             <VBox.margin>
-                                                <Insets bottom="5.0" left="5.0" right="5.0" />
-                                             </VBox.margin>
-                                          </ScrollPane>
-                                       </children>
-                                       <GridPane.margin>
-                                          <Insets bottom="20.0" />
-                                       </GridPane.margin>
-                                    </VBox>
-                                    <VBox fx:id="Leftover" alignment="CENTER" maxWidth="300.0" onMouseClicked="#changeScene" onMouseEntered="#showExtraInfo" onMouseExited="#hideExtraInfo" prefHeight="259.0" prefWidth="200.0" style="-fx-background-color: #FCE4EC; -fx-background-radius: 20;" GridPane.columnIndex="2" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.vgrow="NEVER">
-                                       <children>
-                                          <ImageView fitHeight="147.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../picture/Picture8.png" />
-                                             </image>
-                                             <VBox.margin>
-                                                <Insets bottom="10.0" top="10.0" />
-                                             </VBox.margin>
-                                          </ImageView>
-                                          <ScrollPane fx:id="LeftoverScroll" disable="true" fitToWidth="true" hbarPolicy="NEVER" style="-fx-background: #FCE4EC; -fx-border-color: #FCE4EC; -fx-opacity: 1.0;" vbarPolicy="NEVER" vmax="2.0">
-                                             <content>
-                                                <VBox prefHeight="300.0" prefWidth="200.0">
-                                                   <children>
-                                                      <TextFlow minHeight="120.0" prefHeight="120.0" prefWidth="186.0" textAlignment="CENTER">
-                                                         <children>
-                                                            <Text fill="#880e4f" strokeType="OUTSIDE" strokeWidth="0.0" text="Leftover Ingredient">
-                                                               <font>
-                                                                  <Font name="Garamond" size="36.0" />
-                                                               </font>
-                                                            </Text>
-                                                         </children>
-                                                         <padding>
-                                                            <Insets top="20.0" />
-                                                         </padding>
-                                                      </TextFlow>
-                                                      <TextFlow minHeight="180.0" prefHeight="180.0" prefWidth="186.0" textAlignment="CENTER" VBox.vgrow="ALWAYS">
-                                                         <children>
-                                                            <Text fill="#880e4f" strokeType="OUTSIDE" strokeWidth="0.0" text="Our recipe archive of just 5">
-                                                               <font>
-                                                                  <Font name="Garamond" size="36.0" />
-                                                               </font>
-                                                            </Text>
-                                                         </children>
-                                                         <VBox.margin>
-                                                            <Insets bottom="20.0" top="20.0" />
-                                                         </VBox.margin>
-                                                      </TextFlow>
-                                                   </children>
-                                                </VBox>
-                                             </content>
-                                             <VBox.margin>
-                                                <Insets bottom="5.0" left="5.0" right="5.0" />
-                                             </VBox.margin>
-                                          </ScrollPane>
-                                       </children>
-                                       <GridPane.margin>
-                                          <Insets bottom="20.0" />
-                                       </GridPane.margin>
-                                    </VBox>
-                                    <VBox fx:id="Logout" alignment="CENTER" maxWidth="300.0" onMouseClicked="#changeScene" onMouseEntered="#showExtraInfo" onMouseExited="#hideExtraInfo" prefHeight="259.0" prefWidth="200.0" style="-fx-background-color: #FCE4EC; -fx-background-radius: 20;" GridPane.columnIndex="3" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.vgrow="NEVER">
-                                       <children>
-                                          <ImageView fitHeight="147.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../picture/Picture9.png" />
-                                             </image>
-                                             <VBox.margin>
-                                                <Insets bottom="10.0" top="10.0" />
-                                             </VBox.margin>
-                                          </ImageView>
-                                          <ScrollPane fx:id="LogoutScroll" disable="true" fitToWidth="true" hbarPolicy="NEVER" style="-fx-background: #FCE4EC; -fx-border-color: #FCE4EC; -fx-opacity: 1.0;" vbarPolicy="NEVER" vmax="2.0">
-                                             <content>
-                                                <VBox prefHeight="300.0" prefWidth="200.0">
-                                                   <children>
-                                                      <TextFlow minHeight="120.0" prefHeight="120.0" prefWidth="186.0" textAlignment="CENTER">
-                                                         <children>
-                                                            <Text fill="#880e4f" strokeType="OUTSIDE" strokeWidth="0.0" text="Logout">
-                                                               <font>
-                                                                  <Font name="Garamond" size="36.0" />
-                                                               </font>
-                                                            </Text>
-                                                         </children>
-                                                         <padding>
-                                                            <Insets top="20.0" />
-                                                         </padding>
-                                                      </TextFlow>
-                                                      <TextFlow minHeight="180.0" prefHeight="180.0" prefWidth="186.0" textAlignment="CENTER" VBox.vgrow="ALWAYS">
-                                                         <children>
-                                                            <Text fill="#880e4f" strokeType="OUTSIDE" strokeWidth="0.0" text="You leaving? :(">
-                                                               <font>
-                                                                  <Font name="Garamond" size="36.0" />
-                                                               </font>
-                                                            </Text>
-                                                         </children>
-                                                         <VBox.margin>
-                                                            <Insets bottom="20.0" top="20.0" />
-                                                         </VBox.margin>
-                                                      </TextFlow>
-                                                   </children>
-                                                </VBox>
-                                             </content>
-                                             <VBox.margin>
-                                                <Insets bottom="5.0" left="5.0" right="5.0" />
-                                             </VBox.margin>
-                                          </ScrollPane>
-                                       </children>
-                                       <GridPane.margin>
-                                          <Insets bottom="20.0" />
-                                       </GridPane.margin>
-                                    </VBox>
+                                                   <VBox.margin>
+                                                      <Insets bottom="20.0" top="20.0" />
+                                                   </VBox.margin>
+                                                </TextFlow>
+                                             </children>
+                                          </VBox>
+                                       </content>
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" />
+                                       </VBox.margin>
+                                    </ScrollPane>
                                  </children>
-                              </GridPane>
+                                 <GridPane.margin>
+                                    <Insets bottom="20.0" />
+                                 </GridPane.margin>
+                              </VBox>
+                              <VBox fx:id="Recipes" alignment="CENTER" maxHeight="300.0" maxWidth="300.0" onMouseClicked="#changeScene" onMouseEntered="#showExtraInfo" onMouseExited="#hideExtraInfo" prefHeight="259.0" prefWidth="200.0" style="-fx-background-color: #FCE4EC; -fx-background-radius: 20;" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.vgrow="NEVER">
+                                 <children>
+                                    <ImageView fitHeight="147.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../picture/Picture2.png" />
+                                       </image>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" top="10.0" />
+                                       </VBox.margin>
+                                    </ImageView>
+                                    <ScrollPane fx:id="RecipeScroll" disable="true" fitToWidth="true" hbarPolicy="NEVER" style="-fx-background: #FCE4EC; -fx-border-color: #FCE4EC; -fx-opacity: 1.0;" vbarPolicy="NEVER" vmax="2.0">
+                                       <content>
+                                          <VBox prefHeight="300.0" prefWidth="200.0">
+                                             <children>
+                                                <TextFlow minHeight="120.0" prefHeight="120.0" prefWidth="186.0" textAlignment="CENTER">
+                                                   <children>
+                                                      <Text fill="#880e4f" strokeType="OUTSIDE" strokeWidth="0.0" text="Search Recipes">
+                                                         <font>
+                                                            <Font name="Garamond" size="36.0" />
+                                                         </font>
+                                                      </Text>
+                                                   </children>
+                                                   <padding>
+                                                      <Insets top="20.0" />
+                                                   </padding>
+                                                </TextFlow>
+                                                <TextFlow minHeight="180.0" prefHeight="180.0" prefWidth="186.0" textAlignment="CENTER" VBox.vgrow="ALWAYS">
+                                                   <children>
+                                                      <Text fill="#880e4f" strokeType="OUTSIDE" strokeWidth="0.0" text="Like the name suggests">
+                                                         <font>
+                                                            <Font name="Garamond" size="36.0" />
+                                                         </font>
+                                                      </Text>
+                                                   </children>
+                                                   <VBox.margin>
+                                                      <Insets bottom="20.0" top="20.0" />
+                                                   </VBox.margin>
+                                                </TextFlow>
+                                             </children>
+                                          </VBox>
+                                       </content>
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" />
+                                       </VBox.margin>
+                                    </ScrollPane>
+                                 </children>
+                                 <GridPane.margin>
+                                    <Insets bottom="20.0" />
+                                 </GridPane.margin>
+                              </VBox>
+                              <VBox fx:id="Compost" alignment="CENTER" maxHeight="300.0" maxWidth="300.0" onMouseClicked="#changeScene" onMouseEntered="#showExtraInfo" onMouseExited="#hideExtraInfo" prefHeight="259.0" prefWidth="200.0" style="-fx-background-color: #FCE4EC; -fx-background-radius: 20;" GridPane.columnIndex="2" GridPane.hgrow="NEVER" GridPane.vgrow="NEVER">
+                                 <children>
+                                    <ImageView fitHeight="147.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../picture/Picture3.png" />
+                                       </image>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" top="10.0" />
+                                       </VBox.margin>
+                                    </ImageView>
+                                    <ScrollPane fx:id="CompostScroll" disable="true" fitToWidth="true" hbarPolicy="NEVER" style="-fx-background: #FCE4EC; -fx-border-color: #FCE4EC; -fx-opacity: 1.0;" vbarPolicy="NEVER" vmax="2.0">
+                                       <content>
+                                          <VBox prefHeight="300.0" prefWidth="200.0">
+                                             <children>
+                                                <TextFlow minHeight="120.0" prefHeight="120.0" prefWidth="186.0" textAlignment="CENTER">
+                                                   <children>
+                                                      <Text fill="#880e4f" strokeType="OUTSIDE" strokeWidth="0.0" text="Food Compost">
+                                                         <font>
+                                                            <Font name="Garamond" size="36.0" />
+                                                         </font>
+                                                      </Text>
+                                                   </children>
+                                                   <padding>
+                                                      <Insets top="20.0" />
+                                                   </padding>
+                                                </TextFlow>
+                                                <TextFlow minHeight="180.0" prefHeight="180.0" prefWidth="186.0" textAlignment="CENTER" VBox.vgrow="ALWAYS">
+                                                   <children>
+                                                      <Text fill="#880e4f" strokeType="OUTSIDE" strokeWidth="0.0" text="Learning to compost">
+                                                         <font>
+                                                            <Font name="Garamond" size="36.0" />
+                                                         </font>
+                                                      </Text>
+                                                   </children>
+                                                   <VBox.margin>
+                                                      <Insets bottom="20.0" top="20.0" />
+                                                   </VBox.margin>
+                                                </TextFlow>
+                                             </children>
+                                          </VBox>
+                                       </content>
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" />
+                                       </VBox.margin>
+                                    </ScrollPane>
+                                 </children>
+                                 <GridPane.margin>
+                                    <Insets bottom="20.0" />
+                                 </GridPane.margin>
+                              </VBox>
+                              <VBox fx:id="Random" alignment="CENTER" maxHeight="300.0" maxWidth="300.0" onMouseClicked="#changeScene" onMouseEntered="#showExtraInfo" onMouseExited="#hideExtraInfo" prefHeight="259.0" prefWidth="200.0" style="-fx-background-color: #FCE4EC; -fx-background-radius: 20;" GridPane.columnIndex="3" GridPane.hgrow="NEVER" GridPane.vgrow="NEVER">
+                                 <children>
+                                    <ImageView fitHeight="147.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../picture/Picture4.png" />
+                                       </image>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" top="10.0" />
+                                       </VBox.margin>
+                                    </ImageView>
+                                    <ScrollPane fx:id="RandomScroll" disable="true" fitToWidth="true" hbarPolicy="NEVER" style="-fx-background: #FCE4EC; -fx-border-color: #FCE4EC; -fx-opacity: 1.0;" vbarPolicy="NEVER" vmax="2.0">
+                                       <content>
+                                          <VBox prefHeight="300.0" prefWidth="200.0">
+                                             <children>
+                                                <TextFlow minHeight="120.0" prefHeight="120.0" prefWidth="186.0" textAlignment="CENTER">
+                                                   <children>
+                                                      <Text fill="#880e4f" strokeType="OUTSIDE" strokeWidth="0.0" text="Food Randomizer">
+                                                         <font>
+                                                            <Font name="Garamond" size="36.0" />
+                                                         </font>
+                                                      </Text>
+                                                   </children>
+                                                   <padding>
+                                                      <Insets top="20.0" />
+                                                   </padding>
+                                                </TextFlow>
+                                                <TextFlow minHeight="180.0" prefHeight="180.0" prefWidth="186.0" textAlignment="CENTER" VBox.vgrow="ALWAYS">
+                                                   <children>
+                                                      <Text fill="#880e4f" strokeType="OUTSIDE" strokeWidth="0.0" text="What should I eat?">
+                                                         <font>
+                                                            <Font name="Garamond" size="36.0" />
+                                                         </font>
+                                                      </Text>
+                                                   </children>
+                                                   <VBox.margin>
+                                                      <Insets bottom="20.0" top="20.0" />
+                                                   </VBox.margin>
+                                                </TextFlow>
+                                             </children>
+                                          </VBox>
+                                       </content>
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" />
+                                       </VBox.margin>
+                                    </ScrollPane>
+                                 </children>
+                                 <GridPane.margin>
+                                    <Insets bottom="20.0" />
+                                 </GridPane.margin>
+                              </VBox>
+                              <VBox fx:id="Quiz" alignment="CENTER" maxHeight="300.0" maxWidth="300.0" onMouseClicked="#changeScene" onMouseEntered="#showExtraInfo" onMouseExited="#hideExtraInfo" prefHeight="259.0" prefWidth="200.0" style="-fx-background-color: #FCE4EC; -fx-background-radius: 20;" GridPane.columnIndex="4" GridPane.hgrow="NEVER" GridPane.vgrow="NEVER">
+                                 <children>
+                                    <ImageView fitHeight="147.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../picture/Picture5.png" />
+                                       </image>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" top="10.0" />
+                                       </VBox.margin>
+                                    </ImageView>
+                                    <ScrollPane fx:id="QuizScroll" disable="true" fitToWidth="true" hbarPolicy="NEVER" style="-fx-background: #FCE4EC; -fx-border-color: #FCE4EC; -fx-opacity: 1.0;" vbarPolicy="NEVER" vmax="2.0">
+                                       <content>
+                                          <VBox prefHeight="300.0" prefWidth="200.0">
+                                             <children>
+                                                <TextFlow minHeight="120.0" prefHeight="120.0" prefWidth="186.0" textAlignment="CENTER">
+                                                   <children>
+                                                      <Text fill="#880e4f" strokeType="OUTSIDE" strokeWidth="0.0" text="Quiz">
+                                                         <font>
+                                                            <Font name="Garamond" size="36.0" />
+                                                         </font>
+                                                      </Text>
+                                                   </children>
+                                                   <padding>
+                                                      <Insets top="20.0" />
+                                                   </padding>
+                                                </TextFlow>
+                                                <TextFlow minHeight="180.0" prefHeight="180.0" prefWidth="186.0" textAlignment="CENTER" VBox.vgrow="ALWAYS">
+                                                   <children>
+                                                      <Text fill="#880e4f" strokeType="OUTSIDE" strokeWidth="0.0" text="Test me">
+                                                         <font>
+                                                            <Font name="Garamond" size="36.0" />
+                                                         </font>
+                                                      </Text>
+                                                   </children>
+                                                   <VBox.margin>
+                                                      <Insets bottom="20.0" top="20.0" />
+                                                   </VBox.margin>
+                                                </TextFlow>
+                                             </children>
+                                          </VBox>
+                                       </content>
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" />
+                                       </VBox.margin>
+                                    </ScrollPane>
+                                 </children>
+                                 <GridPane.margin>
+                                    <Insets bottom="20.0" />
+                                 </GridPane.margin>
+                              </VBox>
+                              <VBox fx:id="Redeem" alignment="CENTER" maxWidth="300.0" onMouseClicked="#changeScene" onMouseEntered="#showExtraInfo" onMouseExited="#hideExtraInfo" prefHeight="259.0" prefWidth="200.0" style="-fx-background-color: #FCE4EC; -fx-background-radius: 20;" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.vgrow="NEVER">
+                                 <children>
+                                    <ImageView fitHeight="147.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../picture/Picture6.png" />
+                                       </image>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" top="10.0" />
+                                       </VBox.margin>
+                                    </ImageView>
+                                    <ScrollPane fx:id="RedeemScroll" disable="true" fitToWidth="true" hbarPolicy="NEVER" style="-fx-background: #FCE4EC; -fx-border-color: #FCE4EC; -fx-opacity: 1.0;" vbarPolicy="NEVER" vmax="2.0">
+                                       <content>
+                                          <VBox prefHeight="300.0" prefWidth="200.0">
+                                             <children>
+                                                <TextFlow minHeight="120.0" prefHeight="120.0" prefWidth="186.0" textAlignment="CENTER">
+                                                   <children>
+                                                      <Text fill="#880e4f" strokeType="OUTSIDE" strokeWidth="0.0" text="Redeem">
+                                                         <font>
+                                                            <Font name="Garamond" size="36.0" />
+                                                         </font>
+                                                      </Text>
+                                                   </children>
+                                                   <padding>
+                                                      <Insets top="20.0" />
+                                                   </padding>
+                                                </TextFlow>
+                                                <TextFlow minHeight="180.0" prefHeight="180.0" prefWidth="186.0" textAlignment="CENTER" VBox.vgrow="ALWAYS">
+                                                   <children>
+                                                      <Text fill="#880e4f" strokeType="OUTSIDE" strokeWidth="0.0" text="Prizes to be won">
+                                                         <font>
+                                                            <Font name="Garamond" size="36.0" />
+                                                         </font>
+                                                      </Text>
+                                                   </children>
+                                                   <VBox.margin>
+                                                      <Insets bottom="20.0" top="20.0" />
+                                                   </VBox.margin>
+                                                </TextFlow>
+                                             </children>
+                                          </VBox>
+                                       </content>
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" />
+                                       </VBox.margin>
+                                    </ScrollPane>
+                                 </children>
+                                 <GridPane.margin>
+                                    <Insets bottom="20.0" />
+                                 </GridPane.margin>
+                              </VBox>
+                              <VBox fx:id="Shopping" alignment="CENTER" maxWidth="300.0" onMouseClicked="#changeScene" onMouseEntered="#showExtraInfo" onMouseExited="#hideExtraInfo" prefHeight="259.0" prefWidth="200.0" style="-fx-background-color: #FCE4EC; -fx-background-radius: 20;" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.vgrow="NEVER">
+                                 <children>
+                                    <ImageView fitHeight="147.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../picture/Picture7.png" />
+                                       </image>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" top="10.0" />
+                                       </VBox.margin>
+                                    </ImageView>
+                                    <ScrollPane fx:id="ShoppingScroll" disable="true" fitToWidth="true" hbarPolicy="NEVER" style="-fx-background: #FCE4EC; -fx-border-color: #FCE4EC; -fx-opacity: 1.0;" vbarPolicy="NEVER" vmax="2.0">
+                                       <content>
+                                          <VBox prefHeight="300.0" prefWidth="200.0">
+                                             <children>
+                                                <TextFlow minHeight="120.0" prefHeight="120.0" prefWidth="186.0" textAlignment="CENTER">
+                                                   <children>
+                                                      <Text fill="#880e4f" strokeType="OUTSIDE" strokeWidth="0.0" text="Shopping List">
+                                                         <font>
+                                                            <Font name="Garamond" size="36.0" />
+                                                         </font>
+                                                      </Text>
+                                                   </children>
+                                                   <padding>
+                                                      <Insets top="20.0" />
+                                                   </padding>
+                                                </TextFlow>
+                                                <TextFlow minHeight="180.0" prefHeight="180.0" prefWidth="186.0" textAlignment="CENTER" VBox.vgrow="ALWAYS">
+                                                   <children>
+                                                      <Text fill="#880e4f" strokeType="OUTSIDE" strokeWidth="0.0" text="Ingredients to buy">
+                                                         <font>
+                                                            <Font name="Garamond" size="36.0" />
+                                                         </font>
+                                                      </Text>
+                                                   </children>
+                                                   <VBox.margin>
+                                                      <Insets bottom="20.0" top="20.0" />
+                                                   </VBox.margin>
+                                                </TextFlow>
+                                             </children>
+                                          </VBox>
+                                       </content>
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" />
+                                       </VBox.margin>
+                                    </ScrollPane>
+                                 </children>
+                                 <GridPane.margin>
+                                    <Insets bottom="20.0" />
+                                 </GridPane.margin>
+                              </VBox>
+                              <VBox fx:id="Leftover" alignment="CENTER" maxWidth="300.0" onMouseClicked="#changeScene" onMouseEntered="#showExtraInfo" onMouseExited="#hideExtraInfo" prefHeight="259.0" prefWidth="200.0" style="-fx-background-color: #FCE4EC; -fx-background-radius: 20;" GridPane.columnIndex="2" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.vgrow="NEVER">
+                                 <children>
+                                    <ImageView fitHeight="147.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../picture/Picture8.png" />
+                                       </image>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" top="10.0" />
+                                       </VBox.margin>
+                                    </ImageView>
+                                    <ScrollPane fx:id="LeftoverScroll" disable="true" fitToWidth="true" hbarPolicy="NEVER" style="-fx-background: #FCE4EC; -fx-border-color: #FCE4EC; -fx-opacity: 1.0;" vbarPolicy="NEVER" vmax="2.0">
+                                       <content>
+                                          <VBox prefHeight="300.0" prefWidth="200.0">
+                                             <children>
+                                                <TextFlow minHeight="120.0" prefHeight="120.0" prefWidth="186.0" textAlignment="CENTER">
+                                                   <children>
+                                                      <Text fill="#880e4f" strokeType="OUTSIDE" strokeWidth="0.0" text="Leftover Ingredient">
+                                                         <font>
+                                                            <Font name="Garamond" size="36.0" />
+                                                         </font>
+                                                      </Text>
+                                                   </children>
+                                                   <padding>
+                                                      <Insets top="20.0" />
+                                                   </padding>
+                                                </TextFlow>
+                                                <TextFlow minHeight="180.0" prefHeight="180.0" prefWidth="186.0" textAlignment="CENTER" VBox.vgrow="ALWAYS">
+                                                   <children>
+                                                      <Text fill="#880e4f" strokeType="OUTSIDE" strokeWidth="0.0" text="Our recipe archive of just 5">
+                                                         <font>
+                                                            <Font name="Garamond" size="36.0" />
+                                                         </font>
+                                                      </Text>
+                                                   </children>
+                                                   <VBox.margin>
+                                                      <Insets bottom="20.0" top="20.0" />
+                                                   </VBox.margin>
+                                                </TextFlow>
+                                             </children>
+                                          </VBox>
+                                       </content>
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" />
+                                       </VBox.margin>
+                                    </ScrollPane>
+                                 </children>
+                                 <GridPane.margin>
+                                    <Insets bottom="20.0" />
+                                 </GridPane.margin>
+                              </VBox>
+                              <VBox fx:id="Logout" alignment="CENTER" maxWidth="300.0" onMouseClicked="#changeScene" onMouseEntered="#showExtraInfo" onMouseExited="#hideExtraInfo" prefHeight="259.0" prefWidth="200.0" style="-fx-background-color: #FCE4EC; -fx-background-radius: 20;" GridPane.columnIndex="3" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.vgrow="NEVER">
+                                 <children>
+                                    <ImageView fitHeight="147.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../picture/Picture9.png" />
+                                       </image>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" top="10.0" />
+                                       </VBox.margin>
+                                    </ImageView>
+                                    <ScrollPane fx:id="LogoutScroll" disable="true" fitToWidth="true" hbarPolicy="NEVER" style="-fx-background: #FCE4EC; -fx-border-color: #FCE4EC; -fx-opacity: 1.0;" vbarPolicy="NEVER" vmax="2.0">
+                                       <content>
+                                          <VBox prefHeight="300.0" prefWidth="200.0">
+                                             <children>
+                                                <TextFlow minHeight="120.0" prefHeight="120.0" prefWidth="186.0" textAlignment="CENTER">
+                                                   <children>
+                                                      <Text fill="#880e4f" strokeType="OUTSIDE" strokeWidth="0.0" text="Logout">
+                                                         <font>
+                                                            <Font name="Garamond" size="36.0" />
+                                                         </font>
+                                                      </Text>
+                                                   </children>
+                                                   <padding>
+                                                      <Insets top="20.0" />
+                                                   </padding>
+                                                </TextFlow>
+                                                <TextFlow minHeight="180.0" prefHeight="180.0" prefWidth="186.0" textAlignment="CENTER" VBox.vgrow="ALWAYS">
+                                                   <children>
+                                                      <Text fill="#880e4f" strokeType="OUTSIDE" strokeWidth="0.0" text="You leaving? :(">
+                                                         <font>
+                                                            <Font name="Garamond" size="36.0" />
+                                                         </font>
+                                                      </Text>
+                                                   </children>
+                                                   <VBox.margin>
+                                                      <Insets bottom="20.0" top="20.0" />
+                                                   </VBox.margin>
+                                                </TextFlow>
+                                             </children>
+                                          </VBox>
+                                       </content>
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" />
+                                       </VBox.margin>
+                                    </ScrollPane>
+                                 </children>
+                                 <GridPane.margin>
+                                    <Insets bottom="20.0" />
+                                 </GridPane.margin>
+                              </VBox>
                            </children>
-                           <VBox.margin>
-                              <Insets left="100.0" right="100.0" />
-                           </VBox.margin>
-                        </HBox>
+                        </GridPane>
                      </children>
-                  </VBox>
+                     <VBox.margin>
+                        <Insets left="100.0" right="100.0" />
+                     </VBox.margin>
+                  </HBox>
                </children>
             </VBox>
          </children>
       </VBox>
+      <AnchorPane layoutY="735.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <TextFlow maxHeight="65.0" minHeight="65.0" minWidth="357.0" prefHeight="65.0" style="-fx-background-color: #C2185B;" textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="The Fridge">
+                     <font>
+                        <Font name="Garamond Bold" size="48.0" />
+                     </font>
+                  </Text>
+               </children>
+               <padding>
+                  <Insets left="64.0" right="64.0" />
+               </padding>
+            </TextFlow>
+            <StackPane fx:id="dropdownMenu" layoutX="357.0" layoutY="-135.0" style="-fx-background-color: #FCE4EC;" AnchorPane.rightAnchor="-150.0" AnchorPane.topAnchor="-255.0">
+               <children>
+                  <VBox fx:id="dropdownWord" alignment="TOP_CENTER" maxHeight="320.0" maxWidth="150.0" minHeight="320.0" minWidth="150.0" opacity="0.0" prefHeight="320.0" prefWidth="150.0">
+                     <children>
+                        <VBox fx:id="ProfileMenu" alignment="CENTER" maxHeight="80.0" maxWidth="150.0" minHeight="80.0" minWidth="150.0" onMouseClicked="#menuChangeScene" prefHeight="80.0" prefWidth="150.0">
+                           <children>
+                              <TextFlow textAlignment="CENTER">
+                                 <children>
+                                    <Text fill="#c2185b" strokeType="OUTSIDE" strokeWidth="0.0" text="Profile" />
+                                 </children>
+                              </TextFlow>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="80.0" />
+                           </VBox.margin>
+                        </VBox>
+                        <VBox fx:id="SettingMenu" alignment="CENTER" maxHeight="80.0" maxWidth="150.0" minHeight="80.0" minWidth="150.0" onMouseClicked="#menuChangeScene" prefHeight="80.0" prefWidth="150.0">
+                           <children>
+                              <TextFlow textAlignment="CENTER">
+                                 <children>
+                                    <Text fill="#c2185b" strokeType="OUTSIDE" strokeWidth="0.0" text="Setting" />
+                                 </children>
+                              </TextFlow>
+                           </children>
+                        </VBox>
+                        <VBox fx:id="LogoutMenu" alignment="CENTER" maxHeight="80.0" maxWidth="150.0" minHeight="80.0" minWidth="150.0" onMouseClicked="#menuChangeScene" prefHeight="80.0" prefWidth="150.0">
+                           <children>
+                              <TextFlow textAlignment="CENTER">
+                                 <children>
+                                    <Text fill="#c2185b" strokeType="OUTSIDE" strokeWidth="0.0" text="Logout" />
+                                 </children>
+                              </TextFlow>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+                  <VBox fx:id="dropdownBackground" maxHeight="200.0" maxWidth="150.0" minHeight="200.0" minWidth="150.0" prefHeight="200.0" prefWidth="150.0" />
+               </children>
+            </StackPane>
+            <Circle fx:id="profileCircle" fill="WHITE" layoutX="32.0" layoutY="97.0" onMouseClicked="#showUserDropdown" radius="32.0" stroke="#ffffff00" strokeType="INSIDE" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

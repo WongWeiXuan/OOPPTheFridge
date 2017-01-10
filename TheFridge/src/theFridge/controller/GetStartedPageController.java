@@ -20,6 +20,7 @@ import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.AnchorPane;
 
 public class GetStartedPageController {
 	@FXML
@@ -207,7 +208,7 @@ public class GetStartedPageController {
 				root = FXMLLoader.load(getClass().getResource("/theFridge/view/Profile.fxml"));
 			}
 			else if(event.getSource().equals(LogoutMenu)){
-				root = FXMLLoader.load(getClass().getResource("/theFridge/view/LoginPage.fxml"));
+				root = FXMLLoader.load(getClass().getResource("/theFridge/view/LoginSignupPage.fxml"));
 				stage.setMaximized(false);
 			}
 			stage.setScene(new Scene(root));
