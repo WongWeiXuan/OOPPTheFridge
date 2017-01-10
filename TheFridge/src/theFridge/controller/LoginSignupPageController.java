@@ -219,7 +219,7 @@ public class LoginSignupPageController {
 			
 		}
 		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/LoginPage.fxml"));
+		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/LoginSignupPage.fxml"));
 		
 		stage.setScene(new Scene(root));
  	    stage.show();
