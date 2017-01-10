@@ -1,13 +1,13 @@
 package theFridge.model;
 
-public class User {
+public class user {
 	private String userName;
 	private String password;
 	private String eMail;
 	private String name;
 	private String country;
 	
-	public User(String userName, String password, String eMail) {
+	public user(String userName, String password, String eMail) {
 		super();
 		this.userName = userName;
 		this.password = password;
