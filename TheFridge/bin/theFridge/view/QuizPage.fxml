@@ -22,15 +22,30 @@
    <children>
       <VBox prefHeight="800.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <TextFlow prefHeight="72.0" prefWidth="200.0" style="-fx-background-color: #C2185B;" textAlignment="CENTER">
+            <StackPane maxHeight="65.0" maxWidth="1.7976931348623157E308" minHeight="65.0" minWidth="357.0" prefHeight="65.0">
                <children>
-                  <Label text="The Fridge" textAlignment="CENTER" textFill="WHITE">
-                     <font>
-                        <Font name="Garamond Bold" size="48.0" />
-                     </font>
-                  </Label>
+                  <TextFlow maxHeight="65.0" minHeight="65.0" minWidth="357.0" prefHeight="65.0" style="-fx-background-color: #C2185B;" textAlignment="CENTER">
+                     <children>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="The Fridge">
+                           <font>
+                              <Font name="Garamond Bold" size="48.0" />
+                           </font>
+                        </Text>
+                     </children>
+                     <StackPane.margin>
+                        <Insets />
+                     </StackPane.margin>
+                     <padding>
+                        <Insets left="64.0" right="64.0" />
+                     </padding>
+                  </TextFlow>
+                  <Circle fx:id="profileCircle" fill="WHITE" onMouseClicked="#showUserDropdown" radius="32.0" stroke="#ffffff00" strokeType="INSIDE" StackPane.alignment="CENTER_RIGHT">
+                     <StackPane.margin>
+                        <Insets />
+                     </StackPane.margin>
+                  </Circle>
                </children>
-            </TextFlow>
+            </StackPane>
             <HBox style="-fx-background-color: rgba(240, 98, 146, 0.25);" VBox.vgrow="ALWAYS">
                <children>
                   <AnchorPane fx:id="Anchor" maxWidth="300.0" prefHeight="600.0" prefWidth="150.0">
@@ -196,6 +211,9 @@
                                  <font>
                                     <Font name="Garamond" size="24.0" />
                                  </font>
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
                               </Label>
                            </children>
                         </VBox>

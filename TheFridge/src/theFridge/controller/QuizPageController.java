@@ -147,4 +147,6 @@ public class QuizPageController {
  		stage.setScene(new Scene(root));
  	    stage.show();
 	}
+
+	@FXML public void showUserDropdown(MouseEvent event) {}
 }
