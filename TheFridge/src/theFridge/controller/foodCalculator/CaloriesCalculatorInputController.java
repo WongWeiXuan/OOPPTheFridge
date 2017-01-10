@@ -162,7 +162,7 @@ public class CaloriesCalculatorInputController {
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/HomePage.fxml"));
 		}
 		else if(event.getSource().equals(recipeScene)){
-			root = FXMLLoader.load(getClass().getResource("/theFridge/view/RecipePage.fxml"));
+			root = FXMLLoader.load(getClass().getResource("/theFridge/view/FindingDish.fxml"));
 		}
 		else if(event.getSource().equals(compostScene)){
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/Page1.fxml"));

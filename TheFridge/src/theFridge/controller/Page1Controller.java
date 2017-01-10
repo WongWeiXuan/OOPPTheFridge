@@ -126,8 +126,7 @@ public class Page1Controller implements Initializable{
 	@FXML
 	public void generateTwo(ActionEvent event)throws IOException {
 			Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-			Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/Page1.fxml"));
-			root = FXMLLoader.load(getClass().getResource("/theFridge/view/Page2.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/Page2.fxml"));
 			stage.setScene(new Scene(root));
 	 	    stage.show();
 	}

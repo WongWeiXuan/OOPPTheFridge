@@ -10,17 +10,12 @@ import theFridge.controller.foodCalculator.CaloriesCalculatorInputController;
 public class FoodCalculatorCaloriesCalculatorRecipeModel{
 	private ArrayList<String>recipeList;
 	private int index;
-	private static String meals;
-	private static int calories;
+	private String meals;
+	private int calories;
 	
-	//Getter
-	public static String getMeals() {
-		return meals;
-	}
-
-	public static int getCalories() {
-		return calories;
-	}
+	//private static String meals;
+	//private static int calories;
+	
 	//--------
 	//Initializing recipeList...
 	public FoodCalculatorCaloriesCalculatorRecipeModel() throws FileNotFoundException{
@@ -36,8 +31,8 @@ public class FoodCalculatorCaloriesCalculatorRecipeModel{
 		sc.close();
 		
 		recipeList = recipeList1;
-		FoodCalculatorCaloriesCalculatorRecipeModel.meals = CaloriesCalculatorInputController.NumOfMeals;
-		FoodCalculatorCaloriesCalculatorRecipeModel.calories = CaloriesCalculatorInputController.NumOfCalories;
+		//FoodCalculatorCaloriesCalculatorRecipeModel.meals = CaloriesCalculatorInputController.NumOfMeals;
+		//FoodCalculatorCaloriesCalculatorRecipeModel.calories = CaloriesCalculatorInputController.NumOfCalories;
 	}
 	
 	//Get recipe based on Index
