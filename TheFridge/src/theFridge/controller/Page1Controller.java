@@ -27,6 +27,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 import javafx.util.Duration;
 import javafx.fxml.Initializable;
 import theFridge.model.First;
@@ -45,7 +46,7 @@ public class Page1Controller implements Initializable{
     @FXML
     private TableView<String> foodCom;
     @FXML
-    private TableColumn<Last, String> foodCom1;
+    private TableColumn foodCom1;//<Last, String>
     @FXML
     private Button btnGenerateMultiple;
     @FXML
@@ -162,16 +163,22 @@ public class Page1Controller implements Initializable{
 	        table2.setCellValueFactory(new PropertyValueFactory<First, String>("foodCannotCompost"));
 	        tableView1.setItems(list);
 	        choice.setItems(data);  
+	        foodCom.setItems(a);
+	        
 	    }
 	    
 	    ObservableList<String> data = FXCollections.observableArrayList("Chicken","Fish","Vegetable","Rice","Pasta","tomato","apple","sotongs");
-	    
+	    ObservableList<String> a = FXCollections.observableArrayList();
 	    public void chosen1(ActionEvent event){
 	    	String s = choice.getValue().toString();
-	    	ObservableList<String> a = FXCollections.observableArrayList(s);
-	    	Last p = new Last(s);
-	    	foodCom.setItems(a);
-	        foodCom1.setCellValueFactory(new PropertyValueFactory<Last, String>("foodCombi"));
+	    	a.add(s);
+	    	
+	    	
+	    	
+	    	//ObservableList<String> a = FXCollections.observableArrayList(s);
+	    	//Last p = new Last(s);
+	    	//foodCom.setItems(a);
+	       // foodCom1.setCellValueFactory(new PropertyValueFactory<Last, String>("foodCombi"));
 	    	
 	    }
 	    
