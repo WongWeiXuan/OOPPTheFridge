@@ -6,6 +6,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 
 import java.io.IOException;
 import theFridge.controller.ProfileController;
@@ -27,6 +28,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.input.MouseEvent;
 
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -171,6 +174,10 @@ public class Profile2Controller {
 	private ImageView image6;
 	@FXML
 	private ImageView image7;
+	@FXML
+	private Text namE;
+	@FXML
+	private Label label0;
 
 	// Event Listener on VBox[#naviPreview].onMouseEntered
 	@FXML
@@ -247,6 +254,8 @@ public class Profile2Controller {
 		NText.setText("");
 		Ename.setVisible(true);
 		hBox0.setVisible(true);
+		namE.setOpacity(1);
+		label0.setOpacity(1);
 	}
 	// Event Listener on JFXButton[#btnSave1].onAction
 	@FXML
@@ -348,8 +357,11 @@ public class Profile2Controller {
 }
 	public void editname(ActionEvent event){
 		hbox.setVisible(true);
+		hbox.setStyle("-fx-background-color:  #FCE4EC;");
+		namE.setOpacity(0.5);
+		label0.setOpacity(0.5);
 		Ename.setVisible(false);
-		hBox0.setVisible(false);
+		
 	}
 	
 	public void edituserName(ActionEvent event){

@@ -217,15 +217,15 @@
                         </VBox>
                         <VBox alignment="TOP_CENTER" prefHeight="735.0" prefWidth="741.0">
                            <children>
-                              <VBox alignment="CENTER_LEFT" prefHeight="26.0" prefWidth="731.0" style="-fx-background-color: #FCE4EC;">
+                              <VBox alignment="CENTER_LEFT" prefHeight="26.0" prefWidth="731.0" style="-fx-background-color: ;">
                                  <VBox.margin>
                                     <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
                                  </VBox.margin>
                                  <children>
-                                    <HBox fx:id="hBox0" alignment="CENTER_LEFT" prefHeight="21.0" prefWidth="761.0">
+                                    <HBox fx:id="hBox0" alignment="CENTER_LEFT" prefHeight="21.0" prefWidth="761.0" style="-fx-background-color: #FCE4EC;">
                                        <children>
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Name:" wrappingWidth="49.126953125" />
-                                          <Label prefHeight="31.0" prefWidth="59.0" text="Label">
+                                          <Text fx:id="namE" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:" wrappingWidth="49.126953125" />
+                                          <Label fx:id="label0" prefHeight="31.0" prefWidth="59.0" text="Label">
                                              <HBox.margin>
                                                 <Insets left="50.0" />
                                              </HBox.margin>
@@ -272,7 +272,7 @@
                                           </JFXButton>
                                        </children>
                                        <VBox.margin>
-                                          <Insets left="5.0" />
+                                          <Insets />
                                        </VBox.margin>
                                     </HBox>
                                  </children>
