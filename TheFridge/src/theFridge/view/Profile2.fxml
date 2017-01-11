@@ -217,9 +217,9 @@
                         </VBox>
                         <VBox alignment="TOP_CENTER" prefHeight="735.0" prefWidth="741.0">
                            <children>
-                              <VBox alignment="CENTER_LEFT" prefHeight="53.0" prefWidth="731.0" style="-fx-background-color: #FCE4EC;">
+                              <VBox alignment="CENTER_LEFT" prefHeight="26.0" prefWidth="731.0" style="-fx-background-color: #FCE4EC;">
                                  <VBox.margin>
-                                    <Insets bottom="20.0" left="5.0" right="5.0" top="20.0" />
+                                    <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
                                  </VBox.margin>
                                  <children>
                                     <HBox fx:id="hBox0" alignment="CENTER_LEFT" prefHeight="21.0" prefWidth="761.0">
@@ -277,7 +277,7 @@
                                     </HBox>
                                  </children>
                               </VBox>
-                              <VBox alignment="TOP_CENTER" prefHeight="70.0" style="-fx-background-color: #FCE4EC;">
+                              <VBox alignment="TOP_CENTER" prefHeight="30.0" prefWidth="731.0" style="-fx-background-color: #FCE4EC;">
                                  <children>
                                     <HBox fx:id="hBox1" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
                                        <children>
@@ -333,7 +333,7 @@
                                     <Insets left="5.0" right="5.0" />
                                  </VBox.margin>
                               </VBox>
-                              <VBox alignment="TOP_CENTER" style="-fx-background-color: #FCE4EC;">
+                              <VBox alignment="TOP_CENTER" prefHeight="0.0" prefWidth="731.0" style="-fx-background-color: #FCE4EC;">
                                  <children>
                                     <HBox fx:id="hBox2" alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="731.0">
                                        <children>
@@ -415,10 +415,10 @@
                                     </VBox>
                                  </children>
                                  <VBox.margin>
-                                    <Insets bottom="20.0" left="5.0" right="5.0" top="20.0" />
+                                    <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
                                  </VBox.margin>
                               </VBox>
-                              <VBox alignment="TOP_CENTER" prefHeight="81.0" prefWidth="736.0" style="-fx-background-color: #FCE4EC;">
+                              <VBox alignment="TOP_CENTER" prefHeight="0.0" prefWidth="731.0" style="-fx-background-color: #FCE4EC;">
                                  <children>
                                     <HBox fx:id="hBox3" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
                                        <children>
@@ -470,10 +470,10 @@
                                     </HBox>
                                  </children>
                                  <VBox.margin>
-                                    <Insets bottom="30.0" left="5.0" right="5.0" />
+                                    <Insets bottom="10.0" left="5.0" right="5.0" />
                                  </VBox.margin>
                               </VBox>
-                              <VBox prefHeight="70.0" prefWidth="100.0" style="-fx-background-color: #FCE4EC;">
+                              <VBox prefHeight="0.0" prefWidth="731.0" style="-fx-background-color: #FCE4EC;">
                                  <children>
                                     <HBox fx:id="hBox4" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
                                        <children>
@@ -522,7 +522,160 @@
                                     </HBox>
                                  </children>
                                  <VBox.margin>
-                                    <Insets bottom="100.0" left="5.0" right="5.0" />
+                                    <Insets bottom="10.0" left="5.0" right="5.0" />
+                                 </VBox.margin>
+                              </VBox>
+                              <VBox prefHeight="15.0" prefWidth="741.0" style="-fx-background-color: #FCE4EC;">
+                                 <children>
+                                    <HBox fx:id="hBox5" prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Age:" />
+                                          <Label prefHeight="0.0" prefWidth="35.0" text="Label">
+                                             <HBox.margin>
+                                                <Insets left="75.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <JFXButton fx:id="EAge" onAction="#editage" onMouseEntered="#showImage5" onMouseExited="#hideImage5" prefHeight="31.0" prefWidth="96.0" text="Edit Age">
+                                             <HBox.margin>
+                                                <Insets left="455.0" />
+                                             </HBox.margin>
+                                          </JFXButton>
+                                          <ImageView fx:id="image5" fitHeight="25.0" fitWidth="30.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../picture/pen2.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </HBox>
+                                    <HBox fx:id="hbox8" prefHeight="100.0" prefWidth="200.0" visible="false">
+                                       <children>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="New Age:">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Text>
+                                          <TextField fx:id="AText" prefHeight="31.0" prefWidth="300.0">
+                                             <HBox.margin>
+                                                <Insets left="105.0" />
+                                             </HBox.margin>
+                                          </TextField>
+                                          <JFXButton fx:id="btnSave5" onAction="#save5" prefHeight="31.0" prefWidth="58.0" text="Save">
+                                             <HBox.margin>
+                                                <Insets left="55.0" />
+                                             </HBox.margin>
+                                          </JFXButton>
+                                          <JFXButton fx:id="btnCancel5" onAction="#cancel5" text="Cancel">
+                                             <HBox.margin>
+                                                <Insets left="20.0" />
+                                             </HBox.margin>
+                                          </JFXButton>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" left="5.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets left="5.0" right="5.0" />
+                                 </VBox.margin>
+                              </VBox>
+                              <VBox prefHeight="12.0" prefWidth="741.0" style="-fx-background-color: #FCE4EC;">
+                                 <children>
+                                    <HBox fx:id="hBox6" prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Height:" />
+                                          <Label text="Label">
+                                             <HBox.margin>
+                                                <Insets left="55.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <JFXButton fx:id="EHeight" onAction="#editheight" onMouseEntered="#showImage6" onMouseExited="#hideImage6" text="Edit Height">
+                                             <HBox.margin>
+                                                <Insets left="470.0" />
+                                             </HBox.margin>
+                                          </JFXButton>
+                                          <ImageView fx:id="image6" fitHeight="25.0" fitWidth="30.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../picture/pen2.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </HBox>
+                                    <HBox fx:id="hbox9" prefHeight="100.0" prefWidth="200.0" visible="false">
+                                       <children>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="New Height:">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Text>
+                                          <TextField fx:id="HText" prefWidth="300.0">
+                                             <HBox.margin>
+                                                <Insets left="85.0" />
+                                             </HBox.margin></TextField>
+                                          <JFXButton fx:id="btnSave6" onAction="#save6" text="Save">
+                                             <HBox.margin>
+                                                <Insets left="60.0" />
+                                             </HBox.margin></JFXButton>
+                                          <JFXButton fx:id="btnCancel6" onAction="#cancel6" text="Cancel">
+                                             <HBox.margin>
+                                                <Insets left="20.0" />
+                                             </HBox.margin></JFXButton>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="5.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets left="5.0" right="5.0" top="10.0" />
+                                 </VBox.margin>
+                              </VBox>
+                              <VBox prefHeight="10.0" prefWidth="741.0" style="-fx-background-color: #FCE4EC;">
+                                 <children>
+                                    <HBox fx:id="hBox7" prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Weight:" />
+                                          <Label prefHeight="21.0" prefWidth="43.0" text="Label">
+                                             <HBox.margin>
+                                                <Insets left="50.0" />
+                                             </HBox.margin></Label>
+                                          <JFXButton fx:id="EWeight" onAction="#editweight" onMouseEntered="#showImage7" onMouseExited="#hideImage7" prefHeight="31.0" prefWidth="111.0" text="Edit Weight">
+                                             <HBox.margin>
+                                                <Insets left="460.0" />
+                                             </HBox.margin></JFXButton>
+                                          <ImageView fx:id="image7" fitHeight="25.0" fitWidth="30.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../picture/pen2.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </HBox>
+                                    <HBox fx:id="hbox10" prefHeight="100.0" prefWidth="200.0" visible="false">
+                                       <children>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="New Weight:">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font></Text>
+                                          <TextField fx:id="WText" prefWidth="300.0">
+                                             <HBox.margin>
+                                                <Insets left="80.0" />
+                                             </HBox.margin></TextField>
+                                          <JFXButton fx:id="btnSave7" onAction="#save7" text="Save">
+                                             <HBox.margin>
+                                                <Insets left="65.0" />
+                                             </HBox.margin></JFXButton>
+                                          <JFXButton fx:id="btnCancel7" onAction="#cancel7" text="Cancel">
+                                             <HBox.margin>
+                                                <Insets left="20.0" />
+                                             </HBox.margin></JFXButton>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="5.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets left="5.0" right="5.0" top="10.0" />
                                  </VBox.margin>
                               </VBox>
                            </children>

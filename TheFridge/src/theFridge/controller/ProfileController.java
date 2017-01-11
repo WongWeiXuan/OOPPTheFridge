@@ -80,6 +80,15 @@ public class ProfileController {
     private Label LLabel;
     
     @FXML
+    private Label AgeLabel;
+    
+    @FXML
+    private Label HeightLabel;
+    
+    @FXML
+    private Label WeightLabel;
+    
+    @FXML
     private VBox hideUN;
     
     @FXML
