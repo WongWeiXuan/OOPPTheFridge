@@ -19,7 +19,7 @@ import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import theFridge.model.FoodCalculatorCaloriesCalculatorRecipeModel;
+import theFridge.DAO.FoodCalculatorCaloriesCalculatorRecipeDAO;
 
 public class CaloriesCalculatorController {
 	@FXML

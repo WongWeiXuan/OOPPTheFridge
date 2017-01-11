@@ -1,4 +1,4 @@
-package theFridge.model;
+package theFridge.DAO;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -7,36 +7,35 @@ import java.util.Scanner;
 
 import theFridge.controller.foodCalculator.CaloriesCalculatorInputController;
 
-public class FoodCalculatorCaloriesCalculatorRecipeModel{
+public class FoodCalculatorCaloriesCalculatorRecipeDAO{
 	private ArrayList<String>recipeList;
 	private int index;
-	private String meals;
-	private int calories;
+	private File recipes;
+	private String record = null;
+	private String[] fields;
 	
 	//private static String meals;
 	//private static int calories;
 	
 	//--------
 	//Initializing recipeList...
-	public FoodCalculatorCaloriesCalculatorRecipeModel() throws FileNotFoundException{
+	public FoodCalculatorCaloriesCalculatorRecipeDAO() throws FileNotFoundException{
 		ArrayList<String> recipeList1 = new ArrayList<String>();
 		
-		File recipes = new File("src/theFridge/file/Recipes.txt");
+		recipes = new File("src/theFridge/file/Recipes.txt");
 		Scanner sc = new Scanner(recipes);
-		sc.useDelimiter("~");
 		
-		while(sc.hasNext()){
-			recipeList1.add(sc.next());
+		while(sc.hasNextLine()){
+			fields = record.split(":");
+			record = sc.next();
 		}
 		sc.close();
 		
 		recipeList = recipeList1;
-		//FoodCalculatorCaloriesCalculatorRecipeModel.meals = CaloriesCalculatorInputController.NumOfMeals;
-		//FoodCalculatorCaloriesCalculatorRecipeModel.calories = CaloriesCalculatorInputController.NumOfCalories;
 	}
 	
-	//Get recipe based on Index
-	public FoodCalculatorCaloriesCalculatorRecipeModel(int index) throws FileNotFoundException{
+	//Get recipe based on Name
+	public FoodCalculatorCaloriesCalculatorRecipeDAO(int index) throws FileNotFoundException{
 		this();
 		this.index = index;
 	}

@@ -13,7 +13,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
-import theFridge.model.FoodCalculatorCaloriesCalculatorRecipeModel;
+import theFridge.DAO.FoodCalculatorCaloriesCalculatorRecipeDAO;
 
 public class FoodCalculatorCaloriesCalculatorRecipeController {
 	@FXML
@@ -43,7 +43,7 @@ public class FoodCalculatorCaloriesCalculatorRecipeController {
 		//int meals = NumMeals.getText();
 		//for(int i = 0; i < meals; i++){}
 		
-		FoodCalculatorCaloriesCalculatorRecipeModel abc = new FoodCalculatorCaloriesCalculatorRecipeModel(new Random().nextInt(7));
+		FoodCalculatorCaloriesCalculatorRecipeDAO abc = new FoodCalculatorCaloriesCalculatorRecipeDAO(new Random().nextInt(7));
 		Time.setText("Breakfast");
 		NumberOfCalories.setText("Calories: " + abc.getRecipeCalories());
 		Measurements.setText(numberOfServings + " Serving");

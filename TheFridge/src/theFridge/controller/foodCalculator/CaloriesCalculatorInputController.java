@@ -26,52 +26,36 @@ public class CaloriesCalculatorInputController {
 
     @FXML
     private JFXTextField calories;
-
     @FXML
     public Spinner<Integer> meals;
-
     @FXML
     private JFXButton goNext;
-
 	@FXML 
 	private Circle profileCircle;
-
 	@FXML 
 	private AnchorPane Anchor;
-
 	@FXML 
 	private VBox naviPreview;
-
 	@FXML 
 	private VBox homeScene;
-
 	@FXML
 	private VBox navi;
-
 	@FXML 
 	private VBox recipeScene;
-
 	@FXML 
 	private VBox compostScene;
-
 	@FXML 
 	private VBox foodScene;
-
 	@FXML 
 	private VBox quizScene;
-
 	@FXML 
 	private VBox prizeScene;
-	
 	@FXML
 	private Circle Breakfast;
-   
 	@FXML
 	private Circle Lunch;
-	
 	@FXML
 	private Circle Dinner;
-	
 	@FXML
 	private Circle Snacks;
 	
@@ -102,6 +86,7 @@ public class CaloriesCalculatorInputController {
     void goNext(ActionEvent event) throws IOException {
     	String caloriesText = calories.getText();
     	System.out.print(caloriesText);
+    	/*
     	if(caloriesText != null || caloriesText != ""){
     		try{
     			if(Integer.parseInt(caloriesText) < 0){
@@ -122,6 +107,14 @@ public class CaloriesCalculatorInputController {
     			System.out.println(e);
     		}
     	}
+    	*/
+    	NumOfCalories = Integer.parseInt(caloriesText);
+		//Change scene
+    	Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/foodCalculator/CaloriesCalculator.fxml"));
+		
+		stage.setScene(new Scene(root));
+		stage.show();
     }
 
 	@FXML 
