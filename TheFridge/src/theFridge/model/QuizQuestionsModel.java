@@ -5,6 +5,13 @@ public class QuizQuestionsModel {
 	private QuizChoicesModel choices;
 	private QuizExplanationsModel explanations;
 	
+	public QuizQuestionsModel(String questions, QuizChoicesModel choices, QuizExplanationsModel explanations) {
+		super();
+		this.questions = questions;
+		this.choices = choices;
+		this.explanations = explanations;
+	}
+	
 	public QuizChoicesModel getChoices() {
 		return choices;
 	}
@@ -19,11 +26,6 @@ public class QuizQuestionsModel {
 
 	public void setExplanations(QuizExplanationsModel explanations) {
 		this.explanations = explanations;
-	}
-
-	public QuizQuestionsModel(String questions) {
-		super();
-		this.questions = questions;
 	}
 	
 	public String getQuestions() {

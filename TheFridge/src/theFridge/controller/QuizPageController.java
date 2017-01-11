@@ -64,14 +64,6 @@ public class QuizPageController {
 	
 	@FXML
 	public void initialize() throws FileNotFoundException{
-		File quizQtns = new File("src/theFridge/file/Quiz Questions.txt");
-		Scanner sc = new Scanner(quizQtns);
-		ArrayList<String> questionList = new ArrayList<String>();
-		while(sc.hasNextLine()){
-			questionList.add(sc.nextLine());
-		}
-		sc.close();
-		
 		int points = 0;
 		timer.setText("10");
 		boolean isCorrect = false;

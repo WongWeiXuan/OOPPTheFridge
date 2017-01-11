@@ -4,6 +4,7 @@ public class SignupModel {
 	private String username;
 	private String password;
 	private String email;
+	private User user;
 	
 	public SignupModel(String username, String password, String email) {
 		super();

@@ -178,10 +178,7 @@ public class LoginSignupPageController {
 		}
 		else {
 			/* 
-			SignupModel Person = new SignupModel(String username, String password, String email);
-			Person.setUsername(Username);
-			Person.setPassword(Password);
-			Person.setEmail(Email);
+			SignupModel Person = new SignupModel(Username, Password, Email);
 			
 			ArrayList<SignupModel> personList = new ArrayList<SignupModel>();
 			personList.add(Person);
