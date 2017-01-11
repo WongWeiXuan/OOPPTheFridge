@@ -1,17 +1,20 @@
 package theFridge.model;
 
-public class user {
-		private String userName;
+import java.util.ArrayList;
+
+public class User {
+		private String username;
 		private String password;
-		private String eMail;
+		private String email;
 		private String name;
 		private String country;
+		private ArrayList promoCode;
 		
-		public user(String userName, String password, String eMail) {
+		public User(String userName, String password, String eMail) {
 			super();
-			this.userName = userName;
+			this.username = userName;
 			this.password = password;
-			this.eMail = eMail;
+			this.email = eMail;
 		}
 		
 		public String getName() {
@@ -30,12 +33,12 @@ public class user {
 			this.country = country;
 		}
 		
-		public String getUserName() {
-			return userName;
+		public String getUsername() {
+			return username;
 		}
 		
-		public void setUserName(String userName) {
-			this.userName = userName;
+		public void setUsername(String username) {
+			this.username = username;
 		}
 		
 		public String getPassword() {
@@ -46,12 +49,12 @@ public class user {
 			this.password = password;
 		}
 		
-		public String geteMail() {
-			return eMail;
+		public String getemail() {
+			return email;
 		}
 		
-		public void seteMail(String eMail) {
-			this.eMail = eMail;
+		public void setemail(String email) {
+			this.email = email;
 		}
 		
 		public void checkUser(){
