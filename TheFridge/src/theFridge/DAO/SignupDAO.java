@@ -16,7 +16,7 @@ public class SignupDAO {
 	private File dataFile;
 	
 	public SignupDAO() {
-		Path dPath = FileSystems.getDefault().getPath("theFridge.file", PERSON_FILE);
+		Path dPath = FileSystems.getDefault().getPath("/theFridge/file/",PERSON_FILE);
 		dataFile = new File(dPath.toString()); 
 	}
 	

@@ -190,12 +190,14 @@ public class LoginSignupPageController {
 			comment1.setText("Please fill in your email!");
 		}
 		else {
-			/*
-			SignupDAO signupDAO = new SignupDAO();
-			signupDAO.createPerson(null);
-			SignupModel.getAllPerson();
-			*/
 			
+			SignupDAO signupDAO = new SignupDAO();
+			SignupModel Someone1 = new SignupModel(Username, Password, Email);
+			signupDAO.createPerson(Someone1);
+			//SignupModel.getAllPerson();
+			
+			
+			/*
 			JSONParser parser = new JSONParser();
 			
 			Object obj = parser.parse(new FileReader("src/theFridge/file/people.json"));
@@ -225,7 +227,7 @@ public class LoginSignupPageController {
 				e.printStackTrace();
 			}
 			
-			
+			*/
 		}
 		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
 		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/LoginSignupPage.fxml"));

@@ -14,7 +14,7 @@ public class FoodCompostDAO {
 	private File dataFile;
 	
 	public FoodCompostDAO() {
-		Path dPath = FileSystems.getDefault().getPath("resources/data/",Food_File);
+		Path dPath = FileSystems.getDefault().getPath("/theFridge/files",Food_File);
      	dataFile=new File(dPath.toString());          
 	}
 	
