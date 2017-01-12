@@ -1,7 +1,2 @@
-Almond, banana & passion fruit smoothie-Banana:Milk:Passion Fruit-111-theFridge/picture/recipes/Almond, banana & passion fruit smoothie.jpg
-Fruit salad-Strawberries:Blueberries-133-theFridge/picture/recipes/Fruit salad.jpg
-Strawberry smoothie-Strawberries:milk:yogurt:sugar-160-theFridge/picture/recipes/Strawberry smoothie.jpg
-Simple cheese omelette-Egg:oil:cheese-241-theFridge/picture/recipes/Simple cheese omelette.jpg
-Banana bread muffins-Egg:oil:sugar:banana:walnut:flour:baking soda:salt-270-theFridge/picture/recipes/Banana muffins.jpg
-Blueberry oatmeal-Egg white:Protein powder:Cocoa:Oil:Blueberries:Water:Oatmeal-485-theFridge/picture/recipes/Blueberry oatmeal.jpg
-Oat & cottage pancakes-Egg:Oatmeal:Cottage cheese-582-theFridge/picture/recipes/Oat & cottage pancake.jpg
+Almond, banana & passion fruit smoothie-1:large ripe:banana~500:ml:almond milk~4:ripe:passion Fruit-111-theFridge/picture/recipes/Almond, banana & passion fruit smoothie.jpg-1
+Fruit salad-1:cup of:strawberries~1:cup of:blueberries-133-theFridge/picture/recipes/Fruit salad.jpg-1

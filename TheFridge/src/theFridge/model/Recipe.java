@@ -2,14 +2,14 @@ package theFridge.model;
 
 import java.util.ArrayList;
 
-public class RecipeModel {
+public class Recipe {
 	private String name;
-	private ArrayList<IngredientModel> ingredient;
+	private ArrayList<Ingredient> ingredient;
 	private int calories;
 	private String picture;
 	private int serving;
 
-	public RecipeModel(String name, ArrayList<IngredientModel> ingredient, int calories, String picture, int serving) {
+	public Recipe(String name, ArrayList<Ingredient> ingredient, int calories, String picture, int serving) {
 		super();
 		this.name = name;
 		this.ingredient = ingredient;
@@ -26,11 +26,11 @@ public class RecipeModel {
 		this.name = name;
 	}
 
-	public ArrayList<IngredientModel> getIngredient() {
+	public ArrayList<Ingredient> getIngredient() {
 		return ingredient;
 	}
 
-	public void setIngredient(ArrayList<IngredientModel> ingredient) {
+	public void setIngredient(ArrayList<Ingredient> ingredient) {
 		this.ingredient = ingredient;
 	}
 

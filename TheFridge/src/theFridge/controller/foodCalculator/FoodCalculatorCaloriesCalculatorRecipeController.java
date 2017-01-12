@@ -31,27 +31,7 @@ public class FoodCalculatorCaloriesCalculatorRecipeController {
 	
 	@FXML
 	public void initialize() throws FileNotFoundException{
-		ArrayList<Integer>hi = new ArrayList<Integer>();
-		File file = new File("src/theFridge/file/Recipes.txt");
-		Scanner sc = new Scanner(file);
-		sc.useDelimiter("~");
-		while(sc.hasNextInt()){
-			hi.add(sc.nextInt());
-		}
-		int numberOfServings = 0;
-		sc.close();
-		//int meals = NumMeals.getText();
-		//for(int i = 0; i < meals; i++){}
 		
-		FoodCalculatorCaloriesCalculatorRecipeDAO abc = new FoodCalculatorCaloriesCalculatorRecipeDAO(new Random().nextInt(7));
-		Time.setText("Breakfast");
-		NumberOfCalories.setText("Calories: " + abc.getRecipeCalories());
-		Measurements.setText(numberOfServings + " Serving");
-		FoodName.setText(abc.getRecipeName());
-		Image image = new Image(abc.getRecipeImage());
-		FoodImage.setImage(image);
-		
-		//System.out.print("Con2 Testing 1");	
 	}
 	
 	@FXML
