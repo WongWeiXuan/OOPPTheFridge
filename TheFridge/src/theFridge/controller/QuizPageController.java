@@ -23,6 +23,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import theFridge.model.QuizQuestionsModel;
 
 public class QuizPageController {
 	@FXML
@@ -62,29 +63,42 @@ public class QuizPageController {
 	@FXML
 	private Label questionNo;
 	
+	private ArrayList<QuizQuestionsModel> questionsList;
+	private int currIndex = -1;
+	
+	public void setQuestionList(ArrayList<QuizQuestionsModel> questionsList) {
+		if (questionsList != null && questionsList.size() > 0) {
+			this.questionsList = questionsList;
+			currIndex = 0;
+			showQuestion(questionsList.get(0));
+		}
+	}
+	
+	public void showQuestion(QuizQuestionsModel questions) {
+		question.setText(questions.getQuestions());
+	}
+	
 	@FXML
 	public void initialize() throws FileNotFoundException{
 		int points = 0;
 		timer.setText("10");
 		boolean isCorrect = false;
 		
-		//QuizQuestionModel Q1 = new QuizQuestionModel();
-		//QuizChoicesModel  S1 = new QuizChoicesModel();
-		//QuizExplanationsModel E1 = new QuizExplanationsModel();
-		
 		if (isCorrect = true) {
-			points += 20;
+			points += 10;
 			pointsEarned.setText("Points earned: " + points);
 			//Show popup
 		}
+		
 		else {
-			//Show popup
+			if (isCorrect = false) {
+				//Show popup
+			}
+			
+			else if (timer.equals("0") || timer.equals(null)) {
+				//Show popup
+			}
 		}
-		
-		if (timer.equals("0") || timer.equals(null)) {
-			//Show popup
-		}
-		
 	}
 
 	@FXML

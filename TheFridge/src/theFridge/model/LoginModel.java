@@ -28,29 +28,39 @@ public class LoginModel {
     fileWriter.flush();  
     fileWriter.close();  
 	*/
-	private String username;
-	private String password;
+	private SignupModel username;
+	private SignupModel password;
+	private boolean rememberMe;
 	
-	public LoginModel(String username, String password) {
+	public LoginModel(SignupModel username, SignupModel password, boolean rememberMe) {
 		super();
 		this.username = username;
 		this.password = password;
+		this.rememberMe = rememberMe;
 	}
 
-	public String getUsername() {
+	public SignupModel getUsername() {
 		return username;
 	}
 
-	public void setUsername(String username) {
+	public void setUsername(SignupModel username) {
 		this.username = username;
 	}
 
-	public String getPassword() {
+	public SignupModel getPassword() {
 		return password;
 	}
 
-	public void setPassword(String password) {
+	public void setPassword(SignupModel password) {
 		this.password = password;
+	}
+
+	public boolean isRememberMe() {
+		return rememberMe;
+	}
+
+	public void setRememberMe(boolean rememberMe) {
+		this.rememberMe = rememberMe;
 	}
 }
 
