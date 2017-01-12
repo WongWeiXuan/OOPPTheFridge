@@ -7,7 +7,6 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import p7.model.Friend;
 import theFridge.model.QuizChoicesModel;
 import theFridge.model.QuizExplanationsModel;
 import theFridge.model.QuizQuestionsModel;
@@ -23,26 +22,40 @@ public class QuizDAO {
 	
 	public ArrayList<QuizQuestionsModel> getAllQuestions() {
 		Scanner in;
-		String record=null;
-		String[] fields;
-		ArrayList<QuizQuestionsModel> questions = new ArrayList<QuizQuestionsModel>>();
+		String record = null;
+		String[] fields1;
+		QuizChoicesModel[] fields2 = null;
+		QuizExplanationsModel[] fields3 = null;
+		ArrayList<QuizQuestionsModel> questionsList = new ArrayList<QuizQuestionsModel>();
 		try {
-			in=new Scanner(dataFile);
+			in = new Scanner(dataFile);
 			while (in.hasNextLine()) {
 				record = in.nextLine();
-				fields = record.split(";");
-				String question = fields[0];
-				QuizChoicesModel choices = fields[1];
-				QuizExplanationsModel explanation = fields[2];
-				QuizQuestionsModel Q=new QuizQuestionsModel(question, choices, explanation);
-				questions.add(Q);
+				fields1 = record.split(";");
+				String question = fields1[0];
+				QuizChoicesModel choices = fields2[0];
+				QuizExplanationsModel explanation = fields3[0];
+				QuizQuestionsModel q = new QuizQuestionsModel(question, choices, explanation);
+				questionsList.add(q);
 			}
 			in.close();
 		} catch (FileNotFoundException e) {	
 			System.out.println("No record found!");
 			//e.printStackTrace();
 		}
-		return questions;
+		return questionsList;
+	}
+	
+	public QuizQuestionsModel getQuestions(String questions) {
+		ArrayList<QuizQuestionsModel> questionsList = getAllQuestions();
+		QuizQuestionsModel question = null;
+		for (QuizQuestionsModel q : questionsList) {
+			if (q.getQuestions().equals(question)) {
+				question = q;
+				break;
+			}
+		}
+		return question;
 	}
 
 	public static void main(String[] args) {
