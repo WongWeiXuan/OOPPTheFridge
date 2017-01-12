@@ -1,16 +1,20 @@
 package theFridge.model;
 
+import java.util.ArrayList;
+
+import theFridge.DAO.SignupDAO;
+
 public class SignupModel {
 	private String username;
 	private String password;
 	private String email;
 	private User user;
 	
-	public SignupModel(String username, String password, String email) {
+	public SignupModel(String username, String email, String password) {
 		super();
 		this.username = username;
-		this.password = password;
 		this.email = email;
+		this.password = password;
 	}
 	
 	public String getUsername() {
@@ -21,6 +25,14 @@ public class SignupModel {
 		this.username = username;
 	}
 	
+	public String getEmail() {
+		return email;
+	}
+	
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
 	public String getPassword() {
 		return password;
 	}
@@ -29,11 +41,25 @@ public class SignupModel {
 		this.password = password;
 	}
 	
-	public String getEmail() {
-		return email;
+	@Override
+	public String toString() {
+		return username + ";" + password + ";"+ email;
 	}
 	
-	public void setEmail(String email) {
-		this.email = email;
+	public static ArrayList<SignupModel> getAllPerson() {
+		SignupDAO signupDAO = new SignupDAO();
+		return signupDAO.getAllPerson();
+	}
+	
+	public void getPerson() {
+		SignupDAO signupDAO = new SignupDAO();
+		SignupModel Someone = signupDAO.getPerson(username);
+		setPassword(Someone.getPassword());
+		setEmail(Someone.getEmail());
+	}
+	
+	public boolean createPerson() {
+		SignupDAO signupDAO = new SignupDAO();
+		return signupDAO.createPerson(this);
 	}
 }
