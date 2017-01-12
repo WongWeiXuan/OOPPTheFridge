@@ -17,6 +17,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Spinner;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import theFridge.model.FoodCalculatorCaloriesCalculatorRecipeModel;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Circle;
 import javafx.scene.layout.AnchorPane;
@@ -59,8 +60,7 @@ public class CaloriesCalculatorInputController {
 	@FXML
 	private Circle Snacks;
 	
-    public static String NumOfMeals;
-    public static int NumOfCalories;
+    public String NumOfMeals;
     
     @FXML
     void initialize(){
@@ -85,7 +85,9 @@ public class CaloriesCalculatorInputController {
     @FXML
     void goNext(ActionEvent event) throws IOException {
     	String caloriesText = calories.getText();
-    	System.out.print(caloriesText);
+    	int NumberOfCalories = Integer.parseInt(caloriesText);
+    	
+    	FoodCalculatorCaloriesCalculatorRecipeModel first = new FoodCalculatorCaloriesCalculatorRecipeModel();
     	/*
     	if(caloriesText != null || caloriesText != ""){
     		try{
@@ -108,7 +110,6 @@ public class CaloriesCalculatorInputController {
     		}
     	}
     	*/
-    	NumOfCalories = Integer.parseInt(caloriesText);
 		//Change scene
     	Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
 		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/foodCalculator/CaloriesCalculator.fxml"));
