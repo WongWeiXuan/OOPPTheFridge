@@ -167,9 +167,9 @@
                      <children>
                         <VBox prefHeight="735.0" prefWidth="192.0">
                            <children>
-                              <BorderPane prefHeight="300.0" prefWidth="187.0">
+                              <BorderPane prefHeight="300.0" prefWidth="187.0" style="-fx-background-color: rgba(240, 98, 146, 0.5);">
                                  <VBox.margin>
-                                    <Insets left="5.0" top="10.0" />
+                                    <Insets left="5.0" />
                                  </VBox.margin>
                                  <center>
                                     <ImageView fitHeight="196.0" fitWidth="190.0" pickOnBounds="true" preserveRatio="true">
@@ -184,369 +184,384 @@
                                  <bottom>
                                     <VBox prefHeight="120.0" prefWidth="187.0" BorderPane.alignment="CENTER">
                                        <children>
-                                          <HBox alignment="TOP_RIGHT" prefHeight="60.0" prefWidth="180.0" style="-fx-background-color: black;">
+                                          <HBox alignment="TOP_RIGHT" prefHeight="60.0" prefWidth="180.0" style="-fx-background-color: rgba(0,0,0,1);">
                                              <children>
-                                                <JFXButton fx:id="btnProfile1" buttonType="RAISED" prefHeight="60.0" prefWidth="180.0" ripplerFill="#070707" style="-fx-background-color: white;" text="Basic Details">
+                                                <JFXButton fx:id="btnProfile1" buttonType="RAISED" prefHeight="60.0" prefWidth="165.0" ripplerFill="#070707" style="-fx-background-color: white;" text="Basic Details">
                                                    <font>
                                                       <Font name="Garamond" size="24.0" />
                                                    </font>
                                                 </JFXButton>
                                              </children>
                                              <VBox.margin>
-                                                <Insets />
+                                                <Insets right="5.0" />
                                              </VBox.margin>
                                           </HBox>
-                                          <JFXButton fx:id="btnProfile2" buttonType="RAISED" onAction="#goToSettings" prefHeight="60.0" prefWidth="190.0" ripplerFill="BLACK" style="-fx-background-color: white;" text="Settings">
-                                             <font>
-                                                <Font name="Garamond" size="24.0" />
-                                             </font>
+                                          <HBox alignment="TOP_RIGHT" style="-fx-background-color: rgba(0,0,0,0.5);">
                                              <VBox.margin>
-                                                <Insets top="10.0" />
+                                                <Insets right="5.0" top="10.0" />
                                              </VBox.margin>
-                                          </JFXButton>
+                                             <children>
+                                                <JFXButton fx:id="btnProfile2" buttonType="RAISED" onAction="#goToSettings" prefHeight="60.0" prefWidth="165.0" ripplerFill="BLACK" style="-fx-background-color: white;" text="Settings">
+                                                   <font>
+                                                      <Font name="Garamond" size="24.0" />
+                                                   </font>
+                                                </JFXButton>
+                                             </children>
+                                          </HBox>
                                        </children>
+                                       <BorderPane.margin>
+                                          <Insets bottom="5.0" left="5.0" />
+                                       </BorderPane.margin>
                                     </VBox>
                                  </bottom>
                               </BorderPane>
                            </children>
                            <HBox.margin>
-                              <Insets right="10.0" />
+                              <Insets />
                            </HBox.margin>
                         </VBox>
-                        <VBox alignment="TOP_CENTER" prefHeight="735.0" prefWidth="741.0" style="-fx-background-color: rgba(240, 98, 146, 0.5);">
-                           <children>
-                              <VBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="741.0" style="-fx-background-color: black;">
-                                 <children>
-                                    <Label fx:id="NLabel" alignment="CENTER" prefHeight="70.0" prefWidth="741.0" text="Darren Wei Xuan" textFill="#1e96e5">
-                                       <font>
-                                          <Font name="AR DARLING" size="64.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                                 <VBox.margin>
-                                    <Insets bottom="10.0" top="10.0" />
-                                 </VBox.margin>
-                              </VBox>
-                              <VBox alignment="TOP_CENTER" prefHeight="24.0" prefWidth="736.0">
-                                 <children>
-                                    <TextFlow prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: rgba(245, 248, 7, 0.5);">
-                                       <children>
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Username">
-                                             <font>
-                                                <Font size="24.0" />
-                                             </font>
-                                          </Text>
-                                       </children>
-                                       <VBox.margin>
-                                          <Insets left="5.0" />
-                                       </VBox.margin>
-                                    </TextFlow>
-                                    <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #808080;">
-                                       <children>
-                                          <ImageView fitHeight="40.0" fitWidth="40.0">
-                                             <image>
-                                                <Image url="@../picture/username.png" />
-                                             </image>
-                                             <HBox.margin>
-                                                <Insets left="5.0" right="10.0" top="10.0" />
-                                             </HBox.margin>
-                                          </ImageView>
-                                          <TextFlow prefHeight="92.0" prefWidth="680.0" style="-fx-background-color: #D3D3D3;">
-                                             <children>
-                                                <Label fx:id="UNLabel" prefWidth="400.0" text="Label">
-                                                   <padding>
-                                                      <Insets left="80.0" />
-                                                   </padding>
-                                                   <font>
-                                                      <Font size="36.0" />
-                                                   </font>
-                                                </Label>
-                                             </children>
-                                          </TextFlow>
-                                       </children>
-                                       <VBox.margin>
-                                          <Insets left="5.0" />
-                                       </VBox.margin>
-                                    </HBox>
-                                 </children>
-                                 <VBox.margin>
-                                    <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
-                                 </VBox.margin>
-                              </VBox>
-                              <VBox alignment="TOP_CENTER" prefHeight="13.0" prefWidth="736.0">
-                                 <children>
-                                    <TextFlow prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: rgba(245, 248, 7, 0.5);">
-                                       <children>
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
-                                             <font>
-                                                <Font size="24.0" />
-                                             </font>
-                                          </Text>
-                                       </children>
-                                       <VBox.margin>
-                                          <Insets left="5.0" />
-                                       </VBox.margin>
-                                    </TextFlow>
-                                    <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #808080;">
-                                       <children>
-                                          <ImageView fitHeight="40.0" fitWidth="40.0">
-                                             <image>
-                                                <Image url="@../picture/password.png" />
-                                             </image>
-                                             <HBox.margin>
-                                                <Insets left="5.0" right="10.0" top="7.0" />
-                                             </HBox.margin>
-                                          </ImageView>
-                                          <TextFlow prefHeight="53.0" prefWidth="681.0" style="-fx-background-color: #D3D3D3;">
-                                             <children>
-                                                <Label fx:id="PassLabel" prefWidth="400.0" text="Label">
-                                                   <padding>
-                                                      <Insets left="80.0" />
-                                                   </padding>
-                                                   <font>
-                                                      <Font size="36.0" />
-                                                   </font>
-                                                </Label>
-                                             </children>
-                                          </TextFlow>
-                                       </children>
-                                       <VBox.margin>
-                                          <Insets left="5.0" />
-                                       </VBox.margin>
-                                    </HBox>
-                                 </children>
-                                 <VBox.margin>
-                                    <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
-                                 </VBox.margin>
-                              </VBox>
-                              <VBox alignment="TOP_CENTER" prefHeight="28.0" prefWidth="736.0" style="-fx-background-color: ;">
-                                 <children>
-                                    <TextFlow prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: rgba(245, 248, 7, 0.5);">
-                                       <children>
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="E-Mail">
-                                             <font>
-                                                <Font size="24.0" />
-                                             </font>
-                                          </Text>
-                                       </children>
-                                       <VBox.margin>
-                                          <Insets left="5.0" />
-                                       </VBox.margin>
-                                    </TextFlow>
-                                    <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #808080;">
-                                       <children>
-                                          <ImageView fitHeight="40.0" fitWidth="40.0">
-                                             <image>
-                                                <Image url="@../picture/email.png" />
-                                             </image>
-                                             <HBox.margin>
-                                                <Insets left="5.0" right="10.0" top="7.0" />
-                                             </HBox.margin>
-                                          </ImageView>
-                                          <TextFlow prefHeight="53.0" prefWidth="726.0" style="-fx-background-color: #D3D3D3;">
-                                             <children>
-                                                <Label fx:id="EMLabel" prefWidth="400.0" text="Label">
-                                                   <padding>
-                                                      <Insets left="80.0" />
-                                                   </padding>
-                                                   <font>
-                                                      <Font size="36.0" />
-                                                   </font>
-                                                </Label>
-                                             </children>
-                                          </TextFlow>
-                                       </children>
-                                       <VBox.margin>
-                                          <Insets left="5.0" />
-                                       </VBox.margin>
-                                    </HBox>
-                                 </children>
-                                 <VBox.margin>
-                                    <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
-                                 </VBox.margin>
-                              </VBox>
-                              <VBox prefHeight="29.0" prefWidth="736.0" style="-fx-background-color: ;">
-                                 <children>
-                                    <TextFlow prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: rgba(245, 248, 7, 0.5);">
-                                       <children>
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Location">
-                                             <font>
-                                                <Font size="24.0" />
-                                             </font>
-                                          </Text>
-                                       </children>
-                                       <VBox.margin>
-                                          <Insets />
-                                       </VBox.margin>
-                                    </TextFlow>
-                                    <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #808080;">
-                                       <children>
-                                          <ImageView fitHeight="40.0" fitWidth="40.0">
-                                             <image>
-                                                <Image url="@../picture/location1.png" />
-                                             </image>
-                                             <HBox.margin>
-                                                <Insets bottom="7.0" left="5.0" right="10.0" top="10.0" />
-                                             </HBox.margin>
-                                          </ImageView>
-                                          <TextFlow prefHeight="53.0" prefWidth="677.0" style="-fx-background-color: #D3D3D3;">
-                                             <children>
-                                                <Label fx:id="LLabel" prefHeight="48.0" prefWidth="400.0" text="Label">
-                                                   <font>
-                                                      <Font size="36.0" />
-                                                   </font>
-                                                   <padding>
-                                                      <Insets left="80.0" />
-                                                   </padding>
-                                                </Label>
-                                             </children>
-                                             <HBox.margin>
-                                                <Insets left="5.0" />
-                                             </HBox.margin>
-                                          </TextFlow>
-                                       </children>
-                                    </HBox>
-                                 </children>
-                                 <VBox.margin>
-                                    <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
-                                 </VBox.margin>
-                              </VBox>
-                              <VBox prefHeight="14.0" prefWidth="736.0">
-                                 <children>
-                                    <TextFlow style="-fx-background-color: rgba(245, 248, 7, 0.5);">
-                                       <children>
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Age">
-                                             <font>
-                                                <Font size="24.0" />
-                                             </font>
-                                          </Text>
-                                       </children>
-                                       <VBox.margin>
-                                          <Insets />
-                                       </VBox.margin>
-                                    </TextFlow>
-                                    <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #808080;">
-                                       <children>
-                                          <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                                             <HBox.margin>
-                                                <Insets left="5.0" right="10.0" top="10.0" />
-                                             </HBox.margin>
-                                             <image>
-                                                <Image url="@../picture/age.png" />
-                                             </image>
-                                          </ImageView>
-                                          <TextFlow prefHeight="53.0" prefWidth="696.0" style="-fx-background-color: #D3D3D3;">
-                                             <children>
-                                                <Label fx:id="AgeLabel" text="Label">
-                                                   <font>
-                                                      <Font size="36.0" />
-                                                   </font>
-                                                   <padding>
-                                                      <Insets left="80.0" />
-                                                   </padding>
-                                                </Label>
-                                             </children>
-                                             <HBox.margin>
-                                                <Insets left="5.0" />
-                                             </HBox.margin>
-                                          </TextFlow>
-                                       </children>
-                                    </HBox>
-                                 </children>
-                                 <VBox.margin>
-                                    <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
-                                 </VBox.margin>
-                              </VBox>
-                              <VBox prefHeight="0.0" prefWidth="736.0">
-                                 <children>
-                                    <TextFlow prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: rgba(245, 248, 7, 0.5);">
-                                       <children>
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Height">
-                                             <font>
-                                                <Font size="24.0" />
-                                             </font>
-                                          </Text>
-                                       </children>
-                                       <VBox.margin>
-                                          <Insets />
-                                       </VBox.margin>
-                                    </TextFlow>
-                                    <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #808080;">
-                                       <children>
-                                          <ImageView fitHeight="40.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
-                                             <HBox.margin>
-                                                <Insets left="10.0" right="10.0" top="10.0" />
-                                             </HBox.margin>
-                                             <image>
-                                                <Image url="@../picture/height.png" />
-                                             </image>
-                                          </ImageView>
-                                          <TextFlow prefHeight="53.0" prefWidth="687.0" style="-fx-background-color: #D3D3D3;">
-                                             <children>
-                                                <Label fx:id="HeightLabel" text="Label">
-                                                   <font>
-                                                      <Font size="36.0" />
-                                                   </font>
-                                                   <padding>
-                                                      <Insets left="85.0" />
-                                                   </padding>
-                                                </Label>
-                                             </children>
-                                          </TextFlow>
-                                       </children>
-                                    </HBox>
-                                 </children>
-                                 <VBox.margin>
-                                    <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
-                                 </VBox.margin>
-                              </VBox>
-                              <VBox prefHeight="0.0" prefWidth="736.0">
-                                 <children>
-                                    <TextFlow prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: rgba(245, 248, 7, 0.5);">
-                                       <children>
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Weight">
-                                             <font>
-                                                <Font size="24.0" />
-                                             </font>
-                                          </Text>
-                                       </children>
-                                       <VBox.margin>
-                                          <Insets />
-                                       </VBox.margin>
-                                    </TextFlow>
-                                    <HBox prefHeight="0.0" prefWidth="741.0" style="-fx-background-color: #808080;">
-                                       <children>
-                                          <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                                             <HBox.margin>
-                                                <Insets left="10.0" right="10.0" top="10.0" />
-                                             </HBox.margin>
-                                             <image>
-                                                <Image url="@../picture/weight.png" />
-                                             </image>
-                                          </ImageView>
-                                          <TextFlow prefHeight="53.0" prefWidth="680.0" style="-fx-background-color: #D3D3D3;">
-                                             <children>
-                                                <Label fx:id="WeightLabel" text="Label">
-                                                   <font>
-                                                      <Font size="36.0" />
-                                                   </font>
-                                                   <padding>
-                                                      <Insets left="84.0" />
-                                                   </padding>
-                                                </Label>
-                                             </children>
-                                          </TextFlow>
-                                       </children>
-                                    </HBox>
-                                 </children>
-                                 <VBox.margin>
-                                    <Insets left="5.0" right="5.0" top="10.0" />
-                                 </VBox.margin>
-                              </VBox>
-                           </children>
+                        <VBox>
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
+                           <children>
+                              <VBox alignment="TOP_CENTER" prefHeight="723.0" prefWidth="741.0" style="-fx-background-color: rgba(240, 98, 146, 0.5);">
+                                 <children>
+                                    <VBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="741.0" style="-fx-background-color: black;">
+                                       <children>
+                                          <Label fx:id="NLabel" alignment="CENTER" prefHeight="70.0" prefWidth="741.0" text="Darren Wei Xuan" textFill="#1e96e5">
+                                             <font>
+                                                <Font name="AR DARLING" size="64.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                    </VBox>
+                                    <VBox alignment="TOP_CENTER" prefHeight="24.0" prefWidth="736.0">
+                                       <children>
+                                          <TextFlow prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: rgba(245, 248, 7, 0.5);">
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Username">
+                                                   <font>
+                                                      <Font name="Arial Black" size="24.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets left="5.0" />
+                                             </VBox.margin>
+                                          </TextFlow>
+                                          <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #808080;">
+                                             <children>
+                                                <ImageView fitHeight="40.0" fitWidth="40.0">
+                                                   <image>
+                                                      <Image url="@../picture/username.png" />
+                                                   </image>
+                                                   <HBox.margin>
+                                                      <Insets left="5.0" right="10.0" top="10.0" />
+                                                   </HBox.margin>
+                                                </ImageView>
+                                                <TextFlow prefHeight="92.0" prefWidth="680.0" style="-fx-background-color: #D3D3D3;">
+                                                   <children>
+                                                      <Label fx:id="UNLabel" prefWidth="400.0" text="Label">
+                                                         <padding>
+                                                            <Insets left="80.0" />
+                                                         </padding>
+                                                         <font>
+                                                            <Font size="36.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </TextFlow>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets left="5.0" />
+                                             </VBox.margin>
+                                          </HBox>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="5.0" right="10.0" />
+                                       </VBox.margin>
+                                    </VBox>
+                                    <VBox alignment="TOP_CENTER" prefHeight="13.0" prefWidth="736.0">
+                                       <children>
+                                          <TextFlow prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: rgba(245, 248, 7, 0.5);">
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
+                                                   <font>
+                                                      <Font name="Arial Black" size="24.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets left="5.0" />
+                                             </VBox.margin>
+                                          </TextFlow>
+                                          <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #808080;">
+                                             <children>
+                                                <ImageView fitHeight="40.0" fitWidth="40.0">
+                                                   <image>
+                                                      <Image url="@../picture/password.png" />
+                                                   </image>
+                                                   <HBox.margin>
+                                                      <Insets left="5.0" right="10.0" top="7.0" />
+                                                   </HBox.margin>
+                                                </ImageView>
+                                                <TextFlow prefHeight="53.0" prefWidth="681.0" style="-fx-background-color: #D3D3D3;">
+                                                   <children>
+                                                      <Label fx:id="PassLabel" prefWidth="400.0" text="Label">
+                                                         <padding>
+                                                            <Insets left="80.0" />
+                                                         </padding>
+                                                         <font>
+                                                            <Font size="36.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </TextFlow>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets left="5.0" />
+                                             </VBox.margin>
+                                          </HBox>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="5.0" right="10.0" />
+                                       </VBox.margin>
+                                    </VBox>
+                                    <VBox alignment="TOP_CENTER" prefHeight="28.0" prefWidth="736.0" style="-fx-background-color: ;">
+                                       <children>
+                                          <TextFlow prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: rgba(245, 248, 7, 0.5);">
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="E-Mail">
+                                                   <font>
+                                                      <Font name="Arial Black" size="24.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets left="5.0" />
+                                             </VBox.margin>
+                                          </TextFlow>
+                                          <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #808080;">
+                                             <children>
+                                                <ImageView fitHeight="40.0" fitWidth="40.0">
+                                                   <image>
+                                                      <Image url="@../picture/email.png" />
+                                                   </image>
+                                                   <HBox.margin>
+                                                      <Insets left="5.0" right="10.0" top="7.0" />
+                                                   </HBox.margin>
+                                                </ImageView>
+                                                <TextFlow prefHeight="53.0" prefWidth="726.0" style="-fx-background-color: #D3D3D3;">
+                                                   <children>
+                                                      <Label fx:id="EMLabel" prefWidth="400.0" text="Label">
+                                                         <padding>
+                                                            <Insets left="80.0" />
+                                                         </padding>
+                                                         <font>
+                                                            <Font size="36.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </TextFlow>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets left="5.0" />
+                                             </VBox.margin>
+                                          </HBox>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="5.0" right="10.0" />
+                                       </VBox.margin>
+                                    </VBox>
+                                    <VBox prefHeight="29.0" prefWidth="736.0" style="-fx-background-color: ;">
+                                       <children>
+                                          <TextFlow prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: rgba(245, 248, 7, 0.5);">
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Location">
+                                                   <font>
+                                                      <Font name="Arial Black" size="24.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets />
+                                             </VBox.margin>
+                                          </TextFlow>
+                                          <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #808080;">
+                                             <children>
+                                                <ImageView fitHeight="40.0" fitWidth="40.0">
+                                                   <image>
+                                                      <Image url="@../picture/location1.png" />
+                                                   </image>
+                                                   <HBox.margin>
+                                                      <Insets bottom="7.0" left="5.0" right="10.0" top="10.0" />
+                                                   </HBox.margin>
+                                                </ImageView>
+                                                <TextFlow prefHeight="53.0" prefWidth="677.0" style="-fx-background-color: #D3D3D3;">
+                                                   <children>
+                                                      <Label fx:id="LLabel" prefHeight="48.0" prefWidth="400.0" text="Label">
+                                                         <font>
+                                                            <Font size="36.0" />
+                                                         </font>
+                                                         <padding>
+                                                            <Insets left="80.0" />
+                                                         </padding>
+                                                      </Label>
+                                                   </children>
+                                                   <HBox.margin>
+                                                      <Insets left="5.0" />
+                                                   </HBox.margin>
+                                                </TextFlow>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="10.0" right="10.0" />
+                                       </VBox.margin>
+                                    </VBox>
+                                    <VBox prefHeight="14.0" prefWidth="736.0">
+                                       <children>
+                                          <TextFlow style="-fx-background-color: rgba(245, 248, 7, 0.5);">
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Age">
+                                                   <font>
+                                                      <Font name="Arial Black" size="24.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets />
+                                             </VBox.margin>
+                                          </TextFlow>
+                                          <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #808080;">
+                                             <children>
+                                                <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                                   <HBox.margin>
+                                                      <Insets left="5.0" right="10.0" top="10.0" />
+                                                   </HBox.margin>
+                                                   <image>
+                                                      <Image url="@../picture/age.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <TextFlow prefHeight="53.0" prefWidth="696.0" style="-fx-background-color: #D3D3D3;">
+                                                   <children>
+                                                      <Label fx:id="AgeLabel" text="Label">
+                                                         <font>
+                                                            <Font size="36.0" />
+                                                         </font>
+                                                         <padding>
+                                                            <Insets left="80.0" />
+                                                         </padding>
+                                                      </Label>
+                                                   </children>
+                                                   <HBox.margin>
+                                                      <Insets left="5.0" />
+                                                   </HBox.margin>
+                                                </TextFlow>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="10.0" right="10.0" />
+                                       </VBox.margin>
+                                    </VBox>
+                                    <VBox prefHeight="0.0" prefWidth="736.0">
+                                       <children>
+                                          <TextFlow prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: rgba(245, 248, 7, 0.5);">
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Height">
+                                                   <font>
+                                                      <Font name="Arial Black" size="24.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets />
+                                             </VBox.margin>
+                                          </TextFlow>
+                                          <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #808080;">
+                                             <children>
+                                                <ImageView fitHeight="40.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+                                                   <HBox.margin>
+                                                      <Insets left="10.0" right="10.0" top="10.0" />
+                                                   </HBox.margin>
+                                                   <image>
+                                                      <Image url="@../picture/height.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <TextFlow prefHeight="53.0" prefWidth="687.0" style="-fx-background-color: #D3D3D3;">
+                                                   <children>
+                                                      <Label fx:id="HeightLabel" text="Label">
+                                                         <font>
+                                                            <Font size="36.0" />
+                                                         </font>
+                                                         <padding>
+                                                            <Insets left="85.0" />
+                                                         </padding>
+                                                      </Label>
+                                                   </children>
+                                                </TextFlow>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="10.0" right="10.0" />
+                                       </VBox.margin>
+                                    </VBox>
+                                    <VBox prefHeight="0.0" prefWidth="736.0">
+                                       <children>
+                                          <TextFlow prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: rgba(245, 248, 7, 0.5);">
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Weight">
+                                                   <font>
+                                                      <Font name="Arial Black" size="24.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets />
+                                             </VBox.margin>
+                                          </TextFlow>
+                                          <HBox prefHeight="0.0" prefWidth="741.0" style="-fx-background-color: #808080;">
+                                             <children>
+                                                <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                                   <HBox.margin>
+                                                      <Insets left="10.0" right="10.0" top="10.0" />
+                                                   </HBox.margin>
+                                                   <image>
+                                                      <Image url="@../picture/weight.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <TextFlow prefHeight="53.0" prefWidth="680.0" style="-fx-background-color: #D3D3D3;">
+                                                   <children>
+                                                      <Label fx:id="WeightLabel" text="Label">
+                                                         <font>
+                                                            <Font size="36.0" />
+                                                         </font>
+                                                         <padding>
+                                                            <Insets left="84.0" />
+                                                         </padding>
+                                                      </Label>
+                                                   </children>
+                                                </TextFlow>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" />
+                                       </VBox.margin>
+                                    </VBox>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </VBox>
+                              <VBox prefHeight="200.0" prefWidth="100.0" />
+                           </children>
                         </VBox>
                      </children>
                      <HBox.margin>
