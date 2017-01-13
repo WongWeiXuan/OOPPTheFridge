@@ -114,7 +114,7 @@ public class HeaderFXMLController {
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/Profile.fxml"));
 		}
 		else if(event.getSource().equals(SettingMenu)){
-			root = FXMLLoader.load(getClass().getResource("/theFridge/view/Profile.fxml"));
+			root = FXMLLoader.load(getClass().getResource("/theFridge/view/Profile2.fxml"));
 		}
 		else if(event.getSource().equals(LogoutMenu)){
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/LoginSignupPage.fxml"));
