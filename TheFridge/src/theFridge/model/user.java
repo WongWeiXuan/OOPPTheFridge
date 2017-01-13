@@ -2,6 +2,8 @@ package theFridge.model;
 
 import java.util.ArrayList;
 
+import theFridge.DAO.ProfileDAO;
+
 public class User {
 		private String username;
 		private String password;
@@ -10,7 +12,10 @@ public class User {
 		private String country;
 		private String weight;
 		private String height;
-		public User(String username, String password, String email, String name, String country, String weight,
+		private int age;
+		private ArrayList promoCode;
+		
+		public User(String name, String username, String password, String email, String country, String weight,
 				String height, int age) {
 			super();
 			this.username = username;
@@ -22,15 +27,62 @@ public class User {
 			this.height = height;
 			this.age = age;
 		}
-
-		private int age;
-		private ArrayList promoCode;
 		
 		public User(String userName, String password, String eMail) {
 			super();
 			this.username = userName;
 			this.password = password;
 			this.email = eMail;
+		}
+
+		
+		public String getEmail() {
+			return email;
+		}
+
+
+		public void setEmail(String email) {
+			this.email = email;
+		}
+
+
+		public String getWeight() {
+			return weight;
+		}
+
+
+		public void setWeight(String weight) {
+			this.weight = weight;
+		}
+
+
+		public String getHeight() {
+			return height;
+		}
+
+
+		public void setHeight(String height) {
+			this.height = height;
+		}
+
+
+		public int getAge() {
+			return age;
+		}
+
+
+		public void setAge(int age) {
+			this.age = age;
+		}
+
+
+		public ArrayList getPromoCode() {
+			return promoCode;
+		}
+
+
+		public void setPromoCode(ArrayList promoCode) {
+			this.promoCode = promoCode;
 		}
 		
 		public String getName() {
@@ -65,16 +117,41 @@ public class User {
 			this.password = password;
 		}
 		
-		public String getemail() {
-			return email;
+		
+		public User() {
+			super();
+		}
+
+
+		public String toString() {
+			return name + ";" + username + ";" + password + ";"+ email + ";" + country + ";" + height + ";" + weight + ";" +age;
 		}
 		
-		public void setemail(String email) {
-			this.email = email;
+		public static ArrayList<User> getAllUser() {
+			ProfileDAO profileDAO = new ProfileDAO();
+			return ProfileDAO.getAllUser();
 		}
 		
-		public void checkUser(){
-			
+		public void getUser() {
+			ProfileDAO userDAO = new ProfileDAO();
+			User user1 = userDAO.getUser(username);
+			setName(user1.getName());
+			setPassword(user1.getPassword());
+			setEmail(user1.getEmail());
+			setCountry(user1.getCountry());
+			setWeight(user1.getWeight());
+			setHeight(user1.getHeight());
+			setAge(user1.getAge());
+		}
+		
+		public void updateUser() {
+			ProfileDAO profileDAO = new ProfileDAO();
+			ProfileDAO.updateUser(this);
+		}
+		
+		public boolean createUser() {
+			ProfileDAO profileDAO = new ProfileDAO();
+			return profileDAO.createUser(this);
 		}
 	
 }
