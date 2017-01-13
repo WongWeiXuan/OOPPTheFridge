@@ -93,6 +93,7 @@ public class FoodCalculatorCaloriesCalculatorRecipeDAO{
 						return a;
 					}
 					catch(Exception exce){
+						//Recipe a = new Recipe("Death", , -1, "src/theFridge/picture/Strawberry smoothie.jpg", 1);
 						System.out.println("Anymore and you will be dead... Sorry :(");
 						System.out.println("Stop playing with the system, enter something realistic please...");
 						return null;
@@ -154,6 +155,7 @@ public class FoodCalculatorCaloriesCalculatorRecipeDAO{
 	
 	//---------------------------------------------
 	
+	/*
 	public static void main(String args[]) throws FileNotFoundException{
 		FoodCalculatorCaloriesCalculatorRecipeDAO testing = new FoodCalculatorCaloriesCalculatorRecipeDAO("breakfast", 383);
 		Recipe recipe = testing.getRecipeWithinCalories();
@@ -169,4 +171,5 @@ public class FoodCalculatorCaloriesCalculatorRecipeDAO{
 		System.out.println("Picture: " + recipe.getPicture());
 		System.out.println("------ End of recipe ------");
 	}
+	*/
 }

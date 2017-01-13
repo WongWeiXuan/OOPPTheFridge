@@ -15,6 +15,11 @@ public class Ingredient {
 	public void printFood(){
 		System.out.println(amount + " " + unit + " " + name +" ");
 	}
+	
+	public String getMeasurement(){
+		String line = amount + " " + unit;
+		return line;
+	}
 
 	public int getAmount() {
 		return amount;

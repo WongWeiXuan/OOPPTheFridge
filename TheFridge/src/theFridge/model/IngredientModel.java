@@ -15,4 +15,5 @@ public class IngredientModel {
 		IngredientDAO ingredientDao=new IngredientDAO(ingredientArray);
         return ingredientDao.getAllIngredients();
 	}
+	
 }

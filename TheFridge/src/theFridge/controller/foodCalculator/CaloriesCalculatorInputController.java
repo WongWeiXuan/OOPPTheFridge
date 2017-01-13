@@ -60,7 +60,7 @@ public class CaloriesCalculatorInputController {
 	@FXML
 	private Circle Snacks;
 	
-    public String NumOfMeals;
+    public String NumOfMeals = "breakfast";
     
     @FXML
     void initialize(){
@@ -87,7 +87,9 @@ public class CaloriesCalculatorInputController {
     	String caloriesText = calories.getText();
     	int NumberOfCalories = Integer.parseInt(caloriesText);
     	
-    	FoodCalculatorCaloriesCalculatorRecipeModel first = new FoodCalculatorCaloriesCalculatorRecipeModel(NumOfMeals, NumberOfCalories);
+    	FoodCalculatorCaloriesCalculatorRecipeModel.setMeal(NumOfMeals);
+    	FoodCalculatorCaloriesCalculatorRecipeModel.setTargetCalories(NumberOfCalories);
+    	
     	/*
     	if(caloriesText != null || caloriesText != ""){
     		try{

@@ -19,7 +19,9 @@ import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import theFridge.DAO.FoodCalculatorCaloriesCalculatorRecipeDAO;
+import theFridge.model.FoodCalculatorCaloriesCalculatorRecipeModel;
+import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 
 public class CaloriesCalculatorController {
 	@FXML
@@ -44,14 +46,25 @@ public class CaloriesCalculatorController {
 	private VBox prizeScene;
 	@FXML
 	private VBox vboxContainer;
+	@FXML VBox Recipe;
+	@FXML Label Time;
+	@FXML Label NumberOfCalories;
+	@FXML Label Measurements;
+	@FXML Label FoodName;
+	@FXML ImageView FoodImage;
 	
 	@FXML
 	public void initialize() throws IOException{
-		Node breakfast = (Node)FXMLLoader.load(getClass().getResource("/theFridge/view/foodCalculator/FoodCalculatorCaloriesCalculatorRecipe.fxml"));
-		VBox vbox = new VBox(breakfast);	
+		String meal = FoodCalculatorCaloriesCalculatorRecipeModel.getMeal();
+		int calories = FoodCalculatorCaloriesCalculatorRecipeModel.getTargetCalories();
 		
-		//~Receives methodB from FoodCalculatorCaloriesCalculatorRecipe
-		vboxContainer.getChildren().add(vbox);
+		FoodCalculatorCaloriesCalculatorRecipeModel i = new FoodCalculatorCaloriesCalculatorRecipeModel(meal, calories);
+		
+		Time.setText(meal);
+		NumberOfCalories.setText(i.getRecipeWithinCalories().getCalories() + " Calories");
+		Measurements.setText(i.getRecipeWithinCalories().getServing() + " Serving");
+		FoodName.setText(i.getRecipeWithinCalories().getName());
+		FoodImage.setImage(new Image(i.getRecipeWithinCalories().getPicture()));
 		
 		//Show Profile Picture on Circle
 		Image img = new Image("theFridge/picture/Profile Image.jpg");
