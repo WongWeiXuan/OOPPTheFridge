@@ -1,7 +1,10 @@
 package theFridge.controller;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Scanner;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -27,6 +30,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import theFridge.DAO.ProfileDAO;
+import theFridge.model.User;
 import javafx.event.ActionEvent;
 
 public class ProfileController {
@@ -102,6 +107,20 @@ public class ProfileController {
     
     @FXML
     private VBox hideEM;
+    
+    public void initialize() throws FileNotFoundException{
+		File file=new File("src/theFridge/file/confirm.txt");
+		Scanner sc=new Scanner(file) ;
+		String n = sc.nextLine();
+		ProfileDAO profileDAO = new ProfileDAO();
+		User uu = new User();
+		uu = profileDAO.getUser(n);
+		NLabel.setText(uu.getName());
+		UNLabel.setText(uu.getUsername());
+		PassLabel.setText(uu.getPassword());
+		EMLabel.setText(uu.getEmail());
+		
+	}
     
 	public void changeScene(MouseEvent event) throws IOException {
 		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
