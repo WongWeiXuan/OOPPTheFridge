@@ -192,8 +192,8 @@ public class LoginSignupPageController {
 		else {
 			
 			SignupDAO signupDAO = new SignupDAO();
-			SignupModel Someone1 = new SignupModel(Username, Password, Email);
-			signupDAO.createPerson(Someone1);
+			SignupModel Someone = new SignupModel(Username, Password, Email);
+			signupDAO.createPerson(Someone);
 			//SignupModel.getAllPerson();
 			
 			

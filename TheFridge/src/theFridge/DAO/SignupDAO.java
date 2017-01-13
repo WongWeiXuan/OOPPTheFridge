@@ -12,12 +12,10 @@ import java.util.Scanner;
 import theFridge.model.SignupModel;
 
 public class SignupDAO {
-	private static final String PERSON_FILE = "SignupPerson.txt";
 	private File dataFile;
 	
 	public SignupDAO() {
-		Path dPath = FileSystems.getDefault().getPath("/theFridge/file/",PERSON_FILE);
-		dataFile = new File(dPath.toString()); 
+		dataFile = new File("src/theFridge/file/SignupPerson.txt"); 
 	}
 	
 	public ArrayList<SignupModel> getAllPerson() {
@@ -105,7 +103,7 @@ public class SignupDAO {
 		System.out.println("\nFirst user registered.");
 		System.out.println("========================================");
 		
-		SignupModel Someone = new SignupModel("Wei Xuan", "ILoveMen", "Email");
+		SignupModel Someone = new SignupModel("Wei Xuan", "ILoveStraightMen", "Email");
 		signupDAO.createPerson(Someone);
 		
 		System.out.println("\nSecond user registered.");
