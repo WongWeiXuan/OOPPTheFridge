@@ -87,7 +87,7 @@ public class CaloriesCalculatorInputController {
     	String caloriesText = calories.getText();
     	int NumberOfCalories = Integer.parseInt(caloriesText);
     	
-    	FoodCalculatorCaloriesCalculatorRecipeModel first = new FoodCalculatorCaloriesCalculatorRecipeModel();
+    	FoodCalculatorCaloriesCalculatorRecipeModel first = new FoodCalculatorCaloriesCalculatorRecipeModel(NumOfMeals, NumberOfCalories);
     	/*
     	if(caloriesText != null || caloriesText != ""){
     		try{
