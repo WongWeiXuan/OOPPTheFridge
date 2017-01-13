@@ -100,4 +100,8 @@ public class FoodCompostDAO {
 		}
 		synToFile(foodData);
 	}
+	
+	public static void main(String[] args){
+		FoodCompostDAO foodcompostDAO= new 
+	}
 }

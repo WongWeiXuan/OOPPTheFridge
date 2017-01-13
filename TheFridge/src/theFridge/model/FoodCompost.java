@@ -69,4 +69,9 @@ public class FoodCompost {
 			return false;
 	}
 	
+	public static void main(String[] args){
+		
+		
+	}
+	
 }
