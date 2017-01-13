@@ -6,6 +6,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 //import javafx.stage.StageStyle;
 //import javafx.application.Platform;
+import java.util.ArrayList;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -36,6 +37,8 @@ import javafx.scene.media.MediaPlayer;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import theFridge.DAO.SignupDAO;
+import theFridge.model.SignupModel;
 
 public class LoginSignupPageController {
 	@FXML
@@ -76,6 +79,8 @@ public class LoginSignupPageController {
 	@FXML
 	private VBox signupField; // Initial opacity = 0
 	// =============================================================
+	
+	//private ArrayList<SignupModel> Person;
 	
 	/*
 	@FXML
@@ -161,6 +166,14 @@ public class LoginSignupPageController {
 		}
 	}
 	
+	/*public void setPersonList(ArrayList<SignupModel> Person) {
+		if (Person != null || Person.size() > 0 ) {
+			this.Person = Person;
+		}
+	}*/
+	
+	
+	
 	@FXML
 	void createAccount(ActionEvent event) throws IOException, ParseException, ParseException{
 		String Username = tFUsername.getText();
@@ -177,13 +190,14 @@ public class LoginSignupPageController {
 			comment1.setText("Please fill in your email!");
 		}
 		else {
-			/* 
-			SignupModel Person = new SignupModel(Username, Password, Email);
 			
-			ArrayList<SignupModel> personList = new ArrayList<SignupModel>();
-			personList.add(Person);
-			 */
+			SignupDAO signupDAO = new SignupDAO();
+			SignupModel Someone1 = new SignupModel(Username, Password, Email);
+			signupDAO.createPerson(Someone1);
+			//SignupModel.getAllPerson();
 			
+			
+			/*
 			JSONParser parser = new JSONParser();
 			
 			Object obj = parser.parse(new FileReader("src/theFridge/file/people.json"));
@@ -213,7 +227,7 @@ public class LoginSignupPageController {
 				e.printStackTrace();
 			}
 			
-			
+			*/
 		}
 		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
 		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/LoginSignupPage.fxml"));

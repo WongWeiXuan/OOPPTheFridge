@@ -8,6 +8,22 @@ public class User {
 		private String email;
 		private String name;
 		private String country;
+		private String weight;
+		private String height;
+		public User(String username, String password, String email, String name, String country, String weight,
+				String height, int age) {
+			super();
+			this.username = username;
+			this.password = password;
+			this.email = email;
+			this.name = name;
+			this.country = country;
+			this.weight = weight;
+			this.height = height;
+			this.age = age;
+		}
+
+		private int age;
 		private ArrayList promoCode;
 		
 		public User(String userName, String password, String eMail) {

@@ -1,5 +1,9 @@
 package theFridge.model;
 
+import java.util.ArrayList;
+
+import theFridge.DAO.QuizDAO;
+
 public class QuizQuestionsModel {
 	private String questions;
 	private QuizChoicesModel choices;
@@ -35,4 +39,18 @@ public class QuizQuestionsModel {
 	public void setQuestions(String questions) {
 		this.questions = questions;
 	}
+	
+	public static ArrayList<QuizQuestionsModel> getAllQuestions() {
+		QuizDAO quizDAO = new QuizDAO();
+		return quizDAO.getAllQuestions();
+	}
+	
+	public void getQuizQuestions() {
+		QuizDAO quizDAO = new QuizDAO();
+		QuizQuestionsModel q = quizDAO.getQuestions(questions);
+		setChoices(q.getChoices());
+		setExplanations(q.getExplanations());
+	}
+	
+	//Create a method that checks whether user selects the correct choice?
 }

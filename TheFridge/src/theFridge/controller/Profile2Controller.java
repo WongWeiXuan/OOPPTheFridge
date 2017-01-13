@@ -177,7 +177,37 @@ public class Profile2Controller {
 	@FXML
 	private Text namE;
 	@FXML
+	private Text usernamE;
+	@FXML
+	private Text passworD;
+	@FXML
+	private Text emaiL;
+	@FXML
+	private Text locatioN;
+	@FXML
+	private Text agE;
+	@FXML
+	private Text weighT;
+	@FXML
+	private Text heighT;
+	@FXML
 	private Label label0;
+	@FXML
+	private Label label1;
+	@FXML
+	private Label label2;
+	@FXML
+	private Label label3;
+	@FXML
+	private Label label4;
+	@FXML
+	private Label label5;
+	@FXML
+	private Label label6;
+	@FXML
+	private Label label7;
+	@FXML
+	private VBox vbOx;
 
 	// Event Listener on VBox[#naviPreview].onMouseEntered
 	@FXML
@@ -269,6 +299,8 @@ public class Profile2Controller {
 		UNText.setText("");
 		Eusername.setVisible(true);
 		hBox1.setVisible(true);
+		usernamE.setOpacity(1);
+		label1.setOpacity(1);
 	}
 	// Event Listener on JFXButton[#btnSave2].onAction
 	@FXML
@@ -278,12 +310,12 @@ public class Profile2Controller {
 	// Event Listener on JFXButton[#btnCancel2].onAction
 	@FXML
 	public void cancel2(ActionEvent event) {
-		hbox3.setVisible(false);
-		hbox4.setVisible(false);
-		hbox5.setVisible(false);
+		vbOx.setVisible(false);
 		PassText.setText("");
 		Epassword.setVisible(true);
 		hBox2.setVisible(true);
+		passworD.setOpacity(1);
+		label2.setOpacity(1);
 	}
 	// Event Listener on JFXButton[#btnSave3].onAction
 	@FXML
@@ -297,6 +329,8 @@ public class Profile2Controller {
 		EMText.setText("");
 		Eemail.setVisible(true);
 		hBox3.setVisible(true);
+		emaiL.setOpacity(1);
+		label3.setOpacity(1);
 		
 	}
 	// Event Listener on JFXButton[#btnSave4].onAction
@@ -311,6 +345,8 @@ public class Profile2Controller {
 		LText.setText("");
 		Elocation.setVisible(true);
 		hBox4.setVisible(true);
+		locatioN.setOpacity(1);
+		label4.setOpacity(1);
 	}
 	
 	public void save5(ActionEvent event) {
@@ -322,6 +358,8 @@ public class Profile2Controller {
 		AText.setText("");
 		EAge.setVisible(true);
 		hBox5.setVisible(true);
+		agE.setOpacity(1);
+		label5.setOpacity(1);
 	}
 	
 	public void save6(ActionEvent event) {
@@ -334,6 +372,8 @@ public class Profile2Controller {
 		HText.setText("");
 		EHeight.setVisible(true);
 		hBox6.setVisible(true);
+		heighT.setOpacity(1);
+		label6.setOpacity(1);
 	}
 	
 	public void save7(ActionEvent event) {
@@ -346,6 +386,8 @@ public class Profile2Controller {
 		WText.setText("");
 		EWeight.setVisible(true);
 		hBox7.setVisible(true);
+		weighT.setOpacity(1);
+		label7.setOpacity(1);
 	}
 	@FXML
 	public void goToMain(ActionEvent event)throws IOException {
@@ -366,42 +408,63 @@ public class Profile2Controller {
 	
 	public void edituserName(ActionEvent event){
 		hbox2.setVisible(true);
+		hbox2.setStyle("-fx-background-color:  #FCE4EC;");
+		usernamE.setOpacity(0.5);
+		label1.setOpacity(0.5);
 		Eusername.setVisible(false);
-		hBox1.setVisible(false);
+		//hBox1.setVisible(false);
 	}
 	
 	public void editpassword(ActionEvent event){
-		hbox3.setVisible(true);
-		hbox4.setVisible(true);
-		hbox5.setVisible(true);
+		vbOx.setVisible(true);
+		vbOx.setStyle("-fx-background-color:  #FCE4EC;");
+		passworD.setOpacity(0.5);
+		label2.setOpacity(0.5);
 		Epassword.setVisible(false);
-		hBox2.setVisible(false);
+		//hBox2.setVisible(false);
 	}
 	
 	public void editemail(ActionEvent event){
 		hbox6.setVisible(true);
+		hbox6.setStyle("-fx-background-color:  #FCE4EC;");
+		emaiL.setOpacity(0.5);
+		label3.setOpacity(0.5);
 		Eemail.setVisible(false);
-		hBox3.setVisible(false);
+		//hBox3.setVisible(false);
 	}
 	
 	public void editlocation(ActionEvent event){
 		hbox7.setVisible(true);
+		hbox7.setStyle("-fx-background-color:  #FCE4EC;");
+		locatioN.setOpacity(0.5);
+		label4.setOpacity(0.5);
 		Elocation.setVisible(false);
-		hBox4.setVisible(false);
+		//hBox4.setVisible(false);
 	}
 	
 	public void editage(ActionEvent event){
 		hbox8.setVisible(true);
-		hBox5.setVisible(false);
+		hbox8.setStyle("-fx-background-color:  #FCE4EC;");
+		agE.setOpacity(0.5);
+		label5.setOpacity(0.5);
+		EAge.setVisible(false);
 	}
 	
 	public void editheight(ActionEvent event){
 		hbox9.setVisible(true);
-		hBox6.setVisible(false);
+		hbox9.setStyle("-fx-background-color:  #FCE4EC;");
+		heighT.setOpacity(0.5);
+		label6.setOpacity(0.5);
+		EHeight.setVisible(false);
 	}
+	
 	public void editweight(ActionEvent event){
 		hbox10.setVisible(true);
-		hBox7.setVisible(false);
+		hbox10.setStyle("-fx-background-color:  #FCE4EC;");
+		weighT.setOpacity(0.5);
+		EWeight.setOpacity(0.5);
+		EWeight.setVisible(false);
+		
 	}
 	
 	public void showImage0 (MouseEvent event) {
