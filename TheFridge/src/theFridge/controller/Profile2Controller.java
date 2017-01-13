@@ -8,9 +8,15 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Scanner;
+
+import theFridge.DAO.ProfileDAO;
 import theFridge.controller.ProfileController;
 import theFridge.model.First;
+import theFridge.model.User;
 
 import com.jfoenix.controls.JFXButton;
 
@@ -273,8 +279,16 @@ public class Profile2Controller {
 	}
 	// Event Listener on JFXButton[#btnSave0].onAction
 	@FXML
-	public void save0(ActionEvent event) {
+	public void save0(ActionEvent event) throws FileNotFoundException {
 		String name= NText.getText();
+		File file=new File("src/theFridge/file/confirm.txt");
+		Scanner sc=new Scanner(file) ;
+		String n = sc.nextLine();
+		ProfileDAO profileDAO = new ProfileDAO();
+		User uu = new User();
+		uu = profileDAO.getUser(n);
+		uu.setName(name);
+		profileDAO.updateUser(uu);
 		NText.setText("");
 	}
 	// Event Listener on JFXButton[#btnCancel0].onAction
