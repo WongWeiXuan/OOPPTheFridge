@@ -12,11 +12,11 @@ public class User {
 		private String country;
 		private String weight;
 		private String height;
-		private int age;
+		private String age;
 		private ArrayList promoCode;
 		
 		public User(String name, String username, String password, String email, String country, String weight,
-				String height, int age) {
+				String height, String age) {
 			super();
 			this.username = username;
 			this.password = password;
@@ -66,12 +66,12 @@ public class User {
 		}
 
 
-		public int getAge() {
+		public String getAge() {
 			return age;
 		}
 
 
-		public void setAge(int age) {
+		public void setAge(String age) {
 			this.age = age;
 		}
 

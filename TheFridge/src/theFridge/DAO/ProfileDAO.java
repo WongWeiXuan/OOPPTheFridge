@@ -36,7 +36,7 @@ public class ProfileDAO {
 				String location=fields[4]; 
 				String height=fields[5];
 				String weight=fields[6];
-				int age=Integer.parseInt(fields[7]);
+				String age=fields[7];
 				User u=new User(name,username,password,email,location,height,weight,age);
 				user.add(u);
 			}
