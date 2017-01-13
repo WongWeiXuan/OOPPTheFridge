@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXSpinner?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.TextFlow?>
+
+<AnchorPane style="-fx-background-color: #E91E63;" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="theFridge.controller.LoginSignupPageController">
+   <children>
+      <AnchorPane prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: rgba(0,0,0,0);" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox layoutX="150.0" layoutY="130.0" prefHeight="340.0" prefWidth="700.0">
+               <children>
+                  <VBox prefHeight="300.0" prefWidth="350.0" style="-fx-background-color: #F06292;">
+                     <children>
+                        <TextFlow textAlignment="CENTER">
+                           <children>
+                              <Label text="The Fridge" textFill="WHITE">
+                                 <font>
+                                    <Font name="Garamond" size="48.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </TextFlow>
+                        <TextFlow textAlignment="CENTER">
+                           <children>
+                              <Label text="Have an Account?" textFill="WHITE">
+                                 <font>
+                                    <Font name="Garamond" size="36.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="20.0" />
+                           </VBox.margin>
+                        </TextFlow>
+                        <VBox alignment="CENTER">
+                           <children>
+                              <Label text="Log in to continue" textFill="WHITE">
+                                 <font>
+                                    <Font name="Garamond" size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Where you last left off!" textFill="WHITE">
+                                 <font>
+                                    <Font name="Garamond" size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="40.0" />
+                           </VBox.margin>
+                        </VBox>
+                        <TextFlow textAlignment="CENTER">
+                           <children>
+                              <JFXButton fx:id="loginBtn1" buttonType="RAISED" onAction="#showLoginPart" ripplerFill="BLACK" style="-fx-background-color: yellow;" text="Login">
+                                 <font>
+                                    <Font name="Garamond" size="24.0" />
+                                 </font>
+                              </JFXButton>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="40.0" />
+                           </VBox.margin>
+                        </TextFlow>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="300.0" prefWidth="350.0" style="-fx-background-color: #F06292;">
+                     <children>
+                        <TextFlow textAlignment="CENTER">
+                           <children>
+                              <Label text="The Fridge" textFill="WHITE">
+                                 <font>
+                                    <Font name="Garamond" size="48.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </TextFlow>
+                        <TextFlow prefHeight="45.0" prefWidth="350.0" textAlignment="CENTER">
+                           <children>
+                              <Label text="Don't Have an Account?" textFill="WHITE">
+                                 <font>
+                                    <Font name="Garamond" size="30.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets top="5.0" />
+                                 </padding>
+                              </Label>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="20.0" />
+                           </VBox.margin>
+                        </TextFlow>
+                        <VBox alignment="CENTER">
+                           <children>
+                              <Label text="Sign up to access" textFill="WHITE">
+                                 <font>
+                                    <Font name="Garamond" size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label text="All our wonderful features!" textFill="WHITE">
+                                 <font>
+                                    <Font name="Garamond" size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="40.0" />
+                           </VBox.margin>
+                        </VBox>
+                        <TextFlow textAlignment="CENTER">
+                           <children>
+                              <JFXButton fx:id="signupBtn" buttonType="RAISED" onAction="#showSignupPart" ripplerFill="BLACK" style="-fx-background-color: yellow;" text="Sign up">
+                                 <font>
+                                    <Font name="Garamond" size="24.0" />
+                                 </font>
+                              </JFXButton>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="40.0" />
+                           </VBox.margin>
+                        </TextFlow>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <StackPane fx:id="fieldForm" layoutX="170.0" layoutY="80.0" prefHeight="430.0" prefWidth="330.0">
+               <children>
+                  <VBox fx:id="signupField" opacity="0.0" prefHeight="430.0" prefWidth="330.0" style="-fx-background-color: white;">
+                     <children>
+                        <TextFlow prefHeight="50.0" prefWidth="330.0" style="-fx-background-color: #009688;" textAlignment="CENTER">
+                           <children>
+                              <Label text="Sign up">
+                                 <font>
+                                    <Font name="Garamond" size="36.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </TextFlow>
+                        <GridPane hgap="5.0" vgap="20.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <TextFlow>
+                                 <children>
+                                    <JFXTextField fx:id="tFUsername1" focusColor="WHITE" labelFloat="true" maxWidth="330.0" minWidth="320.0" prefHeight="52.0" prefWidth="330.0" promptText="Enter username" style="-fx-focus-color: black;" unFocusColor="WHITE">
+                                       <font>
+                                          <Font name="Garamond" size="24.0" />
+                                       </font>
+                                    </JFXTextField>
+                                 </children>
+                              </TextFlow>
+                              <TextFlow GridPane.rowIndex="1">
+                                 <children>
+                                    <JFXTextField fx:id="tFEmail" focusColor="WHITE" labelFloat="true" maxWidth="330.0" minWidth="320.0" prefHeight="52.0" prefWidth="330.0" promptText="Enter email" style="-fx-focus-color: black;" unFocusColor="WHITE">
+                                       <font>
+                                          <Font name="Garamond" size="24.0" />
+                                       </font>
+                                    </JFXTextField>
+                                 </children>
+                              </TextFlow>
+                              <TextFlow GridPane.rowIndex="2">
+                                 <children>
+                                    <JFXPasswordField fx:id="pFPassword1" focusColor="WHITE" labelFloat="true" maxWidth="330.0" minWidth="320.0" prefHeight="52.0" prefWidth="330.0" promptText="Enter password" style="-fx-focus-color: black;" unFocusColor="WHITE">
+                                       <font>
+                                          <Font name="Garamond" size="24.0" />
+                                       </font>
+                                    </JFXPasswordField>
+                                 </children>
+                              </TextFlow>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="70.0" />
+                           </VBox.margin>
+                        </GridPane>
+                        <TextFlow>
+                           <children>
+                              <Label fx:id="comment1">
+                                 <font>
+                                    <Font name="Garamond" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="20.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets left="15.0" />
+                           </padding>
+                        </TextFlow>
+                        <TextFlow textAlignment="CENTER">
+                           <children>
+                              <JFXButton fx:id="createAccount" buttonType="RAISED" onAction="#createAccount" ripplerFill="BLACK" style="-fx-background-color: yellow;" text="Create account">
+                                 <font>
+                                    <Font name="Garamond" size="24.0" />
+                                 </font>
+                              </JFXButton>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </TextFlow>
+                     </children>
+                  </VBox>
+                  <VBox fx:id="loginField" prefHeight="430.0" prefWidth="330.0" style="-fx-background-color: white;">
+                     <children>
+                        <TextFlow prefHeight="50.0" prefWidth="320.0" style="-fx-background-color: #009688;" textAlignment="CENTER">
+                           <children>
+                              <Label text="Login">
+                                 <font>
+                                    <Font name="Garamond" size="36.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </TextFlow>
+                        <GridPane hgap="5.0" vgap="10.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <TextFlow prefWidth="320.0">
+                                 <children>
+                                    <JFXTextField fx:id="tFUsername" focusColor="WHITE" labelFloat="true" maxWidth="330.0" minWidth="320.0" prefHeight="52.0" prefWidth="330.0" promptText="Enter username" style="-fx-focus-color: black;" unFocusColor="WHITE">
+                                       <font>
+                                          <Font name="Garamond" size="24.0" />
+                                       </font>
+                                    </JFXTextField>
+                                 </children>
+                              </TextFlow>
+                              <TextFlow GridPane.rowIndex="2">
+                                 <children>
+                                    <JFXPasswordField fx:id="pFPassword" focusColor="WHITE" labelFloat="true" maxWidth="330.0" minWidth="320.0" prefHeight="52.0" prefWidth="330.0" promptText="Enter password" style="-fx-focus-color: black;" unFocusColor="WHITE">
+                                       <font>
+                                          <Font name="Garamond" size="24.0" />
+                                       </font>
+                                    </JFXPasswordField>
+                                 </children>
+                              </TextFlow>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="70.0" />
+                           </VBox.margin>
+                        </GridPane>
+                        <TextFlow>
+                           <children>
+                              <Label fx:id="comment">
+                                 <font>
+                                    <Font name="Garamond" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <padding>
+                              <Insets left="15.0" />
+                           </padding>
+                        </TextFlow>
+                        <JFXCheckBox fx:id="loginCheckBox" text="Remember me" unCheckedColor="BLACK">
+                           <font>
+                              <Font name="Garamond" size="18.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="5.0" top="20.0" />
+                           </VBox.margin>
+                        </JFXCheckBox>
+                        <TextFlow textAlignment="CENTER">
+                           <children>
+                              <StackPane>
+                                 <children>
+                                    <JFXSpinner fx:id="spinner" opacity="0.0" />
+                                    <JFXButton fx:id="loginBtn" buttonType="RAISED" onAction="#goToHomePage" ripplerFill="BLACK" style="-fx-background-color: yellow;" text="Login">
+                                       <font>
+                                          <Font name="Garamond" size="24.0" />
+                                       </font>
+                                    </JFXButton>
+                                 </children>
+                              </StackPane>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="30.0" />
+                           </VBox.margin>
+                        </TextFlow>
+                     </children>
+                  </VBox>
+               </children>
+            </StackPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
