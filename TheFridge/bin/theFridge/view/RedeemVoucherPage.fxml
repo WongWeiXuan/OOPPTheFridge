@@ -171,12 +171,12 @@
                            <children>
                               <VBox alignment="CENTER">
                                  <children>
-                                    <Label text="Choose Your Vouchers!" textFill="#e91e63">
+                                    <Label text="Choose Your 10% Off Vouchers!" textFill="#e91e63">
                                        <font>
                                           <Font name="Garamond" size="45.0" />
                                        </font>
                                     </Label>
-                                    <Label text="Click to send a barcode to your email" textFill="#e91e63">
+                                    <Label text="Click to send a barcode or a promo code to your email" textFill="#e91e63">
                                        <font>
                                           <Font name="Garamond" size="24.0" />
                                        </font>
@@ -185,12 +185,12 @@
                               </VBox>
                               <VBox alignment="CENTER">
                                  <children>
-                                    <Label text="Your total points: ">
+                                    <Label text="Your total points: " textFill="#e91e63">
                                        <font>
                                           <Font name="Garamond Bold" size="36.0" />
                                        </font>
                                     </Label>
-                                    <Label fx:id="totalPoints" opacity="0.0">
+                                    <Label fx:id="totalPoints" opacity="0.0" textFill="#e91e63">
                                        <font>
                                           <Font name="Garamond Bold" size="36.0" />
                                        </font>

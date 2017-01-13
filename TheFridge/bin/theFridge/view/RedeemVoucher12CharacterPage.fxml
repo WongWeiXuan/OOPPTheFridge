@@ -187,6 +187,23 @@
                                     <Insets top="70.0" />
                                  </VBox.margin>
                               </Label>
+                              <StackPane onMouseEntered="#showBorder" onMouseExited="#hideBorder">
+                                 <VBox.margin>
+                                    <Insets top="20.0" />
+                                 </VBox.margin>
+                                 <children>
+                                    <Label fx:id="promoCodeEmail" alignment="CENTER" prefHeight="50.0" prefWidth="400.0" text="Click to send promo code to email" textFill="#e91e63">
+                                       <font>
+                                          <Font name="Garamond" size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="promoCodeEmailBorder" alignment="CENTER" prefHeight="50.0" prefWidth="400.0" style="-fx-border-color: #C2185B; -fx-border-radius: 10;" textAlignment="CENTER" visible="false">
+                                       <font>
+                                          <Font name="Garamond" size="24.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </StackPane>
                            </children>
                         </VBox>
                         <VBox alignment="TOP_RIGHT" prefWidth="960.0">

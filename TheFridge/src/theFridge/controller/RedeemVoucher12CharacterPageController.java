@@ -46,6 +46,10 @@ public class RedeemVoucher12CharacterPageController {
 	private JFXButton redeemBtn;
 	@FXML
 	private Label codeLabel;
+	@FXML
+	private Label promoCodeEmail;
+	@FXML
+	private Label promoCodeEmailBorder;
 	
 	@FXML
 	public void generateCode(ActionEvent event) {
@@ -59,8 +63,19 @@ public class RedeemVoucher12CharacterPageController {
 		}
 		String output = sb.toString();
 		codeLabel.setText(output);
+		promoCodeEmail.setVisible(true);
 		
 		codeGenerator.setDisable(true);
+	}
+	
+	@FXML
+	public void showBorder(MouseEvent event) {
+		promoCodeEmailBorder.setVisible(true);
+	}
+	
+	@FXML
+	public void hideBorder(MouseEvent event) {
+		promoCodeEmailBorder.setVisible(false);
 	}
 	
 	@FXML
