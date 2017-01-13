@@ -12,19 +12,17 @@ import java.util.Scanner;
 import theFridge.model.SignupModel;
 
 public class SignupDAO {
-	private static final String PERSON_FILE = "SignupPerson.txt";
 	private File dataFile;
 	
 	public SignupDAO() {
-		Path dPath = FileSystems.getDefault().getPath("/theFridge/file/",PERSON_FILE);
-		dataFile = new File(dPath.toString()); 
+		dataFile = new File("src/theFridge/file/SignupPerson.txt"); 
 	}
 	
 	public ArrayList<SignupModel> getAllPerson() {
 		Scanner in;
 		String record = null;
 		String[] fields;
-		ArrayList<SignupModel> Person = new ArrayList<SignupModel>();
+		ArrayList<SignupModel> personList = new ArrayList<SignupModel>();
 		try {
 			in = new Scanner(dataFile);
 			while (in.hasNextLine()) {
@@ -34,20 +32,20 @@ public class SignupDAO {
 				String email = fields[1];
 				String password = fields[2];
 				SignupModel Someone = new SignupModel(username, email, password);
-				Person.add(Someone);
+				personList.add(Someone);
 			}
 			in.close();
 		} catch (FileNotFoundException e) {	
 			System.out.println("No record found!");
 			//e.printStackTrace();
 		}
-		return Person;
+		return personList;
 	}
 
 	public SignupModel getPerson(String username) {
-		ArrayList<SignupModel> Person = getAllPerson();
+		ArrayList<SignupModel> personList = getAllPerson();
 		SignupModel Someone = null;
-		for (SignupModel s : Person) {
+		for (SignupModel s : personList) {
 			if (s.getUsername().equals(username)){
 				Someone = s;
 				break;
@@ -56,39 +54,38 @@ public class SignupDAO {
 		return Someone;
 	}
 	
-	private void synToFile(ArrayList<SignupModel> Person) {
-		if (Person == null)
+	private void synToFile(ArrayList<SignupModel> personList) {
+		if (personList == null)
 			return;
 		
 		try {
 			FileWriter out = new FileWriter(dataFile);
-			for (SignupModel s : Person) {
+			for (SignupModel s : personList) {
 				out.append(s.toString() + "\n" );
 			}
 			out.close();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 	
 	public boolean createPerson(SignupModel Someone) {
 		boolean existing = false;
-		ArrayList<SignupModel> Person = getAllPerson();
-		for (SignupModel s : Person) {
+		ArrayList<SignupModel> personList = getAllPerson();
+		for (SignupModel s : personList) {
 			if (s.getUsername().equals(Someone.getUsername())){
 				existing = true;
 				break;
 			}
 		}
 		if (!existing) {
-			Person.add(Someone);
-			synToFile(Person);
+			personList.add(Someone);
+			synToFile(personList);
 		}
 		return !existing;
 	}
 	
-	public void update(SignupModel Someone) {
+	public void updatePerson(SignupModel Someone) {
 		ArrayList<SignupModel> Person = getAllPerson();
 		for (int i = 0; i < Person.size(); i++) {
 			SignupModel s = Person.get(i);
@@ -105,7 +102,7 @@ public class SignupDAO {
 		System.out.println("\nFirst user registered.");
 		System.out.println("========================================");
 		
-		SignupModel Someone = new SignupModel("Wei Xuan", "ILoveMen", "Email");
+		SignupModel Someone = new SignupModel("Wei Xuan", "ILoveStraightMen", "Email");
 		signupDAO.createPerson(Someone);
 		
 		System.out.println("\nSecond user registered.");

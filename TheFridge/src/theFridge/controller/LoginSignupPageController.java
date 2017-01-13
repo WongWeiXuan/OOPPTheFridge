@@ -80,7 +80,6 @@ public class LoginSignupPageController {
 	private VBox signupField; // Initial opacity = 0
 	// =============================================================
 	
-	//private ArrayList<SignupModel> Person;
 	
 	/*
 	@FXML
@@ -94,12 +93,23 @@ public class LoginSignupPageController {
 		stage.setIconified(true);
     }
     */
+	
+	/*public void setPersonList(ArrayList<SignupModel> personList) {
+		if (personList !=null || personList.size() > 0) {
+			this.personList = personList;
+		}
+		
+	}*/
+	
 	@FXML
 	public void goToHomePage(ActionEvent event) throws IOException, ParseException {
+		SignupDAO signupDAO = new SignupDAO();
+		ArrayList<SignupModel> personList = signupDAO.getAllPerson();
 		String Username = tFUsername.getText();
 		String Password = pFPassword.getText();
 		
 		
+		/*
 		JSONParser parser = new JSONParser();
 		
 		Object obj = parser.parse(new FileReader("src/theFridge/file/people.json"));
@@ -108,6 +118,7 @@ public class LoginSignupPageController {
 		JSONArray usernameArray = (JSONArray) jsonObject.get("Username"); 
 		
 		JSONArray passwordArray = (JSONArray) jsonObject.get("Password"); 
+		*/
 		
 		// If username is empty
 		if (Username.equals("") || Username.equals(null)) {
@@ -118,9 +129,8 @@ public class LoginSignupPageController {
 			comment.setText("Please fill in your password!");
 		}
 		else if (!Username.equals("") || !Username.equals(null) && !Password.equals("") || !Password.equals(null)) {
-			// Checking JSON username & password
-			for (int i = 0; i < usernameArray.size(); i++) {
-				if (Username.equals(usernameArray.get(i)) && Password.equals(passwordArray.get(i))) {
+			for (SignupModel s : personList) {
+				if (Username.equals(s.getUsername()) && Password.equals(s.getPassword())) {
 					spinner.setOpacity(1);
 					loginBtn.setOpacity(0);
 					
@@ -166,36 +176,26 @@ public class LoginSignupPageController {
 		}
 	}
 	
-	/*public void setPersonList(ArrayList<SignupModel> Person) {
-		if (Person != null || Person.size() > 0 ) {
-			this.Person = Person;
-		}
-	}*/
-	
-	
-	
 	@FXML
 	void createAccount(ActionEvent event) throws IOException, ParseException, ParseException{
-		String Username = tFUsername.getText();
-		String Password = pFPassword.getText();
+		System.out.println("eneter signup");
+		String Username = tFUsername1.getText();
+		String Password = pFPassword1.getText();
 		String Email = tFEmail.getText();
 		
 		if (Username.equals("") || Username.equals(null)) {
 			comment1.setText("Please fill in your username!");
 		}
 		else if (Password.equals("") || Password.equals(null)) {
+
 			comment1.setText("Please fill in your password!");
 		}
 		else if (Email.equals("") || Email.equals(null)) {
 			comment1.setText("Please fill in your email!");
 		}
 		else {
-			
-			SignupDAO signupDAO = new SignupDAO();
-			SignupModel Someone1 = new SignupModel(Username, Password, Email);
-			signupDAO.createPerson(Someone1);
-			//SignupModel.getAllPerson();
-			
+			SignupModel Someone = new SignupModel(Username, Password, Email);
+			Someone.createPerson();
 			
 			/*
 			JSONParser parser = new JSONParser();
@@ -228,12 +228,13 @@ public class LoginSignupPageController {
 			}
 			
 			*/
+			
 		}
-		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/LoginSignupPage.fxml"));
-		
-		stage.setScene(new Scene(root));
- 	    stage.show();
+			Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+			Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/LoginSignupPage.fxml"));
+			
+			stage.setScene(new Scene(root));
+	 	    stage.show();
 	}
 	
 	@FXML
