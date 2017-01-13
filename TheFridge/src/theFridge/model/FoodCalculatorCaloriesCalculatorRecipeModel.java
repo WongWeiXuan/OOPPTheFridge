@@ -6,6 +6,10 @@ import java.util.ArrayList;
 import theFridge.DAO.FoodCalculatorCaloriesCalculatorRecipeDAO;
 
 public class FoodCalculatorCaloriesCalculatorRecipeModel {
+	/*
+	 * 	BMR = 10 * weight(kg) + 6.25 * height(cm) - 5 * age(y) + 5         (man)
+	 *	BMR = 10 * weight(kg) + 6.25 * height(cm) - 5 * age(y) - 161     (woman)
+	 */
 	private String meal;
 	private int targetCalories;
 	

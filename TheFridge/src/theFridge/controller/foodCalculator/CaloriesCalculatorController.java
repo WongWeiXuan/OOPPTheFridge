@@ -47,24 +47,8 @@ public class CaloriesCalculatorController {
 	
 	@FXML
 	public void initialize() throws IOException{
-		VBox vbox = null;
-		String meals = CaloriesCalculatorInputController.NumOfMeals;
-		if(meals == "Breakfast"){
-			Node breakfast = (Node)FXMLLoader.load(getClass().getResource("/theFridge/view/foodCalculator/FoodCalculatorCaloriesCalculatorRecipe.fxml"));
-			vbox = new VBox(breakfast);	
-		}
-		else if(meals == "Lunch"){
-			Node lunch = (Node)FXMLLoader.load(getClass().getResource("/theFridge/view/foodCalculator/LunchCalories.fxml"));
-			vbox = new VBox(lunch);	
-		}
-		else if(meals == "Dinner"){
-			Node dinner = (Node)FXMLLoader.load(getClass().getResource("/theFridge/view/foodCalculator/DinnerCalories.fxml"));
-			vbox = new VBox(dinner);	
-		}
-		else if(meals == "Snacks"){
-			Node snack = (Node)FXMLLoader.load(getClass().getResource("/theFridge/view/foodCalculator/LunchCalories.fxml"));
-			vbox = new VBox(snack);
-		}
+		Node breakfast = (Node)FXMLLoader.load(getClass().getResource("/theFridge/view/foodCalculator/FoodCalculatorCaloriesCalculatorRecipe.fxml"));
+		VBox vbox = new VBox(breakfast);	
 		
 		//~Receives methodB from FoodCalculatorCaloriesCalculatorRecipe
 		vboxContainer.getChildren().add(vbox);
