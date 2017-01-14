@@ -41,7 +41,11 @@ public class ShoppingListAddPageController {
    
     @FXML
     void Close(MouseEvent event) {
-    	stage.close();
+    	synchronized(this){
+	    	stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+	    	stage.close();
+	    	notify();
+    	}
     }
 
 	@FXML 

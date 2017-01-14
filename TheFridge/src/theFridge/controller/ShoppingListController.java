@@ -77,213 +77,28 @@ public class ShoppingListController {
 	
 	@FXML
 	public void initialize() throws FileNotFoundException{
-		//Stock listView
-		File sklt = new File("src/theFridge/file/StockList.txt");
-		Scanner sc = new Scanner(sklt);
-		ArrayList<String> sl = new ArrayList<String>();
-		while(sc.hasNextLine()){
-			sl.add(sc.nextLine());
-		}
-		sc.close();
-		
 		ShoppingListModel first = new ShoppingListModel();
-		first.createTitle(StocklistView);
+		first.createTitle(StocklistView, ListlistView);
+		first.displayStocks(StocklistView, Popup);
+		first.displayShopping(ListlistView, Popup1);
 		
-		for(String a:sl){
-			Scanner in = new Scanner(a);
-			int i = 0;
-			HBox hbox = new HBox();
-			in.useDelimiter("~");
-			while(in.hasNext()){
-				Label lbl = new Label(in.next());
-				hbox.getChildren().add(lbl);
-				if(i == 0){
-					lbl.setMinWidth(500);
-					lbl.setPrefWidth(500);
-					lbl.setAlignment(Pos.CENTER_LEFT);
-				}else{
-					lbl.setMinWidth(100);
-					lbl.setPrefWidth(100);
-					lbl.setAlignment(Pos.CENTER);
-				}
-				hbox.setOnMouseClicked(new EventHandler<MouseEvent>() {
-					public void handle(MouseEvent event) {
-						if(event.getButton() == MouseButton.SECONDARY){
-							Popup.show(JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.RIGHT);
-						}
-					}
-		        });
-				i++;
-			}
-			StocklistView.getItems().add(hbox);
-			in.close();
-		}
-		//List listView
-		ArrayList<String> sl1 = new ArrayList<String>();
-		sl1.add("Banana~2");
-		sl1.add("Carrot~1");
-		
-		HBox HBoxTitle1 = new HBox();
-		Label lbl11 = new Label("Shopping List");
-		lbl11.setMinWidth(200);
-		lbl11.setPrefWidth(200);
-		lbl11.setAlignment(Pos.CENTER_LEFT);
-		Label lbl12 = new Label("Amount");
-		lbl12.setMinWidth(100);
-		lbl12.setPrefWidth(100);
-		lbl12.setAlignment(Pos.CENTER);
-		HBoxTitle1.getChildren().addAll(lbl11, lbl12);
-		HBoxTitle1.setPadding(new Insets(10, 10, 10, 10));
-		HBox.setHgrow(lbl11, Priority.ALWAYS);
-		ListlistView.getItems().add(HBoxTitle1);
-		
-		for(String a:sl1){
-			Scanner in = new Scanner(a);
-			int i = 0;
-			HBox hbox = new HBox();
-			in.useDelimiter("~");
-			while(in.hasNext()){
-				Label lbl = new Label(in.next());
-				hbox.getChildren().add(lbl);
-				if(i == 0){
-					lbl.setMinWidth(200);
-					lbl.setPrefWidth(200);
-					lbl.setAlignment(Pos.CENTER_LEFT);
-					HBox.setHgrow(lbl, Priority.ALWAYS);
-				}else{
-					lbl.setMinWidth(100);
-					lbl.setPrefWidth(100);
-					lbl.setAlignment(Pos.CENTER);
-				}
-				hbox.setOnMouseClicked(new EventHandler<MouseEvent>() {
-					public void handle(MouseEvent event) {
-						if(event.getButton() == MouseButton.SECONDARY){
-							Popup1.show(JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.RIGHT);
-						}
-					}
-		        });
-				i++;
-			}
-			ListlistView.getItems().add(hbox);
-			in.close();
-		}
-		
-		startPopup();
-		startPopup1();
-	}
-	
-	private void startPopup() {
-		Label lbl1 = new Label("Edit");
-		lbl1.setMinWidth(100);
-		lbl1.setPrefWidth(100);
-		lbl1.setPadding(new Insets(10));
-		//Edit Items
-		lbl1.setOnMouseClicked(new EventHandler<MouseEvent>() {
-			public void handle(MouseEvent event) {
-				
-			}
-        });
-		Label lbl2 = new Label("Delete");
-		lbl2.setMinWidth(100);
-		lbl2.setPrefWidth(100);
-		lbl2.setPadding(new Insets(10));
-		//Remove Items
-		lbl2.setOnMouseClicked(new EventHandler<MouseEvent>() {
-			public void handle(MouseEvent event) {
-				int selectedIdx = StocklistView.getSelectionModel().getSelectedIndex();
-				if(selectedIdx != 0){
-					StocklistView.getItems().remove(selectedIdx);
-				}
-				Popup.close();
-			}
-        });
-		VBox vbox = new VBox(lbl1, lbl2);
-		Popup.setContent(vbox);
-		Popup.setSource(StocklistView);
-	}
-	
-	private void startPopup1() {
-		Label lbl1 = new Label("Edit");
-		lbl1.setMinWidth(100);
-		lbl1.setPrefWidth(100);
-		lbl1.setPadding(new Insets(10));
-		//Edit Items
-		lbl1.setOnMouseClicked(new EventHandler<MouseEvent>() {
-			public void handle(MouseEvent event) {
-				
-			}
-        });
-		Label lbl2 = new Label("Delete");
-		lbl2.setMinWidth(100);
-		lbl2.setPrefWidth(100);
-		lbl2.setPadding(new Insets(10));
-		//Remove Items
-		lbl2.setOnMouseClicked(new EventHandler<MouseEvent>() {
-			public void handle(MouseEvent event) {
-				int selectedIdx = ListlistView.getSelectionModel().getSelectedIndex();
-				if(selectedIdx != 0){
-					ListlistView.getItems().remove(selectedIdx);
-				}
-				Popup1.close();
-			}
-        });
-		VBox vbox = new VBox(lbl1, lbl2);
-		Popup1.setContent(vbox);
-		Popup1.setSource(ListlistView);
+		first.startPopup(StocklistView, Popup, ListlistView, Popup1);
 	}
 	
 	@FXML
-	public void addItems(ActionEvent event) throws IOException{
-		Stage stage = new Stage();
-		Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/ShoppingListAddPage.fxml"));
-		stage.setScene(new Scene(root));
-		stage.initStyle(StageStyle.UNDECORATED);
-		stage.show();
-		
-		if(event.getSource() == addStocks){
-			HBox hbox = new HBox();
-			Label lbl1 = new Label("Corn");
-			lbl1.setMinWidth(500);
-			lbl1.setPrefWidth(500);
-			lbl1.setAlignment(Pos.CENTER_LEFT);
-			Label lbl2 = new Label("3");
-			lbl2.setMinWidth(100);
-			lbl2.setPrefWidth(100);
-			lbl2.setAlignment(Pos.CENTER);
-			Label lbl3 = new Label("2");
-			lbl3.setMinWidth(100);
-			lbl3.setPrefWidth(100);
-			lbl3.setAlignment(Pos.CENTER);
-			hbox.getChildren().addAll(lbl1, lbl2, lbl3);
-			StocklistView.getItems().add(hbox);
-			hbox.setOnMouseClicked(new EventHandler<MouseEvent>() {
-				public void handle(MouseEvent event) {
-					if(event.getButton() == MouseButton.SECONDARY){
-						Popup.show(JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.RIGHT);
-					}
-				}
-	        });
-		}
-		else if (event.getSource() == addList){
-			HBox hbox = new HBox();
-			Label lbl1 = new Label("Corn");
-			lbl1.setMinWidth(500);
-			lbl1.setPrefWidth(500);
-			lbl1.setAlignment(Pos.CENTER_LEFT);
-			Label lbl2 = new Label("3");
-			lbl2.setMinWidth(100);
-			lbl2.setPrefWidth(100);
-			lbl2.setAlignment(Pos.CENTER);
-			hbox.getChildren().addAll(lbl1, lbl2);
-			ListlistView.getItems().add(hbox);
-			hbox.setOnMouseClicked(new EventHandler<MouseEvent>() {
-				public void handle(MouseEvent event) {
-					if(event.getButton() == MouseButton.SECONDARY){
-						Popup1.show(JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.RIGHT);
-					}
-				}
-	        });
-		}
+	public void addItems(ActionEvent event) throws IOException, InterruptedException{
+		ShoppingListModel a = new ShoppingListModel();
+		a.start();
+		synchronized(a){
+            try{
+                System.out.println("Waiting for b to complete...");
+                a.wait();
+            }catch(InterruptedException e){
+                e.printStackTrace();
+            }
+ 
+            System.out.println("Continuing");
+        }
 	}
 	
 	@FXML 
