@@ -15,8 +15,8 @@ public class User {
 		private String age;
 		private ArrayList promoCode;
 		
-		public User(String name, String username, String password, String email, String country, String weight,
-				String height, String age) {
+		public User(String name, String username, String password, String email, String country, String height,
+				String weight, String age) {
 			super();
 			this.username = username;
 			this.password = password;

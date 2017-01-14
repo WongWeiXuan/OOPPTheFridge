@@ -1,4 +1,5 @@
-Wei Xuan;ILoveMen;Email
-Xuan Zheng;Email;BlueWaffles
+Wei Xuan;Email;ILoveMen
+Xuan Zheng;BlueWaffles;Email
 2;2;2
 xxx;xxx;xxx
+ds;ds;ds

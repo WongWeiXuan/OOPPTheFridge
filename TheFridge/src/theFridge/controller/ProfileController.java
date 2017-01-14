@@ -119,6 +119,10 @@ public class ProfileController {
 		UNLabel.setText(uu.getUsername());
 		PassLabel.setText(uu.getPassword());
 		EMLabel.setText(uu.getEmail());
+		LLabel.setText(uu.getCountry());
+		AgeLabel.setText(uu.getAge());
+		HeightLabel.setText(uu.getHeight());
+		WeightLabel.setText(uu.getWeight());
 		
 	}
     
