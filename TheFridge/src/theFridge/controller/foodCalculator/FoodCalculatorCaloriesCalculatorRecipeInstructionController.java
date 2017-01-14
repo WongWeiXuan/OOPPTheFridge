@@ -11,7 +11,6 @@ public class FoodCalculatorCaloriesCalculatorRecipeInstructionController {
 	
 	@FXML
 	public void initialize(){
-		ImageView imageviewer = new ImageView(new Image("src/"))
-		HBox hbox = new HBox();
+		
 	}
 }

@@ -30,6 +30,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
+import theFridge.model.ShoppingListModel;
 import theFridge.model.ShoppingListQRCodePageModel;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -85,22 +86,8 @@ public class ShoppingListController {
 		}
 		sc.close();
 		
-		HBox HBoxTitle = new HBox();
-		Label lbl1 = new Label("Stock");
-		lbl1.setMinWidth(500);
-		lbl1.setPrefWidth(500);
-		lbl1.setAlignment(Pos.CENTER_LEFT);
-		Label lbl2 = new Label("Amount");
-		lbl2.setMinWidth(100);
-		lbl2.setPrefWidth(100);
-		lbl2.setAlignment(Pos.CENTER);
-		Label lbl3 = new Label("Minimum");
-		lbl3.setMinWidth(100);
-		lbl3.setPrefWidth(100);
-		lbl3.setAlignment(Pos.CENTER);
-		HBoxTitle.getChildren().addAll(lbl1, lbl2, lbl3);
-		HBoxTitle.setPadding(new Insets(10, 10, 10, 10));
-		StocklistView.getItems().add(HBoxTitle);
+		ShoppingListModel first = new ShoppingListModel();
+		first.createTitle(StocklistView);
 		
 		for(String a:sl){
 			Scanner in = new Scanner(a);
