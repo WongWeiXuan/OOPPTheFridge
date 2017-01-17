@@ -16,6 +16,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import theFridge.model.ShoppingListModel;
 import theFridge.model.StockModel;
 
 public class ShoppingListAddPageController {
@@ -60,8 +61,12 @@ public class ShoppingListAddPageController {
 
     @FXML
     void closeAndShow(ActionEvent event) {
+    	String name = nameField.getText();
+    	int amount = amountSpinner.getValue();
+    	StockModel s = new StockModel(name, amount, 1);
     	
-    	
+		model.addStocks(model);
+		stage.close();
     }
 
     @FXML
