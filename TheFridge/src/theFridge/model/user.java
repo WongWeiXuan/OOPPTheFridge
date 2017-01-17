@@ -34,7 +34,7 @@ public class User {
 		}
 		
 		public User(String name, String username, String password, String email, String country, String height,
-				String weight, String age, int totalPoints, ArrayList<String> promoCode) {
+				String weight, String age/*, int totalPoints, ArrayList<String> promoCode*/) {
 			super();
 			this.username = username;
 			this.password = password;

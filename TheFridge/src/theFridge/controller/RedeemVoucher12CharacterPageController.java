@@ -17,6 +17,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -47,6 +48,8 @@ public class RedeemVoucher12CharacterPageController {
 	@FXML
 	private Label codeLabel;
 	@FXML
+	private StackPane sendPromoLabel;
+	@FXML
 	private Label promoCodeEmail;
 	@FXML
 	private Label promoCodeEmailBorder;
@@ -63,7 +66,7 @@ public class RedeemVoucher12CharacterPageController {
 		}
 		String output = sb.toString();
 		codeLabel.setText(output);
-		promoCodeEmail.setVisible(true);
+		sendPromoLabel.setVisible(true);
 		
 		codeGenerator.setDisable(true);
 	}
