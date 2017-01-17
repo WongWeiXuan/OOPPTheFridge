@@ -14,8 +14,10 @@ import java.io.IOException;
 import java.util.Scanner;
 
 import theFridge.DAO.ProfileDAO;
+import theFridge.DAO.SignupDAO;
 import theFridge.controller.ProfileController;
 import theFridge.model.First;
+import theFridge.model.SignupModel;
 import theFridge.model.User;
 
 import com.jfoenix.controls.JFXButton;
@@ -312,7 +314,7 @@ public class Profile2Controller {
 		User uu = new User();
 		uu = profileDAO.getUser(n);
 		uu.setUsername(username);
-		System.out.println(uu.getUsername());
+		System.out.println("Entered username: " + uu.getUsername());
 		profileDAO.updateUser(uu);
 		UNText.setText("");
 	}
@@ -338,7 +340,14 @@ public class Profile2Controller {
 		uu = profileDAO.getUser(n);
 		uu.setPassword(password);
 		profileDAO.updateUser(uu);
+		SignupDAO u = new SignupDAO();
+		SignupModel sg = new SignupModel();
+		sg = SignupDAO.getPerson(n);
+		sg.setPassword(password);
+		sg.updatePerson();
+		//u.updatePerson(sg);
 		PassText.setText("");
+		
 	}
 	// Event Listener on JFXButton[#btnCancel2].onAction
 	@FXML

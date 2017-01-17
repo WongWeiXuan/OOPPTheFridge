@@ -24,15 +24,14 @@
             </HBox>
             <HBox alignment="CENTER" spacing="20.0" VBox.vgrow="ALWAYS">
                <children>
-                  <JFXTextField prefWidth="230.0" />
-                  <Spinner prefHeight="31.0" prefWidth="70.0" />
-                  <Spinner prefHeight="31.0" prefWidth="70.0" />
+                  <JFXTextField fx:id="nameField" prefWidth="230.0" />
+                  <Spinner fx:id="amountSpinner" prefHeight="31.0" prefWidth="70.0" />
                </children>
             </HBox>
             <HBox alignment="CENTER" spacing="40.0">
                <children>
                   <JFXButton onMouseClicked="#Close" style="-fx-background-color: #3c71dd;" text="Cancel" textFill="WHITE" />
-                  <JFXButton style="-fx-background-color: #3c71dd;" text="Confirm" textFill="WHITE" />
+                  <JFXButton fx:id="confirm" onAction="#closeAndShow" style="-fx-background-color: #3c71dd;" text="Confirm" textFill="WHITE" />
                </children>
             </HBox>
          </children>

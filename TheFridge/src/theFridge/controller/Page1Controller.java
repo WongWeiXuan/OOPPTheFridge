@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 import javax.swing.JComboBox;
 
 import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXListView;
 
 import java.io.IOException;
 import javafx.animation.KeyFrame;
@@ -69,6 +70,8 @@ public class Page1Controller implements Initializable{
     private VBox prizeScene;
     @FXML
     private JFXComboBox<String> choice;
+    @FXML
+    private JFXListView<String> listView;
     
 
 	@FXML

@@ -1,0 +1,12 @@
+Bread
+Cereal(Ready-to-eat)
+Cooked Cereal, pasta and rice
+Vegetable
+Non-leafy Vegetable and vegetable juice
+Fruits
+Canned Fruits
+Meat, Poultry, Fish
+Dry Beans
+Nuts
+Milk and Yogurt
+Cheese

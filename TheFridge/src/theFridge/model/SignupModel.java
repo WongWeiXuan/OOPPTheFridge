@@ -9,6 +9,10 @@ public class SignupModel {
 	private String password;
 	private String email;
 	
+	public SignupModel(){
+		super();
+	}
+	
 	public SignupModel(String username, String email, String password) {
 		super();
 		this.username = username;
@@ -42,7 +46,7 @@ public class SignupModel {
 	
 	@Override
 	public String toString() {
-		return username + ";" + password + ";"+ email;
+		return username + ";" + email + ";"+ password;
 	}
 	
 	public static ArrayList<SignupModel> getAllPerson() {
