@@ -21,12 +21,23 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import theFridge.DAO.ShoppingListDAO;
-import theFridge.controller.ShoppingListAddPageController;
 
 public class ShoppingListModel {
 	public static int numOfPeople;
+	JFXListView<HBox>StocklistView;
+	JFXPopup Popup;
+	JFXListView<HBox>ListlistView;
+	JFXPopup Popup1;
 	
-	public void createTitle(JFXListView<HBox>StocklistView, JFXListView<HBox>ListlistView){
+	public ShoppingListModel(JFXListView<HBox> stocklistView, JFXPopup popup, JFXListView<HBox> listlistView,
+			JFXPopup popup1) {
+		StocklistView = stocklistView;
+		Popup = popup;
+		ListlistView = listlistView;
+		Popup1 = popup1;
+	}
+
+	public void createTitle(){
 		HBox HBoxTitle = new HBox();
 		Label lbl1 = new Label("Current Stock");
 		lbl1.setMinWidth(500);
@@ -56,7 +67,7 @@ public class ShoppingListModel {
 		ListlistView.getItems().add(HBoxTitle1);
 	}
 	
-	public void displayStocks(JFXListView<HBox>StocklistView, JFXPopup Popup) throws FileNotFoundException{
+	public void displayStocks() throws FileNotFoundException{
 		ShoppingListDAO s = new ShoppingListDAO();
 		ArrayList<StockModel>stocklist = s.getAllStock();
 		for(StockModel m:stocklist){
@@ -86,7 +97,7 @@ public class ShoppingListModel {
 		}
 	}
 	
-	public void displayShopping(JFXListView<HBox>ListlistView, JFXPopup Popup1) throws FileNotFoundException{
+	public void displayShopping() throws FileNotFoundException{
 		ShoppingListDAO s = new ShoppingListDAO();
 		ArrayList<ListModel>listlist = s.getAllList(numOfPeople);
 		for(ListModel m:listlist){
@@ -112,7 +123,7 @@ public class ShoppingListModel {
 		}
 	}
 	
-	public void startPopup(JFXListView<HBox>StocklistView, JFXPopup Popup, JFXListView<HBox>ListlistView, JFXPopup Popup1){
+	public void startPopup(){
 		//Stock List...
 		Label lbl1 = new Label("Edit");
 		lbl1.setMinWidth(100);
@@ -172,36 +183,26 @@ public class ShoppingListModel {
 		Popup1.setSource(ListlistView);
 	}
 	
-	public void start() throws IOException, InterruptedException{
-		ShoppingListAddPageController b = new ShoppingListAddPageController();
-		synchronized(b){
-            try{
-            	Stage stage = new Stage();
-    			Parent root;
-    			root = FXMLLoader.load(getClass().getResource("/theFridge/view/ShoppingListAddPage.fxml"));
-    			stage.setScene(new Scene(root));
-    			stage.initStyle(StageStyle.UNDECORATED);
-    			stage.show();
-                b.wait();
-            }catch(InterruptedException e){
-                e.printStackTrace();
-            }
- 
-           notify();
-        }
+	public void showStage() throws IOException{
+		Stage stage = new Stage();
+		Parent root;
+		root = FXMLLoader.load(getClass().getResource("/theFridge/view/ShoppingListAddPage.fxml"));
+		stage.setScene(new Scene(root));
+		stage.initStyle(StageStyle.UNDECORATED);
+		stage.show();
 	}
 	
-	public void addStocks(JFXListView<HBox>StocklistView, JFXPopup Popup) throws FileNotFoundException{
+	public void addStocks(StockModel model) throws FileNotFoundException{
 		HBox hbox = new HBox();
-		Label lbl1 = new Label("Corn");
+		Label lbl1 = new Label(model.getName());
 		lbl1.setMinWidth(500);
 		lbl1.setPrefWidth(500);
 		lbl1.setAlignment(Pos.CENTER_LEFT);
-		Label lbl2 = new Label("3");
+		Label lbl2 = new Label(String.valueOf(model.getAmount()));
 		lbl2.setMinWidth(100);
 		lbl2.setPrefWidth(100);
 		lbl2.setAlignment(Pos.CENTER);
-		Label lbl3 = new Label("2");
+		Label lbl3 = new Label(String.valueOf(model.getServing()));
 		lbl3.setMinWidth(100);
 		lbl3.setPrefWidth(100);
 		lbl3.setAlignment(Pos.CENTER);
@@ -216,7 +217,7 @@ public class ShoppingListModel {
         });
 	}
 	
-	public void addShopping(JFXListView<HBox>ListlistView, JFXPopup Popup1) throws FileNotFoundException{
+	public void addShopping() throws FileNotFoundException{
 		HBox hbox = new HBox();
 		Label lbl1 = new Label("Corn");
 		lbl1.setMinWidth(400);

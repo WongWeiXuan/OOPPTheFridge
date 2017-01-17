@@ -77,28 +77,19 @@ public class ShoppingListController {
 	
 	@FXML
 	public void initialize() throws FileNotFoundException{
-		ShoppingListModel first = new ShoppingListModel();
-		first.createTitle(StocklistView, ListlistView);
-		first.displayStocks(StocklistView, Popup);
-		first.displayShopping(ListlistView, Popup1);
+		ShoppingListModel first = new ShoppingListModel(StocklistView, Popup, ListlistView, Popup1);
+		first.createTitle();
+		first.displayStocks();
+		first.displayShopping();
 		
-		first.startPopup(StocklistView, Popup, ListlistView, Popup1);
+		first.startPopup();
 	}
 	
 	@FXML
-	public void addItems(ActionEvent event) throws IOException, InterruptedException{
-		ShoppingListModel a = new ShoppingListModel();
-		a.start();
-		synchronized(a){
-            try{
-                System.out.println("Waiting for b to complete...");
-                a.wait();
-            }catch(InterruptedException e){
-                e.printStackTrace();
-            }
- 
-            System.out.println("Continuing");
-        }
+	public void addItems(ActionEvent event) throws IOException{
+		ShoppingListModel first = new ShoppingListModel(StocklistView, Popup, ListlistView, Popup1);
+		first.showStage();
+		first.addStocks();
 	}
 	
 	@FXML 
