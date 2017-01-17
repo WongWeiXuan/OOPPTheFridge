@@ -9,6 +9,10 @@ public class SignupModel {
 	private String password;
 	private String email;
 	
+	public SignupModel(){
+		super();
+	}
+	
 	public SignupModel(String username, String email, String password) {
 		super();
 		this.username = username;

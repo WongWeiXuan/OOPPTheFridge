@@ -8,6 +8,9 @@ public class FoodCompost {
 	private String foodName;
 	private String videoURL;
 	private String instruction;
+	public FoodCompost() {
+		super();
+	}
 	public FoodCompost(String foodName, String videoURL, String instruction) {
 		super();
 		this.foodName = foodName;

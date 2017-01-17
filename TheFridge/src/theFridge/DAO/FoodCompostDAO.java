@@ -13,11 +13,10 @@ import theFridge.model.FoodCompost;
 import theFridge.model.SignupModel;
 
 public class FoodCompostDAO {
-	private static final String Food_File="foodCompostData.txt";
 	private File dataFile;
 	
 	public FoodCompostDAO() {
-		Path dPath = FileSystems.getDefault().getPath("/theFridge/files",Food_File);
+		Path dPath = FileSystems.getDefault().getPath("src/theFridge/file/foodCompostData.txt");
      	dataFile=new File(dPath.toString());          
 	}
 	
@@ -102,6 +101,18 @@ public class FoodCompostDAO {
 	}
 	
 	public static void main(String[] args){
-		FoodCompostDAO foodcompostDAO= new 
+		FoodCompostDAO foodcompostDAO= new FoodCompostDAO();
+		FoodCompost c = new FoodCompost("chicken", "www.youtube.com", "first, cry");
+		foodcompostDAO.createFood(c);
+		ArrayList <FoodCompost> h = new ArrayList<FoodCompost>();
+		h = foodcompostDAO.getAllFood();
+		for(FoodCompost g:h){
+			System.out.println(g.getFoodName());
+			System.out.println(g.getVideoURL());
+			System.out.println(g.getInstruction());
+		}
+		
+		
+		
 	}
 }

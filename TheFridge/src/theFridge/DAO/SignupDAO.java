@@ -12,13 +12,13 @@ import java.util.Scanner;
 import theFridge.model.SignupModel;
 
 public class SignupDAO {
-	private File dataFile;
+	private static File dataFile;
 	
 	public SignupDAO() {
 		dataFile = new File("src/theFridge/file/SignupPerson.txt"); 
 	}
 	
-	public ArrayList<SignupModel> getAllPerson() {
+	public static ArrayList<SignupModel> getAllPerson() {
 		Scanner in;
 		String record = null;
 		String[] fields;
@@ -42,7 +42,7 @@ public class SignupDAO {
 		return personList;
 	}
 
-	public SignupModel getPerson(String username) {
+	public static SignupModel getPerson(String username) {
 		ArrayList<SignupModel> personList = getAllPerson();
 		SignupModel Someone = null;
 		for (SignupModel s : personList) {
