@@ -13,10 +13,28 @@ public class User {
 		private String weight;
 		private String height;
 		private String age;
-		private ArrayList promoCode;
+		private int totalPoints;
+		private ArrayList<String> promoCode;
+		
+		public User() {
+			super();
+		}
+		
+		public User(String username, String password, String eMail) {
+			super();
+			this.username = username;
+			this.password = password;
+			this.email = eMail;
+		}
+		
+		public User(String username, int totalPoints, ArrayList<String> promoCode) {
+			this.username = username;
+			this.totalPoints = totalPoints;
+			this.promoCode = promoCode;
+		}
 		
 		public User(String name, String username, String password, String email, String country, String height,
-				String weight, String age) {
+				String weight, String age, int totalPoints, ArrayList<String> promoCode) {
 			super();
 			this.username = username;
 			this.password = password;
@@ -28,61 +46,36 @@ public class User {
 			this.age = age;
 		}
 		
-		public User(String userName, String password, String eMail) {
-			super();
-			this.username = userName;
-			this.password = password;
-			this.email = eMail;
-		}
-
-		
 		public String getEmail() {
 			return email;
 		}
-
 
 		public void setEmail(String email) {
 			this.email = email;
 		}
 
-
 		public String getWeight() {
 			return weight;
 		}
-
 
 		public void setWeight(String weight) {
 			this.weight = weight;
 		}
 
-
 		public String getHeight() {
 			return height;
 		}
-
 
 		public void setHeight(String height) {
 			this.height = height;
 		}
 
-
 		public String getAge() {
 			return age;
 		}
 
-
 		public void setAge(String age) {
 			this.age = age;
-		}
-
-
-		public ArrayList getPromoCode() {
-			return promoCode;
-		}
-
-
-		public void setPromoCode(ArrayList promoCode) {
-			this.promoCode = promoCode;
 		}
 		
 		public String getName() {
@@ -117,11 +110,21 @@ public class User {
 			this.password = password;
 		}
 		
-		
-		public User() {
-			super();
+		public int getTotalPoints() {
+			return totalPoints;
 		}
 
+		public void setTotalPoints(int totalPoints) {
+			this.totalPoints = totalPoints;
+		}
+		
+		public ArrayList getPromoCode() {
+			return promoCode;
+		}
+
+		public void setPromoCode(ArrayList promoCode) {
+			this.promoCode = promoCode;
+		}
 
 		public String toString() {
 			return name + ";" + username + ";" + password + ";"+ email + ";" + country + ";" + height + ";" + weight + ";" +age;
