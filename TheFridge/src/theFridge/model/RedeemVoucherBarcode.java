@@ -19,11 +19,15 @@ import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.BinaryBitmap;
+import com.google.zxing.ChecksumException;
+import com.google.zxing.FormatException;
 import com.google.zxing.LuminanceSource;
 import com.google.zxing.MultiFormatReader;
+import com.google.zxing.NotFoundException;
 import com.google.zxing.Reader;
 import com.google.zxing.Result;
 import com.google.zxing.Writer;
+import com.google.zxing.client.j2se.BufferedImageLuminanceSource;
 import com.google.zxing.client.j2se.MatrixToImageWriter;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.common.HybridBinarizer;
@@ -34,6 +38,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 
 import javax.imageio.ImageIO;
@@ -105,7 +110,7 @@ public class RedeemVoucherBarcode {
 	     } Finally
 	}
 	
-	public void readBarcode() {
+	public void readBarcode() throws IOException, NotFoundException, ChecksumException, FormatException {
 		InputStream barCodeInputStream = new FileInputStream("file.jpg");
 		BufferedImage barCodeBufferedImage = ImageIO.read(barCodeInputStream);
 
