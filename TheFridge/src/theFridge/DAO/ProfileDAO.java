@@ -21,23 +21,26 @@ public class ProfileDAO {
 	
 	public static ArrayList<User> getAllUser() {
 		Scanner in;
-		String record=null;
+		String record = null;
 		String[] fields;
 		ArrayList<User> user=new ArrayList<User>();
 		try {
-			in=new Scanner(dataFile);
+			in = new Scanner(dataFile);
 			while (in.hasNextLine()) {
-				record=in.nextLine();
-				fields=record.split(";");
-				String name=fields[0];
-				String username=fields[1];
-				String password=fields[2];
-				String email=fields[3];
-				String location=fields[4]; 
-				String height=fields[5];
-				String weight=fields[6];
-				String age=fields[7];
-				User u=new User(name,username,password,email,location,height,weight,age);
+				record = in.nextLine();
+				fields = record.split(";");
+				String name = fields[0];
+				String username = fields[1];
+				String password = fields[2];
+				String email = fields[3];
+				String location = fields[4]; 
+				String height = fields[5];
+				String weight = fields[6];
+				String age = fields[7];
+				int totalPoints = Integer.parseInt(fields[8]);
+				String promoCode = fields[9];
+				ArrayList<String> arrayPromoCode = promoCodeConverter(promoCode);
+				User u=new User(name,username,password,email,location,height,weight,age, totalPoints, arrayPromoCode);
 				user.add(u);
 			}
 			in.close();
@@ -47,6 +50,16 @@ public class ProfileDAO {
 		}
 		return user;
 	
+	}
+	
+	public static ArrayList<String> promoCodeConverter(String promoCode) {
+		Scanner sc = new Scanner(promoCode);
+		sc.useDelimiter("-");
+		ArrayList<String> arrayPromoCode = new ArrayList<String>();
+		if (sc.hasNext()) {
+			arrayPromoCode.add(sc.next());
+		}
+		return arrayPromoCode;
 	}
 	
 	public User getUser(String username) {

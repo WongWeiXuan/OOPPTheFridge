@@ -253,7 +253,7 @@
                                                 <Insets left="50.0" />
                                              </GridPane.margin>
                                           </JFXButton>
-                                          <VBox fx:id="voucher1" alignment="CENTER" onMouseEntered="#show" onMouseExited="#hide" prefHeight="150.0" prefWidth="250.0" style="-fx-background-color: rgba(240, 98, 146, 0.25); -fx-background-radius: 20;">
+                                          <VBox fx:id="voucher1" alignment="CENTER" onMouseClicked="#showPopup" onMouseEntered="#show" onMouseExited="#hide" prefHeight="150.0" prefWidth="250.0" style="-fx-background-color: rgba(240, 98, 146, 0.25); -fx-background-radius: 20;">
                                              <children>
                                                 <StackPane>
                                                    <children>
@@ -305,7 +305,7 @@
                                                    </children>
                                                 </StackPane>
                                              </children></VBox>
-                                          <VBox fx:id="voucher2" alignment="CENTER" layoutX="10.0" layoutY="10.0" onMouseEntered="#show" onMouseExited="#hide" prefHeight="150.0" prefWidth="250.0" style="-fx-background-color: rgba(240, 98, 146, 0.25); -fx-background-radius: 20;" GridPane.columnIndex="1">
+                                          <VBox fx:id="voucher2" alignment="CENTER" layoutX="10.0" layoutY="10.0" onMouseClicked="#showPopup" onMouseEntered="#show" onMouseExited="#hide" prefHeight="150.0" prefWidth="250.0" style="-fx-background-color: rgba(240, 98, 146, 0.25); -fx-background-radius: 20;" GridPane.columnIndex="1">
                                              <children>
                                                 <StackPane>
                                                    <children>
@@ -358,7 +358,7 @@
                                                 </StackPane>
                                              </children>
                                           </VBox>
-                                          <VBox fx:id="voucher3" alignment="CENTER" layoutX="10.0" layoutY="10.0" onMouseEntered="#show" onMouseExited="#hide" prefHeight="150.0" prefWidth="250.0" style="-fx-background-color: rgba(240, 98, 146, 0.25); -fx-background-radius: 20;" GridPane.columnIndex="2">
+                                          <VBox fx:id="voucher3" alignment="CENTER" layoutX="10.0" layoutY="10.0" onMouseClicked="#showPopup" onMouseEntered="#show" onMouseExited="#hide" prefHeight="150.0" prefWidth="250.0" style="-fx-background-color: rgba(240, 98, 146, 0.25); -fx-background-radius: 20;" GridPane.columnIndex="2">
                                              <children>
                                                 <StackPane>
                                                    <children>
@@ -411,7 +411,7 @@
                                                 </StackPane>
                                              </children>
                                           </VBox>
-                                          <VBox fx:id="voucher4" alignment="CENTER" layoutX="10.0" layoutY="10.0" onMouseEntered="#show" onMouseExited="#hide" prefHeight="150.0" prefWidth="250.0" style="-fx-background-color: rgba(240, 98, 146, 0.25); -fx-background-radius: 20;" GridPane.columnIndex="3">
+                                          <VBox fx:id="voucher4" alignment="CENTER" layoutX="10.0" layoutY="10.0" onMouseClicked="#showPopup" onMouseEntered="#show" onMouseExited="#hide" prefHeight="150.0" prefWidth="250.0" style="-fx-background-color: rgba(240, 98, 146, 0.25); -fx-background-radius: 20;" GridPane.columnIndex="3">
                                              <children>
                                                 <StackPane>
                                                    <children>

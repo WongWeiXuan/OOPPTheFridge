@@ -75,6 +75,22 @@ public class RedeemVoucherPageController {
 	private VBox show4;
 	
 	@FXML
+	public void showPopup(ActionEvent event) {
+		if (event.getSource().equals(voucher1)) {
+			
+		}
+		else if (event.getSource().equals(voucher2)) {
+			
+		}
+		else if (event.getSource().equals(voucher3)) {
+			
+		}
+		else if (event.getSource().equals(voucher4)) {
+			
+		}
+	}
+	
+	@FXML
 	public void show(MouseEvent event) {
 		if (event.getSource().equals(voucher1)) {
 			main1.setVisible(false);
