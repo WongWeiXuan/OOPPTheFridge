@@ -343,7 +343,7 @@ public class Profile2Controller {
 		SignupDAO u = new SignupDAO();
 		SignupModel sg = new SignupModel();
 		sg = SignupDAO.getPerson(n);
-		sg.setEmail(password);
+		sg.setPassword(password);
 		sg.updatePerson();
 		//u.updatePerson(sg);
 		PassText.setText("");

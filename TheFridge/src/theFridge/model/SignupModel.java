@@ -46,7 +46,7 @@ public class SignupModel {
 	
 	@Override
 	public String toString() {
-		return username + ";" + password + ";"+ email;
+		return username + ";" + email + ";"+ password;
 	}
 	
 	public static ArrayList<SignupModel> getAllPerson() {
