@@ -52,6 +52,7 @@ public class ProfileDAO {
 	
 	}
 	
+	//For redeem voucher
 	public static ArrayList<String> promoCodeConverter(String promoCode) {
 		Scanner sc = new Scanner(promoCode);
 		sc.useDelimiter("-");
@@ -60,6 +61,22 @@ public class ProfileDAO {
 			arrayPromoCode.add(sc.next());
 		}
 		return arrayPromoCode;
+	}
+	
+	//For redeem voucher
+	public void addPromoCode(User user) {
+		boolean existing = false;
+		ArrayList<User> userList = new ArrayList<User>();
+		for (User u : userList) {
+			if (u.getPromoCode().equals(user.getPromoCode())) {
+				existing = true;
+				break;
+			}
+		}
+		if (!existing) {
+			userList.add(user);
+			synToFile(userList);
+		}
 	}
 	
 	public User getUser(String username) {
