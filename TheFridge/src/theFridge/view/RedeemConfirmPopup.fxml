@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.TextFlow?>
 
-<AnchorPane prefHeight="220.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="theFridge.controller.RedeemConfirmPopup">
+<AnchorPane prefHeight="220.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="theFridge.controller.RedeemConfirmPopupController">
    <children>
       <VBox alignment="CENTER" prefHeight="220.0" prefWidth="1280.0">
          <children>
@@ -31,7 +31,7 @@
                   <Insets top="50.0" />
                </padding>
             </VBox>
-            <VBox alignment="CENTER" prefHeight="70.0" prefWidth="1280.0" style="-fx-background-color: #FCE4EC;">
+            <VBox alignment="CENTER" prefHeight="70.0" prefWidth="1280.0" style="-fx-background-color: rgba(240, 98, 146, 0.25);">
                <children>
                   <HBox alignment="CENTER" prefHeight="70.0" prefWidth="1280.0" spacing="70.0">
                      <children>

@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import theFridge.model.RedeemVoucherSendEmail;
+import javafx.scene.Node;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
@@ -21,9 +22,6 @@ public class RedeemConfirmPopupController {
 	private ImageView errorImg;
 	@FXML
 	private ImageView error2Img;
-	
-	private Stage stage;
-
 	
 	@FXML
 	public void confirmRedeem(MouseEvent event) {
@@ -48,6 +46,7 @@ public class RedeemConfirmPopupController {
 	
 	@FXML
 	public void cancelRedeem(MouseEvent event) {
+		Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 		stage.close();
 	}
 	

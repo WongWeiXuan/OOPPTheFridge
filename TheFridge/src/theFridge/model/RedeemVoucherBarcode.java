@@ -47,12 +47,14 @@ public class RedeemVoucherBarcode {
 
 	public void generateBarcode(String barcodeMessage) {
 		 BitMatrix bitMatrix;
-	     Writer writer = new QRCodeWriter();
 	     	try {
 	        	//  Write Barcode
 	            bitMatrix = new Code128Writer().encode(barcodeMessage, BarcodeFormat.CODE_128, 150, 80, null);
-	            MatrixToImageWriter.writeToStream(bitMatrix, "png", new FileOutputStream(new File("src/theFridge/file/Barcode.png")));
+	            MatrixToImageWriter.writeToStream(bitMatrix, "png", new FileOutputStream(new File("src/theFridge/picture/Barcode.png")));
 	            System.out.println("Code128 Barcode Generated.");
+	     	} catch (Exception e) {
+	     		
+	     	}
 		/*
 		int width = 250;
 		int height = 250;
@@ -107,18 +109,12 @@ public class RedeemVoucherBarcode {
 		}
 	}
 	*/
-	     } Finally
 	}
 	
-	public void readBarcode() throws IOException, NotFoundException, ChecksumException, FormatException {
-		InputStream barCodeInputStream = new FileInputStream("file.jpg");
-		BufferedImage barCodeBufferedImage = ImageIO.read(barCodeInputStream);
-
-		LuminanceSource source = new BufferedImageLuminanceSource(barCodeBufferedImage);
-		BinaryBitmap bitmap = new BinaryBitmap(new HybridBinarizer(source));
-		Reader reader = new MultiFormatReader();
-		Result result = reader.decode(bitmap);
-
-		System.out.println("Barcode text is " + result.getText());
+	public static void main(String args[]) {
+		String barcodeMessage = "Hello World!";
+		
+		RedeemVoucherBarcode barcode = new RedeemVoucherBarcode();
+		barcode.generateBarcode(barcodeMessage);
 	}
 }

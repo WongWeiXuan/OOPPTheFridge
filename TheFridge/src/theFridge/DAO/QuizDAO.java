@@ -14,10 +14,11 @@ import theFridge.model.QuizExplanationsModel;
 import theFridge.model.QuizQuestionsModel;
 
 public class QuizDAO {
-	private File dataFile; 
+	private static File dataFile; 
 	
 	public QuizDAO() {
-		dataFile = new File("src/theFridge/file/QuizQuestions.txt");
+		Path dPath = FileSystems.getDefault().getPath("src/theFridge/file/QuizQuestions.txt");
+		dataFile=new File(dPath.toString()); 
 	}
 	
 	public ArrayList<QuizQuestionsModel> getAllQuestions() {

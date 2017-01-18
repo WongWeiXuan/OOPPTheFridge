@@ -196,23 +196,21 @@ public class LoginSignupPageController {
 	
 	@FXML
 	void createAccount(ActionEvent event) throws IOException, ParseException, ParseException{
-		System.out.println("eneter signup");
 		String Username = tFUsername1.getText();
-		String Password = pFPassword1.getText();
 		String Email = tFEmail.getText();
+		String Password = pFPassword1.getText();
 		
 		if (Username.equals("") || Username.equals(null)) {
 			comment1.setText("Please fill in your username!");
 		}
-		else if (Password.equals("") || Password.equals(null)) {
-
-			comment1.setText("Please fill in your password!");
-		}
 		else if (Email.equals("") || Email.equals(null)) {
 			comment1.setText("Please fill in your email!");
 		}
+		else if (Password.equals("") || Password.equals(null)) {
+			comment1.setText("Please fill in your password!");
+		}
 		else {
-			SignupModel Someone = new SignupModel(Username, Password, Email);
+			SignupModel Someone = new SignupModel(Username, Email, Password);
 			Someone.createPerson();
 			
 			/*

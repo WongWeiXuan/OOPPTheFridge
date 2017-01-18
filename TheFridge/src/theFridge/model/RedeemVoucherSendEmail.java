@@ -12,7 +12,7 @@ import javax.mail.internet.MimeMessage;
 
 public class RedeemVoucherSendEmail {
 	
-	public void sendEmail(String subject, String text) {
+	public void sendEmail(String recipientEmail, String text) {
 		// Recipient's email ID needs to be mentioned.
 	      String to = "xyz@gmail.com";//change accordingly
 
