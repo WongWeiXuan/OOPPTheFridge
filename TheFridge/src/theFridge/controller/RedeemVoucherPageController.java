@@ -16,6 +16,7 @@ import javafx.scene.input.MouseEvent;
 
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import javafx.event.ActionEvent;
 import com.jfoenix.controls.JFXButton;
@@ -75,18 +76,62 @@ public class RedeemVoucherPageController {
 	private VBox show4;
 	
 	@FXML
-	public void showPopup(ActionEvent event) {
+	public void showPopup(MouseEvent event) {
 		if (event.getSource().equals(voucher1)) {
-			
+			try {
+				Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemConfirmPopup.fxml"));
+				Scene scene = new Scene(root);
+				Stage stage = new Stage();
+				stage.setScene(scene);
+				stage.setMaximized(true);
+				stage.initStyle(StageStyle.UNDECORATED);
+				stage.show();
+				
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 		else if (event.getSource().equals(voucher2)) {
-			
+			try {
+				Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemConfirmPopup.fxml"));
+				Scene scene = new Scene(root);
+				Stage stage = new Stage();
+				stage.setScene(scene);
+				stage.setMaximized(true);
+				stage.initStyle(StageStyle.UNDECORATED);
+				stage.show();
+				
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 		else if (event.getSource().equals(voucher3)) {
-			
+			try {
+				Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemConfirmPopup.fxml"));
+				Scene scene = new Scene(root);
+				Stage stage = new Stage();
+				stage.setScene(scene);
+				stage.setMaximized(true);
+				stage.initStyle(StageStyle.UNDECORATED);
+				stage.show();
+				
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 		else if (event.getSource().equals(voucher4)) {
-			
+			try {
+				Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemConfirmPopup.fxml"));
+				Scene scene = new Scene(root);
+				Stage stage = new Stage();
+				stage.setScene(scene);
+				stage.setMaximized(true);
+				stage.initStyle(StageStyle.UNDECORATED);
+				stage.show();
+				
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 	
