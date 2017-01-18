@@ -79,6 +79,7 @@ public class RedeemVoucher12CharacterPageController {
 			Scene scene = new Scene(root);
 			Stage stage = new Stage();
 			stage.setScene(scene);
+			stage.setMaximized(true);
 			stage.initStyle(StageStyle.UNDECORATED);
 			stage.show();
 			
