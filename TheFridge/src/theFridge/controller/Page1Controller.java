@@ -1,14 +1,10 @@
 package theFridge.controller;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
-import javax.swing.JComboBox;
+import java.io.IOException;
 
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXListView;
 
-import java.io.IOException;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -17,8 +13,8 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
@@ -28,15 +24,12 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import javafx.util.Callback;
 import javafx.util.Duration;
-import javafx.fxml.Initializable;
 import theFridge.model.First;
-import theFridge.model.Last;
 
 
 
-public class Page1Controller implements Initializable{
+public class Page1Controller{
 
     @FXML
     private TableColumn<First, String> table1;
@@ -160,17 +153,21 @@ public class Page1Controller implements Initializable{
 		            new First("mushroom", "cheese"),
 		            new First("pizza", "pasta")
 		            );
-	    @Override
-	    public void initialize(URL location, ResourceBundle resources) {
+	
+	
+	    public void initialize() {
+	    	ObservableList<String> data = FXCollections.observableArrayList("Chicken","Fish","Vegetable","Rice","Pasta","tomato","apple","sotongs");
+	    	
 	        table1.setCellValueFactory(new PropertyValueFactory<First, String>("foodCanCompost"));
 	        table2.setCellValueFactory(new PropertyValueFactory<First, String>("foodCannotCompost"));
 	        tableView1.setItems(list);
+	        listView.setItems(data);
 	        choice.setItems(data);  
 	        foodCom.setItems(a);
 	        
 	    }
 	    
-	    ObservableList<String> data = FXCollections.observableArrayList("Chicken","Fish","Vegetable","Rice","Pasta","tomato","apple","sotongs");
+	   
 	    ObservableList<String> a = FXCollections.observableArrayList();
 	    public void chosen1(ActionEvent event){
 	    	String s = choice.getValue().toString();
