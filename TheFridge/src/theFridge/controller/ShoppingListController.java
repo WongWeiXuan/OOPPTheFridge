@@ -88,14 +88,13 @@ public class ShoppingListController {
 	@FXML
 	public void addItems(ActionEvent event) throws IOException{
 		ShoppingListModel first = new ShoppingListModel(StocklistView, Popup, ListlistView, Popup1);
-		first.showStage();
-		first.addStocks();
+		first.showStage(first);
 	}
 	
 	@FXML 
 	public void changeToGeneratePage(ActionEvent event) throws IOException, WriterException {
 		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/ShoppingListPage.fxml"));
+		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/foodCalculator/FoodCalculatorNavigation.fxml"));
 		root = FXMLLoader.load(getClass().getResource("/theFridge/view/ShoppingListQRCodePage.fxml"));
 		stage.setScene(new Scene(root));
  	    stage.show();
@@ -143,7 +142,7 @@ public class ShoppingListController {
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/Page1.fxml"));
 		}
 		else if(event.getSource().equals(foodScene)){
-			root = FXMLLoader.load(getClass().getResource("/theFridge/view/ShoppingListPage.fxml"));
+			root = FXMLLoader.load(getClass().getResource("/theFridge/view/foodCalculator/FoodCalculatorNavigation.fxml"));
 		}
 		else if(event.getSource().equals(quizScene)){
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/QuizPage.fxml"));

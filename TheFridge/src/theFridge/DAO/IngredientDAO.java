@@ -28,7 +28,7 @@ public class IngredientDAO {
 		while (sc.hasNext()) {
 			line = sc.next();
 			fields = line.split(":");
-			int amount = Integer.parseInt(fields[0]);
+			double amount = Double.parseDouble(fields[0]);
 			String unit = fields[1];
 			String name = fields[2];
 			

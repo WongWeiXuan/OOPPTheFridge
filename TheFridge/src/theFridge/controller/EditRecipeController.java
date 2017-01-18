@@ -156,7 +156,7 @@ public class EditRecipeController {
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/Page1.fxml"));
 		}
 		else if(event.getSource().equals(foodScene)){
-			root = FXMLLoader.load(getClass().getResource("/theFridge/view/ShoppingListPage.fxml"));
+			root = FXMLLoader.load(getClass().getResource("/theFridge/view/foodCalculator/FoodCalculatorNavigation.fxml"));
 		}
 		else if(event.getSource().equals(quizScene)){
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/QuizPage.fxml"));
