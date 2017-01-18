@@ -96,20 +96,12 @@ public class LoginSignupPageController {
     }
     */
 	
-	/*public void setPersonList(ArrayList<SignupModel> personList) {
-		if (personList !=null || personList.size() > 0) {
-			this.personList = personList;
-		}
-		
-	}*/
-	
 	@FXML
 	public void goToHomePage(ActionEvent event) throws IOException, ParseException {
 		SignupDAO signupDAO = new SignupDAO();
 		ArrayList<SignupModel> personList = signupDAO.getAllPerson();
 		String Username = tFUsername.getText();
 		String Password = pFPassword.getText();
-		
 		
 		/*
 		JSONParser parser = new JSONParser();

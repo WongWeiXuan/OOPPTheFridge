@@ -25,11 +25,13 @@ public class RedeemConfirmPopupController {
 	
 	@FXML
 	public void confirmRedeem(MouseEvent event) {
+		/*
 		String subject = "";
 		String text = "";
 		
 		RedeemVoucherSendEmail rDVSE = new RedeemVoucherSendEmail();
 		rDVSE.sendEmail(subject, text);
+		*/
 	}
 	
 	@FXML

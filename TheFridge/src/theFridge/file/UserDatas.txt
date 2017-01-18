@@ -1,13 +1,6 @@
-<<<<<<< HEAD
-Masturbator;WX;Men;Love;null;null;null;null;0;[[null]]
 null;darren;darren;darren;null;null;null;null;0;null
-=======
-<<<<<<< HEAD
-df;ds;ds;ds;malaysia;168;13;12;
-fcew;2;32;3;null;null;null;54
-null;xxx;xxx;xxx;null;null;null;null
-das;xz;ff;xz;null;null;null;null
-=======
+df;ds;ds;ds;malaysia;168;13;12;678;null
+fcew;2;32;3;null;null;null;54;80;null
 null;xxx;xxx;xxx;null;null;null;null;0;null
->>>>>>> origin/master
->>>>>>> origin/master
+das;xz;ff;xz;null;null;null;null;0;null
+null;xxx;xxx;xxx;null;null;null;null;0;null

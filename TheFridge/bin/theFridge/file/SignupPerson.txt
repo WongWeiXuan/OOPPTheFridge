@@ -3,10 +3,7 @@ xxx;xxx;xxx
 ds;ds;ds
 xz;xz;xz
 Wei Xuan;Email;ILoveStraightMen
-<<<<<<< HEAD
 Xuan Zheng;Email;BlueWaffles
 WX;Love;Men
 darren;darren;darren
-=======
 Xuan Zheng;Email;BlueWaffles
->>>>>>> origin/master

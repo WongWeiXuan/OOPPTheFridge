@@ -19,7 +19,7 @@ public class ProfileDAO {
      	dataFile=new File(dPath.toString());     
 	}
 	
-	public static ArrayList<User> getAllUser() {
+	public ArrayList<User> getAllUser() {
 		Scanner in;
 		String record = null;
 		String[] fields;
@@ -122,7 +122,7 @@ public class ProfileDAO {
 		return !existing;
 	}
 	
-	public static void updateUser(User user1) {
+	public void updateUser(User user1) {
 		ArrayList<User> user2 = getAllUser();
 		for (int i = 0; i < user2.size(); i++) {
 			User s = user2.get(i);

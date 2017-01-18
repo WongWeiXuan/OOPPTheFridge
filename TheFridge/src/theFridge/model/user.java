@@ -134,7 +134,7 @@ public class User {
 		
 		public static ArrayList<User> getAllUser() {
 			ProfileDAO profileDAO = new ProfileDAO();
-			return ProfileDAO.getAllUser();
+			return profileDAO.getAllUser();
 		}
 		
 		public void getUser() {
@@ -151,7 +151,7 @@ public class User {
 		
 		public void updateUser() {
 			ProfileDAO profileDAO = new ProfileDAO();
-			ProfileDAO.updateUser(this);
+			profileDAO.updateUser(this);
 		}
 		
 		public boolean createUser() {
