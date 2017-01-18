@@ -240,7 +240,7 @@ public class GetStartedPageController {
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemVoucherPage.fxml"));
 		}
 		else if(event.getSource().equals(Shopping)){
-			root = FXMLLoader.load(getClass().getResource("/theFridge/view/ShoppingListPage.fxml"));
+			root = FXMLLoader.load(getClass().getResource("/theFridge/view/foodCalculator/FoodCalculatorNavigation.fxml"));
 		}
 		else if(event.getSource().equals(Leftover)){
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/FindingDish.fxml"));

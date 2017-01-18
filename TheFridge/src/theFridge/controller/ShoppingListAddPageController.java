@@ -16,6 +16,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import theFridge.model.ShoppingListAddPageModel;
 import theFridge.model.ShoppingListModel;
 import theFridge.model.StockModel;
 
@@ -37,7 +38,7 @@ public class ShoppingListAddPageController {
 	private double yOffset = 0;
 
 	@FXML
-	void initialized(){
+	void initialize(){
 		amountSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 50, 1));
 	}
 	
@@ -60,12 +61,10 @@ public class ShoppingListAddPageController {
     }
 
     @FXML
-    void closeAndShow(ActionEvent event) {
-    	String name = nameField.getText();
-    	int amount = amountSpinner.getValue();
-    	StockModel s = new StockModel(name, amount, 1);
-    	
-		model.addStocks(model);
+    void closeAndShow(ActionEvent event) throws FileNotFoundException {
+    	stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+    	ShoppingListAddPageModel a = new ShoppingListAddPageModel();
+    	a.closeAndShow(nameField, amountSpinner);
 		stage.close();
     }
 

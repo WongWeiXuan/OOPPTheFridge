@@ -24,6 +24,10 @@ import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import theFridge.model.ShoppingListModel;
+
+import com.jfoenix.controls.JFXButton;
+import javafx.event.ActionEvent;
 
 public class ShoppingListInputController {
 	@FXML
@@ -61,6 +65,7 @@ public class ShoppingListInputController {
 	@FXML
 	private Circle profileCircle;
 	private boolean open = false;
+	@FXML JFXButton btn;
 
 	//Show profile image
 	@FXML
@@ -68,6 +73,15 @@ public class ShoppingListInputController {
 		spinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 15, 4));
 		Image img = new Image("theFridge/picture/Profile Image.jpg");
 		profileCircle.setFill(new ImagePattern(img));
+	}
+
+	@FXML 
+	public void goShoppingPage(ActionEvent event) throws IOException {
+		ShoppingListModel.numOfPeople = spinner.getValue();
+		Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+		Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/ShoppingListPage.fxml"));
+		stage.setScene(new Scene(root));
+		stage.show();
 	}
 	
 	//Animation for the Dropdown(Profile Dropdown)

@@ -123,6 +123,28 @@ public class ShoppingListModel {
 		}
 	}
 	
+	public void displayShoppingByStockModel(StockModel stock) throws FileNotFoundException{
+		HBox hbox = new HBox();
+		Label nameLbl = new Label(stock.getName());
+			nameLbl.setMinWidth(400);
+			nameLbl.setPrefWidth(400);
+			nameLbl.setAlignment(Pos.CENTER_LEFT);
+		Label amountLbl = new Label(String.valueOf(stock.getAmount()));
+			amountLbl.setMinWidth(100);
+			amountLbl.setPrefWidth(100);
+			amountLbl.setAlignment(Pos.CENTER);
+		hbox.getChildren().addAll(nameLbl, amountLbl);
+		hbox.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent event) {
+				if(event.getButton() == MouseButton.SECONDARY){
+					Popup.show(JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.RIGHT);
+				}
+			}
+        });
+		
+		ListlistView.getItems().add(hbox);
+	}
+	
 	public void startPopup(){
 		//Stock List...
 		Label lbl1 = new Label("Edit");
@@ -183,26 +205,27 @@ public class ShoppingListModel {
 		Popup1.setSource(ListlistView);
 	}
 	
-	public void showStage() throws IOException{
+	public void showStage(ShoppingListModel model) throws IOException{
 		Stage stage = new Stage();
 		Parent root;
 		root = FXMLLoader.load(getClass().getResource("/theFridge/view/ShoppingListAddPage.fxml"));
 		stage.setScene(new Scene(root));
 		stage.initStyle(StageStyle.UNDECORATED);
 		stage.show();
+		ShoppingListAddPageModel.model = model;
 	}
 	
-	public void addStocks(StockModel model) throws FileNotFoundException{
+	public void addStocks(StockModel s) throws FileNotFoundException{
 		HBox hbox = new HBox();
-		Label lbl1 = new Label(model.getName());
+		Label lbl1 = new Label(s.getName());
 		lbl1.setMinWidth(500);
 		lbl1.setPrefWidth(500);
 		lbl1.setAlignment(Pos.CENTER_LEFT);
-		Label lbl2 = new Label(String.valueOf(model.getAmount()));
+		Label lbl2 = new Label(String.valueOf(s.getAmount()));
 		lbl2.setMinWidth(100);
 		lbl2.setPrefWidth(100);
 		lbl2.setAlignment(Pos.CENTER);
-		Label lbl3 = new Label(String.valueOf(model.getServing()));
+		Label lbl3 = new Label(String.valueOf(s.getServing()));
 		lbl3.setMinWidth(100);
 		lbl3.setPrefWidth(100);
 		lbl3.setAlignment(Pos.CENTER);

@@ -20,6 +20,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
 public class RedeemVoucher12CharacterPageController {
@@ -72,13 +73,14 @@ public class RedeemVoucher12CharacterPageController {
 	}
 	
 	@FXML
-	public void showPopup(ActionEvent event) {
+	public void showPopup(MouseEvent event) {
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemConfirmPopup"));
+			Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemConfirmPopup.fxml"));
 			Scene scene = new Scene(root);
-			Stage primaryStage = new Stage();
-			primaryStage.setScene(scene);
-			primaryStage.show();
+			Stage stage = new Stage();
+			stage.setScene(scene);
+			stage.initStyle(StageStyle.UNDECORATED);
+			stage.show();
 			
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -144,7 +146,7 @@ public class RedeemVoucher12CharacterPageController {
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/Page1.fxml"));
 		}
 		else if(event.getSource().equals(foodScene)){
-			root = FXMLLoader.load(getClass().getResource("/theFridge/view/ShoppingListPage.fxml"));
+			root = FXMLLoader.load(getClass().getResource("/theFridge/view/foodCalculator/FoodCalculatorNavigation.fxml"));
 		}
 		else if(event.getSource().equals(quizScene)){
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/QuizPage.fxml"));

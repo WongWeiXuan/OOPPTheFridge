@@ -28,7 +28,7 @@ public class FoodCalculatorNavigationController {
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/foodCalculator/CaloriesCalculatorInput.fxml"));
 		}
 		else if(event.getSource().equals(Shopping)){
-			root = FXMLLoader.load(getClass().getResource("/theFridge/view/ShoppingListPage.fxml"));
+			root = FXMLLoader.load(getClass().getResource("/theFridge/view/ShoppingListInput.fxml"));
 		}
 		stage.setScene(new Scene(root));
 		stage.show();
