@@ -37,10 +37,10 @@ public class ProfileDAO {
 				String height = fields[5];
 				String weight = fields[6];
 				String age = fields[7];
-				//int totalPoints = Integer.parseInt(fields[8]);
-				//String promoCode = fields[9];
-				//ArrayList<String> arrayPromoCode = promoCodeConverter(promoCode);
-				User u = new User(name,username,password,email,location,height,weight,age); /* totalPoints, arrayPromoCode*/
+				int totalPoints = Integer.parseInt(fields[8]);
+				String promoCode = fields[9];
+				ArrayList<String> arrayPromoCode = promoCodeConverter(promoCode);
+				User u = new User(name, username, password, email, location, height, weight, age, totalPoints, arrayPromoCode);
 				user.add(u);
 			}
 			in.close();

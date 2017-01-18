@@ -72,6 +72,20 @@ public class RedeemVoucher12CharacterPageController {
 	}
 	
 	@FXML
+	public void showPopup(ActionEvent event) {
+		try {
+			Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemConfirmPopup"));
+			Scene scene = new Scene(root);
+			Stage primaryStage = new Stage();
+			primaryStage.setScene(scene);
+			primaryStage.show();
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@FXML
 	public void showBorder(MouseEvent event) {
 		promoCodeEmailBorder.setVisible(true);
 	}

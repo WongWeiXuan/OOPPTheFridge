@@ -15,7 +15,8 @@ public class SignupDAO {
 	private static File dataFile;
 	
 	public SignupDAO() {
-		dataFile = new File("src/theFridge/file/SignupPerson.txt"); 
+		Path dPath = FileSystems.getDefault().getPath("src/theFridge/file/SignupPerson.txt");
+		dataFile=new File(dPath.toString()); 
 	}
 	
 	public static ArrayList<SignupModel> getAllPerson() {
@@ -102,13 +103,13 @@ public class SignupDAO {
 		System.out.println("\nFirst user registered.");
 		System.out.println("========================================");
 		
-		SignupModel Someone = new SignupModel("Wei Xuan", "ILoveStraightMen", "Email");
+		SignupModel Someone = new SignupModel("Wei Xuan", "Email", "ILoveStraightMen");
 		signupDAO.createPerson(Someone);
 		
 		System.out.println("\nSecond user registered.");
 		System.out.println("========================================");
 		
-		Someone = new SignupModel("Xuan Zheng", "BlueWaffles", "Email");
+		Someone = new SignupModel("Xuan Zheng", "Email", "BlueWaffles");
 		signupDAO.createPerson(Someone);
 		
 		ArrayList<SignupModel> list = signupDAO.getAllPerson();

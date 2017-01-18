@@ -34,7 +34,7 @@ public class User {
 		}
 		
 		public User(String name, String username, String password, String email, String country, String height,
-				String weight, String age/*, int totalPoints, ArrayList<String> promoCode*/) {
+				String weight, String age, int totalPoints, ArrayList<String> promoCode) {
 			super();
 			this.username = username;
 			this.password = password;
@@ -44,6 +44,8 @@ public class User {
 			this.weight = weight;
 			this.height = height;
 			this.age = age;
+			this.totalPoints = totalPoints;
+			this.promoCode = promoCode;
 		}
 		
 		public String getEmail() {
@@ -127,7 +129,7 @@ public class User {
 		}
 
 		public String toString() {
-			return name + ";" + username + ";" + password + ";"+ email + ";" + country + ";" + height + ";" + weight + ";" +age;
+			return name + ";" + username + ";" + password + ";"+ email + ";" + country + ";" + height + ";" + weight + ";" + age + ";" + totalPoints + ";" + promoCode;
 		}
 		
 		public static ArrayList<User> getAllUser() {
