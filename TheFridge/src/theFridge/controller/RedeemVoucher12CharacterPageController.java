@@ -1,8 +1,6 @@
 package theFridge.controller;
 
 import java.io.IOException;
-import java.util.Random;
-
 import com.jfoenix.controls.JFXButton;
 
 import javafx.animation.KeyFrame;
@@ -22,6 +20,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
+import theFridge.model.RedeemVoucherModel;
 
 public class RedeemVoucher12CharacterPageController {
 	@FXML
@@ -56,19 +55,11 @@ public class RedeemVoucher12CharacterPageController {
 	private Label promoCodeEmailBorder;
 	
 	@FXML
-	public void generateCode(ActionEvent event) {
-		int codeSize = 12;
-		char[] chars = "abcdefghjkmnpqrstuvwxyzABCDEFGHJKMNPQRSTUVWXYZ23456789".toCharArray();
-		StringBuilder sb = new StringBuilder();
-		Random random = new Random();
-		for (int i = 0; i < codeSize; i++) {
-		    char c = chars[random.nextInt(chars.length)];
-		    sb.append(c);
-		}
-		String output = sb.toString();
-		codeLabel.setText(output);
+	public void generatePromoCode(ActionEvent event) {
+		RedeemVoucherModel rDV = new RedeemVoucherModel();
+		rDV.generatePromoCode();
+		codeLabel.setText(rDV.getCodeOutput());
 		sendPromoLabel.setVisible(true);
-		
 		codeGenerator.setDisable(true);
 	}
 	

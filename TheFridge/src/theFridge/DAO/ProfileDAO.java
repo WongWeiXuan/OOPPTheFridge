@@ -60,6 +60,7 @@ public class ProfileDAO {
 		if (sc.hasNext()) {
 			arrayPromoCode.add(sc.next());
 		}
+		sc.close();
 		return arrayPromoCode;
 	}
 	

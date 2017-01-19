@@ -120,11 +120,11 @@ public class User {
 			this.totalPoints = totalPoints;
 		}
 		
-		public ArrayList getPromoCode() {
+		public ArrayList<String> getPromoCode() {
 			return promoCode;
 		}
 
-		public void setPromoCode(ArrayList promoCode) {
+		public void setPromoCode(ArrayList<String> promoCode) {
 			this.promoCode = promoCode;
 		}
 
