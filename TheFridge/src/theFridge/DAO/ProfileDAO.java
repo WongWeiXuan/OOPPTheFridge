@@ -65,7 +65,7 @@ public class ProfileDAO {
 	}
 	
 	//For redeem voucher
-	public void addPromoCode(User user) {
+	public boolean addPromoCode(User user) {
 		boolean existing = false;
 		ArrayList<User> userList = new ArrayList<User>();
 		for (User u : userList) {
@@ -78,6 +78,7 @@ public class ProfileDAO {
 			userList.add(user);
 			synToFile(userList);
 		}
+		return !existing;
 	}
 	
 	public User getUser(String username) {

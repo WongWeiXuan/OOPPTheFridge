@@ -80,25 +80,7 @@ public class QuizPageController {
 	
 	@FXML
 	public void initialize() throws FileNotFoundException{
-		int points = 0;
-		timer.setText("10");
-		boolean isCorrect = false;
 		
-		if (isCorrect = true) {
-			points += 10;
-			pointsEarned.setText("Points earned: " + points);
-			//Show popup
-		}
-		
-		else {
-			if (isCorrect = false) {
-				//Show popup
-			}
-			
-			else if (timer.equals("0") || timer.equals(null)) {
-				//Show popup
-			}
-		}
 	}
 
 	@FXML

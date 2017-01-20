@@ -1,6 +1,11 @@
 package theFridge.controller;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Scanner;
+
 import com.jfoenix.controls.JFXButton;
 
 import javafx.animation.KeyFrame;
@@ -20,7 +25,9 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
+import theFridge.DAO.ProfileDAO;
 import theFridge.model.RedeemVoucherModel;
+import theFridge.model.User;
 
 public class RedeemVoucher12CharacterPageController {
 	@FXML
@@ -54,13 +61,30 @@ public class RedeemVoucher12CharacterPageController {
 	@FXML
 	private Label promoCodeEmailBorder;
 	
+	private ArrayList<String> promoCodeList = new ArrayList<String>();
+	
 	@FXML
-	public void generatePromoCode(ActionEvent event) {
+	public void generatePromoCode(ActionEvent event) throws FileNotFoundException {
 		RedeemVoucherModel rDV = new RedeemVoucherModel();
 		rDV.generatePromoCode();
+		promoCodeList.add(rDV.getCodeOutput());
+		
 		codeLabel.setText(rDV.getCodeOutput());
 		sendPromoLabel.setVisible(true);
 		codeGenerator.setDisable(true);
+		
+		File file = new File("src/theFridge/file/confirm.txt");
+		Scanner sc = new Scanner(file) ;
+		String n = sc.nextLine();
+		
+		ProfileDAO profileDAO = new ProfileDAO();
+		
+		User user = new User();
+		user = profileDAO.getUser(n);
+		user.setPromoCode(promoCodeList);
+		user.addPromoCode();
+		
+		sc.close();
 	}
 	
 	@FXML
