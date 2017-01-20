@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXListView;
 
@@ -27,6 +28,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import theFridge.model.First;
@@ -65,6 +67,10 @@ public class Page1Controller{
     private JFXComboBox<String> choice;
     @FXML
     private JFXListView<String> listView;
+    @FXML
+    private Text alert;
+    @FXML
+    private JFXButton clear;
     
 
 	@FXML
@@ -140,7 +146,7 @@ public class Page1Controller{
 	 	    stage.show();
 		}
 		else if(a.size() == 0){
-			System.out.println("Please enter a food");
+			alert.setVisible(true);
 		}
 		else{
 			Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
@@ -172,6 +178,7 @@ public class Page1Controller{
 	ObservableList<String> data = FXCollections.observableArrayList("Seaweed","Rabbit Manure","Coffee Grounds","Mouldy Cheese","Crab or Lobster Shell",
 			"Fish bones","Citrus Peel","Apple","Old Pasta");
 	ObservableList<String> a = FXCollections.observableArrayList();
+	ObservableList<String> b = FXCollections.observableArrayList();
 	
 	    public void initialize() {
 	        table1.setCellValueFactory(new PropertyValueFactory<First, String>("foodCanCompost"));
@@ -183,6 +190,9 @@ public class Page1Controller{
 	        
 	    }
 	    
+	   public void clearAll(ActionEvent event){
+		   listView.getItems().clear();
+	   }
 	   
 	    public void chosen1(ActionEvent event){
 	    	String s = choice.getValue().toString();
