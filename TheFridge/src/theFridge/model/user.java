@@ -13,8 +13,9 @@ public class User {
 		private String weight;
 		private String height;
 		private String age;
+		private String gender;
 		private int totalPoints;
-		private ArrayList<String> promoCode;
+		private String promoCode;
 		
 		public User() {
 			super();
@@ -27,14 +28,14 @@ public class User {
 			this.email = eMail;
 		}
 		
-		public User(String username, int totalPoints, ArrayList<String> promoCode) {
+		public User(String username, int totalPoints, String promoCode) {
 			this.username = username;
 			this.totalPoints = totalPoints;
 			this.promoCode = promoCode;
 		}
 		
 		public User(String name, String username, String password, String email, String country, String height,
-				String weight, String age, int totalPoints, ArrayList<String> promoCode) {
+				String weight, String age, String gender, int totalPoints, String promoCode) {
 			super();
 			this.username = username;
 			this.password = password;
@@ -44,8 +45,48 @@ public class User {
 			this.weight = weight;
 			this.height = height;
 			this.age = age;
+			this.gender = gender;
 			this.totalPoints = totalPoints;
 			this.promoCode = promoCode;
+		}
+		
+		public String toString() {
+			return name + ";" + username + ";" + password + ";"+ email + ";" + country + ";" + height + ";" + weight + ";" + age + ";" + gender + ";" + totalPoints + ";" + promoCode;
+		}
+		
+		public static ArrayList<User> getAllUser() {
+			ProfileDAO profileDAO = new ProfileDAO();
+			return profileDAO.getAllUser();
+		}
+		
+		public void getUser() {
+			ProfileDAO userDAO = new ProfileDAO();
+			User user1 = userDAO.getUser(username);
+			setName(user1.getName());
+			setPassword(user1.getPassword());
+			setEmail(user1.getEmail());
+			setCountry(user1.getCountry());
+			setWeight(user1.getWeight());
+			setHeight(user1.getHeight());
+			setAge(user1.getAge());
+			setGender(user1.getGender());
+			setTotalPoints(user1.getTotalPoints());
+			setPromoCode(user1.getPromoCode());
+		}
+		
+		public void updateUser() {
+			ProfileDAO profileDAO = new ProfileDAO();
+			profileDAO.updateUser(this);
+		}
+		
+		public boolean createUser() {
+			ProfileDAO profileDAO = new ProfileDAO();
+			return profileDAO.createUser(this);
+		}
+		
+		public boolean addPromoCode() {
+			ProfileDAO profileDAO = new ProfileDAO();
+			return profileDAO.addPromoCode(this);
 		}
 		
 		public String getEmail() {
@@ -110,8 +151,16 @@ public class User {
 		
 		public void setPassword(String password) {
 			this.password = password;
-		}
+		}	
 		
+		public String getGender() {
+			return gender;
+		}
+
+		public void setGender(String gender) {
+			this.gender = gender;
+		}
+
 		public int getTotalPoints() {
 			return totalPoints;
 		}
@@ -120,51 +169,15 @@ public class User {
 			this.totalPoints = totalPoints;
 		}
 		
-		public ArrayList<String> getPromoCode() {
+		public String getPromoCode() {
 			return promoCode;
 		}
 
-		public void setPromoCode(ArrayList<String> promoCode) {
+		public void setPromoCode(String promoCode) {
 			this.promoCode = promoCode;
 		}
 		
 		public void getOnePromoCode() {
 			
-		}
-
-		public String toString() {
-			return name + ";" + username + ";" + password + ";"+ email + ";" + country + ";" + height + ";" + weight + ";" + age + ";" + totalPoints + ";" + promoCode;
-		}
-		
-		public static ArrayList<User> getAllUser() {
-			ProfileDAO profileDAO = new ProfileDAO();
-			return profileDAO.getAllUser();
-		}
-		
-		public void getUser() {
-			ProfileDAO userDAO = new ProfileDAO();
-			User user1 = userDAO.getUser(username);
-			setName(user1.getName());
-			setPassword(user1.getPassword());
-			setEmail(user1.getEmail());
-			setCountry(user1.getCountry());
-			setWeight(user1.getWeight());
-			setHeight(user1.getHeight());
-			setAge(user1.getAge());
-		}
-		
-		public void updateUser() {
-			ProfileDAO profileDAO = new ProfileDAO();
-			profileDAO.updateUser(this);
-		}
-		
-		public boolean createUser() {
-			ProfileDAO profileDAO = new ProfileDAO();
-			return profileDAO.createUser(this);
-		}
-		
-		public boolean addPromoCode() {
-			ProfileDAO profileDAO = new ProfileDAO();
-			return profileDAO.addPromoCode(this);
 		}
 }
