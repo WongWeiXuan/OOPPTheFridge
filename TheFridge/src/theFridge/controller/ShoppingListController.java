@@ -88,7 +88,12 @@ public class ShoppingListController {
 	@FXML
 	public void addItems(ActionEvent event) throws IOException{
 		ShoppingListModel first = new ShoppingListModel(StocklistView, Popup, ListlistView, Popup1);
-		first.showStage(first);
+		if(event.getSource() == addStocks){
+			first.showStage(first);
+		}
+		else if(event.getSource() == addList){
+			first.showStage(first);
+		}
 	}
 	
 	@FXML 

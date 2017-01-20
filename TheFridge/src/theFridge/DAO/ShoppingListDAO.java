@@ -42,7 +42,7 @@ public class ShoppingListDAO {
 		ArrayList<StockModel> stocks = getAllStock();
 		for(StockModel s: stocks){
 			int maximum = s.getServing() * numberOfPeople;
-			int amount = maximum - s.getAmount();
+			double amount = maximum - s.getAmount();
 			if(amount == 0){
 				break;
 			}

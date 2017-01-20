@@ -2,9 +2,9 @@ package theFridge.model;
 
 public class ListModel {
 	private String name;
-	private int amount;
+	private double amount;
 	
-	public ListModel(String name, int amount) {
+	public ListModel(String name, double amount) {
 		super();
 		this.name = name;
 		this.amount = amount;
@@ -16,7 +16,7 @@ public class ListModel {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getAmount() {
+	public double getAmount() {
 		return amount;
 	}
 	public void setAmount(int amount) {

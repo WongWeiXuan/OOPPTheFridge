@@ -7,10 +7,12 @@ import java.util.ArrayList;
 import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXPopup;
 
+import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -137,7 +139,7 @@ public class ShoppingListModel {
 		hbox.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent event) {
 				if(event.getButton() == MouseButton.SECONDARY){
-					Popup.show(JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.RIGHT);
+					Popup1.show(JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.RIGHT);
 				}
 			}
         });
@@ -183,7 +185,20 @@ public class ShoppingListModel {
 		//Edit Items
 		lbl11.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent event) {
+				HBox selectedItem = ListlistView.getSelectionModel().getSelectedItem();
+				ObservableList<Node> Label = selectedItem.getChildren();
+				Node name = Label.get(0);
+				Node amount = Label.get(1);
 				
+				String s = name.toString();
+				s = s.substring(s.indexOf("'") + 1);
+				s = s.substring(0, s.indexOf("'"));
+				String s1 = amount.toString();
+				s1 = s1.substring(s1.indexOf("'") + 1);
+				s1 = s1.substring(0, s1.indexOf("'"));
+				
+				System.out.println(s);
+				System.out.println(s1);
 			}
         });
 		Label lbl12 = new Label("Delete");

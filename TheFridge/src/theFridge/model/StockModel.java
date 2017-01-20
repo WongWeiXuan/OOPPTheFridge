@@ -2,10 +2,10 @@ package theFridge.model;
 
 public class StockModel {
 	private String name;
-	private int amount;
+	private double amount;
 	private int serving;
 
-	public StockModel(String name, int amount, int serving) {
+	public StockModel(String name, double amount, int serving) {
 		super();
 		this.name = name;
 		this.amount = amount;
@@ -20,7 +20,7 @@ public class StockModel {
 		this.name = name;
 	}
 
-	public int getAmount() {
+	public double getAmount() {
 		return amount;
 	}
 
