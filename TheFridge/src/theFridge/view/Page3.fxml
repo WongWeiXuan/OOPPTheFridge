@@ -19,7 +19,7 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="theFridge.controller.Page3Controller">
    <children>
       <TextFlow prefHeight="72.0" prefWidth="419.0" textAlignment="CENTER">
          <children>
@@ -177,7 +177,7 @@
                   </TextFlow>
                   <VBox alignment="CENTER_RIGHT">
                      <children>
-                        <Button alignment="CENTER" mnemonicParsing="false" prefHeight="31.0" prefWidth="132.0" text="Back To Main" />
+                        <Button fx:id="backToMain" alignment="CENTER" mnemonicParsing="false" prefHeight="31.0" prefWidth="132.0" text="Back To Main" />
                      </children>
                      <VBox.margin>
                         <Insets right="20.0" />
@@ -221,23 +221,23 @@
                                     <Insets left="5.0" />
                                  </GridPane.margin>
                               </Text>
-                              <Label alignment="CENTER" prefHeight="21.0" prefWidth="87.0" text="Label" textAlignment="CENTER" GridPane.columnIndex="1" />
-                              <TextField GridPane.columnIndex="1" GridPane.rowIndex="1">
+                              <Label fx:id="flabel0" alignment="CENTER" prefHeight="21.0" prefWidth="87.0" text="Label" textAlignment="CENTER" GridPane.columnIndex="1" />
+                              <TextField fx:id="textField0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                  <GridPane.margin>
                                     <Insets left="5.0" right="5.0" />
                                  </GridPane.margin>
                               </TextField>
-                              <Label alignment="CENTER" prefHeight="21.0" prefWidth="88.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                              <Label alignment="CENTER" prefHeight="21.0" prefWidth="87.0" text="Label" textAlignment="CENTER" GridPane.columnIndex="2" />
-                              <Label alignment="CENTER" prefHeight="21.0" prefWidth="87.0" text="Label" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                              <TextField GridPane.columnIndex="2" GridPane.rowIndex="1">
+                              <Label fx:id="clabel0" alignment="CENTER" prefHeight="21.0" prefWidth="88.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <Label fx:id="flabel1" alignment="CENTER" prefHeight="21.0" prefWidth="87.0" text="Label" textAlignment="CENTER" GridPane.columnIndex="2" />
+                              <Label fx:id="clabel1" alignment="CENTER" prefHeight="21.0" prefWidth="87.0" text="Label" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                              <TextField fx:id="textField1" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                  <GridPane.margin>
                                     <Insets left="5.0" right="5.0" />
                                  </GridPane.margin>
                               </TextField>
-                              <Label alignment="CENTER" prefHeight="21.0" prefWidth="87.0" text="Label" textAlignment="CENTER" GridPane.columnIndex="3" />
-                              <Label alignment="CENTER" prefHeight="21.0" prefWidth="87.0" text="Label" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-                              <TextField GridPane.columnIndex="3" GridPane.rowIndex="1">
+                              <Label fx:id="flabel2" alignment="CENTER" prefHeight="21.0" prefWidth="87.0" text="Label" textAlignment="CENTER" GridPane.columnIndex="3" />
+                              <Label fx:id="clabel2" alignment="CENTER" prefHeight="21.0" prefWidth="87.0" text="Label" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                              <TextField fx:id="textField2" GridPane.columnIndex="3" GridPane.rowIndex="1">
                                  <GridPane.margin>
                                     <Insets left="5.0" right="5.0" />
                                  </GridPane.margin>
@@ -251,7 +251,7 @@
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="47.0" prefWidth="980.0">
                      <children>
-                        <Button alignment="CENTER" mnemonicParsing="false" prefHeight="47.0" prefWidth="312.0" text="Generate" VBox.vgrow="ALWAYS" />
+                        <Button fx:id="Generate" alignment="CENTER" mnemonicParsing="false" prefHeight="47.0" prefWidth="312.0" text="Generate" VBox.vgrow="ALWAYS" />
                      </children>
                      <VBox.margin>
                         <Insets top="35.0" />
@@ -259,7 +259,7 @@
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="368.0" prefWidth="980.0">
                      <children>
-                        <Label alignment="CENTER" prefHeight="328.0" prefWidth="694.0" text="Nothing to be displayed" />
+                        <Label fx:id="steps" alignment="CENTER" prefHeight="328.0" prefWidth="694.0" text="Nothing to be displayed" />
                      </children>
                      <VBox.margin>
                         <Insets top="20.0" />

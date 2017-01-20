@@ -1,6 +1,10 @@
 package theFridge.controller;
 
+
+import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Scanner;
 
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXListView;
@@ -37,10 +41,6 @@ public class Page1Controller{
     private TableColumn<First, String> table2;
     @FXML
     private TableView<First> tableView1;
-    @FXML
-    private TableView<String> foodCom;
-    @FXML
-    private TableColumn foodCom1;//<Last, String>
     @FXML
     private Button btnGenerateMultiple;
     @FXML
@@ -122,10 +122,30 @@ public class Page1Controller{
 	
 	@FXML
 	public void generateTwo(ActionEvent event)throws IOException {
+		String f="src/theFridge/file/foodcheck.txt";
+		try{
+			PrintWriter writer = new PrintWriter(f);
+			writer.print("");
+			writer.print(a);
+			writer.close();
+		}catch (IOException e){
+			e.printStackTrace();
+		}
+		if(a.size() == 1){
 			Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
 			Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/Page2.fxml"));
 			stage.setScene(new Scene(root));
 	 	    stage.show();
+		}
+		else if(a.size() == 0){
+			System.out.println("Please enter a food");
+		}
+		else{
+			Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+			Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/Page3.fxml"));
+			stage.setScene(new Scene(root));
+	 	    stage.show();
+		}
 	}
 	
 	
@@ -156,27 +176,22 @@ public class Page1Controller{
 	
 	
 	ObservableList<String> data = FXCollections.observableArrayList("Chicken","Fish","Vegetable","Rice","Pasta","tomato","apple","sotongs");
-	ObservableList<String> a = FXCollections.observableArrayList("Chicken");
+	ObservableList<String> a = FXCollections.observableArrayList();
 	
 	    public void initialize() {
 	        table1.setCellValueFactory(new PropertyValueFactory<First, String>("foodCanCompost"));
 	        table2.setCellValueFactory(new PropertyValueFactory<First, String>("foodCannotCompost"));
 	        tableView1.setItems(list);
 	        choice.setItems(data);  
-	        listView.setItems(data);
+	        listView.setItems(a);
 	        //foodCom.setItems(a);
 	        
 	    }
 	    
 	   
 	    public void chosen1(ActionEvent event){
-	    	//String s = choice.getValue().toString();
-	    	//a.add(s);
-	    	//ObservableList<String> a = FXCollections.observableArrayList(s);
-	    	//Last p = new Last(s);
-	    	//foodCom.setItems(a);
-	       // foodCom1.setCellValueFactory(new PropertyValueFactory<Last, String>("foodCombi"));
-	    	
+	    	String s = choice.getValue().toString();
+	    	a.add(s);
 	    }
 	    
 	   
