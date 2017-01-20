@@ -16,6 +16,8 @@ public class User {
 		private String gender;
 		private int totalPoints;
 		private String promoCode;
+		private String currentDate;
+		private String endDate;
 		
 		public User() {
 			super();
@@ -35,7 +37,7 @@ public class User {
 		}
 		
 		public User(String name, String username, String password, String email, String country, String height,
-				String weight, String age, String gender, int totalPoints, String promoCode) {
+				String weight, String age, String gender, int totalPoints, String promoCode, String currentDate, String endDate) {
 			super();
 			this.username = username;
 			this.password = password;
@@ -48,10 +50,12 @@ public class User {
 			this.gender = gender;
 			this.totalPoints = totalPoints;
 			this.promoCode = promoCode;
+			this.currentDate = currentDate;
+			this.endDate = endDate;
 		}
 		
 		public String toString() {
-			return name + ";" + username + ";" + password + ";"+ email + ";" + country + ";" + height + ";" + weight + ";" + age + ";" + gender + ";" + totalPoints + ";" + promoCode;
+			return name + ";" + username + ";" + password + ";"+ email + ";" + country + ";" + height + ";" + weight + ";" + age + ";" + gender + ";" + totalPoints + ";" + promoCode + ";" + currentDate + ";" + endDate;
 		}
 		
 		public static ArrayList<User> getAllUser() {
@@ -72,6 +76,8 @@ public class User {
 			setGender(user1.getGender());
 			setTotalPoints(user1.getTotalPoints());
 			setPromoCode(user1.getPromoCode());
+			setCurrentDate(user1.getCurrentDate());
+			setEndDate(user1.getEndDate());
 		}
 		
 		public void updateUser() {
@@ -176,8 +182,20 @@ public class User {
 		public void setPromoCode(String promoCode) {
 			this.promoCode = promoCode;
 		}
-		
-		public void getOnePromoCode() {
-			
+
+		public String getCurrentDate() {
+			return currentDate;
+		}
+
+		public void setCurrentDate(String currentDate) {
+			this.currentDate = currentDate;
+		}
+
+		public String getEndDate() {
+			return endDate;
+		}
+
+		public void setEndDate(String endDate) {
+			this.endDate = endDate;
 		}
 }
