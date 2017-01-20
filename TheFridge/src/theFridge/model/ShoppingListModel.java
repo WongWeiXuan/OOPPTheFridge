@@ -53,7 +53,11 @@ public class ShoppingListModel {
 		lbl3.setMinWidth(100);
 		lbl3.setPrefWidth(100);
 		lbl3.setAlignment(Pos.CENTER);
-		HBoxTitle.getChildren().addAll(lbl1, lbl2, lbl3);
+		Label lbl4 = new Label("Max Amount");
+		lbl4.setMinWidth(100);
+		lbl4.setPrefWidth(100);
+		lbl4.setAlignment(Pos.CENTER);
+		HBoxTitle.getChildren().addAll(lbl1, lbl2, lbl3, lbl4);
 		HBoxTitle.setPadding(new Insets(10, 10, 10, 10));
 		StocklistView.getItems().add(HBoxTitle);
 		
@@ -86,7 +90,11 @@ public class ShoppingListModel {
 				servingLbl.setMinWidth(100);
 				servingLbl.setPrefWidth(100);
 				servingLbl.setAlignment(Pos.CENTER);
-			hbox.getChildren().addAll(nameLbl, amountLbl, servingLbl);
+			Label maxAmountlbl = new Label(String.valueOf(calculateMaxAmount(m)));
+				maxAmountlbl.setMinWidth(100);
+				maxAmountlbl.setPrefWidth(100);
+				maxAmountlbl.setAlignment(Pos.CENTER);
+			hbox.getChildren().addAll(nameLbl, amountLbl, servingLbl, maxAmountlbl);
 			hbox.setOnMouseClicked(new EventHandler<MouseEvent>() {
 				public void handle(MouseEvent event) {
 					if(event.getButton() == MouseButton.SECONDARY){
@@ -125,13 +133,15 @@ public class ShoppingListModel {
 		}
 	}
 	
-	public void displayShoppingByStockModel(StockModel stock) throws FileNotFoundException{
+	public  void displayShoppingByStockModel(StockModel stock) throws FileNotFoundException{
+		ShoppingListDAO a = new ShoppingListDAO();
+		ListModel list = a.getListWithStock(stock);
 		HBox hbox = new HBox();
-		Label nameLbl = new Label(stock.getName());
+		Label nameLbl = new Label(list.getName());
 			nameLbl.setMinWidth(400);
 			nameLbl.setPrefWidth(400);
 			nameLbl.setAlignment(Pos.CENTER_LEFT);
-		Label amountLbl = new Label(String.valueOf(stock.getAmount()));
+		Label amountLbl = new Label(String.valueOf(list.getAmount()));
 			amountLbl.setMinWidth(100);
 			amountLbl.setPrefWidth(100);
 			amountLbl.setAlignment(Pos.CENTER);
@@ -156,16 +166,18 @@ public class ShoppingListModel {
 		//Edit Items
 		lbl1.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent event) {
+				ShoppingListAddPageModel.source = "Stock";
 				HBox selectedItem = StocklistView.getSelectionModel().getSelectedItem();
 				int selectedIdx = StocklistView.getSelectionModel().getSelectedIndex();
 				ObservableList<Node> Label = selectedItem.getChildren();
 				String name = nodeToString(Label.get(0));
 				String amount = nodeToString(Label.get(1));
-				
-				ShoppingListAddPageModel.showNameAndAmount(name, Double.parseDouble(amount));
+				String serving = nodeToString(Label.get(2));
+				String maxAmount = nodeToString(Label.get(3));
 				
 				try {
 					showStage(selectedIdx);
+					ShoppingListAddPageModel.showNameAndAmount(name, Double.parseDouble(amount), Integer.parseInt(serving), Double.parseDouble(maxAmount));
 				} 
 				catch (IOException e) {
 					e.printStackTrace();
@@ -183,6 +195,13 @@ public class ShoppingListModel {
 				if(selectedIdx != 0){
 					StocklistView.getItems().remove(selectedIdx);
 				}
+				try {
+	    			ShoppingListDAO a = new ShoppingListDAO();
+	    			a.writeToStockFile(ShoppingListModel.getStocklistArray());
+					a.writeToListFile(ShoppingListModel.getListlistArray());
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 				Popup.close();
 			}
         });
@@ -198,6 +217,7 @@ public class ShoppingListModel {
 		//Edit Items
 		lbl11.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent event) {
+				ShoppingListAddPageModel.source = "List";
 				HBox selectedItem = ListlistView.getSelectionModel().getSelectedItem();
 				int selectedIdx = ListlistView.getSelectionModel().getSelectedIndex();
 				ObservableList<Node> Label = selectedItem.getChildren();
@@ -206,11 +226,10 @@ public class ShoppingListModel {
 				
 				try {
 					showStage(selectedIdx);
+					ShoppingListAddPageModel.showNameAndAmount(name, Double.parseDouble(amount));
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
-				}
-				ShoppingListAddPageModel.showNameAndAmount(name, Double.parseDouble(amount));
+				}	
 			}
         });
 		Label lbl12 = new Label("Delete");
@@ -223,6 +242,13 @@ public class ShoppingListModel {
 				int selectedIdx = ListlistView.getSelectionModel().getSelectedIndex();
 				if(selectedIdx != 0){
 					ListlistView.getItems().remove(selectedIdx);
+				}
+	    		try {
+	    			ShoppingListDAO a = new ShoppingListDAO();
+	    			a.writeToStockFile(ShoppingListModel.getStocklistArray());
+					a.writeToListFile(ShoppingListModel.getListlistArray());
+				} catch (IOException e) {
+					e.printStackTrace();
 				}
 				Popup1.close();
 			}
@@ -277,7 +303,11 @@ public class ShoppingListModel {
 		lbl3.setMinWidth(100);
 		lbl3.setPrefWidth(100);
 		lbl3.setAlignment(Pos.CENTER);
-		hbox.getChildren().addAll(lbl1, lbl2, lbl3);
+		Label lbl4 = new Label(String.valueOf(s.getServing()));
+		lbl4.setMinWidth(100);
+		lbl4.setPrefWidth(100);
+		lbl4.setAlignment(Pos.CENTER);
+		hbox.getChildren().addAll(lbl1, lbl2, lbl3, lbl4);
 		StocklistView.getItems().add(hbox);
 		hbox.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent event) {
@@ -288,7 +318,7 @@ public class ShoppingListModel {
         });
 	}
 	
-	public void addShopping(StockModel s) throws FileNotFoundException{
+	public void addShopping(ListModel s) throws FileNotFoundException{
 		HBox hbox = new HBox();
 		Label lbl1 = new Label(s.getName());
 		lbl1.setMinWidth(400);
@@ -317,7 +347,7 @@ public class ShoppingListModel {
 		return s;
 	}
 	
-	public static void setListlistViewNode(int index, StockModel model){
+	public static void setListlistViewNode(int index, ListModel model){
 		HBox hbox = new HBox();
 		Label nameLbl = new Label(model.getName());
 		nameLbl.setMinWidth(400);
@@ -345,20 +375,31 @@ public class ShoppingListModel {
 		servingLbl.setMinWidth(100);
 		servingLbl.setPrefWidth(100);
 		servingLbl.setAlignment(Pos.CENTER);
-		hbox.getChildren().addAll(nameLbl, amountLbl, servingLbl);
+		Label maxAmountlbl = new Label(String.valueOf(calculateMaxAmount(model)));
+		maxAmountlbl.setMinWidth(100);
+		maxAmountlbl.setPrefWidth(100);
+		maxAmountlbl.setAlignment(Pos.CENTER);
+		hbox.getChildren().addAll(nameLbl, amountLbl, servingLbl, maxAmountlbl);
 		StocklistView.getItems().set(index, hbox);
 	}
 	
 	public static ArrayList<StockModel> getStocklistArray(){
 		ArrayList<StockModel> stockArray = new ArrayList<StockModel>();
 		ObservableList<HBox> HboxList = StocklistView.getItems();
+		boolean numfirst = true;
 		for(HBox a:HboxList){
-			ObservableList<Node> NodeList = a.getChildren();
-			String name = nodeToString(NodeList.get(0));
-			double amount = Double.parseDouble(nodeToString(NodeList.get(1)));
-			int serving = Integer.parseInt(nodeToString(NodeList.get(2)));
-			StockModel stockModel = new StockModel(name, amount, serving);
-			stockArray.add(stockModel);
+			if(numfirst == true){
+				numfirst = false;
+				continue;
+			}
+			else{
+				ObservableList<Node> NodeList = a.getChildren();
+				String name = nodeToString(NodeList.get(0));
+				double amount = Double.parseDouble(nodeToString(NodeList.get(1)));
+				int serving = Integer.parseInt(nodeToString(NodeList.get(2)));
+				StockModel stockModel = new StockModel(name, amount, serving);
+				stockArray.add(stockModel);
+			}
 		}
 		return stockArray;
 	}
@@ -366,13 +407,26 @@ public class ShoppingListModel {
 	public static ArrayList<ListModel> getListlistArray(){
 		ArrayList<ListModel> listArray = new ArrayList<ListModel>();
 		ObservableList<HBox> HboxList = ListlistView.getItems();
+		boolean numfirst = true;
 		for(HBox a:HboxList){
-			ObservableList<Node> NodeList = a.getChildren();
-			String name = nodeToString(NodeList.get(0));
-			double amount = Double.parseDouble(nodeToString(NodeList.get(1)));
-			ListModel stockModel = new ListModel(name, amount);
-			listArray.add(stockModel);
+			if(numfirst == true){
+				numfirst = false;
+				continue;
+			}
+			else{
+				ObservableList<Node> NodeList = a.getChildren();
+				String name = nodeToString(NodeList.get(0));
+				double amount = Double.parseDouble(nodeToString(NodeList.get(1)));
+				ListModel listModel = new ListModel(name, amount);
+				listArray.add(listModel);
+			}
 		}
 		return listArray;
+	}
+	
+	public static double calculateMaxAmount(StockModel stock){
+		double maxAmount = stock.getServing() * numOfPeople;
+		stock.setMaxAmount(maxAmount);
+		return maxAmount;
 	}
 }
