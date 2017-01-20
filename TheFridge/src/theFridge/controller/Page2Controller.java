@@ -2,8 +2,8 @@ package theFridge.controller;
 
 import javafx.fxml.FXML;
 import java.io.File;
-import java.net.URL;
-import java.util.ResourceBundle;
+import java.io.FileNotFoundException;
+
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
@@ -14,6 +14,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
+import java.util.Scanner;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -35,7 +36,7 @@ import javafx.scene.media.Media;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-public class Page2Controller implements Initializable {
+public class Page2Controller {
 	@FXML
 	private AnchorPane Anchor;
 	@FXML
@@ -139,12 +140,16 @@ public class Page2Controller implements Initializable {
  	    stage.show();
  	    mp.stop();
 	}
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
+	public void initialize() throws FileNotFoundException {
+		File file=new File("src/theFridge/file/foodcheck.txt");
+		Scanner sc=new Scanner(file) ;
+		String n = sc.nextLine();
+		chosenFood.setText(n);
 		String path = new File("src/theFridge/sound/PPAP.mp4").getAbsolutePath();
 		me = new Media(new File(path).toURI().toString());
 		mp = new MediaPlayer(me);
 		video.setMediaPlayer(mp);
+		
 		//DoubleProperty width = video.fitWidthProperty();
 		//DoubleProperty height = video.fitHeightProperty();
 	}
