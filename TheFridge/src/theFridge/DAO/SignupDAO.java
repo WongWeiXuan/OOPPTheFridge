@@ -19,7 +19,7 @@ public class SignupDAO {
 		dataFile=new File(dPath.toString()); 
 	}
 	
-	public static ArrayList<SignupModel> getAllPerson() {
+	public ArrayList<SignupModel> getAllPerson() {
 		Scanner in;
 		String record = null;
 		String[] fields;
@@ -43,7 +43,7 @@ public class SignupDAO {
 		return personList;
 	}
 
-	public static SignupModel getPerson(String username) {
+	public SignupModel getPerson(String username) {
 		ArrayList<SignupModel> personList = getAllPerson();
 		SignupModel Someone = null;
 		for (SignupModel s : personList) {

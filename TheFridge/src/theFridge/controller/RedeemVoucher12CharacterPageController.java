@@ -59,6 +59,7 @@ public class RedeemVoucher12CharacterPageController {
 	private Label promoCodeEmail;
 	@FXML
 	private Label promoCodeEmailBorder;
+	
 	private String promoCode;
 	
 	@FXML

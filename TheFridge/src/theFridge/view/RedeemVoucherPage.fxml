@@ -185,16 +185,34 @@
                               </VBox>
                               <VBox alignment="CENTER">
                                  <children>
-                                    <Label text="Your total points: " textFill="#e91e63">
-                                       <font>
-                                          <Font name="Garamond Bold" size="36.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="totalPoints" opacity="0.0" textFill="#e91e63">
-                                       <font>
-                                          <Font name="Garamond Bold" size="36.0" />
-                                       </font>
-                                    </Label>
+                                    <StackPane>
+                                       <children>
+                                          <Label fx:id="redeemAgainLabel" opacity="0.0" text="You may redeem again on:" textFill="#e91e63">
+                                             <font>
+                                                <Font name="Garamond Bold" size="36.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="userPointsLabel" text="Your total points: " textFill="#e91e63">
+                                             <font>
+                                                <Font name="Garamond Bold" size="36.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </StackPane>
+                                    <StackPane>
+                                       <children>
+                                          <Label fx:id="redeemAgainDate" opacity="0.0" textFill="#e91e63">
+                                             <font>
+                                                <Font name="Garamond Bold" size="36.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="totalPoints" textFill="#e91e63">
+                                             <font>
+                                                <Font name="Garamond Bold" size="36.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </StackPane>
                                  </children>
                                  <VBox.margin>
                                     <Insets top="30.0" />

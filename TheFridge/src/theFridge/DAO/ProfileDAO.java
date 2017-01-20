@@ -40,7 +40,9 @@ public class ProfileDAO {
 				String gender = fields[8];
 				int totalPoints = Integer.parseInt(fields[9]);
 				String promoCode = fields[10];
-				User u = new User(name, username, password, email, location, height, weight, age, gender, totalPoints, promoCode);
+				String currentDate = fields[11];
+				String endDate = fields[12];
+				User u = new User(name, username, password, email, location, height, weight, age, gender, totalPoints, promoCode, currentDate, endDate);
 				user.add(u);
 			}
 			in.close();

@@ -342,7 +342,7 @@ public class Profile2Controller {
 		profileDAO.updateUser(uu);
 		SignupDAO u = new SignupDAO();
 		SignupModel sg = new SignupModel();
-		sg = SignupDAO.getPerson(n);
+		sg = u.getPerson(n); //Changed from SignupDAO.getPerson(n) to u.getPerson(n)
 		sg.setPassword(password);
 		sg.updatePerson();
 		//u.updatePerson(sg);

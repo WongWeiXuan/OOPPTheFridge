@@ -1,17 +1,12 @@
 package theFridge.controller;
 
 import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 //import javafx.stage.StageStyle;
 //import javafx.application.Platform;
 import java.util.ArrayList;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 import com.jfoenix.controls.JFXButton;
@@ -103,17 +98,6 @@ public class LoginSignupPageController {
 		String Username = tFUsername.getText();
 		String Password = pFPassword.getText();
 		
-		/*
-		JSONParser parser = new JSONParser();
-		
-		Object obj = parser.parse(new FileReader("src/theFridge/file/people.json"));
-		JSONObject jsonObject = (JSONObject) obj;
-		
-		JSONArray usernameArray = (JSONArray) jsonObject.get("Username"); 
-		
-		JSONArray passwordArray = (JSONArray) jsonObject.get("Password"); 
-		*/
-		
 		// If username is empty
 		if (Username.equals("") || Username.equals(null)) {
 			comment.setText("Please fill in your username!");
@@ -128,11 +112,12 @@ public class LoginSignupPageController {
 					User one = new User();
 					one.setUsername(Username);
 					one.setPassword(Password);
-					SignupModel p =signupDAO.getPerson(Username);
+					SignupModel p = signupDAO.getPerson(Username);
 					one.setEmail(p.getEmail());
 					one.createUser();
 					String ConfirmUsername = tFUsername.getText();
 					String f="src/theFridge/file/confirm.txt";
+					
 					try{
 						PrintWriter writer = new PrintWriter(f);
 						writer.print("");
@@ -141,6 +126,7 @@ public class LoginSignupPageController {
 					}catch (IOException e){
 						e.printStackTrace();
 					}
+					
 					spinner.setOpacity(1);
 					loginBtn.setOpacity(0);
 					
@@ -204,39 +190,6 @@ public class LoginSignupPageController {
 		else {
 			SignupModel Someone = new SignupModel(Username, Email, Password);
 			Someone.createPerson();
-			
-			/*
-			JSONParser parser = new JSONParser();
-			
-			Object obj = parser.parse(new FileReader("src/theFridge/file/people.json"));
-			JSONObject jsonObject = (JSONObject) obj;
-			
-			JSONArray usernameArray = (JSONArray) jsonObject.get("Username"); 
-			usernameArray.add(Username);
-			
-			JSONArray passwordArray = (JSONArray) jsonObject.get("Password"); 
-			passwordArray.add(Password);
-			
-			JSONArray emailArray = (JSONArray) jsonObject.get("Email"); 
-			emailArray.add(Email);
-			
-			JSONObject jsonobject = new JSONObject();
-			jsonobject.put("Username", usernameArray);
-			jsonobject.put("Password", passwordArray);
-			jsonobject.put("Email", emailArray);
-			
-			try {
-				FileWriter fw = new FileWriter("src/theFridge/file/people.json");
-				fw.write(jsonobject.toJSONString());
-				fw.flush();
-				fw.close();
-
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			
-			*/
-			
 		}
 			Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
 			Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/LoginSignupPage.fxml"));
@@ -257,12 +210,6 @@ public class LoginSignupPageController {
 		
 		timeline.getKeyFrames().addAll(keyFrame0, keyFrame);
 		timeline.play();
-		
-		/*Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/SignupPage.fxml"));
-		
-		stage.setScene(new Scene(root));
- 	    stage.show();*/
 	}
 	
 	@FXML
@@ -278,4 +225,50 @@ public class LoginSignupPageController {
 		timeline.getKeyFrames().addAll(keyFrame, keyFrame1);
 		timeline.play();
 	}
+	
+	/*
+	JSON version of login
+	============================================================================
+	JSONParser parser = new JSONParser();
+	
+	Object obj = parser.parse(new FileReader("src/theFridge/file/people.json"));
+	JSONObject jsonObject = (JSONObject) obj;
+	
+	JSONArray usernameArray = (JSONArray) jsonObject.get("Username"); 
+	
+	JSONArray passwordArray = (JSONArray) jsonObject.get("Password"); 
+	*/
+	
+	/*
+	JSON version of signup
+	============================================================================
+	JSONParser parser = new JSONParser();
+	
+	Object obj = parser.parse(new FileReader("src/theFridge/file/people.json"));
+	JSONObject jsonObject = (JSONObject) obj;
+	
+	JSONArray usernameArray = (JSONArray) jsonObject.get("Username"); 
+	usernameArray.add(Username);
+	
+	JSONArray passwordArray = (JSONArray) jsonObject.get("Password"); 
+	passwordArray.add(Password);
+	
+	JSONArray emailArray = (JSONArray) jsonObject.get("Email"); 
+	emailArray.add(Email);
+	
+	JSONObject jsonobject = new JSONObject();
+	jsonobject.put("Username", usernameArray);
+	jsonobject.put("Password", passwordArray);
+	jsonobject.put("Email", emailArray);
+	
+	try {
+		FileWriter fw = new FileWriter("src/theFridge/file/people.json");
+		fw.write(jsonobject.toJSONString());
+		fw.flush();
+		fw.close();
+
+	} catch (IOException e) {
+		e.printStackTrace();
+	}
+	*/
 }

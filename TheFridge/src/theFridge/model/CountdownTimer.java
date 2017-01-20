@@ -4,7 +4,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class CountdownTimer {
-	private int interval;
+	private int secondsLeft;
 	private Timer timer;
 	
 	public void start() {
@@ -12,17 +12,17 @@ public class CountdownTimer {
 	    int delay = 1000;
 	    int period = 1000;
 	    timer = new Timer();
-	    interval = Integer.parseInt(secs);
-	    System.out.println(secs);
+	    secondsLeft = Integer.parseInt(secs);
+	    System.out.println(secondsLeft);
 	    timer.scheduleAtFixedRate(new TimerTask() {
 
 	        public void run() {
-	        	if (interval == 0) {
+	        	if (secondsLeft == 0) {
 	     	        timer.cancel();
 	     	        return;
 	        	 }
-	        	 interval--;
-	        	 System.out.println(interval);
+	        	 secondsLeft--;
+	        	 System.out.println(secondsLeft);
 
 	        }
 	    }, delay, period);

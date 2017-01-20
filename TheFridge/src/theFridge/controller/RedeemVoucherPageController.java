@@ -1,6 +1,9 @@
 package theFridge.controller;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Scanner;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -18,6 +21,9 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
+import theFridge.DAO.ProfileDAO;
+import theFridge.model.RedeemVoucherModel;
+import theFridge.model.User;
 import javafx.event.ActionEvent;
 import com.jfoenix.controls.JFXButton;
 
@@ -49,7 +55,13 @@ public class RedeemVoucherPageController {
 	@FXML 
 	private JFXButton TwelveCharacterBtn4;
 	@FXML
+	private Label userPointsLabel;
+	@FXML
 	private Label totalPoints;
+	@FXML
+	private Label redeemAgainLabel;
+	@FXML
+	private Label redeemAgainDate;
 	@FXML
 	private VBox voucher1;
 	@FXML
@@ -74,6 +86,47 @@ public class RedeemVoucherPageController {
 	private VBox show3;
 	@FXML
 	private VBox show4;
+	
+	@FXML
+	public void initialize() throws FileNotFoundException {
+		File file=new File("src/theFridge/file/confirm.txt");
+		Scanner sc = new Scanner(file) ;
+		String n = sc.nextLine();
+		ProfileDAO profileDAO = new ProfileDAO();
+		User uu = new User();
+		uu = profileDAO.getUser(n);
+		
+		String points = Integer.toString(uu.getTotalPoints());
+		RedeemVoucherModel rDV = new RedeemVoucherModel();
+		rDV.redeemIn24Hours(redeemAgainDate);
+		
+		if (uu.getPromoCode() == "null" || uu.getPromoCode() == "") {
+			System.out.println("IF");
+			
+			totalPoints.setText(points);
+			userPointsLabel.setOpacity(1);
+			totalPoints.setOpacity(1);
+			redeemAgainLabel.setOpacity(0);
+			redeemAgainDate.setOpacity(0);
+		}
+		else if (uu.getCurrentDate() == uu.getEndDate()) {
+			System.out.println("ELSE IF");
+			System.out.println(rDV.getCurrentTime());
+			System.out.println(rDV.getEndTime());
+			
+			userPointsLabel.setOpacity(0);
+			totalPoints.setOpacity(0);
+			redeemAgainLabel.setOpacity(1);
+			redeemAgainDate.setOpacity(1);
+			
+			rDV.clearRedeemAgainDate();
+		}
+		else {
+			System.out.println(uu.getPromoCode());
+			System.out.println(uu.getCurrentDate());
+			System.out.println(uu.getEndDate());
+		}
+	}
 	
 	@FXML
 	public void showPopup(MouseEvent event) {
