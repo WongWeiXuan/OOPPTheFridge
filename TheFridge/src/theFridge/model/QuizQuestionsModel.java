@@ -7,9 +7,9 @@ import theFridge.DAO.QuizDAO;
 public class QuizQuestionsModel {
 	private String questions;
 	private QuizChoicesModel choices;
-	private QuizExplanationsModel explanations;
+	private String explanations;
 	
-	public QuizQuestionsModel(String questions, QuizChoicesModel choices, QuizExplanationsModel explanations) {
+	public QuizQuestionsModel(String questions, QuizChoicesModel choices, String explanations) {
 		super();
 		this.questions = questions;
 		this.choices = choices;
@@ -24,11 +24,11 @@ public class QuizQuestionsModel {
 		this.choices = choices;
 	}
 
-	public QuizExplanationsModel getExplanations() {
+	public String getExplanations() {
 		return explanations;
 	}
 
-	public void setExplanations(QuizExplanationsModel explanations) {
+	public void setExplanations(String explanations) {
 		this.explanations = explanations;
 	}
 	
@@ -51,6 +51,9 @@ public class QuizQuestionsModel {
 		setChoices(q.getChoices());
 		setExplanations(q.getExplanations());
 	}
-	
-	//Create a method that checks whether user selects the correct choice?
+	/*
+	public boolean checkAnswer(int userChoice) {
+		
+	}
+	*/
 }

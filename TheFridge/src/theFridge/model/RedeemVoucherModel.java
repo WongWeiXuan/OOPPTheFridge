@@ -1,6 +1,11 @@
 package theFridge.model;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Random;
+import java.util.Scanner;
+
+import theFridge.DAO.ProfileDAO;
 
 public class RedeemVoucherModel {
 	private User totalPoints;
@@ -40,7 +45,7 @@ public class RedeemVoucherModel {
 		this.codeOutput = codeOutput;
 	}
 
-	public void generatePromoCode() {
+	public void generatePromoCode() throws FileNotFoundException {
 		//Generate promo code
 		int codeSize = 12;
 		char[] chars = "abcdefghjkmnpqrstuvwxyzABCDEFGHJKMNPQRSTUVWXYZ23456789".toCharArray();
@@ -57,10 +62,25 @@ public class RedeemVoucherModel {
 	public void generateBarcode() {
 		//Generate barcode
 		RedeemVoucherBarcode gBC = new RedeemVoucherBarcode();
-		gBC.generateBarcode(codeOutput);
+		gBC.generateBarcode(getCodeOutput());
 	}
 	
-	public static void main(String args[]) {
+	public void sendEmail() throws FileNotFoundException {
+		File file = new File("src/theFridge/file/confirm.txt");
+		Scanner sc = new Scanner(file) ;
+		String n = sc.nextLine();
+		
+		ProfileDAO profileDAO = new ProfileDAO();
+		
+		User user = new User();
+		user = profileDAO.getUser(n);
+		
+		RedeemVoucherSendEmail rDVSE = new RedeemVoucherSendEmail();
+		rDVSE.sendEmail(user.getEmail(), codeOutput);
+		sc.close();
+	}
+	
+	public static void main(String args[]) throws FileNotFoundException {
 		RedeemVoucherModel rDV = new RedeemVoucherModel();
 		rDV.generatePromoCode();
 		System.out.println(rDV.getCodeOutput());

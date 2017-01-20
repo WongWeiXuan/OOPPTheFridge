@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import theFridge.model.QuizChoicesModel;
-import theFridge.model.QuizExplanationsModel;
 import theFridge.model.QuizQuestionsModel;
 
 public class QuizDAO {
@@ -18,24 +17,27 @@ public class QuizDAO {
 	
 	public QuizDAO() {
 		Path dPath = FileSystems.getDefault().getPath("src/theFridge/file/QuizQuestions.txt");
-		dataFile=new File(dPath.toString()); 
+		dataFile = new File(dPath.toString()); 
 	}
 	
 	public ArrayList<QuizQuestionsModel> getAllQuestions() {
 		Scanner in;
 		String record = null;
-		String[] fields1;
-		QuizChoicesModel[] fields2 = null;
-		QuizExplanationsModel[] fields3 = null;
+		String[] fields;
 		ArrayList<QuizQuestionsModel> questionsList = new ArrayList<QuizQuestionsModel>();
 		try {
 			in = new Scanner(dataFile);
 			while (in.hasNextLine()) {
 				record = in.nextLine();
-				fields1 = record.split(";");
-				String question = fields1[0];
-				QuizChoicesModel choices = fields2[0];
-				QuizExplanationsModel explanation = fields3[0];
+				fields = record.split(";");
+				String question = fields[0];
+				String choice1 = fields[1]; 
+				String choice2 = fields[2];
+				String choice3 = fields[3];
+				String choice4 = fields[4];
+				int answer = Integer.parseInt(fields[5]);
+				QuizChoicesModel choices = new QuizChoicesModel(choice1, choice2, choice3, choice4, answer);
+				String explanation = fields[6];
 				QuizQuestionsModel q = new QuizQuestionsModel(question, choices, explanation);
 				questionsList.add(q);
 			}

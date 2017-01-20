@@ -127,6 +127,10 @@ public class User {
 		public void setPromoCode(ArrayList<String> promoCode) {
 			this.promoCode = promoCode;
 		}
+		
+		public void getOnePromoCode() {
+			
+		}
 
 		public String toString() {
 			return name + ";" + username + ";" + password + ";"+ email + ";" + country + ";" + height + ";" + weight + ";" + age + ";" + totalPoints + ";" + promoCode;
@@ -158,5 +162,9 @@ public class User {
 			ProfileDAO profileDAO = new ProfileDAO();
 			return profileDAO.createUser(this);
 		}
-	
+		
+		public boolean addPromoCode() {
+			ProfileDAO profileDAO = new ProfileDAO();
+			return profileDAO.addPromoCode(this);
+		}
 }

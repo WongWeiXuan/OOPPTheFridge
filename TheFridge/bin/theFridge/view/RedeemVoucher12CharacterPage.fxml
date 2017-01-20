@@ -171,7 +171,7 @@
                                     <Font name="Garamond" size="36.0" />
                                  </font>
                               </Label>
-                              <JFXButton fx:id="codeGenerator" buttonType="RAISED" onAction="#generateCode" ripplerFill="BLACK" style="-fx-background-color: yellow;" text="Click to generate">
+                              <JFXButton fx:id="codeGenerator" buttonType="RAISED" onAction="#generatePromoCode" ripplerFill="BLACK" style="-fx-background-color: yellow;" text="Click to generate">
                                  <font>
                                     <Font name="Garamond" size="24.0" />
                                  </font>
