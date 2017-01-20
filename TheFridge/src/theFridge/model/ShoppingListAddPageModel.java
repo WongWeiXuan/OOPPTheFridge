@@ -7,30 +7,49 @@ import javafx.scene.control.TextField;
 
 public class ShoppingListAddPageModel {
 	static ShoppingListModel model;
-	TextField nameField;
-	Spinner<Double> amountSpinner;
+	static TextField nameField;
+	static Spinner<Double> amountSpinner;
+	static int index;
+	static boolean edit = false;
+	static String source = "";
 
 	public ShoppingListAddPageModel() {
 		super();
 	}
 	
-	public ShoppingListAddPageModel(TextField nameField, Spinner<Double> amountSpinner) {
+	public ShoppingListAddPageModel(TextField nameFields, Spinner<Double> amountSpinners) {
 		super();
-		this.nameField = nameField;
-		this.amountSpinner = amountSpinner;
+		nameField = nameFields;
+		amountSpinner = amountSpinners;
 	}
 
 	public void closeAndShow() throws FileNotFoundException{
 		String name = nameField.getText();
     	double amount = amountSpinner.getValue();
     	StockModel s = new StockModel(name, amount, 1);
-    	
-		model.addStocks(s);
-		model.displayShoppingByStockModel(s);
+    	if(source == "Stock"){
+	    	if(edit == true){
+	    		ShoppingListModel.setStocklistViewNode(index, s);
+	    		edit = false;
+	    	}
+	    	else{
+				model.addStocks(s);
+	    	}
+    	}
+    	else if(source == "List"){
+    		if(edit == true){
+	    		ShoppingListModel.setListlistViewNode(index, s);
+    		}
+    		else{
+				model.addShopping(s);
+				model.displayShoppingByStockModel(s);
+	    	}
+    	}
 	}
 	
-	public void showNameAndAmount(String name, double amount){
+	public static void showNameAndAmount(String name, double amount){
 		nameField.setText(name);
 		amountSpinner.getValueFactory().setValue(amount);
+		edit = true;
 	}
 }

@@ -89,10 +89,10 @@ public class ShoppingListController {
 	public void addItems(ActionEvent event) throws IOException{
 		ShoppingListModel first = new ShoppingListModel(StocklistView, Popup, ListlistView, Popup1);
 		if(event.getSource() == addStocks){
-			first.showStage(first);
+			first.showStage(first, "Stock");
 		}
 		else if(event.getSource() == addList){
-			first.showStage(first);
+			first.showStage(first, "List");
 		}
 	}
 	
@@ -104,7 +104,8 @@ public class ShoppingListController {
 		stage.setScene(new Scene(root));
  	    stage.show();
  	    File filePath = new File("src/theFridge/picture/QrCode.png");
- 	    ShoppingListQRCodePageModel.createQRImage(filePath, "Hello World!", "png");
+ 	    File ShoppingPath = new File("src/theFridge/file/StockList.txt");
+ 	    ShoppingListQRCodePageModel.createQRImage(filePath, ShoppingPath.toString(), "png");
 	}
 	
 	@FXML
@@ -158,5 +159,8 @@ public class ShoppingListController {
 		
  		stage.setScene(new Scene(root));
  	    stage.show();
+	}
+	
+	public static void main(String[] args) throws WriterException, IOException{
 	}
 }

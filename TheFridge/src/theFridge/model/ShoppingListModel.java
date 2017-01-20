@@ -26,9 +26,9 @@ import theFridge.DAO.ShoppingListDAO;
 
 public class ShoppingListModel {
 	public static int numOfPeople;
-	JFXListView<HBox>StocklistView;
+	static JFXListView<HBox>StocklistView;
 	JFXPopup Popup;
-	JFXListView<HBox>ListlistView;
+	static JFXListView<HBox>ListlistView;
 	JFXPopup Popup1;
 	
 	public ShoppingListModel(JFXListView<HBox> stocklistView, JFXPopup popup, JFXListView<HBox> listlistView,
@@ -156,7 +156,20 @@ public class ShoppingListModel {
 		//Edit Items
 		lbl1.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent event) {
+				HBox selectedItem = StocklistView.getSelectionModel().getSelectedItem();
+				int selectedIdx = StocklistView.getSelectionModel().getSelectedIndex();
+				ObservableList<Node> Label = selectedItem.getChildren();
+				String name = nodeToString(Label.get(0));
+				String amount = nodeToString(Label.get(1));
 				
+				ShoppingListAddPageModel.showNameAndAmount(name, Double.parseDouble(amount));
+				
+				try {
+					showStage(selectedIdx);
+				} 
+				catch (IOException e) {
+					e.printStackTrace();
+				}
 			}
         });
 		Label lbl2 = new Label("Delete");
@@ -186,19 +199,18 @@ public class ShoppingListModel {
 		lbl11.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent event) {
 				HBox selectedItem = ListlistView.getSelectionModel().getSelectedItem();
+				int selectedIdx = ListlistView.getSelectionModel().getSelectedIndex();
 				ObservableList<Node> Label = selectedItem.getChildren();
-				Node name = Label.get(0);
-				Node amount = Label.get(1);
+				String name = nodeToString(Label.get(0));
+				String amount = nodeToString(Label.get(1));
 				
-				String s = name.toString();
-				s = s.substring(s.indexOf("'") + 1);
-				s = s.substring(0, s.indexOf("'"));
-				String s1 = amount.toString();
-				s1 = s1.substring(s1.indexOf("'") + 1);
-				s1 = s1.substring(0, s1.indexOf("'"));
-				
-				System.out.println(s);
-				System.out.println(s1);
+				try {
+					showStage(selectedIdx);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				ShoppingListAddPageModel.showNameAndAmount(name, Double.parseDouble(amount));
 			}
         });
 		Label lbl12 = new Label("Delete");
@@ -220,6 +232,16 @@ public class ShoppingListModel {
 		Popup1.setSource(ListlistView);
 	}
 	
+	public void showStage(int index) throws IOException{
+		Stage stage = new Stage();
+		Parent root;
+		root = FXMLLoader.load(getClass().getResource("/theFridge/view/ShoppingListAddPage.fxml"));
+		stage.setScene(new Scene(root));
+		stage.initStyle(StageStyle.UNDECORATED);
+		stage.show();
+		ShoppingListAddPageModel.index = index;
+	}
+	
 	public void showStage(ShoppingListModel model) throws IOException{
 		Stage stage = new Stage();
 		Parent root;
@@ -228,6 +250,17 @@ public class ShoppingListModel {
 		stage.initStyle(StageStyle.UNDECORATED);
 		stage.show();
 		ShoppingListAddPageModel.model = model;
+	}
+	
+	public void showStage(ShoppingListModel model, String source) throws IOException{
+		Stage stage = new Stage();
+		Parent root;
+		root = FXMLLoader.load(getClass().getResource("/theFridge/view/ShoppingListAddPage.fxml"));
+		stage.setScene(new Scene(root));
+		stage.initStyle(StageStyle.UNDECORATED);
+		stage.show();
+		ShoppingListAddPageModel.model = model;
+		ShoppingListAddPageModel.source = source;
 	}
 	
 	public void addStocks(StockModel s) throws FileNotFoundException{
@@ -255,13 +288,13 @@ public class ShoppingListModel {
         });
 	}
 	
-	public void addShopping() throws FileNotFoundException{
+	public void addShopping(StockModel s) throws FileNotFoundException{
 		HBox hbox = new HBox();
-		Label lbl1 = new Label("Corn");
+		Label lbl1 = new Label(s.getName());
 		lbl1.setMinWidth(400);
 		lbl1.setPrefWidth(400);
 		lbl1.setAlignment(Pos.CENTER_LEFT);
-		Label lbl2 = new Label("3");
+		Label lbl2 = new Label(String.valueOf(s.getAmount()));
 		lbl2.setMinWidth(100);
 		lbl2.setPrefWidth(100);
 		lbl2.setAlignment(Pos.CENTER);
@@ -274,5 +307,45 @@ public class ShoppingListModel {
 				}
 			}
         });
+	}
+	
+	public String nodeToString(Node node){
+		String s = node.toString();
+		s = s.substring(s.indexOf("'") + 1);
+		s = s.substring(0, s.indexOf("'"));
+		
+		return s;
+	}
+	
+	public static void setListlistViewNode(int index, StockModel model){
+		HBox hbox = new HBox();
+		Label nameLbl = new Label(model.getName());
+		nameLbl.setMinWidth(400);
+		nameLbl.setPrefWidth(400);
+		nameLbl.setAlignment(Pos.CENTER_LEFT);
+		Label amountLbl = new Label(String.valueOf(model.getAmount()));
+		amountLbl.setMinWidth(100);
+		amountLbl.setPrefWidth(100);
+		amountLbl.setAlignment(Pos.CENTER);
+		hbox.getChildren().addAll(nameLbl, amountLbl);
+		ListlistView.getItems().set(index, hbox);
+	}
+	
+	public static void setStocklistViewNode(int index, StockModel model){
+		HBox hbox = new HBox();
+		Label nameLbl = new Label(model.getName());
+		nameLbl.setMinWidth(500);
+		nameLbl.setPrefWidth(500);
+		nameLbl.setAlignment(Pos.CENTER_LEFT);
+		Label amountLbl = new Label(String.valueOf(model.getAmount()));
+		amountLbl.setMinWidth(100);
+		amountLbl.setPrefWidth(100);
+		amountLbl.setAlignment(Pos.CENTER);
+		Label servingLbl = new Label(String.valueOf(model.getServing()));
+		servingLbl.setMinWidth(100);
+		servingLbl.setPrefWidth(100);
+		servingLbl.setAlignment(Pos.CENTER);
+		hbox.getChildren().addAll(nameLbl, amountLbl, servingLbl);
+		StocklistView.getItems().set(index, hbox);
 	}
 }
