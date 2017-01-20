@@ -309,7 +309,7 @@ public class ShoppingListModel {
         });
 	}
 	
-	public String nodeToString(Node node){
+	public static String nodeToString(Node node){
 		String s = node.toString();
 		s = s.substring(s.indexOf("'") + 1);
 		s = s.substring(0, s.indexOf("'"));
@@ -347,5 +347,32 @@ public class ShoppingListModel {
 		servingLbl.setAlignment(Pos.CENTER);
 		hbox.getChildren().addAll(nameLbl, amountLbl, servingLbl);
 		StocklistView.getItems().set(index, hbox);
+	}
+	
+	public static ArrayList<StockModel> getStocklistArray(){
+		ArrayList<StockModel> stockArray = new ArrayList<StockModel>();
+		ObservableList<HBox> HboxList = StocklistView.getItems();
+		for(HBox a:HboxList){
+			ObservableList<Node> NodeList = a.getChildren();
+			String name = nodeToString(NodeList.get(0));
+			double amount = Double.parseDouble(nodeToString(NodeList.get(1)));
+			int serving = Integer.parseInt(nodeToString(NodeList.get(2)));
+			StockModel stockModel = new StockModel(name, amount, serving);
+			stockArray.add(stockModel);
+		}
+		return stockArray;
+	}
+	
+	public static ArrayList<ListModel> getListlistArray(){
+		ArrayList<ListModel> listArray = new ArrayList<ListModel>();
+		ObservableList<HBox> HboxList = ListlistView.getItems();
+		for(HBox a:HboxList){
+			ObservableList<Node> NodeList = a.getChildren();
+			String name = nodeToString(NodeList.get(0));
+			double amount = Double.parseDouble(nodeToString(NodeList.get(1)));
+			ListModel stockModel = new ListModel(name, amount);
+			listArray.add(stockModel);
+		}
+		return listArray;
 	}
 }

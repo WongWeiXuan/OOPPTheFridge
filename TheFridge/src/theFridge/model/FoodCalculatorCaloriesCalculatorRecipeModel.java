@@ -3,7 +3,6 @@ package theFridge.model;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
-import javafx.scene.image.Image;
 import theFridge.DAO.FoodCalculatorCaloriesCalculatorRecipeDAO;
 
 public class FoodCalculatorCaloriesCalculatorRecipeModel {

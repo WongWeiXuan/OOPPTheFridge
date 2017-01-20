@@ -6,6 +6,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.text.TextFlow;
 
 public class FoodCalculatorCaloriesCalculatorRecipeInstructionModel {
+	/*
 	HBox generateIngredientHBox(){
 		if(ingredient = ingredient)
 		ImageView imageView = new ImageView();
@@ -13,5 +14,6 @@ public class FoodCalculatorCaloriesCalculatorRecipeInstructionModel {
 		HBox hbox = new HBox(imageView, textflow);
 		return hbox;
 	}
+	*/
 	
 }

@@ -3,7 +3,6 @@ package theFridge.controller;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 import com.jfoenix.controls.JFXButton;
@@ -60,14 +59,13 @@ public class RedeemVoucher12CharacterPageController {
 	private Label promoCodeEmail;
 	@FXML
 	private Label promoCodeEmailBorder;
-	
-	private ArrayList<String> promoCodeList = new ArrayList<String>();
+	private String promoCode;
 	
 	@FXML
 	public void generatePromoCode(ActionEvent event) throws FileNotFoundException {
 		RedeemVoucherModel rDV = new RedeemVoucherModel();
 		rDV.generatePromoCode();
-		promoCodeList.add(rDV.getCodeOutput());
+		promoCode = rDV.getCodeOutput();
 		
 		codeLabel.setText(rDV.getCodeOutput());
 		sendPromoLabel.setVisible(true);
@@ -81,7 +79,7 @@ public class RedeemVoucher12CharacterPageController {
 		
 		User user = new User();
 		user = profileDAO.getUser(n);
-		user.setPromoCode(promoCodeList);
+		user.setPromoCode(promoCode);
 		user.addPromoCode();
 		
 		sc.close();

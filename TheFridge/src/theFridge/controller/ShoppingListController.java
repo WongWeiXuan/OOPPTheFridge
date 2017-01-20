@@ -30,6 +30,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
+import theFridge.DAO.ShoppingListDAO;
 import theFridge.model.ShoppingListModel;
 import theFridge.model.ShoppingListQRCodePageModel;
 import javafx.event.ActionEvent;
@@ -98,6 +99,9 @@ public class ShoppingListController {
 	
 	@FXML 
 	public void changeToGeneratePage(ActionEvent event) throws IOException, WriterException {
+		ShoppingListDAO a = new ShoppingListDAO();
+		//a.writeToStockFile(stocks);
+		/*
 		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
 		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/foodCalculator/FoodCalculatorNavigation.fxml"));
 		root = FXMLLoader.load(getClass().getResource("/theFridge/view/ShoppingListQRCodePage.fxml"));
@@ -106,6 +110,7 @@ public class ShoppingListController {
  	    File filePath = new File("src/theFridge/picture/QrCode.png");
  	    File ShoppingPath = new File("src/theFridge/file/StockList.txt");
  	    ShoppingListQRCodePageModel.createQRImage(filePath, ShoppingPath.toString(), "png");
+ 	    */
 	}
 	
 	@FXML
