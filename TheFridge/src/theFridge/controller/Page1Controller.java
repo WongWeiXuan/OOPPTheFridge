@@ -126,7 +126,9 @@ public class Page1Controller{
 		try{
 			PrintWriter writer = new PrintWriter(f);
 			writer.print("");
-			writer.print(a);
+			for(int i = 0; i<a.size(); i++){
+			writer.print(a.get(i));
+			}
 			writer.close();
 		}catch (IOException e){
 			e.printStackTrace();
@@ -155,27 +157,20 @@ public class Page1Controller{
 	}
 
 	public ObservableList<First> list = FXCollections.observableArrayList(
-		            new First("mushroom", "cheese"),
-		            new First("mushroom", "cheese"),
-		            new First("mushroom", "cheese"),
-		            new First("mushroom", "cheese"),
-		            new First("mushroom", "cheese"),
-		            new First("mushroom", "cheese"),
-		            new First("mushroom", "cheese"),
-		            new First("mushroom", "cheese"),
-		            new First("mushroom", "cheese"),
-		            new First("mushroom", "cheese"),
-		            new First("mushroom", "cheese"),
-		            new First("mushroom", "cheese"),
-		            new First("mushroom", "cheese"),
-		            new First("mushroom", "cheese"),
-		            new First("mushroom", "cheese"),
-		            new First("mushroom", "cheese"),
-		            new First("pizza", "pasta")
+		            new First("Seaweed", "Tea and Coffee Bags"),
+		            new First("Rabbit Manure", "Diseased plants"),
+		            new First("Coffee Grounds", "Onions"),
+		            new First("Mouldy Cheese", "Fish Scraps"),
+		            new First("Crab or Lobster Shell", "Meat Scraps"),
+		            new First("Fish bones", "Cooking Oil"),
+		            new First("Citrus Peel", "Rice"),
+		            new First("Apple", "Walnuts"),
+		            new First("Old Pasta", "Milk Products")
 		            );
 	
 	
-	ObservableList<String> data = FXCollections.observableArrayList("Chicken","Fish","Vegetable","Rice","Pasta","tomato","apple","sotongs");
+	ObservableList<String> data = FXCollections.observableArrayList("Seaweed","Rabbit Manure","Coffee Grounds","Mouldy Cheese","Crab or Lobster Shell",
+			"Fish bones","Citrus Peel","Apple","Old Pasta");
 	ObservableList<String> a = FXCollections.observableArrayList();
 	
 	    public void initialize() {

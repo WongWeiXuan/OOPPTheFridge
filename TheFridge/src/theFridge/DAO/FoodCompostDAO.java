@@ -102,15 +102,19 @@ public class FoodCompostDAO {
 	
 	public static void main(String[] args){
 		FoodCompostDAO foodcompostDAO= new FoodCompostDAO();
-		FoodCompost c = new FoodCompost("chicken", "www.youtube.com", "first, cry");
+		FoodCompost c = new FoodCompost("duck", "www.youtube.com", "first, cry");
 		foodcompostDAO.createFood(c);
-		ArrayList <FoodCompost> h = new ArrayList<FoodCompost>();
-		h = foodcompostDAO.getAllFood();
+		c = foodcompostDAO.getFoodCompost("Chicken");
+		System.out.println(c.getFoodName());
+		System.out.println(c.getInstruction());
+		//ArrayList <FoodCompost> h = new ArrayList<FoodCompost>();
+		/*h = foodcompostDAO.getAllFood();
 		for(FoodCompost g:h){
 			System.out.println(g.getFoodName());
 			System.out.println(g.getVideoURL());
 			System.out.println(g.getInstruction());
-		}
+			*/
+		
 		
 		
 		
