@@ -155,26 +155,23 @@ public class Page1Controller{
 		            );
 	
 	
+	ObservableList<String> data = FXCollections.observableArrayList("Chicken","Fish","Vegetable","Rice","Pasta","tomato","apple","sotongs");
+	ObservableList<String> a = FXCollections.observableArrayList("Chicken");
+	
 	    public void initialize() {
-	    	ObservableList<String> data = FXCollections.observableArrayList("Chicken","Fish","Vegetable","Rice","Pasta","tomato","apple","sotongs");
-	    	
 	        table1.setCellValueFactory(new PropertyValueFactory<First, String>("foodCanCompost"));
 	        table2.setCellValueFactory(new PropertyValueFactory<First, String>("foodCannotCompost"));
 	        tableView1.setItems(list);
-	        listView.setItems(data);
 	        choice.setItems(data);  
-	        foodCom.setItems(a);
+	        listView.setItems(data);
+	        //foodCom.setItems(a);
 	        
 	    }
 	    
 	   
-	    ObservableList<String> a = FXCollections.observableArrayList();
 	    public void chosen1(ActionEvent event){
-	    	String s = choice.getValue().toString();
-	    	a.add(s);
-	    	
-	    	
-	    	
+	    	//String s = choice.getValue().toString();
+	    	//a.add(s);
 	    	//ObservableList<String> a = FXCollections.observableArrayList(s);
 	    	//Last p = new Last(s);
 	    	//foodCom.setItems(a);
