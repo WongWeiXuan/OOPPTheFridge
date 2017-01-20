@@ -1,4 +1,4 @@
-Seaweed;src/theFridge/sound/Seaweed.mp4; First do this, then do that
+Seaweed;src/theFridge/sound/Seaweed.mp4;Seaweed breaks down quickly, especially when in an enclosed sack. If you leave the seaweed in the sacks too long, it gets sludgy and slimy, and is more difficult to spread evenly over the soil.
 Rabbit Manure;src/theFridge/sound/Rabbit manure.mp4; Fishes are delicious
 Coffee Grounds;src/theFridge/sound/Coffee Grounds.mp4;Coffee Grounds are delicious
 Mouldy Cheese;src/theFridge/sound/Cheese.mp4;Mouldy Cheese are delicious

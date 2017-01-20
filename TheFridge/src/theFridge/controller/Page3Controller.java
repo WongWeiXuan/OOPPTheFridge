@@ -2,9 +2,12 @@ package theFridge.controller;
 
 import java.io.IOException;
 
+import com.jfoenix.controls.JFXButton;
+
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
@@ -40,7 +43,7 @@ public class Page3Controller {
 	@FXML
 	private VBox prizeScene;
 	@FXML
-	private Button backToMain;
+	private JFXButton buttonmain;
 	@FXML
 	private Button Generate;
 	@FXML
@@ -116,6 +119,13 @@ public class Page3Controller {
 		}
 
  		stage.setScene(new Scene(root));
+ 	    stage.show();
+	}
+	public void backToMain(ActionEvent event) throws IOException{
+		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/Page3.fxml"));
+		root = FXMLLoader.load(getClass().getResource("/theFridge/view/Page1.fxml"));
+		stage.setScene(new Scene(root));
  	    stage.show();
 	}
 }
