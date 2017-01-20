@@ -92,6 +92,8 @@ public class RedeemVoucherPageController {
 		File file=new File("src/theFridge/file/confirm.txt");
 		Scanner sc = new Scanner(file) ;
 		String n = sc.nextLine();
+		sc.close();
+		
 		ProfileDAO profileDAO = new ProfileDAO();
 		User uu = new User();
 		uu = profileDAO.getUser(n);
@@ -129,58 +131,146 @@ public class RedeemVoucherPageController {
 	}
 	
 	@FXML
-	public void showPopup(MouseEvent event) {
+	public void showPopup(MouseEvent event) throws FileNotFoundException {
 		if (event.getSource().equals(voucher1)) {
+			File file=new File("src/theFridge/file/confirm.txt");
+			Scanner sc = new Scanner(file) ;
+			String n = sc.nextLine();
+			sc.close();
+			
+			ProfileDAO profileDAO = new ProfileDAO();
+			User uu = new User();
+			uu = profileDAO.getUser(n);
+			
+			RedeemVoucherModel rDV = new RedeemVoucherModel();
+			
 			try {
-				Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemConfirmPopup.fxml"));
-				Scene scene = new Scene(root);
-				Stage stage = new Stage();
-				stage.setScene(scene);
-				stage.setMaximized(true);
-				stage.initStyle(StageStyle.UNDECORATED);
-				stage.show();
+				if (uu.getTotalPoints() < rDV.getVoucherPoints()) {
+					Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemInsufficientPointsPopup.fxml"));
+					Scene scene = new Scene(root);
+					Stage stage = new Stage();
+					stage.setScene(scene);
+					stage.setMaximized(true);
+					stage.initStyle(StageStyle.UNDECORATED);
+					stage.show();
+				}
+				else {
+					Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemConfirmPopup.fxml"));
+					Scene scene = new Scene(root);
+					Stage stage = new Stage();
+					stage.setScene(scene);
+					stage.setMaximized(true);
+					stage.initStyle(StageStyle.UNDECORATED);
+					stage.show();
+				}
 				
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		}
 		else if (event.getSource().equals(voucher2)) {
+			File file=new File("src/theFridge/file/confirm.txt");
+			Scanner sc = new Scanner(file) ;
+			String n = sc.nextLine();
+			sc.close();
+			
+			ProfileDAO profileDAO = new ProfileDAO();
+			User uu = new User();
+			uu = profileDAO.getUser(n);
+			
+			RedeemVoucherModel rDV = new RedeemVoucherModel();
+			
 			try {
-				Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemConfirmPopup.fxml"));
-				Scene scene = new Scene(root);
-				Stage stage = new Stage();
-				stage.setScene(scene);
-				stage.setMaximized(true);
-				stage.initStyle(StageStyle.UNDECORATED);
-				stage.show();
+				if (uu.getTotalPoints() < rDV.getVoucherPoints()) {
+					Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemInsufficientPointsPopup.fxml"));
+					Scene scene = new Scene(root);
+					Stage stage = new Stage();
+					stage.setScene(scene);
+					stage.setMaximized(true);
+					stage.initStyle(StageStyle.UNDECORATED);
+					stage.show();
+				}
+				else {
+					Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemConfirmPopup.fxml"));
+					Scene scene = new Scene(root);
+					Stage stage = new Stage();
+					stage.setScene(scene);
+					stage.setMaximized(true);
+					stage.initStyle(StageStyle.UNDECORATED);
+					stage.show();
+				}
 				
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		}
 		else if (event.getSource().equals(voucher3)) {
+			File file=new File("src/theFridge/file/confirm.txt");
+			Scanner sc = new Scanner(file) ;
+			String n = sc.nextLine();
+			sc.close();
+			
+			ProfileDAO profileDAO = new ProfileDAO();
+			User uu = new User();
+			uu = profileDAO.getUser(n);
+			
+			RedeemVoucherModel rDV = new RedeemVoucherModel();
+			
 			try {
-				Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemConfirmPopup.fxml"));
-				Scene scene = new Scene(root);
-				Stage stage = new Stage();
-				stage.setScene(scene);
-				stage.setMaximized(true);
-				stage.initStyle(StageStyle.UNDECORATED);
-				stage.show();
+				if (uu.getTotalPoints() < rDV.getVoucherPoints()) {
+					Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemInsufficientPointsPopup.fxml"));
+					Scene scene = new Scene(root);
+					Stage stage = new Stage();
+					stage.setScene(scene);
+					stage.setMaximized(true);
+					stage.initStyle(StageStyle.UNDECORATED);
+					stage.show();
+				}
+				else {
+					Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemConfirmPopup.fxml"));
+					Scene scene = new Scene(root);
+					Stage stage = new Stage();
+					stage.setScene(scene);
+					stage.setMaximized(true);
+					stage.initStyle(StageStyle.UNDECORATED);
+					stage.show();
+				}
 				
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		}
 		else if (event.getSource().equals(voucher4)) {
+			File file=new File("src/theFridge/file/confirm.txt");
+			Scanner sc = new Scanner(file) ;
+			String n = sc.nextLine();
+			sc.close();
+			
+			ProfileDAO profileDAO = new ProfileDAO();
+			User uu = new User();
+			uu = profileDAO.getUser(n);
+			
+			RedeemVoucherModel rDV = new RedeemVoucherModel();
+			
 			try {
-				Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemConfirmPopup.fxml"));
-				Scene scene = new Scene(root);
-				Stage stage = new Stage();
-				stage.setScene(scene);
-				stage.setMaximized(true);
-				stage.initStyle(StageStyle.UNDECORATED);
-				stage.show();
+				if (uu.getTotalPoints() < rDV.getVoucherPoints()) {
+					Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemInsufficientPointsPopup.fxml"));
+					Scene scene = new Scene(root);
+					Stage stage = new Stage();
+					stage.setScene(scene);
+					stage.setMaximized(true);
+					stage.initStyle(StageStyle.UNDECORATED);
+					stage.show();
+				}
+				else {
+					Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemConfirmPopup.fxml"));
+					Scene scene = new Scene(root);
+					Stage stage = new Stage();
+					stage.setScene(scene);
+					stage.setMaximized(true);
+					stage.initStyle(StageStyle.UNDECORATED);
+					stage.show();
+				}
 				
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -230,11 +320,30 @@ public class RedeemVoucherPageController {
 
 	@FXML 
 	public void goToPromoPage(ActionEvent event) throws IOException {
-		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemVoucher12CharacterPage.fxml"));
+		File file=new File("src/theFridge/file/confirm.txt");
+		Scanner sc = new Scanner(file) ;
+		String n = sc.nextLine();
+		ProfileDAO profileDAO = new ProfileDAO();
+		User uu = new User();
+		uu = profileDAO.getUser(n);
 		
-		stage.setScene(new Scene(root));
-		stage.show();
+		RedeemVoucherModel rDV = new RedeemVoucherModel();
+		if (uu.getTotalPoints() < rDV.getVoucherPoints()) {
+			Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemInsufficientPointsPopup.fxml"));
+			Scene scene = new Scene(root);
+			Stage stage = new Stage();
+			stage.setScene(scene);
+			stage.setMaximized(true);
+			stage.initStyle(StageStyle.UNDECORATED);
+			stage.show();
+		}
+		else {
+			Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+			Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemVoucher12CharacterPage.fxml"));
+			
+			stage.setScene(new Scene(root));
+			stage.show();
+			}
 	}
 	
 	@FXML

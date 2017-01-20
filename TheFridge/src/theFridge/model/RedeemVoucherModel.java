@@ -18,6 +18,7 @@ public class RedeemVoucherModel {
 	private long in24Hours = TimeUnit.DAYS.toMillis(1);
 	private long currentTime = System.currentTimeMillis();
 	private long endTime = currentTime + in24Hours;
+	private static final int VOUCHER_POINTS = 10000;
 	
 	public RedeemVoucherModel() {
 		super();
@@ -74,6 +75,10 @@ public class RedeemVoucherModel {
 
 	public void setEndTime(long endTime) {
 		this.endTime = endTime;
+	}
+
+	public int getVoucherPoints() {
+		return VOUCHER_POINTS;
 	}
 
 	public void generatePromoCode() throws FileNotFoundException {
@@ -153,5 +158,7 @@ public class RedeemVoucherModel {
 		
 		System.out.println(rDV.getCurrentTime());
 		System.out.println(rDV.getEndTime());
+		
+		System.out.println(rDV.getVoucherPoints());
 	}
 }

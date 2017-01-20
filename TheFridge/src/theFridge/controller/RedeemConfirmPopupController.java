@@ -31,7 +31,6 @@ public class RedeemConfirmPopupController {
 	
 	@FXML
 	public void confirmRedeem(MouseEvent event) throws FileNotFoundException {
-		
 		File file = new File("src/theFridge/file/confirm.txt");
 		Scanner sc = new Scanner(file) ;
 		String n = sc.nextLine();
@@ -41,9 +40,9 @@ public class RedeemConfirmPopupController {
 		User user = new User();
 		user = profileDAO.getUser(n);
 		
-		RedeemVoucherModel rDV = new RedeemVoucherModel();
-		rDV.generateBarcode();
-		rDV.sendEmail();
+		//RedeemVoucherModel rDV = new RedeemVoucherModel();
+		//rDV.generateBarcode();
+		//rDV.sendEmail();
 		
 	}
 	
