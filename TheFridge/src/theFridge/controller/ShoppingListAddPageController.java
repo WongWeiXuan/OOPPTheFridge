@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -29,7 +30,7 @@ public class ShoppingListAddPageController {
     @FXML
     private JFXTextField nameField;
     @FXML
-    private Spinner<Integer> amountSpinner;
+    private Spinner<Double> amountSpinner;
     @FXML
     private JFXButton confirm;
     
@@ -39,7 +40,8 @@ public class ShoppingListAddPageController {
 
 	@FXML
 	void initialize(){
-		amountSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 50, 1));
+		ShoppingListAddPageModel first = new ShoppingListAddPageModel(nameField, amountSpinner);
+		amountSpinner.setValueFactory(new SpinnerValueFactory.DoubleSpinnerValueFactory(1, 50, 1));
 	}
 	
     @FXML
@@ -63,8 +65,8 @@ public class ShoppingListAddPageController {
     @FXML
     void closeAndShow(ActionEvent event) throws FileNotFoundException {
     	stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-    	ShoppingListAddPageModel a = new ShoppingListAddPageModel();
-    	a.closeAndShow(nameField, amountSpinner);
+    	ShoppingListAddPageModel a = new ShoppingListAddPageModel(nameField, amountSpinner);
+    	a.closeAndShow();
 		stage.close();
     }
 
