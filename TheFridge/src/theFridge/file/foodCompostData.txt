@@ -1,2 +1,9 @@
-Chicken;https://youtu.be/cNHaLHdrwZ4; First do this, then do that
-chicken;www.youtube.com;first, cry
+Seaweed;src/theFridge/sound/Seaweed.mp4; First do this, then do that
+Rabbit Manure;src/theFridge/sound/Rabbit manure.mp4; Fishes are delicious
+Coffee Grounds;src/theFridge/sound/Coffee Grounds.mp4;Coffee Grounds are delicious
+Mouldy Cheese;src/theFridge/sound/Cheese.mp4;Mouldy Cheese are delicious
+Crab or Lobster Shell;src/theFridge/sound/Fish and Crab.mp4;Crab and Lobster are delicious
+Fish bones;src/theFridge/sound/Fish and Crab.mp4;Fish bones are delicious
+Citrus Peel;src/theFridge/sound/Citrus peel.mp4;Cirtus Peel are delicious
+Apple;src/theFridge/sound/Apple.mp4;Apple are delicious
+Old Pasta;src/theFridge/sound/Pasta.mp4;Pasta are delicious

@@ -44,7 +44,7 @@ public class FoodCompost {
 		FoodCompostDAO foodDao=new FoodCompostDAO();
 		return foodDao.getAllFood();
 	}
-	public void getFriend(){
+	public void getFood(){
 		FoodCompostDAO foodDao=new FoodCompostDAO();
 		FoodCompost f=foodDao.getFoodCompost(foodName);
 		setVideoURL(f.getVideoURL());
@@ -56,7 +56,7 @@ public class FoodCompost {
 		return foodDao.createFood(this);
 	}
 	
-	public void updateFriend() {
+	public void updateFood() {
 		FoodCompostDAO foodDao=new FoodCompostDAO();
 		foodDao.updateFood(this);
 	}

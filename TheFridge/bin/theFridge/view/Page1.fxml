@@ -200,12 +200,29 @@
                                     <Font size="18.0" />
                                  </font>
                               </Text>
-                              <JFXComboBox fx:id="choice" onAction="#chosen1" prefHeight="31.0" prefWidth="586.0" promptText="Select Food You Want To Compost">
+                              <HBox alignment="CENTER">
                                  <VBox.margin>
                                     <Insets top="20.0" />
                                  </VBox.margin>
-                              </JFXComboBox>
-                              <JFXListView fx:id="listView" />
+                                 <children>
+                                    <JFXComboBox fx:id="choice" onAction="#chosen1" prefHeight="31.0" prefWidth="586.0" promptText="Select Food You Want To Compost">
+                                       <HBox.margin>
+                                          <Insets left="150.0" />
+                                       </HBox.margin>
+                                    </JFXComboBox>
+                                    <JFXButton fx:id="clear" onAction="#clearAll" text="Clear">
+                                       <HBox.margin>
+                                          <Insets left="70.0" />
+                                       </HBox.margin>
+                                    </JFXButton>
+                                 </children>
+                              </HBox>
+                              <JFXListView fx:id="listView" prefHeight="219.0" prefWidth="980.0" />
+                              <Text fx:id="alert" strokeType="OUTSIDE" strokeWidth="0.0" text="Please select a food!!" visible="false">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Text>
                               <JFXButton fx:id="btnGenerate" onAction="#generateTwo" prefHeight="80.0" prefWidth="210.0" text="Generate">
                                  <VBox.margin>
                                     <Insets top="50.0" />

@@ -35,6 +35,8 @@ import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.Media;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import theFridge.DAO.FoodCompostDAO;
+import theFridge.model.FoodCompost;
 
 public class Page2Controller {
 	@FXML
@@ -144,8 +146,11 @@ public class Page2Controller {
 		File file=new File("src/theFridge/file/foodcheck.txt");
 		Scanner sc=new Scanner(file) ;
 		String n = sc.nextLine();
-		chosenFood.setText(n);
-		String path = new File("src/theFridge/sound/PPAP.mp4").getAbsolutePath();
+		FoodCompostDAO f = new FoodCompostDAO();
+		FoodCompost c = new FoodCompost();
+		c = f.getFoodCompost(n);
+		chosenFood.setText(c.getFoodName());
+		String path = new File(c.getVideoURL()).getAbsolutePath();
 		me = new Media(new File(path).toURI().toString());
 		mp = new MediaPlayer(me);
 		video.setMediaPlayer(mp);

@@ -2,6 +2,7 @@ package theFridge.controller;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
@@ -11,15 +12,12 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
-import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import theFridge.model.ShoppingListAddPageModel;
-import theFridge.model.ShoppingListModel;
-import theFridge.model.StockModel;
 
 public class ShoppingListAddPageController {
 	
@@ -38,10 +36,11 @@ public class ShoppingListAddPageController {
     private double xOffset = 0;
 	private double yOffset = 0;
 
+	@SuppressWarnings("unused")
 	@FXML
 	void initialize(){
 		ShoppingListAddPageModel first = new ShoppingListAddPageModel(nameField, amountSpinner);
-		amountSpinner.setValueFactory(new SpinnerValueFactory.DoubleSpinnerValueFactory(1, 50, 1));
+		amountSpinner.setValueFactory(new SpinnerValueFactory.DoubleSpinnerValueFactory(0, 50, 1));
 	}
 	
     @FXML
@@ -63,11 +62,12 @@ public class ShoppingListAddPageController {
     }
 
     @FXML
-    void closeAndShow(ActionEvent event) throws FileNotFoundException {
+    void closeAndShow(ActionEvent event) throws IOException {
     	stage = (Stage)((Node) event.getSource()).getScene().getWindow();
     	ShoppingListAddPageModel a = new ShoppingListAddPageModel(nameField, amountSpinner);
     	a.closeAndShow();
 		stage.close();
+		//a.saveToList();
     }
 
     @FXML

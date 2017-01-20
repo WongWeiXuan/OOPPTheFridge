@@ -12,9 +12,12 @@ import theFridge.model.StockModel;
 
 public class ShoppingListDAO {
 	private File stockFile;
+	private File listFile;
+	private int numberOfPeople;
 	
 	public ShoppingListDAO(){
 		stockFile = new File("src/theFridge/file/StockList.txt");
+		listFile = new File("src/theFridge/file/Listlist.txt");
 	}
 	
 	public ArrayList<StockModel> getAllStock() throws FileNotFoundException{
@@ -27,7 +30,7 @@ public class ShoppingListDAO {
 			line = sc.nextLine();
 			fields = line.split("~");
 			String name = fields[0];
-			int amount = Integer.parseInt(fields[1]);
+			double amount = Double.parseDouble(fields[1]);
 			int serving = Integer.parseInt(fields[2]);
 			StockModel a = new StockModel(name, amount, serving);
 			stocks.add(a);
@@ -38,6 +41,33 @@ public class ShoppingListDAO {
 	}
 	
 	public ArrayList<ListModel> getAllList(int numberOfPeople) throws FileNotFoundException{
+		this.numberOfPeople = numberOfPeople;
+		Scanner sc = new Scanner(listFile);
+		if(sc.hasNextLine() == false){
+			sc.close();
+			return initializeList(numberOfPeople);
+		}
+		else{
+			String line=null;
+			String[] fields;
+			ArrayList<ListModel> lists=new ArrayList<ListModel>();
+			
+			while (sc.hasNextLine()) {
+				line = sc.nextLine();
+				fields = line.split("~");
+				String name = fields[0];
+				double amount = Double.parseDouble(fields[1]);
+				ListModel a = new ListModel(name, amount);
+				lists.add(a);
+			}
+			sc.close();
+	
+			return lists;
+		}
+	}
+	
+	public ArrayList<ListModel> initializeList(int numberOfPeople) throws FileNotFoundException{
+		this.numberOfPeople = numberOfPeople;
 		ArrayList<ListModel> lists=new ArrayList<ListModel>();
 		ArrayList<StockModel> stocks = getAllStock();
 		for(StockModel s: stocks){
@@ -57,12 +87,30 @@ public class ShoppingListDAO {
 		return lists;
 	}
 	
+	public ListModel getListWithStock(StockModel stock){
+		int maximum = stock.getServing() * numberOfPeople;
+		double amount = maximum - stock.getAmount();
+		if(amount == 0){
+			return null;
+		}
+		else if(amount > 0){
+			ListModel listModel = new ListModel(stock.getName(), amount);
+			return listModel;
+		}
+		else if(amount < 0){
+			return null;
+		}
+		else{
+			return null;
+		}
+	}
+	
 	public void writeToStockFile(ArrayList<StockModel> stocks) throws IOException{
-		FileWriter writer = new FileWriter(new File("src/theFridge/file/StockList.txt"));
+		FileWriter writer = new FileWriter(stockFile);
 		String lineLine = "";
 		boolean first = true;
 		for(StockModel s:stocks){
-			String line = s.getName() + "~" + s.getAmount() + "~" + s.getServing();
+			String line = s.getName() + "~" + s.getAmount() + "~" + s.getServing() + "~" + s.getMaxAmount();
 			if(first == true){
 				lineLine += line;
 				first = false;
@@ -76,12 +124,31 @@ public class ShoppingListDAO {
 		writer.close();
 	}
 	
+	public void writeToListFile(ArrayList<ListModel> lists) throws IOException{
+		FileWriter writer = new FileWriter(listFile);
+		String lineLine = "";
+		boolean first = true;
+		for(ListModel l:lists){
+			String line = l.getName() + "~" + l.getAmount();
+			if(first == true){
+				lineLine += line;
+				first = false;
+			}
+			else{
+				lineLine += "\n" + line;
+			}
+		}
+		writer.write(lineLine);
+		writer.flush();
+		writer.close();
+	}
+	
+	/*
 	private void printList(ArrayList<ListModel>list){
 		for(ListModel l:list){
 			System.out.println("Name: " + l.getName() + "\nAmount: " + l.getAmount() + "\n");
 		}
 	}
-	
 	
 	public static void main(String args[]) throws IOException{
 		ShoppingListDAO a = new ShoppingListDAO();
@@ -93,6 +160,6 @@ public class ShoppingListDAO {
 
 		a.printList(a.getAllList(4));
 	}
-	
+	*/
 	
 }
