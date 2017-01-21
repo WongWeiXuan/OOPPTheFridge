@@ -101,13 +101,13 @@ public class RedeemVoucherPageController {
 		String points = Integer.toString(uu.getTotalPoints());
 		RedeemVoucherModel rDV = new RedeemVoucherModel();
 		
+		/*
 		totalPoints.setText(points);
 		userPointsLabel.setOpacity(1);
 		totalPoints.setOpacity(1);
 		redeemAgainLabel.setOpacity(0);
 		redeemAgainDate.setOpacity(0);
-		
-		/*
+		*/
 		
 		//Show user's total points if they haven't redeemed any promo code
 		
@@ -139,9 +139,10 @@ public class RedeemVoucherPageController {
 		//Debugging purposes
 		
 		else {
+			System.out.println("ELSE");
 			System.out.println(uu.getPromoCode());
 			//System.out.println(uu.getEndTime());
-		}*/
+		}
 	}
 	
 	@FXML
