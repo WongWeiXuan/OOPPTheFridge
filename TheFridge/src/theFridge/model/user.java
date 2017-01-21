@@ -1,6 +1,7 @@
 package theFridge.model;
 
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 import theFridge.DAO.ProfileDAO;
 
@@ -16,8 +17,9 @@ public class User {
 		private String gender;
 		private int totalPoints;
 		private String promoCode;
-		private String currentDate;
-		private String endDate;
+		private long in24Hours = TimeUnit.DAYS.toMillis(1);    //Redeem24HourTimer
+		private long currentTime = System.currentTimeMillis(); //Redeem24HourTimer
+		private long endTime = currentTime + in24Hours;		   //Redeem24HourTimer
 		
 		public User() {
 			super();
@@ -37,7 +39,7 @@ public class User {
 		}
 		
 		public User(String name, String username, String password, String email, String country, String height,
-				String weight, String age, String gender, int totalPoints, String promoCode, String currentDate, String endDate) {
+				String weight, String age, String gender, int totalPoints, String promoCode, long endTime) {
 			super();
 			this.username = username;
 			this.password = password;
@@ -50,12 +52,11 @@ public class User {
 			this.gender = gender;
 			this.totalPoints = totalPoints;
 			this.promoCode = promoCode;
-			this.currentDate = currentDate;
-			this.endDate = endDate;
+			this.endTime = endTime;
 		}
 		
 		public String toString() {
-			return name + ";" + username + ";" + password + ";"+ email + ";" + country + ";" + height + ";" + weight + ";" + age + ";" + gender + ";" + totalPoints + ";" + promoCode + ";" + currentDate + ";" + endDate;
+			return name + ";" + username + ";" + password + ";"+ email + ";" + country + ";" + height + ";" + weight + ";" + age + ";" + gender + ";" + totalPoints + ";" + promoCode + ";" + endTime;
 		}
 		
 		public static ArrayList<User> getAllUser() {
@@ -76,8 +77,7 @@ public class User {
 			setGender(user1.getGender());
 			setTotalPoints(user1.getTotalPoints());
 			setPromoCode(user1.getPromoCode());
-			setCurrentDate(user1.getCurrentDate());
-			setEndDate(user1.getEndDate());
+			setEndTime(user1.getEndTime());
 		}
 		
 		public void updateUser() {
@@ -183,19 +183,20 @@ public class User {
 			this.promoCode = promoCode;
 		}
 
-		public String getCurrentDate() {
-			return currentDate;
+		public long getCurrentTime() {
+			return currentTime;
 		}
 
-		public void setCurrentDate(String currentDate) {
-			this.currentDate = currentDate;
+		public void setCurrentTime(long currentTime) {
+			this.currentTime = currentTime;
+		}
+		
+		public long getEndTime() {
+			return endTime;
 		}
 
-		public String getEndDate() {
-			return endDate;
+		public void setEndTime(long endTime) {
+			this.endTime = endTime;
 		}
-
-		public void setEndDate(String endDate) {
-			this.endDate = endDate;
-		}
+		
 }

@@ -102,6 +102,7 @@ public class RedeemVoucherPageController {
 		RedeemVoucherModel rDV = new RedeemVoucherModel();
 		rDV.redeemIn24Hours(redeemAgainDate);
 		
+		//Show total points
 		if (uu.getPromoCode() == "null" || uu.getPromoCode() == "") {
 			System.out.println("IF");
 			
@@ -111,7 +112,8 @@ public class RedeemVoucherPageController {
 			redeemAgainLabel.setOpacity(0);
 			redeemAgainDate.setOpacity(0);
 		}
-		else if (uu.getCurrentDate() == uu.getEndDate()) {
+		//Show the date at which user can redeem again
+		else if (uu.getCurrentTime() >= uu.getEndTime()) {
 			System.out.println("ELSE IF");
 			System.out.println(rDV.getCurrentTime());
 			System.out.println(rDV.getEndTime());
@@ -125,8 +127,7 @@ public class RedeemVoucherPageController {
 		}
 		else {
 			System.out.println(uu.getPromoCode());
-			System.out.println(uu.getCurrentDate());
-			System.out.println(uu.getEndDate());
+			System.out.println(uu.getEndTime());
 		}
 	}
 	
@@ -323,6 +324,8 @@ public class RedeemVoucherPageController {
 		File file=new File("src/theFridge/file/confirm.txt");
 		Scanner sc = new Scanner(file) ;
 		String n = sc.nextLine();
+		sc.close();
+		
 		ProfileDAO profileDAO = new ProfileDAO();
 		User uu = new User();
 		uu = profileDAO.getUser(n);
@@ -389,7 +392,7 @@ public class RedeemVoucherPageController {
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/foodCalculator/FoodCalculatorNavigation.fxml"));
 		}
 		else if(event.getSource().equals(quizScene)){
-			root = FXMLLoader.load(getClass().getResource("/theFridge/view/QuizPage.fxml"));
+			root = FXMLLoader.load(getClass().getResource("/theFridge/view/QuizPageBegin.fxml"));
 		}
 		else if(event.getSource().equals(prizeScene)){
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemVoucherPage.fxml"));
@@ -398,5 +401,4 @@ public class RedeemVoucherPageController {
 		stage.setScene(new Scene(root));
  	    stage.show();
 	}
-	
 }

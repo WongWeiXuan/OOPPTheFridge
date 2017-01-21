@@ -6,8 +6,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
 import java.util.Scanner;
-import java.util.concurrent.TimeUnit;
-
 import javafx.scene.control.Label;
 import theFridge.DAO.ProfileDAO;
 
@@ -15,9 +13,12 @@ public class RedeemVoucherModel {
 	private User totalPoints;
 	private User promoCode;
 	private String codeOutput;
-	private long in24Hours = TimeUnit.DAYS.toMillis(1);
-	private long currentTime = System.currentTimeMillis();
-	private long endTime = currentTime + in24Hours;
+	//private long in24Hours = TimeUnit.DAYS.toMillis(1);
+	//private long currentTime = System.currentTimeMillis();
+	//private long endTime = currentTime + in24Hours;
+	private User in24Hours;
+	private User currentTime;
+	private User endTime;
 	private static final int VOUCHER_POINTS = 10000;
 	
 	public RedeemVoucherModel() {
@@ -53,27 +54,27 @@ public class RedeemVoucherModel {
 		this.codeOutput = codeOutput;
 	}
 
-	public long getIn24Hours() {
+	public User getIn24Hours() {
 		return in24Hours;
 	}
 
-	public void setIn24Hours(long in24Hours) {
+	public void setIn24Hours(User in24Hours) {
 		this.in24Hours = in24Hours;
 	}
 
-	public long getCurrentTime() {
+	public User getCurrentTime() {
 		return currentTime;
 	}
 
-	public void setCurrentTime(long currentTime) {
+	public void setCurrentTime(User currentTime) {
 		this.currentTime = currentTime;
 	}
 
-	public long getEndTime() {
+	public User getEndTime() {
 		return endTime;
 	}
 
-	public void setEndTime(long endTime) {
+	public void setEndTime(User endTime) {
 		this.endTime = endTime;
 	}
 
@@ -120,18 +121,18 @@ public class RedeemVoucherModel {
 		File file=new File("src/theFridge/file/confirm.txt");
 		Scanner sc = new Scanner(file) ;
 		String n = sc.nextLine();
+		sc.close();
+		
 		ProfileDAO profileDAO = new ProfileDAO();
 		User user = new User();
 		user = profileDAO.getUser(n);
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("MMM dd, yyyy HH:mm:ss");
-		Date currentDate = new Date(currentTime);
-		Date endDate = new Date(endTime);
+		Date endDate = new Date(user.getEndTime());
 		
 		label.setText(sdf.format(endDate));
 		
-		user.setCurrentDate(sdf.format(currentDate));
-		user.setEndDate(sdf.format(endDate));
+		user.setEndTime(user.getEndTime());
 		user.updateUser();
 	}
 	
@@ -139,12 +140,13 @@ public class RedeemVoucherModel {
 		File file=new File("src/theFridge/file/confirm.txt");
 		Scanner sc = new Scanner(file) ;
 		String n = sc.nextLine();
+		sc.close();
+		
 		ProfileDAO profileDAO = new ProfileDAO();
 		User user = new User();
 		user = profileDAO.getUser(n);
 		
-		user.setCurrentDate(null);
-		user.setEndDate(null);
+		user.setEndTime(0);
 		user.updateUser();
 	}
 	
@@ -156,9 +158,12 @@ public class RedeemVoucherModel {
 		rDV.generateBarcode();
 		System.out.println("Barcode generated.");
 		
-		System.out.println(rDV.getCurrentTime());
-		System.out.println(rDV.getEndTime());
+		User user = new User();
+		SimpleDateFormat sdf = new SimpleDateFormat("MMM dd, yyyy HH:mm:ss");
+		Date currentDate = new Date(user.getCurrentTime());
+		Date endDate = new Date(user.getEndTime());
 		
-		System.out.println(rDV.getVoucherPoints());
+		System.out.println(sdf.format(currentDate));
+		System.out.println(sdf.format(endDate));
 	}
 }

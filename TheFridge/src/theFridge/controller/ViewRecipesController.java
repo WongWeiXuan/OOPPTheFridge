@@ -178,7 +178,7 @@ public class ViewRecipesController {
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/foodCalculator/FoodCalculatorNavigation.fxml"));
 		}
 		else if(event.getSource().equals(quizScene)){
-			root = FXMLLoader.load(getClass().getResource("/theFridge/view/QuizPage.fxml"));
+			root = FXMLLoader.load(getClass().getResource("/theFridge/view/QuizBeginPage.fxml"));
 		}
 		else if(event.getSource().equals(prizeScene)){
 			root = FXMLLoader.load(getClass().getResource(""));
