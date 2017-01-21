@@ -14,7 +14,6 @@
 <?import javafx.scene.media.MediaView?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane prefHeight="504.0" prefWidth="601.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="theFridge.controller.Page4Controller">
    <children>
       <VBox alignment="CENTER" layoutX="1.0" prefHeight="731.0" prefWidth="600.0" style="-fx-background-color: white;">
@@ -42,16 +41,16 @@
             </GridPane>
             <BorderPane>
                <center>
-                  <MediaView fitHeight="640.0" fitWidth="600.0" />
+                  <MediaView fx:id="video" fitHeight="640.0" fitWidth="600.0" />
                </center>
                <bottom>
                   <HBox prefHeight="45.0" prefWidth="600.0" BorderPane.alignment="CENTER">
                      <children>
-                        <JFXButton prefHeight="58.0" prefWidth="126.0" text="play" />
-                        <JFXButton prefHeight="61.0" prefWidth="125.0" text="pause" />
-                        <JFXButton prefHeight="63.0" prefWidth="121.0" text="fast" />
-                        <JFXButton prefHeight="66.0" prefWidth="128.0" text="slow" />
-                        <JFXButton prefHeight="52.0" prefWidth="101.0" text="stop" />
+                        <JFXButton fx:id="play" onAction="#play1" prefHeight="58.0" prefWidth="126.0" text="play" />
+                        <JFXButton fx:id="pause" onAction="#pause1" prefHeight="61.0" prefWidth="125.0" text="pause" />
+                        <JFXButton fx:id="fast" onAction="#fast1" prefHeight="63.0" prefWidth="121.0" text="fast" />
+                        <JFXButton fx:id="slow" onAction="#slow1" prefHeight="66.0" prefWidth="128.0" text="slow" />
+                        <JFXButton fx:id="stop" onAction="#stop1" prefHeight="52.0" prefWidth="101.0" text="stop" />
                      </children>
                   </HBox>
                </bottom>
