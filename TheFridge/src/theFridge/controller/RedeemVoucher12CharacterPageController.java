@@ -75,6 +75,7 @@ public class RedeemVoucher12CharacterPageController {
 		File file = new File("src/theFridge/file/confirm.txt");
 		Scanner sc = new Scanner(file) ;
 		String n = sc.nextLine();
+		sc.close();
 		
 		ProfileDAO profileDAO = new ProfileDAO();
 		
@@ -82,8 +83,6 @@ public class RedeemVoucher12CharacterPageController {
 		user = profileDAO.getUser(n);
 		user.setPromoCode(promoCode);
 		user.addPromoCode();
-		
-		sc.close();
 	}
 	
 	@FXML
@@ -164,7 +163,7 @@ public class RedeemVoucher12CharacterPageController {
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/foodCalculator/FoodCalculatorNavigation.fxml"));
 		}
 		else if(event.getSource().equals(quizScene)){
-			root = FXMLLoader.load(getClass().getResource("/theFridge/view/QuizPage.fxml"));
+			root = FXMLLoader.load(getClass().getResource("/theFridge/view/QuizBeginPage.fxml"));
 		}
 		else if(event.getSource().equals(prizeScene)){
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemVoucherPage.fxml"));

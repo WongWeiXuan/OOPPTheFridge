@@ -10,9 +10,11 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+import javafx.scene.image.Image;
+
 public class RedeemVoucherSendEmail {
 	
-	public void sendEmail(String recipientEmail, String text) {
+	public void sendEmail(String recipientEmail, Image text) {
 		  // Recipient's email ID needs to be mentioned.
 	      String to = recipientEmail;//change accordingly
 
