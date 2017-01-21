@@ -4,6 +4,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -13,44 +14,50 @@
 <?import javafx.scene.media.MediaView?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="700.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1">
+
+<AnchorPane prefHeight="504.0" prefWidth="601.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="theFridge.controller.Page4Controller">
    <children>
-      <GridPane prefHeight="21.0" prefWidth="251.0">
-         <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="358.0" minWidth="10.0" prefWidth="300.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="382.0" minWidth="10.0" prefWidth="280.0" />
-         </columnConstraints>
-         <rowConstraints>
-            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-         </rowConstraints>
+      <VBox alignment="CENTER" layoutX="1.0" prefHeight="731.0" prefWidth="600.0" style="-fx-background-color: white;">
          <children>
-            <Label prefHeight="21.0" prefWidth="299.0" text="Label" GridPane.columnIndex="1">
-               <GridPane.margin>
-                  <Insets left="10.0" />
-               </GridPane.margin></Label>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="You have selected :" textAlignment="RIGHT" wrappingWidth="300.42041015625">
-               <GridPane.margin>
-                  <Insets />
-               </GridPane.margin>
-            </Text>
-         </children>
-      </GridPane>
-      <BorderPane>
-         <center>
-            <MediaView fitHeight="640.0" fitWidth="600.0" />
-         </center>
-         <bottom>
-            <HBox prefHeight="45.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+            <GridPane prefHeight="21.0" prefWidth="251.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="358.0" minWidth="10.0" prefWidth="300.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="382.0" minWidth="10.0" prefWidth="280.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+               </rowConstraints>
                <children>
-                  <JFXButton prefHeight="58.0" prefWidth="126.0" text="play" />
-                  <JFXButton prefHeight="61.0" prefWidth="125.0" text="pause" />
-                  <JFXButton prefHeight="63.0" prefWidth="121.0" text="fast" />
-                  <JFXButton prefHeight="66.0" prefWidth="128.0" text="slow" />
-                  <JFXButton prefHeight="52.0" prefWidth="101.0" text="stop" />
+                  <Label fx:id="label0" prefHeight="21.0" prefWidth="299.0" text="Label" GridPane.columnIndex="1">
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="You have selected :" textAlignment="RIGHT" wrappingWidth="300.42041015625">
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                  </Text>
                </children>
-            </HBox>
-         </bottom>
-      </BorderPane>
-      <Button mnemonicParsing="false" prefHeight="43.0" prefWidth="600.0" text="Close" />
+            </GridPane>
+            <BorderPane>
+               <center>
+                  <MediaView fitHeight="640.0" fitWidth="600.0" />
+               </center>
+               <bottom>
+                  <HBox prefHeight="45.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <JFXButton prefHeight="58.0" prefWidth="126.0" text="play" />
+                        <JFXButton prefHeight="61.0" prefWidth="125.0" text="pause" />
+                        <JFXButton prefHeight="63.0" prefWidth="121.0" text="fast" />
+                        <JFXButton prefHeight="66.0" prefWidth="128.0" text="slow" />
+                        <JFXButton prefHeight="52.0" prefWidth="101.0" text="stop" />
+                     </children>
+                  </HBox>
+               </bottom>
+            </BorderPane>
+            <Button fx:id="buttonClose" mnemonicParsing="false" onAction="#backToMain" prefHeight="43.0" prefWidth="600.0" text="Close" />
+         </children>
+      </VBox>
    </children>
-</VBox>
+</AnchorPane>
