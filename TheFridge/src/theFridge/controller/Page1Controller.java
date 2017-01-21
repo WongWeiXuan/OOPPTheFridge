@@ -16,6 +16,7 @@ import javafx.animation.Timeline;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -71,6 +72,8 @@ public class Page1Controller{
     private Text alert;
     @FXML
     private JFXButton clear;
+    @FXML
+    private JFXButton delete;
     
 
 	@FXML
@@ -177,7 +180,7 @@ public class Page1Controller{
 	
 	ObservableList<String> data = FXCollections.observableArrayList("Seaweed","Rabbit Manure","Coffee Grounds","Mouldy Cheese","Crab or Lobster Shell",
 			"Fish bones","Citrus Peel","Apple","Old Pasta");
-	public ObservableList<String> a = FXCollections.observableArrayList();
+	ObservableList<String> a = FXCollections.observableArrayList();
 	ObservableList<String> b = FXCollections.observableArrayList();
 	
 	    public void initialize() {
@@ -189,6 +192,13 @@ public class Page1Controller{
 	        //foodCom.setItems(a);
 	        
 	    }
+	   public void deleteAll(ActionEvent event){
+		   listView.getItems().remove(listView.getSelectionModel().getSelectedItem());
+		   //System.out.println("gg");
+	   }
+	   public void deleteOne(MouseEvent event){
+		   System.out.println("haha");
+	   }
 	    
 	   public void clearAll(ActionEvent event){
 		   listView.getItems().clear();
@@ -197,6 +207,8 @@ public class Page1Controller{
 	    public void chosen1(ActionEvent event){
 	    	String s = choice.getValue().toString();
 	    	a.add(s);
+	    	delete.setOpacity(1);
+	    	clear.setOpacity(1);
 	    }
 	    
 	   

@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 import com.jfoenix.controls.JFXButton;
@@ -13,6 +14,7 @@ import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
@@ -138,9 +140,36 @@ public class Page3Controller {
 			FoodCompost c = new FoodCompost();
 			c = f.getFoodCompost(n);
 			
+			
 			Label a = new Label(c.getFoodName());
 			a.setFont(Font.font("Amble CN", FontWeight.BOLD, 18));
 			a.setMinWidth(100);
+			a.setOnMouseClicked(new EventHandler<MouseEvent>(){
+				public void handle(MouseEvent event) {
+					String P="src/theFridge/file/video.txt";
+					try{
+						PrintWriter writer = new PrintWriter(P);
+						writer.print("");
+						writer.print(a.getText());
+						writer.close();
+					}
+					catch (IOException e){
+						e.printStackTrace();
+						
+					}
+					Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+					Parent root = null;
+					try {
+						root = FXMLLoader.load(getClass().getResource("/theFridge/view/Page4.fxml"));
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					stage.setScene(new Scene(root));
+			 	    stage.show();
+					System.out.println("Yes finally");
+				}
+			});
 			TextField b = new TextField();
 			//b.setMinWidth(90);
 			b.setPadding(new Insets(0,5,0,5));
