@@ -133,7 +133,7 @@ public class Page1Controller{
 			PrintWriter writer = new PrintWriter(f);
 			writer.print("");
 			for(int i = 0; i<a.size(); i++){
-			writer.print(a.get(i));
+			writer.println(a.get(i));
 			}
 			writer.close();
 		}catch (IOException e){
@@ -177,7 +177,7 @@ public class Page1Controller{
 	
 	ObservableList<String> data = FXCollections.observableArrayList("Seaweed","Rabbit Manure","Coffee Grounds","Mouldy Cheese","Crab or Lobster Shell",
 			"Fish bones","Citrus Peel","Apple","Old Pasta");
-	ObservableList<String> a = FXCollections.observableArrayList();
+	public ObservableList<String> a = FXCollections.observableArrayList();
 	ObservableList<String> b = FXCollections.observableArrayList();
 	
 	    public void initialize() {
