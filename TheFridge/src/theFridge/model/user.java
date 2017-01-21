@@ -17,9 +17,7 @@ public class User {
 		private String gender;
 		private int totalPoints;
 		private String promoCode;
-		private long in24Hours = TimeUnit.DAYS.toMillis(1);    //Redeem24HourTimer
-		private long currentTime = System.currentTimeMillis(); //Redeem24HourTimer
-		private long endTime = currentTime + in24Hours;		   //Redeem24HourTimer
+		private long endTime;	  //Redeem24HourTimer
 		
 		public User() {
 			super();
@@ -183,14 +181,6 @@ public class User {
 			this.promoCode = promoCode;
 		}
 
-		public long getCurrentTime() {
-			return currentTime;
-		}
-
-		public void setCurrentTime(long currentTime) {
-			this.currentTime = currentTime;
-		}
-		
 		public long getEndTime() {
 			return endTime;
 		}

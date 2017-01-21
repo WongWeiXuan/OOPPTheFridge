@@ -40,9 +40,16 @@ public class RedeemConfirmPopupController {
 		User user = new User();
 		user = profileDAO.getUser(n);
 		
-		//RedeemVoucherModel rDV = new RedeemVoucherModel();
-		//rDV.generateBarcode();
-		//rDV.sendEmail();
+		/*
+		RedeemVoucherModel rDV = new RedeemVoucherModel();
+		rDV.generatePromoCode();												//Generate promo code
+		rDV.setRedeemAgainDate();												//Set the date user can redeem again after redeeming promo code
+		rDV.generateBarcode();													//Generate barcode based on the promo code output
+		rDV.sendEmail();														//Send email to user based on the barcode image output
+		
+		user.setTotalPoints(user.getTotalPoints() - rDV.getVoucherPoints());	//Deduct user's total points after redeeming voucher
+		user.updateUser();														//Update the subtracted points to user text file
+		*/
 		
 	}
 	
