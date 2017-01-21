@@ -187,10 +187,10 @@
                   </TextFlow>
                   <TextFlow prefHeight="22.0" prefWidth="930.0" textAlignment="CENTER">
                      <children>
-                        <Text fill="#e91e63" strokeType="OUTSIDE" strokeWidth="0.0" text="You Have Chosen To Compost:" textAlignment="CENTER" wrappingWidth="238.52880859375" />
-                        <Label fx:id="chosenFood" prefHeight="21.0" prefWidth="115.0" text="Label" textFill="#e91e63">
+                        <Text fill="#e91e63" strokeType="OUTSIDE" strokeWidth="0.0" text="You Have Chosen To Compost :" textAlignment="CENTER" wrappingWidth="238.52880859375" />
+                        <Label fx:id="chosenFood" prefHeight="21.0" prefWidth="200.0" text="Label" textAlignment="CENTER" textFill="#e91e63">
                            <padding>
-                              <Insets left="20.0" />
+                              <Insets left="80.0" />
                            </padding></Label>
                      </children>
                      <VBox.margin>

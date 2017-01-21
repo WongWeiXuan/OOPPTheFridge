@@ -181,9 +181,16 @@ public class Page2Controller {
 		mp.setRate(1);
 	}
 
-	public void getGrams(ActionEvent event){
+	public void getGrams(ActionEvent event) throws FileNotFoundException{
 		String weight= grams.getText();
-		steps.setText("You have entered " + weight + "grams of food\n" + "Please give me a A FOR MY HARDWORK");
+		//steps.setText("You have entered " + weight + "grams of food\n" + "Please give me a A FOR MY HARDWORK");
+		File file=new File("src/theFridge/file/foodcheck.txt");
+		Scanner sc=new Scanner(file) ;
+		String n = sc.nextLine();
+		FoodCompostDAO f = new FoodCompostDAO();
+		FoodCompost c = new FoodCompost();
+		c = f.getFoodCompost(n);
+		steps.setText(c.getInstruction());
 		
 		
 	}

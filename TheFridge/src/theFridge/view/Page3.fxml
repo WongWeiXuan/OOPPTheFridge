@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
@@ -177,7 +178,7 @@
                   </TextFlow>
                   <VBox alignment="CENTER_RIGHT">
                      <children>
-                        <Button fx:id="backToMain" alignment="CENTER" mnemonicParsing="false" prefHeight="31.0" prefWidth="132.0" text="Back To Main" />
+                        <JFXButton fx:id="buttonmain" onAction="#backToMain" text="Back To Main" />
                      </children>
                      <VBox.margin>
                         <Insets right="20.0" />
