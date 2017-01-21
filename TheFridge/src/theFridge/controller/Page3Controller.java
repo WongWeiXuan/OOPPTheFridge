@@ -11,6 +11,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.ColumnConstraints;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -20,6 +23,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -51,21 +56,19 @@ public class Page3Controller {
 	@FXML
 	private TextField textField1;
 	@FXML
-	private TextField textField2;
-	@FXML
 	private Label steps;
 	@FXML
 	private Label flabel0;
 	@FXML
 	private Label flabel1;
 	@FXML
-	private Label flabel2;
-	@FXML
 	private Label clabel0;
 	@FXML
 	private Label clabel1;
 	@FXML
-	private Label clabel2;
+	private HBox boxes;
+	@FXML
+	private GridPane gp;
 	
 
 	// Event Listener on VBox[#naviPreview].onMouseEntered
@@ -127,5 +130,25 @@ public class Page3Controller {
 		root = FXMLLoader.load(getClass().getResource("/theFridge/view/Page1.fxml"));
 		stage.setScene(new Scene(root));
  	    stage.show();
+	}
+	public void initialize(){
+		
+	}
+	private int i = 3;
+	public void showSteps(){
+		Label a = new Label("Hello");
+		a.setFont(Font.font("Amble CN", FontWeight.BOLD, 18));
+		a.setMinWidth(100);
+		TextField b = new TextField();
+		Label c = new Label();
+		gp.add(a, i, 0);
+		gp.add(b, i, 1);
+		gp.add(c, i, 2);
+		i++;
+		/*ColumnConstraints f = new ColumnConstraints();
+		gp.getColumnConstraints().add(f);
+		v.getChildren().add(a);
+		v.getChildren().add(b);
+		v.getChildren().add(c);*/
 	}
 }
