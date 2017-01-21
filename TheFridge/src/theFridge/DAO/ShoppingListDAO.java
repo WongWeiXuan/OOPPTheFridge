@@ -40,6 +40,26 @@ public class ShoppingListDAO {
 		return stocks;
 	}
 	
+	public ArrayList<ListModel> getAllList() throws FileNotFoundException{
+		Scanner sc = new Scanner(listFile);
+		String line=null;
+		String[] fields;
+		ArrayList<ListModel> lists=new ArrayList<ListModel>();
+		
+		while (sc.hasNextLine()) {
+			line = sc.nextLine();
+			fields = line.split("~");
+			String name = fields[0];
+			double amount = Double.parseDouble(fields[1]);
+			double maxAmount = Double.parseDouble(fields[2]);
+			ListModel a = new ListModel(name, amount, maxAmount);
+			lists.add(a);
+		}
+		sc.close();
+
+		return lists;
+	}
+	
 	public ArrayList<ListModel> getAllList(int numberOfPeople) throws FileNotFoundException{
 		this.numberOfPeople = numberOfPeople;
 		Scanner sc = new Scanner(listFile);
@@ -57,7 +77,8 @@ public class ShoppingListDAO {
 				fields = line.split("~");
 				String name = fields[0];
 				double amount = Double.parseDouble(fields[1]);
-				ListModel a = new ListModel(name, amount);
+				double maxAmount = Double.parseDouble(fields[2]);
+				ListModel a = new ListModel(name, amount, maxAmount);
 				lists.add(a);
 			}
 			sc.close();
@@ -94,7 +115,7 @@ public class ShoppingListDAO {
 			return null;
 		}
 		else if(amount > 0){
-			ListModel listModel = new ListModel(stock.getName(), amount);
+			ListModel listModel = new ListModel(stock.getName(), amount, stock.getMaxAmount());
 			return listModel;
 		}
 		else if(amount < 0){
@@ -103,6 +124,26 @@ public class ShoppingListDAO {
 		else{
 			return null;
 		}
+	}
+	
+	public StockModel getStockModelByName(String name) throws FileNotFoundException{
+		StockModel model = null;
+		for(StockModel sm:getAllStock()){
+			if(sm.getName().equalsIgnoreCase(name)){
+				model = sm;
+			}
+		}
+		return model;
+	}
+	
+	public ListModel getListModelByName(String name) throws FileNotFoundException{
+		ListModel model = null;
+		for(ListModel lm:getAllList()){
+			if(lm.getName().equalsIgnoreCase(name)){
+				model = lm;
+			}
+		}
+		return model;
 	}
 	
 	public void writeToStockFile(ArrayList<StockModel> stocks) throws IOException{
@@ -129,7 +170,7 @@ public class ShoppingListDAO {
 		String lineLine = "";
 		boolean first = true;
 		for(ListModel l:lists){
-			String line = l.getName() + "~" + l.getAmount();
+			String line = l.getName() + "~" + l.getAmount() + "~" + l.getMaxAmount();
 			if(first == true){
 				lineLine += line;
 				first = false;

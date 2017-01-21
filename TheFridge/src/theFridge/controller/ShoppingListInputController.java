@@ -73,6 +73,9 @@ public class ShoppingListInputController {
 		spinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 15, 4));
 		Image img = new Image("theFridge/picture/Profile Image.jpg");
 		profileCircle.setFill(new ImagePattern(img));
+		
+		//get calculateBMR
+		
 	}
 
 	@FXML 
