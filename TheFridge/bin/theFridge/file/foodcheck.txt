@@ -1,6 +1,2 @@
 Rabbit Manure
-<<<<<<< HEAD
-Crab or Lobster Shell
-=======
 Mouldy Cheese
->>>>>>> origin/master

@@ -15,6 +15,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
 import javafx.scene.layout.VBox;
@@ -86,6 +87,16 @@ public class RedeemVoucherPageController {
 	private VBox show3;
 	@FXML
 	private VBox show4;
+	@FXML
+	private VBox redeemVBox;
+	@FXML
+	private ImageView mailImg1;
+	@FXML
+	private ImageView mailImg2;
+	@FXML
+	private ImageView mailImg3;
+	@FXML
+	private ImageView mailImg4;
 	
 	@FXML
 	public void initialize() throws FileNotFoundException {
@@ -98,35 +109,55 @@ public class RedeemVoucherPageController {
 		User uu = new User();
 		uu = profileDAO.getUser(n);
 		
-		String points = Integer.toString(uu.getTotalPoints());
 		RedeemVoucherModel rDV = new RedeemVoucherModel();
+		String points = Integer.toString(uu.getTotalPoints());
 		
-		/*
+		//Show user's total points if they haven't redeemed any promo code
+		
 		totalPoints.setText(points);
 		userPointsLabel.setOpacity(1);
 		totalPoints.setOpacity(1);
 		redeemAgainLabel.setOpacity(0);
 		redeemAgainDate.setOpacity(0);
-		*/
-		
-		//Show user's total points if they haven't redeemed any promo code
-		
-		if (uu.getPromoCode() == "null" || uu.getPromoCode() == "") {
-			System.out.println("IF");
-			
-			totalPoints.setText(points);
-			userPointsLabel.setOpacity(1);
-			totalPoints.setOpacity(1);
-			redeemAgainLabel.setOpacity(0);
-			redeemAgainDate.setOpacity(0);
-		}
 		
 		//Show the date user can redeem again if they redeemed a promo code
 		
+		if (uu.getPromoCode() != null && uu.getPromoCode() == "") {
+			System.out.println("IF");
+			System.out.println(uu.getPromoCode());
+			
+			totalPoints.setOpacity(0);
+			userPointsLabel.setOpacity(0);
+			
+			redeemAgainDate.setText(rDV.setRedeemAgainDate()); //Set the date to redeem again
+			redeemAgainLabel.setOpacity(1);
+			redeemAgainDate.setOpacity(1);
+			
+			rDV.disableVoucher(redeemVBox);
+			mailImg1.setOpacity(0.5);
+			mailImg2.setOpacity(0.5);
+			mailImg3.setOpacity(0.5);
+			mailImg4.setOpacity(0.5);
+			
+			if (rDV.getCurrentTime() >= uu.getEndTime()) {
+				System.out.println("IF within IF");
+				
+				userPointsLabel.setOpacity(0);
+				totalPoints.setOpacity(0);
+				redeemAgainLabel.setOpacity(1);
+				redeemAgainDate.setOpacity(1);
+				
+				rDV.clearRedeemAgainDate();
+				rDV.unDisableVoucher(redeemVBox);
+			}
+		}
+		
+		//Clear the date user can redeem again
+		/*
 		else if (rDV.getCurrentTime() >= uu.getEndTime()) {
 			System.out.println("ELSE IF");
 			System.out.println(rDV.getCurrentTime());
-			System.out.println(rDV.getEndTime());
+			System.out.println(uu.getEndTime());
 			
 			userPointsLabel.setOpacity(0);
 			totalPoints.setOpacity(0);
@@ -134,6 +165,7 @@ public class RedeemVoucherPageController {
 			redeemAgainDate.setOpacity(1);
 			
 			rDV.clearRedeemAgainDate();
+			rDV.unDisableVoucher(redeemVBox);
 		}
 		
 		//Debugging purposes
@@ -141,8 +173,11 @@ public class RedeemVoucherPageController {
 		else {
 			System.out.println("ELSE");
 			System.out.println(uu.getPromoCode());
-			//System.out.println(uu.getEndTime());
+			System.out.println(rDV.getCurrentTime());
+			
+			System.out.println(uu.getEndTime());
 		}
+		*/
 	}
 	
 	@FXML

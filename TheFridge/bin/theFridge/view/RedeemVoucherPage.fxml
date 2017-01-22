@@ -225,9 +225,9 @@
                         </VBox>
                         <TextFlow prefHeight="172.0" prefWidth="1280.0" textAlignment="CENTER">
                            <children>
-                              <VBox alignment="CENTER">
+                              <VBox fx:id="redeemVBox" alignment="CENTER">
                                  <children>
-                                    <GridPane hgap="5.0" prefHeight="250.0" prefWidth="900.0">
+                                    <GridPane alignment="CENTER" hgap="5.0" prefHeight="250.0" prefWidth="900.0">
                                        <columnConstraints>
                                           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
                                           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
@@ -288,7 +288,7 @@
                                                                         </Label>
                                                                      </children>
                                                                   </TextFlow>
-                                                                  <ImageView fitHeight="56.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                                                                  <ImageView fx:id="mailImg1" fitHeight="56.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                                                                      <image>
                                                                         <Image url="@../picture/Mail.png" />
                                                                      </image>
@@ -340,7 +340,7 @@
                                                                         </Label>
                                                                      </children>
                                                                   </TextFlow>
-                                                                  <ImageView fitHeight="56.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                                                                  <ImageView fx:id="mailImg2" fitHeight="56.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                                                                      <image>
                                                                         <Image url="@../picture/Mail.png" />
                                                                      </image>
@@ -393,7 +393,7 @@
                                                                         </Label>
                                                                      </children>
                                                                   </TextFlow>
-                                                                  <ImageView fitHeight="56.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                                                                  <ImageView fx:id="mailImg3" fitHeight="56.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                                                                      <image>
                                                                         <Image url="@../picture/Mail.png" />
                                                                      </image>
@@ -446,7 +446,7 @@
                                                                         </Label>
                                                                      </children>
                                                                   </TextFlow>
-                                                                  <ImageView fitHeight="56.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                                                                  <ImageView fx:id="mailImg4" fitHeight="56.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                                                                      <image>
                                                                         <Image url="@../picture/Mail.png" />
                                                                      </image>
