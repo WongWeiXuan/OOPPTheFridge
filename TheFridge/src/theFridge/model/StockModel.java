@@ -21,8 +21,6 @@ public class StockModel {
 		this.maxAmount = maxAmount;
 	}
 
-
-
 	public String getName() {
 		return name;
 	}

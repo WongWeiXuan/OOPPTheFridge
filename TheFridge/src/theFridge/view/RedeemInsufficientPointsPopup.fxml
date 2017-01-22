@@ -41,12 +41,12 @@
                                  <children>
                                     <ImageView fx:id="confirm2Img" fitHeight="30.0" fitWidth="30.0" visible="false">
                                        <image>
-                                          <Image url="@../picture/Confirm2.png" />
+                                          <Image url="@../picture/RedeemConfirm2.png" />
                                        </image>
                                     </ImageView>
                                     <ImageView fx:id="confirmImg" fitHeight="30.0" fitWidth="30.0">
                                        <image>
-                                          <Image url="@../picture/Confirm.png" />
+                                          <Image url="@../picture/RedeemConfirm.png" />
                                        </image>
                                     </ImageView>
                                  </children>

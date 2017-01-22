@@ -65,9 +65,10 @@ public class ShoppingListAddPageController {
     void closeAndShow(ActionEvent event) throws IOException {
     	stage = (Stage)((Node) event.getSource()).getScene().getWindow();
     	ShoppingListAddPageModel a = new ShoppingListAddPageModel(nameField, amountSpinner);
-    	a.closeAndShow();
-		stage.close();
-		//a.saveToList();
+    	boolean done = a.closeAndShow();
+    	if(done){
+    		stage.close();
+    	}
     }
 
     @FXML

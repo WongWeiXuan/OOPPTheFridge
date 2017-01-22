@@ -1,43 +1,29 @@
 package theFridge.controller;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Scanner;
-
 import com.google.zxing.WriterException;
 import com.jfoenix.controls.JFXButton;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import theFridge.DAO.ShoppingListDAO;
+import theFridge.model.ShoppingListAddPageModel;
 import theFridge.model.ShoppingListModel;
-import theFridge.model.ShoppingListQRCodePageModel;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
-
 import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXPopup;
 import com.jfoenix.controls.JFXComboBox;
@@ -79,6 +65,7 @@ public class ShoppingListController {
 	@FXML
 	public void initialize() throws FileNotFoundException{
 		ShoppingListModel first = new ShoppingListModel(StocklistView, Popup, ListlistView, Popup1);
+		ShoppingListAddPageModel.model = first;
 		first.createTitle();
 		first.displayStocks();
 		first.displayShopping();
@@ -164,8 +151,5 @@ public class ShoppingListController {
 		
  		stage.setScene(new Scene(root));
  	    stage.show();
-	}
-	
-	public static void main(String[] args) throws WriterException, IOException{
 	}
 }

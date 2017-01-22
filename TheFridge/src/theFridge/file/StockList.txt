@@ -1,6 +1,8 @@
-Banana~3.0~3~0.0
-Carrot~3.0~4~0.0
-Carbon Dioxide~5.0~2~0.0
-Tomato~4.0~2~0.0
-Apple~3.0~1~0.0
-Pineapple~0.0~1~0.0
+Banana~3.0~3~12.0
+Carrot~3.0~4~16.0
+Carbon Dioxide~5.0~2~8.0
+Tomato~4.0~2~8.0
+Apple~3.0~1~4.0
+Pineapple~0.0~1~4.0
+hello~2.0~1~4.0
+Cabbage~0.0~1~4.0

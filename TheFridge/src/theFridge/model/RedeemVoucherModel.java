@@ -10,6 +10,7 @@ import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 import javafx.scene.image.Image;
+import javafx.scene.layout.VBox;
 import theFridge.DAO.ProfileDAO;
 
 public class RedeemVoucherModel {
@@ -18,7 +19,6 @@ public class RedeemVoucherModel {
 	private String codeOutput;
 	private long in24Hours = TimeUnit.DAYS.toMillis(1);
 	private long currentTime = System.currentTimeMillis();
-	private long endTime = currentTime + in24Hours;
 	private static final int VOUCHER_POINTS = 10000;
 	
 	public RedeemVoucherModel() {
@@ -71,11 +71,8 @@ public class RedeemVoucherModel {
 	}
 
 	public long getEndTime() {
+		long endTime = currentTime + in24Hours;
 		return endTime;
-	}
-
-	public void setEndTime(long endTime) {
-		this.endTime = endTime;
 	}
 
 	public int getVoucherPoints() {
@@ -127,13 +124,13 @@ public class RedeemVoucherModel {
 		user = profileDAO.getUser(n);
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("MMM dd, yyyy HH:mm:ss");
-		Date endDate = new Date(endTime);
+		Date endDate = new Date(getEndTime());
 		
 		//label.setText(sdf.format(endDate));
 		
 		String outputEndDate = sdf.format(endDate);
 
-		user.setEndTime(endTime);
+		user.setEndTime(getEndTime());
 		user.updateUser();
 		
 		return outputEndDate;
@@ -151,6 +148,14 @@ public class RedeemVoucherModel {
 		
 		user.setEndTime(0);
 		user.updateUser();
+	}
+	
+	public void disableVoucher(VBox vBox) {
+		vBox.setDisable(true);
+	}
+	
+	public void unDisableVoucher(VBox vBox) {
+		vBox.setDisable(false);
 	}
 	
 	public static void main(String args[]) throws FileNotFoundException {
