@@ -37,16 +37,21 @@ public class ShoppingListAddPageModel {
     	double amount = amountSpinner.getValue();
     	
     	if(source == "Stock"){
-		    StockModel s = stockModel;
-		    s.setName(name);
-		    s.setAmount(amount);
 	    	if(edit == true){
+	    		StockModel s = stockModel;
+			    listModel = ShoppingListModel.getListModelByName(s.getName());
+			    s.setName(name);
+			    s.setAmount(amount);
 	    		ShoppingListModel.setStocklistViewNode(index, s);
+	    		listModel.setName(name);
+	    		ShoppingListModel.setListlistViewNode(index, listModel);
 	    		edit = false;
 	    	}
 	    	else{
+			    StockModel s = new StockModel(name, amount, 1);
+			    s.setMaxAmount(ShoppingListModel.calculateMaxAmount(s));
 				model.addStocks(s);
-				model.addShopping(new ListModel(s.getName(), s.getAmount(), s.getMaxAmount()));
+				model.addShopping(new ListModel(name, 0, s.getMaxAmount()));
 	    	}
 	    	ShoppingListDAO a = new ShoppingListDAO();
     		a.writeToStockFile(ShoppingListModel.getStocklistArray());
@@ -58,7 +63,7 @@ public class ShoppingListAddPageModel {
     		l.setName(name);
     		l.setAmount(amount);
     		if(edit == true){
-    			if(amount > maxAmount - stockModel.getAmount()){
+    			if(amount > stockModel.getMaxAmount() - stockModel.getAmount()){
     				//Alert Box
     	    		Alert alert = new Alert(AlertType.CONFIRMATION);
     	    		alert.setTitle("Confirmation Dialog");
@@ -100,6 +105,8 @@ public class ShoppingListAddPageModel {
 		listModel = lm;
 		nameField.setText(lm.getName());
 		amountSpinner.getValueFactory().setValue(lm.getAmount());
+		nameField.setDisable(true);
+		nameField.setOpacity(1);
 		edit = true;
 	}
 	
@@ -109,6 +116,7 @@ public class ShoppingListAddPageModel {
 		amountSpinner.getValueFactory().setValue(sm.getAmount());
 		serving = sm.getServing();
 		maxAmount = sm.getMaxAmount();
+		nameField.setDisable(false);
 		edit = true;
 	}
 }
