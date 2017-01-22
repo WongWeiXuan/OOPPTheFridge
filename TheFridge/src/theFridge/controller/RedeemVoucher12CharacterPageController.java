@@ -66,9 +66,10 @@ public class RedeemVoucher12CharacterPageController {
 	public void generatePromoCode(ActionEvent event) throws FileNotFoundException {
 		RedeemVoucherModel rDV = new RedeemVoucherModel();
 		rDV.generatePromoCode();
-		promoCode = rDV.getCodeOutput();
 		
+		promoCode = rDV.getCodeOutput();
 		codeLabel.setText(rDV.getCodeOutput());
+		
 		sendPromoLabel.setVisible(true);
 		codeGenerator.setDisable(true);
 		
