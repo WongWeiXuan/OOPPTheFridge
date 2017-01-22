@@ -4,5 +4,4 @@ Carbon Dioxide~5.0~2~8.0
 Tomato~4.0~2~8.0
 Apple~3.0~1~4.0
 Pineapple~0.0~1~4.0
-hello~2.0~1~4.0
 Cabbage~0.0~1~4.0

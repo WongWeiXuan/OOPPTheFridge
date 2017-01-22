@@ -1,6 +1,2 @@
-<<<<<<< HEAD
 null;xxx;xxx;limxuanzheng888@gmail.com;null;null;null;null;null;10000;262kKNJdARNt;0
 null;21;21;21;null;null;null;null;null;0;null;0
-=======
-null;21;21;21;null;null;null;null;null;0;null;0
->>>>>>> origin/master

@@ -6,8 +6,6 @@ import java.util.ArrayList;
 
 import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXPopup;
-import com.sun.prism.paint.Color;
-
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -106,6 +104,12 @@ public class ShoppingListModel {
 	        });
 			
 			StocklistView.getItems().add(hbox);
+			try {
+    			ShoppingListDAO a = new ShoppingListDAO();
+    			a.writeToStockFile(ShoppingListModel.getStocklistArray());
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 	
@@ -122,8 +126,11 @@ public class ShoppingListModel {
 				amountLbl.setMinWidth(100);
 				amountLbl.setPrefWidth(100);
 				amountLbl.setAlignment(Pos.CENTER);
-				if(m.getAmount() > m.getMaxAmount()){
+				StockModel sm = getStockModelByNameFromStockListArray(m.getName());
+				if(m.getAmount() > sm.getMaxAmount() - sm.getAmount()){
 					amountLbl.setStyle("-fx-text-fill: red");
+				}else{
+					amountLbl.setStyle("-fx-text-fill: black");
 				}
 			hbox.getChildren().addAll(nameLbl, amountLbl);
 			hbox.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -135,6 +142,12 @@ public class ShoppingListModel {
 	        });
 			
 			ListlistView.getItems().add(hbox);
+			try {
+    			ShoppingListDAO a = new ShoppingListDAO();
+				a.writeToListFile(ShoppingListModel.getListlistArray());
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 	
@@ -161,9 +174,7 @@ public class ShoppingListModel {
 			public void handle(MouseEvent event) {
 				if(event.getButton() == MouseButton.SECONDARY){
 					Popup1.show(JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.RIGHT);
-					System.out.print("It's working");
 				}
-				System.out.print("It's working?");
 			}
         });
 		
@@ -476,6 +487,16 @@ public class ShoppingListModel {
 		for(StockModel sm:getStocklistArray()){
 			if(sm.getName().equalsIgnoreCase(name)){
 				model = sm;
+			}
+		}
+		return model;
+	}
+	
+	public static ListModel getListModelByName(String name){
+		ListModel model = null;
+		for(ListModel lm:getListlistArray()){
+			if(lm.getName().equalsIgnoreCase(name)){
+				model = lm;
 			}
 		}
 		return model;
