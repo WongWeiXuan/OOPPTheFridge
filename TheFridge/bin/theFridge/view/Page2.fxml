@@ -197,23 +197,34 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </TextFlow>
-                  <VBox alignment="CENTER" prefHeight="385.0" prefWidth="1056.0">
+                  <VBox alignment="CENTER" prefHeight="370.0" prefWidth="980.0" style="-fx-background-color: black;">
                      <children>
-                        <MediaView fx:id="video" fitHeight="300.0" fitWidth="600.0" />
-                        <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
+                        <MediaView fx:id="video" fitHeight="310.0" fitWidth="600.0" />
+                        <HBox alignment="TOP_CENTER" prefHeight="35.0" prefWidth="980.0">
                            <children>
-                              <ImageView fx:id="imagePlay" fitHeight="35.0" fitWidth="35.0" onMouseClicked="#showVideo" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../picture/playButton.jpg" />
-                                 </image>
-                              </ImageView>
-                              <JFXButton fx:id="play0" onAction="#play" prefHeight="31.0" prefWidth="95.0" text="play" />
-                              <JFXButton fx:id="pause0" onAction="#pause" prefHeight="31.0" prefWidth="92.0" text="pause" />
-                              <JFXButton onAction="#fast" prefHeight="31.0" prefWidth="89.0" text="fast" />
-                              <JFXButton onAction="#slow" prefHeight="31.0" prefWidth="93.0" text="slow" />
-                              <JFXButton onAction="#restart" prefHeight="31.0" prefWidth="85.0" text="restart" />
-                              <JFXButton onAction="#stop" prefHeight="31.0" prefWidth="86.0" text="stop" />
+                              <TextFlow prefHeight="44.0" prefWidth="600.0" style="-fx-background-color: rgba(0, 143, 14, 0.5);">
+                                 <children>
+                                    <ImageView fx:id="imagePlay" fitHeight="35.0" fitWidth="35.0" onMouseClicked="#showVideo" onMouseEntered="#hover" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../picture/playButton.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <ImageView fx:id="imageFast" fitHeight="35.0" fitWidth="35.0" onMouseClicked="#fastVideo" onMouseEntered="#hover" pickOnBounds="true" preserveRatio="true" visible="false">
+                                       <image>
+                                          <Image url="@../picture/fastforward.png" />
+                                       </image>
+                                    </ImageView>
+                                    <ImageView fx:id="imageStop" fitHeight="35.0" fitWidth="35.0" onMouseClicked="#stopVideo" onMouseEntered="#hover" pickOnBounds="true" preserveRatio="true" visible="false">
+                                       <image>
+                                          <Image url="@../picture/stopButton.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </TextFlow>
                            </children>
+                           <VBox.margin>
+                              <Insets top="20.0" />
+                           </VBox.margin>
                         </HBox>
                      </children>
                   </VBox>

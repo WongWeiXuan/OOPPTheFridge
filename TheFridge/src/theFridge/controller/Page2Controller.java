@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -79,11 +80,11 @@ public class Page2Controller {
 	@FXML
 	private Label steps;
 	@FXML
-	private JFXButton play0;
-	@FXML
-	private JFXButton pause0;
-	@FXML
 	private ImageView imagePlay;
+	@FXML
+	private ImageView imageFast;
+	@FXML
+	private ImageView imageStop;
 
 	// Event Listener on VBox[#naviPreview].onMouseEntered
 	@FXML
@@ -170,24 +171,12 @@ public class Page2Controller {
 		//DoubleProperty width = video.fitWidthProperty();
 		//DoubleProperty height = video.fitHeightProperty();
 	}
-	public void play(ActionEvent event){
-		mp.play();
-		mp.setRate(1);
-	}
-	public void pause(ActionEvent event){
-		mp.pause();
-	}
-	public void fast(ActionEvent event){
-		mp.setRate(2);
-	}
-	public void slow(ActionEvent event){
-		mp.setRate(.5);
-	}
-	public void restart(ActionEvent event){
+	/*public void restart(ActionEvent event){
 		mp.seek(mp.getStartTime());
 		mp.setRate(1);
 		mp.play();
 	}
+	*/
 	public void stop(ActionEvent event){
 		mp.stop();
 		mp.setRate(1);
@@ -213,6 +202,8 @@ public class Page2Controller {
 			Image g = new Image("theFridge/picture/playButton.jpg");
 			imagePlay.setImage(g);
 			imagePlay.setId("imagePlay");
+			imageFast.setVisible(false);
+			imageStop.setVisible(false);
 		}
 		else{
 		mp.play();
@@ -220,9 +211,34 @@ public class Page2Controller {
 		Image g = new Image("theFridge/picture/pauseButton.jpg");
 		imagePlay.setImage(g);
 		imagePlay.setId("hello");
+		imageFast.setVisible(true);
+		imageStop.setVisible(true);
 		}
 	}
+	public void fastVideo(MouseEvent event){
+		if(imageFast.getId() == "second"){
+			mp.setRate(1);
+			imageFast.setOpacity(1);
+			imageFast.setId("imageFast");
+		}
+		else{
+		mp.setRate(2);
+		imageFast.setOpacity(0.5);
+		imageFast.setId("second");
+		}	
+	}
+	public void hover(MouseEvent event){
+		imagePlay.setCursor(Cursor.CLOSED_HAND);
+	}
 	
+	public void stopVideo(MouseEvent event){
+		mp.stop();
+		mp.setRate(1);
+		Image g = new Image("theFridge/picture/playButton.jpg");
+		imagePlay.setImage(g);
+		imagePlay.setId("imagePlay");
+		
+	}
 	
 	
 	
