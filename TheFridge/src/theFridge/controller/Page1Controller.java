@@ -23,12 +23,15 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -69,7 +72,7 @@ public class Page1Controller{
     @FXML
     private JFXListView<String> listView;
     @FXML
-    private Text alert;
+    private Label alert;
     @FXML
     private JFXButton clear;
     @FXML
@@ -149,6 +152,8 @@ public class Page1Controller{
 	 	    stage.show();
 		}
 		else if(a.size() == 0){
+			alert.setText("Please Select An Ingredient");
+			alert.setFont(Font.font("Amble CN", 22));
 			alert.setVisible(true);
 		}
 		else{
@@ -182,12 +187,13 @@ public class Page1Controller{
 			"Fish bones","Citrus Peel","Apple","Old Pasta");
 	ObservableList<String> a = FXCollections.observableArrayList();
 	ObservableList<String> b = FXCollections.observableArrayList();
+	ObservableList<String> c = FXCollections.observableArrayList();
 	
 	    public void initialize() {
 	        table1.setCellValueFactory(new PropertyValueFactory<First, String>("foodCanCompost"));
 	        table2.setCellValueFactory(new PropertyValueFactory<First, String>("foodCannotCompost"));
 	        tableView1.setItems(list);
-	        choice.setItems(data);  
+	        choice.setItems(data); 
 	        listView.setItems(a);
 	        //foodCom.setItems(a);
 	        
@@ -207,9 +213,28 @@ public class Page1Controller{
 	    public void chosen1(ActionEvent event){
 	    	String s = choice.getValue().toString();
 	    	a.add(s);
+	    	/*need ask Mr loo
+	    	c=listView.getItems();
+	    	if(c.size() == 0){
+	    		a.add(s);
+	    	}
+	    	else{
+	    		for(int i=0; i<c.size(); i++){
+	    			if(c.get(i) == s ){
+	    				alert.setText("Cannot Duplicate Ingredient");
+	    				alert.setFont(Font.font("Amble CN", 22));
+	    				alert.setVisible(true);
+	    				break;
+	    			}
+	    			else{
+	    				a.add(s);
+	    				System.out.println(a);
+	    				
+	    			}
+	    		}
+	    	}*/
 	    	delete.setOpacity(1);
 	    	clear.setOpacity(1);
 	    }
 	    
-	   
 }
