@@ -1,11 +1,23 @@
 package theFridge.controller;
 
-import javafx.fxml.FXML;
+import com.jfoenix.controls.JFXButton;
 
-import javafx.scene.layout.VBox;
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 
 public class QuizExplanationPopupController {
 	@FXML
-	private VBox dontShowAgain;
+	private JFXButton dontShowAgain;
+	@FXML
+	private Label contentLabel;
 
+	@FXML
+	public void initialize() {
+		
+	}
+	
+	@FXML
+	public void dontShowAgain() {
+		
+	}
 }

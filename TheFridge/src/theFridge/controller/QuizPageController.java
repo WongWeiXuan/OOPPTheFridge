@@ -5,12 +5,15 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import com.jfoenix.controls.JFXButton;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
@@ -18,11 +21,13 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import theFridge.model.CountdownTimer;
 import theFridge.model.QuizQuestionsModel;
 
 public class QuizPageController {
@@ -53,18 +58,27 @@ public class QuizPageController {
 	@FXML
 	private JFXButton choiceBtn4;
 	@FXML
-	private Label question;
+	private Label questionLabel;
 	@FXML
 	private Label timeLeft;
 	@FXML
-	private Label timer;
+	private Label timerOutput;
 	@FXML
 	private Label pointsEarned;
 	@FXML
 	private Label questionNo;
+	@FXML
+	private ImageView infoImg;
+	@FXML
+	private ImageView correctImg;
+	@FXML
+	private ImageView incorrectImg;
+	@FXML
+	private JFXButton continueBtn;
 	
 	private ArrayList<QuizQuestionsModel> questionsList;
 	private int currIndex = -1;
+	private int pointsAttained = 0;
 	
 	public void setQuestionList(ArrayList<QuizQuestionsModel> questionsList) {
 		if (questionsList != null && questionsList.size() > 0) {
@@ -75,12 +89,64 @@ public class QuizPageController {
 	}
 	
 	public void showQuestion(QuizQuestionsModel questions) {
-		question.setText(questions.getQuestions());
+		questionLabel.setText(questions.getQuestions());
+	}
+	
+	@FXML
+	public void handleNext(ActionEvent event) {	
+		if (currIndex >= 0 && currIndex < questionsList.size() - 1){
+			currIndex++;
+			showQuestion(questionsList.get(currIndex));
+		}
 	}
 	
 	@FXML
 	public void initialize() throws FileNotFoundException{
+		CountdownTimer countTimer = new CountdownTimer();
+		timerOutput.setText(String.valueOf(countTimer.start()));
+		System.out.println(String.valueOf(countTimer.start()));
 		
+		QuizQuestionsModel quizQ = new QuizQuestionsModel();
+		questionLabel.setText(quizQ.getQuestions());
+		
+		
+		
+		
+		questionNo.setText(String.valueOf(currIndex) + "/10");
+		pointsEarned.setText("Points earned: " + pointsAttained);
+		
+		/*
+		int[] label = new int[] {10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
+			Timer timer = new Timer();
+			timer.scheduleAtFixedRate(new TimerTask() {
+				public void run() {
+					for (int i = 0; i < label.length; i++) {
+						timerOutput.setText(String.valueOf(label[i]));
+						System.out.println(String.valueOf(label[i]));
+					}
+				}
+			}, 1000, 1000);
+		}*/
+		
+		/*
+		Timer timer = new Timer();
+
+	    int secondsToWait = 1;
+	    TimerTask task = new TimerTask() {
+	        @Override
+	        public void run() {
+	            secondsToWait--;
+	            timerOutput.setText(secondsToWait + "");
+	            if (secondsToWait == 0) {
+	                timer.cancel();
+	                timer.purge();
+	            }
+	        }
+	    };
+
+	    timerOutput.setText(secondsToWait + "");
+	    timer.scheduleAtFixedRate(task, 1000, 1000);
+	    */
 	}
 
 	@FXML

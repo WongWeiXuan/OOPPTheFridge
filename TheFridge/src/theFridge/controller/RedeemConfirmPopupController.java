@@ -34,6 +34,7 @@ public class RedeemConfirmPopupController {
 		File file = new File("src/theFridge/file/confirm.txt");
 		Scanner sc = new Scanner(file) ;
 		String n = sc.nextLine();
+		sc.close();
 		
 		ProfileDAO profileDAO = new ProfileDAO();
 		
@@ -50,7 +51,8 @@ public class RedeemConfirmPopupController {
 		user.setTotalPoints(user.getTotalPoints() - rDV.getVoucherPoints());	//Deduct user's total points after redeeming voucher
 		user.updateUser();														//Update the subtracted points to user text file
 		
-		
+		Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+		stage.close();
 	}
 	
 	@FXML

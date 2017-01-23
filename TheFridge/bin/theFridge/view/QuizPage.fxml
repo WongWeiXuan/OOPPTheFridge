@@ -46,7 +46,7 @@
                   </Circle>
                </children>
             </StackPane>
-            <HBox style="-fx-background-color: rgba(240, 98, 146, 0.25);" VBox.vgrow="ALWAYS">
+            <HBox alignment="CENTER" style="-fx-background-color: rgba(240, 98, 146, 0.25);" VBox.vgrow="ALWAYS">
                <children>
                   <AnchorPane fx:id="Anchor" maxWidth="300.0" prefHeight="600.0" prefWidth="150.0">
                      <children>
@@ -184,7 +184,7 @@
                      <children>
                         <TextFlow prefHeight="96.0" prefWidth="980.0" textAlignment="CENTER">
                            <children>
-                              <Label fx:id="question" text="Question" textFill="#e91e63">
+                              <Label fx:id="questionLabel" text="Question" textFill="#e91e63">
                                  <font>
                                     <Font name="Garamond" size="36.0" />
                                  </font>
@@ -197,26 +197,60 @@
                               <Insets />
                            </VBox.margin>
                         </TextFlow>
-                        <VBox alignment="CENTER" prefHeight="130.0" prefWidth="980.0" VBox.vgrow="ALWAYS">
+                        <HBox alignment="CENTER" VBox.vgrow="ALWAYS">
                            <children>
-                              <Label fx:id="timeLeft" text="Time Left:" textFill="#e91e63">
-                                 <font>
-                                    <Font name="Garamond" size="36.0" />
-                                 </font>
-                                 <padding>
-                                    <Insets top="10.0" />
-                                 </padding>
-                              </Label>
-                              <Label fx:id="timer" text="Label">
-                                 <font>
-                                    <Font name="Garamond" size="24.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets top="10.0" />
-                                 </VBox.margin>
-                              </Label>
+                              <StackPane>
+                                 <children>
+                                    <VBox alignment="CENTER" prefHeight="130.0" prefWidth="980.0">
+                                       <children>
+                                          <Label fx:id="timeLeft" text="Time Left:" textFill="#e91e63">
+                                             <font>
+                                                <Font name="Garamond" size="36.0" />
+                                             </font>
+                                             <padding>
+                                                <Insets top="10.0" />
+                                             </padding>
+                                          </Label>
+                                          <StackPane>
+                                             <children>
+                                                <Label fx:id="timerOutput" text="Label">
+                                                   <font>
+                                                      <Font name="Garamond" size="36.0" />
+                                                   </font>
+                                                </Label>
+                                                <ImageView fx:id="correctImg" fitHeight="70.0" fitWidth="70.0" opacity="0.0">
+                                                   <image>
+                                                      <Image url="@../picture/Confirm2.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <ImageView fx:id="incorrectImg" fitHeight="70.0" fitWidth="70.0" opacity="0.0">
+                                                   <image>
+                                                      <Image url="@../picture/error.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </children>
+                                          </StackPane>
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER_RIGHT">
+                                       <children>
+                                          <ImageView fx:id="infoImg" fitHeight="50.0" fitWidth="50.0">
+                                             <image>
+                                                <Image url="@../picture/Info.png" />
+                                             </image>
+                                             <VBox.margin>
+                                                <Insets right="10.0" />
+                                             </VBox.margin>
+                                          </ImageView>
+                                       </children>
+                                       <StackPane.margin>
+                                          <Insets />
+                                       </StackPane.margin>
+                                    </VBox>
+                                 </children>
+                              </StackPane>
                            </children>
-                        </VBox>
+                        </HBox>
                         <AnchorPane VBox.vgrow="ALWAYS">
                            <VBox.margin>
                               <Insets bottom="120.0" top="90.0" />
@@ -278,7 +312,7 @@
                                     <Font name="Garamond" size="24.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="pointsEarned" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="195.0" text="Points Earned: " textAlignment="CENTER" textFill="#e91e63">
+                              <Label fx:id="pointsEarned" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="195.0" text="Points earned: " textAlignment="CENTER" textFill="#e91e63">
                                  <font>
                                     <Font name="Garamond" size="24.0" />
                                  </font>
@@ -286,7 +320,7 @@
                                     <Insets bottom="10.0" left="40.0" />
                                  </HBox.margin>
                               </Label>
-                              <JFXButton buttonType="RAISED" ripplerFill="BLACK" style="-fx-background-color: yellow;" text="Continue">
+                              <JFXButton fx:id="continueBtn" buttonType="RAISED" onAction="#handleNext" ripplerFill="BLACK" style="-fx-background-color: yellow;" text="Continue">
                                  <HBox.margin>
                                     <Insets bottom="10.0" />
                                  </HBox.margin>

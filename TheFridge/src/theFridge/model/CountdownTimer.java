@@ -7,7 +7,7 @@ public class CountdownTimer {
 	private int secondsLeft;
 	private Timer timer;
 	
-	public void start() {
+	public int start() {
 		String secs = "10";
 	    int delay = 1000;
 	    int period = 1000;
@@ -26,6 +26,12 @@ public class CountdownTimer {
 
 	        }
 	    }, delay, period);
+	    
+		return secondsLeft;
+	}
+	
+	public void cancel() {
+		timer.cancel();
 	}
 	
 	public static void main(String[] args) {	   
