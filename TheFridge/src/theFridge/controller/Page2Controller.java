@@ -17,6 +17,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import com.jfoenix.controls.JFXButton;
+
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -74,6 +76,10 @@ public class Page2Controller {
 	private Button btnMain;
 	@FXML
 	private Label steps;
+	@FXML
+	private JFXButton play0;
+	@FXML
+	private JFXButton pause0;
 
 	// Event Listener on VBox[#naviPreview].onMouseEntered
 	@FXML
@@ -155,6 +161,7 @@ public class Page2Controller {
 		me = new Media(new File(path).toURI().toString());
 		mp = new MediaPlayer(me);
 		video.setMediaPlayer(mp);
+		
 		
 		//DoubleProperty width = video.fitWidthProperty();
 		//DoubleProperty height = video.fitHeightProperty();

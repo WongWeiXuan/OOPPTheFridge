@@ -188,7 +188,7 @@
                   <TextFlow prefHeight="22.0" prefWidth="930.0" textAlignment="CENTER">
                      <children>
                         <Text fill="#e91e63" strokeType="OUTSIDE" strokeWidth="0.0" text="You Have Chosen To Compost :" textAlignment="CENTER" wrappingWidth="238.52880859375" />
-                        <Label fx:id="chosenFood" prefHeight="21.0" prefWidth="200.0" text="Label" textAlignment="CENTER" textFill="#e91e63">
+                        <Label fx:id="chosenFood" prefHeight="21.0" prefWidth="247.0" text="Label" textAlignment="CENTER" textFill="#e91e63">
                            <padding>
                               <Insets left="80.0" />
                            </padding></Label>
@@ -202,8 +202,8 @@
                         <MediaView fx:id="video" fitHeight="300.0" fitWidth="600.0" />
                         <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <JFXButton onAction="#play" prefHeight="31.0" prefWidth="95.0" text="play" />
-                              <JFXButton onAction="#pause" prefHeight="31.0" prefWidth="92.0" text="pause" />
+                              <JFXButton fx:id="play0" onAction="#play" prefHeight="31.0" prefWidth="95.0" text="play" />
+                              <JFXButton fx:id="pause0" onAction="#pause" prefHeight="31.0" prefWidth="92.0" text="pause" />
                               <JFXButton onAction="#fast" prefHeight="31.0" prefWidth="89.0" text="fast" />
                               <JFXButton onAction="#slow" prefHeight="31.0" prefWidth="93.0" text="slow" />
                               <JFXButton onAction="#restart" prefHeight="31.0" prefWidth="85.0" text="restart" />
