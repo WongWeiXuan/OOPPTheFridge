@@ -202,6 +202,11 @@
                         <MediaView fx:id="video" fitHeight="300.0" fitWidth="600.0" />
                         <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
+                              <ImageView fx:id="imagePlay" fitHeight="35.0" fitWidth="35.0" onMouseClicked="#showVideo" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../picture/playButton.jpg" />
+                                 </image>
+                              </ImageView>
                               <JFXButton fx:id="play0" onAction="#play" prefHeight="31.0" prefWidth="95.0" text="play" />
                               <JFXButton fx:id="pause0" onAction="#pause" prefHeight="31.0" prefWidth="92.0" text="pause" />
                               <JFXButton onAction="#fast" prefHeight="31.0" prefWidth="89.0" text="fast" />

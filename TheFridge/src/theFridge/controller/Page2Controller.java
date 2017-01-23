@@ -12,6 +12,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -80,6 +82,8 @@ public class Page2Controller {
 	private JFXButton play0;
 	@FXML
 	private JFXButton pause0;
+	@FXML
+	private ImageView imagePlay;
 
 	// Event Listener on VBox[#naviPreview].onMouseEntered
 	@FXML
@@ -201,6 +205,22 @@ public class Page2Controller {
 		steps.setText(c.getInstruction());
 		
 		
+	}
+	
+	public void showVideo(MouseEvent event){
+		if(imagePlay.getId() == "hello"){
+			mp.pause();
+			Image g = new Image("theFridge/picture/playButton.jpg");
+			imagePlay.setImage(g);
+			imagePlay.setId("imagePlay");
+		}
+		else{
+		mp.play();
+		mp.setRate(1);
+		Image g = new Image("theFridge/picture/pauseButton.jpg");
+		imagePlay.setImage(g);
+		imagePlay.setId("hello");
+		}
 	}
 	
 	
