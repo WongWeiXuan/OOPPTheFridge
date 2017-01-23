@@ -5,6 +5,7 @@ public class StockModel {
 	private double amount;
 	private int serving;
 	private double maxAmount;
+	private int index;
 
 	public StockModel(String name, double amount, int serving) {
 		super();
@@ -19,6 +20,15 @@ public class StockModel {
 		this.amount = amount;
 		this.serving = serving;
 		this.maxAmount = maxAmount;
+	}
+
+	public StockModel(String name, double amount, int serving, double maxAmount, int index) {
+		super();
+		this.name = name;
+		this.amount = amount;
+		this.serving = serving;
+		this.maxAmount = maxAmount;
+		this.index = index;
 	}
 
 	public String getName() {
@@ -52,4 +62,13 @@ public class StockModel {
 	public void setMaxAmount(double maxAmount) {
 		this.maxAmount = maxAmount;
 	}
+
+	public int getIndex() {
+		return index;
+	}
+
+	public void setIndex(int index) {
+		this.index = index;
+	}
+	
 }

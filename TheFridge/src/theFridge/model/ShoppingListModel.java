@@ -25,11 +25,11 @@ import theFridge.DAO.ShoppingListDAO;
 
 public class ShoppingListModel {
 	public static int numOfPeople;
-	static JFXListView<HBox>StocklistView;
+	static JFXListView<HBox> StocklistView;
 	static JFXPopup Popup;
-	static JFXListView<HBox>ListlistView;
+	static JFXListView<HBox> ListlistView;
 	static JFXPopup Popup1;
-	
+
 	public ShoppingListModel(JFXListView<HBox> stocklistView, JFXPopup popup, JFXListView<HBox> listlistView,
 			JFXPopup popup1) {
 		StocklistView = stocklistView;
@@ -38,7 +38,7 @@ public class ShoppingListModel {
 		Popup1 = popup1;
 	}
 
-	public void createTitle(){
+	public void createTitle() {
 		HBox HBoxTitle = new HBox();
 		Label lbl1 = new Label("Current Stock");
 		lbl1.setMinWidth(500);
@@ -59,7 +59,7 @@ public class ShoppingListModel {
 		HBoxTitle.getChildren().addAll(lbl1, lbl2, lbl3, lbl4);
 		HBoxTitle.setPadding(new Insets(10, 10, 10, 10));
 		StocklistView.getItems().add(HBoxTitle);
-		
+
 		HBox HBoxTitle1 = new HBox();
 		Label lbl11 = new Label("Shopping List");
 		lbl11.setPrefWidth(400);
@@ -71,123 +71,137 @@ public class ShoppingListModel {
 		HBoxTitle1.setPadding(new Insets(10, 10, 10, 10));
 		ListlistView.getItems().add(HBoxTitle1);
 	}
-	
-	public void displayStocks() throws FileNotFoundException{
+
+	public void displayStocks() throws FileNotFoundException {
 		ShoppingListDAO s = new ShoppingListDAO();
-		ArrayList<StockModel>stocklist = s.getAllStock();
-		for(StockModel m:stocklist){
+		ArrayList<StockModel> stocklist = s.getAllStock();
+		for (StockModel m : stocklist) {
 			HBox hbox = new HBox();
 			Label nameLbl = new Label(m.getName());
-				nameLbl.setMinWidth(500);
-				nameLbl.setPrefWidth(500);
-				nameLbl.setAlignment(Pos.CENTER_LEFT);
+			nameLbl.setMinWidth(500);
+			nameLbl.setPrefWidth(500);
+			nameLbl.setAlignment(Pos.CENTER_LEFT);
 			Label amountLbl = new Label(String.valueOf(m.getAmount()));
-				amountLbl.setMinWidth(100);
-				amountLbl.setPrefWidth(100);
-				amountLbl.setAlignment(Pos.CENTER);
+			amountLbl.setMinWidth(100);
+			amountLbl.setPrefWidth(100);
+			amountLbl.setAlignment(Pos.CENTER);
 			Label servingLbl = new Label(String.valueOf(m.getServing()));
-				servingLbl.setMinWidth(100);
-				servingLbl.setPrefWidth(100);
-				servingLbl.setAlignment(Pos.CENTER);
+			servingLbl.setMinWidth(100);
+			servingLbl.setPrefWidth(100);
+			servingLbl.setAlignment(Pos.CENTER);
 			Label maxAmountlbl = new Label(String.valueOf(calculateMaxAmount(m)));
-				maxAmountlbl.setMinWidth(100);
-				maxAmountlbl.setPrefWidth(100);
-				maxAmountlbl.setAlignment(Pos.CENTER);
+			maxAmountlbl.setMinWidth(100);
+			maxAmountlbl.setPrefWidth(100);
+			maxAmountlbl.setAlignment(Pos.CENTER);
 			m.setMaxAmount(calculateMaxAmount(m));
 			hbox.getChildren().addAll(nameLbl, amountLbl, servingLbl, maxAmountlbl);
 			hbox.setOnMouseClicked(new EventHandler<MouseEvent>() {
 				public void handle(MouseEvent event) {
-					if(event.getButton() == MouseButton.SECONDARY){
+					if(event.getButton() == MouseButton.SECONDARY) {
 						Popup.show(JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.RIGHT);
 					}
 				}
-	        });
-			
+			});
+
 			StocklistView.getItems().add(hbox);
 			try {
-    			ShoppingListDAO a = new ShoppingListDAO();
-    			a.writeToStockFile(ShoppingListModel.getStocklistArray());
+				ShoppingListDAO a = new ShoppingListDAO();
+				a.writeToStockFile(ShoppingListModel.getStocklistArray());
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		}
 	}
-	
-	public void displayShopping() throws FileNotFoundException{
+
+	public void displayShopping() throws FileNotFoundException {
 		ShoppingListDAO s = new ShoppingListDAO();
-		ArrayList<ListModel>listlist = s.getAllList(numOfPeople);
-		for(ListModel m:listlist){
+		ArrayList<ListModel> listlist = s.getAllList(numOfPeople);
+		for (ListModel m : listlist) {
 			HBox hbox = new HBox();
 			Label nameLbl = new Label(m.getName());
-				nameLbl.setMinWidth(400);
-				nameLbl.setPrefWidth(400);
-				nameLbl.setAlignment(Pos.CENTER_LEFT);
+			nameLbl.setMinWidth(400);
+			nameLbl.setPrefWidth(400);
+			nameLbl.setAlignment(Pos.CENTER_LEFT);
 			Label amountLbl = new Label(String.valueOf(m.getAmount()));
-				amountLbl.setMinWidth(100);
-				amountLbl.setPrefWidth(100);
-				amountLbl.setAlignment(Pos.CENTER);
+			amountLbl.setMinWidth(100);
+			amountLbl.setPrefWidth(100);
+			amountLbl.setAlignment(Pos.CENTER);
+			try{
 				StockModel sm = getStockModelByNameFromStockListArray(m.getName());
-				if(m.getAmount() > sm.getMaxAmount() - sm.getAmount()){
+				if (m.getAmount() > sm.getMaxAmount() - sm.getAmount()) {
 					amountLbl.setStyle("-fx-text-fill: red");
-				}else{
+				} else {
 					amountLbl.setStyle("-fx-text-fill: black");
 				}
+			}catch(Exception e){}
 			hbox.getChildren().addAll(nameLbl, amountLbl);
 			hbox.setOnMouseClicked(new EventHandler<MouseEvent>() {
 				public void handle(MouseEvent event) {
-					if(event.getButton() == MouseButton.SECONDARY){
+					if(event.getButton().equals(MouseButton.PRIMARY)){
+			            if(event.getClickCount() == 2){
+			            	try{
+			            		doubleClick();
+			            	}catch(StackOverflowError e){}
+			            }
+			        }
+					else if(event.getButton() == MouseButton.SECONDARY) {
 						Popup1.show(JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.RIGHT);
 					}
 				}
-	        });
-			
+			});
+
 			ListlistView.getItems().add(hbox);
 			try {
-    			ShoppingListDAO a = new ShoppingListDAO();
+				ShoppingListDAO a = new ShoppingListDAO();
 				a.writeToListFile(ShoppingListModel.getListlistArray());
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		}
 	}
-	
-	public void displayShoppingByStockModel(StockModel stock) throws FileNotFoundException{
+
+	public void displayShoppingByStockModel(StockModel stock) throws FileNotFoundException {
 		ShoppingListDAO a = new ShoppingListDAO();
 		ListModel list = a.getListWithStock(stock);
 		HBox hbox = new HBox();
 		Label nameLbl = new Label(list.getName());
-			nameLbl.setMinWidth(400);
-			nameLbl.setPrefWidth(400);
-			nameLbl.setAlignment(Pos.CENTER_LEFT);
+		nameLbl.setMinWidth(400);
+		nameLbl.setPrefWidth(400);
+		nameLbl.setAlignment(Pos.CENTER_LEFT);
 		Label amountLbl = new Label(String.valueOf(list.getAmount()));
-			amountLbl.setMinWidth(100);
-			amountLbl.setPrefWidth(100);
-			amountLbl.setAlignment(Pos.CENTER);
-			if(list.getAmount() > stock.getMaxAmount()){
-				amountLbl.setStyle("-fx-text-fill: red");
-			}else{
-				amountLbl.setStyle("-fx-text-fill: black");
-			}
-			list.setMaxAmount(stock.getMaxAmount());
+		amountLbl.setMinWidth(100);
+		amountLbl.setPrefWidth(100);
+		amountLbl.setAlignment(Pos.CENTER);
+		if (list.getAmount() > stock.getMaxAmount()) {
+			amountLbl.setStyle("-fx-text-fill: red");
+		} else {
+			amountLbl.setStyle("-fx-text-fill: black");
+		}
+		list.setMaxAmount(stock.getMaxAmount());
 		hbox.getChildren().addAll(nameLbl, amountLbl);
 		hbox.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent event) {
-				if(event.getButton() == MouseButton.SECONDARY){
+				if(event.getClickCount() == 2){
+	            	try{
+	            		doubleClick();
+	            	}catch(StackOverflowError e){}
+	            }
+				else if (event.getButton() == MouseButton.SECONDARY) {
 					Popup1.show(JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.RIGHT);
 				}
 			}
-        });
-		
+		});
+
 		ListlistView.getItems().add(hbox);
 	}
-	
-	public void startPopup(){
-		//Stock List...
+
+	public void startPopup() {
+		// Stock List...
 		Label lbl1 = new Label("Edit");
 		lbl1.setMinWidth(100);
 		lbl1.setPrefWidth(100);
 		lbl1.setPadding(new Insets(10));
-		//Edit Items
+		// Edit Items
 		lbl1.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent event) {
 				ShoppingListAddPageModel.source = "Stock";
@@ -198,52 +212,52 @@ public class ShoppingListModel {
 				String amount = nodeToString(Label.get(1));
 				String serving = nodeToString(Label.get(2));
 				String maxAmount = nodeToString(Label.get(3));
-				
+
 				try {
 					showStage(selectedIdx);
 					ShoppingListDAO a = new ShoppingListDAO();
-					StockModel sm= a.getStockModelByName(name);
+					StockModel sm = a.getStockModelByName(name);
 					sm.setAmount(Double.parseDouble(amount));
 					sm.setServing(Integer.parseInt(serving));
 					sm.setMaxAmount(Double.parseDouble(maxAmount));
 					ShoppingListAddPageModel.showNameAndAmount(sm);
-				} 
-				catch (IOException e) {
+				} catch (IOException e) {
 					e.printStackTrace();
 				}
+				Popup.close();
 			}
-        });
+		});
 		Label lbl2 = new Label("Delete");
 		lbl2.setMinWidth(100);
 		lbl2.setPrefWidth(100);
 		lbl2.setPadding(new Insets(10));
-		//Remove Items
+		// Remove Items
 		lbl2.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent event) {
 				int selectedIdx = StocklistView.getSelectionModel().getSelectedIndex();
-				if(selectedIdx != 0){
+				if (selectedIdx != 0) {
 					StocklistView.getItems().remove(selectedIdx);
 				}
 				try {
-	    			ShoppingListDAO a = new ShoppingListDAO();
-	    			a.writeToStockFile(ShoppingListModel.getStocklistArray());
+					ShoppingListDAO a = new ShoppingListDAO();
+					a.writeToStockFile(ShoppingListModel.getStocklistArray());
 					a.writeToListFile(ShoppingListModel.getListlistArray());
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
 				Popup.close();
 			}
-        });
+		});
 		VBox vbox = new VBox(lbl1, lbl2);
 		Popup.setContent(vbox);
 		Popup.setSource(StocklistView);
-		
-		//Shopping List...
+
+		// Shopping List...
 		Label lbl11 = new Label("Edit");
 		lbl11.setMinWidth(100);
 		lbl11.setPrefWidth(100);
 		lbl11.setPadding(new Insets(10));
-		//Edit Items
+		// Edit Items
 		lbl11.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent event) {
 				ShoppingListAddPageModel.source = "List";
@@ -252,53 +266,54 @@ public class ShoppingListModel {
 				ObservableList<Node> Label = selectedItem.getChildren();
 				String name = nodeToString(Label.get(0));
 				String amount = nodeToString(Label.get(1));
-				
+
 				try {
 					showStage(selectedIdx);
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
-				StockModel sl = getStockModelByNameFromStockListArray(name);
 				ShoppingListDAO a = new ShoppingListDAO();
 				ListModel lm = null;
 				try {
+					StockModel sl = getStockModelByNameFromStockListArray(name);
 					lm = a.getListModelByName(name);
 					lm.setAmount(Double.parseDouble(amount));
 					lm.setMaxAmount(sl.getMaxAmount());
-					ShoppingListAddPageModel.showNameAndAmount(lm);
 					ShoppingListAddPageModel.stockModel = sl;
-				} catch (FileNotFoundException e) {
-					e.printStackTrace();
+				}catch (Exception e) {
+					lm = new ListModel(name, Double.parseDouble(amount));
 				}
+				ShoppingListAddPageModel.showNameAndAmount(lm);
+				Popup1.close();
 			}
-        });
+		});
 		Label lbl12 = new Label("Delete");
 		lbl12.setMinWidth(100);
 		lbl12.setPrefWidth(100);
 		lbl12.setPadding(new Insets(10));
-		//Remove Items
+		// Remove Items
 		lbl12.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent event) {
 				int selectedIdx = ListlistView.getSelectionModel().getSelectedIndex();
-				if(selectedIdx != 0){
+				if (selectedIdx != 0) {
 					ListlistView.getItems().remove(selectedIdx);
 				}
-	    		try {
-	    			ShoppingListDAO a = new ShoppingListDAO();
-	    			a.writeToStockFile(ShoppingListModel.getStocklistArray());
+				try {
+					ShoppingListDAO a = new ShoppingListDAO();
+					a.writeToStockFile(ShoppingListModel.getStocklistArray());
 					a.writeToListFile(ShoppingListModel.getListlistArray());
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
 				Popup1.close();
 			}
-        });
+		});
 		VBox vbox1 = new VBox(lbl11, lbl12);
 		Popup1.setContent(vbox1);
 		Popup1.setSource(ListlistView);
 	}
-	
-	public void showStage(int index) throws IOException{
+
+	public void showStage(int index) throws IOException {
 		Stage stage = new Stage();
 		Parent root;
 		root = FXMLLoader.load(getClass().getResource("/theFridge/view/ShoppingListAddPage.fxml"));
@@ -307,8 +322,8 @@ public class ShoppingListModel {
 		stage.show();
 		ShoppingListAddPageModel.index = index;
 	}
-	
-	public void showStage(ShoppingListModel model) throws IOException{
+
+	public void showStage(ShoppingListModel model) throws IOException {
 		Stage stage = new Stage();
 		Parent root;
 		root = FXMLLoader.load(getClass().getResource("/theFridge/view/ShoppingListAddPage.fxml"));
@@ -317,8 +332,8 @@ public class ShoppingListModel {
 		stage.show();
 		ShoppingListAddPageModel.model = model;
 	}
-	
-	public void showStage(ShoppingListModel model, String source) throws IOException{
+
+	public void showStage(ShoppingListModel model, String source) throws IOException {
 		Stage stage = new Stage();
 		Parent root;
 		root = FXMLLoader.load(getClass().getResource("/theFridge/view/ShoppingListAddPage.fxml"));
@@ -328,8 +343,8 @@ public class ShoppingListModel {
 		ShoppingListAddPageModel.model = model;
 		ShoppingListAddPageModel.source = source;
 	}
-	
-	public void addStocks(StockModel s) throws FileNotFoundException{
+
+	public void addStocks(StockModel s) throws FileNotFoundException {
 		HBox hbox = new HBox();
 		Label lbl1 = new Label(s.getName());
 		lbl1.setMinWidth(500);
@@ -351,14 +366,14 @@ public class ShoppingListModel {
 		StocklistView.getItems().add(hbox);
 		hbox.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent event) {
-				if(event.getButton() == MouseButton.SECONDARY){
+				if(event.getButton() == MouseButton.SECONDARY) {
 					Popup.show(JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.RIGHT);
 				}
 			}
-        });
+		});
 	}
-	
-	public void addShopping(ListModel s) throws FileNotFoundException{
+
+	public void addShopping(ListModel s) throws FileNotFoundException {
 		HBox hbox = new HBox();
 		Label lbl1 = new Label(s.getName());
 		lbl1.setMinWidth(400);
@@ -372,22 +387,29 @@ public class ShoppingListModel {
 		ListlistView.getItems().add(hbox);
 		hbox.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent event) {
-				if(event.getButton() == MouseButton.SECONDARY){
+				if(event.getButton().equals(MouseButton.PRIMARY)){
+					if(event.getClickCount() == 2){
+		            	try{
+		            		doubleClick();
+		            	}catch(StackOverflowError e){}
+		            }
+		        }
+				else if(event.getButton() == MouseButton.SECONDARY) {
 					Popup1.show(JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.RIGHT);
 				}
 			}
-        });
+		});
 	}
-	
-	public static String nodeToString(Node node){
+
+	public static String nodeToString(Node node) {
 		String s = node.toString();
 		s = s.substring(s.indexOf("'") + 1);
 		s = s.substring(0, s.indexOf("'"));
-		
+
 		return s;
 	}
-	
-	public static void setListlistViewNode(int index, ListModel model){
+
+	public static void setListlistViewNode(int index, ListModel model) {
 		HBox hbox = new HBox();
 		Label nameLbl = new Label(model.getName());
 		nameLbl.setMinWidth(400);
@@ -401,15 +423,22 @@ public class ShoppingListModel {
 		hbox.getChildren().addAll(nameLbl, amountLbl);
 		hbox.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent event) {
-				if(event.getButton() == MouseButton.SECONDARY){
+				if(event.getButton().equals(MouseButton.PRIMARY)){
+					if(event.getClickCount() == 2){
+		            	try{
+		            		doubleClick();
+		            	}catch(StackOverflowError e){}
+		            }
+		        }
+				else if(event.getButton() == MouseButton.SECONDARY) {
 					Popup1.show(JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.RIGHT);
 				}
 			}
-        });
+		});
 		ListlistView.getItems().set(index, hbox);
 	}
-	
-	public static void setListlistViewNode(int index, ListModel model, boolean red){
+
+	public static void setListlistViewNode(int index, ListModel model, boolean red) {
 		HBox hbox = new HBox();
 		Label nameLbl = new Label(model.getName());
 		nameLbl.setMinWidth(400);
@@ -423,15 +452,22 @@ public class ShoppingListModel {
 		hbox.getChildren().addAll(nameLbl, amountLbl);
 		hbox.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent event) {
-				if(event.getButton() == MouseButton.SECONDARY){
+				if(event.getButton().equals(MouseButton.PRIMARY)){
+		            if(event.getClickCount() == 2){
+		            	try{
+		            		doubleClick();
+		            	}catch(StackOverflowError e){}
+		            }
+		        }
+				else if(event.getButton() == MouseButton.SECONDARY) {
 					Popup1.show(JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.RIGHT);
 				}
 			}
-        });
+		});
 		ListlistView.getItems().set(index, hbox);
 	}
-	
-	public static void setStocklistViewNode(int index, StockModel model){
+
+	public static void setStocklistViewNode(int index, StockModel model) {
 		HBox hbox = new HBox();
 		Label nameLbl = new Label(model.getName());
 		nameLbl.setMinWidth(500);
@@ -452,24 +488,23 @@ public class ShoppingListModel {
 		hbox.getChildren().addAll(nameLbl, amountLbl, servingLbl, maxAmountlbl);
 		hbox.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent event) {
-				if(event.getButton() == MouseButton.SECONDARY){
+				if(event.getButton() == MouseButton.SECONDARY) {
 					Popup.show(JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.RIGHT);
 				}
 			}
-        });
+		});
 		StocklistView.getItems().set(index, hbox);
 	}
-	
-	public static ArrayList<StockModel> getStocklistArray(){
+
+	public static ArrayList<StockModel> getStocklistArray() {
 		ArrayList<StockModel> stockArray = new ArrayList<StockModel>();
 		ObservableList<HBox> HboxList = StocklistView.getItems();
 		boolean numfirst = true;
-		for(HBox a:HboxList){
-			if(numfirst == true){
+		for (HBox a : HboxList) {
+			if (numfirst == true) {
 				numfirst = false;
 				continue;
-			}
-			else{
+			} else {
 				ObservableList<Node> NodeList = a.getChildren();
 				String name = nodeToString(NodeList.get(0));
 				double amount = Double.parseDouble(nodeToString(NodeList.get(1)));
@@ -481,45 +516,47 @@ public class ShoppingListModel {
 		}
 		return stockArray;
 	}
-	
-	public static StockModel getStockModelByNameFromStockListArray(String name){
+
+	public static StockModel getStockModelByNameFromStockListArray(String name) {
 		StockModel model = null;
-		for(StockModel sm:getStocklistArray()){
-			if(sm.getName().equalsIgnoreCase(name)){
+		int i = 1;
+		for (StockModel sm : getStocklistArray()) {
+			if (sm.getName().equalsIgnoreCase(name)) {
 				model = sm;
+				model.setIndex(i);
 			}
+			i++;
 		}
 		return model;
 	}
-	
-	public static ListModel getListModelByName(String name){
+
+	public static ListModel getListModelByName(String name) {
 		ListModel model = null;
-		for(ListModel lm:getListlistArray()){
-			if(lm.getName().equalsIgnoreCase(name)){
+		for (ListModel lm : getListlistArray()) {
+			if (lm.getName().equalsIgnoreCase(name)) {
 				model = lm;
 			}
 		}
 		return model;
 	}
-	
-	public static ArrayList<ListModel> getListlistArray(){
+
+	public static ArrayList<ListModel> getListlistArray() {
 		ArrayList<ListModel> listArray = new ArrayList<ListModel>();
 		ObservableList<HBox> HboxList = ListlistView.getItems();
 		boolean numfirst = true;
-		for(HBox a:HboxList){
-			if(numfirst == true){
+		for (HBox a : HboxList) {
+			if (numfirst == true) {
 				numfirst = false;
 				continue;
-			}
-			else{
+			} else {
 				ObservableList<Node> NodeList = a.getChildren();
 				String name = nodeToString(NodeList.get(0));
 				double amount = Double.parseDouble(nodeToString(NodeList.get(1)));
 				ListModel listModel;
-				try{
+				try {
 					double maxAmount = getStockModelByNameFromStockListArray(name).getMaxAmount();
 					listModel = new ListModel(name, amount, maxAmount);
-				}catch(Exception e){
+				} catch (Exception e) {
 					listModel = new ListModel(name, amount);
 				}
 				listArray.add(listModel);
@@ -527,10 +564,41 @@ public class ShoppingListModel {
 		}
 		return listArray;
 	}
-	
-	public static double calculateMaxAmount(StockModel stock){
+
+	public static double calculateMaxAmount(StockModel stock) {
 		double maxAmount = stock.getServing() * numOfPeople;
 		stock.setMaxAmount(maxAmount);
 		return maxAmount;
+	}
+	
+	public static void doubleClick(){
+		HBox selectedItem = ListlistView.getSelectionModel().getSelectedItem();
+		int selectedIdx = ListlistView.getSelectionModel().getSelectedIndex();
+		ObservableList<Node> Label = selectedItem.getChildren();
+		String name = nodeToString(Label.get(0));
+		String amount = nodeToString(Label.get(1));
+		StockModel model = getStockModelByNameFromStockListArray(name);
+		model.setAmount(model.getAmount() + Double.parseDouble(amount));
+		setStocklistViewNode(model.getIndex(), model);
+		setListlistViewNode(selectedIdx, new ListModel(name, 0, model.getMaxAmount()));
+	}
+	
+	public static boolean checkExisting(String name){
+		ArrayList<StockModel> sm = getStocklistArray();
+		ArrayList<ListModel> lm = getListlistArray();
+		for(StockModel s:sm){
+			String stockName = s.getName();
+			if(stockName == name){
+				return true;
+			}
+		}
+		
+		for(ListModel l:lm){
+			String listName = l.getName();
+			if(listName == name){
+				return true;
+			}
+		}
+		return false;
 	}
 }

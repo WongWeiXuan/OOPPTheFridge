@@ -1,7 +1,7 @@
-Banana~7.0~12.0
-Carrot~12.0~16.0
-Carbon Dioxide~3.0~8.0
-Tomato~4.0~8.0
-Apple~1.0~4.0
-Pineapple~3.0~4.0
+Carrot~5.0~16.0
+Carbon Dioxide~2.0~8.0
+Tomato~2.0~8.0
+Apple~2.0~4.0
+Pineapple~5.0~4.0
 Cabbage~3.0~4.0
+Watermelon~1.0~4.0
