@@ -60,18 +60,14 @@ public class RedeemVoucher12CharacterPageController {
 	@FXML
 	private Label promoCodeEmailBorder;
 	
-	private String promoCode;
+	//private String promoCode;
 	
 	@FXML
 	public void generatePromoCode(ActionEvent event) throws FileNotFoundException {
-		RedeemVoucherModel rDV = new RedeemVoucherModel();
+		/*RedeemVoucherModel rDV = new RedeemVoucherModel();
 		rDV.generatePromoCode();
-		
 		promoCode = rDV.getCodeOutput();
-		codeLabel.setText(rDV.getCodeOutput());
-		
-		sendPromoLabel.setVisible(true);
-		codeGenerator.setDisable(true);
+		*/
 		
 		File file = new File("src/theFridge/file/confirm.txt");
 		Scanner sc = new Scanner(file) ;
@@ -82,8 +78,43 @@ public class RedeemVoucher12CharacterPageController {
 		
 		User user = new User();
 		user = profileDAO.getUser(n);
-		user.setPromoCode(promoCode);
-		user.addPromoCode();
+		//user.setPromoCode(promoCode);
+		//user.addPromoCode();
+		
+		if (user.getPromoCode() != null) {
+			System.out.println("IF");
+			System.out.println(user.getPromoCode());
+			
+			//sendPromoLabel.setVisible(false);
+			//codeGenerator.setDisable(false);
+			
+			codeLabel.setText(user.getPromoCode());
+			sendPromoLabel.setVisible(true);
+			codeGenerator.setDisable(true);
+		}
+		else {
+			System.out.println("ELSE");
+			
+			//codeLabel.setText(user.getPromoCode());
+			//sendPromoLabel.setVisible(true);
+			//codeGenerator.setDisable(true);
+			
+			sendPromoLabel.setVisible(false);
+			codeGenerator.setDisable(false);
+		}
+		
+		try {
+			Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemConfirmPromoPopup.fxml"));
+			Scene scene = new Scene(root);
+			Stage stage = new Stage();
+			stage.initStyle(StageStyle.TRANSPARENT);
+			stage.setX(320);
+			stage.setY(430);
+			stage.setScene(scene);
+			stage.show();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	@FXML

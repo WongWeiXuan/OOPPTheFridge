@@ -9,6 +9,10 @@ public class QuizQuestionsModel {
 	private QuizChoicesModel choices;
 	private String explanations;
 	
+	public QuizQuestionsModel() {
+		super();
+	}
+
 	public QuizQuestionsModel(String questions, QuizChoicesModel choices, String explanations) {
 		super();
 		this.questions = questions;

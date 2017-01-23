@@ -1,12 +1,16 @@
 package theFridge.controller;
 
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Scanner;
 
 import javafx.fxml.FXML;
 
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+import theFridge.DAO.ProfileDAO;
 import theFridge.model.RedeemVoucherModel;
+import theFridge.model.User;
 import javafx.scene.Node;
 import javafx.scene.image.ImageView;
 
@@ -26,10 +30,28 @@ public class RedeemConfirmPromoPopupController {
 	@FXML
 	private ImageView errorImg;
 
+	private String promoCode;
+	
 	@FXML
 	public void confirmPromoRedeem(MouseEvent event) throws FileNotFoundException {
 		RedeemVoucherModel rDV = new RedeemVoucherModel();
 		rDV.generatePromoCode();
+		promoCode = rDV.getCodeOutput();
+		
+		File file = new File("src/theFridge/file/confirm.txt");
+		Scanner sc = new Scanner(file) ;
+		String n = sc.nextLine();
+		sc.close();
+		
+		ProfileDAO profileDAO = new ProfileDAO();
+		
+		User user = new User();
+		user = profileDAO.getUser(n);
+		user.setPromoCode(promoCode);
+		user.addPromoCode();
+		
+		Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+		stage.close();
 	}
 	
 	@FXML

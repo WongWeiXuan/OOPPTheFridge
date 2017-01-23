@@ -138,6 +138,56 @@
             </HBox>
             <StackPane fx:id="fieldForm" layoutX="170.0" layoutY="80.0" prefHeight="430.0" prefWidth="330.0">
                <children>
+                  <VBox fx:id="successField" opacity="0.0" prefHeight="430.0" prefWidth="330.0" style="-fx-background-color: #FCE4EC;">
+                     <children>
+                        <TextFlow prefHeight="50.0" prefWidth="320.0" style="-fx-background-color: #009688;" textAlignment="CENTER">
+                           <children>
+                              <Label text="Success!">
+                                 <font>
+                                    <Font name="Garamond" size="36.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </TextFlow>
+                        <TextFlow textAlignment="CENTER">
+                           <children>
+                              <Label text="Congratulations!" textFill="#e91e63">
+                                 <font>
+                                    <Font name="Garamond" size="36.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="80.0" />
+                           </VBox.margin>
+                        </TextFlow>
+                        <VBox alignment="CENTER">
+                           <children>
+                              <TextFlow textAlignment="CENTER">
+                                 <children>
+                                    <Label text="You have" textFill="#e91e63">
+                                       <font>
+                                          <Font name="Garamond" size="30.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </TextFlow>
+                              <TextFlow textAlignment="CENTER">
+                                 <children>
+                                    <Label text="Signed up successfully!" textFill="#e91e63">
+                                       <font>
+                                          <Font name="Garamond" size="30.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </TextFlow>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="40.0" />
+                           </VBox.margin>
+                        </VBox>
+                     </children>
+                  </VBox>
                   <VBox fx:id="signupField" opacity="0.0" prefHeight="430.0" prefWidth="330.0" style="-fx-background-color: white;">
                      <children>
                         <TextFlow prefHeight="50.0" prefWidth="330.0" style="-fx-background-color: #009688;" textAlignment="CENTER">

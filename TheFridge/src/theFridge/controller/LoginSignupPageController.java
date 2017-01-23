@@ -74,7 +74,9 @@ public class LoginSignupPageController {
 	@FXML
 	private JFXButton loginBtn1;
 	@FXML
-	private VBox signupField; // Initial opacity = 0
+	private VBox signupField;  // Initial opacity = 0
+	@FXML
+	private VBox successField; // Initial opacity = 0
 	// =============================================================
 	
 	
@@ -190,12 +192,32 @@ public class LoginSignupPageController {
 		else {
 			SignupModel Someone = new SignupModel(Username, Email, Password);
 			Someone.createPerson();
-		}
-			Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-			Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/LoginSignupPage.fxml"));
 			
-			stage.setScene(new Scene(root));
-	 	    stage.show();
+			successField.setOpacity(1);
+			signupField.setOpacity(0);
+		}
+		
+		Timeline timeline = new Timeline();
+		KeyFrame keyFrame = new KeyFrame(
+				Duration.seconds(2), 
+				first -> {
+						try {
+							Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+							Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/LoginSignupPage.fxml"));
+							stage.setScene(new Scene(root));
+					 	    stage.show();
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
+				}
+		);
+		timeline.getKeyFrames().addAll(keyFrame);
+		timeline.play();
+		
+		/*Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/LoginSignupPage.fxml"));
+		stage.setScene(new Scene(root));
+ 	    stage.show();*/
 	}
 	
 	@FXML

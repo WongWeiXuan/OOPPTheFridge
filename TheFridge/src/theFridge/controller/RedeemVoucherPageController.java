@@ -199,19 +199,20 @@ public class RedeemVoucherPageController {
 					Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemInsufficientPointsPopup.fxml"));
 					Scene scene = new Scene(root);
 					Stage stage = new Stage();
+					stage.initStyle(StageStyle.TRANSPARENT);
+					stage.setX(320);
+					stage.setY(430);
 					stage.setScene(scene);
-					stage.setMaximized(true);
-					stage.initStyle(StageStyle.UNDECORATED);
 					stage.show();
 				}
 				else {
 					Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemConfirmPopup.fxml"));
 					Scene scene = new Scene(root);
 					Stage stage = new Stage();
-					stage.setScene(scene);
-					stage.setMaximized(true);
-					//stage.initStyle(StageStyle.UNDECORATED);
 					stage.initStyle(StageStyle.TRANSPARENT);
+					stage.setX(320);
+					stage.setY(430);
+					stage.setScene(scene);
 					stage.show();
 				}
 				
@@ -236,19 +237,20 @@ public class RedeemVoucherPageController {
 					Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemInsufficientPointsPopup.fxml"));
 					Scene scene = new Scene(root);
 					Stage stage = new Stage();
+					stage.initStyle(StageStyle.TRANSPARENT);
+					stage.setX(320);
+					stage.setY(430);
 					stage.setScene(scene);
-					stage.setMaximized(true);
-					stage.initStyle(StageStyle.UNDECORATED);
 					stage.show();
 				}
 				else {
 					Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemConfirmPopup.fxml"));
 					Scene scene = new Scene(root);
 					Stage stage = new Stage();
-					stage.setScene(scene);
-					stage.setMaximized(true);
-					//stage.initStyle(StageStyle.UNDECORATED);
 					stage.initStyle(StageStyle.TRANSPARENT);
+					stage.setX(320);
+					stage.setY(430);
+					stage.setScene(scene);
 					stage.show();
 				}
 				
@@ -273,19 +275,20 @@ public class RedeemVoucherPageController {
 					Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemInsufficientPointsPopup.fxml"));
 					Scene scene = new Scene(root);
 					Stage stage = new Stage();
+					stage.initStyle(StageStyle.TRANSPARENT);
+					stage.setX(320);
+					stage.setY(430);
 					stage.setScene(scene);
-					stage.setMaximized(true);
-					stage.initStyle(StageStyle.UNDECORATED);
 					stage.show();
 				}
 				else {
 					Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemConfirmPopup.fxml"));
 					Scene scene = new Scene(root);
 					Stage stage = new Stage();
-					stage.setScene(scene);
-					stage.setMaximized(true);
-					//stage.initStyle(StageStyle.UNDECORATED);
 					stage.initStyle(StageStyle.TRANSPARENT);
+					stage.setX(320);
+					stage.setY(430);
+					stage.setScene(scene);
 					stage.show();
 				}
 				
@@ -310,19 +313,20 @@ public class RedeemVoucherPageController {
 					Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemInsufficientPointsPopup.fxml"));
 					Scene scene = new Scene(root);
 					Stage stage = new Stage();
+					stage.initStyle(StageStyle.TRANSPARENT);
+					stage.setX(320);
+					stage.setY(430);
 					stage.setScene(scene);
-					stage.setMaximized(true);
-					stage.initStyle(StageStyle.UNDECORATED);
 					stage.show();
 				}
 				else {
 					Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemConfirmPopup.fxml"));
 					Scene scene = new Scene(root);
 					Stage stage = new Stage();
-					stage.setScene(scene);
-					stage.setMaximized(true);
-					//stage.initStyle(StageStyle.UNDECORATED);
 					stage.initStyle(StageStyle.TRANSPARENT);
+					stage.setX(320);
+					stage.setY(430);
+					stage.setScene(scene);
 					stage.show();
 				}
 				
@@ -391,9 +395,10 @@ public class RedeemVoucherPageController {
 					Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemInsufficientPointsPopup.fxml"));
 					Scene scene = new Scene(root);
 					Stage stage = new Stage();
+					stage.initStyle(StageStyle.TRANSPARENT);
+					stage.setX(320);
+					stage.setY(430);
 					stage.setScene(scene);
-					stage.setMaximized(true);
-					stage.initStyle(StageStyle.UNDECORATED);
 					stage.show();
 				}
 				else {
@@ -424,9 +429,10 @@ public class RedeemVoucherPageController {
 					Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemInsufficientPointsPopup.fxml"));
 					Scene scene = new Scene(root);
 					Stage stage = new Stage();
+					stage.initStyle(StageStyle.TRANSPARENT);
+					stage.setX(320);
+					stage.setY(430);
 					stage.setScene(scene);
-					stage.setMaximized(true);
-					stage.initStyle(StageStyle.UNDECORATED);
 					stage.show();
 				}
 				else {
@@ -457,9 +463,10 @@ public class RedeemVoucherPageController {
 					Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemInsufficientPointsPopup.fxml"));
 					Scene scene = new Scene(root);
 					Stage stage = new Stage();
+					stage.initStyle(StageStyle.TRANSPARENT);
+					stage.setX(320);
+					stage.setY(430);
 					stage.setScene(scene);
-					stage.setMaximized(true);
-					stage.initStyle(StageStyle.UNDECORATED);
 					stage.show();
 				}
 				else {
@@ -490,9 +497,10 @@ public class RedeemVoucherPageController {
 					Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemInsufficientPointsPopup.fxml"));
 					Scene scene = new Scene(root);
 					Stage stage = new Stage();
+					stage.initStyle(StageStyle.TRANSPARENT);
+					stage.setX(320);
+					stage.setY(430);
 					stage.setScene(scene);
-					stage.setMaximized(true);
-					stage.initStyle(StageStyle.UNDECORATED);
 					stage.show();
 				}
 				else {
