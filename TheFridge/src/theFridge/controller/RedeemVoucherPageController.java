@@ -210,7 +210,8 @@ public class RedeemVoucherPageController {
 					Stage stage = new Stage();
 					stage.setScene(scene);
 					stage.setMaximized(true);
-					stage.initStyle(StageStyle.UNDECORATED);
+					//stage.initStyle(StageStyle.UNDECORATED);
+					stage.initStyle(StageStyle.TRANSPARENT);
 					stage.show();
 				}
 				
@@ -246,7 +247,8 @@ public class RedeemVoucherPageController {
 					Stage stage = new Stage();
 					stage.setScene(scene);
 					stage.setMaximized(true);
-					stage.initStyle(StageStyle.UNDECORATED);
+					//stage.initStyle(StageStyle.UNDECORATED);
+					stage.initStyle(StageStyle.TRANSPARENT);
 					stage.show();
 				}
 				
@@ -282,7 +284,8 @@ public class RedeemVoucherPageController {
 					Stage stage = new Stage();
 					stage.setScene(scene);
 					stage.setMaximized(true);
-					stage.initStyle(StageStyle.UNDECORATED);
+					//stage.initStyle(StageStyle.UNDECORATED);
+					stage.initStyle(StageStyle.TRANSPARENT);
 					stage.show();
 				}
 				
@@ -318,7 +321,8 @@ public class RedeemVoucherPageController {
 					Stage stage = new Stage();
 					stage.setScene(scene);
 					stage.setMaximized(true);
-					stage.initStyle(StageStyle.UNDECORATED);
+					//stage.initStyle(StageStyle.UNDECORATED);
+					stage.initStyle(StageStyle.TRANSPARENT);
 					stage.show();
 				}
 				
