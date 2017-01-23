@@ -202,7 +202,7 @@
                         <MediaView fx:id="video" fitHeight="310.0" fitWidth="600.0" />
                         <HBox alignment="TOP_CENTER" prefHeight="35.0" prefWidth="980.0">
                            <children>
-                              <TextFlow prefHeight="44.0" prefWidth="600.0" style="-fx-background-color: rgba(0, 143, 14, 0.5);">
+                              <TextFlow prefHeight="44.0" prefWidth="600.0" style="-fx-background-color: orange;">
                                  <children>
                                     <ImageView fx:id="imagePlay" fitHeight="35.0" fitWidth="35.0" onMouseClicked="#showVideo" onMouseEntered="#hover" pickOnBounds="true" preserveRatio="true">
                                        <image>

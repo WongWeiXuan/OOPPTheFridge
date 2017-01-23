@@ -25,18 +25,21 @@ import com.jfoenix.controls.JFXButton;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
+import javafx.beans.binding.Bindings;
+import javafx.beans.property.DoubleProperty;
 //import javafx.beans.property.DoubleProperty;
 import javafx.event.ActionEvent;
 
 import javafx.scene.control.Label;
 
 import javafx.scene.layout.AnchorPane;
-
+import javafx.scene.layout.StackPane;
 import javafx.scene.input.MouseEvent;
 
 import javafx.scene.layout.VBox;
 
 import javafx.scene.media.MediaView;
+import javafx.scene.paint.Color;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.Media;
 import javafx.stage.Stage;
@@ -168,8 +171,6 @@ public class Page2Controller {
 		video.setMediaPlayer(mp);
 		
 		
-		//DoubleProperty width = video.fitWidthProperty();
-		//DoubleProperty height = video.fitHeightProperty();
 	}
 	/*public void restart(ActionEvent event){
 		mp.seek(mp.getStartTime());
@@ -177,10 +178,6 @@ public class Page2Controller {
 		mp.play();
 	}
 	*/
-	public void stop(ActionEvent event){
-		mp.stop();
-		mp.setRate(1);
-	}
 
 	public void getGrams(ActionEvent event) throws FileNotFoundException{
 		String weight= grams.getText();
@@ -237,6 +234,25 @@ public class Page2Controller {
 		Image g = new Image("theFridge/picture/playButton.jpg");
 		imagePlay.setImage(g);
 		imagePlay.setId("imagePlay");
+		
+		
+		
+		
+		DoubleProperty width = video.fitWidthProperty();
+		DoubleProperty height = video.fitHeightProperty();
+		width.bind(Bindings.selectDouble(video.sceneProperty(), "width"));
+	    height.bind(Bindings.selectDouble(video.sceneProperty(), "height"));
+	    video.setPreserveRatio(true);
+		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+		StackPane root = new StackPane();
+	    root.getChildren().add(video);
+		Scene scene = new Scene(root, 960, 540);
+	    scene.setFill(Color.BLACK);
+	    stage.setScene(scene);
+	    stage.setFullScreen(true);
+	    stage.show();
+	    mp.play();
+		
 		
 	}
 	
