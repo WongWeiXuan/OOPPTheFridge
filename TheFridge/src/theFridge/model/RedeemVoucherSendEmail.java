@@ -21,8 +21,8 @@ import javafx.scene.image.Image;
 public class RedeemVoucherSendEmail {
 	
 	public void sendEmail(String recipientEmail, Image text) {
-		  // Recipient's email ID needs to be mentioned.
-	      String to = recipientEmail;//change accordingly
+		  // Recipient's email ID needs to be mentioned
+	      String to = recipientEmail;
 
 	      // Sender's email ID needs to be mentioned
 	      String from = "theFridge.CustomerHelpdesk@gmail.com";
@@ -47,13 +47,13 @@ public class RedeemVoucherSendEmail {
 	      });
 
 	      try {
-	         // Create a default MimeMessage object.
+	         // Create a default MimeMessage object
 	         Message message = new MimeMessage(session);
 
-	         // Set From: header field of the header.
+	         // Set From: header field of the header
 	         message.setFrom(new InternetAddress(from));
 
-	         // Set To: header field of the header.
+	         // Set To: header field of the header
 	         message.setRecipients(Message.RecipientType.TO,
 	         InternetAddress.parse(to));
 
@@ -67,12 +67,12 @@ public class RedeemVoucherSendEmail {
 	         BodyPart messageBodyPart = new MimeBodyPart();
 	         
 	         //String htmlText = "<H1>Here's your voucher. Enjoy!</H1><img src="cid:image"><H3>Sorry if I send to wrong email.</H3>";
-	         messageBodyPart.setContent("Something", "text/html");
+	         messageBodyPart.setContent("Here's your voucher. Enjoy!", "text/html");
 	         
 	         // Add it
 	         multipart.addBodyPart(messageBodyPart);
 	         
-	         // second part (the image)
+	         // Second part (The image)
 	         messageBodyPart = new MimeBodyPart();
 	         DataSource fds = new FileDataSource("src/theFridge/picture/Barcode.png");
 

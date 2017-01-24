@@ -11,6 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
@@ -19,8 +20,6 @@ import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.layout.AnchorPane;
 
 public class GetStartedPageController {
 	@FXML
@@ -39,6 +38,8 @@ public class GetStartedPageController {
 	private VBox Shopping;
 	@FXML
 	private VBox Leftover;
+	@FXML 
+	private VBox Charity;
 	@FXML
 	private VBox Logout;
 	//ProfilePicture
@@ -61,6 +62,8 @@ public class GetStartedPageController {
 	private ScrollPane ShoppingScroll;
 	@FXML 
 	private ScrollPane LeftoverScroll;
+	@FXML 
+	private ScrollPane CharityScroll;
 	@FXML 
 	private ScrollPane LogoutScroll;
 	//For profile dropdown(Profile dropdown)
@@ -93,8 +96,9 @@ public class GetStartedPageController {
 		KeyValue keyValue6 = new KeyValue(RedeemScroll.vvalueProperty(), 0);
 		KeyValue keyValue7 = new KeyValue(ShoppingScroll.vvalueProperty(), 0);
 		KeyValue keyValue8 = new KeyValue(LeftoverScroll.vvalueProperty(), 0);
-		KeyValue keyValue9 = new KeyValue(LogoutScroll.vvalueProperty(), 0);
-		KeyFrame keyFrame = new KeyFrame(Duration.millis(300), keyValue1, keyValue2, keyValue3, keyValue4, keyValue5, keyValue6, keyValue7, keyValue8, keyValue9); //1st KeyFrame with duration of 300ms
+		KeyValue keyValue9 = new KeyValue(CharityScroll.vvalueProperty(), 0);
+		KeyValue keyValue10 = new KeyValue(LogoutScroll.vvalueProperty(), 0);
+		KeyFrame keyFrame = new KeyFrame(Duration.millis(300), keyValue1, keyValue2, keyValue3, keyValue4, keyValue5, keyValue6, keyValue7, keyValue8, keyValue9, keyValue10); //1st KeyFrame with duration of 300ms
 		
 		timeline.getKeyFrames().addAll(keyFrame);
 		timeline.play();
@@ -128,6 +132,9 @@ public class GetStartedPageController {
 		}
 		else if(event.getSource().equals(Leftover)){
 			keyValue1 = new KeyValue(LeftoverScroll.vvalueProperty(), 1.0);
+		}
+		else if(event.getSource().equals(Charity)){
+			keyValue1 = new KeyValue(CharityScroll.vvalueProperty(), 1.0);
 		}
 		else if(event.getSource().equals(Logout)){
 			keyValue1 = new KeyValue(LogoutScroll.vvalueProperty(), 1.0);
@@ -244,6 +251,9 @@ public class GetStartedPageController {
 		}
 		else if(event.getSource().equals(Leftover)){
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/FindingDish.fxml"));
+		}
+		else if(event.getSource().equals(Charity)){
+			root = FXMLLoader.load(getClass().getResource("/theFridge/view/CharityFoodDonationPage.fxml"));
 		}
 		else if(event.getSource().equals(Logout)){
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/LoginSignupPage.fxml"));

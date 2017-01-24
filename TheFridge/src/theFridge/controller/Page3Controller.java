@@ -103,7 +103,7 @@ public class Page3Controller {
 		
 		
 		if(event.getSource().equals(homeScene)){
-			root = FXMLLoader.load(getClass().getResource("/theFridge/view/HomePage.fxml"));
+			root = FXMLLoader.load(getClass().getResource("/theFridge/view/GetStartedPage.fxml"));
 		}
 		else if(event.getSource().equals(recipeScene)){
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/FindingDish.fxml"));

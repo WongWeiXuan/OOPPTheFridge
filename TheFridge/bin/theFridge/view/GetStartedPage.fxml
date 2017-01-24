@@ -434,7 +434,7 @@
                                                 </TextFlow>
                                                 <TextFlow minHeight="180.0" prefHeight="180.0" prefWidth="186.0" textAlignment="CENTER" VBox.vgrow="ALWAYS">
                                                    <children>
-                                                      <Text fill="#880e4f" strokeType="OUTSIDE" strokeWidth="0.0" text="Our recipe archive of just 5">
+                                                      <Text fill="#880e4f" strokeType="OUTSIDE" strokeWidth="0.0" text="Our recipe archive">
                                                          <font>
                                                             <Font name="Garamond" size="36.0" />
                                                          </font>
@@ -456,7 +456,57 @@
                                     <Insets bottom="20.0" />
                                  </GridPane.margin>
                               </VBox>
-                              <VBox fx:id="Logout" alignment="CENTER" maxWidth="300.0" onMouseClicked="#changeScene" onMouseEntered="#showExtraInfo" onMouseExited="#hideExtraInfo" prefHeight="259.0" prefWidth="200.0" style="-fx-background-color: #FCE4EC; -fx-background-radius: 20;" GridPane.columnIndex="3" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.vgrow="NEVER">
+                              <VBox fx:id="Charity" alignment="CENTER" maxWidth="300.0" onMouseClicked="#changeScene" onMouseEntered="#showExtraInfo" onMouseExited="#hideExtraInfo" prefHeight="259.0" prefWidth="200.0" style="-fx-background-color: #FCE4EC; -fx-background-radius: 20;" GridPane.columnIndex="3" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.vgrow="NEVER">
+                                 <children>
+                                    <ImageView fitHeight="147.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../picture/heart.png" />
+                                       </image>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" top="10.0" />
+                                       </VBox.margin>
+                                    </ImageView>
+                                    <ScrollPane fx:id="CharityScroll" disable="true" fitToWidth="true" hbarPolicy="NEVER" style="-fx-background: #FCE4EC; -fx-border-color: #FCE4EC; -fx-opacity: 1.0;" vbarPolicy="NEVER" vmax="2.0">
+                                       <content>
+                                          <VBox prefHeight="300.0" prefWidth="200.0">
+                                             <children>
+                                                <TextFlow minHeight="120.0" prefHeight="120.0" prefWidth="186.0" textAlignment="CENTER">
+                                                   <children>
+                                                      <Text fill="#880e4f" strokeType="OUTSIDE" strokeWidth="0.0" text="Charity Donation">
+                                                         <font>
+                                                            <Font name="Garamond" size="36.0" />
+                                                         </font>
+                                                      </Text>
+                                                   </children>
+                                                   <padding>
+                                                      <Insets top="20.0" />
+                                                   </padding>
+                                                </TextFlow>
+                                                <TextFlow minHeight="180.0" prefHeight="180.0" prefWidth="186.0" textAlignment="CENTER" VBox.vgrow="ALWAYS">
+                                                   <children>
+                                                      <Text fill="#880e4f" strokeType="OUTSIDE" strokeWidth="0.0" text="Locations of Food Banks near me">
+                                                         <font>
+                                                            <Font name="Garamond" size="36.0" />
+                                                         </font>
+                                                      </Text>
+                                                   </children>
+                                                   <VBox.margin>
+                                                      <Insets bottom="20.0" top="20.0" />
+                                                   </VBox.margin>
+                                                </TextFlow>
+                                             </children>
+                                          </VBox>
+                                       </content>
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" />
+                                       </VBox.margin>
+                                    </ScrollPane>
+                                 </children>
+                                 <GridPane.margin>
+                                    <Insets bottom="20.0" />
+                                 </GridPane.margin>
+                              </VBox>
+                              <VBox fx:id="Logout" alignment="CENTER" maxWidth="300.0" onMouseClicked="#changeScene" onMouseEntered="#showExtraInfo" onMouseExited="#hideExtraInfo" prefHeight="259.0" prefWidth="200.0" style="-fx-background-color: #FCE4EC; -fx-background-radius: 20;" GridPane.columnIndex="4" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.vgrow="NEVER">
                                  <children>
                                     <ImageView fitHeight="147.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                                        <image>

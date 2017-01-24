@@ -5,16 +5,14 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 import javafx.fxml.FXML;
-
+import javafx.scene.Node;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import theFridge.DAO.ProfileDAO;
 import theFridge.model.RedeemVoucherModel;
 import theFridge.model.User;
-import javafx.scene.Node;
-import javafx.scene.image.ImageView;
-
-import javafx.scene.input.MouseEvent;
 
 public class RedeemConfirmPromoPopupController {
 	@FXML
@@ -37,6 +35,7 @@ public class RedeemConfirmPromoPopupController {
 		RedeemVoucherModel rDV = new RedeemVoucherModel();
 		rDV.generatePromoCode();
 		promoCode = rDV.getCodeOutput();
+		rDV.setRedeemAgainDate();
 		
 		File file = new File("src/theFridge/file/confirm.txt");
 		Scanner sc = new Scanner(file) ;
