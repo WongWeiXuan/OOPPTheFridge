@@ -1,7 +1,5 @@
 package theFridge.controller;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import javafx.animation.KeyFrame;
@@ -48,20 +46,14 @@ public class ShoppingListQRCodePageController {
 	private JFXButton backBtn;
 	
 	public void initialize(){
-		
-	}
-	
-	@FXML 
-	public void run() throws FileNotFoundException{
-		Image image = new Image(new FileInputStream("src/theFridge/picture/QrCode.png"));
-		Testing.setImage(image);
+		Testing.setImage(new Image("/theFridge/picture/QrCode.png"));
 	}
 	
 	@FXML public void goBack(ActionEvent event) throws IOException {
 		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/foodCalculator/FoodCalculatorNavigation.fxml"));
+		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/ShoppingListQRCodePage.fxml"));
 		
-		root = FXMLLoader.load(getClass().getResource("/theFridge/view/foodCalculator/FoodCalculatorNavigation.fxml"));
+		root = FXMLLoader.load(getClass().getResource("/theFridge/view/ShoppingListPage.fxml"));
 		
 		stage.setScene(new Scene(root));
  	    stage.show();

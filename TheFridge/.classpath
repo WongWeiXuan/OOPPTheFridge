@@ -8,5 +8,6 @@
 	<classpathentry kind="lib" path="javax.mail.jar"/>
 	<classpathentry kind="lib" path="json-simple-1.1.1.jar"/>
 	<classpathentry kind="lib" path="javase-3.3.0.jar"/>
+	<classpathentry kind="lib" path="GMapsFX-2.0.8.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

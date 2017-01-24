@@ -1,14 +1,7 @@
 Carrot~3.0~4~16.0
 Carbon Dioxide~8.0~2~8.0
-Tomato~6.0~2~8.0
+Tomato~8.0~2~8.0
 Apple~2.0~1~4.0
 Pineapple~5.0~1~4.0
 Cabbage~0.0~1~4.0
-Watermelon~0.0~1~4.0
-cabbage1~0.0~1~4.0
-water~0.0~1~0.0
-deas~0.0~1~0.0
-fwe~0.0~1~0.0
-fewa~0.0~1~0.0
-few~0.0~1~0.0
-few~1.0~1~4.0
+Watermelon~1.0~1~4.0

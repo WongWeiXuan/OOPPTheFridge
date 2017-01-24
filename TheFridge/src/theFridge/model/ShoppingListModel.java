@@ -14,6 +14,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
@@ -141,6 +142,13 @@ public class ShoppingListModel {
 			            if(event.getClickCount() == 2){
 			            	try{
 			            		doubleClick();
+			            		ShoppingListDAO a = new ShoppingListDAO();
+								try {
+									a.writeToStockFile(ShoppingListModel.getStocklistArray());
+									a.writeToListFile(ShoppingListModel.getListlistArray());
+								} catch (IOException e) {
+									e.printStackTrace();
+								}
 			            	}catch(StackOverflowError e){}
 			            }
 			        }
@@ -181,11 +189,12 @@ public class ShoppingListModel {
 		hbox.getChildren().addAll(nameLbl, amountLbl);
 		hbox.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent event) {
-				if(event.getClickCount() == 2){
-	            	try{
-	            		doubleClick();
-	            	}catch(StackOverflowError e){}
-	            }
+				if(event.getButton() == MouseButton.PRIMARY)
+					if(event.getClickCount() == 2){
+		            	try{
+		            		doubleClick();
+		            	}catch(StackOverflowError e){}
+		            }
 				else if (event.getButton() == MouseButton.SECONDARY) {
 					Popup1.show(JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.RIGHT);
 				}
@@ -314,7 +323,9 @@ public class ShoppingListModel {
 	}
 
 	public void showStage(int index) throws IOException {
-		Stage stage = new Stage();
+		@SuppressWarnings("rawtypes")
+		Dialog dialog = new Dialog();
+		Stage stage = (Stage)dialog.getDialogPane().getScene().getWindow();
 		Parent root;
 		root = FXMLLoader.load(getClass().getResource("/theFridge/view/ShoppingListAddPage.fxml"));
 		stage.setScene(new Scene(root));
@@ -324,7 +335,9 @@ public class ShoppingListModel {
 	}
 
 	public void showStage(ShoppingListModel model) throws IOException {
-		Stage stage = new Stage();
+		@SuppressWarnings("rawtypes")
+		Dialog dialog = new Dialog();
+		Stage stage = (Stage)dialog.getDialogPane().getScene().getWindow();
 		Parent root;
 		root = FXMLLoader.load(getClass().getResource("/theFridge/view/ShoppingListAddPage.fxml"));
 		stage.setScene(new Scene(root));
@@ -334,7 +347,9 @@ public class ShoppingListModel {
 	}
 
 	public void showStage(ShoppingListModel model, String source) throws IOException {
-		Stage stage = new Stage();
+		@SuppressWarnings("rawtypes")
+		Dialog dialog = new Dialog();
+		Stage stage = (Stage)dialog.getDialogPane().getScene().getWindow();
 		Parent root;
 		root = FXMLLoader.load(getClass().getResource("/theFridge/view/ShoppingListAddPage.fxml"));
 		stage.setScene(new Scene(root));
@@ -588,14 +603,14 @@ public class ShoppingListModel {
 		ArrayList<ListModel> lm = getListlistArray();
 		for(StockModel s:sm){
 			String stockName = s.getName();
-			if(stockName == name){
+			if(stockName.equalsIgnoreCase(name)){
 				return true;
 			}
 		}
 		
 		for(ListModel l:lm){
 			String listName = l.getName();
-			if(listName == name){
+			if(listName.equalsIgnoreCase(name)){
 				return true;
 			}
 		}
