@@ -386,7 +386,7 @@
                                                                <children>
                                                                   <TextFlow textAlignment="CENTER">
                                                                      <children>
-                                                                        <Label text="Placeholder">
+                                                                        <Label text="Sheng Siong">
                                                                            <font>
                                                                               <Font name="Garamond Bold" size="24.0" />
                                                                            </font>
@@ -439,7 +439,7 @@
                                                                <children>
                                                                   <TextFlow textAlignment="CENTER">
                                                                      <children>
-                                                                        <Label text="Placeholder">
+                                                                        <Label text="Giant">
                                                                            <font>
                                                                               <Font name="Garamond Bold" size="24.0" />
                                                                            </font>

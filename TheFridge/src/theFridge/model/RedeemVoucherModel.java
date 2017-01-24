@@ -9,14 +9,8 @@ import java.util.Random;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 import theFridge.DAO.ProfileDAO;
 
 public class RedeemVoucherModel {
@@ -26,6 +20,7 @@ public class RedeemVoucherModel {
 	private long in24Hours = TimeUnit.DAYS.toMillis(1);
 	private long currentTime = System.currentTimeMillis();
 	private static final int VOUCHER_POINTS = 10000;
+	private static String voucherType = "";
 	
 	public RedeemVoucherModel() {
 		super();
@@ -85,6 +80,14 @@ public class RedeemVoucherModel {
 		return VOUCHER_POINTS;
 	}
 
+	public static String getVoucherType() {
+		return voucherType;
+	}
+
+	public static void setVoucherType(String voucherType) {
+		RedeemVoucherModel.voucherType = voucherType;
+	}
+
 	public void generatePromoCode() throws FileNotFoundException {
 		int codeSize = 12;
 		char[] chars = "abcdefghjkmnpqrstuvwxyzABCDEFGHJKMNPQRSTUVWXYZ23456789".toCharArray();
@@ -119,7 +122,7 @@ public class RedeemVoucherModel {
 		rDVSE.sendEmail(user.getEmail(), image);
 	}
 	
-	public String setRedeemAgainDate() throws FileNotFoundException {
+	public void setRedeemAgainDate() throws FileNotFoundException {
 		File file = new File("src/theFridge/file/confirm.txt");
 		Scanner sc = new Scanner(file) ;
 		String n = sc.nextLine();
@@ -128,16 +131,16 @@ public class RedeemVoucherModel {
 		ProfileDAO profileDAO = new ProfileDAO();
 		User user = new User();
 		user = profileDAO.getUser(n);
-		
-		SimpleDateFormat sdf = new SimpleDateFormat("MMM dd, yyyy HH:mm:ss");
-		Date endDate = new Date(getEndTime());
-		
-		//label.setText(sdf.format(endDate));
-		
-		String outputEndDate = sdf.format(endDate);
 
 		user.setEndTime(getEndTime());
 		user.updateUser();
+	}
+	
+	public String changeToDateFormat(long endTime) {
+		SimpleDateFormat sdf = new SimpleDateFormat("MMM dd, yyyy HH:mm:ss");
+		Date endDate = new Date(endTime);
+		
+		String outputEndDate = sdf.format(endDate);
 		
 		return outputEndDate;
 	}
@@ -156,6 +159,20 @@ public class RedeemVoucherModel {
 		user.updateUser();
 	}
 	
+	public void clearPromoCode() throws FileNotFoundException {
+		File file = new File("src/theFridge/file/confirm.txt");
+		Scanner sc = new Scanner(file) ;
+		String n = sc.nextLine();
+		sc.close();
+		
+		ProfileDAO profileDAO = new ProfileDAO();
+		User user = new User();
+		user = profileDAO.getUser(n);
+		
+		user.setPromoCode(null);
+		user.addPromoCode();
+	}
+	
 	public void disableVoucher(VBox vBox) {
 		vBox.setDisable(true);
 	}
@@ -165,14 +182,13 @@ public class RedeemVoucherModel {
 	}
 	
 	public static void main(String args[]) throws FileNotFoundException {
-		RedeemVoucherModel rDV = new RedeemVoucherModel();
+		//RedeemVoucherModel rDV = new RedeemVoucherModel();
 		//rDV.generatePromoCode();
 		//System.out.println(rDV.getCodeOutput());
 		
 		//rDV.generateBarcode();
 		//System.out.println("Barcode generated.");
 		
-		System.out.println(rDV.setRedeemAgainDate());
 		
 	}
 }

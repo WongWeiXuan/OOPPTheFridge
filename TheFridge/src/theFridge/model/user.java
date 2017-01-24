@@ -15,8 +15,8 @@ public class User {
 		private String height;
 		private String age;
 		private String gender;
-		private int totalPoints;
-		private String promoCode;
+		private int totalPoints;  //RedeemVoucher
+		private String promoCode; //RedeemVoucher
 		private long endTime;	  //Redeem24HourTimer
 		
 		public User() {

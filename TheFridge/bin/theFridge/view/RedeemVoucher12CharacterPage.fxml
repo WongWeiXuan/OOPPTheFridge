@@ -166,7 +166,12 @@
                      <children>
                         <VBox alignment="CENTER" prefHeight="650.0" prefWidth="980.0">
                            <children>
-                              <Label text="You have chosen to use a 12-character promo code." textFill="#e91e63">
+                              <Label text="You have chosen to generate a 12-character promo code" textFill="#e91e63">
+                                 <font>
+                                    <Font name="Garamond" size="36.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="voucherTypeLabel" text="For voucher" textFill="#e91e63">
                                  <font>
                                     <Font name="Garamond" size="36.0" />
                                  </font>
