@@ -1,7 +1,6 @@
 package theFridge.controller;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -22,7 +21,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
@@ -61,8 +59,15 @@ public class RedeemVoucher12CharacterPageController {
 	private Label promoCodeEmail;
 	@FXML
 	private Label promoCodeEmailBorder;
+	@FXML
+	private Label voucherTypeLabel;
 	
 	//private String promoCode;
+	
+	@FXML
+	public void initialize() {
+		voucherTypeLabel.setText("For a 10% off " + RedeemVoucherModel.getVoucherType() + " voucher");
+	}
 	
 	@FXML
 	public void generatePromoCode(ActionEvent event) throws IOException {
@@ -86,7 +91,7 @@ public class RedeemVoucher12CharacterPageController {
 		
 		/*
 		if (!(user.getPromoCode().equals("")) && !(user.getPromoCode().equals("null"))) {
-			System.out.println("IF");
+			System.out.println("RedeemVoucher12CharacterPageController - IF");
 			System.out.println(user.getPromoCode());
 			
 			//sendPromoLabel.setVisible(false);
@@ -97,7 +102,7 @@ public class RedeemVoucher12CharacterPageController {
 			codeGenerator.setDisable(true);
 		}
 		else {
-			System.out.println("ELSE");
+			System.out.println("RedeemVoucher12CharacterPageController - ELSE");
 			
 			//codeLabel.setText(user.getPromoCode());
 			//sendPromoLabel.setVisible(true);
@@ -196,7 +201,7 @@ public class RedeemVoucher12CharacterPageController {
 		
 		
 		if(event.getSource().equals(homeScene)){
-			root = FXMLLoader.load(getClass().getResource("/theFridge/view/HomePage.fxml"));
+			root = FXMLLoader.load(getClass().getResource("/theFridge/view/GetStartedPage.fxml"));
 		}
 		else if(event.getSource().equals(recipeScene)){
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/FindingDish.fxml"));
