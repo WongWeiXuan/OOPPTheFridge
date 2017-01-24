@@ -14,6 +14,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -122,9 +123,10 @@ public class RedeemVoucherPageController {
 		
 		//Show the date user can redeem again if they redeemed a promo code
 		
-		if (uu.getPromoCode() != null && uu.getPromoCode() == "") {
-			System.out.println("IF");
+		if (!(uu.getPromoCode().equals("null")) && !(uu.getPromoCode() == "")) {
+			System.out.println("RedeemVoucherPageController - IF");
 			System.out.println(uu.getPromoCode());
+			System.out.println(uu.getEndTime());
 			
 			totalPoints.setOpacity(0);
 			userPointsLabel.setOpacity(0);
@@ -134,13 +136,13 @@ public class RedeemVoucherPageController {
 			redeemAgainDate.setOpacity(1);
 			
 			rDV.disableVoucher(redeemVBox);
-			mailImg1.setOpacity(0.5);
-			mailImg2.setOpacity(0.5);
-			mailImg3.setOpacity(0.5);
-			mailImg4.setOpacity(0.5);
+			mailImg1.setOpacity(0.3);
+			mailImg2.setOpacity(0.3);
+			mailImg3.setOpacity(0.3);
+			mailImg4.setOpacity(0.3);
 			
 			if (rDV.getCurrentTime() >= uu.getEndTime()) {
-				System.out.println("IF within IF");
+				System.out.println("RedeemVoucherPageController - IF within IF");
 				
 				userPointsLabel.setOpacity(0);
 				totalPoints.setOpacity(0);
@@ -153,6 +155,7 @@ public class RedeemVoucherPageController {
 		}
 		
 		//Clear the date user can redeem again
+		
 		/*
 		else if (rDV.getCurrentTime() >= uu.getEndTime()) {
 			System.out.println("ELSE IF");
@@ -167,17 +170,17 @@ public class RedeemVoucherPageController {
 			rDV.clearRedeemAgainDate();
 			rDV.unDisableVoucher(redeemVBox);
 		}
+		*/
 		
 		//Debugging purposes
 		
 		else {
-			System.out.println("ELSE");
+			System.out.println("RedeemVoucherPageController - ELSE");
 			System.out.println(uu.getPromoCode());
 			System.out.println(rDV.getCurrentTime());
-			
 			System.out.println(uu.getEndTime());
 		}
-		*/
+		
 	}
 	
 	@FXML
@@ -196,14 +199,16 @@ public class RedeemVoucherPageController {
 			
 			try {
 				if (uu.getTotalPoints() < rDV.getVoucherPoints()) {
+					@SuppressWarnings("rawtypes")
+					Dialog dialog = new Dialog();
 					Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemInsufficientPointsPopup.fxml"));
-					Scene scene = new Scene(root);
-					Stage stage = new Stage();
+					Stage stage = (Stage) dialog.getDialogPane().getScene().getWindow();
 					stage.initStyle(StageStyle.TRANSPARENT);
+					Scene scene = new Scene(root);
 					stage.setX(320);
 					stage.setY(430);
 					stage.setScene(scene);
-					stage.show();
+					stage.showAndWait();
 				}
 				else {
 					Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemConfirmPopup.fxml"));
@@ -234,14 +239,16 @@ public class RedeemVoucherPageController {
 			
 			try {
 				if (uu.getTotalPoints() < rDV.getVoucherPoints()) {
+					@SuppressWarnings("rawtypes")
+					Dialog dialog = new Dialog();
 					Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemInsufficientPointsPopup.fxml"));
-					Scene scene = new Scene(root);
-					Stage stage = new Stage();
+					Stage stage = (Stage) dialog.getDialogPane().getScene().getWindow();
 					stage.initStyle(StageStyle.TRANSPARENT);
+					Scene scene = new Scene(root);
 					stage.setX(320);
 					stage.setY(430);
 					stage.setScene(scene);
-					stage.show();
+					stage.showAndWait();
 				}
 				else {
 					Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemConfirmPopup.fxml"));
@@ -272,14 +279,16 @@ public class RedeemVoucherPageController {
 			
 			try {
 				if (uu.getTotalPoints() < rDV.getVoucherPoints()) {
+					@SuppressWarnings("rawtypes")
+					Dialog dialog = new Dialog();
 					Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemInsufficientPointsPopup.fxml"));
-					Scene scene = new Scene(root);
-					Stage stage = new Stage();
+					Stage stage = (Stage) dialog.getDialogPane().getScene().getWindow();
 					stage.initStyle(StageStyle.TRANSPARENT);
+					Scene scene = new Scene(root);
 					stage.setX(320);
 					stage.setY(430);
 					stage.setScene(scene);
-					stage.show();
+					stage.showAndWait();
 				}
 				else {
 					Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemConfirmPopup.fxml"));
@@ -310,14 +319,16 @@ public class RedeemVoucherPageController {
 			
 			try {
 				if (uu.getTotalPoints() < rDV.getVoucherPoints()) {
+					@SuppressWarnings("rawtypes")
+					Dialog dialog = new Dialog();
 					Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemInsufficientPointsPopup.fxml"));
-					Scene scene = new Scene(root);
-					Stage stage = new Stage();
+					Stage stage = (Stage) dialog.getDialogPane().getScene().getWindow();
 					stage.initStyle(StageStyle.TRANSPARENT);
+					Scene scene = new Scene(root);
 					stage.setX(320);
 					stage.setY(430);
 					stage.setScene(scene);
-					stage.show();
+					stage.showAndWait();
 				}
 				else {
 					Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemConfirmPopup.fxml"));
@@ -392,14 +403,16 @@ public class RedeemVoucherPageController {
 			
 			try {
 				if (uu.getTotalPoints() < rDV.getVoucherPoints()) {
+					@SuppressWarnings("rawtypes")
+					Dialog dialog = new Dialog();
 					Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemInsufficientPointsPopup.fxml"));
-					Scene scene = new Scene(root);
-					Stage stage = new Stage();
+					Stage stage = (Stage) dialog.getDialogPane().getScene().getWindow();
 					stage.initStyle(StageStyle.TRANSPARENT);
+					Scene scene = new Scene(root);
 					stage.setX(320);
 					stage.setY(430);
 					stage.setScene(scene);
-					stage.show();
+					stage.showAndWait();
 				}
 				else {
 					Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
@@ -426,14 +439,16 @@ public class RedeemVoucherPageController {
 			
 			try {
 				if (uu.getTotalPoints() < rDV.getVoucherPoints()) {
+					@SuppressWarnings("rawtypes")
+					Dialog dialog = new Dialog();
 					Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemInsufficientPointsPopup.fxml"));
-					Scene scene = new Scene(root);
-					Stage stage = new Stage();
+					Stage stage = (Stage) dialog.getDialogPane().getScene().getWindow();
 					stage.initStyle(StageStyle.TRANSPARENT);
+					Scene scene = new Scene(root);
 					stage.setX(320);
 					stage.setY(430);
 					stage.setScene(scene);
-					stage.show();
+					stage.showAndWait();
 				}
 				else {
 					Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
@@ -460,14 +475,16 @@ public class RedeemVoucherPageController {
 			
 			try {
 				if (uu.getTotalPoints() < rDV.getVoucherPoints()) {
+					@SuppressWarnings("rawtypes")
+					Dialog dialog = new Dialog();
 					Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemInsufficientPointsPopup.fxml"));
-					Scene scene = new Scene(root);
-					Stage stage = new Stage();
+					Stage stage = (Stage) dialog.getDialogPane().getScene().getWindow();
 					stage.initStyle(StageStyle.TRANSPARENT);
+					Scene scene = new Scene(root);
 					stage.setX(320);
 					stage.setY(430);
 					stage.setScene(scene);
-					stage.show();
+					stage.showAndWait();
 				}
 				else {
 					Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
@@ -494,14 +511,16 @@ public class RedeemVoucherPageController {
 			
 			try {
 				if (uu.getTotalPoints() < rDV.getVoucherPoints()) {
+					@SuppressWarnings("rawtypes")
+					Dialog dialog = new Dialog();
 					Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemInsufficientPointsPopup.fxml"));
-					Scene scene = new Scene(root);
-					Stage stage = new Stage();
+					Stage stage = (Stage) dialog.getDialogPane().getScene().getWindow();
 					stage.initStyle(StageStyle.TRANSPARENT);
+					Scene scene = new Scene(root);
 					stage.setX(320);
 					stage.setY(430);
 					stage.setScene(scene);
-					stage.show();
+					stage.showAndWait();
 				}
 				else {
 					Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
