@@ -16,11 +16,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
@@ -63,7 +65,7 @@ public class RedeemVoucher12CharacterPageController {
 	//private String promoCode;
 	
 	@FXML
-	public void generatePromoCode(ActionEvent event) throws FileNotFoundException {
+	public void generatePromoCode(ActionEvent event) throws IOException {
 		/*RedeemVoucherModel rDV = new RedeemVoucherModel();
 		rDV.generatePromoCode();
 		promoCode = rDV.getCodeOutput();
@@ -78,10 +80,12 @@ public class RedeemVoucher12CharacterPageController {
 		
 		User user = new User();
 		user = profileDAO.getUser(n);
+		
 		//user.setPromoCode(promoCode);
 		//user.addPromoCode();
 		
-		if (user.getPromoCode() != null) {
+		/*
+		if (!(user.getPromoCode().equals("")) && !(user.getPromoCode().equals("null"))) {
 			System.out.println("IF");
 			System.out.println(user.getPromoCode());
 			
@@ -102,32 +106,41 @@ public class RedeemVoucher12CharacterPageController {
 			sendPromoLabel.setVisible(false);
 			codeGenerator.setDisable(false);
 		}
+		*/
 		
 		try {
+			@SuppressWarnings("rawtypes")
+			Dialog dialog = new Dialog();
 			Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemConfirmPromoPopup.fxml"));
-			Scene scene = new Scene(root);
-			Stage stage = new Stage();
+			Stage stage = (Stage) dialog.getDialogPane().getScene().getWindow();
 			stage.initStyle(StageStyle.TRANSPARENT);
+			Scene scene = new Scene(root);
 			stage.setX(320);
 			stage.setY(430);
 			stage.setScene(scene);
-			stage.show();
+			stage.showAndWait();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 	
+	public void refresh(String code) {
+		codeLabel.setText(code);
+	}
+	
 	@FXML
 	public void showPopup(MouseEvent event) {
 		try {
+			@SuppressWarnings("rawtypes")
+			Dialog dialog = new Dialog();
 			Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemConfirmPopup.fxml"));
+			Stage stage = (Stage) dialog.getDialogPane().getScene().getWindow();
+			stage.initStyle(StageStyle.TRANSPARENT);
 			Scene scene = new Scene(root);
-			Stage stage = new Stage();
+			stage.setX(320);
+			stage.setY(430);
 			stage.setScene(scene);
-			stage.setMaximized(true);
-			stage.initStyle(StageStyle.UNDECORATED);
-			stage.show();
-			
+			stage.showAndWait();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
