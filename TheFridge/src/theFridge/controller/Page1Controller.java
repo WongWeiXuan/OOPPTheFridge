@@ -202,9 +202,10 @@ public class Page1Controller{
 		   listView.getItems().remove(listView.getSelectionModel().getSelectedItem());
 		   //System.out.println("gg");
 	   }
-	   public void deleteOne(MouseEvent event){
+	   /*public void deleteOne(MouseEvent event){
 		   System.out.println("haha");
 	   }
+	   */
 	    
 	   public void clearAll(ActionEvent event){
 		   listView.getItems().clear();
@@ -212,8 +213,8 @@ public class Page1Controller{
 	   
 	    public void chosen1(ActionEvent event){
 	    	String s = choice.getValue().toString();
-	    	a.add(s);
-	    	/*need ask Mr loo
+	    	//a.add(s);
+	    	
 	    	c=listView.getItems();
 	    	if(c.size() == 0){
 	    		a.add(s);
@@ -232,7 +233,7 @@ public class Page1Controller{
 	    				
 	    			}
 	    		}
-	    	}*/
+	    	}
 	    	delete.setOpacity(1);
 	    	clear.setOpacity(1);
 	    }

@@ -29,10 +29,11 @@ import javafx.beans.binding.Bindings;
 import javafx.beans.property.DoubleProperty;
 //import javafx.beans.property.DoubleProperty;
 import javafx.event.ActionEvent;
-
+import javafx.event.EventHandler;
 import javafx.scene.control.Label;
 
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.input.MouseEvent;
 
@@ -88,6 +89,8 @@ public class Page2Controller {
 	private ImageView imageFast;
 	@FXML
 	private ImageView imageStop;
+	@FXML
+	private ImageView imageFull;
 
 	// Event Listener on VBox[#naviPreview].onMouseEntered
 	@FXML
@@ -236,8 +239,8 @@ public class Page2Controller {
 		imagePlay.setId("imagePlay");
 		
 		
-		
-		
+	}
+	public void fullVideo(MouseEvent event){
 		DoubleProperty width = video.fitWidthProperty();
 		DoubleProperty height = video.fitHeightProperty();
 		width.bind(Bindings.selectDouble(video.sceneProperty(), "width"));
@@ -245,15 +248,32 @@ public class Page2Controller {
 	    video.setPreserveRatio(true);
 		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
 		StackPane root = new StackPane();
+		HBox hbox = new HBox();
+		JFXButton backButton = new JFXButton("Close");
+		backButton.setOnMouseClicked(new EventHandler<MouseEvent>(){
+				public void handle(MouseEvent event) {
+					Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+					Parent root = null;
+					try {
+						root = FXMLLoader.load(getClass().getResource("/theFridge/view/Page2.fxml"));
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					stage.setScene(new Scene(root));
+			 	    stage.show();
+					}
+				});
+		hbox.getChildren().add(backButton);
 	    root.getChildren().add(video);
+	    root.getChildren().add(hbox);
 		Scene scene = new Scene(root, 960, 540);
 	    scene.setFill(Color.BLACK);
+	
 	    stage.setScene(scene);
 	    stage.setFullScreen(true);
 	    stage.show();
 	    mp.play();
-		
-		
 	}
 	
 	
