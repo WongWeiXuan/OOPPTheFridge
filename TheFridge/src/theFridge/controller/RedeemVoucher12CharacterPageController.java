@@ -89,7 +89,7 @@ public class RedeemVoucher12CharacterPageController {
 		//user.setPromoCode(promoCode);
 		//user.addPromoCode();
 		
-		
+		/*
 		if (!(user.getPromoCode().equals("")) && !(user.getPromoCode().equals("null"))) {
 			System.out.println("RedeemVoucher12CharacterPageController - IF");
 			System.out.println(user.getPromoCode());
@@ -111,6 +111,7 @@ public class RedeemVoucher12CharacterPageController {
 			sendPromoLabel.setVisible(false);
 			codeGenerator.setDisable(false);
 		}
+		*/
 		
 		try {
 			@SuppressWarnings("rawtypes")
@@ -200,7 +201,7 @@ public class RedeemVoucher12CharacterPageController {
 		
 		
 		if(event.getSource().equals(homeScene)){
-			root = FXMLLoader.load(getClass().getResource("/theFridge/view/HomePage.fxml"));
+			root = FXMLLoader.load(getClass().getResource("/theFridge/view/GetStartedPage.fxml"));
 		}
 		else if(event.getSource().equals(recipeScene)){
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/FindingDish.fxml"));

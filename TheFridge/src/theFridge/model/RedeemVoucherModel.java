@@ -159,20 +159,6 @@ public class RedeemVoucherModel {
 		user.updateUser();
 	}
 	
-	public void clearPromoCode() throws FileNotFoundException {
-		File file = new File("src/theFridge/file/confirm.txt");
-		Scanner sc = new Scanner(file) ;
-		String n = sc.nextLine();
-		sc.close();
-		
-		ProfileDAO profileDAO = new ProfileDAO();
-		User user = new User();
-		user = profileDAO.getUser(n);
-		
-		user.setPromoCode(null);
-		user.addPromoCode();
-	}
-	
 	public void disableVoucher(VBox vBox) {
 		vBox.setDisable(true);
 	}

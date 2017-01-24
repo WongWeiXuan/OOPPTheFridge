@@ -51,8 +51,8 @@ public class RedeemConfirmPromoPopupController {
 		user.setTotalPoints(user.getTotalPoints() - rDV.getVoucherPoints());
 		user.updateUser();
 		
-		//RedeemVoucher12CharacterPageController rDV12C = new RedeemVoucher12CharacterPageController();
-		//rDV12C.refresh(promoCode);
+		RedeemVoucher12CharacterPageController rDV12C = new RedeemVoucher12CharacterPageController();
+		rDV12C.refresh(promoCode);
 		
 		Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 		stage.close();

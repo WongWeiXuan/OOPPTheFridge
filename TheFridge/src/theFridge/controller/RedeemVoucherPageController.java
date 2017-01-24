@@ -121,6 +121,8 @@ public class RedeemVoucherPageController {
 		redeemAgainLabel.setOpacity(0);
 		redeemAgainDate.setOpacity(0);
 		
+		//Show the date user can redeem again if endTime is not 0
+		
 		if (uu.getEndTime() != 0) {
 			System.out.println("RedeemVoucherPageController - IF");
 			System.out.println("Promo code: " + uu.getPromoCode());
@@ -138,6 +140,8 @@ public class RedeemVoucherPageController {
 			mailImg2.setOpacity(0.3);
 			mailImg3.setOpacity(0.3);
 			mailImg4.setOpacity(0.3);
+			
+			//Allow user to redeem again if currentTime reaches the endTime
 			
 			if (rDV.getCurrentTime() >= uu.getEndTime()) {
 				System.out.println("RedeemVoucherPageController - IF within IF");
@@ -624,7 +628,7 @@ public class RedeemVoucherPageController {
 		
 		
 		if(event.getSource().equals(homeScene)){
-			root = FXMLLoader.load(getClass().getResource("/theFridge/view/HomePage.fxml"));
+			root = FXMLLoader.load(getClass().getResource("/theFridge/view/GetStartedPage.fxml"));
 		}
 		else if(event.getSource().equals(recipeScene)){
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/FindingDish.fxml"));
