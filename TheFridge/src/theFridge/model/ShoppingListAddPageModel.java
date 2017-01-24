@@ -37,9 +37,10 @@ public class ShoppingListAddPageModel {
     	double amount = amountSpinner.getValue();
     	
     	if(nameField.getText() != null && !nameField.getText().isEmpty()){
-    		if(!ShoppingListModel.checkExisting(name))
+    		//if(!ShoppingListModel.checkExisting(name))
 		    	if(source == "Stock"){
 			    	if(edit == true){
+			    		System.out.print("hi");
 			    		StockModel s = stockModel;
 			    		try{
 			    			listModel = ShoppingListModel.getListModelByName(s.getName());
@@ -121,10 +122,11 @@ public class ShoppingListAddPageModel {
 		    		edit = false;
 		    		return true;
 		    	}	
-    		else{
-    			return false;
-    		}
-    	}else{
+    		//else{
+    			//return false;
+    		//}
+    	}
+    	else{
     		return false;
     	}
 	}

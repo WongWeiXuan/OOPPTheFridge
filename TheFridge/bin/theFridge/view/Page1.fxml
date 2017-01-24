@@ -228,7 +228,7 @@
                                     </JFXButton>
                                  </children>
                               </HBox>
-                              <JFXListView fx:id="listView" onMouseClicked="#deleteOne" prefHeight="219.0" prefWidth="980.0" />
+                              <JFXListView fx:id="listView" prefHeight="219.0" prefWidth="980.0" />
                               <Label fx:id="alert" prefHeight="21.0" prefWidth="293.0" text="d" textAlignment="CENTER" visible="false" />
                               <JFXButton fx:id="btnGenerate" onAction="#generateTwo" prefHeight="80.0" prefWidth="210.0" style="-fx-border-color: red; -fx-border-radius: 5; -fx-background-color: orange;" text="Generate" textFill="#1c08fc">
                                  <VBox.margin>
