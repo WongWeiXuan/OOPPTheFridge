@@ -35,6 +35,8 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 
 import javafx.scene.layout.VBox;
@@ -269,11 +271,32 @@ public class Page2Controller {
 	    root.getChildren().add(hbox);
 		Scene scene = new Scene(root, 960, 540);
 	    scene.setFill(Color.BLACK);
-	
 	    stage.setScene(scene);
 	    stage.setFullScreen(true);
 	    stage.show();
 	    mp.play();
+	    
+	    scene.addEventHandler(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>
+	    () {
+	          public void handle(KeyEvent t) {
+	            if(t.getCode()==KeyCode.ESCAPE)
+	            {
+	            	mp.stop();
+	            	Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+					Parent root = null;
+					try {
+						root = FXMLLoader.load(getClass().getResource("/theFridge/view/Page2.fxml"));
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					stage.setScene(new Scene(root));
+			 	    stage.show();
+					}
+	            }
+	          
+	      });
+	    
 	}
 	
 	
