@@ -214,24 +214,28 @@ public class Page1Controller{
 	    public void chosen1(ActionEvent event){
 	    	String s = choice.getValue().toString();
 	    	//a.add(s);
-	    	
+	    	String newItem = "";
 	    	c=listView.getItems();
 	    	if(c.size() == 0){
 	    		a.add(s);
 	    	}
 	    	else{
 	    		for(int i=0; i<c.size(); i++){
-	    			if(c.get(i) == s ){
+	    			if(c.get(i).equals(s) ){
 	    				alert.setText("Cannot Duplicate Ingredient");
 	    				alert.setFont(Font.font("Amble CN", 22));
 	    				alert.setVisible(true);
+	    				newItem = "";
 	    				break;
 	    			}
 	    			else{
-	    				a.add(s);
-	    				System.out.println(a);
+	    				newItem =s;
+	    				System.out.println(s);
 	    				
 	    			}
+	    		}
+	    		if (!(newItem.equals(""))){
+	    		a.add(newItem);
 	    		}
 	    	}
 	    	delete.setOpacity(1);
