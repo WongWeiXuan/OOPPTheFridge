@@ -131,6 +131,8 @@ public class Page3Controller {
 		stage.setScene(new Scene(root));
  	    stage.show();
 	}
+	
+	private double total = 0;
 	public void initialize() throws FileNotFoundException{
 		File file=new File("src/theFridge/file/foodcheck.txt");
 		Scanner sc=new Scanner(file) ;
@@ -171,11 +173,27 @@ public class Page3Controller {
 				}
 			});
 			TextField b = new TextField();
+			b.setId(n);
 			//b.setMinWidth(90);
 			b.setPadding(new Insets(0,5,0,5));
-			Label cc = new Label("trying");
+			Label cc = new Label("No Content");
 			cc.setFont(Font.font("Amble CN", FontWeight.BOLD, 18));
 			cc.setMinWidth(100);
+			b.setOnAction(new EventHandler<ActionEvent>(){
+				public void handle(ActionEvent event) {
+					String percent = b.getText();
+					try{
+					double score = Double.parseDouble(percent);
+					
+					total = total + score;
+					double percentage = (score/calPercentage())*100;
+					cc.setText(percentage + "%");
+					}
+					catch(Exception e){
+						cc.setText("Please enter a value only");
+					}
+				}
+				});
 			gp.add(a, i, 0);
 			gp.add(b, i, 1);
 			gp.add(cc, i, 2);
@@ -185,9 +203,10 @@ public class Page3Controller {
 		}
 	}
 	public void showSteps(ActionEvent event) throws IOException{
-		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-		Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/Page4.fxml"));
-		stage.setScene(new Scene(root));
- 	    stage.show();
+		
+	}
+	
+	public double calPercentage(){
+		return total;
 	}
 }
