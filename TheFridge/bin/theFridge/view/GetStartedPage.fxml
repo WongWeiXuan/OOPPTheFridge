@@ -434,7 +434,7 @@
                                                 </TextFlow>
                                                 <TextFlow minHeight="180.0" prefHeight="180.0" prefWidth="186.0" textAlignment="CENTER" VBox.vgrow="ALWAYS">
                                                    <children>
-                                                      <Text fill="#880e4f" strokeType="OUTSIDE" strokeWidth="0.0" text="Our recipe archive of just 5">
+                                                      <Text fill="#880e4f" strokeType="OUTSIDE" strokeWidth="0.0" text="Our recipe archive">
                                                          <font>
                                                             <Font name="Garamond" size="36.0" />
                                                          </font>
