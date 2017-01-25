@@ -86,8 +86,7 @@ public class RedeemVoucherSendEmail {
 	         message.setContent(multipart);
 
 	         // Now set the actual message
-	         message.setText("Hello, this is sample for to check send "
-	            + "email using JavaMailAPI ");
+	         message.setText("Hello, this is sample for to check send " + "email using JavaMailAPI ");
 
 	         // Send message
 	         Transport.send(message);

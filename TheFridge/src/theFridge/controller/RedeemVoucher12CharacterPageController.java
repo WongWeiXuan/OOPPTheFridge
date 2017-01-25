@@ -71,10 +71,8 @@ public class RedeemVoucher12CharacterPageController {
 	
 	@FXML
 	public void generatePromoCode(ActionEvent event) throws IOException {
-		/*RedeemVoucherModel rDV = new RedeemVoucherModel();
-		rDV.generatePromoCode();
-		promoCode = rDV.getCodeOutput();
-		*/
+		RedeemVoucherModel rDV = new RedeemVoucherModel();
+		RedeemVoucherModel rDVL = new RedeemVoucherModel(codeLabel, sendPromoLabel, codeGenerator);
 		
 		File file = new File("src/theFridge/file/confirm.txt");
 		Scanner sc = new Scanner(file) ;
@@ -82,10 +80,11 @@ public class RedeemVoucher12CharacterPageController {
 		sc.close();
 		
 		ProfileDAO profileDAO = new ProfileDAO();
-		
 		User user = new User();
 		user = profileDAO.getUser(n);
 		
+		//rDV.generatePromoCode();
+		//promoCode = rDV.getCodeOutput();
 		//user.setPromoCode(promoCode);
 		//user.addPromoCode();
 		
@@ -127,10 +126,6 @@ public class RedeemVoucher12CharacterPageController {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	}
-	
-	public void refresh(String code) {
-		codeLabel.setText(code);
 	}
 	
 	@FXML
