@@ -9,7 +9,11 @@ import java.util.Random;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
+import com.jfoenix.controls.JFXButton;
+
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import theFridge.DAO.ProfileDAO;
 
@@ -21,9 +25,19 @@ public class RedeemVoucherModel {
 	private long currentTime = System.currentTimeMillis();
 	private static final int VOUCHER_POINTS = 10000;
 	private static String voucherType = "";
+	private static Label label;
+	private static StackPane stackpane;
+	private static JFXButton button;
 	
 	public RedeemVoucherModel() {
 		super();
+	}
+	
+	public RedeemVoucherModel(Label label1, StackPane stackpane1, JFXButton button1) {
+		super();
+		label = label1;
+		stackpane = stackpane1;
+		button = button1;
 	}
 
 	public RedeemVoucherModel(User totalPoints) {
@@ -167,6 +181,15 @@ public class RedeemVoucherModel {
 		vBox.setDisable(false);
 	}
 	
+	public static void refreshSetText(String code) {
+		label.setText(code);
+	}
+	
+	public static void setItVisible() {
+		stackpane.setVisible(true);
+		button.setDisable(true);
+	}
+	
 	public static void main(String args[]) throws FileNotFoundException {
 		//RedeemVoucherModel rDV = new RedeemVoucherModel();
 		//rDV.generatePromoCode();
@@ -174,7 +197,5 @@ public class RedeemVoucherModel {
 		
 		//rDV.generateBarcode();
 		//System.out.println("Barcode generated.");
-		
-		
 	}
 }
