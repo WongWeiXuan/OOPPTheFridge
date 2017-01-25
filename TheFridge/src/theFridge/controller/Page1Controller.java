@@ -230,6 +230,7 @@ public class Page1Controller{
 	    			}
 	    			else{
 	    				newItem =s;
+	    				alert.setVisible(false);
 	    				System.out.println(s);
 	    				
 	    			}

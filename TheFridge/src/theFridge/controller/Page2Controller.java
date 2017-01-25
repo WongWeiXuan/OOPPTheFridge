@@ -274,7 +274,11 @@ public class Page2Controller {
 	    stage.setScene(scene);
 	    stage.setFullScreen(true);
 	    stage.show();
-	    mp.play();
+	    scene.setOnMouseClicked(new EventHandler<MouseEvent>(){
+				public void handle(MouseEvent event) {
+					mp.play();
+				}
+				});
 	    
 	    scene.addEventHandler(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>
 	    () {
@@ -282,16 +286,7 @@ public class Page2Controller {
 	            if(t.getCode()==KeyCode.ESCAPE)
 	            {
 	            	mp.stop();
-	            	Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-					Parent root = null;
-					try {
-						root = FXMLLoader.load(getClass().getResource("/theFridge/view/Page2.fxml"));
-					} catch (IOException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-					stage.setScene(new Scene(root));
-			 	    stage.show();
+	            	
 					}
 	            }
 	          
