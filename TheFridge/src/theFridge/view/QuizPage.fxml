@@ -213,9 +213,9 @@
                                           </Label>
                                           <StackPane>
                                              <children>
-                                                <Label fx:id="timerOutput" text="Label">
+                                                <Label fx:id="timerOutput">
                                                    <font>
-                                                      <Font name="Garamond" size="36.0" />
+                                                      <Font name="Garamond" size="48.0" />
                                                    </font>
                                                 </Label>
                                                 <ImageView fx:id="correctImg" fitHeight="70.0" fitWidth="70.0" opacity="0.0">

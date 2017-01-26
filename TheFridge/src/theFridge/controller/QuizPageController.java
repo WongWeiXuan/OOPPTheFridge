@@ -14,6 +14,8 @@ import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
@@ -28,7 +30,9 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import theFridge.model.CountdownTimer;
+import theFridge.model.QuizChoicesModel;
 import theFridge.model.QuizQuestionsModel;
+import theFridge.model.QuizTimer;
 
 public class QuizPageController {
 	@FXML
@@ -79,6 +83,7 @@ public class QuizPageController {
 	private ArrayList<QuizQuestionsModel> questionsList;
 	private int currIndex = -1;
 	private int pointsAttained = 0;
+	private static Integer timeSeconds = 10;
 	
 	public void setQuestionList(ArrayList<QuizQuestionsModel> questionsList) {
 		if (questionsList != null && questionsList.size() > 0) {
@@ -102,51 +107,20 @@ public class QuizPageController {
 	
 	@FXML
 	public void initialize() throws FileNotFoundException{
-		CountdownTimer countTimer = new CountdownTimer();
-		timerOutput.setText(String.valueOf(countTimer.start()));
-		System.out.println(String.valueOf(countTimer.start()));
+		QuizTimer qTimer = new QuizTimer();
+		qTimer.setTimer(timerOutput);
 		
 		QuizQuestionsModel quizQ = new QuizQuestionsModel();
+		QuizChoicesModel quizC = new QuizChoicesModel();
 		questionLabel.setText(quizQ.getQuestions());
-		
-		
-		
+		choiceBtn1.setText(quizC.getChoice1());
+		choiceBtn2.setText(quizC.getChoice2());
+		choiceBtn3.setText(quizC.getChoice3());
+		choiceBtn4.setText(quizC.getChoice4());
 		
 		questionNo.setText(String.valueOf(currIndex) + "/10");
 		pointsEarned.setText("Points earned: " + pointsAttained);
 		
-		/*
-		int[] label = new int[] {10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
-			Timer timer = new Timer();
-			timer.scheduleAtFixedRate(new TimerTask() {
-				public void run() {
-					for (int i = 0; i < label.length; i++) {
-						timerOutput.setText(String.valueOf(label[i]));
-						System.out.println(String.valueOf(label[i]));
-					}
-				}
-			}, 1000, 1000);
-		}*/
-		
-		/*
-		Timer timer = new Timer();
-
-	    int secondsToWait = 1;
-	    TimerTask task = new TimerTask() {
-	        @Override
-	        public void run() {
-	            secondsToWait--;
-	            timerOutput.setText(secondsToWait + "");
-	            if (secondsToWait == 0) {
-	                timer.cancel();
-	                timer.purge();
-	            }
-	        }
-	    };
-
-	    timerOutput.setText(secondsToWait + "");
-	    timer.scheduleAtFixedRate(task, 1000, 1000);
-	    */
 	}
 
 	@FXML

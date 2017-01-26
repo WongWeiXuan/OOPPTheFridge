@@ -7,6 +7,10 @@ public class QuizChoicesModel {
 	private String choice4;
 	private int answerOption;
 	
+	public QuizChoicesModel() {
+		super();
+	}
+	
 	public QuizChoicesModel(String choice1, String choice2, String choice3, String choice4, int answerOption) {
 		super();
 		this.choice1 = choice1;
