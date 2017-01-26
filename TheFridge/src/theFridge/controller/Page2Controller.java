@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -21,10 +22,13 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXSlider;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
+import javafx.beans.InvalidationListener;
+import javafx.beans.Observable;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.DoubleProperty;
 //import javafx.beans.property.DoubleProperty;
@@ -43,6 +47,7 @@ import javafx.scene.layout.VBox;
 
 import javafx.scene.media.MediaView;
 import javafx.scene.paint.Color;
+import javafx.scene.text.TextFlow;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.Media;
 import javafx.stage.Stage;
@@ -93,6 +98,8 @@ public class Page2Controller {
 	private ImageView imageStop;
 	@FXML
 	private ImageView imageFull;
+	@FXML
+	private JFXSlider slider;
 
 	// Event Listener on VBox[#naviPreview].onMouseEntered
 	@FXML
@@ -174,8 +181,14 @@ public class Page2Controller {
 		me = new Media(new File(path).toURI().toString());
 		mp = new MediaPlayer(me);
 		video.setMediaPlayer(mp);
-		
-		
+		slider.setValue(mp.getVolume() * 100);
+		slider.valueProperty().addListener(new InvalidationListener(){
+			@Override
+			public void invalidated(Observable observable) {
+				mp.setVolume(slider.getValue() / 100);
+				
+			}
+		});
 	}
 	/*public void restart(ActionEvent event){
 		mp.seek(mp.getStartTime());
@@ -242,6 +255,7 @@ public class Page2Controller {
 		
 		
 	}
+	String checking = "play";
 	public void fullVideo(MouseEvent event){
 		DoubleProperty width = video.fitWidthProperty();
 		DoubleProperty height = video.fitHeightProperty();
@@ -250,7 +264,7 @@ public class Page2Controller {
 	    video.setPreserveRatio(true);
 		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
 		StackPane root = new StackPane();
-		HBox hbox = new HBox();
+		TextFlow tf = new TextFlow();
 		JFXButton backButton = new JFXButton("Close");
 		backButton.setOnMouseClicked(new EventHandler<MouseEvent>(){
 				public void handle(MouseEvent event) {
@@ -264,19 +278,30 @@ public class Page2Controller {
 					}
 					stage.setScene(new Scene(root));
 			 	    stage.show();
+			 	    mp.stop();
 					}
 				});
-		hbox.getChildren().add(backButton);
-	    root.getChildren().add(video);
-	    root.getChildren().add(hbox);
-		Scene scene = new Scene(root, 960, 540);
+		//tf.setPadding(new Insets(0,0,20,0));
+		tf.getChildren().add(backButton);
+		
+		root.getChildren().add(video);
+		root.getChildren().add(tf);
+		Scene scene = new Scene(root, 1280, 800);
 	    scene.setFill(Color.BLACK);
 	    stage.setScene(scene);
 	    stage.setFullScreen(true);
 	    stage.show();
 	    scene.setOnMouseClicked(new EventHandler<MouseEvent>(){
 				public void handle(MouseEvent event) {
+					if(checking.equalsIgnoreCase("play")){
 					mp.play();
+					checking = "playing";
+					}
+					else if(checking.equalsIgnoreCase("playing")){
+						mp.pause();
+						checking = "play";
+					}
+					
 				}
 				});
 	    
