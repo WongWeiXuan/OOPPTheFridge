@@ -3,6 +3,7 @@
 <?import com.lynden.gmapsfx.GoogleMapView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -14,11 +15,11 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="theFridge.controller.CharityFoodDonationGoogleMapController">
+<AnchorPane prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="theFridge.controller.CharityFoodDonationGoogleMapController">
    <children>
       <HBox layoutY="65.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: rgba(240, 98, 146, 0.25);" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="65.0">
          <children>
-            <AnchorPane maxWidth="300.0" prefHeight="600.0" prefWidth="150.0">
+            <AnchorPane maxWidth="300.0" prefHeight="600.0" prefWidth="150.0" HBox.hgrow="NEVER">
                <children>
                   <VBox fx:id="naviPreview" alignment="CENTER" maxWidth="150.0" onMouseEntered="#showNavigation" prefHeight="600.0" prefWidth="150.0" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
@@ -155,7 +156,32 @@
                   <Insets right="150.0" />
                </HBox.margin>
                <children>
-                  <GoogleMapView fx:id="mapView" VBox.vgrow="ALWAYS" />
+                  <StackPane VBox.vgrow="ALWAYS">
+                     <children>
+                        <GoogleMapView fx:id="mapView" />
+                        <VBox maxWidth="250.0" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: rgba(0, 0, 0, 0.2); -fx-background-radius: 30;" StackPane.alignment="CENTER_LEFT">
+                           <StackPane.margin>
+                              <Insets bottom="40.0" left="40.0" top="40.0" />
+                           </StackPane.margin>
+                           <children>
+                              <VBox alignment="CENTER" style="-fx-background-radius: 30 30 0 0; -fx-background-color: rgba(0, 0, 0, 0.5);">
+                                 <children>
+                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Nearest Locations" textAlignment="CENTER" wrappingWidth="118.0810546875">
+                                       <font>
+                                          <Font name="Verdana Bold" size="20.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </VBox>
+                              <ScrollPane hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" style="-fx-background: transparent; -fx-background-radius: 0 0 30 30;" vbarPolicy="NEVER" VBox.vgrow="ALWAYS">
+                                 <content>
+                                    <VBox fx:id="vboxInScroll" alignment="CENTER" prefWidth="250.0" style="-fx-background-color: Transparent;" />
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </StackPane>
                </children>
             </VBox>
          </children>
