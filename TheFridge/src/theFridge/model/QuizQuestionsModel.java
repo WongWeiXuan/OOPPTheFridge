@@ -44,6 +44,10 @@ public class QuizQuestionsModel {
 		this.questions = questions;
 	}
 	
+	public String toString() {
+		return questions + ";" + choices + ";" + explanations;
+	}
+	
 	public static ArrayList<QuizQuestionsModel> getAllQuestions() {
 		QuizDAO quizDAO = new QuizDAO();
 		return quizDAO.getAllQuestions();
@@ -55,6 +59,12 @@ public class QuizQuestionsModel {
 		setChoices(q.getChoices());
 		setExplanations(q.getExplanations());
 	}
+	
+	public void updateQuestions() {
+		QuizDAO quizDAO = new QuizDAO();
+		quizDAO.updateQuestions(this);
+	}
+	
 	/*
 	public boolean checkAnswer(int userChoice) {
 		

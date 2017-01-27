@@ -3,31 +3,25 @@ package theFridge.model;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import javafx.scene.control.Label;
+
 public class CountdownTimer {
-	private int secondsLeft;
 	private Timer timer;
 	
-	public int start() {
-		String secs = "10";
-	    int delay = 1000;
-	    int period = 1000;
-	    timer = new Timer();
-	    secondsLeft = Integer.parseInt(secs);
-	    System.out.println(secondsLeft);
-	    timer.scheduleAtFixedRate(new TimerTask() {
-
-	        public void run() {
-	        	if (secondsLeft == 0) {
-	     	        timer.cancel();
-	     	        return;
-	        	 }
-	        	 secondsLeft--;
-	        	 System.out.println(secondsLeft);
-
-	        }
-	    }, delay, period);
-	    
-		return secondsLeft;
+	public void start(Label label) {
+		timer = new Timer();
+		TimerTask timerTask = new TimerTask() {
+			int i = 10;
+			@Override
+			public void run() {
+				if (i == 0) {
+					timer.cancel();
+				}
+				label.setText(String.valueOf(i));
+				i--;
+			}
+		};
+		timer.scheduleAtFixedRate(timerTask, 0, 1000);
 	}
 	
 	public void cancel() {
@@ -35,7 +29,6 @@ public class CountdownTimer {
 	}
 	
 	public static void main(String[] args) {	   
-		CountdownTimer countDown = new CountdownTimer();
-		countDown.start();
+		
 	}
 }

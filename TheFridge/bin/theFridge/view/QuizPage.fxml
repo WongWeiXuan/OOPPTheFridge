@@ -232,7 +232,7 @@
                                           </StackPane>
                                        </children>
                                     </VBox>
-                                    <VBox alignment="CENTER_RIGHT">
+                                    <VBox fx:id="vBoxInfoImg" alignment="CENTER_RIGHT" onMouseClicked="#showExplanations">
                                        <children>
                                           <ImageView fx:id="infoImg" fitHeight="50.0" fitWidth="50.0">
                                              <image>

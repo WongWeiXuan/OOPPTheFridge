@@ -13,6 +13,8 @@ import com.jfoenix.controls.JFXButton;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
@@ -22,12 +24,14 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import theFridge.model.CountdownTimer;
 import theFridge.model.QuizChoicesModel;
@@ -74,6 +78,8 @@ public class QuizPageController {
 	@FXML
 	private ImageView infoImg;
 	@FXML
+	private VBox vBoxInfoImg;
+	@FXML
 	private ImageView correctImg;
 	@FXML
 	private ImageView incorrectImg;
@@ -110,6 +116,9 @@ public class QuizPageController {
 		QuizTimer qTimer = new QuizTimer();
 		qTimer.setTimer(timerOutput);
 		
+		//CountdownTimer quizTimer = new CountdownTimer();
+		//quizTimer.start(timerOutput);
+		
 		QuizQuestionsModel quizQ = new QuizQuestionsModel();
 		QuizChoicesModel quizC = new QuizChoicesModel();
 		questionLabel.setText(quizQ.getQuestions());
@@ -120,6 +129,11 @@ public class QuizPageController {
 		
 		questionNo.setText(String.valueOf(currIndex) + "/10");
 		pointsEarned.setText("Points earned: " + pointsAttained);
+		
+	}
+	
+	@FXML
+	public void showExplanations(MouseEvent event) {
 		
 	}
 
