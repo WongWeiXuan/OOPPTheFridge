@@ -26,7 +26,8 @@ public class MapPlacesDAO {
 			String name = fields[0];
 			double distance = Double.parseDouble(fields[1]);
 			double duration = Double.parseDouble(fields[2]);
-			PlaceModel a = new PlaceModel(name, distance, duration);
+			String picture = fields[3];
+			PlaceModel a = new PlaceModel(name, distance, duration, picture);
 			places.add(a);
 		}
 		sc.close();

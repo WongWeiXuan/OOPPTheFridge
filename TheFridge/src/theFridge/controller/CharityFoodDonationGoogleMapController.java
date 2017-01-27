@@ -31,6 +31,8 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import theFridge.model.CharityFoodDonationGoogleMapModel;
+import javafx.event.ActionEvent;
+import com.jfoenix.controls.JFXButton;
 
 public class CharityFoodDonationGoogleMapController implements Initializable, MapComponentInitializedListener, DirectionsServiceCallback {
 	@FXML 
@@ -77,6 +79,12 @@ public class CharityFoodDonationGoogleMapController implements Initializable, Ma
     private Text DistanceLbl;
     @FXML 
 	private VBox vboxInScroll;
+	@FXML 
+	private JFXButton donateBtn;
+	@FXML 
+	private JFXButton moreInfoBtn;
+	@FXML 
+	private VBox donationVbox;
   
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -92,11 +100,11 @@ public class CharityFoodDonationGoogleMapController implements Initializable, Ma
     @Override
     public void mapInitialized() {
     	mapView.addMapInializedListener(this);
-		CharityFoodDonationGoogleMapModel model = new CharityFoodDonationGoogleMapModel(mapView, vboxInScroll);
+		CharityFoodDonationGoogleMapModel model = new CharityFoodDonationGoogleMapModel(mapView, vboxInScroll, donationVbox, donateBtn, moreInfoBtn);
     	
         try {
 			model.initializeMap();
-		} catch (FileNotFoundException e) {
+		} catch (FileNotFoundException | InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -231,4 +239,10 @@ public class CharityFoodDonationGoogleMapController implements Initializable, Ma
   		stage.setScene(new Scene(root));
   	    stage.show();
  	}
+
+	@FXML public void showDonatePage(ActionEvent event) {
+		
+	}
+
+	@FXML public void showMoreInfo(ActionEvent event) {}
 }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import com.lynden.gmapsfx.GoogleMapView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
@@ -179,6 +180,38 @@
                                  </content>
                               </ScrollPane>
                            </children>
+                        </VBox>
+                        <VBox fx:id="donationVbox" maxHeight="250.0" maxWidth="250.0" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: rgba(0, 0, 0, 0.2); -fx-background-radius: 30;" visible="false" StackPane.alignment="BOTTOM_RIGHT">
+                           <children>
+                              <VBox alignment="CENTER" prefHeight="50.0" style="-fx-background-radius: 30 30 0 0; -fx-background-color: rgba(0, 0, 0, 0.5);">
+                                 <children>
+                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Donation" textAlignment="CENTER" wrappingWidth="118.0810546875">
+                                       <font>
+                                          <Font name="Verdana Bold" size="20.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </VBox>
+                              <TextFlow textAlignment="CENTER" visible="false">
+                                 <children>
+                                    <JFXButton fx:id="donateBtn" buttonType="RAISED" onAction="#showDonatePage" ripplerFill="#55ff00" style="-fx-background-color: red;" text="Donate" textFill="WHITE">
+                                       <font>
+                                          <Font name="Garamond Bold" size="20.0" />
+                                       </font></JFXButton>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="40.0" top="40.0" />
+                                 </VBox.margin>
+                              </TextFlow>
+                              <TextFlow textAlignment="CENTER">
+                                 <children>
+                                    <JFXButton fx:id="moreInfoBtn" buttonType="RAISED" onAction="#showMoreInfo" ripplerFill="#ffe100" style="-fx-background-color: #2258c3;" text="More Information" textFill="WHITE" />
+                                 </children>
+                              </TextFlow>
+                           </children>
+                           <StackPane.margin>
+                              <Insets bottom="40.0" right="40.0" />
+                           </StackPane.margin>
                         </VBox>
                      </children>
                   </StackPane>
