@@ -1,6 +1,9 @@
 package theFridge.model;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 import theFridge.DAO.ProfileDAO;
@@ -91,6 +94,19 @@ public class User {
 		public boolean addPromoCode() {
 			ProfileDAO profileDAO = new ProfileDAO();
 			return profileDAO.addPromoCode(this);
+		}
+		
+		public User getCurrentUser() throws FileNotFoundException {
+			File file = new File("src/theFridge/file/confirm.txt");
+			Scanner sc = new Scanner(file) ;
+			String n = sc.nextLine();
+			sc.close();
+
+			ProfileDAO profileDAO = new ProfileDAO();
+			User user = new User();
+			user = profileDAO.getUser(n);
+			
+			return user;
 		}
 		
 		public String getEmail() {

@@ -74,6 +74,7 @@ public class RedeemVoucher12CharacterPageController {
 		RedeemVoucherModel rDV = new RedeemVoucherModel();
 		RedeemVoucherModel rDVL = new RedeemVoucherModel(codeLabel, sendPromoLabel, codeGenerator);
 		
+		/*
 		File file = new File("src/theFridge/file/confirm.txt");
 		Scanner sc = new Scanner(file) ;
 		String n = sc.nextLine();
@@ -87,6 +88,7 @@ public class RedeemVoucher12CharacterPageController {
 		//promoCode = rDV.getCodeOutput();
 		//user.setPromoCode(promoCode);
 		//user.addPromoCode();
+		*/
 		
 		/*
 		if (!(user.getPromoCode().equals("")) && !(user.getPromoCode().equals("null"))) {

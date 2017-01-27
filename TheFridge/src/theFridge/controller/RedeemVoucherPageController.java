@@ -101,6 +101,7 @@ public class RedeemVoucherPageController {
 	
 	@FXML
 	public void initialize() throws FileNotFoundException {
+		/*
 		File file=new File("src/theFridge/file/confirm.txt");
 		Scanner sc = new Scanner(file) ;
 		String n = sc.nextLine();
@@ -109,9 +110,13 @@ public class RedeemVoucherPageController {
 		ProfileDAO profileDAO = new ProfileDAO();
 		User uu = new User();
 		uu = profileDAO.getUser(n);
+		*/
+		
+		User user = new User();
+		user = user.getCurrentUser();
 		
 		RedeemVoucherModel rDV = new RedeemVoucherModel();
-		String points = Integer.toString(uu.getTotalPoints());
+		String points = Integer.toString(user.getTotalPoints());
 		
 		//Show user's total points if they haven't redeemed any promo code
 		
@@ -123,16 +128,16 @@ public class RedeemVoucherPageController {
 		
 		//Show the date user can redeem again if endTime is not 0
 		
-		if (uu.getEndTime() != 0) {
+		if (user.getEndTime() != 0) {
 			System.out.println("RedeemVoucherPageController - IF");
-			System.out.println("Promo code: " + uu.getPromoCode());
-			System.out.println("End time: " + uu.getEndTime());
+			System.out.println("Promo code: " + user.getPromoCode());
+			System.out.println("End time: " + user.getEndTime());
 			
 			totalPoints.setOpacity(0);
 			userPointsLabel.setOpacity(0);
 			redeemAgainLabel.setOpacity(1);
 			
-			redeemAgainDate.setText(rDV.changeToDateFormat(uu.getEndTime()));
+			redeemAgainDate.setText(rDV.changeToDateFormat(user.getEndTime()));
 			redeemAgainDate.setOpacity(1);
 			
 			rDV.disableVoucher(redeemVBox);
@@ -143,10 +148,10 @@ public class RedeemVoucherPageController {
 			
 			//Allow user to redeem again if currentTime reaches the endTime
 			
-			if (rDV.getCurrentTime() >= uu.getEndTime()) {
+			if (rDV.getCurrentTime() >= user.getEndTime()) {
 				System.out.println("RedeemVoucherPageController - IF within IF");
 				System.out.println("Current time: " + rDV.getCurrentTime());
-				System.out.println("End time: " + uu.getEndTime());
+				System.out.println("End time: " + user.getEndTime());
 				
 				userPointsLabel.setOpacity(0);
 				totalPoints.setOpacity(0);

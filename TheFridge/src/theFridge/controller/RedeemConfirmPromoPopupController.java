@@ -37,15 +37,19 @@ public class RedeemConfirmPromoPopupController {
 		promoCode = rDV.getCodeOutput();
 		rDV.setRedeemAgainDate();
 		
+		/*
 		File file = new File("src/theFridge/file/confirm.txt");
 		Scanner sc = new Scanner(file) ;
 		String n = sc.nextLine();
 		sc.close();
 		
 		ProfileDAO profileDAO = new ProfileDAO();
-		
 		User user = new User();
 		user = profileDAO.getUser(n);
+		*/
+		
+		User user = new User();
+		user = user.getCurrentUser();
 		user.setPromoCode(promoCode);
 		user.addPromoCode();
 		user.setTotalPoints(user.getTotalPoints() - rDV.getVoucherPoints());

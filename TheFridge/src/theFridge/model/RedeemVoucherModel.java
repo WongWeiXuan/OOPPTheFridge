@@ -121,15 +121,19 @@ public class RedeemVoucherModel {
 	}
 	
 	public void sendEmail() throws FileNotFoundException {
+		/*
 		File file = new File("src/theFridge/file/confirm.txt");
 		Scanner sc = new Scanner(file) ;
 		String n = sc.nextLine();
 		sc.close();
 		
 		ProfileDAO profileDAO = new ProfileDAO();
-		
 		User user = new User();
 		user = profileDAO.getUser(n);
+		*/
+		
+		User user = new User();
+		user = user.getCurrentUser();
 		
 		RedeemVoucherSendEmail rDVSE = new RedeemVoucherSendEmail();
 		Image image = new Image(new FileInputStream("src/theFridge/picture/Barcode.png"));
@@ -137,6 +141,7 @@ public class RedeemVoucherModel {
 	}
 	
 	public void setRedeemAgainDate() throws FileNotFoundException {
+		/*
 		File file = new File("src/theFridge/file/confirm.txt");
 		Scanner sc = new Scanner(file) ;
 		String n = sc.nextLine();
@@ -145,7 +150,10 @@ public class RedeemVoucherModel {
 		ProfileDAO profileDAO = new ProfileDAO();
 		User user = new User();
 		user = profileDAO.getUser(n);
-
+		*/
+		
+		User user = new User();
+		user = user.getCurrentUser();
 		user.setEndTime(getEndTime());
 		user.updateUser();
 	}
@@ -160,6 +168,7 @@ public class RedeemVoucherModel {
 	}
 	
 	public void clearRedeemAgainDate() throws FileNotFoundException {
+		/*
 		File file = new File("src/theFridge/file/confirm.txt");
 		Scanner sc = new Scanner(file) ;
 		String n = sc.nextLine();
@@ -168,7 +177,10 @@ public class RedeemVoucherModel {
 		ProfileDAO profileDAO = new ProfileDAO();
 		User user = new User();
 		user = profileDAO.getUser(n);
+		*/
 		
+		User user = new User();
+		user = user.getCurrentUser();
 		user.setEndTime(0);
 		user.updateUser();
 	}
@@ -191,11 +203,6 @@ public class RedeemVoucherModel {
 	}
 	
 	public static void main(String args[]) throws FileNotFoundException {
-		//RedeemVoucherModel rDV = new RedeemVoucherModel();
-		//rDV.generatePromoCode();
-		//System.out.println(rDV.getCodeOutput());
 		
-		//rDV.generateBarcode();
-		//System.out.println("Barcode generated.");
 	}
 }
