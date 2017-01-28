@@ -9,6 +9,7 @@ import com.lynden.gmapsfx.GoogleMapView;
 import com.lynden.gmapsfx.MapComponentInitializedListener;
 import com.lynden.gmapsfx.service.directions.DirectionStatus;
 import com.lynden.gmapsfx.service.directions.DirectionsResult;
+import com.lynden.gmapsfx.service.directions.DirectionsService;
 import com.lynden.gmapsfx.service.directions.DirectionsServiceCallback;
 
 import javafx.animation.KeyFrame;
@@ -34,7 +35,7 @@ import theFridge.model.CharityFoodDonationGoogleMapModel;
 import javafx.event.ActionEvent;
 import com.jfoenix.controls.JFXButton;
 
-public class CharityFoodDonationGoogleMapController implements Initializable, MapComponentInitializedListener, DirectionsServiceCallback {
+public class CharityFoodDonationGoogleMapController implements Initializable, MapComponentInitializedListener {
 	@FXML 
 	private VBox naviPreview;
 	@FXML 
@@ -85,17 +86,88 @@ public class CharityFoodDonationGoogleMapController implements Initializable, Ma
 	private JFXButton moreInfoBtn;
 	@FXML 
 	private VBox donationVbox;
-  
+	public static DirectionsResult results;
+	
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         mapView.addMapInializedListener(this);
         Image img = new Image("theFridge/picture/Profile Image.jpg");
 		profileCircle.setFill(new ImagePattern(img));
     }     
-	    
-    @Override
-    public void directionsReceived(DirectionsResult results, DirectionStatus status) {
-    }
+	
+    @FXML 
+    public void showDonatePage(ActionEvent event) throws IOException {
+    	double lat = results.getRoutes().get(0).getLegs().get(0).getEndLocation().getLatitude();
+    	if(lat == 1.3375365){
+    		System.out.println("Food From The Heart");
+    	}
+    	else if(lat == 1.3176681){
+    		System.out.println("Willing Hearts");
+    	}
+    	Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+ 		Parent root =  FXMLLoader.load(getClass().getResource("/theFridge/view/DonationPage.fxml"));
+    	stage.setScene(new Scene(root));
+    	stage.show();
+	}
+
+	@FXML 
+	public void showMoreInfo(ActionEvent event) {
+		double lat = results.getRoutes().get(0).getLegs().get(0).getEndLocation().getLatitude();
+		if(lat == 1.3729919){
+			System.out.println("Hougang Mall");
+		}
+		else if(lat == 1.3375365){
+			System.out.println("Food From The Heart");
+		}
+		else if(lat == 1.3176681){
+			System.out.println("Willing Hearts");
+		}
+		else if(lat == 1.3016873){
+			System.out.println("Parkway Parade");
+		}
+		else if(lat == 1.3545257){
+			System.out.println("Tampines 1");
+		}
+		else if(lat == 1.352816){
+			System.out.println("Century Square");
+		}
+		else if(lat == 1.3140081){
+			System.out.println("100 Sims Ave");
+		}
+		else if(lat == 1.3009035){
+			System.out.println("NUS Engineering");
+		}
+		else if(lat == 1.2952865){
+			System.out.println("NUS Arts & Social Sciences");
+		}
+		else if(lat == 1.2948112){
+			System.out.println("NUS Computing");
+		}
+		else if(lat == 1.3391538){
+			System.out.println("The Grandstand");
+		}
+		else if(lat == 1.3311433){
+			System.out.println("BIG BOX");
+		}
+		else if(lat == 1.3118848){
+			System.out.println("City Square Mall");
+		}
+		else if(lat == 1.2919945){
+			System.out.println("Armf II (Liang Court) Pte Ltd");
+		}
+		else if(lat == 1.2477918){
+			System.out.println("Quayside Isle");
+		}
+		else if(lat == 1.2639856){
+			System.out.println("Giant, VivoCity");
+		}
+		else if(lat == 1.2655133){
+			System.out.println("VivoCity");
+		}
+		else if(lat == 1.2888443){
+			System.out.println("Chrysler Jeep Automotive of Singapore Pte Ltd");
+		}
+	}
     
     @Override
     public void mapInitialized() {
@@ -239,10 +311,4 @@ public class CharityFoodDonationGoogleMapController implements Initializable, Ma
   		stage.setScene(new Scene(root));
   	    stage.show();
  	}
-
-	@FXML public void showDonatePage(ActionEvent event) {
-		
-	}
-
-	@FXML public void showMoreInfo(ActionEvent event) {}
 }

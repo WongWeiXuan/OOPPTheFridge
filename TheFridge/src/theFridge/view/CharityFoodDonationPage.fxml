@@ -192,9 +192,9 @@
                                     </Text>
                                  </children>
                               </VBox>
-                              <TextFlow textAlignment="CENTER" visible="false">
+                              <TextFlow textAlignment="CENTER">
                                  <children>
-                                    <JFXButton fx:id="donateBtn" buttonType="RAISED" onAction="#showDonatePage" ripplerFill="#55ff00" style="-fx-background-color: red;" text="Donate" textFill="WHITE">
+                                    <JFXButton fx:id="donateBtn" buttonType="RAISED" onAction="#showDonatePage" ripplerFill="#55ff00" style="-fx-background-color: red;" text="Donate" textFill="WHITE" visible="false">
                                        <font>
                                           <Font name="Garamond Bold" size="20.0" />
                                        </font></JFXButton>

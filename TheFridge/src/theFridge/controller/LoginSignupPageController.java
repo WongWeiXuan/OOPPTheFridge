@@ -26,6 +26,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
@@ -246,6 +247,89 @@ public class LoginSignupPageController {
 		
 		timeline.getKeyFrames().addAll(keyFrame, keyFrame1);
 		timeline.play();
+	}
+	
+	@FXML
+	public void checkEnter(KeyEvent event){
+		if(event.getCode().getName().equals("Enter")){
+			SignupDAO signupDAO = new SignupDAO();
+			ArrayList<SignupModel> personList = signupDAO.getAllPerson();
+			String Username = tFUsername.getText();
+			String Password = pFPassword.getText();
+			
+			// If username is empty
+			if (Username.equals("") || Username.equals(null)) {
+				comment.setText("Please fill in your username!");
+			}
+			// If password is empty
+			else if (Password.equals("") || Password.equals(null)) {
+				comment.setText("Please fill in your password!");
+			}
+			else if (!Username.equals("") || !Username.equals(null) && !Password.equals("") || !Password.equals(null)) {
+				for (SignupModel s : personList) {
+					if (Username.equals(s.getUsername()) && Password.equals(s.getPassword())) {
+						User one = new User();
+						one.setUsername(Username);
+						one.setPassword(Password);
+						SignupModel p = signupDAO.getPerson(Username);
+						one.setEmail(p.getEmail());
+						one.createUser();
+						String ConfirmUsername = tFUsername.getText();
+						String f="src/theFridge/file/confirm.txt";
+						
+						try{
+							PrintWriter writer = new PrintWriter(f);
+							writer.print("");
+							writer.print(ConfirmUsername);
+							writer.close();
+						}catch (IOException e){
+							e.printStackTrace();
+						}
+						
+						spinner.setOpacity(1);
+						loginBtn.setOpacity(0);
+						
+						Timeline timeline = new Timeline();
+						KeyFrame keyFrame = new KeyFrame(
+								Duration.seconds(2), 
+								first -> {
+										Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+										Parent root = null;
+										try {
+											root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/HomePage.fxml"));
+										} catch (IOException e) {
+											// TODO Auto-generated catch block
+											e.printStackTrace();
+										}
+										
+										Screen screen = Screen.getPrimary();
+										Rectangle2D bounds = screen.getVisualBounds();
+										stage.setX(bounds.getMinX());
+										stage.setY(bounds.getMinY());
+										stage.setWidth(bounds.getWidth());
+										stage.setHeight(bounds.getHeight());
+										stage.setMaximized(true);
+										stage.setScene(new Scene(root));
+								 	    stage.show();
+										
+								 	    //Quack2 is the new Quack
+										String quack = "src/theFridge/sound/quack2.mp3";
+
+										Media sound = new Media(new File(quack).toURI().toString());
+										MediaPlayer mediaPlayer = new MediaPlayer(sound);
+										mediaPlayer.play();
+								});
+				    	timeline.getKeyFrames().addAll(keyFrame);
+						timeline.play();
+						
+						comment.setOpacity(0);
+					}
+					else {
+						comment.setText("Error! You are not registered yet.");
+					}
+				}
+			}
+		}
 	}
 	
 	/*
