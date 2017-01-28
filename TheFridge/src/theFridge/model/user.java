@@ -21,6 +21,7 @@ public class User {
 		private int totalPoints;  //RedeemVoucher
 		private String promoCode; //RedeemVoucher
 		private long endTime;	  //Redeem24HourTimer
+		private ArrayList<String> chosenFC;
 		
 		public User() {
 			super();
@@ -39,8 +40,18 @@ public class User {
 			this.promoCode = promoCode;
 		}
 		
+		
+
+		public ArrayList<String> getChosenFC() {
+			return chosenFC;
+		}
+
+		public void setChosenFC(ArrayList<String> chosenFC) {
+			this.chosenFC = chosenFC;
+		}
+
 		public User(String name, String username, String password, String email, String country, String height,
-				String weight, String age, String gender, int totalPoints, String promoCode, long endTime) {
+				String weight, String age, String gender, int totalPoints, String promoCode, long endTime,ArrayList<String> chosenFC) {
 			super();
 			this.username = username;
 			this.password = password;
@@ -54,10 +65,11 @@ public class User {
 			this.totalPoints = totalPoints;
 			this.promoCode = promoCode;
 			this.endTime = endTime;
+			this.chosenFC = chosenFC;
 		}
 		
 		public String toString() {
-			return name + ";" + username + ";" + password + ";"+ email + ";" + country + ";" + height + ";" + weight + ";" + age + ";" + gender + ";" + totalPoints + ";" + promoCode + ";" + endTime;
+			return name + ";" + username + ";" + password + ";"+ email + ";" + country + ";" + height + ";" + weight + ";" + age + ";" + gender + ";" + totalPoints + ";" + promoCode + ";" + endTime + ";" + chosenFC;
 		}
 		
 		public static ArrayList<User> getAllUser() {
@@ -79,6 +91,8 @@ public class User {
 			setTotalPoints(user1.getTotalPoints());
 			setPromoCode(user1.getPromoCode());
 			setEndTime(user1.getEndTime());
+			setChosenFC(user1.getChosenFC());
+			
 		}
 		
 		public void updateUser() {
