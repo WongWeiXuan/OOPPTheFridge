@@ -184,6 +184,14 @@
                         <Insets />
                      </VBox.margin>
                      <children>
+                        <TextFlow>
+                           <children>
+                              <JFXButton fx:id="saveBtn" onAction="#saving" style="-fx-background-color: #3c71dd;" text="SAVE" textFill="WHITE" />
+                           </children>
+                           <padding>
+                              <Insets right="50.0" />
+                           </padding>
+                        </TextFlow>
                         <JFXButton fx:id="btnMain" buttonType="RAISED" onAction="#goMain" ripplerFill="BLACK" style="-fx-background-color: #3c71dd;" text="Back To Main" textFill="WHITE" />
                      </children>
                   </TextFlow>

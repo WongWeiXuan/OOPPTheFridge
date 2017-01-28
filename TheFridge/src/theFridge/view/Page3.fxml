@@ -177,7 +177,15 @@
                   </TextFlow>
                   <VBox alignment="CENTER_RIGHT">
                      <children>
-                        <JFXButton fx:id="buttonmain" onAction="#backToMain" text="Back To Main" />
+                        <HBox alignment="CENTER_RIGHT">
+                           <children>
+                              <JFXButton fx:id="saveBtn" onAction="#saving0" text="SAVE">
+                                 <HBox.margin>
+                                    <Insets right="30.0" />
+                                 </HBox.margin></JFXButton>
+                              <JFXButton fx:id="buttonmain" onAction="#backToMain" text="Back To Main" />
+                           </children>
+                        </HBox>
                      </children>
                      <VBox.margin>
                         <Insets right="20.0" />
