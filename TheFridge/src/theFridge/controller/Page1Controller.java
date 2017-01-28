@@ -160,20 +160,6 @@ public class Page1Controller{
 			alert.setVisible(true);
 		}
 		else{
-			ArrayList<String> haha = new ArrayList<String>();
-			haha.add("what");
-			haha.add("see");
-			
-			File file=new File("src/theFridge/file/confirm.txt");
-			Scanner sc=new Scanner(file) ;
-			String n = sc.nextLine();
-			ProfileDAO profileDAO = new ProfileDAO();
-			User uu = new User();
-			uu = profileDAO.getUser(n);
-			uu.setChosenFC(haha);
-			profileDAO.updateUser(uu);
-			
-			
 			Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
 			Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/Page3.fxml"));
 			stage.setScene(new Scene(root));

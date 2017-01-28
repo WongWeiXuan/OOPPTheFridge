@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import com.jfoenix.controls.JFXButton;
@@ -36,7 +37,9 @@ import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import theFridge.DAO.FoodCompostDAO;
+import theFridge.DAO.ProfileDAO;
 import theFridge.model.FoodCompost;
+import theFridge.model.User;
 
 public class Page3Controller {
 	@FXML
@@ -69,6 +72,8 @@ public class Page3Controller {
 	private GridPane gp;
 	
 	private int i = 0;
+	@FXML
+	private JFXButton saveBtn;
 	
 
 	// Event Listener on VBox[#naviPreview].onMouseEntered
@@ -208,5 +213,25 @@ public class Page3Controller {
 	
 	public double calPercentage(){
 		return total;
+	}
+	
+	public void saving0(ActionEvent event) throws FileNotFoundException{
+		ArrayList<String> haha = new ArrayList<String>();
+		File file=new File("src/theFridge/file/foodcheck.txt");
+		Scanner sc=new Scanner(file) ;
+		while(sc.hasNextLine()){
+			String n = sc.nextLine();
+			haha.add(n);
+		}
+		File file1=new File("src/theFridge/file/confirm.txt");
+		Scanner sc1=new Scanner(file1) ;
+		String n = sc1.nextLine();
+		ProfileDAO profileDAO = new ProfileDAO();
+		User uu = new User();
+		uu = profileDAO.getUser(n);
+		uu.setChosenFC(haha);
+		profileDAO.updateUser(uu);
+		
+		
 	}
 }
