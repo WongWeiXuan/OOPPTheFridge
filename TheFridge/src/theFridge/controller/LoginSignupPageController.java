@@ -209,43 +209,21 @@ public class LoginSignupPageController {
 			
 			Timeline timeline = new Timeline();
 			KeyFrame keyFrame = new KeyFrame(
-					Duration.seconds(2), 
-					first -> {
-							try {
-								Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-								Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/LoginSignupPage.fxml"));
-								stage.setScene(new Scene(root));
-						 	    stage.show();
-							} catch (IOException e) {
-								e.printStackTrace();
-							}
+				Duration.seconds(2), 
+				first -> {
+					try {
+						Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+						Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/LoginSignupPage.fxml"));
+						stage.setScene(new Scene(root));
+				 	    stage.show();
+					} catch (IOException e) {
+						e.printStackTrace();
 					}
+				}
 			);
 			timeline.getKeyFrames().addAll(keyFrame);
 			timeline.play();
 		}
-		
-<<<<<<< HEAD
-		
-=======
-		Timeline timeline = new Timeline();
-		KeyFrame keyFrame = new KeyFrame(
-			Duration.seconds(2), 
-			first -> {
-				try {
-					Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-					Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/LoginSignupPage.fxml"));
-					stage.setScene(new Scene(root));
-			 	    stage.show();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
-		);
-		timeline.getKeyFrames().addAll(keyFrame);
-		timeline.play();
->>>>>>> origin/master
-		
 		/*Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
 		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/LoginSignupPage.fxml"));
 		stage.setScene(new Scene(root));
@@ -281,8 +259,8 @@ public class LoginSignupPageController {
 	}
 	
 	@FXML
-	public void checkEnter(KeyEvent event){
-		if(event.getCode().getName().equals("Enter")){
+	public void checkEnter(KeyEvent event) {
+		if (event.getCode().getName().equals("Enter")) {
 			SignupDAO signupDAO = new SignupDAO();
 			ArrayList<SignupModel> personList = signupDAO.getAllPerson();
 			String Username = tFUsername.getText();
@@ -322,34 +300,34 @@ public class LoginSignupPageController {
 						
 						Timeline timeline = new Timeline();
 						KeyFrame keyFrame = new KeyFrame(
-								Duration.seconds(2), 
-								first -> {
-										Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-										Parent root = null;
-										try {
-											root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/HomePage.fxml"));
-										} catch (IOException e) {
-											// TODO Auto-generated catch block
-											e.printStackTrace();
-										}
-										
-										Screen screen = Screen.getPrimary();
-										Rectangle2D bounds = screen.getVisualBounds();
-										stage.setX(bounds.getMinX());
-										stage.setY(bounds.getMinY());
-										stage.setWidth(bounds.getWidth());
-										stage.setHeight(bounds.getHeight());
-										stage.setMaximized(true);
-										stage.setScene(new Scene(root));
-								 	    stage.show();
-										
-								 	    //Quack2 is the new Quack
-										String quack = "src/theFridge/sound/quack2.mp3";
+							Duration.seconds(2), 
+							first -> {
+								Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+								Parent root = null;
+								try {
+									root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/HomePage.fxml"));
+								} catch (IOException e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								}
+								
+								Screen screen = Screen.getPrimary();
+								Rectangle2D bounds = screen.getVisualBounds();
+								stage.setX(bounds.getMinX());
+								stage.setY(bounds.getMinY());
+								stage.setWidth(bounds.getWidth());
+								stage.setHeight(bounds.getHeight());
+								stage.setMaximized(true);
+								stage.setScene(new Scene(root));
+						 	    stage.show();
+								
+						 	    //Quack2 is the new Quack
+								String quack = "src/theFridge/sound/quack2.mp3";
 
-										Media sound = new Media(new File(quack).toURI().toString());
-										MediaPlayer mediaPlayer = new MediaPlayer(sound);
-										mediaPlayer.play();
-								});
+								Media sound = new Media(new File(quack).toURI().toString());
+								MediaPlayer mediaPlayer = new MediaPlayer(sound);
+								mediaPlayer.play();
+							});
 				    	timeline.getKeyFrames().addAll(keyFrame);
 						timeline.play();
 						
@@ -364,8 +342,8 @@ public class LoginSignupPageController {
 	}
 	
 	@FXML
-	public void checkEnter1(KeyEvent event){
-		if(event.getCode().getName().equals("Enter")){
+	public void checkEnter1(KeyEvent event) {
+		if (event.getCode().getName().equals("Enter")) {
 			String Username = tFUsername1.getText();
 			String Email = tFEmail.getText();
 			String Password = pFPassword1.getText();
