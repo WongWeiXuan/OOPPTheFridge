@@ -13,6 +13,7 @@ import com.jfoenix.controls.JFXButton;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
+import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -89,7 +90,6 @@ public class QuizPageController {
 	private ArrayList<QuizQuestionsModel> questionsList;
 	private int currIndex = -1;
 	private int pointsAttained = 0;
-	private static Integer timeSeconds = 10;
 	
 	public void setQuestionList(ArrayList<QuizQuestionsModel> questionsList) {
 		if (questionsList != null && questionsList.size() > 0) {
@@ -116,12 +116,10 @@ public class QuizPageController {
 		QuizTimer qTimer = new QuizTimer();
 		qTimer.setTimer(timerOutput);
 		
-		//CountdownTimer quizTimer = new CountdownTimer();
-		//quizTimer.start(timerOutput);
-		
 		QuizQuestionsModel quizQ = new QuizQuestionsModel();
 		QuizChoicesModel quizC = new QuizChoicesModel();
 		questionLabel.setText(quizQ.getQuestions());
+		System.out.println("Question: " + quizQ.getQuestions());
 		choiceBtn1.setText(quizC.getChoice1());
 		choiceBtn2.setText(quizC.getChoice2());
 		choiceBtn3.setText(quizC.getChoice3());
@@ -130,11 +128,54 @@ public class QuizPageController {
 		questionNo.setText(String.valueOf(currIndex) + "/10");
 		pointsEarned.setText("Points earned: " + pointsAttained);
 		
+		timerOutput.textProperty().addListener(new ChangeListener<String>() {
+			@Override
+			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+				if (newValue.equals("0")) {
+					vBoxInfoImg.setVisible(true);
+					vBoxInfoImg.setDisable(false);
+					continueBtn.setVisible(true);
+					continueBtn.setDisable(false);
+					Platform.runLater(new Runnable() {
+						@Override
+						public void run() {
+							try {
+								@SuppressWarnings("rawtypes")
+								Dialog dialog = new Dialog();
+								Parent root;
+								root = FXMLLoader.load(getClass().getResource("/theFridge/view/QuizExplanationPopup.fxml"));
+								Stage stage = (Stage) dialog.getDialogPane().getScene().getWindow();
+								stage.initStyle(StageStyle.TRANSPARENT);
+								Scene scene = new Scene(root);
+								stage.setX(650);
+								stage.setY(400);
+								stage.setScene(scene);
+								stage.showAndWait();
+							} catch (IOException e) {
+								e.printStackTrace();
+							}
+						}});
+				}
+			}});
 	}
 	
 	@FXML
 	public void showExplanations(MouseEvent event) {
-		
+		try {
+			@SuppressWarnings("rawtypes")
+			Dialog dialog = new Dialog();
+			Parent root;
+			root = FXMLLoader.load(getClass().getResource("/theFridge/view/QuizExplanationPopup.fxml"));
+			Stage stage = (Stage) dialog.getDialogPane().getScene().getWindow();
+			stage.initStyle(StageStyle.TRANSPARENT);
+			Scene scene = new Scene(root);
+			stage.setX(650);
+			stage.setY(400);
+			stage.setScene(scene);
+			stage.showAndWait();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@FXML

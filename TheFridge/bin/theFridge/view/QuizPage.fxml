@@ -232,7 +232,7 @@
                                           </StackPane>
                                        </children>
                                     </VBox>
-                                    <VBox fx:id="vBoxInfoImg" alignment="CENTER_RIGHT" onMouseClicked="#showExplanations">
+                                    <VBox fx:id="vBoxInfoImg" alignment="CENTER_RIGHT" disable="true" onMouseClicked="#showExplanations" visible="false">
                                        <children>
                                           <ImageView fx:id="infoImg" fitHeight="50.0" fitWidth="50.0">
                                              <image>
@@ -320,7 +320,7 @@
                                     <Insets bottom="10.0" left="40.0" />
                                  </HBox.margin>
                               </Label>
-                              <JFXButton fx:id="continueBtn" buttonType="RAISED" onAction="#handleNext" ripplerFill="BLACK" style="-fx-background-color: yellow;" text="Continue">
+                              <JFXButton fx:id="continueBtn" buttonType="RAISED" disable="true" onAction="#handleNext" ripplerFill="BLACK" style="-fx-background-color: yellow;" text="Continue" visible="false">
                                  <HBox.margin>
                                     <Insets bottom="10.0" />
                                  </HBox.margin>

@@ -35,8 +35,8 @@ public class QuizDAO {
 				String choice2 = fields[2];
 				String choice3 = fields[3];
 				String choice4 = fields[4];
-				int answer = Integer.parseInt(fields[5]);
-				QuizChoicesModel choices = new QuizChoicesModel(choice1, choice2, choice3, choice4, answer);
+				int answerOption = Integer.parseInt(fields[5]);
+				QuizChoicesModel choices = new QuizChoicesModel(choice1, choice2, choice3, choice4, answerOption);
 				String explanation = fields[6];
 				QuizQuestionsModel q = new QuizQuestionsModel(question, choices, explanation);
 				questionsList.add(q);
@@ -89,7 +89,13 @@ public class QuizDAO {
 	}
 
 	public static void main(String[] args) {
-		
+		QuizDAO quizDAO = new QuizDAO();
+		ArrayList<QuizQuestionsModel> questionsList = quizDAO.getAllQuestions();
+		for (QuizQuestionsModel q : questionsList) {
+			System.out.println("Question: " + q.getQuestions());
+			System.out.println("Choices: " + q.getChoices());
+			System.out.println("Explanation: " + q.getExplanations());
+		}
 	}
 
 }

@@ -64,10 +64,4 @@ public class QuizQuestionsModel {
 		QuizDAO quizDAO = new QuizDAO();
 		quizDAO.updateQuestions(this);
 	}
-	
-	/*
-	public boolean checkAnswer(int userChoice) {
-		
-	}
-	*/
 }
