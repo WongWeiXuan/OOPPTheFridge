@@ -4,10 +4,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Duration;
+import theFridge.model.User;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Dialog;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.animation.KeyFrame;
@@ -18,6 +21,7 @@ import javafx.event.ActionEvent;
 
 import javafx.scene.layout.AnchorPane;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -26,6 +30,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import com.jfoenix.controls.JFXRadioButton;
+import com.jfoenix.controls.JFXTextField;
 
 import javafx.scene.input.MouseEvent;
 
@@ -34,6 +39,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import com.jfoenix.controls.JFXButton;
 
 public class DonationPageController {
 	@FXML
@@ -82,10 +88,20 @@ public class DonationPageController {
 	private Circle profileCircle;
 	//For profile dropdown(Profile dropdown)
 	private boolean open = false;
+	@FXML 
+	private JFXButton submitBtn;
+	@FXML 
+	private JFXButton resetBtn;
+	@FXML
+	private JFXTextField nameField;
+	@FXML
+	private JFXTextField emailField;
+	@FXML
+	private JFXTextField contactField;
 
 	//Show profile image
 	@FXML
-	public void initialize(){
+	public void initialize() throws FileNotFoundException{
 		Image img = new Image("theFridge/picture/Profile Image.jpg");
 		profileCircle.setFill(new ImagePattern(img));
 		Timer timer = new Timer();
@@ -99,9 +115,35 @@ public class DonationPageController {
 			}
 		};
 		timer.scheduleAtFixedRate(timerTask, 0, 1000);
+		
+		User user = new User();
+		user = user.getCurrentUser();
+		nameField.setText(user.getName());
+		emailField.setText(user.getEmail());
 	}
 	@FXML 
-	public void openPopup(ActionEvent event) {
+	public void openPopup(ActionEvent event) throws IOException {
+		Dialog<?> dialog = new Dialog<Object>();
+		Stage stage = (Stage) dialog.getDialogPane().getScene().getWindow();
+		Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/ManualEnterPage.fxml"));
+		stage.setScene(new Scene(root));
+		stage.show();
+	}
+	
+	@FXML 
+	public void cancelDonation(ActionEvent event) {
+		
+	}
+	
+	@FXML 
+	public void clearAllFields(ActionEvent event) {
+		nameField.clear();
+		emailField.clear();
+		contactField.clear();
+	}
+	
+	@FXML 
+	public void submitDonation(ActionEvent event) {
 		
 	}
 	

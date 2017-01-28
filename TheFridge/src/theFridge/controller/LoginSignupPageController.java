@@ -225,27 +225,6 @@ public class LoginSignupPageController {
 			timeline.play();
 		}
 		
-<<<<<<< HEAD
-		
-=======
-		Timeline timeline = new Timeline();
-		KeyFrame keyFrame = new KeyFrame(
-			Duration.seconds(2), 
-			first -> {
-				try {
-					Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-					Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/LoginSignupPage.fxml"));
-					stage.setScene(new Scene(root));
-			 	    stage.show();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
-		);
-		timeline.getKeyFrames().addAll(keyFrame);
-		timeline.play();
->>>>>>> origin/master
-		
 		/*Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
 		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/LoginSignupPage.fxml"));
 		stage.setScene(new Scene(root));
