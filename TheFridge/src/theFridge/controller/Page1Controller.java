@@ -4,6 +4,7 @@ package theFridge.controller;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import com.jfoenix.controls.JFXButton;
@@ -35,7 +36,9 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import theFridge.DAO.ProfileDAO;
 import theFridge.model.First;
+import theFridge.model.User;
 
 
 
@@ -157,6 +160,20 @@ public class Page1Controller{
 			alert.setVisible(true);
 		}
 		else{
+			ArrayList<String> haha = new ArrayList<String>();
+			haha.add("what");
+			haha.add("see");
+			
+			File file=new File("src/theFridge/file/confirm.txt");
+			Scanner sc=new Scanner(file) ;
+			String n = sc.nextLine();
+			ProfileDAO profileDAO = new ProfileDAO();
+			User uu = new User();
+			uu = profileDAO.getUser(n);
+			uu.setChosenFC(haha);
+			profileDAO.updateUser(uu);
+			
+			
 			Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
 			Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/Page3.fxml"));
 			stage.setScene(new Scene(root));
