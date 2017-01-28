@@ -31,18 +31,6 @@ public class RedeemConfirmPopupController {
 	
 	@FXML
 	public void confirmRedeem(MouseEvent event) throws FileNotFoundException {
-		/*
-		File file = new File("src/theFridge/file/confirm.txt");
-		Scanner sc = new Scanner(file) ;
-		String n = sc.nextLine();
-		sc.close();
-		
-		ProfileDAO profileDAO = new ProfileDAO();
-		
-		User user = new User();
-		user = profileDAO.getUser(n);
-		*/
-		
 		User user = new User();
 		user = user.getCurrentUser();
 		

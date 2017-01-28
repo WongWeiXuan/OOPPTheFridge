@@ -82,20 +82,6 @@ public class LoginSignupPageController {
 	private VBox successField; // Initial opacity = 0
 	// =============================================================
 	
-	
-	/*
-	@FXML
-	void closePlatform(ActionEvent event) {
-		Platform.exit();
-	}
-	
-	@FXML
-    void minimise(ActionEvent event) {
-		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-		stage.setIconified(true);
-    }
-    */
-	
 	@FXML
 	public void goToHomePage(ActionEvent event) throws IOException, ParseException {
 		SignupDAO signupDAO = new SignupDAO();

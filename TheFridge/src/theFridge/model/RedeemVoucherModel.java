@@ -121,17 +121,6 @@ public class RedeemVoucherModel {
 	}
 	
 	public void sendEmail() throws FileNotFoundException {
-		/*
-		File file = new File("src/theFridge/file/confirm.txt");
-		Scanner sc = new Scanner(file) ;
-		String n = sc.nextLine();
-		sc.close();
-		
-		ProfileDAO profileDAO = new ProfileDAO();
-		User user = new User();
-		user = profileDAO.getUser(n);
-		*/
-		
 		User user = new User();
 		user = user.getCurrentUser();
 		
@@ -141,17 +130,6 @@ public class RedeemVoucherModel {
 	}
 	
 	public void setRedeemAgainDate() throws FileNotFoundException {
-		/*
-		File file = new File("src/theFridge/file/confirm.txt");
-		Scanner sc = new Scanner(file) ;
-		String n = sc.nextLine();
-		sc.close();
-		
-		ProfileDAO profileDAO = new ProfileDAO();
-		User user = new User();
-		user = profileDAO.getUser(n);
-		*/
-		
 		User user = new User();
 		user = user.getCurrentUser();
 		user.setEndTime(getEndTime());
@@ -167,18 +145,17 @@ public class RedeemVoucherModel {
 		return outputEndDate;
 	}
 	
+	public String changeToTimeFormat(long remainingTime) {
+		String countdownTimeOutput = String.format("%02d hours : %02d minutes : %02d seconds", TimeUnit.MILLISECONDS.toHours(remainingTime),
+			    TimeUnit.MILLISECONDS.toMinutes(remainingTime) - 
+			    TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(remainingTime)),
+			    TimeUnit.MILLISECONDS.toSeconds(remainingTime) - 
+			    TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(remainingTime)));
+		
+		return countdownTimeOutput;
+	}
+	
 	public void clearRedeemAgainDate() throws FileNotFoundException {
-		/*
-		File file = new File("src/theFridge/file/confirm.txt");
-		Scanner sc = new Scanner(file) ;
-		String n = sc.nextLine();
-		sc.close();
-		
-		ProfileDAO profileDAO = new ProfileDAO();
-		User user = new User();
-		user = profileDAO.getUser(n);
-		*/
-		
 		User user = new User();
 		user = user.getCurrentUser();
 		user.setEndTime(0);

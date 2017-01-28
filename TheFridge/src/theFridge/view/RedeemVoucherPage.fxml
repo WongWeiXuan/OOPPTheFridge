@@ -173,10 +173,10 @@
                                  <children>
                                     <Label text="Choose Your 10% Off Vouchers!" textFill="#e91e63">
                                        <font>
-                                          <Font name="Garamond" size="45.0" />
+                                          <Font name="Garamond" size="48.0" />
                                        </font>
                                     </Label>
-                                    <Label text="Click to send a barcode or a promo code to your email" textFill="#e91e63">
+                                    <Label text="Click to send a barcode to email or generate a promo code" textFill="#e91e63">
                                        <font>
                                           <Font name="Garamond" size="24.0" />
                                        </font>
