@@ -17,7 +17,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.TextFlow?>
 
-<AnchorPane style="-fx-background-color: #E91E63;" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="theFridge.controller.LoginSignupPageController">
+<AnchorPane style="-fx-background-color: #E91E63;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="theFridge.controller.LoginSignupPageController">
    <children>
       <AnchorPane prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: rgba(0,0,0,0);" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -211,7 +211,7 @@
                            <children>
                               <TextFlow>
                                  <children>
-                                    <JFXTextField fx:id="tFUsername1" focusColor="WHITE" labelFloat="true" maxWidth="330.0" minWidth="320.0" prefHeight="52.0" prefWidth="330.0" promptText="Enter username" style="-fx-focus-color: black;" unFocusColor="WHITE">
+                                    <JFXTextField fx:id="tFUsername1" focusColor="WHITE" labelFloat="true" maxWidth="330.0" minWidth="320.0" onKeyPressed="#checkEnter1" prefHeight="52.0" prefWidth="330.0" promptText="Enter username" style="-fx-focus-color: black;" unFocusColor="WHITE">
                                        <font>
                                           <Font name="Garamond" size="24.0" />
                                        </font>
@@ -220,7 +220,7 @@
                               </TextFlow>
                               <TextFlow GridPane.rowIndex="1">
                                  <children>
-                                    <JFXTextField fx:id="tFEmail" focusColor="WHITE" labelFloat="true" maxWidth="330.0" minWidth="320.0" prefHeight="52.0" prefWidth="330.0" promptText="Enter email" style="-fx-focus-color: black;" unFocusColor="WHITE">
+                                    <JFXTextField fx:id="tFEmail" focusColor="WHITE" labelFloat="true" maxWidth="330.0" minWidth="320.0" onKeyPressed="#checkEnter1" prefHeight="52.0" prefWidth="330.0" promptText="Enter email" style="-fx-focus-color: black;" unFocusColor="WHITE">
                                        <font>
                                           <Font name="Garamond" size="24.0" />
                                        </font>
@@ -229,7 +229,7 @@
                               </TextFlow>
                               <TextFlow GridPane.rowIndex="2">
                                  <children>
-                                    <JFXPasswordField fx:id="pFPassword1" focusColor="WHITE" labelFloat="true" maxWidth="330.0" minWidth="320.0" prefHeight="52.0" prefWidth="330.0" promptText="Enter password" style="-fx-focus-color: black;" unFocusColor="WHITE">
+                                    <JFXPasswordField fx:id="pFPassword1" focusColor="WHITE" labelFloat="true" maxWidth="330.0" minWidth="320.0" onKeyPressed="#checkEnter1" prefHeight="52.0" prefWidth="330.0" promptText="Enter password" style="-fx-focus-color: black;" unFocusColor="WHITE">
                                        <font>
                                           <Font name="Garamond" size="24.0" />
                                        </font>
@@ -294,7 +294,7 @@
                            <children>
                               <TextFlow prefWidth="320.0">
                                  <children>
-                                    <JFXTextField fx:id="tFUsername" focusColor="WHITE" labelFloat="true" maxWidth="330.0" minWidth="320.0" prefHeight="52.0" prefWidth="330.0" promptText="Enter username" style="-fx-focus-color: black;" unFocusColor="WHITE">
+                                    <JFXTextField fx:id="tFUsername" focusColor="WHITE" labelFloat="true" maxWidth="330.0" minWidth="320.0" onKeyPressed="#checkEnter" prefHeight="52.0" prefWidth="330.0" promptText="Enter username" style="-fx-focus-color: black;" unFocusColor="WHITE">
                                        <font>
                                           <Font name="Garamond" size="24.0" />
                                        </font>
@@ -303,7 +303,7 @@
                               </TextFlow>
                               <TextFlow GridPane.rowIndex="2">
                                  <children>
-                                    <JFXPasswordField fx:id="pFPassword" focusColor="WHITE" labelFloat="true" maxWidth="330.0" minWidth="320.0" prefHeight="52.0" prefWidth="330.0" promptText="Enter password" style="-fx-focus-color: black;" unFocusColor="WHITE">
+                                    <JFXPasswordField fx:id="pFPassword" focusColor="WHITE" labelFloat="true" maxWidth="330.0" minWidth="320.0" onKeyPressed="#checkEnter" prefHeight="52.0" prefWidth="330.0" promptText="Enter password" style="-fx-focus-color: black;" unFocusColor="WHITE">
                                        <font>
                                           <Font name="Garamond" size="24.0" />
                                        </font>

@@ -25,7 +25,10 @@ import com.lynden.gmapsfx.service.directions.DirectionsServiceCallback;
 import com.lynden.gmapsfx.service.directions.TravelModes;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -33,7 +36,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 import theFridge.DAO.MapPlacesDAO;
+import theFridge.controller.CharityFoodDonationGoogleMapController;
 
 public class CharityFoodDonationGoogleMapModel implements DirectionsServiceCallback {
 	private GoogleMapView mapView;
@@ -46,6 +51,7 @@ public class CharityFoodDonationGoogleMapModel implements DirectionsServiceCallb
     private VBox donationVbox;
     private JFXButton donateBtn;
 	private JFXButton moreInfoBtn;
+	private String name;
 
 	public CharityFoodDonationGoogleMapModel(GoogleMapView mapView, VBox vboxInScroll, VBox donationVbox,
 			JFXButton donateBtn, JFXButton moreInfoBtn) {
@@ -375,62 +381,80 @@ public class CharityFoodDonationGoogleMapModel implements DirectionsServiceCallb
         map.addMarker(foodBin15Marker);
         map.addMarker(foodBin16Marker);
         
+        donationVbox.setVisible(true);
         if(name.equalsIgnoreCase("Hougang Mall")){
         	map.removeMarker(foodBin5Marker);
+        	donateBtn.setVisible(false);
 		}
 		else if(name.equalsIgnoreCase("Food From The Heart")){
 			map.removeMarker(foodFromTheHeartMarker);
+			donateBtn.setVisible(true);
 		}
 		else if(name.equalsIgnoreCase("Willing Hearts")){
 			map.removeMarker(willingHeartsMarker);
+			donateBtn.setVisible(true);
 		}
 		else if(name.equalsIgnoreCase("Parkway Parade")){
 			map.removeMarker(foodBin1Marker);
+			donateBtn.setVisible(false);
 		}
 		else if(name.equalsIgnoreCase("Tampines 1")){
 			map.removeMarker(foodBin2Marker);
+			donateBtn.setVisible(false);
 		}
 		else if(name.equalsIgnoreCase("Century Square")){
 			map.removeMarker(foodBin3Marker);
+			donateBtn.setVisible(false);
 		}
 		else if(name.equalsIgnoreCase("100 Sims Ave")){
 			map.removeMarker(foodBin4Marker);
+			donateBtn.setVisible(false);
 		}
 		else if(name.equalsIgnoreCase("NUS Engineering")){
 			map.removeMarker(foodBin6Marker);
+			donateBtn.setVisible(false);
 		}
 		else if(name.equalsIgnoreCase("NUS Arts & Social Sciences")){
 			map.removeMarker(foodBin7Marker);
+			donateBtn.setVisible(false);
 		}
 		else if(name.equalsIgnoreCase("NUS Computing")){
 			map.removeMarker(foodBin8Marker);
+			donateBtn.setVisible(false);
 		}
 		else if(name.equalsIgnoreCase("The Grandstand")){
 			map.removeMarker(foodBin9Marker);
+			donateBtn.setVisible(false);
 		}
 		else if(name.equalsIgnoreCase("BIG BOX")){
 			map.removeMarker(foodBin10Marker);
+			donateBtn.setVisible(false);
 		}
 		else if(name.equalsIgnoreCase("City Square Mall")){
 			map.removeMarker(foodBin11Marker);
+			donateBtn.setVisible(false);
 		}
 		else if(name.equalsIgnoreCase("Armf II (Liang Court) Pte Ltd")){
 			map.removeMarker(foodBin12Marker);
+			donateBtn.setVisible(false);
 		}
 		else if(name.equalsIgnoreCase("Quayside Isle")){
 			map.removeMarker(foodBin13Marker);
+			donateBtn.setVisible(false);
 		}
 		else if(name.equalsIgnoreCase("Giant, VivoCity")){
 			map.removeMarker(foodBin14Marker);
+			donateBtn.setVisible(false);
 		}
 		else if(name.equalsIgnoreCase("VivoCity")){
 			map.removeMarker(foodBin15Marker);
+			donateBtn.setVisible(false);
 		}
 		else if(name.equalsIgnoreCase("Chrysler Jeep Automotive of Singapore Pte Ltd")){
 			map.removeMarker(foodBin16Marker);
+			donateBtn.setVisible(false);
 		}
         
-        donationVbox.setVisible(false);
 	}
 	
 	public ArrayList<PlaceModel> PlaceModelArrayListBasedOnTimeAndDistance(ArrayList<PlaceModel>placeList){
@@ -487,7 +511,7 @@ public class CharityFoodDonationGoogleMapModel implements DirectionsServiceCallb
 		        addMarkerAfterCreating(map2, name);
 		        directionsDisplay.setMap(map2);
 		        directionsService.getRoute(request, this, directionsDisplay);
-		        displayDonate(name);
+		        this.name = name;
 			});
 			
 			vboxInScroll.getChildren().add(stackPane);
@@ -554,15 +578,12 @@ public class CharityFoodDonationGoogleMapModel implements DirectionsServiceCallb
 		}
 	}
 
-	public void displayDonate(String name){
+	public void displayMoreInfo(){
 		if(name.equalsIgnoreCase("Hougang Mall")){
-			
 		}
 		else if(name.equalsIgnoreCase("Food From The Heart")){
-			donateBtn.setVisible(true);
 		}
 		else if(name.equalsIgnoreCase("Willing Hearts")){
-			donateBtn.setVisible(true);
 		}
 		else if(name.equalsIgnoreCase("Parkway Parade")){
 		}
@@ -594,9 +615,11 @@ public class CharityFoodDonationGoogleMapModel implements DirectionsServiceCallb
 		}
 		else if(name.equalsIgnoreCase("Chrysler Jeep Automotive of Singapore Pte Ltd")){
 		}
-		donationVbox.setVisible(true);
 	}
+
 	
 	@Override
-	public void directionsReceived(DirectionsResult arg0, DirectionStatus arg1) {}
+	public void directionsReceived(DirectionsResult arg0, DirectionStatus arg1) {
+		CharityFoodDonationGoogleMapController.results = arg0;
+	}
 }
