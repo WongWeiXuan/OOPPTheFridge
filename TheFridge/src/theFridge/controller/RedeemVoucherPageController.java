@@ -3,11 +3,17 @@ package theFridge.controller;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
@@ -137,7 +143,28 @@ public class RedeemVoucherPageController {
 			userPointsLabel.setOpacity(0);
 			redeemAgainLabel.setOpacity(1);
 			
-			redeemAgainDate.setText(rDV.changeToDateFormat(user.getEndTime()));
+			
+			SimpleDateFormat sdf = new SimpleDateFormat("HH");
+			SimpleDateFormat sdf1 = new SimpleDateFormat("mm");
+			SimpleDateFormat sdf2 = new SimpleDateFormat("ss");
+			long endTime = user.getEndTime();
+			Timer timer = new Timer();
+			TimerTask timerTask = new TimerTask() {
+				@Override
+				public void run() {
+					Platform.runLater(new Runnable() {
+						@Override
+						public void run() {
+							long dateOutput = endTime - System.currentTimeMillis();
+							redeemAgainDate.setText(sdf.format(dateOutput) + " Hours " + sdf1.format(dateOutput) + " Minutes " + sdf2.format(dateOutput) + " Seconds");
+						}
+					});
+				}
+			};
+			timer.scheduleAtFixedRate(timerTask, 0, 1000);
+			
+			
+			//redeemAgainDate.setText(rDV.changeToDateFormat(user.getEndTime()));
 			redeemAgainDate.setOpacity(1);
 			
 			rDV.disableVoucher(redeemVBox);

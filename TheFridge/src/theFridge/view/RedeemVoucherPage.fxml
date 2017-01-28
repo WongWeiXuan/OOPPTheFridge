@@ -187,7 +187,7 @@
                                  <children>
                                     <StackPane>
                                        <children>
-                                          <Label fx:id="redeemAgainLabel" opacity="0.0" text="You may redeem again on:" textFill="#e91e63">
+                                          <Label fx:id="redeemAgainLabel" opacity="0.0" text="You may redeem again in:" textFill="#e91e63">
                                              <font>
                                                 <Font name="Garamond Bold" size="36.0" />
                                              </font>

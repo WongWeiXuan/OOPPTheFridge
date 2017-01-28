@@ -6,6 +6,8 @@ import java.io.PrintWriter;
 //import javafx.stage.StageStyle;
 //import javafx.application.Platform;
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.json.simple.parser.ParseException;
 
@@ -102,11 +104,11 @@ public class LoginSignupPageController {
 		
 		// If username is empty
 		if (Username.equals("") || Username.equals(null)) {
-			comment.setText("Please fill in your username!");
+			comment.setText("Please fill in your username.");
 		}
 		// If password is empty
 		else if (Password.equals("") || Password.equals(null)) {
-			comment.setText("Please fill in your password!");
+			comment.setText("Please fill in your password.");
 		}
 		else if (!Username.equals("") || !Username.equals(null) && !Password.equals("") || !Password.equals(null)) {
 			for (SignupModel s : personList) {
@@ -180,14 +182,22 @@ public class LoginSignupPageController {
 		String Email = tFEmail.getText();
 		String Password = pFPassword1.getText();
 		
+		//Email validation
+		String regex = "^(.+)@(.+)$";
+	    Pattern pattern = Pattern.compile(regex);
+	    Matcher matcher = pattern.matcher((CharSequence) Email);
+		
 		if (Username.equals("") || Username.equals(null)) {
-			comment1.setText("Please fill in your username!");
+			comment1.setText("Please fill in your username.");
 		}
 		else if (Email.equals("") || Email.equals(null)) {
-			comment1.setText("Please fill in your email!");
+			comment1.setText("Please fill in your email.");
+		}
+		else if (matcher.matches() == false) {
+			comment1.setText("That was not a proper email.");
 		}
 		else if (Password.equals("") || Password.equals(null)) {
-			comment1.setText("Please fill in your password!");
+			comment1.setText("Please fill in your password.");
 		}
 		else {
 			SignupModel Someone = new SignupModel(Username, Email, Password);
@@ -195,24 +205,26 @@ public class LoginSignupPageController {
 			
 			successField.setOpacity(1);
 			signupField.setOpacity(0);
+			
+			Timeline timeline = new Timeline();
+			KeyFrame keyFrame = new KeyFrame(
+					Duration.seconds(2), 
+					first -> {
+							try {
+								Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+								Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/LoginSignupPage.fxml"));
+								stage.setScene(new Scene(root));
+						 	    stage.show();
+							} catch (IOException e) {
+								e.printStackTrace();
+							}
+					}
+			);
+			timeline.getKeyFrames().addAll(keyFrame);
+			timeline.play();
 		}
 		
-		Timeline timeline = new Timeline();
-		KeyFrame keyFrame = new KeyFrame(
-				Duration.seconds(2), 
-				first -> {
-						try {
-							Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-							Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/LoginSignupPage.fxml"));
-							stage.setScene(new Scene(root));
-					 	    stage.show();
-						} catch (IOException e) {
-							e.printStackTrace();
-						}
-				}
-		);
-		timeline.getKeyFrames().addAll(keyFrame);
-		timeline.play();
+		
 		
 		/*Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
 		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/LoginSignupPage.fxml"));
