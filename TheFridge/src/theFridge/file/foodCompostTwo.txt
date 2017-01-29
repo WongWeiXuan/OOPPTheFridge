@@ -1,2 +1,0 @@
-First;Chicken
-HEY;Duck

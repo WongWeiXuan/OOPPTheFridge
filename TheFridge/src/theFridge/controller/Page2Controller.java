@@ -19,6 +19,7 @@ import javafx.scene.image.ImageView;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 import com.jfoenix.controls.JFXButton;
@@ -109,6 +110,8 @@ public class Page2Controller {
 	private TextFlow stacking;
 	@FXML
 	private JFXTextField textF;
+	@FXML
+	private Label lbl;
 
 	// Event Listener on VBox[#naviPreview].onMouseEntered
 	@FXML
@@ -200,8 +203,31 @@ public class Page2Controller {
 		});
 	}
 	public void saving(ActionEvent event) throws FileNotFoundException{	
-		/*String save0 = textF.getText();
-		String save = chosenFood.getText();
+		String save0 = textF.getText();
+		if(save0.equals("")){
+			lbl.setVisible(true);
+		}
+		else{
+		File file1=new File("src/theFridge/file/confirm.txt");
+		Scanner sc1=new Scanner(file1) ;
+		String n = sc1.nextLine();
+		ProfileDAO profileDAO = new ProfileDAO();
+		User uu = new User();
+		uu = profileDAO.getUser(n);
+		
+		String ff = uu.getChosenFC();
+		String replace = ff.replace("[","");
+		String replace1 = replace.replace("]","");
+		ArrayList<String> myList = new ArrayList<String>(Arrays.asList(replace1.split(",")));
+		myList.add(save0);
+		String last = myList.toString();
+		uu.setChosenFC(last);
+		profileDAO.updateUser(uu);
+		lbl.setVisible(true);
+		lbl.setText("Successfully saved !");
+		textF.setText("");
+		}
+		/*String save = chosenFood.getText();
 		ArrayList<String> haha = new ArrayList<String>();
 		haha.add(save0);
 		haha.add(save);
