@@ -7,6 +7,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 import com.jfoenix.controls.JFXButton;
@@ -226,21 +227,23 @@ public class Page3Controller {
 			labelAlert.setVisible(true);
 		}
 		else{
-		ArrayList<String> haha = new ArrayList<String>();
-		haha.add(ss);
-		File file=new File("src/theFridge/file/foodcheck.txt");
-		Scanner sc=new Scanner(file) ;
-		while(sc.hasNextLine()){
-			String n = sc.nextLine();
-			haha.add(n);
-		}
+			
 		File file1=new File("src/theFridge/file/confirm.txt");
 		Scanner sc1=new Scanner(file1) ;
 		String n = sc1.nextLine();
 		ProfileDAO profileDAO = new ProfileDAO();
 		User uu = new User();
 		uu = profileDAO.getUser(n);
-		uu.setChosenFC(haha);
+		
+		String ff = uu.getChosenFC();
+		String replace = ff.replace("[","");
+		String replace1 = replace.replace("]","");
+		ArrayList<String> myList = new ArrayList<String>(Arrays.asList(replace1.split(",")));
+		myList.add(ss);
+		//System.out.println(myList);
+		String last = myList.toString();
+		
+		uu.setChosenFC(last);
 		profileDAO.updateUser(uu);
 		labelAlert.setVisible(true);
 		labelAlert.setText("Successfully saved !");

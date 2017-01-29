@@ -200,7 +200,7 @@ public class Page2Controller {
 		});
 	}
 	public void saving(ActionEvent event) throws FileNotFoundException{	
-		String save0 = textF.getText();
+		/*String save0 = textF.getText();
 		String save = chosenFood.getText();
 		ArrayList<String> haha = new ArrayList<String>();
 		haha.add(save0);
@@ -213,6 +213,7 @@ public class Page2Controller {
 		uu = profileDAO.getUser(n);
 		uu.setChosenFC(haha);
 		profileDAO.updateUser(uu);
+		*/
 	}
 	/*public void restart(ActionEvent event){
 		mp.seek(mp.getStartTime());
