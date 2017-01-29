@@ -18,30 +18,15 @@ public class User {
 		private String height;
 		private String age;
 		private String gender;
-		private int totalPoints;  //RedeemVoucher
-		private String promoCode; //RedeemVoucher
-		private long endTime;	  //Redeem24HourTimer
+		private int totalPoints;
+		private String promoCode;
+		private long endTime;
 		private ArrayList<String> chosenFC;
 		
 		public User() {
 			super();
 		}
 		
-		public User(String username, String password, String eMail) {
-			super();
-			this.username = username;
-			this.password = password;
-			this.email = eMail;
-		}
-		
-		public User(String username, int totalPoints, String promoCode) {
-			this.username = username;
-			this.totalPoints = totalPoints;
-			this.promoCode = promoCode;
-		}
-		
-		
-
 		public ArrayList<String> getChosenFC() {
 			return chosenFC;
 		}
@@ -51,7 +36,7 @@ public class User {
 		}
 
 		public User(String name, String username, String password, String email, String country, String height,
-				String weight, String age, String gender, int totalPoints, String promoCode, long endTime,ArrayList<String> chosenFC) {
+				String weight, String age, String gender, int totalPoints, String promoCode, long endTime, ArrayList<String> chosenFC) {
 			super();
 			this.username = username;
 			this.password = password;

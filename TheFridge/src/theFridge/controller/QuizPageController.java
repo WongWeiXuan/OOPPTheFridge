@@ -10,6 +10,7 @@ import java.util.TimerTask;
 
 import com.jfoenix.controls.JFXButton;
 
+import javafx.animation.Animation.Status;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -89,7 +90,8 @@ public class QuizPageController {
 	
 	private ArrayList<QuizQuestionsModel> questionsList;
 	private int currIndex = -1;
-	private int pointsAttained = 0;
+	private Timeline timeline;
+	private Integer timeSeconds = 10;
 	
 	public void setQuestionList(ArrayList<QuizQuestionsModel> questionsList) {
 		if (questionsList != null && questionsList.size() > 0) {
@@ -112,10 +114,7 @@ public class QuizPageController {
 	}
 	
 	@FXML
-	public void initialize() throws FileNotFoundException{
-		QuizTimer qTimer = new QuizTimer();
-		qTimer.setTimer(timerOutput);
-		
+	public void initialize() throws FileNotFoundException {
 		QuizQuestionsModel quizQ = new QuizQuestionsModel();
 		QuizChoicesModel quizC = new QuizChoicesModel();
 		questionLabel.setText(quizQ.getQuestions());
@@ -126,8 +125,29 @@ public class QuizPageController {
 		choiceBtn4.setText(quizC.getChoice4());
 		
 		questionNo.setText(String.valueOf(currIndex) + "/10");
-		pointsEarned.setText("Points earned: " + pointsAttained);
+		pointsEarned.setText("Points earned: " + QuizQuestionsModel.getPointsAttained());
 		
+		//For Quiz Timer
+		timerOutput.setText("10");
+		timeline = new Timeline();
+	    timeline.setCycleCount(Timeline.INDEFINITE);
+	    timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(1), new EventHandler<ActionEvent>() {
+	    	@Override
+			public void handle(ActionEvent event) {
+	    		timeSeconds--;
+
+	    		if (timeSeconds >= 0) {
+	    			timerOutput.setText(timeSeconds.toString());
+	    			System.out.println(timeSeconds.toString());
+	    		}
+	    		else {
+	    			timeline.stop();
+	    			System.out.println("Timer has stopped.");
+	    		}
+	        }				
+	    }));
+	    timeline.playFromStart();
+
 		timerOutput.textProperty().addListener(new ChangeListener<String>() {
 			@Override
 			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
@@ -209,9 +229,12 @@ public class QuizPageController {
 	
 	@FXML
 	public void changeScene(MouseEvent event) throws IOException {
+		if (timeline.getStatus().equals(Status.RUNNING)) {
+			timeline.stop();
+		}
+		
 		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
 		Parent root = null; //(Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/HomePage.fxml"));
-		
 		
 		if(event.getSource().equals(homeScene)){
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/GetStartedPage.fxml"));

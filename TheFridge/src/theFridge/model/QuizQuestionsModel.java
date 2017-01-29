@@ -9,6 +9,7 @@ public class QuizQuestionsModel {
 	private QuizChoicesModel choices;
 	private String explanations;
 	private static boolean dontShowAgain = true;
+	private static int pointsAttained = 0;
 	
 	public QuizQuestionsModel() {
 		super();
@@ -51,6 +52,14 @@ public class QuizQuestionsModel {
 
 	public static void setDontShowAgain(boolean dontShowAgain) {
 		QuizQuestionsModel.dontShowAgain = dontShowAgain;
+	}
+
+	public static int getPointsAttained() {
+		return pointsAttained;
+	}
+
+	public static void setPointsAttained(int pointsAttained) {
+		QuizQuestionsModel.pointsAttained = pointsAttained;
 	}
 
 	public String toString() {

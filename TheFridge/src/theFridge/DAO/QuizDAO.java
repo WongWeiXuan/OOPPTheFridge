@@ -73,9 +73,8 @@ public class QuizDAO {
 	}
 	
 	private void synToFile(ArrayList<QuizQuestionsModel> questionsList) {
-		if (questionsList == null) {
+		if (questionsList == null)
 			return;
-		}
 		
 		try {
 			FileWriter out = new FileWriter(dataFile);

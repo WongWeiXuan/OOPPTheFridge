@@ -115,7 +115,6 @@ public class RedeemVoucherPageController {
 		String points = Integer.toString(user.getTotalPoints());
 		
 		//Show user's total points if they haven't redeemed any promo code
-		
 		totalPoints.setText(points);
 		userPointsLabel.setOpacity(1);
 		totalPoints.setOpacity(1);
@@ -123,7 +122,6 @@ public class RedeemVoucherPageController {
 		redeemAgainDate.setOpacity(0);
 		
 		//Show the date user can redeem again if endTime is not 0
-		
 		if (user.getEndTime() != 0) {
 			System.out.println("RedeemVoucherPageController - IF");
 			System.out.println("Promo code: " + user.getPromoCode());
@@ -160,16 +158,16 @@ public class RedeemVoucherPageController {
 			mailImg4.setOpacity(0.3);
 			
 			//Allow user to redeem again if currentTime reaches the endTime
-			
 			if (rDV.getCurrentTime() >= user.getEndTime()) {
 				System.out.println("RedeemVoucherPageController - IF within IF");
 				System.out.println("Current time: " + rDV.getCurrentTime());
 				System.out.println("End time: " + user.getEndTime());
 				
-				userPointsLabel.setOpacity(0);
-				totalPoints.setOpacity(0);
-				redeemAgainLabel.setOpacity(1);
-				redeemAgainDate.setOpacity(1);
+				totalPoints.setText(points);
+				userPointsLabel.setOpacity(1);
+				totalPoints.setOpacity(1);
+				redeemAgainLabel.setOpacity(0);
+				redeemAgainDate.setOpacity(0);
 				
 				rDV.clearRedeemAgainDate();
 				rDV.unDisableVoucher(redeemVBox);
@@ -180,6 +178,7 @@ public class RedeemVoucherPageController {
 	@FXML
 	public void showPopup(MouseEvent event) throws FileNotFoundException {
 		if (event.getSource().equals(voucher1)) {
+			/*
 			File file=new File("src/theFridge/file/confirm.txt");
 			Scanner sc = new Scanner(file) ;
 			String n = sc.nextLine();
@@ -188,11 +187,15 @@ public class RedeemVoucherPageController {
 			ProfileDAO profileDAO = new ProfileDAO();
 			User uu = new User();
 			uu = profileDAO.getUser(n);
+			*/
+			
+			User user = new User();
+			user = user.getCurrentUser();
 			
 			RedeemVoucherModel rDV = new RedeemVoucherModel();
 			
 			try {
-				if (uu.getTotalPoints() < rDV.getVoucherPoints()) {
+				if (user.getTotalPoints() < rDV.getVoucherPoints()) {
 					@SuppressWarnings("rawtypes")
 					Dialog dialog = new Dialog();
 					Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemInsufficientPointsPopup.fxml"));
@@ -220,19 +223,13 @@ public class RedeemVoucherPageController {
 			}
 		}
 		else if (event.getSource().equals(voucher2)) {
-			File file=new File("src/theFridge/file/confirm.txt");
-			Scanner sc = new Scanner(file) ;
-			String n = sc.nextLine();
-			sc.close();
-			
-			ProfileDAO profileDAO = new ProfileDAO();
-			User uu = new User();
-			uu = profileDAO.getUser(n);
+			User user = new User();
+			user = user.getCurrentUser();
 			
 			RedeemVoucherModel rDV = new RedeemVoucherModel();
 			
 			try {
-				if (uu.getTotalPoints() < rDV.getVoucherPoints()) {
+				if (user.getTotalPoints() < rDV.getVoucherPoints()) {
 					@SuppressWarnings("rawtypes")
 					Dialog dialog = new Dialog();
 					Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemInsufficientPointsPopup.fxml"));
@@ -260,19 +257,13 @@ public class RedeemVoucherPageController {
 			}
 		}
 		else if (event.getSource().equals(voucher3)) {
-			File file=new File("src/theFridge/file/confirm.txt");
-			Scanner sc = new Scanner(file) ;
-			String n = sc.nextLine();
-			sc.close();
-			
-			ProfileDAO profileDAO = new ProfileDAO();
-			User uu = new User();
-			uu = profileDAO.getUser(n);
+			User user = new User();
+			user = user.getCurrentUser();
 			
 			RedeemVoucherModel rDV = new RedeemVoucherModel();
 			
 			try {
-				if (uu.getTotalPoints() < rDV.getVoucherPoints()) {
+				if (user.getTotalPoints() < rDV.getVoucherPoints()) {
 					@SuppressWarnings("rawtypes")
 					Dialog dialog = new Dialog();
 					Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemInsufficientPointsPopup.fxml"));
@@ -300,19 +291,13 @@ public class RedeemVoucherPageController {
 			}
 		}
 		else if (event.getSource().equals(voucher4)) {
-			File file=new File("src/theFridge/file/confirm.txt");
-			Scanner sc = new Scanner(file) ;
-			String n = sc.nextLine();
-			sc.close();
-			
-			ProfileDAO profileDAO = new ProfileDAO();
-			User uu = new User();
-			uu = profileDAO.getUser(n);
+			User user = new User();
+			user = user.getCurrentUser();
 			
 			RedeemVoucherModel rDV = new RedeemVoucherModel();
 			
 			try {
-				if (uu.getTotalPoints() < rDV.getVoucherPoints()) {
+				if (user.getTotalPoints() < rDV.getVoucherPoints()) {
 					@SuppressWarnings("rawtypes")
 					Dialog dialog = new Dialog();
 					Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemInsufficientPointsPopup.fxml"));
@@ -384,6 +369,7 @@ public class RedeemVoucherPageController {
 	@FXML 
 	public void goToPromoPage(ActionEvent event) throws IOException {
 		if (event.getSource().equals(TwelveCharacterBtn1)) {
+			/*
 			File file=new File("src/theFridge/file/confirm.txt");
 			Scanner sc = new Scanner(file) ;
 			String n = sc.nextLine();
@@ -392,12 +378,16 @@ public class RedeemVoucherPageController {
 			ProfileDAO profileDAO = new ProfileDAO();
 			User uu = new User();
 			uu = profileDAO.getUser(n);
+			*/
+			
+			User user = new User();
+			user = user.getCurrentUser();
 			
 			RedeemVoucherModel rDV = new RedeemVoucherModel();
 			RedeemVoucherModel.setVoucherType("NTUC");
 			
 			try {
-				if (uu.getTotalPoints() < rDV.getVoucherPoints()) {
+				if (user.getTotalPoints() < rDV.getVoucherPoints()) {
 					@SuppressWarnings("rawtypes")
 					Dialog dialog = new Dialog();
 					Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemInsufficientPointsPopup.fxml"));
@@ -421,20 +411,14 @@ public class RedeemVoucherPageController {
 			}
 		}
 		else if (event.getSource().equals(TwelveCharacterBtn2)) {
-			File file=new File("src/theFridge/file/confirm.txt");
-			Scanner sc = new Scanner(file) ;
-			String n = sc.nextLine();
-			sc.close();
-			
-			ProfileDAO profileDAO = new ProfileDAO();
-			User uu = new User();
-			uu = profileDAO.getUser(n);
+			User user = new User();
+			user = user.getCurrentUser();
 			
 			RedeemVoucherModel rDV = new RedeemVoucherModel();
 			RedeemVoucherModel.setVoucherType("Cold Storage");
 			
 			try {
-				if (uu.getTotalPoints() < rDV.getVoucherPoints()) {
+				if (user.getTotalPoints() < rDV.getVoucherPoints()) {
 					@SuppressWarnings("rawtypes")
 					Dialog dialog = new Dialog();
 					Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemInsufficientPointsPopup.fxml"));
@@ -458,20 +442,14 @@ public class RedeemVoucherPageController {
 			}
 		}
 		else if (event.getSource().equals(TwelveCharacterBtn3)) {
-			File file=new File("src/theFridge/file/confirm.txt");
-			Scanner sc = new Scanner(file) ;
-			String n = sc.nextLine();
-			sc.close();
-			
-			ProfileDAO profileDAO = new ProfileDAO();
-			User uu = new User();
-			uu = profileDAO.getUser(n);
+			User user = new User();
+			user = user.getCurrentUser();
 			
 			RedeemVoucherModel rDV = new RedeemVoucherModel();
 			RedeemVoucherModel.setVoucherType("Sheng Siong");
 			
 			try {
-				if (uu.getTotalPoints() < rDV.getVoucherPoints()) {
+				if (user.getTotalPoints() < rDV.getVoucherPoints()) {
 					@SuppressWarnings("rawtypes")
 					Dialog dialog = new Dialog();
 					Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemInsufficientPointsPopup.fxml"));
@@ -495,20 +473,14 @@ public class RedeemVoucherPageController {
 			}
 		}
 		else if (event.getSource().equals(TwelveCharacterBtn4)) {
-			File file=new File("src/theFridge/file/confirm.txt");
-			Scanner sc = new Scanner(file) ;
-			String n = sc.nextLine();
-			sc.close();
-			
-			ProfileDAO profileDAO = new ProfileDAO();
-			User uu = new User();
-			uu = profileDAO.getUser(n);
+			User user = new User();
+			user = user.getCurrentUser();
 			
 			RedeemVoucherModel rDV = new RedeemVoucherModel();
 			RedeemVoucherModel.setVoucherType("Giant");
 			
 			try {
-				if (uu.getTotalPoints() < rDV.getVoucherPoints()) {
+				if (user.getTotalPoints() < rDV.getVoucherPoints()) {
 					@SuppressWarnings("rawtypes")
 					Dialog dialog = new Dialog();
 					Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemInsufficientPointsPopup.fxml"));
