@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
@@ -166,18 +167,36 @@
             </AnchorPane>
             <VBox HBox.hgrow="ALWAYS">
                <children>
-                  <TextFlow prefHeight="32.0" prefWidth="980.0" textAlignment="CENTER">
+                  <HBox alignment="CENTER">
                      <children>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Compost Multiple Food waste" textAlignment="CENTER" wrappingWidth="441.56640625">
                            <font>
                               <Font size="24.0" />
                            </font>
+                           <HBox.margin>
+                              <Insets left="200.0" />
+                           </HBox.margin>
                         </Text>
+                        <JFXButton fx:id="buttonmain" onAction="#backToMain" prefHeight="31.0" prefWidth="225.0" style="-fx-background-color: red;" text="Back To Main" />
                      </children>
-                  </TextFlow>
+                  </HBox>
                   <VBox alignment="CENTER_RIGHT">
                      <children>
-                        <JFXButton fx:id="buttonmain" onAction="#backToMain" text="Back To Main" />
+                        <HBox alignment="CENTER_LEFT">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Title of your file:">
+                                 <font>
+                                    <Font name="Arial" size="24.0" />
+                                 </font>
+                              </Text>
+                              <JFXTextField fx:id="textF0" />
+                              <JFXButton fx:id="saveBtn" onAction="#saving0" style="-fx-background-color: rgba(251,2,2,1);" text="SAVE">
+                                 <HBox.margin>
+                                    <Insets right="30.0" />
+                                 </HBox.margin></JFXButton>
+                              <Label fx:id="labelAlert" prefHeight="21.0" prefWidth="131.0" text="Please enter a title !" visible="false" />
+                           </children>
+                        </HBox>
                      </children>
                      <VBox.margin>
                         <Insets right="20.0" />

@@ -136,31 +136,36 @@ public class QuizPageController {
 					vBoxInfoImg.setDisable(false);
 					continueBtn.setVisible(true);
 					continueBtn.setDisable(false);
-					Platform.runLater(new Runnable() {
-						@Override
-						public void run() {
-							try {
-								@SuppressWarnings("rawtypes")
-								Dialog dialog = new Dialog();
-								Parent root;
-								root = FXMLLoader.load(getClass().getResource("/theFridge/view/QuizExplanationPopup.fxml"));
-								Stage stage = (Stage) dialog.getDialogPane().getScene().getWindow();
-								stage.initStyle(StageStyle.TRANSPARENT);
-								Scene scene = new Scene(root);
-								stage.setX(650);
-								stage.setY(400);
-								stage.setScene(scene);
-								stage.showAndWait();
-							} catch (IOException e) {
-								e.printStackTrace();
-							}
+					timeLeft.setText("Out of time!");
+					
+					if (QuizQuestionsModel.isDontShowAgain() == true) {
+						Platform.runLater(new Runnable() {
+							@Override
+							public void run() {
+								try {
+									@SuppressWarnings("rawtypes")
+									Dialog dialog = new Dialog();
+									Parent root;
+									root = FXMLLoader.load(getClass().getResource("/theFridge/view/QuizExplanationPopup.fxml"));
+									Stage stage = (Stage) dialog.getDialogPane().getScene().getWindow();
+									stage.initStyle(StageStyle.TRANSPARENT);
+									Scene scene = new Scene(root);
+									stage.setX(650);
+									stage.setY(400);
+									stage.setScene(scene);
+									stage.showAndWait();
+								} catch (IOException e) {
+									e.printStackTrace();
+								}
 						}});
+					}
 				}
 			}});
 	}
 	
 	@FXML
 	public void showExplanations(MouseEvent event) {
+		QuizQuestionsModel.setDontShowAgain(true);
 		try {
 			@SuppressWarnings("rawtypes")
 			Dialog dialog = new Dialog();

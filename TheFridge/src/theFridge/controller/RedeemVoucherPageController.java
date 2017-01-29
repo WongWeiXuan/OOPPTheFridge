@@ -9,6 +9,7 @@ import java.util.Date;
 import java.util.Scanner;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.concurrent.TimeUnit;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -107,17 +108,6 @@ public class RedeemVoucherPageController {
 	
 	@FXML
 	public void initialize() throws FileNotFoundException {
-		/*
-		File file=new File("src/theFridge/file/confirm.txt");
-		Scanner sc = new Scanner(file) ;
-		String n = sc.nextLine();
-		sc.close();
-		
-		ProfileDAO profileDAO = new ProfileDAO();
-		User uu = new User();
-		uu = profileDAO.getUser(n);
-		*/
-		
 		User user = new User();
 		user = user.getCurrentUser();
 		
@@ -143,10 +133,6 @@ public class RedeemVoucherPageController {
 			userPointsLabel.setOpacity(0);
 			redeemAgainLabel.setOpacity(1);
 			
-			
-			SimpleDateFormat sdf = new SimpleDateFormat("HH");
-			SimpleDateFormat sdf1 = new SimpleDateFormat("mm");
-			SimpleDateFormat sdf2 = new SimpleDateFormat("ss");
 			long endTime = user.getEndTime();
 			Timer timer = new Timer();
 			TimerTask timerTask = new TimerTask() {
@@ -155,8 +141,8 @@ public class RedeemVoucherPageController {
 					Platform.runLater(new Runnable() {
 						@Override
 						public void run() {
-							long dateOutput = endTime - System.currentTimeMillis();
-							redeemAgainDate.setText(sdf.format(dateOutput) + " Hours " + sdf1.format(dateOutput) + " Minutes " + sdf2.format(dateOutput) + " Seconds");
+							long remainingTime = endTime - System.currentTimeMillis();
+							redeemAgainDate.setText(rDV.changeToTimeFormat(remainingTime));
 						}
 					});
 				}
@@ -189,88 +175,6 @@ public class RedeemVoucherPageController {
 				rDV.unDisableVoucher(redeemVBox);
 			}
 		}
-		
-		//Show the date user can redeem again if they redeemed a promo code
-		/*
-		if (!(uu.getPromoCode().equals("null")) && !(uu.getPromoCode() == "")) {
-			System.out.println("RedeemVoucherPageController - IF");
-			System.out.println("Promo code: " + uu.getPromoCode());
-			System.out.println("End time: " + uu.getEndTime());
-			
-			totalPoints.setOpacity(0);
-			userPointsLabel.setOpacity(0);
-			redeemAgainLabel.setOpacity(1);
-			
-			redeemAgainDate.setText(rDV.changeToDateFormat(uu.getEndTime())); //Display the date to redeem again
-			redeemAgainDate.setOpacity(1);
-			
-			rDV.disableVoucher(redeemVBox);
-			mailImg1.setOpacity(0.3);
-			mailImg2.setOpacity(0.3);
-			mailImg3.setOpacity(0.3);
-			mailImg4.setOpacity(0.3);
-			
-			if (uu.getEndTime() == 0) {
-				System.out.println("RedeemVoucherPageController - IF within IF");
-				System.out.println("Current time: " + rDV.getCurrentTime());
-				System.out.println("End time: " + uu.getEndTime());
-				
-				redeemAgainDate.setText(rDV.setRedeemAgainDate()); //Set the date to redeem again
-				System.out.println("End time: " + uu.getEndTime());
-				redeemAgainLabel.setOpacity(1);
-				redeemAgainDate.setOpacity(1);
-				
-				rDV.disableVoucher(redeemVBox);
-				mailImg1.setOpacity(0.3);
-				mailImg2.setOpacity(0.3);
-				mailImg3.setOpacity(0.3);
-				mailImg4.setOpacity(0.3);
-				
-				if (rDV.getCurrentTime() < uu.getEndTime()) {
-					System.out.println("RedeemVoucherPageController - IF within IF within IF");
-					System.out.println("Current time: " + rDV.getCurrentTime());
-					System.out.println("End time: " + uu.getEndTime());
-					
-					totalPoints.setOpacity(0);
-					userPointsLabel.setOpacity(0);
-					redeemAgainLabel.setOpacity(1);
-					
-					redeemAgainDate.setText(rDV.changeToDateFormat(uu.getEndTime()));
-					redeemAgainDate.setOpacity(1);
-					
-					rDV.disableVoucher(redeemVBox);
-					mailImg1.setOpacity(0.3);
-					mailImg2.setOpacity(0.3);
-					mailImg3.setOpacity(0.3);
-					mailImg4.setOpacity(0.3);
-				}
-				
-				else if (rDV.getCurrentTime() >= uu.getEndTime()) {
-					System.out.println("IF within IF within ELSE IF");
-					System.out.println("Current time: " + rDV.getCurrentTime());
-					System.out.println("End time: " + uu.getEndTime());
-					
-					userPointsLabel.setOpacity(0);
-					totalPoints.setOpacity(0);
-					redeemAgainLabel.setOpacity(1);
-					redeemAgainDate.setOpacity(1);
-					
-					rDV.clearPromoCode();
-					rDV.unDisableVoucher(redeemVBox);
-				}
-				
-			}
-		}
-		
-		//Debugging purposes
-		
-		else {
-			System.out.println("RedeemVoucherPageController - ELSE");
-			System.out.println(uu.getPromoCode());
-			System.out.println(rDV.getCurrentTime());
-			System.out.println(uu.getEndTime());
-		}
-		*/
 	}
 	
 	@FXML

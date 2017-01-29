@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXSlider?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
@@ -179,11 +180,20 @@
                         </TextFlow>
                      </children>
                   </HBox>
-                  <TextFlow prefHeight="31.0" prefWidth="980.0" textAlignment="RIGHT">
+                  <TextFlow fx:id="stacking" prefHeight="31.0" prefWidth="980.0" textAlignment="RIGHT">
                      <VBox.margin>
                         <Insets />
                      </VBox.margin>
                      <children>
+                        <JFXTextField fx:id="textF" />
+                        <TextFlow>
+                           <children>
+                              <JFXButton fx:id="saveBtn" onAction="#saving" style="-fx-background-color: #3c71dd;" text="SAVE" textFill="WHITE" />
+                           </children>
+                           <padding>
+                              <Insets right="50.0" />
+                           </padding>
+                        </TextFlow>
                         <JFXButton fx:id="btnMain" buttonType="RAISED" onAction="#goMain" ripplerFill="BLACK" style="-fx-background-color: #3c71dd;" text="Back To Main" textFill="WHITE" />
                      </children>
                   </TextFlow>

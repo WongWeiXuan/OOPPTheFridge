@@ -4,6 +4,7 @@ package theFridge.controller;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import com.jfoenix.controls.JFXButton;
@@ -35,7 +36,9 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import theFridge.DAO.ProfileDAO;
 import theFridge.model.First;
+import theFridge.model.User;
 
 
 
@@ -193,6 +196,7 @@ public class Page1Controller{
 	        table1.setCellValueFactory(new PropertyValueFactory<First, String>("foodCanCompost"));
 	        table2.setCellValueFactory(new PropertyValueFactory<First, String>("foodCannotCompost"));
 	        tableView1.setItems(list);
+	        tableView1.setMouseTransparent(true);
 	        choice.setItems(data); 
 	        listView.setItems(a);
 	        //foodCom.setItems(a);

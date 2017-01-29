@@ -23,6 +23,7 @@ public class ProfileDAO {
 		Scanner in;
 		String record = null;
 		String[] fields;
+		String[] s;
 		ArrayList<User> user=new ArrayList<User>();
 		try {
 			in = new Scanner(dataFile);
@@ -41,7 +42,10 @@ public class ProfileDAO {
 				int totalPoints = Integer.parseInt(fields[9]);
 				String promoCode = fields[10];
 				long endTime = Long.parseLong(fields[11]);
-				User u = new User(name, username, password, email, location, height, weight, age, gender, totalPoints, promoCode, endTime);
+				ArrayList<String> chosenFC = new ArrayList<String>();
+				String hh = chosenFC.toString();
+				hh =  fields[12];
+				User u = new User(name, username, password, email, location, height, weight, age, gender, totalPoints, promoCode, endTime,chosenFC);
 				user.add(u);
 			}
 			in.close();

@@ -23,6 +23,7 @@ import java.util.Scanner;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXSlider;
+import com.jfoenix.controls.JFXTextField;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -53,7 +54,9 @@ import javafx.scene.media.Media;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import theFridge.DAO.FoodCompostDAO;
+import theFridge.DAO.ProfileDAO;
 import theFridge.model.FoodCompost;
+import theFridge.model.User;
 
 public class Page2Controller {
 	@FXML
@@ -100,6 +103,12 @@ public class Page2Controller {
 	private ImageView imageFull;
 	@FXML
 	private JFXSlider slider;
+	@FXML
+	private JFXButton saveBtn;
+	@FXML
+	private TextFlow stacking;
+	@FXML
+	private JFXTextField textF;
 
 	// Event Listener on VBox[#naviPreview].onMouseEntered
 	@FXML
@@ -189,6 +198,21 @@ public class Page2Controller {
 				
 			}
 		});
+	}
+	public void saving(ActionEvent event) throws FileNotFoundException{	
+		String save0 = textF.getText();
+		String save = chosenFood.getText();
+		ArrayList<String> haha = new ArrayList<String>();
+		haha.add(save0);
+		haha.add(save);
+		File file=new File("src/theFridge/file/confirm.txt");
+		Scanner sc=new Scanner(file) ;
+		String n = sc.nextLine();
+		ProfileDAO profileDAO = new ProfileDAO();
+		User uu = new User();
+		uu = profileDAO.getUser(n);
+		uu.setChosenFC(haha);
+		profileDAO.updateUser(uu);
 	}
 	/*public void restart(ActionEvent event){
 		mp.seek(mp.getStartTime());

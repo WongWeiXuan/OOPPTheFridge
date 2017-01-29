@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import theFridge.model.QuizQuestionsModel;
 
 public class QuizExplanationPopupController {
 	@FXML
@@ -28,7 +29,9 @@ public class QuizExplanationPopupController {
 	}
 	
 	@FXML
-	public void dontShowAgain() {
-		
+	public void dontShowAgain(ActionEvent event) {
+		QuizQuestionsModel.setDontShowAgain(false);
+		Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+		stage.close();
 	}
 }

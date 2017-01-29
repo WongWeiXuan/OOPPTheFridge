@@ -1,8 +1,7 @@
 package theFridge.controller;
 
-import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.Scanner;
 
 import com.jfoenix.controls.JFXButton;
 
@@ -24,7 +23,6 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
-import theFridge.DAO.ProfileDAO;
 import theFridge.model.RedeemVoucherModel;
 import theFridge.model.User;
 
@@ -131,7 +129,8 @@ public class RedeemVoucher12CharacterPageController {
 	}
 	
 	@FXML
-	public void showPopup(MouseEvent event) {
+	public void sendEmail(MouseEvent event) throws FileNotFoundException {
+		/*
 		try {
 			@SuppressWarnings("rawtypes")
 			Dialog dialog = new Dialog();
@@ -146,6 +145,16 @@ public class RedeemVoucher12CharacterPageController {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		*/
+		
+		User user = new User();
+		user = user.getCurrentUser();
+		
+		RedeemVoucherModel rDV = new RedeemVoucherModel();
+		rDV.generatePromoCode();
+		rDV.setRedeemAgainDate();
+		rDV.generateBarcode();
+		rDV.sendEmail();
 	}
 	
 	@FXML

@@ -8,6 +8,7 @@ public class QuizQuestionsModel {
 	private String questions;
 	private QuizChoicesModel choices;
 	private String explanations;
+	private static boolean dontShowAgain = true;
 	
 	public QuizQuestionsModel() {
 		super();
@@ -20,30 +21,38 @@ public class QuizQuestionsModel {
 		this.explanations = explanations;
 	}
 	
-	public QuizChoicesModel getChoices() {
-		return choices;
-	}
-
-	public void setChoices(QuizChoicesModel choices) {
-		this.choices = choices;
-	}
-
-	public String getExplanations() {
-		return explanations;
-	}
-
-	public void setExplanations(String explanations) {
-		this.explanations = explanations;
+	public void setQuestions(String questions) {
+		this.questions = questions;
 	}
 	
 	public String getQuestions() {
 		return questions;
 	}
-
-	public void setQuestions(String questions) {
-		this.questions = questions;
+	
+	public void setChoices(QuizChoicesModel choices) {
+		this.choices = choices;
 	}
 	
+	public QuizChoicesModel getChoices() {
+		return choices;
+	}
+
+	public void setExplanations(String explanations) {
+		this.explanations = explanations;
+	}
+
+	public String getExplanations() {
+		return explanations;
+	}
+	
+	public static boolean isDontShowAgain() {
+		return dontShowAgain;
+	}
+
+	public static void setDontShowAgain(boolean dontShowAgain) {
+		QuizQuestionsModel.dontShowAgain = dontShowAgain;
+	}
+
 	public String toString() {
 		return questions + ";" + choices + ";" + explanations;
 	}
@@ -63,5 +72,9 @@ public class QuizQuestionsModel {
 	public void updateQuestions() {
 		QuizDAO quizDAO = new QuizDAO();
 		quizDAO.updateQuestions(this);
+	}
+	
+	public static void main(String args[]) {
+		
 	}
 }
