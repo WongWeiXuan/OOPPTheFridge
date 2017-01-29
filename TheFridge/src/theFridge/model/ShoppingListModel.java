@@ -524,8 +524,9 @@ public class ShoppingListModel {
 				String name = nodeToString(NodeList.get(0));
 				double amount = Double.parseDouble(nodeToString(NodeList.get(1)));
 				int serving = Integer.parseInt(nodeToString(NodeList.get(2)));
-				double maxAmount = Double.parseDouble(nodeToString(NodeList.get(3)));
-				StockModel stockModel = new StockModel(name, amount, serving, maxAmount);
+				int grams = Integer.parseInt(nodeToString(NodeList.get(3)));
+				double maxAmount = Double.parseDouble(nodeToString(NodeList.get(4)));
+				StockModel stockModel = new StockModel(name, amount, serving, grams, maxAmount, true);
 				stockArray.add(stockModel);
 			}
 		}

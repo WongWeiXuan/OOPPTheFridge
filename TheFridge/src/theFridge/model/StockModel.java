@@ -4,6 +4,7 @@ public class StockModel {
 	private String name;
 	private double amount;
 	private int serving;
+	private int grams;
 	private double maxAmount;
 	private int index;
 
@@ -14,11 +15,12 @@ public class StockModel {
 		this.serving = serving;
 	}
 
-	public StockModel(String name, double amount, int serving, double maxAmount) {
+	public StockModel(String name, double amount, int serving, int grams, double maxAmount, boolean forFun) {
 		super();
 		this.name = name;
 		this.amount = amount;
 		this.serving = serving;
+		this.grams = grams;
 		this.maxAmount = maxAmount;
 	}
 
@@ -53,6 +55,14 @@ public class StockModel {
 
 	public void setServing(int serving) {
 		this.serving = serving;
+	}
+
+	public int getGrams() {
+		return grams;
+	}
+
+	public void setGrams(int grams) {
+		this.grams = grams;
 	}
 
 	public double getMaxAmount() {

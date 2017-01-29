@@ -109,7 +109,7 @@ public class ShoppingListAddPageModel {
 		    		}
 		    		else{
 		    			//Get servings and calculate maxAmount
-						model.addStocks(new StockModel(l.getName(), 0, 1, 0));
+						model.addStocks(new StockModel(l.getName(), 0, 1, 1, 0, true));
 						model.addShopping(l);
 			    	}
 		    		ShoppingListDAO a = new ShoppingListDAO();

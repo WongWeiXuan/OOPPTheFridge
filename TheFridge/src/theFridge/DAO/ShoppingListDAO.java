@@ -32,6 +32,7 @@ public class ShoppingListDAO {
 			String name = fields[0];
 			double amount = Double.parseDouble(fields[1]);
 			int serving = Integer.parseInt(fields[2]);
+			int grams = Integer.parseInt(fields[3]);
 			StockModel a = new StockModel(name, amount, serving);
 			stocks.add(a);
 		}

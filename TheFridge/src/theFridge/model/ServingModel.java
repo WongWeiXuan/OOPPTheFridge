@@ -24,5 +24,4 @@ public class ServingModel {
 		this.numOfServing = numOfServing;
 	}
 	
-	
 }

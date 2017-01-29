@@ -1,12 +1,10 @@
-Bread - 1 slice
-Cereal(Ready-to-eat) - 1 ounce
-Cooked Cereal, pasta and rice - 0.5 cup
-Vegetable - 1 cup
-Non-leafy Vegetable and vegetable juice - 0.5 cup
-Fruits - 1 medium
-Canned Fruits/juice - 0.5 cup
-Meat, Poultry, Fish - 3 ounce
-Dry Beans - 0.5 cup
-Nuts - 2 tablespoons
-Milk and Yogurt - 1 cup
-Cheese - 1.5 ounce
+Bread - 1 slice - 40g
+Cereal(Ready-to-eat) - 1 ounce - 30g
+Cooked Cereal, pasta and rice - 0.5 cup - 120g
+Vegetable - 1 cup - 75g
+Juice - 0.5 cup - 125mL
+Meat, Poultry, Fish - 3 ounce - 75g
+Dry Beans - 0.5 cup - 175mL
+Nuts - 2 tablespoons - 30mL
+Milk and Yogurt - 1 cup - 200g
+Cheese - 1.5 ounce - 120g
