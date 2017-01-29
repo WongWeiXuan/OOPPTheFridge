@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXTextField;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -74,6 +75,10 @@ public class Page3Controller {
 	private int i = 0;
 	@FXML
 	private JFXButton saveBtn;
+	@FXML
+	private JFXTextField textF0;
+	@FXML
+	private Label labelAlert;
 	
 
 	// Event Listener on VBox[#naviPreview].onMouseEntered
@@ -216,7 +221,13 @@ public class Page3Controller {
 	}
 	
 	public void saving0(ActionEvent event) throws FileNotFoundException{
+		String ss = textF0.getText();
+		if(ss.equals("")){
+			labelAlert.setVisible(true);
+		}
+		else{
 		ArrayList<String> haha = new ArrayList<String>();
+		haha.add(ss);
 		File file=new File("src/theFridge/file/foodcheck.txt");
 		Scanner sc=new Scanner(file) ;
 		while(sc.hasNextLine()){
@@ -231,6 +242,10 @@ public class Page3Controller {
 		uu = profileDAO.getUser(n);
 		uu.setChosenFC(haha);
 		profileDAO.updateUser(uu);
+		labelAlert.setVisible(true);
+		labelAlert.setText("Successfully saved !");
+		textF0.setText("");
+		}
 		
 		
 	}

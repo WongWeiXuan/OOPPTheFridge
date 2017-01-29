@@ -196,6 +196,7 @@ public class Page1Controller{
 	        table1.setCellValueFactory(new PropertyValueFactory<First, String>("foodCanCompost"));
 	        table2.setCellValueFactory(new PropertyValueFactory<First, String>("foodCannotCompost"));
 	        tableView1.setItems(list);
+	        tableView1.setMouseTransparent(true);
 	        choice.setItems(data); 
 	        listView.setItems(a);
 	        //foodCom.setItems(a);
