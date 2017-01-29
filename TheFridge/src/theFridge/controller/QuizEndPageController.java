@@ -2,15 +2,23 @@ package theFridge.controller;
 
 import java.io.IOException;
 
+import com.jfoenix.controls.JFXButton;
+
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
+import javafx.scene.control.Label;
+import javafx.scene.control.ProgressIndicator;
 import javafx.scene.input.MouseEvent;
 
 import javafx.scene.layout.VBox;
@@ -36,6 +44,50 @@ public class QuizEndPageController {
 	private VBox quizScene;
 	@FXML
 	private VBox prizeScene;
+	@FXML
+	private JFXButton tryAgainBtn;
+	@FXML
+	private ProgressIndicator progressIndicator;
+	@FXML
+	private Label scoreLabel;
+	@FXML
+	private LineChart<Number, Number> lineChart;
+	
+	@FXML
+	public void initialize() {
+		NumberAxis xAxis = new NumberAxis();
+		NumberAxis yAxis = new NumberAxis();
+		lineChart = new LineChart<Number, Number>(xAxis, yAxis);
+		lineChart.setTitle("Details of Quiz");
+		xAxis.setLabel("Question Number");
+		XYChart.Series<Number, Number> series = new XYChart.Series<Number, Number>();
+		series.setName("My Quiz Details");
+		series.getData().add(new XYChart.Data<Number, Number>(1, 10));
+		series.getData().add(new XYChart.Data<Number, Number>(2, 20));
+		series.getData().add(new XYChart.Data<Number, Number>(3, 30));
+		series.getData().add(new XYChart.Data<Number, Number>(4, 40));
+		series.getData().add(new XYChart.Data<Number, Number>(5, 50));
+		series.getData().add(new XYChart.Data<Number, Number>(6, 60));
+		series.getData().add(new XYChart.Data<Number, Number>(7, 70));
+		series.getData().add(new XYChart.Data<Number, Number>(8, 80));
+		series.getData().add(new XYChart.Data<Number, Number>(9, 90));
+		series.getData().add(new XYChart.Data<Number, Number>(10, 100));
+		lineChart.getData().add(series);
+	}
+	
+	@FXML
+	public void goToQuizBegin(ActionEvent event) throws IOException {
+		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+		Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/QuizBeginPage.fxml"));
+		
+		stage.setScene(new Scene(root));
+		stage.show();
+	}
+	
+	@FXML
+	public void showUserDropdown(MouseEvent event) {
+		
+	}
 
 	@FXML
 	public void showNavigation(MouseEvent event) {
