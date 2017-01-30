@@ -155,6 +155,7 @@ public class Page3Controller {
 			c = f.getFoodCompost(n);
 			
 			
+			
 			Label a = new Label(c.getFoodName());
 			a.setFont(Font.font("Amble CN", FontWeight.BOLD, 18));
 			a.setMinWidth(100);

@@ -1,4 +1,2 @@
-first;[Seaweed, Mouldy Cheese]
-morethan;[Rabbit Manure, Fish bones]
-chicken;[Seaweed, Coffee Grounds]
-sea;[Seaweed]
+save1;[Rabbit-Manure]
+second;[Mouldy-Cheese, Seaweed]

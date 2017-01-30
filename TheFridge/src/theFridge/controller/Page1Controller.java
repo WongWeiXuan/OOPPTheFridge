@@ -195,8 +195,8 @@ public class Page1Controller{
 		            );
 	
 	
-	ObservableList<String> data = FXCollections.observableArrayList("Seaweed","Rabbit Manure","Coffee Grounds","Mouldy Cheese","Crab or Lobster Shell",
-			"Fish bones","Citrus Peel","Apple","Old Pasta");
+	ObservableList<String> data = FXCollections.observableArrayList("Seaweed","Rabbit-Manure","Coffee-Grounds","Mouldy-Cheese","Crab-or-Lobster Shell",
+			"Fish-bones","Citrus-Peel","Apple","Old-Pasta");
 	ObservableList<String> a = FXCollections.observableArrayList();
 	ObservableList<String> b = FXCollections.observableArrayList();
 	ObservableList<String> c = FXCollections.observableArrayList();
@@ -280,12 +280,40 @@ public class Page1Controller{
 			ArrayList<String> myList = new ArrayList<String>(Arrays.asList(replace1.split(",")));
 			System.out.println(myList);
 			if(myList.size() == 1){
+				
+				String f="src/theFridge/file/foodcheck.txt";
+				try{
+					PrintWriter writer = new PrintWriter(f);
+					writer.print("");
+					for(int i = 0; i<myList.size(); i++){
+					writer.println(myList.get(i));
+					}
+					writer.close();
+				}catch (IOException e){
+					e.printStackTrace();
+				}
+				
 				Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
 				Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/Page2.fxml"));
 				stage.setScene(new Scene(root));
 		 	    stage.show();
 			}
 			else if (myList.size() > 1){
+				
+				String f="src/theFridge/file/foodcheck.txt";
+				try{
+					PrintWriter writer = new PrintWriter(f);
+					writer.print("");
+					for(int i = 0; i<myList.size(); i++){
+					String ice = myList.get(i);
+					ice = ice.replaceAll("\\s+", "");
+					writer.println(ice);
+					}
+					writer.close();
+				}catch (IOException e){
+					e.printStackTrace();
+				}
+				
 				Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
 				Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/Page3.fxml"));
 				stage.setScene(new Scene(root));
