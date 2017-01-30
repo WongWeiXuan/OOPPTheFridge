@@ -268,9 +268,8 @@ public class Page1Controller{
 	    }
 	    public void again(ActionEvent event){
 	    	String ee = showFiles.getValue().toString();
-	    	if(ee.equals("two")){
+	    	ee = ee.replaceAll("\\s+", "");
 	    	System.out.println(ee);
-	    	}
 	    	
 	    }
 	    

@@ -237,6 +237,11 @@ public class Page3Controller {
 		uu = profileDAO.getUser(n);
 		
 		String ff = uu.getChosenFC();
+		if(ff.equals("[]")){
+			String newly =( "["+ ss + "]");
+			uu.setChosenFC(newly);
+			profileDAO.updateUser(uu);
+		}
 		String replace = ff.replace("[","");
 		String replace1 = replace.replace("]","");
 		ArrayList<String> myList = new ArrayList<String>(Arrays.asList(replace1.split(",")));
