@@ -57,6 +57,7 @@ import javafx.util.Duration;
 import theFridge.DAO.FoodCompostDAO;
 import theFridge.DAO.ProfileDAO;
 import theFridge.model.FoodCompost;
+import theFridge.model.FoodCompostDatas;
 import theFridge.model.User;
 
 public class Page2Controller {
@@ -223,6 +224,20 @@ public class Page2Controller {
 		String last = myList.toString();
 		uu.setChosenFC(last);
 		profileDAO.updateUser(uu);
+		
+		ArrayList<String> saving = new ArrayList<String>();
+		File file9=new File("src/theFridge/file/foodcheck.txt");
+		Scanner sc9=new Scanner(file9) ;
+		while(sc9.hasNextLine()){
+			String nn = sc9.nextLine();
+			saving.add(nn);
+		}
+		String saved = saving.toString();
+		FoodCompostDatas fc = new FoodCompostDatas();
+		fc.setTitle(save0);
+		fc.setFoodType(saved);
+		fc.createFoodCompostDatas();
+		
 		lbl.setVisible(true);
 		lbl.setText("Successfully saved !");
 		textF.setText("");
