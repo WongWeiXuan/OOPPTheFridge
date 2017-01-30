@@ -53,11 +53,15 @@ public class ShoppingListModel {
 		lbl3.setMinWidth(100);
 		lbl3.setPrefWidth(100);
 		lbl3.setAlignment(Pos.CENTER);
-		Label lbl4 = new Label("Max Amount");
+		Label lbl4 = new Label("Grams");
 		lbl4.setMinWidth(100);
 		lbl4.setPrefWidth(100);
 		lbl4.setAlignment(Pos.CENTER);
-		HBoxTitle.getChildren().addAll(lbl1, lbl2, lbl3, lbl4);
+		Label lbl5 = new Label("Max Amount");
+		lbl5.setMinWidth(100);
+		lbl5.setPrefWidth(100);
+		lbl5.setAlignment(Pos.CENTER);
+		HBoxTitle.getChildren().addAll(lbl1, lbl2, lbl3, lbl4, lbl5);
 		HBoxTitle.setPadding(new Insets(10, 10, 10, 10));
 		StocklistView.getItems().add(HBoxTitle);
 
@@ -74,8 +78,10 @@ public class ShoppingListModel {
 	}
 
 	public void displayStocks() throws FileNotFoundException {
+		User user = new User();
+		user = user.getCurrentUser();
 		ShoppingListDAO s = new ShoppingListDAO();
-		ArrayList<StockModel> stocklist = s.getAllStock();
+		ArrayList<StockModel> stocklist = s.getAllStock(user.getName());
 		for (StockModel m : stocklist) {
 			HBox hbox = new HBox();
 			Label nameLbl = new Label(m.getName());
@@ -90,12 +96,16 @@ public class ShoppingListModel {
 			servingLbl.setMinWidth(100);
 			servingLbl.setPrefWidth(100);
 			servingLbl.setAlignment(Pos.CENTER);
+			Label gramslbl = new Label(String.valueOf(m.getGrams()));
+			gramslbl.setMinWidth(100);
+			gramslbl.setPrefWidth(100);
+			gramslbl.setAlignment(Pos.CENTER);
 			Label maxAmountlbl = new Label(String.valueOf(calculateMaxAmount(m)));
 			maxAmountlbl.setMinWidth(100);
 			maxAmountlbl.setPrefWidth(100);
 			maxAmountlbl.setAlignment(Pos.CENTER);
 			m.setMaxAmount(calculateMaxAmount(m));
-			hbox.getChildren().addAll(nameLbl, amountLbl, servingLbl, maxAmountlbl);
+			hbox.getChildren().addAll(nameLbl, amountLbl, servingLbl, gramslbl, maxAmountlbl);
 			hbox.setOnMouseClicked(new EventHandler<MouseEvent>() {
 				public void handle(MouseEvent event) {
 					if(event.getButton() == MouseButton.SECONDARY) {
@@ -220,7 +230,8 @@ public class ShoppingListModel {
 				String name = nodeToString(Label.get(0));
 				String amount = nodeToString(Label.get(1));
 				String serving = nodeToString(Label.get(2));
-				String maxAmount = nodeToString(Label.get(3));
+				String grams = nodeToString(Label.get(3));
+				String maxAmount = nodeToString(Label.get(4));
 
 				try {
 					showStage(selectedIdx);
@@ -228,6 +239,7 @@ public class ShoppingListModel {
 					StockModel sm = a.getStockModelByName(name);
 					sm.setAmount(Double.parseDouble(amount));
 					sm.setServing(Integer.parseInt(serving));
+					sm.setGrams(Integer.parseInt(grams));
 					sm.setMaxAmount(Double.parseDouble(maxAmount));
 					ShoppingListAddPageModel.showNameAndAmount(sm);
 				} catch (IOException e) {
@@ -373,11 +385,15 @@ public class ShoppingListModel {
 		lbl3.setMinWidth(100);
 		lbl3.setPrefWidth(100);
 		lbl3.setAlignment(Pos.CENTER);
-		Label lbl4 = new Label(String.valueOf(s.getMaxAmount()));
+		Label lbl4 = new Label(String.valueOf(s.getGrams()));
 		lbl4.setMinWidth(100);
 		lbl4.setPrefWidth(100);
 		lbl4.setAlignment(Pos.CENTER);
-		hbox.getChildren().addAll(lbl1, lbl2, lbl3, lbl4);
+		Label lbl5 = new Label(String.valueOf(s.getMaxAmount()));
+		lbl5.setMinWidth(100);
+		lbl5.setPrefWidth(100);
+		lbl5.setAlignment(Pos.CENTER);
+		hbox.getChildren().addAll(lbl1, lbl2, lbl3, lbl4, lbl5);
 		StocklistView.getItems().add(hbox);
 		hbox.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent event) {
@@ -496,11 +512,15 @@ public class ShoppingListModel {
 		servingLbl.setMinWidth(100);
 		servingLbl.setPrefWidth(100);
 		servingLbl.setAlignment(Pos.CENTER);
+		Label gramslbl = new Label(String.valueOf(model.getGrams()));
+		gramslbl.setMinWidth(100);
+		gramslbl.setPrefWidth(100);
+		gramslbl.setAlignment(Pos.CENTER);
 		Label maxAmountlbl = new Label(String.valueOf(calculateMaxAmount(model)));
 		maxAmountlbl.setMinWidth(100);
 		maxAmountlbl.setPrefWidth(100);
 		maxAmountlbl.setAlignment(Pos.CENTER);
-		hbox.getChildren().addAll(nameLbl, amountLbl, servingLbl, maxAmountlbl);
+		hbox.getChildren().addAll(nameLbl, amountLbl, servingLbl, gramslbl, maxAmountlbl);
 		hbox.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent event) {
 				if(event.getButton() == MouseButton.SECONDARY) {
@@ -617,4 +637,11 @@ public class ShoppingListModel {
 		}
 		return false;
 	}
+	
+	public boolean checkUser(String name) throws FileNotFoundException{
+		ShoppingListDAO dao = new ShoppingListDAO();
+		return dao.checkUser(name);
+	}
+	
+	
 }

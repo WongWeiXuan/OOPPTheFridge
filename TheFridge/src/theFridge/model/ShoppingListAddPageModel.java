@@ -1,5 +1,6 @@
 package theFridge.model;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Optional;
 
@@ -10,6 +11,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.TextField;
+import theFridge.DAO.ServingDAO;
 import theFridge.DAO.ShoppingListDAO;
 
 public class ShoppingListAddPageModel {
@@ -152,7 +154,8 @@ public class ShoppingListAddPageModel {
 		edit = true;
 	}
 	
-	public static void initializeComboBox(){
-		nameField.getItems().addAll(c)
+	public static void initializeComboBox() throws FileNotFoundException{
+		ServingDAO dao = new ServingDAO();
+		nameField.getItems().addAll(dao.getAllFoodList());
 	}
 }

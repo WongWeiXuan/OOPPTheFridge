@@ -22,6 +22,7 @@ import javafx.util.Duration;
 import theFridge.model.ShoppingListAddPageModel;
 import theFridge.model.ShoppingListModel;
 import theFridge.model.ShoppingListQRCodePageModel;
+import theFridge.model.User;
 import javafx.event.ActionEvent;
 import javafx.scene.layout.HBox;
 import com.jfoenix.controls.JFXListView;
@@ -67,9 +68,12 @@ public class ShoppingListController {
 		ShoppingListModel first = new ShoppingListModel(StocklistView, Popup, ListlistView, Popup1);
 		ShoppingListAddPageModel.model = first;
 		first.createTitle();
-		first.displayStocks();
-		first.displayShopping();
-		
+		User user = new User();
+		user = user.getCurrentUser();
+		first.checkUser(user.getName());
+			first.displayStocks();
+			first.displayShopping();
+			
 		first.startPopup();
 	}
 	
