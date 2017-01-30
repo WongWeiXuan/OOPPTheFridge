@@ -39,8 +39,10 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import theFridge.DAO.FoodCompostDatasDAO;
 import theFridge.DAO.ProfileDAO;
 import theFridge.model.First;
+import theFridge.model.FoodCompostDatas;
 import theFridge.model.User;
 
 
@@ -255,7 +257,6 @@ public class Page1Controller{
 	    			else{
 	    				newItem =s;
 	    				alert.setVisible(false);
-	    				System.out.println(s);
 	    				
 	    			}
 	    		}
@@ -266,10 +267,33 @@ public class Page1Controller{
 	    	delete.setOpacity(1);
 	    	clear.setOpacity(1);
 	    }
-	    public void again(ActionEvent event){
+	    public void again(ActionEvent event) throws IOException{
 	    	String ee = showFiles.getValue().toString();
 	    	ee = ee.replaceAll("\\s+", "");
 	    	System.out.println(ee);
+	    	FoodCompostDatas fc = new FoodCompostDatas();
+	    	FoodCompostDatasDAO fcc = new FoodCompostDatasDAO();
+	    	fc = fcc.getFoodCompostDatas(ee);
+	    	String nope = fc.getFoodType();
+	    	String replace = nope.replace("[","");
+			String replace1 = replace.replace("]","");
+			ArrayList<String> myList = new ArrayList<String>(Arrays.asList(replace1.split(",")));
+			System.out.println(myList);
+			if(myList.size() == 1){
+				Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+				Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/Page2.fxml"));
+				stage.setScene(new Scene(root));
+		 	    stage.show();
+			}
+			else if (myList.size() > 1){
+				Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+				Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/Page3.fxml"));
+				stage.setScene(new Scene(root));
+		 	    stage.show();
+			}
+			
+			
+			
 	    	
 	    }
 	    
