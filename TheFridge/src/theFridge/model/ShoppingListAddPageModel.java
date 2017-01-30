@@ -3,6 +3,8 @@ package theFridge.model;
 import java.io.IOException;
 import java.util.Optional;
 
+import com.jfoenix.controls.JFXComboBox;
+
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
@@ -12,7 +14,7 @@ import theFridge.DAO.ShoppingListDAO;
 
 public class ShoppingListAddPageModel {
 	public static ShoppingListModel model;
-	static TextField nameField = null;
+	static JFXComboBox<String> nameField = null;
 	static Spinner<Double> amountSpinner;
 	static int index;
 	public static boolean edit = false;
@@ -26,17 +28,17 @@ public class ShoppingListAddPageModel {
 		super();
 	}
 	
-	public ShoppingListAddPageModel(TextField nameFields, Spinner<Double> amountSpinners) {
+	public ShoppingListAddPageModel(JFXComboBox<String> nameFields, Spinner<Double> amountSpinners) {
 		super();
 		nameField = nameFields;
 		amountSpinner = amountSpinners;
 	}
 
 	public boolean closeAndShow() throws IOException{
-		String name = nameField.getText();
+		String name = nameField.getValue();
     	double amount = amountSpinner.getValue();
     	
-    	if(nameField.getText() != null && !nameField.getText().isEmpty()){
+    	if(nameField.getValue() != null && nameField.getValue() != ""){
     		//if(!ShoppingListModel.checkExisting(name))
 		    	if(source == "Stock"){
 			    	if(edit == true){
@@ -133,7 +135,7 @@ public class ShoppingListAddPageModel {
 	
 	public static void showNameAndAmount(ListModel lm){
 		listModel = lm;
-		nameField.setText(lm.getName());
+		nameField.setValue(lm.getName());
 		amountSpinner.getValueFactory().setValue(lm.getAmount());
 		nameField.setDisable(true);
 		nameField.setOpacity(1);
@@ -142,11 +144,15 @@ public class ShoppingListAddPageModel {
 	
 	public static void showNameAndAmount(StockModel sm){
 		stockModel = sm;
-		nameField.setText(sm.getName());
+		nameField.setValue(sm.getName());
 		amountSpinner.getValueFactory().setValue(sm.getAmount());
 		serving = sm.getServing();
 		maxAmount = sm.getMaxAmount();
 		nameField.setDisable(false);
 		edit = true;
+	}
+	
+	public static void initializeComboBox(){
+		nameField.getItems().addAll(c)
 	}
 }

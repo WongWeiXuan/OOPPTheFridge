@@ -11,6 +11,7 @@ public class ServingToGrams {
 		else if(type == "Bread"){
 			return (int) (serving * 50);
 		}
+		return 0;
 	}
 
 	public static double GramsToServing(int grams, String fruitsOrVege) {

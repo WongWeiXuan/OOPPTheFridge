@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 
 import javafx.event.ActionEvent;
@@ -26,7 +27,7 @@ public class ShoppingListAddPageController {
     @FXML
     private ImageView CloseImage;
     @FXML
-    private JFXTextField nameField;
+    private JFXComboBox<String> nameField;
     @FXML
     private Spinner<Double> amountSpinner;
     @FXML
