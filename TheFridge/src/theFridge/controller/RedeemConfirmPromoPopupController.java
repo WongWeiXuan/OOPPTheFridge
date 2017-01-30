@@ -51,7 +51,6 @@ public class RedeemConfirmPromoPopupController {
 		User user = new User();
 		user = user.getCurrentUser();
 		user.setPromoCode(promoCode);
-		user.addPromoCode();
 		user.setTotalPoints(user.getTotalPoints() - rDV.getVoucherPoints());
 		user.updateUser();
 		
