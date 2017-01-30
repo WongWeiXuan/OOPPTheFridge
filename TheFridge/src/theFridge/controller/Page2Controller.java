@@ -217,6 +217,12 @@ public class Page2Controller {
 		uu = profileDAO.getUser(n);
 		
 		String ff = uu.getChosenFC();
+		if(ff.equals("[]")){
+			String newly =( "["+ save0 + "]");
+			uu.setChosenFC(newly);
+			profileDAO.updateUser(uu);
+		}
+		else{
 		String replace = ff.replace("[","");
 		String replace1 = replace.replace("]","");
 		ArrayList<String> myList = new ArrayList<String>(Arrays.asList(replace1.split(",")));
@@ -224,6 +230,8 @@ public class Page2Controller {
 		String last = myList.toString();
 		uu.setChosenFC(last);
 		profileDAO.updateUser(uu);
+		}
+		
 		
 		ArrayList<String> saving = new ArrayList<String>();
 		File file9=new File("src/theFridge/file/foodcheck.txt");

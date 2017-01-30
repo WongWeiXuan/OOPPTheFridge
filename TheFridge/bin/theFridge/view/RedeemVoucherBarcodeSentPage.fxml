@@ -163,7 +163,7 @@
                   </AnchorPane>
                   <VBox alignment="CENTER" prefWidth="980.0" style="-fx-background-color: #FCE4EC;" HBox.hgrow="ALWAYS">
                      <children>
-                        <Label text="A barcode code has been sent to your email" textFill="#e91e63">
+                        <Label text="A barcode has been sent to your email" textFill="#e91e63">
                            <font>
                               <Font name="Garamond" size="36.0" />
                            </font>

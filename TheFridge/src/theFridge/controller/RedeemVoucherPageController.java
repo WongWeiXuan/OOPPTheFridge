@@ -177,6 +177,8 @@ public class RedeemVoucherPageController {
 	
 	@FXML
 	public void showPopup(MouseEvent event) throws FileNotFoundException {
+		RedeemConfirmPopupController.stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+		
 		if (event.getSource().equals(voucher1)) {
 			/*
 			File file=new File("src/theFridge/file/confirm.txt");
@@ -208,14 +210,16 @@ public class RedeemVoucherPageController {
 					stage.showAndWait();
 				}
 				else {
+					@SuppressWarnings("rawtypes")
+					Dialog dialog = new Dialog();
 					Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemConfirmPopup.fxml"));
-					Scene scene = new Scene(root);
-					Stage stage = new Stage();
+					Stage stage = (Stage) dialog.getDialogPane().getScene().getWindow();
 					stage.initStyle(StageStyle.TRANSPARENT);
+					Scene scene = new Scene(root);
 					stage.setX(320);
 					stage.setY(430);
 					stage.setScene(scene);
-					stage.show();
+					stage.showAndWait();
 				}
 				
 			} catch (IOException e) {
@@ -242,14 +246,16 @@ public class RedeemVoucherPageController {
 					stage.showAndWait();
 				}
 				else {
+					@SuppressWarnings("rawtypes")
+					Dialog dialog = new Dialog();
 					Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemConfirmPopup.fxml"));
-					Scene scene = new Scene(root);
-					Stage stage = new Stage();
+					Stage stage = (Stage) dialog.getDialogPane().getScene().getWindow();
 					stage.initStyle(StageStyle.TRANSPARENT);
+					Scene scene = new Scene(root);
 					stage.setX(320);
 					stage.setY(430);
 					stage.setScene(scene);
-					stage.show();
+					stage.showAndWait();
 				}
 				
 			} catch (IOException e) {
@@ -276,14 +282,16 @@ public class RedeemVoucherPageController {
 					stage.showAndWait();
 				}
 				else {
+					@SuppressWarnings("rawtypes")
+					Dialog dialog = new Dialog();
 					Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemConfirmPopup.fxml"));
-					Scene scene = new Scene(root);
-					Stage stage = new Stage();
+					Stage stage = (Stage) dialog.getDialogPane().getScene().getWindow();
 					stage.initStyle(StageStyle.TRANSPARENT);
+					Scene scene = new Scene(root);
 					stage.setX(320);
 					stage.setY(430);
 					stage.setScene(scene);
-					stage.show();
+					stage.showAndWait();
 				}
 				
 			} catch (IOException e) {
@@ -310,14 +318,16 @@ public class RedeemVoucherPageController {
 					stage.showAndWait();
 				}
 				else {
+					@SuppressWarnings("rawtypes")
+					Dialog dialog = new Dialog();
 					Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemConfirmPopup.fxml"));
-					Scene scene = new Scene(root);
-					Stage stage = new Stage();
+					Stage stage = (Stage) dialog.getDialogPane().getScene().getWindow();
 					stage.initStyle(StageStyle.TRANSPARENT);
+					Scene scene = new Scene(root);
 					stage.setX(320);
 					stage.setY(430);
 					stage.setScene(scene);
-					stage.show();
+					stage.showAndWait();
 				}
 				
 			} catch (IOException e) {
