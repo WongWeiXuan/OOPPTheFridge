@@ -2,9 +2,12 @@ package theFridge.controller;
 
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 import com.jfoenix.controls.JFXButton;
@@ -80,6 +83,8 @@ public class Page1Controller{
     private JFXButton clear;
     @FXML
     private JFXButton delete;
+    @FXML
+    private JFXComboBox showFiles;
     
 
 	@FXML
@@ -192,7 +197,20 @@ public class Page1Controller{
 	ObservableList<String> b = FXCollections.observableArrayList();
 	ObservableList<String> c = FXCollections.observableArrayList();
 	
-	    public void initialize() {
+	    public void initialize() throws FileNotFoundException {
+	    	File file=new File("src/theFridge/file/confirm.txt");
+			Scanner sc=new Scanner(file) ;
+			String n = sc.nextLine();
+			ProfileDAO profileDAO = new ProfileDAO();
+			User uu = new User();
+			uu = profileDAO.getUser(n);
+			String aa = uu.getChosenFC();
+			String replace = aa.replace("[","");
+			String replace1 = replace.replace("]","");
+			ArrayList<String> myList = new ArrayList<String>(Arrays.asList(replace1.split(",")));
+			ObservableList<String> cc = FXCollections.observableArrayList(myList);
+			showFiles.setItems(cc);
+			
 	        table1.setCellValueFactory(new PropertyValueFactory<First, String>("foodCanCompost"));
 	        table2.setCellValueFactory(new PropertyValueFactory<First, String>("foodCannotCompost"));
 	        tableView1.setItems(list);

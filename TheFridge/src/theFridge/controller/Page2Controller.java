@@ -19,6 +19,7 @@ import javafx.scene.image.ImageView;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 import com.jfoenix.controls.JFXButton;
@@ -56,6 +57,7 @@ import javafx.util.Duration;
 import theFridge.DAO.FoodCompostDAO;
 import theFridge.DAO.ProfileDAO;
 import theFridge.model.FoodCompost;
+import theFridge.model.FoodCompostDatas;
 import theFridge.model.User;
 
 public class Page2Controller {
@@ -109,6 +111,8 @@ public class Page2Controller {
 	private TextFlow stacking;
 	@FXML
 	private JFXTextField textF;
+	@FXML
+	private Label lbl;
 
 	// Event Listener on VBox[#naviPreview].onMouseEntered
 	@FXML
@@ -201,7 +205,44 @@ public class Page2Controller {
 	}
 	public void saving(ActionEvent event) throws FileNotFoundException{	
 		String save0 = textF.getText();
-		String save = chosenFood.getText();
+		if(save0.equals("")){
+			lbl.setVisible(true);
+		}
+		else{
+		File file1=new File("src/theFridge/file/confirm.txt");
+		Scanner sc1=new Scanner(file1) ;
+		String n = sc1.nextLine();
+		ProfileDAO profileDAO = new ProfileDAO();
+		User uu = new User();
+		uu = profileDAO.getUser(n);
+		
+		String ff = uu.getChosenFC();
+		String replace = ff.replace("[","");
+		String replace1 = replace.replace("]","");
+		ArrayList<String> myList = new ArrayList<String>(Arrays.asList(replace1.split(",")));
+		myList.add(save0);
+		String last = myList.toString();
+		uu.setChosenFC(last);
+		profileDAO.updateUser(uu);
+		
+		ArrayList<String> saving = new ArrayList<String>();
+		File file9=new File("src/theFridge/file/foodcheck.txt");
+		Scanner sc9=new Scanner(file9) ;
+		while(sc9.hasNextLine()){
+			String nn = sc9.nextLine();
+			saving.add(nn);
+		}
+		String saved = saving.toString();
+		FoodCompostDatas fc = new FoodCompostDatas();
+		fc.setTitle(save0);
+		fc.setFoodType(saved);
+		fc.createFoodCompostDatas();
+		
+		lbl.setVisible(true);
+		lbl.setText("Successfully saved !");
+		textF.setText("");
+		}
+		/*String save = chosenFood.getText();
 		ArrayList<String> haha = new ArrayList<String>();
 		haha.add(save0);
 		haha.add(save);
@@ -213,6 +254,7 @@ public class Page2Controller {
 		uu = profileDAO.getUser(n);
 		uu.setChosenFC(haha);
 		profileDAO.updateUser(uu);
+		*/
 	}
 	/*public void restart(ActionEvent event){
 		mp.seek(mp.getStartTime());
