@@ -85,6 +85,8 @@ public class Page1Controller{
     private JFXButton delete;
     @FXML
     private JFXComboBox showFiles;
+    @FXML
+    private JFXButton showing;
     
 
 	@FXML
@@ -263,6 +265,13 @@ public class Page1Controller{
 	    	}
 	    	delete.setOpacity(1);
 	    	clear.setOpacity(1);
+	    }
+	    public void again(ActionEvent event){
+	    	String ee = showFiles.getValue().toString();
+	    	if(ee.equals("two")){
+	    	System.out.println(ee);
+	    	}
+	    	
 	    }
 	    
 }

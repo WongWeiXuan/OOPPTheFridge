@@ -205,10 +205,18 @@
                                     <Insets top="20.0" />
                                  </VBox.margin>
                                  <children>
-                                    <JFXComboBox fx:id="showFiles" prefHeight="31.0" prefWidth="170.0" promptText="Files saved" />
+                                    <JFXComboBox fx:id="showFiles" prefHeight="31.0" prefWidth="125.0" promptText="Files saved" />
+                                    <JFXButton fx:id="going" onAction="#again" prefHeight="31.0" prefWidth="71.0" style="-fx-background-color: blue;" text="Go">
+                                       <font>
+                                          <Font name="Arial Black" size="16.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets left="5.0" right="5.0" />
+                                       </HBox.margin>
+                                    </JFXButton>
                                     <JFXComboBox fx:id="choice" onAction="#chosen1" prefHeight="31.0" prefWidth="586.0" promptText="Select Food You Want To Compost">
                                        <HBox.margin>
-                                          <Insets left="50.0" />
+                                          <Insets />
                                        </HBox.margin>
                                     </JFXComboBox>
                                     <JFXButton fx:id="clear" onAction="#clearAll" opacity="0.2" style="-fx-border-color: red; -fx-border-radius: 5; -fx-background-color: red;" text="Clear">

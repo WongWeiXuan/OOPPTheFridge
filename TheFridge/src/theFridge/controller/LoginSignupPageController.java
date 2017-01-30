@@ -103,6 +103,7 @@ public class LoginSignupPageController {
 					User one = new User();
 					one.setUsername(Username);
 					one.setPassword(Password);
+					one.setChosenFC("[]");
 					SignupModel p = signupDAO.getPerson(Username);
 					one.setEmail(p.getEmail());
 					one.createUser();

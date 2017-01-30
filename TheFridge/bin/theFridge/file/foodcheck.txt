@@ -1,7 +1,1 @@
 Rabbit Manure
-<<<<<<< HEAD
-Coffee Grounds
-Old Pasta
-=======
-Apple
->>>>>>> origin/master
