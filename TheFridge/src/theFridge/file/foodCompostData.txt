@@ -1,9 +1,9 @@
 Seaweed;src/theFridge/sound/Seaweed.mp4;Seaweed breaks down quickly, especially when in an enclosed sack. If you leave the seaweed in the sacks too long, it gets sludgy and slimy, and is more difficult to spread evenly over the soil.
-Rabbit Manure;src/theFridge/sound/Rabbit manure.mp4; Fishes are delicious
-Coffee Grounds;src/theFridge/sound/Coffee Grounds.mp4;Coffee Grounds are delicious
-Mouldy Cheese;src/theFridge/sound/Cheese.mp4;Mouldy Cheese are delicious
-Crab or Lobster Shell;src/theFridge/sound/Fish and Crab.mp4;Crab and Lobster are delicious
-Fish bones;src/theFridge/sound/Fish and Crab.mp4;Fish bones are delicious
-Citrus Peel;src/theFridge/sound/Citrus peel.mp4;Cirtus Peel are delicious
+Rabbit-Manure;src/theFridge/sound/Rabbit manure.mp4; Fishes are delicious
+Coffee-Grounds;src/theFridge/sound/Coffee Grounds.mp4;Coffee Grounds are delicious
+Mouldy-Cheese;src/theFridge/sound/Cheese.mp4;Mouldy Cheese are delicious
+Crab-or-Lobster Shell;src/theFridge/sound/Fish and Crab.mp4;Crab and Lobster are delicious
+Fish-bones;src/theFridge/sound/Fish and Crab.mp4;Fish bones are delicious
+Citrus-Peel;src/theFridge/sound/Citrus peel.mp4;Cirtus Peel are delicious
 Apple;src/theFridge/sound/Apple.mp4;Apple are delicious
-Old Pasta;src/theFridge/sound/Pasta.mp4;Pasta are delicious
+Old-Pasta;src/theFridge/sound/Pasta.mp4;Pasta are delicious

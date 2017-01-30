@@ -2,9 +2,12 @@ package theFridge.controller;
 
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 import com.jfoenix.controls.JFXButton;
@@ -36,8 +39,10 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import theFridge.DAO.FoodCompostDatasDAO;
 import theFridge.DAO.ProfileDAO;
 import theFridge.model.First;
+import theFridge.model.FoodCompostDatas;
 import theFridge.model.User;
 
 
@@ -80,6 +85,10 @@ public class Page1Controller{
     private JFXButton clear;
     @FXML
     private JFXButton delete;
+    @FXML
+    private JFXComboBox showFiles;
+    @FXML
+    private JFXButton showing;
     
 
 	@FXML
@@ -186,13 +195,26 @@ public class Page1Controller{
 		            );
 	
 	
-	ObservableList<String> data = FXCollections.observableArrayList("Seaweed","Rabbit Manure","Coffee Grounds","Mouldy Cheese","Crab or Lobster Shell",
-			"Fish bones","Citrus Peel","Apple","Old Pasta");
+	ObservableList<String> data = FXCollections.observableArrayList("Seaweed","Rabbit-Manure","Coffee-Grounds","Mouldy-Cheese","Crab-or-Lobster Shell",
+			"Fish-bones","Citrus-Peel","Apple","Old-Pasta");
 	ObservableList<String> a = FXCollections.observableArrayList();
 	ObservableList<String> b = FXCollections.observableArrayList();
 	ObservableList<String> c = FXCollections.observableArrayList();
 	
-	    public void initialize() {
+	    public void initialize() throws FileNotFoundException {
+	    	File file=new File("src/theFridge/file/confirm.txt");
+			Scanner sc=new Scanner(file) ;
+			String n = sc.nextLine();
+			ProfileDAO profileDAO = new ProfileDAO();
+			User uu = new User();
+			uu = profileDAO.getUser(n);
+			String aa = uu.getChosenFC();
+			String replace = aa.replace("[","");
+			String replace1 = replace.replace("]","");
+			ArrayList<String> myList = new ArrayList<String>(Arrays.asList(replace1.split(",")));
+			ObservableList<String> cc = FXCollections.observableArrayList(myList);
+			showFiles.setItems(cc);
+			
 	        table1.setCellValueFactory(new PropertyValueFactory<First, String>("foodCanCompost"));
 	        table2.setCellValueFactory(new PropertyValueFactory<First, String>("foodCannotCompost"));
 	        tableView1.setItems(list);
@@ -235,7 +257,6 @@ public class Page1Controller{
 	    			else{
 	    				newItem =s;
 	    				alert.setVisible(false);
-	    				System.out.println(s);
 	    				
 	    			}
 	    		}
@@ -245,6 +266,63 @@ public class Page1Controller{
 	    	}
 	    	delete.setOpacity(1);
 	    	clear.setOpacity(1);
+	    }
+	    public void again(ActionEvent event) throws IOException{
+	    	String ee = showFiles.getValue().toString();
+	    	ee = ee.replaceAll("\\s+", "");
+	    	System.out.println(ee);
+	    	FoodCompostDatas fc = new FoodCompostDatas();
+	    	FoodCompostDatasDAO fcc = new FoodCompostDatasDAO();
+	    	fc = fcc.getFoodCompostDatas(ee);
+	    	String nope = fc.getFoodType();
+	    	String replace = nope.replace("[","");
+			String replace1 = replace.replace("]","");
+			ArrayList<String> myList = new ArrayList<String>(Arrays.asList(replace1.split(",")));
+			System.out.println(myList);
+			if(myList.size() == 1){
+				
+				String f="src/theFridge/file/foodcheck.txt";
+				try{
+					PrintWriter writer = new PrintWriter(f);
+					writer.print("");
+					for(int i = 0; i<myList.size(); i++){
+					writer.println(myList.get(i));
+					}
+					writer.close();
+				}catch (IOException e){
+					e.printStackTrace();
+				}
+				
+				Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+				Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/Page2.fxml"));
+				stage.setScene(new Scene(root));
+		 	    stage.show();
+			}
+			else if (myList.size() > 1){
+				
+				String f="src/theFridge/file/foodcheck.txt";
+				try{
+					PrintWriter writer = new PrintWriter(f);
+					writer.print("");
+					for(int i = 0; i<myList.size(); i++){
+					String ice = myList.get(i);
+					ice = ice.replaceAll("\\s+", "");
+					writer.println(ice);
+					}
+					writer.close();
+				}catch (IOException e){
+					e.printStackTrace();
+				}
+				
+				Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+				Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/Page3.fxml"));
+				stage.setScene(new Scene(root));
+		 	    stage.show();
+			}
+			
+			
+			
+	    	
 	    }
 	    
 }

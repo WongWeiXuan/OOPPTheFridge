@@ -21,22 +21,24 @@ public class User {
 		private int totalPoints;
 		private String promoCode;
 		private long endTime;
-		private ArrayList<String> chosenFC;
+		private String chosenFC;
 		
 		public User() {
 			super();
 		}
-		
-		public ArrayList<String> getChosenFC() {
+
+		public String getChosenFC() {
 			return chosenFC;
 		}
 
-		public void setChosenFC(ArrayList<String> chosenFC) {
+		public void setChosenFC(String chosenFC) {
 			this.chosenFC = chosenFC;
 		}
 
+
+
 		public User(String name, String username, String password, String email, String country, String height,
-				String weight, String age, String gender, int totalPoints, String promoCode, long endTime, ArrayList<String> chosenFC) {
+				String weight, String age, String gender, int totalPoints, String promoCode, long endTime, String chosenFC) {
 			super();
 			this.username = username;
 			this.password = password;
