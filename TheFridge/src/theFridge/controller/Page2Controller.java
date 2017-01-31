@@ -322,6 +322,10 @@ public class Page2Controller {
 
 	public void getGrams(ActionEvent event) throws FileNotFoundException{
 		String weight= grams.getText();
+		if(weight.equals("") || !(weight.matches("[0-9]+"))){
+			steps.setText("Please enter a integer");
+		}
+		else{
 		//steps.setText("You have entered " + weight + "grams of food\n" + "Please give me a A FOR MY HARDWORK");
 		File file=new File("src/theFridge/file/foodcheck.txt");
 		Scanner sc=new Scanner(file) ;
@@ -331,6 +335,7 @@ public class Page2Controller {
 		c = f.getFoodCompost(n);
 		steps.setText(c.getInstruction());
 		steps.setFont(Font.font ("Verdana", 24));
+		}
 		
 		
 		

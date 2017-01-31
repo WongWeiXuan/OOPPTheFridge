@@ -223,7 +223,7 @@
                            <children>
                               <ImageView fx:id="imagePlay" fitHeight="35.0" fitWidth="35.0" onMouseClicked="#showVideo" onMouseEntered="#hover" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../picture/playButton.jpg" />
+                                    <Image url="@../picture/playbb.png" />
                                  </image>
                                  <HBox.margin>
                                     <Insets />
