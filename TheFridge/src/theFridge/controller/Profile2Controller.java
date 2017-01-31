@@ -216,6 +216,12 @@ public class Profile2Controller {
 	private Label label7;
 	@FXML
 	private VBox vbOx;
+	@FXML
+	private PasswordField CurrPass;
+	@FXML
+	private PasswordField RePassText;
+	@FXML
+	private Label alerting;
 
 	// Event Listener on VBox[#naviPreview].onMouseEntered
 	@FXML
@@ -304,29 +310,47 @@ public class Profile2Controller {
 		label0.setOpacity(1);
 	}
 	public void save2(ActionEvent event) throws FileNotFoundException {
+		String oldpassword = CurrPass.getText();
 		String password= PassText.getText();
+		String repassword = RePassText.getText();
 		File file=new File("src/theFridge/file/confirm.txt");
 		Scanner sc=new Scanner(file) ;
 		String n = sc.nextLine();
 		ProfileDAO profileDAO = new ProfileDAO();
 		User uu = new User();
 		uu = profileDAO.getUser(n);
-		uu.setPassword(password);
-		profileDAO.updateUser(uu);
-		SignupDAO u = new SignupDAO();
-		SignupModel sg = new SignupModel();
-		sg = u.getPerson(n); //Changed from SignupDAO.getPerson(n) to u.getPerson(n)
-		sg.setPassword(password);
-		sg.updatePerson();
-		//u.updatePerson(sg);
+		String oldalready = uu.getPassword();
+		if(oldpassword.equals(oldalready)){
+			if(password.equals(repassword)){
+				uu.setPassword(password);
+				profileDAO.updateUser(uu);
+				SignupDAO u = new SignupDAO();
+				SignupModel sg = new SignupModel();
+				sg = u.getPerson(n); //Changed from SignupDAO.getPerson(n) to u.getPerson(n)
+				sg.setPassword(password);
+				sg.updatePerson();
+			}
+			else{
+				alerting.setText("Password does not match");
+				alerting.setVisible(true);
+			}
+		}
+		else{
+			alerting.setText("Please check your old password");
+			alerting.setVisible(true);
+		}
+		CurrPass.setText("");
 		PassText.setText("");
+		RePassText.setText("");
 		
 	}
 	// Event Listener on JFXButton[#btnCancel2].onAction
 	@FXML
 	public void cancel2(ActionEvent event) {
 		vbOx.setVisible(false);
+		CurrPass.setText("");
 		PassText.setText("");
+		RePassText.setText("");
 		Epassword.setVisible(true);
 		hBox2.setVisible(true);
 		passworD.setOpacity(1);
