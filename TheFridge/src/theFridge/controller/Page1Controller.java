@@ -216,7 +216,9 @@ public class Page1Controller{
 			ArrayList<String> myList = new ArrayList<String>(Arrays.asList(replace1.split(",")));
 			ObservableList<String> cc = FXCollections.observableArrayList(myList);
 			for(int i=0; i<cc.size();i++){
-				if(cc.get(i).equals("null") || cc.get(i).equals("")){
+				String vv = cc.get(i);
+				vv = vv.replaceAll("\\s+", "");
+				if(vv.equals("null") || vv.equals("")){
 					cc.remove(i);
 				}
 					

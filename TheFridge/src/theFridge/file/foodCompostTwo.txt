@@ -1,2 +1,3 @@
-first;[Rabbit-Manure, Crab-or-Lobster-Shell]
-candc;[Seaweed, Apple]
+first;[Crab-or-Lobster-Shell]
+haha;[Crab-or-Lobster-Shell]
+fb;[Fish-bones]
