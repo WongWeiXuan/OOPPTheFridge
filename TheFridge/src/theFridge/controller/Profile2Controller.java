@@ -371,6 +371,11 @@ public class Profile2Controller {
 		uu = profileDAO.getUser(n);
 		uu.setEmail(email);
 		profileDAO.updateUser(uu);
+		SignupDAO u = new SignupDAO();
+		SignupModel sg = new SignupModel();
+		sg = u.getPerson(n); //Changed from SignupDAO.getPerson(n) to u.getPerson(n)
+		sg.setEmail(email);
+		sg.updatePerson();
 		EMText.setText("");
 	}
 	// Event Listener on JFXButton[#btnCancel3].onAction
