@@ -303,6 +303,7 @@ public class Page1Controller{
 					writer.print("");
 					for(int i = 0; i<myList.size(); i++){
 					writer.println(myList.get(i));
+					writer.println("savedone");
 					}
 					writer.close();
 				}catch (IOException e){
@@ -320,6 +321,7 @@ public class Page1Controller{
 				try{
 					PrintWriter writer = new PrintWriter(f);
 					writer.print("");
+					writer.println("savedone");
 					for(int i = 0; i<myList.size(); i++){
 					String ice = myList.get(i);
 					ice = ice.replaceAll("\\s+", "");

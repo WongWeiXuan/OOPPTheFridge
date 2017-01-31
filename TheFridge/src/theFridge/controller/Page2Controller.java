@@ -183,12 +183,39 @@ public class Page2Controller {
  	    mp.stop();
 	}
 	public void initialize() throws FileNotFoundException {
+		String ded = null;
 		File file=new File("src/theFridge/file/foodcheck.txt");
 		Scanner sc=new Scanner(file) ;
-		String n = sc.nextLine();
+		while(sc.hasNextLine()){
+			ded = sc.nextLine();
+			System.out.println(ded);
+		}
+		if(ded.equals("savedone")){
+			File file2=new File("src/theFridge/file/foodcheck.txt");
+			Scanner sc2=new Scanner(file) ;
+			String load = sc2.nextLine();
+			FoodCompostDAO f = new FoodCompostDAO();
+			FoodCompost c = new FoodCompost();
+			c = f.getFoodCompost(load);
+			chosenFood.setText(c.getFoodName());
+			String path = new File(c.getVideoURL()).getAbsolutePath();
+			me = new Media(new File(path).toURI().toString());
+			mp = new MediaPlayer(me);
+			video.setMediaPlayer(mp);
+			slider.setValue(mp.getVolume() * 100);
+			slider.valueProperty().addListener(new InvalidationListener(){
+				@Override
+				public void invalidated(Observable observable) {
+					mp.setVolume(slider.getValue() / 100);
+				}
+			});
+			textF.setVisible(false);
+			saveBtn.setVisible(false);
+		}
+		else{
 		FoodCompostDAO f = new FoodCompostDAO();
 		FoodCompost c = new FoodCompost();
-		c = f.getFoodCompost(n);
+		c = f.getFoodCompost(ded);
 		chosenFood.setText(c.getFoodName());
 		String path = new File(c.getVideoURL()).getAbsolutePath();
 		me = new Media(new File(path).toURI().toString());
@@ -199,12 +226,14 @@ public class Page2Controller {
 			@Override
 			public void invalidated(Observable observable) {
 				mp.setVolume(slider.getValue() / 100);
-				
 			}
 		});
+		}
+		
 	}
 	public void saving(ActionEvent event) throws FileNotFoundException{	
 		String save0 = textF.getText();
+		String or = null;
 		String gh = null;
 		if(save0.equals("")){
 			lbl.setVisible(true);
@@ -218,6 +247,7 @@ public class Page2Controller {
 		uu = profileDAO.getUser(n);
 		String ff = uu.getChosenFC();
 		if(ff.equals("[]")){
+			or = "false";
 			String newly =( "["+ save0 + "]");
 			uu.setChosenFC(newly);
 			profileDAO.updateUser(uu);
@@ -231,11 +261,12 @@ public class Page2Controller {
 			io = io.replaceAll("\\s+", "");
 			if(io.equals(save0)){
 				System.out.println("repeat");
-				//gh = null;
+				or = "true";
 				break;
 			}
 			else{
 				 gh = save0;
+				 or = "false";
 			}
 		}
 			System.out.println(gh);
@@ -248,7 +279,7 @@ public class Page2Controller {
 		
 		}
 		
-		
+		if(or.equals("false")){
 		ArrayList<String> saving = new ArrayList<String>();
 		File file9=new File("src/theFridge/file/foodcheck.txt");
 		Scanner sc9=new Scanner(file9) ;
@@ -261,6 +292,7 @@ public class Page2Controller {
 		fc.setTitle(save0);
 		fc.setFoodType(saved);
 		fc.createFoodCompostDatas();
+		}
 		
 		lbl.setVisible(true);
 		lbl.setText("Successfully saved !");

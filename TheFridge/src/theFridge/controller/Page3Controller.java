@@ -81,6 +81,8 @@ public class Page3Controller {
 	private JFXTextField textF0;
 	@FXML
 	private Label labelAlert;
+	@FXML
+	private HBox showingBox;
 	
 
 	// Event Listener on VBox[#naviPreview].onMouseEntered
@@ -146,16 +148,96 @@ public class Page3Controller {
 	
 	private double total = 0;
 	public void initialize() throws FileNotFoundException{
+		ArrayList<String> a1 = new ArrayList<String>();
+		String nope = "savedone";
 		File file=new File("src/theFridge/file/foodcheck.txt");
 		Scanner sc=new Scanner(file) ;
 		while(sc.hasNextLine()){
 			String n = sc.nextLine();
+			a1.add(n);
+		}
+		if(a1.contains(nope)){
+			//System.out.println("repeat");
+			a1.remove(0);
 			FoodCompostDAO f = new FoodCompostDAO();
 			FoodCompost c = new FoodCompost();
-			c = f.getFoodCompost(n);
-			
-			
-			
+			for(int p=0;p<a1.size();p++){
+				String job = a1.get(p);
+				job = job.replaceAll("\\s+", "");
+				c = f.getFoodCompost(job);
+				
+				
+				
+				
+				Label a = new Label(c.getFoodName());
+				a.setFont(Font.font("Amble CN", FontWeight.BOLD, 18));
+				a.setMinWidth(100);
+				a.setOnMouseClicked(new EventHandler<MouseEvent>(){
+					public void handle(MouseEvent event) {
+						String P="src/theFridge/file/video.txt";
+						try{
+							PrintWriter writer = new PrintWriter(P);
+							writer.print("");
+							writer.print(a.getText());
+							writer.close();
+						}
+						catch (IOException e){
+							e.printStackTrace();
+							
+						}
+						Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+						Parent root = null;
+						try {
+							root = FXMLLoader.load(getClass().getResource("/theFridge/view/Page4.fxml"));
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+						stage.setScene(new Scene(root));
+				 	    stage.show();
+						System.out.println("Yes finally");
+					}
+				});
+				TextField b = new TextField();
+				b.setId(job);
+				//b.setMinWidth(90);
+				b.setPadding(new Insets(0,5,0,5));
+				Label cc = new Label("No Content");
+				cc.setFont(Font.font("Amble CN", FontWeight.BOLD, 18));
+				cc.setMinWidth(100);
+				b.setOnAction(new EventHandler<ActionEvent>(){
+					public void handle(ActionEvent event) {
+						String percent = b.getText();
+						try{
+						double score = Double.parseDouble(percent);
+						
+						total = total + score;
+						double percentage = (score/calPercentage())*100;
+						cc.setText(percentage + "%");
+						}
+						catch(Exception e){
+							cc.setText("Please enter a value only");
+						}
+					}
+					});
+				gp.add(a, i, 0);
+				gp.add(b, i, 1);
+				gp.add(cc, i, 2);
+				i++;
+				
+				
+				
+				
+				
+			}
+			showingBox.setVisible(false);
+		}
+		else{
+			FoodCompostDAO f = new FoodCompostDAO();
+			FoodCompost c = new FoodCompost();
+			for(int h=0;h<a1.size();h++){
+			String jop = a1.get(i);
+			c = f.getFoodCompost(jop);
 			Label a = new Label(c.getFoodName());
 			a.setFont(Font.font("Amble CN", FontWeight.BOLD, 18));
 			a.setMinWidth(100);
@@ -186,7 +268,7 @@ public class Page3Controller {
 				}
 			});
 			TextField b = new TextField();
-			b.setId(n);
+			b.setId(jop);
 			//b.setMinWidth(90);
 			b.setPadding(new Insets(0,5,0,5));
 			Label cc = new Label("No Content");
@@ -212,7 +294,10 @@ public class Page3Controller {
 			gp.add(cc, i, 2);
 			i++;
 			
+			
 			//System.out.println(n);
+			}
+		
 		}
 	}
 	public void showSteps(ActionEvent event) throws IOException{
