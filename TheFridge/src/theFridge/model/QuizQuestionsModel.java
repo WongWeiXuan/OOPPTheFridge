@@ -2,6 +2,8 @@ package theFridge.model;
 
 import java.util.ArrayList;
 
+import com.jfoenix.controls.JFXButton;
+
 import theFridge.DAO.QuizDAO;
 
 public class QuizQuestionsModel {
@@ -81,6 +83,20 @@ public class QuizQuestionsModel {
 	public void updateQuestions() {
 		QuizDAO quizDAO = new QuizDAO();
 		quizDAO.updateQuestions(this);
+	}
+	
+	public void disableButtons(JFXButton btn1, JFXButton btn2, JFXButton btn3, JFXButton btn4) {
+		btn1.setDisable(true);
+		btn2.setDisable(true);
+		btn3.setDisable(true);
+		btn4.setDisable(true);
+	}
+	
+	public void unDisableButtons(JFXButton btn1, JFXButton btn2, JFXButton btn3, JFXButton btn4) {
+		btn1.setDisable(false);
+		btn2.setDisable(false);
+		btn3.setDisable(false);
+		btn4.setDisable(false);
 	}
 	
 	public static void main(String args[]) {

@@ -17,7 +17,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.TextFlow?>
 
-<AnchorPane style="-fx-background-color: #E91E63;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="theFridge.controller.LoginSignupPageController">
+<AnchorPane style="-fx-background-color: #E91E63;" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="theFridge.controller.LoginSignupPageController">
    <children>
       <AnchorPane prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: rgba(0,0,0,0);" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -192,9 +192,9 @@
                      <children>
                         <TextFlow prefHeight="50.0" prefWidth="330.0" style="-fx-background-color: #009688;" textAlignment="CENTER">
                            <children>
-                              <Label text="Sign up">
+                              <Label text="Sign up" textFill="WHITE">
                                  <font>
-                                    <Font name="Garamond" size="36.0" />
+                                    <Font name="Garamond Bold" size="36.0" />
                                  </font>
                               </Label>
                            </children>
@@ -274,9 +274,9 @@
                      <children>
                         <TextFlow prefHeight="50.0" prefWidth="320.0" style="-fx-background-color: #009688;" textAlignment="CENTER">
                            <children>
-                              <Label text="Login">
+                              <Label text="Login" textFill="WHITE">
                                  <font>
-                                    <Font name="Garamond" size="36.0" />
+                                    <Font name="Garamond Bold" size="36.0" />
                                  </font>
                               </Label>
                            </children>
