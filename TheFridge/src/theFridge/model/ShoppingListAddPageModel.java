@@ -21,7 +21,7 @@ public class ShoppingListAddPageModel {
 	static int index;
 	public static boolean edit = false;
 	static String source;
-	static int serving;
+	static double serving;
 	static double maxAmount;
 	static ListModel listModel;
 	static StockModel stockModel;
@@ -42,6 +42,8 @@ public class ShoppingListAddPageModel {
     	
     	if(nameField.getValue() != null && nameField.getValue() != ""){
     		//if(!ShoppingListModel.checkExisting(name))
+    		ServingDAO servingdao = new ServingDAO();
+    		ServingToGrams s2g = new ServingToGrams();
 		    	if(source == "Stock"){
 			    	if(edit == true){
 			    		System.out.print("hi");
@@ -65,7 +67,8 @@ public class ShoppingListAddPageModel {
 			    		}
 			    	}
 			    	else{
-					    StockModel s = new StockModel(name, amount, 1);
+					    StockModel s = new StockModel(name, amount, servingdao.getServingWithName(name));
+					    s.setGrams(s2g.ServingToGramsReturn(servingdao.getServingWithName(name), servingdao.checkType(name)));
 					    s.setMaxAmount(ShoppingListModel.calculateMaxAmount(s));
 						model.addStocks(s);
 			    	}
@@ -96,6 +99,7 @@ public class ShoppingListAddPageModel {
 			    	    		Optional<ButtonType> result = alert.showAndWait();
 			    	    		if (result.get() == ButtonType.OK){
 						    		ShoppingListModel.setListlistViewNode(index, l, true);
+						    		
 			    	    		}
 			    	    		else{
 			        				return false;
@@ -112,8 +116,10 @@ public class ShoppingListAddPageModel {
 		    			}
 		    		}
 		    		else{
-		    			//Get servings and calculate maxAmount
-						model.addStocks(new StockModel(l.getName(), 0, 1, 1, 0, true));
+		    			StockModel stm = new StockModel(l.getName(), 0, servingdao.getServingWithName(l.getName()), 1, 0, true);
+		    			stm.setGrams(s2g.ServingToGramsReturn(servingdao.getServingWithName(l.getName()), servingdao.checkType(l.getName())));
+		    			stm.setMaxAmount(ShoppingListModel.calculateMaxAmount(stm));
+						model.addStocks(stm);
 						model.addShopping(l);
 			    	}
 		    		ShoppingListDAO a = new ShoppingListDAO();
@@ -154,8 +160,8 @@ public class ShoppingListAddPageModel {
 		edit = true;
 	}
 	
-	public static void initializeComboBox() throws FileNotFoundException{
+	public void initializeComboBox() throws FileNotFoundException{
 		ServingDAO dao = new ServingDAO();
-		nameField.getItems().addAll(dao.getAllFoodList());
+		nameField.getItems().addAll(dao.getAllFoodName());
 	}
 }

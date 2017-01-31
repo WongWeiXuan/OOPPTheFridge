@@ -1,5 +1,6 @@
 package theFridge.controller.foodCalculator;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import com.jfoenix.controls.JFXButton;
@@ -19,6 +20,7 @@ import javafx.scene.control.Spinner;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import theFridge.model.CaloriesCalculatorInputModel;
 import theFridge.model.FoodCalculatorCaloriesCalculatorRecipeModel;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Circle;
@@ -82,9 +84,11 @@ public class CaloriesCalculatorInputController {
     public String NumOfMeals = "breakfast";
     
     @FXML
-    void initialize(){
+    void initialize() throws FileNotFoundException{
     	Image img = new Image("theFridge/picture/Profile Image.jpg");
 		profileCircle.setFill(new ImagePattern(img));
+		CaloriesCalculatorInputModel ccim = new CaloriesCalculatorInputModel();
+		calories.setText(String.valueOf(ccim.getBMR()));
     }
     
     @FXML

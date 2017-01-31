@@ -24,11 +24,7 @@ import com.lynden.gmapsfx.service.directions.DirectionsService;
 import com.lynden.gmapsfx.service.directions.DirectionsServiceCallback;
 import com.lynden.gmapsfx.service.directions.TravelModes;
 
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
-import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -36,7 +32,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.stage.Stage;
 import theFridge.DAO.MapPlacesDAO;
 import theFridge.controller.CharityFoodDonationGoogleMapController;
 
@@ -259,6 +254,7 @@ public class CharityFoodDonationGoogleMapModel implements DirectionsServiceCallb
         LatLong foodBin14Location = new LatLong(1.264699, 103.823083); //Giant, 1 Harbourfront Walk, 23, VivoCity, Singapore 098585
         LatLong foodBin15Location = new LatLong(1.264241, 103.822327); //VivoCity, #02-123/124, 1 Harbourfront Walk, Singapore 098585
         LatLong foodBin16Location = new LatLong(1.288735, 103.812196); //Chrysler Jeep Automotive of Singapore Pte Ltd, 1 Chang Charn Rd, Singapore 159630
+        LatLong foodBankWarehouseLocation = new LatLong(1.271822, 103.837480); //The Food Bank Singapore Ltd, 39 Keppel Road #03-08, Tanjong Pagar Distripark, Singapore 089065
         
         
        // MarkerOptions markerOptions1 = new MarkerOptions()
@@ -341,6 +337,10 @@ public class CharityFoodDonationGoogleMapModel implements DirectionsServiceCallb
         		.position(foodBin16Location)
         		.animation(Animation.DROP);
         
+        MarkerOptions markerOptions21 = new MarkerOptions()
+        		.position(foodBankWarehouseLocation)
+        		.animation(Animation.DROP);
+        
         //Marker currentMarker = new Marker(markerOptions1);
         //Marker xuanZhengMarker = new Marker(markerOptions2);
         Marker foodFromTheHeartMarker = new Marker(markerOptions3);
@@ -361,6 +361,7 @@ public class CharityFoodDonationGoogleMapModel implements DirectionsServiceCallb
         Marker foodBin14Marker = new Marker(markerOptions18);
         Marker foodBin15Marker = new Marker(markerOptions19);
         Marker foodBin16Marker = new Marker(markerOptions20);
+        Marker foodBankWarehouseMarker = new Marker(markerOptions21);
         
         map.addMarker(foodFromTheHeartMarker);
         map.addMarker(willingHeartsMarker);
@@ -380,6 +381,7 @@ public class CharityFoodDonationGoogleMapModel implements DirectionsServiceCallb
         map.addMarker(foodBin14Marker);
         map.addMarker(foodBin15Marker);
         map.addMarker(foodBin16Marker);
+        map.addMarker(foodBankWarehouseMarker);
         
         donationVbox.setVisible(true);
         if(name.equalsIgnoreCase("Hougang Mall")){
@@ -454,6 +456,10 @@ public class CharityFoodDonationGoogleMapModel implements DirectionsServiceCallb
 			map.removeMarker(foodBin16Marker);
 			donateBtn.setVisible(false);
 		}
+		else if(name.equalsIgnoreCase("Food Bank Singapore")){
+			map.removeMarker(foodBankWarehouseMarker);
+			donateBtn.setVisible(true);
+		}
         
 	}
 	
@@ -482,13 +488,10 @@ public class CharityFoodDonationGoogleMapModel implements DirectionsServiceCallb
 		MapPlacesDAO dao = new MapPlacesDAO();
 		ArrayList<PlaceModel>placeList = PlaceModelArrayListBasedOnTimeAndDistance(dao.getAllPlace());
 		for(int i = 0; i < placeList.size(); i++){
-			System.out.println(placeList.size());
-			System.out.println(i);
 			String name = placeList.get(i).getName();
 			ImageView imageView = new ImageView();
-			Image placeImage = new Image(placeList.get(i).getPicture());
-			//imageView.setImage(placeImage);
-			imageView.setFitWidth(150);
+			imageView.setImage(new Image(placeList.get(i).getPicture()));
+			imageView.setFitWidth(200);
 			imageView.setFitHeight(150);
 			Label PlaceNameLbl = new Label("Destination: " + placeList.get(i).getName());
 			Label DistanceLbl = new Label(String.valueOf("Distance: " + placeList.get(i).getDistance()) + "km");
@@ -574,12 +577,16 @@ public class CharityFoodDonationGoogleMapModel implements DirectionsServiceCallb
 		else if(name.equalsIgnoreCase("Chrysler Jeep Automotive of Singapore Pte Ltd")){
 			return "Chrysler Jeep Automotive of Singapore Pte Ltd, 1 Chang Charn Rd, Singapore 159630";
 		}
+		else if(name.equalsIgnoreCase("Food Bank Singapore")){
+			return "The Food Bank Singapore Ltd, 39 Keppel Road #03-08, Tanjong Pagar Distripark, Singapore 089065";
+		}
 		else{
 			return null;
 		}
 	}
 
 	public void displayMoreInfo(){
+		
 		if(name.equalsIgnoreCase("Hougang Mall")){
 		}
 		else if(name.equalsIgnoreCase("Food From The Heart")){
@@ -615,6 +622,8 @@ public class CharityFoodDonationGoogleMapModel implements DirectionsServiceCallb
 		else if(name.equalsIgnoreCase("VivoCity")){
 		}
 		else if(name.equalsIgnoreCase("Chrysler Jeep Automotive of Singapore Pte Ltd")){
+		}
+		else if(name.equalsIgnoreCase("Food Bank Singapore")){
 		}
 	}
 

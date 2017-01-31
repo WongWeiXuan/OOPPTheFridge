@@ -1,6 +1,2 @@
-<<<<<<< HEAD
 Mouldy-Cheese
-Seaweed
-=======
 Citrus-Peel
->>>>>>> origin/master

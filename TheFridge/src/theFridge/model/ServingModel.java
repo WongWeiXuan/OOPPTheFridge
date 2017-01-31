@@ -2,10 +2,11 @@ package theFridge.model;
 
 public class ServingModel {
 	private String name;
-	private int numOfServing;
+	private double numOfServing;
 	
-	public ServingModel(String name) {
+	public ServingModel(String name, double numOfServing) {
 		this.name = name;
+		this.numOfServing = numOfServing;
 	}
 
 	public String getName() {
@@ -16,11 +17,11 @@ public class ServingModel {
 		this.name = name;
 	}
 
-	public int getNumOfServing() {
+	public double getNumOfServing() {
 		return numOfServing;
 	}
 
-	public void setNumOfServing(int numOfServing) {
+	public void setNumOfServing(double numOfServing) {
 		this.numOfServing = numOfServing;
 	}
 	

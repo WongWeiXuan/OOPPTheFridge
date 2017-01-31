@@ -67,7 +67,7 @@ public class DonationPageController {
 	@FXML
 	private ToggleGroup food;
 	@FXML
-	private JFXRadioButton ManualSelectRasio;
+	private JFXRadioButton ManualSelectRadio;
 	@FXML
 	private JFXRadioButton AutomaticRadio;
 	@FXML
@@ -125,9 +125,20 @@ public class DonationPageController {
 	public void openPopup(ActionEvent event) throws IOException {
 		Dialog<?> dialog = new Dialog<Object>();
 		Stage stage = (Stage) dialog.getDialogPane().getScene().getWindow();
-		Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/ManualEnterPage.fxml"));
+		Parent root = null;
+		if(event.getSource().equals("ManualEnterRadio")){
+			root = FXMLLoader.load(getClass().getResource("/theFridge/view/ManualEnterPage.fxml"));
+		}
+		else if(event.getSource().equals("ManualSelectRadio")){
+			root = FXMLLoader.load(getClass().getResource("/theFridge/view/ManualSelectPage.fxml"));
+		}
 		stage.setScene(new Scene(root));
 		stage.show();
+	}
+	
+	@FXML 
+	public void showFood(ActionEvent event) {
+		
 	}
 	
 	@FXML 

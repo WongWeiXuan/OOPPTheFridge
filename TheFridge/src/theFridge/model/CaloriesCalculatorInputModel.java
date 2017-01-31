@@ -8,13 +8,8 @@ import theFridge.DAO.ProfileDAO;
 
 public class CaloriesCalculatorInputModel {
 	public double getBMR() throws FileNotFoundException{
-		File file=new File("src/theFridge/file/confirm.txt");
-		Scanner sc=new Scanner(file);
-		String n = sc.nextLine();
-		ProfileDAO profileDAO = new ProfileDAO();
 		User uu = new User();
-		uu = profileDAO.getUser(n);	
-		sc.close();
+		uu = uu.getCurrentUser();
 		
 		double BMR = 0;
 		if(uu.getGender() == "male"){
