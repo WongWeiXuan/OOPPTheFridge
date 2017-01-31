@@ -49,6 +49,7 @@ import javafx.scene.layout.VBox;
 
 import javafx.scene.media.MediaView;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.scene.text.TextFlow;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.Media;
@@ -329,6 +330,8 @@ public class Page2Controller {
 		FoodCompost c = new FoodCompost();
 		c = f.getFoodCompost(n);
 		steps.setText(c.getInstruction());
+		steps.setFont(Font.font ("Verdana", 24));
+		
 		
 		
 	}

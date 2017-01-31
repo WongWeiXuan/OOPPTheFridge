@@ -278,7 +278,10 @@
                         </HBox>
                         <ScrollPane prefHeight="324.0" prefWidth="980.0" style="-fx-border-color: red;" VBox.vgrow="ALWAYS">
                            <content>
-                              <Label fx:id="steps" alignment="TOP_LEFT" text="Nothing to be displayed" textFill="#e91e63" />
+                              <Label fx:id="steps" alignment="TOP_LEFT" maxWidth="1600.0" prefHeight="700.0" text="Nothing to be displayed" textFill="#e91e63" wrapText="true">
+                                 <padding>
+                                    <Insets left="30.0" />
+                                 </padding></Label>
                            </content>
                         </ScrollPane>
                      </children>
