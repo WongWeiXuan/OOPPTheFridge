@@ -225,6 +225,7 @@ public class Page3Controller {
 	
 	public void saving0(ActionEvent event) throws FileNotFoundException{
 		String ss = textF0.getText();
+		String gh = null;
 		if(ss.equals("")){
 			labelAlert.setVisible(true);
 		}
@@ -247,11 +248,24 @@ public class Page3Controller {
 		String replace = ff.replace("[","");
 		String replace1 = replace.replace("]","");
 		ArrayList<String> myList = new ArrayList<String>(Arrays.asList(replace1.split(",")));
-		myList.add(ss);
-		//System.out.println(myList);
-		String last = myList.toString();
-		uu.setChosenFC(last);
-		profileDAO.updateUser(uu);
+		for(int i=0;i<myList.size();i++){
+			String io = myList.get(i);
+			io = io.replaceAll("\\s+", "");
+			if(io.equals(ss)){
+				System.out.println("repeat");
+				//gh = null;
+				break;
+			}
+			else{
+				 gh = ss;
+			}
+		}
+			System.out.println(gh);
+			myList.add(gh);
+			String last = myList.toString();
+			uu.setChosenFC(last);
+			profileDAO.updateUser(uu);
+			gh = null;
 		}
 		
 		ArrayList<String> saving = new ArrayList<String>();
