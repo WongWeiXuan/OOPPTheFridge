@@ -205,6 +205,7 @@ public class Page2Controller {
 	}
 	public void saving(ActionEvent event) throws FileNotFoundException{	
 		String save0 = textF.getText();
+		String gh = null;
 		if(save0.equals("")){
 			lbl.setVisible(true);
 		}
@@ -215,7 +216,6 @@ public class Page2Controller {
 		ProfileDAO profileDAO = new ProfileDAO();
 		User uu = new User();
 		uu = profileDAO.getUser(n);
-		
 		String ff = uu.getChosenFC();
 		if(ff.equals("[]")){
 			String newly =( "["+ save0 + "]");
@@ -226,10 +226,26 @@ public class Page2Controller {
 		String replace = ff.replace("[","");
 		String replace1 = replace.replace("]","");
 		ArrayList<String> myList = new ArrayList<String>(Arrays.asList(replace1.split(",")));
-		myList.add(save0);
-		String last = myList.toString();
-		uu.setChosenFC(last);
-		profileDAO.updateUser(uu);
+		for(int i=0;i<myList.size();i++){
+			String io = myList.get(i);
+			io = io.replaceAll("\\s+", "");
+			if(io.equals(save0)){
+				System.out.println("repeat");
+				//gh = null;
+				break;
+			}
+			else{
+				 gh = save0;
+			}
+		}
+			System.out.println(gh);
+			myList.add(gh);
+			String last = myList.toString();
+			uu.setChosenFC(last);
+			profileDAO.updateUser(uu);
+			gh = null;
+		
+		
 		}
 		
 		

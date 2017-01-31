@@ -89,6 +89,8 @@ public class Page1Controller{
     private JFXComboBox showFiles;
     @FXML
     private JFXButton showing;
+    @FXML
+    private JFXButton buton;
     
 
 	@FXML
@@ -195,7 +197,7 @@ public class Page1Controller{
 		            );
 	
 	
-	ObservableList<String> data = FXCollections.observableArrayList("Seaweed","Rabbit-Manure","Coffee-Grounds","Mouldy-Cheese","Crab-or-Lobster Shell",
+	ObservableList<String> data = FXCollections.observableArrayList("Seaweed","Rabbit-Manure","Coffee-Grounds","Mouldy-Cheese","Crab-or-Lobster-Shell",
 			"Fish-bones","Citrus-Peel","Apple","Old-Pasta");
 	ObservableList<String> a = FXCollections.observableArrayList();
 	ObservableList<String> b = FXCollections.observableArrayList();
@@ -213,6 +215,14 @@ public class Page1Controller{
 			String replace1 = replace.replace("]","");
 			ArrayList<String> myList = new ArrayList<String>(Arrays.asList(replace1.split(",")));
 			ObservableList<String> cc = FXCollections.observableArrayList(myList);
+			for(int i=0; i<cc.size();i++){
+				String vv = cc.get(i);
+				vv = vv.replaceAll("\\s+", "");
+				if(vv.equals("null") || vv.equals("")){
+					cc.remove(i);
+				}
+					
+			}
 			showFiles.setItems(cc);
 			
 	        table1.setCellValueFactory(new PropertyValueFactory<First, String>("foodCanCompost"));
@@ -235,6 +245,12 @@ public class Page1Controller{
 	    
 	   public void clearAll(ActionEvent event){
 		   listView.getItems().clear();
+	   }
+	   
+	   public void deleting(ActionEvent event){
+		   String de = showFiles.getValue().toString();
+		   de = de.replaceAll("\\s+", "");
+		   
 	   }
 	   
 	    public void chosen1(ActionEvent event){
@@ -319,9 +335,7 @@ public class Page1Controller{
 				stage.setScene(new Scene(root));
 		 	    stage.show();
 			}
-			
-			
-			
+					
 	    	
 	    }
 	    
