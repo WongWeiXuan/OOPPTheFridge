@@ -303,33 +303,6 @@ public class Profile2Controller {
 		namE.setOpacity(1);
 		label0.setOpacity(1);
 	}
-	// Event Listener on JFXButton[#btnSave1].onAction
-	@FXML
-	public void save1(ActionEvent event) throws FileNotFoundException {
-		String username= UNText.getText();
-		File file=new File("src/theFridge/file/confirm.txt");
-		Scanner sc=new Scanner(file) ;
-		String n = sc.nextLine();
-		ProfileDAO profileDAO = new ProfileDAO();
-		User uu = new User();
-		uu = profileDAO.getUser(n);
-		uu.setUsername(username);
-		System.out.println("Entered username: " + uu.getUsername());
-		profileDAO.updateUser(uu);
-		UNText.setText("");
-	}
-	// Event Listener on JFXButton[#btnCancel1].onAction
-	@FXML
-	public void cancel1(ActionEvent event) {
-		hbox2.setVisible(false);
-		UNText.setText("");
-		Eusername.setVisible(true);
-		hBox1.setVisible(true);
-		usernamE.setOpacity(1);
-		label1.setOpacity(1);
-	}
-	// Event Listener on JFXButton[#btnSave2].onAction
-	@FXML
 	public void save2(ActionEvent event) throws FileNotFoundException {
 		String password= PassText.getText();
 		File file=new File("src/theFridge/file/confirm.txt");
@@ -498,15 +471,6 @@ public class Profile2Controller {
 		
 	}
 	
-	public void edituserName(ActionEvent event){
-		hbox2.setVisible(true);
-		hbox2.setStyle("-fx-background-color:  #FCE4EC;");
-		usernamE.setOpacity(0.5);
-		label1.setOpacity(0.5);
-		Eusername.setVisible(false);
-		//hBox1.setVisible(false);
-	}
-	
 	public void editpassword(ActionEvent event){
 		vbOx.setVisible(true);
 		vbOx.setStyle("-fx-background-color:  #FCE4EC;");
@@ -565,13 +529,6 @@ public class Profile2Controller {
 	
 	public void hideImage0 (MouseEvent event) {
 		image0.setOpacity(0);
-	}
-	
-	public void showImage1 (MouseEvent event) {
-		image1.setOpacity(1);
-	}
-	public void hideImage1 (MouseEvent event) {
-		image1.setOpacity(0);
 	}
 	
 	public void showImage2 (MouseEvent event) {
