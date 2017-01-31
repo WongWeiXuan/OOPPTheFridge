@@ -104,7 +104,7 @@ public class QuizEndPageController {
 		series.getData().add(new XYChart.Data("10", 100));
 		lineChart.getData().add(series);
 		
-		progressIndicator.setProgress(QuizQuestionsModel.getPointsAttained() / 10);
+		progressIndicator.setProgress(QuizQuestionsModel.getPointsAttained() / 100.0);
 		scoreLabel.setText((QuizQuestionsModel.getPointsAttained() / 10) + "/10 questions answered correctly");
 		pointsLabel.setText(String.valueOf(QuizQuestionsModel.getPointsAttained()));
 	}

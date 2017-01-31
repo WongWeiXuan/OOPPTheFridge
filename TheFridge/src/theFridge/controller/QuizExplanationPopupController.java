@@ -17,9 +17,11 @@ public class QuizExplanationPopupController {
 	@FXML
 	private Label contentLabel;
 
+	public static String explanationText;
+	
 	@FXML
 	public void initialize() {
-		
+		contentLabel.setText(explanationText);
 	}
 	
 	@FXML

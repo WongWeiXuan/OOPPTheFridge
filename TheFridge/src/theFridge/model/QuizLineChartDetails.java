@@ -16,6 +16,10 @@ public class QuizLineChartDetails {
 	private int q9P9;
 	private int q10P10;
 	
+	public QuizLineChartDetails() {
+		super();
+	}
+	
 	public QuizLineChartDetails(int q1p1, int q2p2, int q3p3, int q4p4, int q5p5, int q6p6, int q7p7, int q8p8, int q9p9, int q10p10) {
 		super();
 		q1P1 = q1p1;
@@ -138,9 +142,56 @@ public class QuizLineChartDetails {
 		QuizLineChartDetailsDAO quizLineChartDetailsDAO = new QuizLineChartDetailsDAO();
 		quizLineChartDetailsDAO.updateDetails(this);
 	}
+	
+	public void addPoints(int pageNo) {
+		if (pageNo == 1) {
+			setQ1P1(QuizQuestionsModel.getPointsAttained());
+			updateDetails();
+		}
+		else if (pageNo == 2) {
+			setQ2P2(QuizQuestionsModel.getPointsAttained());
+			updateDetails();
+		}
+		else if (pageNo == 3) {
+			setQ3P3(QuizQuestionsModel.getPointsAttained());
+			updateDetails();
+		}
+		else if (pageNo == 4) {
+			setQ4P4(QuizQuestionsModel.getPointsAttained());
+			updateDetails();
+		}
+		else if (pageNo == 5) {
+			setQ5P5(QuizQuestionsModel.getPointsAttained());
+			updateDetails();
+		}
+		else if (pageNo == 6) {
+			setQ6P6(QuizQuestionsModel.getPointsAttained());
+			updateDetails();
+		}
+		else if (pageNo == 7) {
+			setQ7P7(QuizQuestionsModel.getPointsAttained());
+			updateDetails();
+		}
+		else if (pageNo == 8) {
+			setQ8P8(QuizQuestionsModel.getPointsAttained());
+			updateDetails();
+		}
+		else if (pageNo == 9) {
+			setQ9P9(QuizQuestionsModel.getPointsAttained());
+			updateDetails();
+		}
+		else if (pageNo == 10) {
+			setQ10P10(QuizQuestionsModel.getPointsAttained());
+			updateDetails();
+		}
+	}
 
 	public static void main(String[] args) {
-		
+		QuizLineChartDetails qLCD = new QuizLineChartDetails();
+		QuizQuestionsModel.setPointsAttained(10);
+		qLCD.setQ1P1(QuizQuestionsModel.getPointsAttained());
+		System.out.println(String.valueOf(qLCD.getQ1P1()));
+		QuizQuestionsModel.setPointsAttained(0);
 	}
 
 }

@@ -203,7 +203,7 @@
                                  <children>
                                     <VBox alignment="CENTER" prefHeight="130.0" prefWidth="980.0">
                                        <children>
-                                          <Label fx:id="timeLeft" text="Time Left:" textFill="#e91e63">
+                                          <Label fx:id="timeLeft" text="Time left:" textFill="#e91e63">
                                              <font>
                                                 <Font name="Garamond" size="36.0" />
                                              </font>
@@ -218,12 +218,12 @@
                                                       <Font name="Garamond" size="48.0" />
                                                    </font>
                                                 </Label>
-                                                <ImageView fx:id="correctImg" fitHeight="70.0" fitWidth="70.0" opacity="0.0">
+                                                <ImageView fx:id="correctImg" fitHeight="70.0" fitWidth="70.0" visible="false">
                                                    <image>
                                                       <Image url="@../picture/Confirm2.png" />
                                                    </image>
                                                 </ImageView>
-                                                <ImageView fx:id="incorrectImg" fitHeight="70.0" fitWidth="70.0" opacity="0.0">
+                                                <ImageView fx:id="incorrectImg" fitHeight="70.0" fitWidth="70.0" visible="false">
                                                    <image>
                                                       <Image url="@../picture/error.png" />
                                                    </image>
@@ -266,33 +266,33 @@
                                   <RowConstraints minHeight="10.0" prefHeight="30.0" />
                                 </rowConstraints>
                                  <children>
-                                    <JFXButton fx:id="choiceBtn1" buttonType="RAISED" minWidth="200.0" prefHeight="70.0" prefWidth="200.0" ripplerFill="BLACK" style="-fx-background-color: #5CF1F1;" text="Choice 1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                                    <JFXButton fx:id="choiceBtn1" buttonType="RAISED" minWidth="200.0" onAction="#checkChoice1Btn" prefHeight="70.0" prefWidth="200.0" ripplerFill="BLACK" style="-fx-background-color: #5CF1F1;" text="Choice 1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                                        <GridPane.margin>
                                           <Insets />
                                        </GridPane.margin>
                                        <font>
-                                          <Font name="Garamond" size="18.0" />
+                                          <Font name="Garamond" size="24.0" />
                                        </font>
                                     </JFXButton>
-                                    <JFXButton fx:id="choiceBtn2" buttonType="RAISED" minWidth="200.0" prefHeight="70.0" prefWidth="200.0" ripplerFill="BLACK" style="-fx-background-color: #5CF1F1;" text="Choice 2" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                                    <JFXButton fx:id="choiceBtn2" buttonType="RAISED" minWidth="200.0" onAction="#checkChoice2Btn" prefHeight="70.0" prefWidth="200.0" ripplerFill="BLACK" style="-fx-background-color: #5CF1F1;" text="Choice 2" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                                        <font>
-                                          <Font name="Garamond" size="18.0" />
-                                       </font>
-                                       <GridPane.margin>
-                                          <Insets />
-                                       </GridPane.margin>
-                                    </JFXButton>
-                                    <JFXButton fx:id="choiceBtn3" buttonType="RAISED" minWidth="200.0" prefHeight="70.0" prefWidth="200.0" ripplerFill="BLACK" style="-fx-background-color: #5CF1F1;" text="Choice 3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
-                                       <font>
-                                          <Font name="Garamond" size="18.0" />
+                                          <Font name="Garamond" size="24.0" />
                                        </font>
                                        <GridPane.margin>
                                           <Insets />
                                        </GridPane.margin>
                                     </JFXButton>
-                                    <JFXButton fx:id="choiceBtn4" buttonType="RAISED" minWidth="200.0" prefHeight="70.0" prefWidth="200.0" ripplerFill="BLACK" style="-fx-background-color: #5CF1F1;" text="Choice 4" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                                    <JFXButton fx:id="choiceBtn3" buttonType="RAISED" minWidth="200.0" onAction="#checkChoice3Btn" prefHeight="70.0" prefWidth="200.0" ripplerFill="BLACK" style="-fx-background-color: #5CF1F1;" text="Choice 3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                                        <font>
-                                          <Font name="Garamond" size="18.0" />
+                                          <Font name="Garamond" size="24.0" />
+                                       </font>
+                                       <GridPane.margin>
+                                          <Insets />
+                                       </GridPane.margin>
+                                    </JFXButton>
+                                    <JFXButton fx:id="choiceBtn4" buttonType="RAISED" minWidth="200.0" onAction="#checkChoice4Btn" prefHeight="70.0" prefWidth="200.0" ripplerFill="BLACK" style="-fx-background-color: #5CF1F1;" text="Choice 4" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                                       <font>
+                                          <Font name="Garamond" size="24.0" />
                                        </font>
                                        <GridPane.margin>
                                           <Insets />

@@ -1,5 +1,5 @@
 2;12;32
-xxx;xxx;xxx
+xxx;eee@gmail.com;xxx
 ds;ds;ds
 xz;xz;xz
 Wei Xuan;Email;ILoveStraightMen
@@ -7,4 +7,3 @@ Xuan Zheng;Email;BlueWaffles
 WX;Love;Men
 Xuan Zheng;Email;BlueWaffles
 mrloo;mrloo;mrloo
-sds;sds@xyz.com;sds

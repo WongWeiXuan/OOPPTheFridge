@@ -53,7 +53,7 @@ public class QuizDAO {
 		ArrayList<QuizQuestionsModel> questionsList = getAllQuestions();
 		QuizQuestionsModel question = null;
 		for (QuizQuestionsModel q : questionsList) {
-			if (q.getQuestions().equals(question)) {
+			if (q.getQuestions().equals(questions)) {
 				question = q;
 				break;
 			}

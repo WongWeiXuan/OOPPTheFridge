@@ -108,6 +108,9 @@ public class ProfileController {
     @FXML
     private VBox hideEM;
     
+    @FXML
+    private Label PointsLabel;
+    
     public void initialize() throws FileNotFoundException{
 		File file=new File("src/theFridge/file/confirm.txt");
 		Scanner sc=new Scanner(file) ;
@@ -123,6 +126,8 @@ public class ProfileController {
 		AgeLabel.setText(uu.getAge());
 		HeightLabel.setText(uu.getHeight());
 		WeightLabel.setText(uu.getWeight());
+		String g = Integer.toString(uu.getTotalPoints());
+		PointsLabel.setText(g);
 		
 	}
     

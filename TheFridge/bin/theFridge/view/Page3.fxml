@@ -182,7 +182,7 @@
                   </HBox>
                   <VBox alignment="CENTER_RIGHT">
                      <children>
-                        <HBox alignment="CENTER_LEFT">
+                        <HBox fx:id="showingBox" alignment="CENTER_LEFT">
                            <children>
                               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Title of your file:">
                                  <font>

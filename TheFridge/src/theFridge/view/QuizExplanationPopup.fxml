@@ -27,7 +27,7 @@
             </TextFlow>
             <TextFlow prefHeight="260.0" prefWidth="600.0">
                <children>
-                  <Label fx:id="contentLabel" alignment="CENTER" prefHeight="260.0" prefWidth="600.0" text="[Insert Content]">
+                  <Label fx:id="contentLabel" alignment="CENTER" prefHeight="260.0" prefWidth="600.0" text="[Insert Content]" textAlignment="CENTER" wrapText="true">
                      <font>
                         <Font name="Garamond" size="24.0" />
                      </font>

@@ -552,6 +552,49 @@
                                           </HBox>
                                        </children>
                                        <VBox.margin>
+                                          <Insets left="10.0" right="10.0" />
+                                       </VBox.margin>
+                                    </VBox>
+                                    <VBox prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <TextFlow prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: rgba(245, 248, 7, 0.5);">
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Total Points">
+                                                   <font>
+                                                      <Font name="Arial Black" size="24.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                          </TextFlow>
+                                          <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #808080;">
+                                             <children>
+                                                <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                                   <HBox.margin>
+                                                      <Insets left="10.0" right="10.0" top="10.0" />
+                                                   </HBox.margin>
+                                                   <image>
+                                                      <Image url="@../picture/earn.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <TextFlow prefHeight="53.0" prefWidth="683.0" style="-fx-background-color: #D3D3D3;">
+                                                   <children>
+                                                      <Label fx:id="PointsLabel" text="Label">
+                                                         <font>
+                                                            <Font size="36.0" />
+                                                         </font>
+                                                         <padding>
+                                                            <Insets left="84.0" />
+                                                         </padding>
+                                                      </Label>
+                                                   </children>
+                                                   <HBox.margin>
+                                                      <Insets />
+                                                   </HBox.margin>
+                                                </TextFlow>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <VBox.margin>
                                           <Insets bottom="10.0" left="10.0" right="10.0" />
                                        </VBox.margin>
                                     </VBox>
