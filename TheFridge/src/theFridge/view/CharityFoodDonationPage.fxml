@@ -5,6 +5,8 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -213,6 +215,62 @@
                               <Insets bottom="40.0" right="40.0" />
                            </StackPane.margin>
                         </VBox>
+                        <AnchorPane fx:id="moreInfo" style="-fx-background-color: rgba(0,0,0, 0.5);" translateY="1000.0">
+                           <children>
+                              <TextFlow fx:id="closeMoreInfoBtn" onMouseClicked="#closeMoreInfo" prefHeight="37.0" prefWidth="980.0" style="-fx-background-color: #dde6f0;" textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <ImageView fitHeight="37.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../picture/arrowArrow.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </TextFlow>
+                              <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-radius: 0 0 20 20; -fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="37.0">
+                                 <children>
+                                    <TextFlow textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="moreInfoTitle" fill="#18d000" strokeType="OUTSIDE" strokeWidth="0.0" text="Food Bank SG (Bank Box)" textAlignment="CENTER" wrappingWidth="899.10595703125">
+                                             <font>
+                                                <Font name="System Bold" size="30.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                    </TextFlow>
+                                    <AnchorPane>
+                                       <children>
+                                          <HBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <children>
+                                                <VBox alignment="TOP_CENTER" prefHeight="618.0" prefWidth="654.0" HBox.hgrow="ALWAYS">
+                                                   <children>
+                                                      <TextArea fx:id="moreInfoInfo1" prefHeight="329.0" prefWidth="458.0" text="Whenever we talk about food donation, the first thing that comes to mind is to purchase food items to donate. However, this is not what we are encouraging here at The Food Bank Singapore.&#10;&#10;Before you start pulling out your wallet to purchase food, look into your kitchen/cabinets. Are there food items lying there that you have purchased some time ago, maybe during an offer/promotion and you are sure that you don’t want them anymore probably because you have tried one and didn’t like it? &#10;&#10;Please donate them to us as there are many people who would love to have that packet of chips or canned food that is not up to your preference.&#10;&#10;You may drop off your excess food into our Bank Box located at: " wrapText="true" />
+                                                      <TextField fx:id="moreInfoLocation" editable="false" />
+                                                      <ImageView fx:id="moreInfoPic" fitHeight="270.0" fitWidth="457.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../picture/BankBox.jpg" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </VBox>
+                                                <TextArea fx:id="moreInfoInfo2" editable="false" text="What is a Food Bank&#10;Probably the first question on your mind right now is &quot;What is a food bank?&quot;&#10;&#10;To make it really simple, a food bank is a place where companies or people can come to deposit or donate their unused or unwanted food which will then be collected and allocated to the needy through a network of member beneficiaries such as family service centres, various types of homes, soup kitchens, and other VWOs.&#10;As the price of food continues to rise, many middle to low income families have problems putting food on the table as salaries are not increasing as quickly. Moreover, based on our observation, we do know that there are pockets of unused food within the food industry that can most certainly be put to better use. &#10;&#10;Therefore, based on our sincere passion for food, we decided to set up The Food Bank Singapore to help out in whatever ways we can. To find out more about us, simply navigate the other pages.&#10;Thanks again for visiting us and we look forward to hearing from you soon!&#10;&#10;Let the Feeding Begin!&#10;Nichol &amp; Nicholas Ng&#10;Co-founders&#10;The Food Bank Singapore &#10;" wrapText="true" HBox.hgrow="ALWAYS">
+                                                   <font>
+                                                      <Font size="16.0" />
+                                                   </font>
+                                                </TextArea>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </VBox>
+                           </children>
+                           <StackPane.margin>
+                              <Insets />
+                           </StackPane.margin>
+                           <padding>
+                              <Insets bottom="40.0" left="40.0" right="40.0" />
+                           </padding>
+                        </AnchorPane>
                      </children>
                   </StackPane>
                </children>

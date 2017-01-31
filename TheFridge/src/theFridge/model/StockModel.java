@@ -3,19 +3,19 @@ package theFridge.model;
 public class StockModel {
 	private String name;
 	private double amount;
-	private int serving;
+	private double serving;
 	private int grams;
 	private double maxAmount;
 	private int index;
 
-	public StockModel(String name, double amount, int serving) {
+	public StockModel(String name, double amount, double serving) {
 		super();
 		this.name = name;
 		this.amount = amount;
 		this.serving = serving;
 	}
 
-	public StockModel(String name, double amount, int serving, int grams, double maxAmount, boolean forFun) {
+	public StockModel(String name, double amount, double serving, int grams, double maxAmount, boolean forFun) {
 		super();
 		this.name = name;
 		this.amount = amount;
@@ -24,7 +24,7 @@ public class StockModel {
 		this.maxAmount = maxAmount;
 	}
 
-	public StockModel(String name, double amount, int serving, double maxAmount, int index) {
+	public StockModel(String name, double amount, double serving, double maxAmount, int index) {
 		super();
 		this.name = name;
 		this.amount = amount;
@@ -49,11 +49,11 @@ public class StockModel {
 		this.amount = amount;
 	}
 	
-	public int getServing() {
+	public double getServing() {
 		return serving;
 	}
 
-	public void setServing(int serving) {
+	public void setServing(double serving) {
 		this.serving = serving;
 	}
 

@@ -22,6 +22,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import theFridge.DAO.ServingDAO;
 import theFridge.DAO.ShoppingListDAO;
 
 public class ShoppingListModel {
@@ -78,6 +79,8 @@ public class ShoppingListModel {
 	}
 
 	public void displayStocks() throws FileNotFoundException, IOException {
+		ServingDAO servingdao = new ServingDAO();
+		ServingToGrams s2g = new ServingToGrams();
 		User user = new User();
 		user = user.getCurrentUser();
 		ShoppingListDAO s = new ShoppingListDAO();
@@ -96,7 +99,7 @@ public class ShoppingListModel {
 			servingLbl.setMinWidth(100);
 			servingLbl.setPrefWidth(100);
 			servingLbl.setAlignment(Pos.CENTER);
-			Label gramslbl = new Label(String.valueOf(m.getGrams()));
+			Label gramslbl = new Label(String.valueOf(s2g.ServingToGramsReturn(m.getServing(), servingdao.checkType(m.getName()))));
 			gramslbl.setMinWidth(100);
 			gramslbl.setPrefWidth(100);
 			gramslbl.setAlignment(Pos.CENTER);
@@ -232,7 +235,7 @@ public class ShoppingListModel {
 					ShoppingListDAO a = new ShoppingListDAO();
 					StockModel sm = a.getStockModelByName(name);
 					sm.setAmount(Double.parseDouble(amount));
-					sm.setServing(Integer.parseInt(serving));
+					sm.setServing(Double.parseDouble(serving));
 					sm.setGrams(Integer.parseInt(grams));
 					sm.setMaxAmount(Double.parseDouble(maxAmount));
 					ShoppingListAddPageModel.showNameAndAmount(sm);
@@ -537,7 +540,7 @@ public class ShoppingListModel {
 				ObservableList<Node> NodeList = a.getChildren();
 				String name = nodeToString(NodeList.get(0));
 				double amount = Double.parseDouble(nodeToString(NodeList.get(1)));
-				int serving = Integer.parseInt(nodeToString(NodeList.get(2)));
+				double serving = Double.parseDouble(nodeToString(NodeList.get(2)));
 				int grams = Integer.parseInt(nodeToString(NodeList.get(3)));
 				double maxAmount = Double.parseDouble(nodeToString(NodeList.get(4)));
 				StockModel stockModel = new StockModel(name, amount, serving, grams, maxAmount, true);
@@ -609,6 +612,7 @@ public class ShoppingListModel {
 		String amount = nodeToString(Label.get(1));
 		StockModel model = getStockModelByNameFromStockListArray(name);
 		model.setAmount(model.getAmount() + Double.parseDouble(amount));
+		model.setMaxAmount(ShoppingListModel.calculateMaxAmount(model));
 		setStocklistViewNode(model.getIndex(), model);
 		setListlistViewNode(selectedIdx, new ListModel(name, 0, model.getMaxAmount()));
 	}
@@ -633,6 +637,11 @@ public class ShoppingListModel {
 	}
 	
 	public boolean checkUser(String name) throws FileNotFoundException{
+		if(name == null || name == ""){
+			User u = new User();
+			u = u.getCurrentUser();
+			name = u.getUsername();
+		}
 		ShoppingListDAO dao = new ShoppingListDAO();
 		return dao.checkUser(name);
 	}

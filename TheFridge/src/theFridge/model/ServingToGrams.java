@@ -1,9 +1,15 @@
 package theFridge.model;
 
 public class ServingToGrams {
-	public static int ServingToGramsReturn(double serving, String type) {
-		if(type == "Fruit"){
+	public int ServingToGramsReturn(double serving, String type) {
+		if(type == "Fruits"){
 			return (int) (serving * 150);
+		}
+		else if(type == "Cereal"){
+			return (int) (serving * 120);
+		}
+		else if(type == "Pasta"){
+			return (int) (serving * 120);
 		}
 		else if(type == "Vegetable"){
 			return (int) (serving * 75);
@@ -11,16 +17,26 @@ public class ServingToGrams {
 		else if(type == "Bread"){
 			return (int) (serving * 50);
 		}
-		return 0;
+		return 1;
 	}
 
-	public static double GramsToServing(int grams, String fruitsOrVege) {
-		if(fruitsOrVege == "Fruit"){
+	public double GramsToServing(int grams, String type) {
+		if(type == "Fruits"){
 			return grams / 150;
 		}
-		else{
-			return grams / 75;
+		else if(type == "Cereal"){
+			return  grams / 120;
 		}
+		else if(type == "Pasta"){
+			return  grams / 120;
+		}
+		else if(type == "Vegetable"){
+			return  grams / 75;
+		}
+		else if(type == "Bread"){
+			return  grams / 50;
+		}
+		return 1;
 	}
 	
 }

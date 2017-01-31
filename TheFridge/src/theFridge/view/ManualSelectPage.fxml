@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXListView?>
+<?import com.jfoenix.controls.JFXPopup?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.111">
+   <children>
+      <JFXListView fx:id="StocklistView" layoutX="10.0" layoutY="10.0" prefHeight="410.0" prefWidth="258.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <JFXPopup fx:id="Popup" layoutX="10.0" layoutY="10.0" />
+   </children>
+</AnchorPane>

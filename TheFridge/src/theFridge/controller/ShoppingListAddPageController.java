@@ -37,11 +37,11 @@ public class ShoppingListAddPageController {
     private double xOffset = 0;
 	private double yOffset = 0;
 
-	@SuppressWarnings("unused")
 	@FXML
-	void initialize(){
+	void initialize() throws FileNotFoundException{
 		ShoppingListAddPageModel first = new ShoppingListAddPageModel(nameField, amountSpinner);
 		amountSpinner.setValueFactory(new SpinnerValueFactory.DoubleSpinnerValueFactory(0, 50, 1));
+		first.initializeComboBox();
 	}
 	
     @FXML

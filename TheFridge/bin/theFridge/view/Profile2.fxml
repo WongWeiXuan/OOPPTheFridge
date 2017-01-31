@@ -293,67 +293,6 @@
                                           </HBox>
                                        </children>
                                     </VBox>
-                                    <VBox alignment="TOP_CENTER" prefHeight="30.0" prefWidth="731.0">
-                                       <children>
-                                          <HBox fx:id="hBox1" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #FCE4EC;">
-                                             <children>
-                                                <Text fx:id="usernamE" strokeType="OUTSIDE" strokeWidth="0.0" text="Username:">
-                                                   <font>
-                                                      <Font size="18.0" />
-                                                   </font>
-                                                </Text>
-                                                <Label fx:id="label1" prefHeight="21.0" prefWidth="75.0" text="Label">
-                                                   <HBox.margin>
-                                                      <Insets left="225.0" />
-                                                   </HBox.margin>
-                                                </Label>
-                                                <JFXButton fx:id="Eusername" onAction="#edituserName" onMouseEntered="#showImage1" onMouseExited="#hideImage1" prefHeight="31.0" prefWidth="138.0" text="Edit Username">
-                                                   <HBox.margin>
-                                                      <Insets left="220.0" />
-                                                   </HBox.margin>
-                                                </JFXButton>
-                                                <ImageView fx:id="image1" fitHeight="25.0" fitWidth="30.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../picture/pen2.png" />
-                                                   </image>
-                                                   <HBox.margin>
-                                                      <Insets right="5.0" />
-                                                   </HBox.margin>
-                                                </ImageView>
-                                             </children>
-                                          </HBox>
-                                          <HBox fx:id="hbox2" prefHeight="19.0" prefWidth="726.0" visible="false">
-                                             <children>
-                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="New Username:" wrappingWidth="129.7529296875">
-                                                   <font>
-                                                      <Font size="18.0" />
-                                                   </font>
-                                                </Text>
-                                                <TextField fx:id="UNText" prefWidth="300.0">
-                                                   <HBox.margin>
-                                                      <Insets left="45.0" />
-                                                   </HBox.margin>
-                                                </TextField>
-                                                <JFXButton fx:id="btnSave1" onAction="#save1" prefWidth="65.0" text="Save">
-                                                   <HBox.margin>
-                                                      <Insets left="100.0" />
-                                                   </HBox.margin>
-                                                </JFXButton>
-                                                <JFXButton fx:id="btnCancel1" onAction="#cancel1" prefWidth="65.0" text="Cancel">
-                                                   <HBox.margin>
-                                                      <Insets left="20.0" />
-                                                   </HBox.margin>
-                                                </JFXButton>
-                                             </children>
-                                             <VBox.margin>
-                                                <Insets />
-                                             </VBox.margin>
-                                          </HBox>
-                                       </children>
-                                       <VBox.margin>
-                                          <Insets left="5.0" right="5.0" />
-                                       </VBox.margin>
-                                    </VBox>
                                     <VBox alignment="TOP_CENTER" prefHeight="0.0" prefWidth="731.0">
                                        <children>
                                           <HBox fx:id="hBox3" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #FCE4EC;">
@@ -685,7 +624,7 @@
                                                             <Font size="18.0" />
                                                          </font>
                                                       </Text>
-                                                      <PasswordField prefWidth="300.0">
+                                                      <PasswordField fx:id="CurrPass" prefWidth="300.0">
                                                          <HBox.margin>
                                                             <Insets left="27.0" />
                                                          </HBox.margin>
@@ -719,7 +658,7 @@
                                                             <Font size="18.0" />
                                                          </font>
                                                       </Text>
-                                                      <PasswordField prefWidth="300.0">
+                                                      <PasswordField fx:id="RePassText" prefWidth="300.0">
                                                          <HBox.margin>
                                                             <Insets left="26.0" />
                                                          </HBox.margin>
@@ -734,6 +673,15 @@
                                                             <Insets left="20.0" />
                                                          </HBox.margin>
                                                       </JFXButton>
+                                                   </children>
+                                                </HBox>
+                                                <HBox prefHeight="100.0" prefWidth="200.0">
+                                                   <children>
+                                                      <TextFlow prefHeight="21.0" prefWidth="745.0" textAlignment="CENTER">
+                                                         <children>
+                                                            <Label fx:id="alerting" text="Label" visible="false" />
+                                                         </children>
+                                                      </TextFlow>
                                                    </children>
                                                 </HBox>
                                              </children>

@@ -9,6 +9,7 @@ import java.util.Scanner;
 
 import theFridge.model.ListModel;
 import theFridge.model.StockModel;
+import theFridge.model.User;
 import theFridge.model.UserListListModel;
 import theFridge.model.UserStockListModel;
 
@@ -16,7 +17,7 @@ public class ShoppingListDAO {
 	private File stockFile;
 	private File listFile;
 	private int numberOfPeople;
-	private String name;
+	private static String name;
 	
 	public ShoppingListDAO(){
 		stockFile = new File("src/theFridge/file/StockList.txt");
@@ -78,7 +79,7 @@ public class ShoppingListDAO {
 			fields = line.split("~");
 			String name = fields[0];
 			double amount = Double.parseDouble(fields[1]);
-			int serving = Integer.parseInt(fields[2]);
+			double serving = Double.parseDouble(fields[2]);
 			StockModel a = new StockModel(name, amount, serving);
 			stocks.add(a);
 		}
@@ -116,44 +117,16 @@ public class ShoppingListDAO {
 	}
 	
 	public ArrayList<ListModel> getAllList() throws FileNotFoundException{
-		Scanner sc = new Scanner(listFile);
-		String line=null;
-		String[] fields;
-		ArrayList<ListModel> lists=new ArrayList<ListModel>();
-		
-		while (sc.hasNextLine()) {
-			line = sc.nextLine();
-			fields = line.split("~");
-			String name = fields[0];
-			double amount = Double.parseDouble(fields[1]);
-			double maxAmount = Double.parseDouble(fields[2]);
-			ListModel a = new ListModel(name, amount, maxAmount);
-			lists.add(a);
-		}
-		sc.close();
-
-		return lists;
+		return getUserList(name).getListList();
 	}
 	
 	public ArrayList<ListModel> getAllList(int numberOfPeople) throws FileNotFoundException{
 		this.numberOfPeople = numberOfPeople;
-		Scanner sc = new Scanner(listFile);
-			String line=null;
-			String[] fields;
-			ArrayList<ListModel> lists=new ArrayList<ListModel>();
-			
-			while (sc.hasNextLine()) {
-				line = sc.nextLine();
-				fields = line.split("~");
-				String name = fields[0];
-				double amount = Double.parseDouble(fields[1]);
-				double maxAmount = Double.parseDouble(fields[2]);
-				ListModel a = new ListModel(name, amount, maxAmount);
-				lists.add(a);
-			}
-			sc.close();
-	
-			return lists;
+		User u = new User();
+		u = u.getCurrentUser();
+		name = u.getUsername();
+		ArrayList<ListModel> lm = getUserList(name).getListList();
+		return lm;
 	}
 	
 	public ArrayList<ListModel> initializeList(int numberOfPeople) throws FileNotFoundException{
@@ -161,7 +134,7 @@ public class ShoppingListDAO {
 		ArrayList<ListModel> lists=new ArrayList<ListModel>();
 		ArrayList<StockModel> stocks = getAllStock(name);
 		for(StockModel s: stocks){
-			int maximum = s.getServing() * numberOfPeople;
+			int maximum = (int) (s.getServing() * numberOfPeople);
 			double amount = maximum - s.getAmount();
 			if(amount == 0){
 				break;
@@ -178,7 +151,7 @@ public class ShoppingListDAO {
 	}
 	
 	public ListModel getListWithStock(StockModel stock){
-		int maximum = stock.getServing() * numberOfPeople;
+		int maximum = (int) (stock.getServing() * numberOfPeople);
 		double amount = maximum - stock.getAmount();
 		if(amount == 0){
 			return null;
@@ -217,7 +190,7 @@ public class ShoppingListDAO {
 	
 	public void writeToStockFile(ArrayList<StockModel> stocks) throws IOException{
 		ArrayList<UserStockListModel> aluslm = getAllUserAndList();
-		System.out.println(aluslm.get(0).getName());
+		//System.out.println(aluslm.get(0).getName());
 		UserStockListModel uslm = new UserStockListModel(name, stocks);
 		if(checkUser(name)){
 			aluslm.set(getUserIndex(), uslm);
@@ -280,9 +253,11 @@ public class ShoppingListDAO {
 		writer.close();
 	}
 	
-	public UserStockListModel getUser(String name) throws FileNotFoundException{
-		this.name = name;
+	public UserStockListModel getUser(String name1) throws FileNotFoundException{
+		name = name1;
+		//System.out.println("GETUSER:(name) " + name);
 		for(UserStockListModel uslm:getAllUserAndList()){
+			//System.out.println("GETUSERLIST: " + uslm.getName());
 			if(uslm.getName().equalsIgnoreCase(name)){
 				return uslm;
 			}
@@ -290,17 +265,20 @@ public class ShoppingListDAO {
 		return null;
 	}
 	
-	public UserListListModel getUserList(String name) throws FileNotFoundException{
-		for(UserListListModel uslm:getAllUserAndListList()){
-			if(uslm.getName().equalsIgnoreCase(name)){
-				return uslm;
+	public UserListListModel getUserList(String name1) throws FileNotFoundException{
+		name = name1;
+		//System.out.println("GETUSERLIST:(name) " + name);
+		for(UserListListModel ullm:getAllUserAndListList()){
+			//System.out.println("GETUSERLIST: " + ullm.getName());
+			if(ullm.getName().equalsIgnoreCase(name)){
+				return ullm;
 			}
 		}
 		return null;
 	}
 	
-	public boolean checkUser(String name) throws FileNotFoundException{
-		this.name = name;
+	public boolean checkUser(String name1) throws FileNotFoundException{
+		name = name1;
 		for(UserStockListModel a:getAllUserAndList()){
 			if(a.getName().equalsIgnoreCase(name)){
 				return true;
@@ -320,22 +298,20 @@ public class ShoppingListDAO {
 		return 0;
 	}
 	
-	public static void main(String[] args) throws IOException{
+	/*
+	public static void main(String[] args) throws FileNotFoundException{
 		ShoppingListDAO dao = new ShoppingListDAO();
-		dao.checkUser("xxz");
-		ArrayList<StockModel> alsm = new ArrayList<StockModel>();
-		alsm.add(new StockModel("Xuan Zheng", 19.0, 1, 500, 4.0, true));
-		alsm.add(new StockModel("Xuan Zheng1", 19.0, 1, 500, 4.0, true));
-		alsm.add(new StockModel("Xuan Zheng2", 19.0, 1, 500, 4.0, true));
-		alsm.add(new StockModel("Xuan Zheng3", 19.0, 1, 500, 4.0, true));
-		alsm.add(new StockModel("Xuan Zheng4", 19.0, 1, 500, 4.0, true));
-		dao.writeToStockFile(alsm);
-		ArrayList<ListModel> allm = new ArrayList<ListModel>();
-		allm.add(new ListModel("Xuan Zheng", 19.0, 4.0));
-		allm.add(new ListModel("Xuan Zheng1", 19.0, 4.0));
-		allm.add(new ListModel("Xuan Zheng2", 19.0, 4.0));
-		allm.add(new ListModel("Xuan Zheng3", 19.0, 4.0));
-		allm.add(new ListModel("Xuan Zheng4", 19.0, 4.0));
+		ArrayList<UserListListModel> alallm = dao.getAllUserAndListList();
+		dao.checkUser("xxx");
+		for(ListModel a: alallm.get(0).getListList()){
+			System.out.println(a.getName());
+			System.out.println(a.getAmount());
+			System.out.println(a.getMaxAmount());
+			System.out.println("-----------------");
+		}
+		dao.checkUser("xxy");
+		ArrayList<ListModel>allm = new ArrayList<ListModel>();
 		dao.writeToListFile(allm);
 	}
+	*/
 }
