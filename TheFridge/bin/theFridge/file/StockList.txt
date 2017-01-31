@@ -1,15 +1,2 @@
-xxx+
-Carrot~3.0~4~16.0
-Carbon Dioxide~8.0~0~0.0
-Tomato~6.0~2~8.0
-Apple~2.0~1~4.0
-Pineapple~8.0~1~4.0
-Cabbage~0.0~1~4.0
-Watermelon~1.0~1~4.0
-Apples~1.0~1~4.0
-Veg~0.0~1~4.0
-|
-xxy+
-Carrot~3.0~4~16.0
-Carbon Dioxide~8.0~0~0.0
-Tomato~6.0~2~8.0
+xxx:Carrot~3.0~4~0~0.0:Carbon Dioxide~8.0~0~0~0.0:Tomato~6.0~2~0~0.0:Apple~2.0~1~0~0.0:Pineapple~8.0~1~0~0.0:Cabbage~0.0~1~0~0.0:Watermelon~1.0~1~0~0.0:Apples~1.0~1~0~0.0:Veg~0.0~1~0~0.0
+xxz:Xuan Zheng~19.0~1~500~4.0:Xuan Zheng1~19.0~1~500~4.0:Xuan Zheng2~19.0~1~500~4.0:Xuan Zheng3~19.0~1~500~4.0:Xuan Zheng4~19.0~1~500~4.0

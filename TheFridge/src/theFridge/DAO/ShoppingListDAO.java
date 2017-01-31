@@ -9,6 +9,7 @@ import java.util.Scanner;
 
 import theFridge.model.ListModel;
 import theFridge.model.StockModel;
+import theFridge.model.UserListListModel;
 import theFridge.model.UserStockListModel;
 
 public class ShoppingListDAO {
@@ -25,20 +26,21 @@ public class ShoppingListDAO {
 	public ArrayList<UserStockListModel> getAllUserAndList() throws FileNotFoundException{
 		ArrayList<UserStockListModel> arrayList = new ArrayList<UserStockListModel>();
 		Scanner sc = new Scanner(stockFile);
-		sc.useDelimiter("|");
-		while(sc.hasNext()){
-			String line=null;
-			String[] fields;
-			while (sc.hasNext()) {
-				line = sc.nextLine();
-				fields = line.split("+");
-				String name = fields[0];
-				String alsm = fields[1];
-				ArrayList<StockModel> uslm = getStockWithString(alsm);
-				
-				UserStockListModel a = new UserStockListModel(name, uslm);
-				arrayList.add(a);
-			}
+		while(sc.hasNextLine()){
+			UserStockListModel a = getStockWithString(sc.nextLine());
+			arrayList.add(a);
+		}
+		sc.close();
+
+		return arrayList;
+	}
+	
+	public ArrayList<UserListListModel> getAllUserAndListList() throws FileNotFoundException{
+		ArrayList<UserListListModel> arrayList = new ArrayList<UserListListModel>();
+		Scanner sc = new Scanner(listFile);
+		while(sc.hasNextLine()){
+			UserListListModel a = getListWithString(sc.nextLine());
+			arrayList.add(a);
 		}
 		sc.close();
 
@@ -52,14 +54,27 @@ public class ShoppingListDAO {
 		return List;
 	}
 	
-	public ArrayList<StockModel> getStockWithString(String stringLine) throws FileNotFoundException{
+	public ArrayList<ListModel> getAllListWithName(String Username) throws FileNotFoundException{
+		UserListListModel g = getUserList(Username);
+		ArrayList<ListModel> List = g.getListList();
+	
+		return List;
+	}
+	
+	public UserStockListModel getStockWithString(String stringLine) throws FileNotFoundException{
+		int i = 0;
 		Scanner sc = new Scanner(stringLine);
 		String line=null;
 		String[] fields;
 		ArrayList<StockModel> stocks=new ArrayList<StockModel>();
-		
-		while (sc.hasNextLine()) {
-			line = sc.nextLine();
+		String userName = null;
+		sc.useDelimiter(":");
+		while (sc.hasNext()) {
+			if(i == 0){
+				userName = sc.next();
+				i++;
+			}
+			line = sc.next();
 			fields = line.split("~");
 			String name = fields[0];
 			double amount = Double.parseDouble(fields[1]);
@@ -68,8 +83,36 @@ public class ShoppingListDAO {
 			stocks.add(a);
 		}
 		sc.close();
+		UserStockListModel b = new UserStockListModel(userName, stocks);
 
-		return stocks;
+		return b;
+	}
+	
+	public UserListListModel getListWithString(String stringLine) throws FileNotFoundException{
+		int i = 0;
+		Scanner sc = new Scanner(stringLine);
+		String line=null;
+		String[] fields;
+		ArrayList<ListModel> lists = new ArrayList<ListModel>();
+		String userName = null;
+		sc.useDelimiter(":");
+		while (sc.hasNext()) {
+			if(i == 0){
+				userName = sc.next();
+				i++;
+			}
+			line = sc.next();
+			fields = line.split("~");
+			String name = fields[0];
+			double amount = Double.parseDouble(fields[1]);
+			double maxAmount = Double.parseDouble(fields[2]);
+			ListModel a = new ListModel(name, amount, maxAmount);
+			lists.add(a);
+		}
+		sc.close();
+		UserListListModel b = new UserListListModel(userName, lists);
+
+		return b;
 	}
 	
 	public ArrayList<ListModel> getAllList() throws FileNotFoundException{
@@ -95,11 +138,6 @@ public class ShoppingListDAO {
 	public ArrayList<ListModel> getAllList(int numberOfPeople) throws FileNotFoundException{
 		this.numberOfPeople = numberOfPeople;
 		Scanner sc = new Scanner(listFile);
-		if(sc.hasNextLine() == false){
-			sc.close();
-			return initializeList(numberOfPeople);
-		}
-		else{
 			String line=null;
 			String[] fields;
 			ArrayList<ListModel> lists=new ArrayList<ListModel>();
@@ -116,7 +154,6 @@ public class ShoppingListDAO {
 			sc.close();
 	
 			return lists;
-		}
 	}
 	
 	public ArrayList<ListModel> initializeList(int numberOfPeople) throws FileNotFoundException{
@@ -170,7 +207,7 @@ public class ShoppingListDAO {
 	
 	public ListModel getListModelByName(String name) throws FileNotFoundException{
 		ListModel model = null;
-		for(ListModel lm:getAllList()){
+		for(ListModel lm:getAllListWithName(name)){
 			if(lm.getName().equalsIgnoreCase(name)){
 				model = lm;
 			}
@@ -179,39 +216,66 @@ public class ShoppingListDAO {
 	}
 	
 	public void writeToStockFile(ArrayList<StockModel> stocks) throws IOException{
-		FileWriter writer = new FileWriter(stockFile);
-		String lineLine = "";
-		boolean first = true;
-		for(StockModel s:stocks){
-			String line = s.getName() + "~" + s.getAmount() + "~" + s.getServing() + "~" + s.getMaxAmount();
-			if(first == true){
-				lineLine += line;
-				first = false;
-			}
-			else{
-				lineLine += "\n" + line;
-			}
+		ArrayList<UserStockListModel> aluslm = getAllUserAndList();
+		System.out.println(aluslm.get(0).getName());
+		UserStockListModel uslm = new UserStockListModel(name, stocks);
+		if(checkUser(name)){
+			aluslm.set(getUserIndex(), uslm);
 		}
-		writer.write(lineLine);
+		else{
+			aluslm.add(uslm);
+		}
+		
+		boolean first = true;
+		String line = "";
+		for(UserStockListModel a:aluslm){
+			line += a.getName() + ":";
+			for(StockModel b:a.getStockList()){
+				if(first == true){
+					line += b.getName() + "~" + b.getAmount() + "~" + b.getServing() + "~" + b.getGrams() + "~" + b.getMaxAmount();
+					first = false;
+				}
+				else{
+					line += ":" + b.getName() + "~" + b.getAmount() + "~" + b.getServing() + "~" + b.getGrams() + "~" + b.getMaxAmount();
+				}
+			}
+			line += "\n";
+			first = true;
+		}
+		FileWriter writer = new FileWriter(stockFile);
+		writer.write(line);
 		writer.flush();
 		writer.close();
 	}
 	
 	public void writeToListFile(ArrayList<ListModel> lists) throws IOException{
-		FileWriter writer = new FileWriter(listFile);
-		String lineLine = "";
-		boolean first = true;
-		for(ListModel l:lists){
-			String line = l.getName() + "~" + l.getAmount() + "~" + l.getMaxAmount();
-			if(first == true){
-				lineLine += line;
-				first = false;
-			}
-			else{
-				lineLine += "\n" + line;
-			}
+		ArrayList<UserListListModel> aluslm = getAllUserAndListList();
+		UserListListModel uslm = new UserListListModel(name, lists);
+		if(checkUser(name)){
+			aluslm.set(getUserIndex(), uslm);
 		}
-		writer.write(lineLine);
+		else{
+			aluslm.add(uslm);
+		}
+		
+		boolean first = true;
+		String line = "";
+		for(UserListListModel a:aluslm){
+			line += a.getName() + ":";
+			for(ListModel b:a.getListList()){
+				if(first == true){
+					line += b.getName() + "~" + b.getAmount() + "~" + b.getMaxAmount();
+					first = false;
+				}
+				else{
+					line += ":" + b.getName() + "~" + b.getAmount() + "~" + b.getMaxAmount();
+				}
+			}
+			line += "\n";
+			first = true;
+		}
+		FileWriter writer = new FileWriter(listFile);
+		writer.write(line);
 		writer.flush();
 		writer.close();
 	}
@@ -219,7 +283,16 @@ public class ShoppingListDAO {
 	public UserStockListModel getUser(String name) throws FileNotFoundException{
 		this.name = name;
 		for(UserStockListModel uslm:getAllUserAndList()){
-			if(uslm.getName() == name){
+			if(uslm.getName().equalsIgnoreCase(name)){
+				return uslm;
+			}
+		}
+		return null;
+	}
+	
+	public UserListListModel getUserList(String name) throws FileNotFoundException{
+		for(UserListListModel uslm:getAllUserAndListList()){
+			if(uslm.getName().equalsIgnoreCase(name)){
 				return uslm;
 			}
 		}
@@ -227,27 +300,42 @@ public class ShoppingListDAO {
 	}
 	
 	public boolean checkUser(String name) throws FileNotFoundException{
+		this.name = name;
 		for(UserStockListModel a:getAllUserAndList()){
-			if(a.getName() == name){
+			if(a.getName().equalsIgnoreCase(name)){
 				return true;
 			}
 		}
 		return false;
 	}
 	
-	private void printList(ArrayList<ListModel>list){
-		for(ListModel l:list){
-			System.out.println("Name: " + l.getName() + "\nAmount: " + l.getAmount() + "\n");
+	public int getUserIndex() throws FileNotFoundException{
+		int index = 0;
+		for(UserStockListModel a:getAllUserAndList()){
+			if(a.getName().equalsIgnoreCase(name)){
+				return index;
+			}
+			index++;
 		}
+		return 0;
 	}
 	
-	public static void main(String args[]) throws IOException{
-		ShoppingListDAO a = new ShoppingListDAO();
-		a.getAllUserAndList();
-		a.getAllStock("xxx");
-
-		System.out.println(a.getAllStock("xxx"));
+	public static void main(String[] args) throws IOException{
+		ShoppingListDAO dao = new ShoppingListDAO();
+		dao.checkUser("xxz");
+		ArrayList<StockModel> alsm = new ArrayList<StockModel>();
+		alsm.add(new StockModel("Xuan Zheng", 19.0, 1, 500, 4.0, true));
+		alsm.add(new StockModel("Xuan Zheng1", 19.0, 1, 500, 4.0, true));
+		alsm.add(new StockModel("Xuan Zheng2", 19.0, 1, 500, 4.0, true));
+		alsm.add(new StockModel("Xuan Zheng3", 19.0, 1, 500, 4.0, true));
+		alsm.add(new StockModel("Xuan Zheng4", 19.0, 1, 500, 4.0, true));
+		dao.writeToStockFile(alsm);
+		ArrayList<ListModel> allm = new ArrayList<ListModel>();
+		allm.add(new ListModel("Xuan Zheng", 19.0, 4.0));
+		allm.add(new ListModel("Xuan Zheng1", 19.0, 4.0));
+		allm.add(new ListModel("Xuan Zheng2", 19.0, 4.0));
+		allm.add(new ListModel("Xuan Zheng3", 19.0, 4.0));
+		allm.add(new ListModel("Xuan Zheng4", 19.0, 4.0));
+		dao.writeToListFile(allm);
 	}
-	
-	
 }

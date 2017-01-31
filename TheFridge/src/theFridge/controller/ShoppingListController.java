@@ -64,15 +64,16 @@ public class ShoppingListController {
 	private JFXComboBox<String> comboBoxFamily;
 	
 	@FXML
-	public void initialize() throws FileNotFoundException{
+	public void initialize() throws IOException{
 		ShoppingListModel first = new ShoppingListModel(StocklistView, Popup, ListlistView, Popup1);
 		ShoppingListAddPageModel.model = first;
 		first.createTitle();
 		User user = new User();
 		user = user.getCurrentUser();
-		first.checkUser(user.getName());
+		if(first.checkUser(user.getUsername())){
 			first.displayStocks();
 			first.displayShopping();
+		}
 			
 		first.startPopup();
 	}

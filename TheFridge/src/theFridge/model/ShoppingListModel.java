@@ -77,11 +77,11 @@ public class ShoppingListModel {
 		ListlistView.getItems().add(HBoxTitle1);
 	}
 
-	public void displayStocks() throws FileNotFoundException {
+	public void displayStocks() throws FileNotFoundException, IOException {
 		User user = new User();
 		user = user.getCurrentUser();
 		ShoppingListDAO s = new ShoppingListDAO();
-		ArrayList<StockModel> stocklist = s.getAllStock(user.getName());
+		ArrayList<StockModel> stocklist = s.getAllStock(user.getUsername());
 		for (StockModel m : stocklist) {
 			HBox hbox = new HBox();
 			Label nameLbl = new Label(m.getName());
@@ -115,12 +115,6 @@ public class ShoppingListModel {
 			});
 
 			StocklistView.getItems().add(hbox);
-			try {
-				ShoppingListDAO a = new ShoppingListDAO();
-				a.writeToStockFile(ShoppingListModel.getStocklistArray());
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
 		}
 	}
 
@@ -642,6 +636,5 @@ public class ShoppingListModel {
 		ShoppingListDAO dao = new ShoppingListDAO();
 		return dao.checkUser(name);
 	}
-	
 	
 }

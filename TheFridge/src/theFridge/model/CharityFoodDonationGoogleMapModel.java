@@ -486,7 +486,8 @@ public class CharityFoodDonationGoogleMapModel implements DirectionsServiceCallb
 			System.out.println(i);
 			String name = placeList.get(i).getName();
 			ImageView imageView = new ImageView();
-			//Image placeImage = new Image(placeList.get(i).getPicture());
+			Image placeImage = new Image(placeList.get(i).getPicture());
+			//imageView.setImage(placeImage);
 			imageView.setFitWidth(150);
 			imageView.setFitHeight(150);
 			Label PlaceNameLbl = new Label("Destination: " + placeList.get(i).getName());

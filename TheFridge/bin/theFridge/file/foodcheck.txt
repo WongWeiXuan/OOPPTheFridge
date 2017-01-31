@@ -1,7 +1,2 @@
-<<<<<<< HEAD
-Rabbit Manure
-Apple
-=======
 Mouldy-Cheese
 Seaweed
->>>>>>> origin/master
