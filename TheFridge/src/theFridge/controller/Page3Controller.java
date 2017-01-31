@@ -243,6 +243,7 @@ public class Page3Controller {
 			uu.setChosenFC(newly);
 			profileDAO.updateUser(uu);
 		}
+		else{
 		String replace = ff.replace("[","");
 		String replace1 = replace.replace("]","");
 		ArrayList<String> myList = new ArrayList<String>(Arrays.asList(replace1.split(",")));
@@ -251,6 +252,7 @@ public class Page3Controller {
 		String last = myList.toString();
 		uu.setChosenFC(last);
 		profileDAO.updateUser(uu);
+		}
 		
 		ArrayList<String> saving = new ArrayList<String>();
 		File file9=new File("src/theFridge/file/foodcheck.txt");

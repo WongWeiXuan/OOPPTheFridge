@@ -213,6 +213,12 @@ public class Page1Controller{
 			String replace1 = replace.replace("]","");
 			ArrayList<String> myList = new ArrayList<String>(Arrays.asList(replace1.split(",")));
 			ObservableList<String> cc = FXCollections.observableArrayList(myList);
+			for(int i=0; i<cc.size();i++){
+				if(cc.get(i).equals("null") || cc.get(i).equals("")){
+					cc.remove(i);
+				}
+					
+			}
 			showFiles.setItems(cc);
 			
 	        table1.setCellValueFactory(new PropertyValueFactory<First, String>("foodCanCompost"));

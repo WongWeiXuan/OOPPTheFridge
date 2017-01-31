@@ -1,2 +1,1 @@
-save1;[Rabbit-Manure]
-second;[Mouldy-Cheese, Seaweed]
+first;[Coffee-Grounds, Seaweed]
