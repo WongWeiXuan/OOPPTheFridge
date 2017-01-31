@@ -125,8 +125,8 @@ public class RedeemVoucherModel {
 		user = user.getCurrentUser();
 		
 		RedeemVoucherSendEmail rDVSE = new RedeemVoucherSendEmail();
-		Image image = new Image(new FileInputStream("src/theFridge/picture/Barcode.png"));
-		rDVSE.sendEmail(user.getEmail(), image);
+		File barcodeFile = new File("src/theFridge/picture/Barcode.png");
+		rDVSE.sendEmail(user.getEmail(), barcodeFile);
 	}
 	
 	public void setRedeemAgainDate() throws FileNotFoundException {
