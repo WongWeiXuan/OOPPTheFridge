@@ -2,6 +2,8 @@ package theFridge.model;
 
 import java.util.ArrayList;
 
+import theFridge.DAO.RecipeBookDAO;
+
 public class RecipeBook {
 	
 	
@@ -17,9 +19,17 @@ public class RecipeBook {
 	private String ingredient2;
 	private String ingredient3;
 	private String steps;
+	private int score;
 	
 	
-	
+	public int getScore() {
+		return score;
+	}
+
+	public void setScore(int score) {
+		this.score = score;
+	}
+
 	public String getAddedBy() {
 		return addedBy;
 	}
@@ -32,8 +42,8 @@ public class RecipeBook {
 		return recipeName;
 	}
 
-	public void setRecipeName(String receiptName) {
-		this.recipeName = receiptName;
+	public void setRecipeName(String recipeName) {
+		this.recipeName = recipeName;
 	}
 
 	public String getIngredient1() {
@@ -73,7 +83,6 @@ public class RecipeBook {
 		return addedBy + ";"+ recipeName +";"+ ingredient1 + ";" + ingredient2 + ";" + ingredient3 + ";" + steps;
 	}
 	
-	
 	public RecipeBook(String addedBy, String recipeName, String ingredient1, String ingredient2, String ingredient3,
 			String steps) {
 		super();
@@ -84,14 +93,23 @@ public class RecipeBook {
 		this.ingredient3 = ingredient3;
 		this.steps = steps;
 	}
-	
-	
-	
-	public ArrayList<RecipeBook> getAllRecipeBook() {
-		RecipeBook RecipeBookDao=new RecipeBook();
-		return RecipeBookDao.getAllRecipeBook();
+	public void deleteRecipe() {
+		RecipeBookDAO Dao=new RecipeBookDAO();
+		Dao.deleteRecipeBook(this);
 	}
 	
+	//a recipe is a friend :)
+	public void addRecipe(ArrayList<RecipeBook> RecipeBookList){
+		RecipeBookDAO Dao=new RecipeBookDAO();
+		Dao.synToFile(RecipeBookList);
+	}
+	
+	public static ArrayList<RecipeBook> getAllRecipeBook() {
+		RecipeBookDAO RecipeBookDao=new RecipeBookDAO();
+		return RecipeBookDao.getAllRecipes();
+	}
+
+
 }
 
 

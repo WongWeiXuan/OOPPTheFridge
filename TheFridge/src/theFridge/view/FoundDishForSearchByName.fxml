@@ -17,7 +17,7 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: #FCE4EC;" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="theFridge.controller.FoundDishController">
+<AnchorPane prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: #FCE4EC;" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="theFridge.controller.FoundDishForSearchByNameController">
    <children>
       <Button fx:id="viewrecipebtn" layoutX="230.0" layoutY="160.0" mnemonicParsing="false" onMouseClicked="#viewRecipe" prefHeight="100.0" prefWidth="300.0" style="-fx-background-color: orange; -fx-border-color: black;" text="View Recipes">
          <font>
@@ -53,27 +53,27 @@
             <Font size="24.0" />
          </font>
       </Text>
-      <Text fx:id="recipebytxt" layoutX="459.0" layoutY="504.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tomato Aglio Olio">
+      <Text fx:id="recipebytxt" layoutX="459.0" layoutY="504.0" strokeType="OUTSIDE" strokeWidth="0.0">
          <font>
             <Font size="24.0" />
          </font>
       </Text>
-      <Text fx:id="ingre1txt" layoutX="459.0" layoutY="551.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pasta">
+      <Text fx:id="ingre1txt" layoutX="459.0" layoutY="551.0" strokeType="OUTSIDE" strokeWidth="0.0">
          <font>
             <Font size="24.0" />
          </font>
       </Text>
-      <Text fx:id="ingre2txt" layoutX="459.0" layoutY="601.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tomatoes">
+      <Text fx:id="ingre2txt" layoutX="459.0" layoutY="601.0" strokeType="OUTSIDE" strokeWidth="0.0">
          <font>
             <Font size="24.0" />
          </font>
       </Text>
-      <Text fx:id="ingre3txt" layoutX="459.0" layoutY="651.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Olive oil">
+      <Text fx:id="ingre3txt" layoutX="459.0" layoutY="651.0" strokeType="OUTSIDE" strokeWidth="0.0">
          <font>
             <Font size="24.0" />
          </font>
       </Text>
-      <TextField fx:id="indexbox" alignment="CENTER" layoutX="562.0" layoutY="712.0" text="1 of 7">
+      <TextField fx:id="indexbox" alignment="CENTER" layoutX="562.0" layoutY="712.0" text="0 of 0">
          <font>
             <Font size="21.0" />
          </font>
@@ -369,7 +369,7 @@
             <Font size="27.0" />
          </font>
       </Text>
-      <TextArea fx:id="stepstxt" layoutX="784.0" layoutY="396.0" prefHeight="287.0" prefWidth="278.0" text="Step 1: Boil pasta in boiling water &#10;until soft&#10;&#10;Step 2: Pre-heat pan with olive oil &#10;for a minute&#10;&#10;Step 3: Grill tomatoes on olive oil &#10;in a pan&#10;&#10;Step 4: Pour pasta into pan and &#10;mix well" />
+      <TextArea fx:id="stepstxt" layoutX="784.0" layoutY="396.0" prefHeight="287.0" prefWidth="278.0" />
       <Button fx:id="searchagainbtn" layoutX="1012.0" layoutY="301.0" mnemonicParsing="false" onMouseClicked="#searchAgain" prefHeight="45.0" prefWidth="200.0" style="-fx-background-color: cyan; -fx-border-color: black;" text="Click here to search again!" wrapText="true" />
       <Text layoutX="212.0" layoutY="398.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search Results:">
          <font>
@@ -381,7 +381,7 @@
             <Font size="24.0" />
          </font>
       </Text>
-      <Text fx:id="addedbytxt" layoutX="459.0" layoutY="461.0" strokeType="OUTSIDE" strokeWidth="0.0" text="mudfish">
+      <Text fx:id="addedbytxt" layoutX="459.0" layoutY="461.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recipe Not Found">
          <font>
             <Font size="24.0" />
          </font>
@@ -391,17 +391,7 @@
             <Font size="27.0" />
          </font>
       </Text>
-      <Text fx:id="ingre1" layoutX="251.0" layoutY="344.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ingre1" wrappingWidth="246.5048828125">
-         <font>
-            <Font size="27.0" />
-         </font>
-      </Text>
-      <Text fx:id="ingre11" layoutX="474.0" layoutY="344.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ingre1" wrappingWidth="246.5048828125">
-         <font>
-            <Font size="27.0" />
-         </font>
-      </Text>
-      <Text fx:id="ingre111" layoutX="697.0" layoutY="344.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ingre1" wrappingWidth="246.5048828125">
+      <Text fx:id="ingre1" layoutX="388.0" layoutY="347.0" strokeType="OUTSIDE" strokeWidth="0.0" text="recipenametxt" wrappingWidth="246.5048828125">
          <font>
             <Font size="27.0" />
          </font>
