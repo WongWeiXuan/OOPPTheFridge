@@ -285,6 +285,11 @@ public class Profile2Controller {
 	@FXML
 	public void save0(ActionEvent event) throws FileNotFoundException {
 		String name= NText.getText();
+		if(name.equals("")){
+			label0.setText("Please enter a value");
+			label0.setOpacity(1);
+		}
+		else{
 		File file=new File("src/theFridge/file/confirm.txt");
 		Scanner sc=new Scanner(file) ;
 		String n = sc.nextLine();
@@ -295,6 +300,12 @@ public class Profile2Controller {
 		profileDAO.updateUser(uu);
 		NText.setText("");
 		sc.close();
+		hbox.setVisible(false);
+		Ename.setVisible(true);
+		hBox0.setVisible(true);
+		namE.setOpacity(1);
+		label0.setOpacity(1);
+		}
 	}
 	// Event Listener on JFXButton[#btnCancel0].onAction
 	@FXML
@@ -340,6 +351,13 @@ public class Profile2Controller {
 		CurrPass.setText("");
 		PassText.setText("");
 		RePassText.setText("");
+		vbOx.setVisible(false);
+		
+		Epassword.setVisible(true);
+		hBox2.setVisible(true);
+		passworD.setOpacity(1);
+		label2.setOpacity(1);
+		
 		
 	}
 	// Event Listener on JFXButton[#btnCancel2].onAction
@@ -358,6 +376,11 @@ public class Profile2Controller {
 	@FXML
 	public void save3(ActionEvent event) throws FileNotFoundException {
 		String email= EMText.getText();
+		if(email.equals("")){
+			label3.setText("Please enter a value");
+			label3.setOpacity(1);
+		}
+		else{
 		File file=new File("src/theFridge/file/confirm.txt");
 		Scanner sc=new Scanner(file) ;
 		String n = sc.nextLine();
@@ -373,6 +396,12 @@ public class Profile2Controller {
 		sg.setEmail(email);
 		sg.updatePerson();
 		EMText.setText("");
+		hbox6.setVisible(false);
+		Eemail.setVisible(true);
+		hBox3.setVisible(true);
+		emaiL.setOpacity(1);
+		label3.setOpacity(1);
+		}
 	}
 	// Event Listener on JFXButton[#btnCancel3].onAction
 	@FXML
@@ -389,6 +418,11 @@ public class Profile2Controller {
 	@FXML
 	public void save4(ActionEvent event) throws FileNotFoundException {
 		String location= LText.getText();
+		if(location.equals("")){
+			label4.setText("Please enter a value");
+			label4.setOpacity(1);
+		}
+		else{
 		File file=new File("src/theFridge/file/confirm.txt");
 		Scanner sc=new Scanner(file) ;
 		String n = sc.nextLine();
@@ -399,6 +433,12 @@ public class Profile2Controller {
 		uu.setCountry(location);
 		profileDAO.updateUser(uu);
 		LText.setText("");
+		hbox7.setVisible(false);
+		Elocation.setVisible(true);
+		hBox4.setVisible(true);
+		locatioN.setOpacity(1);
+		label4.setOpacity(1);
+		}
 	}
 	// Event Listener on JFXButton[#btnCancel4].onAction
 	@FXML
@@ -413,6 +453,11 @@ public class Profile2Controller {
 	
 	public void save5(ActionEvent event) throws FileNotFoundException {
 		String Age= AText.getText();
+		if(Age.equals("")){
+			label5.setText("Please enter a value");
+			label5.setOpacity(1);
+		}
+		else{
 		File file=new File("src/theFridge/file/confirm.txt");
 		Scanner sc=new Scanner(file) ;
 		String n = sc.nextLine();
@@ -423,6 +468,12 @@ public class Profile2Controller {
 		uu.setAge(Age);
 		profileDAO.updateUser(uu);
 		AText.setText("");
+		hbox8.setVisible(false);
+		EAge.setVisible(true);
+		hBox5.setVisible(true);
+		agE.setOpacity(1);
+		label5.setOpacity(1);
+		}
 	}
 	@FXML
 	public void cancel5(ActionEvent event) {
@@ -436,6 +487,11 @@ public class Profile2Controller {
 	
 	public void save6(ActionEvent event) throws FileNotFoundException {
 		String height= HText.getText();
+		if(height.equals("")){
+			label6.setText("Please enter a value");
+			label6.setOpacity(1);
+		}
+		else{
 		File file=new File("src/theFridge/file/confirm.txt");
 		Scanner sc=new Scanner(file) ;
 		String n = sc.nextLine();
@@ -446,6 +502,12 @@ public class Profile2Controller {
 		uu.setHeight(height);
 		profileDAO.updateUser(uu);
 		HText.setText("");
+		hbox9.setVisible(false);
+		EHeight.setVisible(true);
+		hBox6.setVisible(true);
+		heighT.setOpacity(1);
+		label6.setOpacity(1);
+		}
 	}
 	// Event Listener on JFXButton[#btnCancel4].onAction
 	@FXML
@@ -460,6 +522,11 @@ public class Profile2Controller {
 	
 	public void save7(ActionEvent event) throws FileNotFoundException {
 		String weight= WText.getText();
+		if(weight.equals("")){
+			label7.setText("Please enter a value");
+			label7.setOpacity(1);
+		}
+		else{
 		File file=new File("src/theFridge/file/confirm.txt");
 		Scanner sc=new Scanner(file) ;
 		String n = sc.nextLine();
@@ -470,8 +537,13 @@ public class Profile2Controller {
 		uu.setWeight(weight);
 		profileDAO.updateUser(uu);
 		WText.setText("");
+		hbox10.setVisible(false);
+		EWeight.setVisible(true);
+		hBox7.setVisible(true);
+		weighT.setOpacity(1);
+		label7.setOpacity(1);
+		}
 	}
-	// Event Listener on JFXButton[#btnCancel4].onAction
 	@FXML
 	public void cancel7(ActionEvent event) {
 		hbox10.setVisible(false);
@@ -545,7 +617,7 @@ public class Profile2Controller {
 		hbox10.setVisible(true);
 		hbox10.setStyle("-fx-background-color:  #FCE4EC;");
 		weighT.setOpacity(0.5);
-		EWeight.setOpacity(0.5);
+		label7.setOpacity(0.5);
 		EWeight.setVisible(false);
 		
 	}
