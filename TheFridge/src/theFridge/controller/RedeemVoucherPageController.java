@@ -1,23 +1,19 @@
 package theFridge.controller;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Scanner;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.util.concurrent.TimeUnit;
+
+import com.jfoenix.controls.JFXButton;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -25,16 +21,13 @@ import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
-import theFridge.DAO.ProfileDAO;
 import theFridge.model.RedeemVoucherModel;
 import theFridge.model.User;
-import javafx.event.ActionEvent;
-import com.jfoenix.controls.JFXButton;
 
 public class RedeemVoucherPageController {
 	@FXML
@@ -180,17 +173,6 @@ public class RedeemVoucherPageController {
 		RedeemConfirmPopupController.stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 		
 		if (event.getSource().equals(voucher1)) {
-			/*
-			File file=new File("src/theFridge/file/confirm.txt");
-			Scanner sc = new Scanner(file) ;
-			String n = sc.nextLine();
-			sc.close();
-			
-			ProfileDAO profileDAO = new ProfileDAO();
-			User uu = new User();
-			uu = profileDAO.getUser(n);
-			*/
-			
 			User user = new User();
 			user = user.getCurrentUser();
 			
@@ -379,17 +361,6 @@ public class RedeemVoucherPageController {
 	@FXML 
 	public void goToPromoPage(ActionEvent event) throws IOException {
 		if (event.getSource().equals(TwelveCharacterBtn1)) {
-			/*
-			File file=new File("src/theFridge/file/confirm.txt");
-			Scanner sc = new Scanner(file) ;
-			String n = sc.nextLine();
-			sc.close();
-			
-			ProfileDAO profileDAO = new ProfileDAO();
-			User uu = new User();
-			uu = profileDAO.getUser(n);
-			*/
-			
 			User user = new User();
 			user = user.getCurrentUser();
 			
