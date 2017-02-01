@@ -46,6 +46,11 @@ public class FoodCompostDatas {
 		return foodCompostDatasDAO.createFoodCompostDatas(this);
 	}
 	
+	public void deleteFoodCompost() {
+		FoodCompostDatasDAO fD=new FoodCompostDatasDAO();
+		fD.deleteFoodCompost(this);
+	}
+	
 	/*public static void main(String[] args) throws FileNotFoundException{
 		FoodCompostDatas f = new FoodCompostDatas();
 		FoodCompostDatasDAO g = new FoodCompostDatasDAO();

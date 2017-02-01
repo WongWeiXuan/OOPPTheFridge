@@ -1,9 +1,14 @@
 package theFridge.model;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 
 import com.jfoenix.controls.JFXButton;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.scene.control.Tooltip;
+import javafx.util.Duration;
 import theFridge.DAO.QuizDAO;
 
 public class QuizQuestionsModel {
@@ -97,6 +102,23 @@ public class QuizQuestionsModel {
 		btn2.setDisable(false);
 		btn3.setDisable(false);
 		btn4.setDisable(false);
+	}
+	
+	public void hackTooltipStartTiming(Tooltip tooltip) {
+	    try {
+	        Field fieldBehavior = tooltip.getClass().getDeclaredField("BEHAVIOR");
+	        fieldBehavior.setAccessible(true);
+	        Object objBehavior = fieldBehavior.get(tooltip);
+
+	        Field fieldTimer = objBehavior.getClass().getDeclaredField("activationTimer");
+	        fieldTimer.setAccessible(true);
+	        Timeline objTimer = (Timeline) fieldTimer.get(objBehavior);
+
+	        objTimer.getKeyFrames().clear();
+	        objTimer.getKeyFrames().add(new KeyFrame(new Duration(150)));
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
 	}
 	
 	public static void main(String args[]) {

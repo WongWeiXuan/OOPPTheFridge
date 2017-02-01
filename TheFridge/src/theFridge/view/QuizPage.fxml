@@ -213,9 +213,9 @@
                                           </Label>
                                           <StackPane>
                                              <children>
-                                                <Label fx:id="timerOutput">
+                                                <Label fx:id="timerOutput" textFill="#4caf50">
                                                    <font>
-                                                      <Font name="Garamond" size="48.0" />
+                                                      <Font name="Garamond Bold" size="48.0" />
                                                    </font>
                                                 </Label>
                                                 <ImageView fx:id="correctImg" fitHeight="70.0" fitWidth="70.0" visible="false">
@@ -241,11 +241,17 @@
                                              <VBox.margin>
                                                 <Insets right="10.0" />
                                              </VBox.margin>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
                                           </ImageView>
                                        </children>
                                        <StackPane.margin>
                                           <Insets />
                                        </StackPane.margin>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
                                     </VBox>
                                  </children>
                               </StackPane>
@@ -273,6 +279,9 @@
                                        <font>
                                           <Font name="Garamond" size="24.0" />
                                        </font>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
                                     </JFXButton>
                                     <JFXButton fx:id="choiceBtn2" buttonType="RAISED" minWidth="200.0" onAction="#checkChoice2Btn" prefHeight="70.0" prefWidth="200.0" ripplerFill="BLACK" style="-fx-background-color: #5CF1F1;" text="Choice 2" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                                        <font>
@@ -281,6 +290,9 @@
                                        <GridPane.margin>
                                           <Insets />
                                        </GridPane.margin>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
                                     </JFXButton>
                                     <JFXButton fx:id="choiceBtn3" buttonType="RAISED" minWidth="200.0" onAction="#checkChoice3Btn" prefHeight="70.0" prefWidth="200.0" ripplerFill="BLACK" style="-fx-background-color: #5CF1F1;" text="Choice 3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                                        <font>
@@ -289,6 +301,9 @@
                                        <GridPane.margin>
                                           <Insets />
                                        </GridPane.margin>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
                                     </JFXButton>
                                     <JFXButton fx:id="choiceBtn4" buttonType="RAISED" minWidth="200.0" onAction="#checkChoice4Btn" prefHeight="70.0" prefWidth="200.0" ripplerFill="BLACK" style="-fx-background-color: #5CF1F1;" text="Choice 4" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                                        <font>
@@ -297,6 +312,9 @@
                                        <GridPane.margin>
                                           <Insets />
                                        </GridPane.margin>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
                                     </JFXButton>
                                  </children>
                               </GridPane>

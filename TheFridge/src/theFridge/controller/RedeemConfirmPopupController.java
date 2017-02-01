@@ -1,22 +1,18 @@
 package theFridge.controller;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.Scanner;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.layout.HBox;
-import javafx.stage.Stage;
-import theFridge.DAO.ProfileDAO;
-import theFridge.model.RedeemVoucherModel;
-import theFridge.model.User;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
+import theFridge.model.RedeemVoucherModel;
+import theFridge.model.User;
 
 public class RedeemConfirmPopupController {
 	@FXML

@@ -247,9 +247,39 @@ public class Page1Controller{
 		   listView.getItems().clear();
 	   }
 	   
-	   public void deleting(ActionEvent event){
+	   public void deleting(ActionEvent event) throws FileNotFoundException{
 		   String de = showFiles.getValue().toString();
 		   de = de.replaceAll("\\s+", "");
+		   
+		   File file1=new File("src/theFridge/file/confirm.txt");
+		   Scanner sc1=new Scanner(file1) ;
+		   String n = sc1.nextLine();
+		   ProfileDAO profileDAO = new ProfileDAO();
+		   User uu = new User();
+		   uu = profileDAO.getUser(n);
+		   String ff = uu.getChosenFC();
+		   String replace = ff.replace("[","");
+		   String replace1 = replace.replace("]","");
+		   ArrayList<String> myList = new ArrayList<String>(Arrays.asList(replace1.split(",")));
+		   for(int i=0; i<myList.size(); i++){
+			   String oo = myList.get(i);
+			   oo = oo.replaceAll("\\s+", "");
+			   if(oo.equals(de)){
+				   myList.remove(i);
+			   }
+		   }
+		   String newly = myList.toString();
+		   System.out.println(newly);
+		   uu.setChosenFC(newly);
+		   profileDAO.updateUser(uu);
+		   
+		   FoodCompostDatas fg = new FoodCompostDatas();
+		   FoodCompostDatasDAO lol = new FoodCompostDatasDAO();
+		   fg = lol.getFoodCompostDatas(de);
+		   fg.deleteFoodCompost();
+		   fg.updateFoodCompostDatas();
+		   
+		   
 		   
 	   }
 	   
@@ -294,7 +324,7 @@ public class Page1Controller{
 	    	String replace = nope.replace("[","");
 			String replace1 = replace.replace("]","");
 			ArrayList<String> myList = new ArrayList<String>(Arrays.asList(replace1.split(",")));
-			System.out.println(myList);
+			//System.out.println(myList);
 			if(myList.size() == 1){
 				
 				String f="src/theFridge/file/foodcheck.txt";

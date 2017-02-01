@@ -22,6 +22,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
+import javafx.scene.control.Tooltip;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -32,6 +33,7 @@ import javafx.util.Duration;
 import theFridge.model.QuizChoicesModel;
 import theFridge.model.QuizLineChartDetails;
 import theFridge.model.QuizQuestionsModel;
+import theFridge.model.User;
 
 public class QuizPageController {
 	@FXML
@@ -86,6 +88,7 @@ public class QuizPageController {
 	private int pageNo = 1;
 	private Timeline timeline;
 	private Integer timeSeconds = 10;
+	private Tooltip toolTip;
 	
 	public void showQuestion(QuizQuestionsModel questions) {
 		questionLabel.setText(questions.getQuestions());
@@ -115,6 +118,7 @@ public class QuizPageController {
 			vBoxInfoImg.setDisable(true);
 			continueBtn.setVisible(false);
 			continueBtn.setDisable(true);
+			timerOutput.setStyle("-fx-text-fill: #4CAF50");
 			choiceBtn1.setStyle("-fx-background-color: #5CF1F1");
 			choiceBtn2.setStyle("-fx-background-color: #5CF1F1");
 			choiceBtn3.setStyle("-fx-background-color: #5CF1F1");
@@ -159,15 +163,20 @@ public class QuizPageController {
 	}
 
 	@FXML
-	public void checkChoice1Btn(ActionEvent event) {
+	public void checkChoice1Btn(ActionEvent event) throws FileNotFoundException {
 		QuizQuestionsModel quizQ = questionsList.get(currIndex);
 		int ans = quizQ.getChoices().getAnswerOption();
+		
+		User user = new User();
+		user = user.getCurrentUser();
 		
 		QuizLineChartDetails qLCD = new QuizLineChartDetails();
 		
 		if (ans == 1){
 			timeline.stop();
 			QuizQuestionsModel.setPointsAttained(QuizQuestionsModel.getPointsAttained() + 10);
+			user.setTotalPoints(QuizQuestionsModel.getPointsAttained());
+			user.updateUser();
 			pointsEarned.setText("Points earned: " + String.valueOf(QuizQuestionsModel.getPointsAttained()));
 			timeLeft.setText("Correct answer!");
 			timerOutput.setVisible(false);
@@ -254,15 +263,20 @@ public class QuizPageController {
 	}
 	
 	@FXML
-	public void checkChoice2Btn(ActionEvent event) {
+	public void checkChoice2Btn(ActionEvent event) throws FileNotFoundException {
 		QuizQuestionsModel quizQ = questionsList.get(currIndex);
 		int ans = quizQ.getChoices().getAnswerOption();
+		
+		User user = new User();
+		user = user.getCurrentUser();
 		
 		QuizLineChartDetails qLCD = new QuizLineChartDetails();
 		
 		if (ans == 2){
 			timeline.stop();
 			QuizQuestionsModel.setPointsAttained(QuizQuestionsModel.getPointsAttained() + 10);
+			user.setTotalPoints(QuizQuestionsModel.getPointsAttained());
+			user.updateUser();
 			pointsEarned.setText("Points earned: " + String.valueOf(QuizQuestionsModel.getPointsAttained()));
 			timeLeft.setText("Correct answer!");
 			timerOutput.setVisible(false);
@@ -349,15 +363,20 @@ public class QuizPageController {
 	}
 	
 	@FXML
-	public void checkChoice3Btn(ActionEvent event) {
+	public void checkChoice3Btn(ActionEvent event) throws FileNotFoundException {
 		QuizQuestionsModel quizQ = questionsList.get(currIndex);
 		int ans = quizQ.getChoices().getAnswerOption();
+		
+		User user = new User();
+		user = user.getCurrentUser();
 		
 		QuizLineChartDetails qLCD = new QuizLineChartDetails();
 		
 		if (ans == 3){
 			timeline.stop();
 			QuizQuestionsModel.setPointsAttained(QuizQuestionsModel.getPointsAttained() + 10);
+			user.setTotalPoints(QuizQuestionsModel.getPointsAttained());
+			user.updateUser();
 			pointsEarned.setText("Points earned: " + String.valueOf(QuizQuestionsModel.getPointsAttained()));
 			timeLeft.setText("Correct answer!");
 			timerOutput.setVisible(false);
@@ -444,15 +463,20 @@ public class QuizPageController {
 	}
 	
 	@FXML
-	public void checkChoice4Btn(ActionEvent event) {
+	public void checkChoice4Btn(ActionEvent event) throws FileNotFoundException {
 		QuizQuestionsModel quizQ = questionsList.get(currIndex);
 		int ans = quizQ.getChoices().getAnswerOption();
+		
+		User user = new User();
+		user = user.getCurrentUser();
 		
 		QuizLineChartDetails qLCD = new QuizLineChartDetails();
 		
 		if (ans == 4){
 			timeline.stop();
 			QuizQuestionsModel.setPointsAttained(QuizQuestionsModel.getPointsAttained() + 10);
+			user.setTotalPoints(QuizQuestionsModel.getPointsAttained());
+			user.updateUser();
 			pointsEarned.setText("Points earned: " + String.valueOf(QuizQuestionsModel.getPointsAttained()));
 			timeLeft.setText("Correct answer!");
 			timerOutput.setVisible(false);
@@ -541,7 +565,7 @@ public class QuizPageController {
 	@FXML
 	public void initialize() throws FileNotFoundException {
 		QuizQuestionsModel quizQ = new QuizQuestionsModel();
-		questionsList = quizQ.getAllQuestions();
+		questionsList = QuizQuestionsModel.getAllQuestions();
 		
 		QuizQuestionsModel.setPointsAttained(0);
 		
@@ -550,6 +574,9 @@ public class QuizPageController {
 			showQuestion(questionsList.get(0));
 		}
 		
+		toolTip = new Tooltip("Click here for more information");
+		quizQ.hackTooltipStartTiming(toolTip);
+		Tooltip.install(vBoxInfoImg, toolTip);
 		questionNo.setText(String.valueOf(pageNo) + "/10");
 		pointsEarned.setText("Points earned: " + QuizQuestionsModel.getPointsAttained());
 		
@@ -577,7 +604,10 @@ public class QuizPageController {
 		timerOutput.textProperty().addListener(new ChangeListener<String>() {
 			@Override
 			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-				if (newValue.equals("0")) {
+				if (newValue.equals("5")) {
+					timerOutput.setStyle("-fx-text-fill: #E91E63");
+				}
+				else if (newValue.equals("0")) {
 					vBoxInfoImg.setVisible(true);
 					vBoxInfoImg.setDisable(false);
 					continueBtn.setVisible(true);

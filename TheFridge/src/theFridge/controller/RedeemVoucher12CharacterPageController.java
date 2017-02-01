@@ -1,6 +1,5 @@
 package theFridge.controller;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import com.jfoenix.controls.JFXButton;
@@ -60,8 +59,6 @@ public class RedeemVoucher12CharacterPageController {
 	@FXML
 	private Label voucherTypeLabel;
 	
-	//private String promoCode;
-	
 	@FXML
 	public void initialize() {
 		voucherTypeLabel.setText("For a 10% off " + RedeemVoucherModel.getVoucherType() + " voucher");
@@ -71,46 +68,6 @@ public class RedeemVoucher12CharacterPageController {
 	public void generatePromoCode(ActionEvent event) throws IOException {
 		RedeemVoucherModel rDV = new RedeemVoucherModel();
 		RedeemVoucherModel rDVL = new RedeemVoucherModel(codeLabel, sendPromoLabel, codeGenerator);
-		
-		/*
-		File file = new File("src/theFridge/file/confirm.txt");
-		Scanner sc = new Scanner(file) ;
-		String n = sc.nextLine();
-		sc.close();
-		
-		ProfileDAO profileDAO = new ProfileDAO();
-		User user = new User();
-		user = profileDAO.getUser(n);
-		
-		//rDV.generatePromoCode();
-		//promoCode = rDV.getCodeOutput();
-		//user.setPromoCode(promoCode);
-		//user.addPromoCode();
-		*/
-		
-		/*
-		if (!(user.getPromoCode().equals("")) && !(user.getPromoCode().equals("null"))) {
-			System.out.println("RedeemVoucher12CharacterPageController - IF");
-			System.out.println(user.getPromoCode());
-			
-			//sendPromoLabel.setVisible(false);
-			//codeGenerator.setDisable(false);
-			
-			codeLabel.setText(user.getPromoCode());
-			sendPromoLabel.setVisible(true);
-			codeGenerator.setDisable(true);
-		}
-		else {
-			System.out.println("RedeemVoucher12CharacterPageController - ELSE");
-			
-			//codeLabel.setText(user.getPromoCode());
-			//sendPromoLabel.setVisible(true);
-			//codeGenerator.setDisable(true);
-			
-			sendPromoLabel.setVisible(false);
-			codeGenerator.setDisable(false);
-		}
-		*/
 		
 		try {
 			@SuppressWarnings("rawtypes")
@@ -129,30 +86,18 @@ public class RedeemVoucher12CharacterPageController {
 	}
 	
 	@FXML
-	public void sendEmail(MouseEvent event) throws FileNotFoundException {
-		/*
-		try {
-			@SuppressWarnings("rawtypes")
-			Dialog dialog = new Dialog();
-			Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemConfirmPopup.fxml"));
-			Stage stage = (Stage) dialog.getDialogPane().getScene().getWindow();
-			stage.initStyle(StageStyle.TRANSPARENT);
-			Scene scene = new Scene(root);
-			stage.setX(320);
-			stage.setY(430);
-			stage.setScene(scene);
-			stage.showAndWait();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		*/
+	public void sendEmail(MouseEvent event) throws IOException {
+		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemVoucherBarcodeSentPage.fxml"));
 		
+		stage.setScene(new Scene(root));
+ 	    stage.show();
+ 	    
 		User user = new User();
 		user = user.getCurrentUser();
 		
 		RedeemVoucherModel rDV = new RedeemVoucherModel();
-		rDV.generatePromoCode();
-		rDV.setRedeemAgainDate();
+		rDV.setCodeOutput(user.getPromoCode());
 		rDV.generateBarcode();
 		rDV.sendEmail();
 	}

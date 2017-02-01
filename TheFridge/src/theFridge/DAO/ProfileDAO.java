@@ -55,23 +55,6 @@ public class ProfileDAO {
 	
 	}
 	
-	//For redeem voucher
-	public boolean addPromoCode(User user) {
-		boolean existing = false;
-		ArrayList<User> userList = new ArrayList<User>();
-		for (User u : userList) {
-			if (u.getPromoCode().equals(user.getPromoCode())) {
-				existing = true;
-				break;
-			}
-		}
-		if (!existing) {
-			userList.add(user);
-			synToFile(userList);
-		}
-		return !existing;
-	}
-	
 	public User getUser(String username) {
 		ArrayList<User> user = getAllUser();
 		User user1 = null;

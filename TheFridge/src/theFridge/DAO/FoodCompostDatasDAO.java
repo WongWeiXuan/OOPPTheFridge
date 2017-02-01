@@ -98,4 +98,24 @@ public class FoodCompostDatasDAO {
 		}
 		synToFile(user2);
 	}
+	
+	public void deleteFoodCompost(FoodCompostDatas f1) {
+		
+		ArrayList<FoodCompostDatas> user2 = getAllFoodCompostDatas();
+		
+		FoodCompostDatas delFriend=null;
+		for (FoodCompostDatas f:user2) {
+			if (f1.getTitle().equals(f.getTitle())){
+				delFriend=f;			
+				break;
+			}
+		}
+		if (delFriend!=null){
+		    user2.remove(delFriend);
+			synToFile(user2);	
+		}		
+	
+	}
+	
+	
 }
