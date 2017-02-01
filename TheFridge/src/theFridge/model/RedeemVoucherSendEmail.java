@@ -1,5 +1,6 @@
 package theFridge.model;
 
+import java.io.File;
 import java.util.Properties;
 
 import javax.activation.DataHandler;
@@ -16,11 +17,9 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
-import javafx.scene.image.Image;
-
 public class RedeemVoucherSendEmail {
 	
-	public void sendEmail(String recipientEmail, Image text) {
+	public void sendEmail(String recipientEmail, File barcodeFile) {
 		  // Recipient's email ID needs to be mentioned
 	      String to = recipientEmail;
 
@@ -58,7 +57,7 @@ public class RedeemVoucherSendEmail {
 	         InternetAddress.parse(to));
 
 	         // Set Subject: header field
-	         message.setSubject("Testing Subject");
+	         message.setSubject("Voucher Redeemed");
 	         
 	         // This mail has 2 part, the BODY and the embedded image
 	         MimeMultipart multipart = new MimeMultipart("related");
@@ -66,15 +65,15 @@ public class RedeemVoucherSendEmail {
 	         // First part (the html)
 	         BodyPart messageBodyPart = new MimeBodyPart();
 	         
-	         //String htmlText = "<H1>Here's your voucher. Enjoy!</H1><img src="cid:image"><H3>Sorry if I send to wrong email.</H3>";
-	         messageBodyPart.setContent("Here's your voucher. Enjoy!", "text/html");
+	         String htmlText = "<H1>Here's your voucher. Enjoy!</H1>" + "<img src=\"cid:image\">";
+	         messageBodyPart.setContent(htmlText, "text/html");
 	         
 	         // Add it
 	         multipart.addBodyPart(messageBodyPart);
 	         
 	         // Second part (The image)
 	         messageBodyPart = new MimeBodyPart();
-	         DataSource fds = new FileDataSource("src/theFridge/picture/Barcode.png");
+	         DataSource fds = new FileDataSource(barcodeFile);
 
 	         messageBodyPart.setDataHandler(new DataHandler(fds));
 	         messageBodyPart.setHeader("Content-ID", "<image>");
@@ -84,9 +83,6 @@ public class RedeemVoucherSendEmail {
 
 	         // Put everything together
 	         message.setContent(multipart);
-
-	         // Now set the actual message
-	         message.setText("Hello, this is sample for to check send " + "email using JavaMailAPI ");
 
 	         // Send message
 	         Transport.send(message);
