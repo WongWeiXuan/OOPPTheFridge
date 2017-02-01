@@ -34,51 +34,46 @@
             <Font size="24.0" />
          </font>
       </Button>
-      <Text layoutX="268.0" layoutY="365.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recipe Name: ">
+      <Text layoutX="268.0" layoutY="504.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recipe Name: ">
          <font>
             <Font size="24.0" />
          </font></Text>
-      <Text layoutX="268.0" layoutY="415.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ingredient 1: ">
+      <Text layoutX="268.0" layoutY="551.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ingredient 1: ">
          <font>
             <Font size="24.0" />
          </font>
       </Text>
-      <Text layoutX="268.0" layoutY="465.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ingredient 2: ">
+      <Text layoutX="268.0" layoutY="601.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ingredient 2: ">
          <font>
             <Font size="24.0" />
          </font>
       </Text>
-      <Text layoutX="268.0" layoutY="515.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ingredient 3:">
+      <Text layoutX="268.0" layoutY="651.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ingredient 3:">
          <font>
             <Font size="24.0" />
          </font>
       </Text>
-      <Text layoutX="268.0" layoutY="552.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Image: :">
+      <Text fx:id="recipebytxt" layoutX="459.0" layoutY="504.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tomato Aglio Olio">
          <font>
             <Font size="24.0" />
          </font>
       </Text>
-      <Text layoutX="459.0" layoutY="365.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tomato Aglio Olio">
+      <Text fx:id="ingre1txt" layoutX="459.0" layoutY="551.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pasta">
          <font>
             <Font size="24.0" />
          </font>
       </Text>
-      <Text layoutX="459.0" layoutY="415.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pasta">
+      <Text fx:id="ingre2txt" layoutX="459.0" layoutY="601.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tomatoes">
          <font>
             <Font size="24.0" />
          </font>
       </Text>
-      <Text layoutX="459.0" layoutY="465.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tomatoes">
+      <Text fx:id="ingre3txt" layoutX="459.0" layoutY="651.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Olive oil">
          <font>
             <Font size="24.0" />
          </font>
       </Text>
-      <Text layoutX="459.0" layoutY="515.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Olive oil">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Text>
-      <TextField alignment="CENTER" layoutX="562.0" layoutY="712.0" text="1 of 7">
+      <TextField fx:id="indexbox" alignment="CENTER" layoutX="562.0" layoutY="712.0" text="1 of 7">
          <font>
             <Font size="21.0" />
          </font>
@@ -369,23 +364,44 @@
             </Label>
          </children>
       </TextFlow>
-      <TextArea layoutX="314.0" layoutY="448.0" prefHeight="243.0" prefWidth="292.0" scaleX="0.3" scaleY="0.3">
-         <effect>
-            <ImageInput>
-               <source>
-                  <Image url="file:/C:/Users/Nic/Desktop/tp.JPG" />
-               </source>
-            </ImageInput>
-         </effect>
-      </TextArea>
-      <Text layoutX="710.0" layoutY="353.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Steps:" wrappingWidth="87.59999424219131">
+      <Text layoutX="710.0" layoutY="387.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Steps:" wrappingWidth="87.59999424219131">
          <font>
             <Font size="27.0" />
          </font>
       </Text>
-      <TextArea layoutX="748.0" layoutY="369.0" prefHeight="297.0" prefWidth="284.0" text="Step 1: Boil pasta in boiling water &#10;until soft&#10;&#10;Step 2: Pre-heat pan with olive oil &#10;for a minute&#10;&#10;Step 3: Grill tomatoes on olive oil &#10;in a pan&#10;&#10;Step 4: Pour pasta into pan and &#10;mix well" />
+      <TextArea fx:id="stepstxt" layoutX="784.0" layoutY="396.0" prefHeight="287.0" prefWidth="278.0" text="Step 1: Boil pasta in boiling water &#10;until soft&#10;&#10;Step 2: Pre-heat pan with olive oil &#10;for a minute&#10;&#10;Step 3: Grill tomatoes on olive oil &#10;in a pan&#10;&#10;Step 4: Pour pasta into pan and &#10;mix well" />
       <Button fx:id="searchagainbtn" layoutX="1012.0" layoutY="301.0" mnemonicParsing="false" onMouseClicked="#searchAgain" prefHeight="45.0" prefWidth="200.0" style="-fx-background-color: cyan; -fx-border-color: black;" text="Click here to search again!" wrapText="true" />
-      <Text layoutX="299.0" layoutY="312.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search Results:">
+      <Text layoutX="212.0" layoutY="398.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search Results:">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Text>
+      <Text layoutX="268.0" layoutY="461.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Added By: ">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text fx:id="addedbytxt" layoutX="459.0" layoutY="461.0" strokeType="OUTSIDE" strokeWidth="0.0" text="mudfish">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="200.0" layoutY="311.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You searched for..." wrappingWidth="402.5048828125">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Text>
+      <Text fx:id="ingre1" layoutX="251.0" layoutY="344.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ingre1" wrappingWidth="246.5048828125">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Text>
+      <Text fx:id="ingre11" layoutX="474.0" layoutY="344.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ingre1" wrappingWidth="246.5048828125">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Text>
+      <Text fx:id="ingre111" layoutX="697.0" layoutY="344.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ingre1" wrappingWidth="246.5048828125">
          <font>
             <Font size="27.0" />
          </font>
