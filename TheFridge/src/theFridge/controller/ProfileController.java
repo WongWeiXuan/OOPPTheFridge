@@ -19,6 +19,7 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import theFridge.DAO.ProfileDAO;
@@ -114,7 +115,9 @@ public class ProfileController {
 		UNLabel.setText(uu.getUsername());
 		PassLabel.setText(uu.getPassword());
 		EMLabel.setText(uu.getEmail());
+		EMLabel.setFont(Font.font ("Verdana", 20));
 		LLabel.setText(uu.getCountry());
+		LLabel.setFont(Font.font ("Verdana", 20));
 		AgeLabel.setText(uu.getAge());
 		HeightLabel.setText(uu.getHeight());
 		WeightLabel.setText(uu.getWeight());
