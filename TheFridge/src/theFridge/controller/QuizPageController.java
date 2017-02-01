@@ -178,6 +178,7 @@ public class QuizPageController {
 			continueBtn.setDisable(false);
 			choiceBtn1.setStyle("-fx-background-color: #4CAF50");
 			quizQ.disableButtons(choiceBtn1, choiceBtn2, choiceBtn3, choiceBtn4);
+			QuizExplanationPopupController.answerText = choiceBtn1.getText();
 			qLCD.addPoints(pageNo);
 			
 			if (QuizQuestionsModel.isDontShowAgain() == true) {
@@ -207,8 +208,30 @@ public class QuizPageController {
 			vBoxInfoImg.setDisable(false);
 			continueBtn.setVisible(true);
 			continueBtn.setDisable(false);
-			choiceBtn1.setStyle("-fx-background-color: #E91E63");
+			//choiceBtn1.setStyle("-fx-background-color: #E91E63");
+			if (ans == 2) {
+				choiceBtn1.setStyle("-fx-background-color: #E91E63");
+				choiceBtn2.setStyle("-fx-background-color: #4CAF50");
+				choiceBtn3.setStyle("-fx-background-color: #E91E63");
+				choiceBtn4.setStyle("-fx-background-color: #E91E63");
+				QuizExplanationPopupController.answerText = choiceBtn2.getText();
+			}
+			else if (ans == 3) {
+				choiceBtn1.setStyle("-fx-background-color: #E91E63");
+				choiceBtn2.setStyle("-fx-background-color: #E91E63");
+				choiceBtn3.setStyle("-fx-background-color: #4CAF50");
+				choiceBtn4.setStyle("-fx-background-color: #E91E63");
+				QuizExplanationPopupController.answerText = choiceBtn3.getText();
+			}
+			else if (ans == 4) {
+				choiceBtn1.setStyle("-fx-background-color: #E91E63");
+				choiceBtn2.setStyle("-fx-background-color: #E91E63");
+				choiceBtn3.setStyle("-fx-background-color: #E91E63");
+				choiceBtn4.setStyle("-fx-background-color: #4CAF50");
+				QuizExplanationPopupController.answerText = choiceBtn4.getText();
+			}
 			quizQ.disableButtons(choiceBtn1, choiceBtn2, choiceBtn3, choiceBtn4);
+			qLCD.addPoints(pageNo);
 			
 			if (QuizQuestionsModel.isDontShowAgain() == true) {
 				try {
@@ -250,6 +273,7 @@ public class QuizPageController {
 			continueBtn.setDisable(false);
 			choiceBtn2.setStyle("-fx-background-color: #4CAF50");
 			quizQ.disableButtons(choiceBtn1, choiceBtn2, choiceBtn3, choiceBtn4);
+			QuizExplanationPopupController.answerText = choiceBtn2.getText();
 			qLCD.addPoints(pageNo);
 			
 			if (QuizQuestionsModel.isDontShowAgain() == true) {
@@ -279,8 +303,30 @@ public class QuizPageController {
 			vBoxInfoImg.setDisable(false);
 			continueBtn.setVisible(true);
 			continueBtn.setDisable(false);
-			choiceBtn2.setStyle("-fx-background-color: #E91E63");
+			//choiceBtn2.setStyle("-fx-background-color: #E91E63");
+			if (ans == 1) {
+				choiceBtn1.setStyle("-fx-background-color: #4CAF50");
+				choiceBtn2.setStyle("-fx-background-color: #E91E63");
+				choiceBtn3.setStyle("-fx-background-color: #E91E63");
+				choiceBtn4.setStyle("-fx-background-color: #E91E63");
+				QuizExplanationPopupController.answerText = choiceBtn1.getText();
+			}
+			else if (ans == 3) {
+				choiceBtn1.setStyle("-fx-background-color: #E91E63");
+				choiceBtn2.setStyle("-fx-background-color: #E91E63");
+				choiceBtn3.setStyle("-fx-background-color: #4CAF50");
+				choiceBtn4.setStyle("-fx-background-color: #E91E63");
+				QuizExplanationPopupController.answerText = choiceBtn3.getText();
+			}
+			else if (ans == 4) {
+				choiceBtn1.setStyle("-fx-background-color: #E91E63");
+				choiceBtn2.setStyle("-fx-background-color: #E91E63");
+				choiceBtn3.setStyle("-fx-background-color: #E91E63");
+				choiceBtn4.setStyle("-fx-background-color: #4CAF50");
+				QuizExplanationPopupController.answerText = choiceBtn4.getText();
+			}
 			quizQ.disableButtons(choiceBtn1, choiceBtn2, choiceBtn3, choiceBtn4);
+			qLCD.addPoints(pageNo);
 			
 			if (QuizQuestionsModel.isDontShowAgain() == true) {
 				try {
@@ -322,6 +368,7 @@ public class QuizPageController {
 			continueBtn.setDisable(false);
 			choiceBtn3.setStyle("-fx-background-color: #4CAF50");
 			quizQ.disableButtons(choiceBtn1, choiceBtn2, choiceBtn3, choiceBtn4);
+			QuizExplanationPopupController.answerText = choiceBtn3.getText();
 			qLCD.addPoints(pageNo);
 			
 			if (QuizQuestionsModel.isDontShowAgain() == true) {
@@ -351,8 +398,30 @@ public class QuizPageController {
 			vBoxInfoImg.setDisable(false);
 			continueBtn.setVisible(true);
 			continueBtn.setDisable(false);
-			choiceBtn3.setStyle("-fx-background-color: #E91E63");
+			//choiceBtn3.setStyle("-fx-background-color: #E91E63");
+			if (ans == 1) {
+				choiceBtn1.setStyle("-fx-background-color: #4CAF50");
+				choiceBtn2.setStyle("-fx-background-color: #E91E63");
+				choiceBtn3.setStyle("-fx-background-color: #E91E63");
+				choiceBtn4.setStyle("-fx-background-color: #E91E63");
+				QuizExplanationPopupController.answerText = choiceBtn1.getText();
+			}
+			else if (ans == 2) {
+				choiceBtn1.setStyle("-fx-background-color: #E91E63");
+				choiceBtn2.setStyle("-fx-background-color: #4CAF50");
+				choiceBtn3.setStyle("-fx-background-color: #E91E63");
+				choiceBtn4.setStyle("-fx-background-color: #E91E63");
+				QuizExplanationPopupController.answerText = choiceBtn2.getText();
+			}
+			else if (ans == 4) {
+				choiceBtn1.setStyle("-fx-background-color: #E91E63");
+				choiceBtn2.setStyle("-fx-background-color: #E91E63");
+				choiceBtn3.setStyle("-fx-background-color: #E91E63");
+				choiceBtn4.setStyle("-fx-background-color: #4CAF50");
+				QuizExplanationPopupController.answerText = choiceBtn4.getText();
+			}
 			quizQ.disableButtons(choiceBtn1, choiceBtn2, choiceBtn3, choiceBtn4);
+			qLCD.addPoints(pageNo);
 			
 			if (QuizQuestionsModel.isDontShowAgain() == true) {
 				try {
@@ -394,6 +463,7 @@ public class QuizPageController {
 			continueBtn.setDisable(false);
 			choiceBtn4.setStyle("-fx-background-color: #4CAF50");
 			quizQ.disableButtons(choiceBtn1, choiceBtn2, choiceBtn3, choiceBtn4);
+			QuizExplanationPopupController.answerText = choiceBtn4.getText();
 			qLCD.addPoints(pageNo);
 			
 			if (QuizQuestionsModel.isDontShowAgain() == true) {
@@ -423,8 +493,30 @@ public class QuizPageController {
 			vBoxInfoImg.setDisable(false);
 			continueBtn.setVisible(true);
 			continueBtn.setDisable(false);
-			choiceBtn4.setStyle("-fx-background-color: #E91E63");
+			//choiceBtn4.setStyle("-fx-background-color: #E91E63");
+			if (ans == 1) {
+				choiceBtn1.setStyle("-fx-background-color: #4CAF50");
+				choiceBtn2.setStyle("-fx-background-color: #E91E63");
+				choiceBtn3.setStyle("-fx-background-color: #E91E63");
+				choiceBtn4.setStyle("-fx-background-color: #E91E63");
+				QuizExplanationPopupController.answerText = choiceBtn1.getText();
+			}
+			else if (ans == 2) {
+				choiceBtn1.setStyle("-fx-background-color: #E91E63");
+				choiceBtn2.setStyle("-fx-background-color: #4CAF50");
+				choiceBtn3.setStyle("-fx-background-color: #E91E63");
+				choiceBtn4.setStyle("-fx-background-color: #E91E63");
+				QuizExplanationPopupController.answerText = choiceBtn2.getText();
+			}
+			else if (ans == 3) {
+				choiceBtn1.setStyle("-fx-background-color: #E91E63");
+				choiceBtn2.setStyle("-fx-background-color: #E91E63");
+				choiceBtn3.setStyle("-fx-background-color: #4CAF50");
+				choiceBtn4.setStyle("-fx-background-color: #E91E63");
+				QuizExplanationPopupController.answerText = choiceBtn3.getText();
+			}
 			quizQ.disableButtons(choiceBtn1, choiceBtn2, choiceBtn3, choiceBtn4);
+			qLCD.addPoints(pageNo);
 			
 			if (QuizQuestionsModel.isDontShowAgain() == true) {
 				try {
