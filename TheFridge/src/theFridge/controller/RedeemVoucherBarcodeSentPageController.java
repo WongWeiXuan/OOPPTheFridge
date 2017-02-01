@@ -2,9 +2,12 @@ package theFridge.controller;
 
 import java.io.IOException;
 
+import com.jfoenix.controls.JFXButton;
+
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
@@ -36,6 +39,17 @@ public class RedeemVoucherBarcodeSentPageController {
 	private VBox quizScene;
 	@FXML
 	private VBox prizeScene;
+	@FXML
+	private JFXButton goToMainBtn;
+	
+	@FXML
+	public void goToRedeemPage(ActionEvent event) throws IOException {
+		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+		Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemVoucherPage.fxml"));
+		
+		stage.setScene(new Scene(root));
+ 	    stage.show();
+	}
 
 	@FXML
 	public void showNavigation(MouseEvent event) {

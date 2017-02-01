@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import theFridge.model.QuizLineChartDetails;
-import theFridge.model.User;
 
 public class QuizLineChartDetailsDAO {
 	private static File dataFile;
@@ -91,7 +90,7 @@ public class QuizLineChartDetailsDAO {
 		return !existing;
 	}
 	
-	public void synToFile(ArrayList<QuizLineChartDetails> lineChartDetailsList) {
+	private static void synToFile(ArrayList<QuizLineChartDetails> lineChartDetailsList) {
 		if (lineChartDetailsList == null)
 			return;
 		

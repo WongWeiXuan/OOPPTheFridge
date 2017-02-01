@@ -211,7 +211,7 @@
                               </StackPane>
                            </children>
                         </VBox>
-                        <VBox alignment="TOP_RIGHT" prefWidth="960.0">
+                        <VBox alignment="CENTER_RIGHT" prefWidth="980.0">
                            <children>
                               <JFXButton fx:id="redeemBtn" buttonType="RAISED" onAction="#goToRedeemPage" ripplerFill="BLACK" style="-fx-background-color: yellow;" text="Back to main">
                                  <font>
@@ -220,8 +220,11 @@
                               </JFXButton>
                            </children>
                            <VBox.margin>
-                              <Insets right="100.0" />
+                              <Insets />
                            </VBox.margin>
+                           <padding>
+                              <Insets right="100.0" />
+                           </padding>
                         </VBox>
                      </children>
                      <HBox.margin>

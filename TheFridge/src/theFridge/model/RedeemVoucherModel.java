@@ -1,21 +1,17 @@
 package theFridge.model;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
-import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 import com.jfoenix.controls.JFXButton;
 
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import theFridge.DAO.ProfileDAO;
 
 public class RedeemVoucherModel {
 	private User totalPoints;

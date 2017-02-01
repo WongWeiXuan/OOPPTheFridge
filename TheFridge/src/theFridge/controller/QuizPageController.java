@@ -88,7 +88,6 @@ public class QuizPageController {
 	private int pageNo = 1;
 	private Timeline timeline;
 	private Integer timeSeconds = 10;
-	
 	private Tooltip toolTip;
 	
 	public void showQuestion(QuizQuestionsModel questions) {
@@ -119,6 +118,7 @@ public class QuizPageController {
 			vBoxInfoImg.setDisable(true);
 			continueBtn.setVisible(false);
 			continueBtn.setDisable(true);
+			timerOutput.setStyle("-fx-text-fill: #4CAF50");
 			choiceBtn1.setStyle("-fx-background-color: #5CF1F1");
 			choiceBtn2.setStyle("-fx-background-color: #5CF1F1");
 			choiceBtn3.setStyle("-fx-background-color: #5CF1F1");
@@ -565,7 +565,7 @@ public class QuizPageController {
 	@FXML
 	public void initialize() throws FileNotFoundException {
 		QuizQuestionsModel quizQ = new QuizQuestionsModel();
-		questionsList = quizQ.getAllQuestions();
+		questionsList = QuizQuestionsModel.getAllQuestions();
 		
 		QuizQuestionsModel.setPointsAttained(0);
 		
@@ -604,7 +604,10 @@ public class QuizPageController {
 		timerOutput.textProperty().addListener(new ChangeListener<String>() {
 			@Override
 			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-				if (newValue.equals("0")) {
+				if (newValue.equals("5")) {
+					timerOutput.setStyle("-fx-text-fill: #E91E63");
+				}
+				else if (newValue.equals("0")) {
 					vBoxInfoImg.setVisible(true);
 					vBoxInfoImg.setDisable(false);
 					continueBtn.setVisible(true);

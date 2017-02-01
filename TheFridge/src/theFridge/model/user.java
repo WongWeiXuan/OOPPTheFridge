@@ -90,11 +90,6 @@ public class User {
 			return profileDAO.createUser(this);
 		}
 		
-		public boolean addPromoCode() {
-			ProfileDAO profileDAO = new ProfileDAO();
-			return profileDAO.addPromoCode(this);
-		}
-		
 		public User getCurrentUser() throws FileNotFoundException {
 			File file = new File("src/theFridge/file/confirm.txt");
 			Scanner sc = new Scanner(file) ;

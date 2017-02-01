@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
@@ -163,28 +164,55 @@
                   </AnchorPane>
                   <VBox alignment="CENTER" prefWidth="980.0" style="-fx-background-color: #FCE4EC;" HBox.hgrow="ALWAYS">
                      <children>
-                        <Label text="A barcode has been sent to your email" textFill="#e91e63">
-                           <font>
-                              <Font name="Garamond" size="36.0" />
-                           </font>
-                        </Label>
-                        <Label text="Enjoy your price discount!" textFill="#e91e63">
-                           <font>
-                              <Font name="Garamond" size="36.0" />
-                           </font>
-                        </Label>
-                        <TextFlow textAlignment="CENTER">
+                        <VBox alignment="CENTER" prefHeight="650.0" prefWidth="980.0">
                            <children>
-                              <ImageView fitHeight="110.0" fitWidth="128.0">
-                                 <image>
-                                    <Image url="@../picture/Mail%20Sent.png" />
-                                 </image>
-                              </ImageView>
+                              <VBox>
+                                 <children>
+                                    <VBox alignment="CENTER">
+                                       <children>
+                                          <Label text="A barcode has been sent to your email" textFill="#e91e63">
+                                             <font>
+                                                <Font name="Garamond" size="36.0" />
+                                             </font>
+                                          </Label>
+                                          <Label text="Enjoy your price discount!" textFill="#e91e63">
+                                             <font>
+                                                <Font name="Garamond" size="36.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <TextFlow textAlignment="CENTER">
+                                       <children>
+                                          <ImageView fitHeight="110.0" fitWidth="128.0">
+                                             <image>
+                                                <Image url="@../picture/Mail%20Sent.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets top="20.0" />
+                                       </VBox.margin>
+                                    </TextFlow>
+                                 </children>
+                              </VBox>
                            </children>
+                        </VBox>
+                        <VBox alignment="CENTER_RIGHT">
+                           <children>
+                              <JFXButton fx:id="backToMainBtn" buttonType="RAISED" onAction="#goToRedeemPage" ripplerFill="BLACK" style="-fx-background-color: yellow;" text="Back to main">
+                                 <font>
+                                    <Font name="Garamond" size="18.0" />
+                                 </font>
+                              </JFXButton>
+                           </children>
+                           <padding>
+                              <Insets right="100.0" />
+                           </padding>
                            <VBox.margin>
-                              <Insets top="30.0" />
+                              <Insets />
                            </VBox.margin>
-                        </TextFlow>
+                        </VBox>
                      </children>
                      <HBox.margin>
                         <Insets right="150.0" />

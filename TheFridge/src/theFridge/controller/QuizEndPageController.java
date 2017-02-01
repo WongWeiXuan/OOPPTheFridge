@@ -11,8 +11,6 @@ import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.StackPane;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -24,12 +22,14 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ProgressIndicator;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
-
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import theFridge.model.QuizLineChartDetails;
 import theFridge.model.QuizQuestionsModel;
 
 public class QuizEndPageController {
@@ -90,18 +90,20 @@ public class QuizEndPageController {
 		Image img = new Image("theFridge/picture/Profile Image.jpg");
 		profileCircle.setFill(new ImagePattern(img));
 		
+		QuizLineChartDetails qLCD = new QuizLineChartDetails();
+		
 		XYChart.Series series = new XYChart.Series();
 		series.setName("My Quiz Details");
-		series.getData().add(new XYChart.Data("1", 10));
-		series.getData().add(new XYChart.Data("2", 20));
-		series.getData().add(new XYChart.Data("3", 30));
-		series.getData().add(new XYChart.Data("4", 40));
-		series.getData().add(new XYChart.Data("5", 50));
-		series.getData().add(new XYChart.Data("6", 60));
-		series.getData().add(new XYChart.Data("7", 70));
-		series.getData().add(new XYChart.Data("8", 80));
-		series.getData().add(new XYChart.Data("9", 90));
-		series.getData().add(new XYChart.Data("10", 100));
+		series.getData().add(new XYChart.Data("1", qLCD.getQ1P1()));
+		series.getData().add(new XYChart.Data("2", qLCD.getQ2P2()));
+		series.getData().add(new XYChart.Data("3", qLCD.getQ3P3()));
+		series.getData().add(new XYChart.Data("4", qLCD.getQ4P4()));
+		series.getData().add(new XYChart.Data("5", qLCD.getQ5P5()));
+		series.getData().add(new XYChart.Data("6", qLCD.getQ6P6()));
+		series.getData().add(new XYChart.Data("7", qLCD.getQ7P7()));
+		series.getData().add(new XYChart.Data("8", qLCD.getQ8P8()));
+		series.getData().add(new XYChart.Data("9", qLCD.getQ9P9()));
+		series.getData().add(new XYChart.Data("10", qLCD.getQ10P10()));
 		lineChart.getData().add(series);
 		
 		progressIndicator.setProgress(QuizQuestionsModel.getPointsAttained() / 100.0);

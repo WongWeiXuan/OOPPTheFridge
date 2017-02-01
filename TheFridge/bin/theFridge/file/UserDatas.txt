@@ -1,2 +1,2 @@
-Xuan Zheng;xxx;xxx;dr.que9@gmail.com;Geylang;143;34;84;null;20;null;0;[Seaweed, sss]
+Xuan Zheng;xxx;xxx;dr.que9@gmail.com;Geylang;143;34;84;null;10000;null;0;[Seaweed, sss]
 DSMaster;ds;ds;ds;NanYang Polytechnic;178;250;18;null;0;null;0;null
