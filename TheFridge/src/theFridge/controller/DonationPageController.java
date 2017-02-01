@@ -7,6 +7,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import theFridge.model.CharityFoodDonationGoogleMapModel;
+import theFridge.model.DonationPageModel;
 import theFridge.model.User;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -26,7 +27,9 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -38,6 +41,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import com.jfoenix.controls.JFXButton;
@@ -74,6 +78,8 @@ public class DonationPageController {
 	@FXML
 	private Text timeLbl;
 	@FXML
+	private Text operationLbl;
+	@FXML
 	private StackPane dropdownMenu;
 	@FXML
 	private VBox dropdownBackground;
@@ -100,11 +106,32 @@ public class DonationPageController {
 	@FXML
 	private JFXTextField contactField;
 
-	//Show profile image
 	@FXML
 	public void initialize() throws FileNotFoundException{
+		//Show profile image
 		Image img = new Image("theFridge/picture/Profile Image.jpg");
 		profileCircle.setFill(new ImagePattern(img));
+		//Get user and Replace to correct Organization name and Operation Timings
+		User user = new User();
+		user = user.getCurrentUser();
+		nameField.setText(user.getName());
+		emailField.setText(user.getEmail());
+		String organizationName = CharityFoodDonationGoogleMapModel.OrganizationTxt;
+		if(organizationName != null && organizationName != ""){
+			OrganizationTxt.setText(organizationName);
+			if(organizationName.equalsIgnoreCase("Food From The Heart")){
+				operationLbl.setText("Operation Hours:\n9am to 6pm\nMonday to Friday(Excluding Public Holidays)");
+			}
+			else if(organizationName.equalsIgnoreCase("Willing Hearts")){
+				operationLbl.setText("Operation Hours:\n6am to 4pm\nMonday to Sunday");
+			}
+			else if(organizationName.equalsIgnoreCase("Food Bank Singapore")){
+				operationLbl.setText("Operation Hours:\nMonday to Friday - 10am to 7pm\nSaturday - 10am to 1pm");
+			}
+		}
+		//Checking of Operation Hours and Days
+		
+		//---------------------------
 		Timer timer = new Timer();
 		TimerTask timerTask = new TimerTask(){
 			DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
@@ -112,17 +139,44 @@ public class DonationPageController {
 			@Override
 			public void run(){
 				Date date = new Date();
-				timeLbl.setText(dateFormat.format(date));
+				DonationPageModel current = null;
+				try {
+					current = DonationPageModel.getThisModel(CharityFoodDonationGoogleMapModel.OrganizationTxt);
+				} catch (FileNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				Calendar calendar = GregorianCalendar.getInstance();
+				calendar.setTime(date); 
+				if(calendar.get(Calendar.DAY_OF_WEEK) >= current.getOpeningDay() && calendar.get(Calendar.DAY_OF_WEEK) <= current.getClosingDay()){
+					if(calendar.get(Calendar.HOUR_OF_DAY) >= current.getOpeningHours() && calendar.get(Calendar.HOUR_OF_DAY) < current.getClosingHours()){
+						timeLbl.setFill(Color.GREEN);
+						timeLbl.setText(dateFormat.format(date) + " (OPEN)");
+					}
+					else{
+						timeLbl.setFill(Color.RED);
+						timeLbl.setText(dateFormat.format(date) + " (CLOSED)");
+					}
+				}
+				else{
+					if(calendar.get(Calendar.DAY_OF_WEEK) == current.getSecondaryOpeningDay()){
+						if(calendar.get(Calendar.HOUR_OF_DAY) >= current.getSecondaryOpeningHours() && calendar.get(Calendar.HOUR_OF_DAY) < current.getSecondaryClosingHours()){
+							timeLbl.setFill(Color.GREEN);
+							timeLbl.setText(dateFormat.format(date) + " (OPEN)");
+						}
+						else{
+							timeLbl.setFill(Color.RED);
+							timeLbl.setText(dateFormat.format(date) + " (CLOSED)");
+						}
+					}
+					else{
+						timeLbl.setFill(Color.RED);
+						timeLbl.setText(dateFormat.format(date) + " (CLOSED)");
+					}
+				}
 			}
 		};
 		timer.scheduleAtFixedRate(timerTask, 0, 1000);
-		
-		User user = new User();
-		user = user.getCurrentUser();
-		nameField.setText(user.getName());
-		emailField.setText(user.getEmail());
-		if(CharityFoodDonationGoogleMapModel.OrganizationTxt != null && CharityFoodDonationGoogleMapModel.OrganizationTxt != "")
-			OrganizationTxt.setText(CharityFoodDonationGoogleMapModel.OrganizationTxt);
 	}
 	@FXML 
 	public void openPopup(ActionEvent event) throws IOException {

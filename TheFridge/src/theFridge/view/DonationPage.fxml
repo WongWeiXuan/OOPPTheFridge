@@ -225,6 +225,9 @@
                                                          </children>
                                                       </TextFlow>
                                                    </children>
+                                                   <padding>
+                                                      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                                   </padding>
                                                 </GridPane>
                                              </children>
                                           </VBox>
@@ -329,9 +332,17 @@
                                                             </Text>
                                                          </children>
                                                       </TextFlow>
+                                                      <TextFlow textAlignment="CENTER">
+                                                         <VBox.margin>
+                                                            <Insets top="20.0" />
+                                                         </VBox.margin>
+                                                         <children>
+                                                            <Text fx:id="operationLbl" strokeType="OUTSIDE" strokeWidth="0.0" text="Operation Hours: 9a.m till 6p.m" />
+                                                         </children>
+                                                      </TextFlow>
                                                    </children>
                                                    <padding>
-                                                      <Insets top="20.0" />
+                                                      <Insets bottom="20.0" top="20.0" />
                                                    </padding>
                                                    <VBox.margin>
                                                       <Insets />

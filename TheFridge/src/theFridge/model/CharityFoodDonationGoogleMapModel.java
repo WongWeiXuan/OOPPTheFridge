@@ -23,6 +23,7 @@ import com.lynden.gmapsfx.service.directions.DirectionsResult;
 import com.lynden.gmapsfx.service.directions.DirectionsService;
 import com.lynden.gmapsfx.service.directions.DirectionsServiceCallback;
 import com.lynden.gmapsfx.service.directions.TravelModes;
+import com.lynden.gmapsfx.service.geocoding.GeocoderGeometry;
 
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
@@ -49,6 +50,7 @@ public class CharityFoodDonationGoogleMapModel implements DirectionsServiceCallb
 	private JFXButton moreInfoBtn;
 	private String name;
 	public static String OrganizationTxt;
+	private LatLong currentLatLong;
 
 	public CharityFoodDonationGoogleMapModel(GoogleMapView mapView, VBox vboxInScroll, VBox donationVbox,
 			JFXButton donateBtn, JFXButton moreInfoBtn) {
@@ -62,11 +64,10 @@ public class CharityFoodDonationGoogleMapModel implements DirectionsServiceCallb
 
 	public void initializeMap() throws FileNotFoundException, InterruptedException{
 		MapOptions mapOptions = new MapOptions();
-        //User u = new User();
-        //u = u.getCurrentUser();
+        User u = new User();
+        u = u.getCurrentUser();
         //Need to convert address to LatLong in order to use profile's location
-        mapOptions.center(new LatLong(1.379256, 103.849670))
-                .mapType(MapTypeIdEnum.ROADMAP)
+        mapOptions.mapType(MapTypeIdEnum.ROADMAP)
                 .overviewMapControl(true)
                 .streetViewControl(false)
                 .rotateControl(true)
@@ -74,13 +75,14 @@ public class CharityFoodDonationGoogleMapModel implements DirectionsServiceCallb
                 .zoomControl(true)
                 .panControl(true)
                 .mapMarker(true)
-                .zoom(18)
+                .zoom(12)
                 .mapMarker(true);
         
         this.mapOptions = mapOptions;
         map = mapView.createMap(mapOptions);
         
-        LatLong currentLocation = new LatLong(1.379256, 103.849670);
+        //System.out.println(CharityFoodDonationGoogleMapController.results.getRoutes().get(0).getLegs().get(0).getStartLocation() + " HEofeajf");
+        
         //LatLong xuanZhengLocation = new LatLong(1.374867, 103.883622);
         LatLong foodFromTheHeartLocation = new LatLong(1.337480, 103.882905);
         LatLong willingHeartsLocation = new LatLong(1.317637, 103.900296);
@@ -101,10 +103,6 @@ public class CharityFoodDonationGoogleMapModel implements DirectionsServiceCallb
         LatLong foodBin15Location = new LatLong(1.264241, 103.822327); //VivoCity, #02-123/124, 1 Harbourfront Walk, Singapore 098585
         LatLong foodBin16Location = new LatLong(1.288735, 103.812196); //Chrysler Jeep Automotive of Singapore Pte Ltd, 1 Chang Charn Rd, Singapore 159630
         LatLong foodBankWarehouseLocation = new LatLong(1.271822, 103.837480); //The Food Bank Singapore Ltd, 39 Keppel Road #03-08, Tanjong Pagar Distripark, Singapore 089065
-        
-        MarkerOptions markerOptions1 = new MarkerOptions()
-        		.position(currentLocation)
-        		.animation(Animation.BOUNCE);
         
        // MarkerOptions markerOptions2 = new MarkerOptions()
         		//.position(xuanZhengLocation)
@@ -186,7 +184,6 @@ public class CharityFoodDonationGoogleMapModel implements DirectionsServiceCallb
         		.position(foodBankWarehouseLocation)
         		.animation(Animation.DROP);
         
-        Marker currentMarker = new Marker(markerOptions1);
         //Marker xuanZhengMarker = new Marker(markerOptions2);
         Marker foodFromTheHeartMarker = new Marker(markerOptions3);
         Marker willingHeartsMarker= new Marker(markerOptions4);
@@ -208,13 +205,6 @@ public class CharityFoodDonationGoogleMapModel implements DirectionsServiceCallb
         Marker foodBin16Marker = new Marker(markerOptions20);
         Marker foodBankWarehouseMarker = new Marker(markerOptions21);
         
-        InfoWindowOptions infoWindowOptions = new InfoWindowOptions();
-        infoWindowOptions.content("<h1>Current Location</h1>");
-
-        InfoWindow currentInfoWindow = new InfoWindow(infoWindowOptions);
-        currentInfoWindow.open(map, currentMarker);
-        
-        map.addMarker(currentMarker);
         //map.addMarker(xuanZhengMarker);
         map.addMarker(foodFromTheHeartMarker);
         map.addMarker(willingHeartsMarker);
@@ -241,7 +231,10 @@ public class CharityFoodDonationGoogleMapModel implements DirectionsServiceCallb
         
         setTextLabels(directionsService);
         donationVbox.setVisible(false);
-	}
+        
+        DirectionsRequest request = new DirectionsRequest(u.getCountry(), u.getCountry(), TravelModes.DRIVING);
+        directionsService.getRoute(request, this, new DirectionsRenderer(true, mapView.getMap(), directionsPane));
+    }
 	
 	private void addMarkerAfterCreating(GoogleMap map, String name){
 		//LatLong currentLocation = new LatLong(1.379256, 103.849670);
@@ -518,8 +511,14 @@ public class CharityFoodDonationGoogleMapModel implements DirectionsServiceCallb
 					"-fx-padding: 20 30 0 30; -fx-border-insets: 20 30 0 30; -fx-background-insets: 20 30 0 30; -fx-background-color: white; -fx-background-radius: 20;"
 			);
 			stackPane.setOnMouseClicked((MouseEvent event) -> {
+				User u = new User();
+				try {
+					u = u.getCurrentUser();
+				} catch (FileNotFoundException e) {
+					e.printStackTrace();
+				}
 				String destination = getDestination(name);
-		        DirectionsRequest request = new DirectionsRequest("Nanyang Polytechnic, 180 Ang Mo Kio Avenue 8, 569830", destination, TravelModes.DRIVING);
+		        DirectionsRequest request = new DirectionsRequest(u.getCountry(), destination, TravelModes.DRIVING);
 		        DirectionsRenderer directionsDisplay = new DirectionsRenderer(true, mapView.getMap(), directionsPane);
 		        GoogleMap map2 = mapView.createMap(mapOptions);
 		        addMarkerAfterCreating(map2, name);
@@ -641,5 +640,6 @@ public class CharityFoodDonationGoogleMapModel implements DirectionsServiceCallb
 	@Override
 	public void directionsReceived(DirectionsResult arg0, DirectionStatus arg1) {
 		CharityFoodDonationGoogleMapController.results = arg0;
+		this.currentLatLong = arg0.getRoutes().get(0).getOverviewPath().get(0);
 	}
 }
