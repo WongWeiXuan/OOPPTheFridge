@@ -6,6 +6,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
+import theFridge.model.CharityFoodDonationGoogleMapModel;
 import theFridge.model.User;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -120,6 +121,8 @@ public class DonationPageController {
 		user = user.getCurrentUser();
 		nameField.setText(user.getName());
 		emailField.setText(user.getEmail());
+		if(CharityFoodDonationGoogleMapModel.OrganizationTxt != null && CharityFoodDonationGoogleMapModel.OrganizationTxt != "")
+			OrganizationTxt.setText(CharityFoodDonationGoogleMapModel.OrganizationTxt);
 	}
 	@FXML 
 	public void openPopup(ActionEvent event) throws IOException {
@@ -142,8 +145,11 @@ public class DonationPageController {
 	}
 	
 	@FXML 
-	public void cancelDonation(ActionEvent event) {
-		
+	public void cancelDonation(ActionEvent event) throws IOException {
+		Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+		Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/CharityFoodDonationPage.fxml"));
+		stage.setScene(new Scene(root));
+		stage.show();
 	}
 	
 	@FXML 

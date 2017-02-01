@@ -32,6 +32,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 import theFridge.DAO.MapPlacesDAO;
 import theFridge.controller.CharityFoodDonationGoogleMapController;
 
@@ -47,6 +48,7 @@ public class CharityFoodDonationGoogleMapModel implements DirectionsServiceCallb
     private JFXButton donateBtn;
 	private JFXButton moreInfoBtn;
 	private String name;
+	public static String OrganizationTxt;
 
 	public CharityFoodDonationGoogleMapModel(GoogleMapView mapView, VBox vboxInScroll, VBox donationVbox,
 			JFXButton donateBtn, JFXButton moreInfoBtn) {
@@ -60,7 +62,9 @@ public class CharityFoodDonationGoogleMapModel implements DirectionsServiceCallb
 
 	public void initializeMap() throws FileNotFoundException, InterruptedException{
 		MapOptions mapOptions = new MapOptions();
-        
+        //User u = new User();
+        //u = u.getCurrentUser();
+        //Need to convert address to LatLong in order to use profile's location
         mapOptions.center(new LatLong(1.379256, 103.849670))
                 .mapType(MapTypeIdEnum.ROADMAP)
                 .overviewMapControl(true)
@@ -96,7 +100,7 @@ public class CharityFoodDonationGoogleMapModel implements DirectionsServiceCallb
         LatLong foodBin14Location = new LatLong(1.264699, 103.823083); //Giant, 1 Harbourfront Walk, 23, VivoCity, Singapore 098585
         LatLong foodBin15Location = new LatLong(1.264241, 103.822327); //VivoCity, #02-123/124, 1 Harbourfront Walk, Singapore 098585
         LatLong foodBin16Location = new LatLong(1.288735, 103.812196); //Chrysler Jeep Automotive of Singapore Pte Ltd, 1 Chang Charn Rd, Singapore 159630
-        
+        LatLong foodBankWarehouseLocation = new LatLong(1.271822, 103.837480); //The Food Bank Singapore Ltd, 39 Keppel Road #03-08, Tanjong Pagar Distripark, Singapore 089065
         
         MarkerOptions markerOptions1 = new MarkerOptions()
         		.position(currentLocation)
@@ -178,6 +182,10 @@ public class CharityFoodDonationGoogleMapModel implements DirectionsServiceCallb
         		.position(foodBin16Location)
         		.animation(Animation.DROP);
         
+        MarkerOptions markerOptions21 = new MarkerOptions()
+        		.position(foodBankWarehouseLocation)
+        		.animation(Animation.DROP);
+        
         Marker currentMarker = new Marker(markerOptions1);
         //Marker xuanZhengMarker = new Marker(markerOptions2);
         Marker foodFromTheHeartMarker = new Marker(markerOptions3);
@@ -198,6 +206,7 @@ public class CharityFoodDonationGoogleMapModel implements DirectionsServiceCallb
         Marker foodBin14Marker = new Marker(markerOptions18);
         Marker foodBin15Marker = new Marker(markerOptions19);
         Marker foodBin16Marker = new Marker(markerOptions20);
+        Marker foodBankWarehouseMarker = new Marker(markerOptions21);
         
         InfoWindowOptions infoWindowOptions = new InfoWindowOptions();
         infoWindowOptions.content("<h1>Current Location</h1>");
@@ -225,6 +234,7 @@ public class CharityFoodDonationGoogleMapModel implements DirectionsServiceCallb
         map.addMarker(foodBin14Marker);
         map.addMarker(foodBin15Marker);
         map.addMarker(foodBin16Marker);
+        map.addMarker(foodBankWarehouseMarker);
         
         directionsService = new DirectionsService();
         directionsPane = mapView.getDirec();

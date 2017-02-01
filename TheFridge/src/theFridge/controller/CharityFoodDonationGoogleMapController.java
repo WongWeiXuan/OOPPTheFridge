@@ -112,10 +112,16 @@ public class CharityFoodDonationGoogleMapController implements Initializable, Ma
     	double lat = results.getRoutes().get(0).getLegs().get(0).getEndLocation().getLatitude();
     	if(lat == 1.3375365){
     		System.out.println("Food From The Heart");
+    		CharityFoodDonationGoogleMapModel.OrganizationTxt = "Food From The Heart";
     	}
     	else if(lat == 1.3176681){
     		System.out.println("Willing Hearts");
+    		CharityFoodDonationGoogleMapModel.OrganizationTxt = "Willing Hearts";
     	}
+    	else if(lat == 1.2723219){
+			System.out.println("Food Bank WareHouse");
+			CharityFoodDonationGoogleMapModel.OrganizationTxt = "Food Bank Singapore";
+		}
     	Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
  		Parent root =  FXMLLoader.load(getClass().getResource("/theFridge/view/DonationPage.fxml"));
     	stage.setScene(new Scene(root));
@@ -125,6 +131,7 @@ public class CharityFoodDonationGoogleMapController implements Initializable, Ma
 	@FXML 
 	public void showMoreInfo(ActionEvent event) {
 		double lat = results.getRoutes().get(0).getLegs().get(0).getEndLocation().getLatitude();
+		System.out.println("lat" + lat);
 		Timeline timeline = new Timeline();
     	KeyValue keyValue = new KeyValue(moreInfo.translateYProperty(), 0);
     	KeyFrame KeyFrame = new KeyFrame(Duration.millis(200), keyValue);
@@ -201,7 +208,7 @@ public class CharityFoodDonationGoogleMapController implements Initializable, Ma
 			System.out.println("Chrysler Jeep Automotive of Singapore Pte Ltd");
 			moreInfoInfo1.insertText(moreInfoInfo1.getLength(), "\n\nChrysler Jeep Automotive of Singapore, 1 Chang Charn Road, Singapore 159630 \n(Operating hours: 9am to 7pm daily)");
 		}
-		else if(lat == 1.2888443){
+		else if(lat == 1.2723219){
 			System.out.println("Food Bank WareHouse");
 			moreInfoInfo1.setText("Mission and Vision\nThe Food Bank Singapore is a registered charity founded by Nichol and Nicholas Ng in January 2012 and was given charity status in August 2012 (UEN: 201200654E). \nThe Food Bank Singapore strives to bridge the gap in the market by collecting surplus food in the market and providing it to organisations and people in need of food.\n\nVision: \n\nTo be the prevailing centralised coordinating organisation for all food donations and play a key role in the reduction of food wastage within the whole supply chain.\n\nMission:\n\nTo bridge potential donors and members\nTo provide access to and knowledge of cheaper sources of food for members\nTo spread the word on the importance of food resource planning to ensure long-term providence of food for everyone\nTo look at ways to reduce food wastage by giving food a new lease of life through creative and alternative ways\nTarget Donors\n\nFood companies\nRetailers\nCharities with excess donations\nHome consumers\nTarget Beneficiaries (Members)\n\nFamily service centres\nVarious types of homes\nSoup kitchens\nOther VWOs ");
 		}
