@@ -6,6 +6,7 @@ import theFridge.DAO.ProfileDAO;
 import theFridge.DAO.QuizLineChartDetailsDAO;
 
 public class QuizLineChartDetails {
+	private int q0P0 = 0;
 	private int q1P1;
 	private int q2P2;
 	private int q3P3;
@@ -21,8 +22,9 @@ public class QuizLineChartDetails {
 		super();
 	}
 	
-	public QuizLineChartDetails(int q1p1, int q2p2, int q3p3, int q4p4, int q5p5, int q6p6, int q7p7, int q8p8, int q9p9, int q10p10) {
+	public QuizLineChartDetails(int q0P0, int q1p1, int q2p2, int q3p3, int q4p4, int q5p5, int q6p6, int q7p7, int q8p8, int q9p9, int q10p10) {
 		super();
+		q0P0 = q0P0;
 		q1P1 = q1p1;
 		q2P2 = q2p2;
 		q3P3 = q3p3;
@@ -33,6 +35,14 @@ public class QuizLineChartDetails {
 		q8P8 = q8p8;
 		q9P9 = q9p9;
 		q10P10 = q10p10;
+	}
+	
+	public int getQ0P0() {
+		return q0P0;
+	}
+	
+	public void setQ0P0(int q0P0) {
+		q0P0 = q0P0;
 	}
 
 	public int getQ1P1() {
@@ -116,7 +126,7 @@ public class QuizLineChartDetails {
 	}
 	
 	public String toString() {
-		return q1P1 + ";" + q2P2 + ";" + q3P3 + ";" + q4P4 + ";" + q5P5 + ";" + q6P6 + ";" + q7P7 + ";" + q8P8 + ";" + q9P9 + ";" + q10P10;
+		return q0P0 + ";" + q1P1 + ";" + q2P2 + ";" + q3P3 + ";" + q4P4 + ";" + q5P5 + ";" + q6P6 + ";" + q7P7 + ";" + q8P8 + ";" + q9P9 + ";" + q10P10;
 	}
 	
 	public static ArrayList<QuizLineChartDetails> getAllDetails() {
@@ -126,7 +136,8 @@ public class QuizLineChartDetails {
 	
 	public void getDetails() {
 		QuizLineChartDetailsDAO quizLineChartDetailsDAO = new QuizLineChartDetailsDAO();
-		QuizLineChartDetails lineChartDetails = quizLineChartDetailsDAO.getDetails(q1P1);
+		QuizLineChartDetails lineChartDetails = quizLineChartDetailsDAO.getDetails(q0P0);
+		setQ0P0(lineChartDetails.getQ0P0());
 		setQ1P1(lineChartDetails.getQ1P1());
 		setQ2P2(lineChartDetails.getQ2P2());
 		setQ3P3(lineChartDetails.getQ3P3());
@@ -157,19 +168,17 @@ public class QuizLineChartDetails {
 	public void addPoints(int pageNo) {
 		QuizLineChartDetails lineChartDetails = new QuizLineChartDetails();
 		ArrayList<QuizLineChartDetails> lineChartDetailsList = lineChartDetails.getAllDetails();
+		//ArrayList<Integer> integerList = new ArrayList<Integer>();
 		
 		//lineChartDetailsList.clear();
 		//lineChartDetails.synToFile(lineChartDetailsList);
 		if (pageNo == 1) {
-			
-			lineChartDetailsList.removeAll(lineChartDetailsList);
 			setQ1P1(QuizQuestionsModel.getPointsAttained());
 			System.out.println("Page 1");
 			
 			if (lineChartDetailsList.isEmpty()) {
 				createDetails();
 			}
-			
 			updateDetails();
 		}
 		else if (pageNo == 2) {
@@ -217,7 +226,7 @@ public class QuizLineChartDetails {
 			updateDetails();
 			System.out.println("Page 10");
 		}
-		System.out.println("Page 10000");
+		System.out.println("Out of IF & ELSE IF");
 	}
 
 	public static void main(String[] args) {

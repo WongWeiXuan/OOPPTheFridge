@@ -1,2 +1,4 @@
 hello;[Rabbit-Manure, Fish-bones]
 rabbit;[Rabbit-Manure]
+Seaweed;[Seaweed]
+sss;[Rabbit-Manure, Coffee-Grounds]

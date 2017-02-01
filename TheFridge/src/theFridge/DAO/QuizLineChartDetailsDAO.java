@@ -30,17 +30,18 @@ public class QuizLineChartDetailsDAO {
 			while (in.hasNextLine()) {
 				record = in.nextLine();
 				fields = record.split(";");
-				int q1P1 = Integer.parseInt(fields[0]);
-				int q2P2 = Integer.parseInt(fields[1]);
-				int q3P3 = Integer.parseInt(fields[2]);
-				int q4P4 = Integer.parseInt(fields[3]);
-				int q5P5 = Integer.parseInt(fields[4]);
-				int q6P6 = Integer.parseInt(fields[5]);
-				int q7P7 = Integer.parseInt(fields[6]);
-				int q8P8 = Integer.parseInt(fields[7]);
-				int q9P9 = Integer.parseInt(fields[8]);
-				int q10P10 = Integer.parseInt(fields[9]);
-				QuizLineChartDetails qLND = new QuizLineChartDetails(q1P1, q2P2, q3P3, q4P4, q5P5, q6P6, q7P7, q8P8, q9P9, q10P10);
+				int q0P0 = Integer.parseInt(fields[0]);
+				int q1P1 = Integer.parseInt(fields[1]);
+				int q2P2 = Integer.parseInt(fields[2]);
+				int q3P3 = Integer.parseInt(fields[3]);
+				int q4P4 = Integer.parseInt(fields[4]);
+				int q5P5 = Integer.parseInt(fields[5]);
+				int q6P6 = Integer.parseInt(fields[6]);
+				int q7P7 = Integer.parseInt(fields[7]);
+				int q8P8 = Integer.parseInt(fields[8]);
+				int q9P9 = Integer.parseInt(fields[9]);
+				int q10P10 = Integer.parseInt(fields[10]);
+				QuizLineChartDetails qLND = new QuizLineChartDetails(q0P0, q1P1, q2P2, q3P3, q4P4, q5P5, q6P6, q7P7, q8P8, q9P9, q10P10);
 				lineChartDetailsList.add(qLND);
 			}
 			in.close();
@@ -51,11 +52,11 @@ public class QuizLineChartDetailsDAO {
 		return lineChartDetailsList;
 	}
 	
-	public QuizLineChartDetails getDetails(int q1P1) {
+	public QuizLineChartDetails getDetails(int q0P0) {
 		ArrayList<QuizLineChartDetails> lineChartDetailsList = getAllDetails();
 		QuizLineChartDetails lineChartDetail = null;
 		for (QuizLineChartDetails d : lineChartDetailsList) {
-			if (d.getQ1P1() == (q1P1)){
+			if (d.getQ0P0() == (q0P0)){
 				lineChartDetail = d;
 				break;
 			}
@@ -67,7 +68,7 @@ public class QuizLineChartDetailsDAO {
 		ArrayList<QuizLineChartDetails> lineChartDetailsList = getAllDetails();
 		for (int i = 0; i < lineChartDetailsList.size(); i++) {
 			QuizLineChartDetails d = lineChartDetailsList.get(i);
-			if (d.getQ1P1() == lineChartDetails.getQ1P1()) {
+			if (d.getQ0P0() == lineChartDetails.getQ0P0()) {
 				lineChartDetailsList.set(i, lineChartDetails);
 			}
 		}
@@ -78,7 +79,7 @@ public class QuizLineChartDetailsDAO {
 		boolean existing = false;
 		ArrayList<QuizLineChartDetails> lineChartDetailsList = getAllDetails();
 		for (QuizLineChartDetails d : lineChartDetailsList) {
-			if (d.getQ1P1() == (lineChartDetails.getQ1P1())){
+			if (d.getQ0P0() == (lineChartDetails.getQ0P0())){
 				existing = true;
 				break;
 			}
