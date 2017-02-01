@@ -104,9 +104,10 @@ public class FindingDishController {
 		ingre2 = ingre2txt.getText();
 		ingre3 = ingre3txt.getText();
 		
+		@SuppressWarnings("unused")
 		RecipeBook grb = new RecipeBook();
 		ArrayList <RecipeBook> sortedByIngredientBookList = new ArrayList<RecipeBook>();
-		sortedByIngredientBookList = grb.getAllRecipeBook();
+		sortedByIngredientBookList = RecipeBook.getAllRecipeBook();
 		
 		for (int i=0;i<sortedByIngredientBookList.size();i++){
 			
@@ -137,7 +138,7 @@ public class FindingDishController {
 		//Sorting method here
 		Collections.sort(sortedByIngredientBookList, new RecipeBookComparator());
 		// bookList is now sorted. need to view it.
-		this.bookList= sortedByIngredientBookList;
+		FindingDishController.bookList= sortedByIngredientBookList;
 		
 		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
 		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/FoundDish.fxml"));
@@ -154,8 +155,9 @@ public class FindingDishController {
 	public void handleSearchName(MouseEvent event) throws IOException {
 		recipeName = searchrecipename.getText();
 		
+		@SuppressWarnings("unused")
 		RecipeBook grb = new RecipeBook();
-		bookList = grb.getAllRecipeBook();
+		bookList = RecipeBook.getAllRecipeBook();
 		ArrayList <RecipeBook> sortedByNameBookList = new ArrayList<RecipeBook>();
 		
 		for (int i=0;i<bookList.size();i++){
@@ -166,7 +168,7 @@ public class FindingDishController {
 			}
 		}
 		
-		this.bookList= sortedByNameBookList;
+		FindingDishController.bookList= sortedByNameBookList;
 		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
 		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/FoundDishForSearchByName.fxml"));
 		

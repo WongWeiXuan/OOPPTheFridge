@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import theFridge.model.FoodCompost;
-import theFridge.model.SignupModel;
 
 public class FoodCompostDAO {
 	private File dataFile;

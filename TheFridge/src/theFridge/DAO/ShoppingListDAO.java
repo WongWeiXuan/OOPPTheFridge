@@ -103,6 +103,7 @@ public class ShoppingListDAO {
 				i++;
 			}
 			line = sc.next();
+			System.out.println(line);
 			fields = line.split("~");
 			String name = fields[0];
 			double amount = Double.parseDouble(fields[1]);
@@ -227,8 +228,8 @@ public class ShoppingListDAO {
 		u = u.getCurrentUser();
 		name = u.getUsername();
 		UserListListModel uslm = new UserListListModel(name, lists);
-		if(checkUser(name)){
-			aluslm.set(getUserIndex(), uslm);
+		if(checkListUser(name)){
+			aluslm.set(getListUserIndex(), uslm);
 		}
 		else{
 			aluslm.add(uslm);
@@ -290,9 +291,30 @@ public class ShoppingListDAO {
 		return false;
 	}
 	
+	public boolean checkListUser(String name1) throws FileNotFoundException{
+		name = name1;
+		for(UserListListModel a:getAllUserAndListList()){
+			if(a.getName().equalsIgnoreCase(name)){
+				return true;
+			}
+		}
+		return false;
+	}
+	
 	public int getUserIndex() throws FileNotFoundException{
 		int index = 0;
 		for(UserStockListModel a:getAllUserAndList()){
+			if(a.getName().equalsIgnoreCase(name)){
+				return index;
+			}
+			index++;
+		}
+		return 0;
+	}
+	
+	public int getListUserIndex() throws FileNotFoundException{
+		int index = 0;
+		for(UserListListModel a:getAllUserAndListList()){
 			if(a.getName().equalsIgnoreCase(name)){
 				return index;
 			}

@@ -2,14 +2,8 @@ package theFridge.controller;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
-
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 
 import com.jfoenix.controls.JFXButton;
 
@@ -21,10 +15,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
@@ -115,6 +106,7 @@ public class ProfileController {
 		File file=new File("src/theFridge/file/confirm.txt");
 		Scanner sc=new Scanner(file) ;
 		String n = sc.nextLine();
+		sc.close();
 		ProfileDAO profileDAO = new ProfileDAO();
 		User uu = new User();
 		uu = profileDAO.getUser(n);

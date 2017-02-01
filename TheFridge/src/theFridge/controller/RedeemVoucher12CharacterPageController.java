@@ -64,6 +64,7 @@ public class RedeemVoucher12CharacterPageController {
 		voucherTypeLabel.setText("For a 10% off " + RedeemVoucherModel.getVoucherType() + " voucher");
 	}
 	
+	@SuppressWarnings("unused")
 	@FXML
 	public void generatePromoCode(ActionEvent event) throws IOException {
 		RedeemVoucherModel rDV = new RedeemVoucherModel();

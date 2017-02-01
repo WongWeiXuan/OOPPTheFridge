@@ -1,12 +1,5 @@
 package theFridge.model;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-
 public class LoginModel {
 	/*@SuppressWarnings("unchecked")
 	public static void main(String[] args) throws IOException{

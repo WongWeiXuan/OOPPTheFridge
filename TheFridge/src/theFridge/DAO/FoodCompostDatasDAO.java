@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import theFridge.model.FoodCompostDatas;
-import theFridge.model.User;
 
 public class FoodCompostDatasDAO {
 	private static File dataFile;
@@ -24,7 +23,7 @@ public class FoodCompostDatasDAO {
 		Scanner in;
 		String record = null;
 		String[] fields;
-		String[] s;
+		//String[] s;
 		ArrayList<FoodCompostDatas> user=new ArrayList<FoodCompostDatas>();
 		try {
 			in = new Scanner(dataFile);

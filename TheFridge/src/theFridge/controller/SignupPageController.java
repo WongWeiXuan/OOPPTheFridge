@@ -1,6 +1,5 @@
 package theFridge.controller;
 
-import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -37,6 +36,7 @@ public class SignupPageController {
 	@FXML
 	private Label comment;
 	
+	@SuppressWarnings("unchecked")
 	@FXML
 	public void createAccount(ActionEvent event) throws IOException, ParseException, ParseException{
 		String Username = tFUsername.getText();

@@ -1,9 +1,7 @@
 package theFridge.controller;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -22,7 +20,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.Node;
@@ -156,6 +153,7 @@ public class Page3Controller {
 			String n = sc.nextLine();
 			a1.add(n);
 		}
+		sc.close();
 		if(a1.contains(nope)){
 			//System.out.println("repeat");
 			a1.remove(0);
@@ -319,6 +317,7 @@ public class Page3Controller {
 		File file1=new File("src/theFridge/file/confirm.txt");
 		Scanner sc1=new Scanner(file1) ;
 		String n = sc1.nextLine();
+		sc1.close();
 		ProfileDAO profileDAO = new ProfileDAO();
 		User uu = new User();
 		uu = profileDAO.getUser(n);
@@ -360,6 +359,7 @@ public class Page3Controller {
 			String nn = sc9.nextLine();
 			saving.add(nn);
 		}
+		sc9.close();
 		String saved = saving.toString();
 		FoodCompostDatas fc = new FoodCompostDatas();
 		fc.setTitle(ss);

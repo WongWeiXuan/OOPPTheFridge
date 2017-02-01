@@ -5,7 +5,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
 import java.io.File;
@@ -15,8 +14,6 @@ import java.util.Scanner;
 
 import theFridge.DAO.ProfileDAO;
 import theFridge.DAO.SignupDAO;
-import theFridge.controller.ProfileController;
-import theFridge.model.First;
 import theFridge.model.SignupModel;
 import theFridge.model.User;
 
@@ -36,7 +33,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.input.MouseEvent;
 
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -298,6 +294,7 @@ public class Profile2Controller {
 		uu.setName(name);
 		profileDAO.updateUser(uu);
 		NText.setText("");
+		sc.close();
 	}
 	// Event Listener on JFXButton[#btnCancel0].onAction
 	@FXML
@@ -316,6 +313,7 @@ public class Profile2Controller {
 		File file=new File("src/theFridge/file/confirm.txt");
 		Scanner sc=new Scanner(file) ;
 		String n = sc.nextLine();
+		sc.close();
 		ProfileDAO profileDAO = new ProfileDAO();
 		User uu = new User();
 		uu = profileDAO.getUser(n);
@@ -363,6 +361,7 @@ public class Profile2Controller {
 		File file=new File("src/theFridge/file/confirm.txt");
 		Scanner sc=new Scanner(file) ;
 		String n = sc.nextLine();
+		sc.close();
 		ProfileDAO profileDAO = new ProfileDAO();
 		User uu = new User();
 		uu = profileDAO.getUser(n);
@@ -393,6 +392,7 @@ public class Profile2Controller {
 		File file=new File("src/theFridge/file/confirm.txt");
 		Scanner sc=new Scanner(file) ;
 		String n = sc.nextLine();
+		sc.close();
 		ProfileDAO profileDAO = new ProfileDAO();
 		User uu = new User();
 		uu = profileDAO.getUser(n);
@@ -416,6 +416,7 @@ public class Profile2Controller {
 		File file=new File("src/theFridge/file/confirm.txt");
 		Scanner sc=new Scanner(file) ;
 		String n = sc.nextLine();
+		sc.close();
 		ProfileDAO profileDAO = new ProfileDAO();
 		User uu = new User();
 		uu = profileDAO.getUser(n);
@@ -438,6 +439,7 @@ public class Profile2Controller {
 		File file=new File("src/theFridge/file/confirm.txt");
 		Scanner sc=new Scanner(file) ;
 		String n = sc.nextLine();
+		sc.close();
 		ProfileDAO profileDAO = new ProfileDAO();
 		User uu = new User();
 		uu = profileDAO.getUser(n);
@@ -461,6 +463,7 @@ public class Profile2Controller {
 		File file=new File("src/theFridge/file/confirm.txt");
 		Scanner sc=new Scanner(file) ;
 		String n = sc.nextLine();
+		sc.close();
 		ProfileDAO profileDAO = new ProfileDAO();
 		User uu = new User();
 		uu = profileDAO.getUser(n);
