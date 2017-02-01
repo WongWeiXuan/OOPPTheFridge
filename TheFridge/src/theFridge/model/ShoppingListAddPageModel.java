@@ -10,7 +10,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Spinner;
-import javafx.scene.control.TextField;
 import theFridge.DAO.ServingDAO;
 import theFridge.DAO.ShoppingListDAO;
 
@@ -46,7 +45,6 @@ public class ShoppingListAddPageModel {
     		ServingToGrams s2g = new ServingToGrams();
 		    	if(source == "Stock"){
 			    	if(edit == true){
-			    		System.out.print("hi");
 			    		StockModel s = stockModel;
 			    		try{
 			    			listModel = ShoppingListModel.getListModelByName(s.getName());
@@ -99,6 +97,8 @@ public class ShoppingListAddPageModel {
 			    	    		Optional<ButtonType> result = alert.showAndWait();
 			    	    		if (result.get() == ButtonType.OK){
 						    		ShoppingListModel.setListlistViewNode(index, l, true);
+						    		ShoppingListDAO a = new ShoppingListDAO();
+						    		a.writeToListFile(ShoppingListModel.getListlistArray());
 						    		
 			    	    		}
 			    	    		else{
@@ -107,11 +107,15 @@ public class ShoppingListAddPageModel {
 			    	    		//--------
 			    			}
 			    			else{
+			    				ShoppingListDAO a = new ShoppingListDAO();
 			    				ShoppingListModel.setListlistViewNode(index, l);
+			    				a.writeToListFile(ShoppingListModel.getListlistArray());
 			    				return true;
 			    			}
 		    			}catch(NullPointerException e){
+		    				ShoppingListDAO a = new ShoppingListDAO();
 		    				ShoppingListModel.setListlistViewNode(index, l);
+		    				a.writeToListFile(ShoppingListModel.getListlistArray());
 		    				return true;
 		    			}
 		    		}

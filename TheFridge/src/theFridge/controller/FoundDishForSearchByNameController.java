@@ -21,7 +21,7 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import theFridge.model.RecipeBook;
 
-public class FoundDishController {
+public class FoundDishForSearchByNameController {
 	@FXML
 	private Button viewrecipebtn;
 	@FXML
@@ -82,51 +82,44 @@ public class FoundDishController {
 	private Text addedbytxt;
 	@FXML
 	private Text ingre1;
-	@FXML
-	private Text ingre11;
-	@FXML
-	private Text ingre111;
 	private ArrayList <RecipeBook> bookList;
 	private int currIndex=-1;
+	
 	// Event Listener on Button[#viewrecipebtn].onMouseClicked
-	
-	@FXML
-	public void viewRecipe(MouseEvent event) throws IOException {
-		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/ViewRecipes.fxml"));
-		
-		stage.setScene(new Scene(root));
- 	    stage.show();
-	}
-	// Event Listener on Button[#findrecipebtn].onMouseClicked
-	@FXML
-	public void findRecipe(MouseEvent event) throws IOException {
-		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/FindingDish.fxml"));
-		
-		stage.setScene(new Scene(root));
- 	    stage.show();
-	}
-	// Event Listener on Button[#addrecipebtn].onMouseClicked
-	@FXML
-	
-	public void addRecipe(MouseEvent event) throws IOException {
-		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/EditRecipe.fxml"));
-		
-		stage.setScene(new Scene(root));
- 	    stage.show();
-	}
+				@FXML
+				public void viewRecipe(MouseEvent event) throws IOException {
+					Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+					Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/ViewRecipes.fxml"));
+					
+					stage.setScene(new Scene(root));
+			 	    stage.show();
+				}
+				// Event Listener on Button[#findrecipebtn].onMouseClicked
+				@FXML
+				public void findRecipe(MouseEvent event) throws IOException {
+					Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+					Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/FindingDish.fxml"));
+					
+					stage.setScene(new Scene(root));
+			 	    stage.show();
+				}
+				// Event Listener on Button[#addrecipebtn].onMouseClicked
+				@FXML
+				
+				public void addRecipe(MouseEvent event) throws IOException {
+					Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+					Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/EditRecipe.fxml"));
+					
+					stage.setScene(new Scene(root));
+			 	    stage.show();
+				}
 	
 	public void initialize() {
 		this.setRecipeBookList(FindingDishController.bookList);
-		ingre1.setText(FindingDishController.ingre1);
-		ingre11.setText(FindingDishController.ingre2);
-		ingre111.setText(FindingDishController.ingre3);
+		ingre1.setText(FindingDishController.recipeName);
 	}
 	
 	// Event Listener on Button[#leftbtn].onMouseClicked
-	
 	@FXML
 	public void goLeft(MouseEvent event) {
 		if (currIndex>0){
@@ -142,23 +135,27 @@ public class FoundDishController {
 			showRecipe(bookList.get(currIndex));
 		}
 	}
-	public void showRecipe(RecipeBook f) {
-		addedbytxt.setText(f.getAddedBy());
-		recipebytxt.setText(f.getRecipeName());
-		ingre1txt.setText(f.getIngredient1());
-		ingre2txt.setText(f.getIngredient2());
-		ingre3txt.setText(f.getIngredient3());
-		stepstxt.setText(f.getSteps());
-		indexbox.setText(currIndex +1 + " of " + bookList.size());	
-}
+	
 	public void setRecipeBookList(ArrayList<RecipeBook> allRecipeBook) {
 		if (allRecipeBook!=null && allRecipeBook.size()>0) {
 			this.bookList = allRecipeBook;
 			currIndex=0;
 			showRecipe(bookList.get(0));
 			}
+		}
+		
+	public void showRecipe(RecipeBook f) {
+			addedbytxt.setText(f.getAddedBy());
+			recipebytxt.setText(f.getRecipeName());
+			ingre1txt.setText(f.getIngredient1());
+			ingre2txt.setText(f.getIngredient2());
+			ingre3txt.setText(f.getIngredient3());
+			stepstxt.setText(f.getSteps());
+			indexbox.setText(currIndex +1 + " of " + bookList.size());	
 	}
-	
+	// Event Listener on VBox[#naviPreview].onMouseEntered
+	// Event Listener on VBox[#naviPreview].onMouseEntered
+	@FXML
 	public void showNavigation(MouseEvent event) {
 		Timeline timeline = new Timeline();
 		KeyValue naviXValue = new KeyValue(navi.layoutXProperty(), 0); //(naviXValue) Move navi from x = -150 to x = 0
@@ -222,5 +219,3 @@ public void searchAgain(MouseEvent event) throws IOException {
 	    stage.show();
 }
 }
-
-

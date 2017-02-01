@@ -223,6 +223,9 @@ public class ShoppingListDAO {
 	
 	public void writeToListFile(ArrayList<ListModel> lists) throws IOException{
 		ArrayList<UserListListModel> aluslm = getAllUserAndListList();
+		User u = new User();
+		u = u.getCurrentUser();
+		name = u.getUsername();
 		UserListListModel uslm = new UserListListModel(name, lists);
 		if(checkUser(name)){
 			aluslm.set(getUserIndex(), uslm);

@@ -2,6 +2,7 @@ package theFridge.model;
 
 import java.util.ArrayList;
 
+import theFridge.DAO.ProfileDAO;
 import theFridge.DAO.QuizLineChartDetailsDAO;
 
 public class QuizLineChartDetails {
@@ -143,47 +144,80 @@ public class QuizLineChartDetails {
 		quizLineChartDetailsDAO.updateDetails(this);
 	}
 	
+	public boolean createDetails() {
+		QuizLineChartDetailsDAO quizLineChartDetailsDAO = new QuizLineChartDetailsDAO();
+		return quizLineChartDetailsDAO.createDetails(this);
+	}
+	
+	public void synToFile(ArrayList<QuizLineChartDetails> lineChartDetailsList) {
+		QuizLineChartDetailsDAO quizLineChartDetailsDAO = new QuizLineChartDetailsDAO();
+		quizLineChartDetailsDAO.synToFile(lineChartDetailsList);
+	}
+	
 	public void addPoints(int pageNo) {
+		QuizLineChartDetails lineChartDetails = new QuizLineChartDetails();
+		ArrayList<QuizLineChartDetails> lineChartDetailsList = lineChartDetails.getAllDetails();
+		
+		//lineChartDetailsList.clear();
+		//lineChartDetails.synToFile(lineChartDetailsList);
 		if (pageNo == 1) {
+			
+			lineChartDetailsList.removeAll(lineChartDetailsList);
 			setQ1P1(QuizQuestionsModel.getPointsAttained());
+			System.out.println("Page 1");
+			
+			if (lineChartDetailsList.isEmpty()) {
+				createDetails();
+			}
+			
 			updateDetails();
 		}
 		else if (pageNo == 2) {
 			setQ2P2(QuizQuestionsModel.getPointsAttained());
 			updateDetails();
+			System.out.println("Page 2");
 		}
 		else if (pageNo == 3) {
 			setQ3P3(QuizQuestionsModel.getPointsAttained());
 			updateDetails();
+			System.out.println("Page 3");
 		}
 		else if (pageNo == 4) {
 			setQ4P4(QuizQuestionsModel.getPointsAttained());
 			updateDetails();
+			System.out.println("Page 4");
 		}
 		else if (pageNo == 5) {
 			setQ5P5(QuizQuestionsModel.getPointsAttained());
 			updateDetails();
+			System.out.println("Page 5");
 		}
 		else if (pageNo == 6) {
 			setQ6P6(QuizQuestionsModel.getPointsAttained());
 			updateDetails();
+			System.out.println("Page 6");
 		}
 		else if (pageNo == 7) {
 			setQ7P7(QuizQuestionsModel.getPointsAttained());
 			updateDetails();
+			System.out.println("Page 7");
 		}
 		else if (pageNo == 8) {
 			setQ8P8(QuizQuestionsModel.getPointsAttained());
 			updateDetails();
+			System.out.println("Page 8");
 		}
 		else if (pageNo == 9) {
 			setQ9P9(QuizQuestionsModel.getPointsAttained());
 			updateDetails();
+			System.out.println("Page 9");
 		}
 		else if (pageNo == 10) {
 			setQ10P10(QuizQuestionsModel.getPointsAttained());
 			updateDetails();
+			System.out.println("Page 10");
 		}
+		System.out.println("Page 10000");
 	}
 
 	public static void main(String[] args) {

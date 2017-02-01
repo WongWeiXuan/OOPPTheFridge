@@ -16,12 +16,16 @@ public class QuizExplanationPopupController {
 	private JFXButton gotItBtn;
 	@FXML
 	private Label contentLabel;
+	@FXML
+	private Label answerLabel;
 
 	public static String explanationText;
+	public static String answerText;
 	
 	@FXML
 	public void initialize() {
 		contentLabel.setText(explanationText);
+		answerLabel.setText(answerText);
 	}
 	
 	@FXML
