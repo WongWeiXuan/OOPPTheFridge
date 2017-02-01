@@ -1,4 +1,2 @@
 xxx:Carrot~3.0~4.0~0~0.0:Carbon Dioxide~8.0~0.0~0~0.0:Tomato~6.0~2.0~0~0.0:Apple~2.0~1.0~0~0.0:Pineapple~8.0~1.0~0~0.0:Cabbage~0.0~1.0~0~0.0:Watermelon~1.0~1.0~0~0.0:Dayplus Maple Bread~1.0~1.0~0~0.0
-Zucchini:Carrot~3.0~4.0~0~0.0:Carbon Dioxide~8.0~0.0~0~0.0:Tomato~6.0~2.0~0~0.0:Apple~2.0~1.0~0~0.0:Pineapple~8.0~1.0~0~0.0:Cabbage~0.0~1.0~0~0.0:Watermelon~1.0~1.0~0~0.0:Apples~1.0~1.0~0~0.0:Veg~0.0~1.0~0~0.0
-Dayplus Maple Bread:Carrot~3.0~4.0~300~16.0:Carbon Dioxide~8.0~0.0~1~0.0:Tomato~6.0~2.0~150~8.0:Apple~2.0~1.0~150~4.0:Pineapple~8.0~1.0~150~4.0:Cabbage~0.0~1.0~75~4.0:Watermelon~1.0~1.0~150~4.0:Dayplus Maple Bread~5.0~1.0~50~4.0
-Carrot:Carrot~9.0~4.0~0~0.0:Carbon Dioxide~8.0~0.0~0~0.0:Tomato~6.0~2.0~0~0.0:Apple~2.0~1.0~0~0.0:Pineapple~8.0~1.0~0~0.0:Cabbage~0.0~1.0~0~0.0:Watermelon~1.0~1.0~0~0.0:Dayplus Maple Bread~4.0~1.0~0~0.0
+ds:Gardenia HiFibre White Bread~0.0~7.0~350~28.0

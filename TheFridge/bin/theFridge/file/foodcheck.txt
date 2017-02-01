@@ -1,7 +1,2 @@
-<<<<<<< HEAD
-Mouldy-Cheese
-Citrus-Peel
-=======
 Rabbit-Manure
 savedone
->>>>>>> origin/master
