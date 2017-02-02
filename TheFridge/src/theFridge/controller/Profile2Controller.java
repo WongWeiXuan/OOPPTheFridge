@@ -654,8 +654,8 @@ public class Profile2Controller {
 }
 	public void editname(ActionEvent event){
 		hbox.setVisible(true);
-		hbox.setStyle("-fx-background-color:  #FCE4EC;");
-		namE.setOpacity(0.5);
+		hbox.setStyle("-fx-background-color: rgb(0,0,255)");
+		//namE.setOpacity(0.5);
 		label0.setOpacity(0.5);
 		Ename.setVisible(false);
 		
@@ -663,8 +663,8 @@ public class Profile2Controller {
 	
 	public void editpassword(ActionEvent event){
 		vbOx.setVisible(true);
-		vbOx.setStyle("-fx-background-color:  #FCE4EC;");
-		passworD.setOpacity(0.5);
+		vbOx.setStyle("-fx-background-color:  rgb(0,255,255)");
+		//passworD.setOpacity(0.5);
 		label2.setOpacity(0.5);
 		Epassword.setVisible(false);
 		//hBox2.setVisible(false);
@@ -672,8 +672,8 @@ public class Profile2Controller {
 	
 	public void editemail(ActionEvent event){
 		hbox6.setVisible(true);
-		hbox6.setStyle("-fx-background-color:  #FCE4EC;");
-		emaiL.setOpacity(0.5);
+		hbox6.setStyle("-fx-background-color: rgb(255,0,0)");
+		//emaiL.setOpacity(0.5);
 		label3.setOpacity(0.5);
 		Eemail.setVisible(false);
 		//hBox3.setVisible(false);
@@ -681,8 +681,8 @@ public class Profile2Controller {
 	
 	public void editlocation(ActionEvent event){
 		hbox7.setVisible(true);
-		hbox7.setStyle("-fx-background-color:  #FCE4EC;");
-		locatioN.setOpacity(0.5);
+		hbox7.setStyle("-fx-background-color:  rgb(255,255,0)");
+		//locatioN.setOpacity(0.5);
 		label4.setOpacity(0.5);
 		Elocation.setVisible(false);
 		//hBox4.setVisible(false);
@@ -690,24 +690,24 @@ public class Profile2Controller {
 	
 	public void editage(ActionEvent event){
 		hbox8.setVisible(true);
-		hbox8.setStyle("-fx-background-color:  #FCE4EC;");
-		agE.setOpacity(0.5);
+		hbox8.setStyle("-fx-background-color: rgb(128,0,128)");
+		//agE.setOpacity(0.5);
 		label5.setOpacity(0.5);
 		EAge.setVisible(false);
 	}
 	
 	public void editheight(ActionEvent event){
 		hbox9.setVisible(true);
-		hbox9.setStyle("-fx-background-color:  #FCE4EC;");
-		heighT.setOpacity(0.5);
+		hbox9.setStyle("-fx-background-color:  rgb(0, 255, 0)");
+		//heighT.setOpacity(0.5);
 		label6.setOpacity(0.5);
 		EHeight.setVisible(false);
 	}
 	
 	public void editweight(ActionEvent event){
 		hbox10.setVisible(true);
-		hbox10.setStyle("-fx-background-color:  #FCE4EC;");
-		weighT.setOpacity(0.5);
+		hbox10.setStyle("-fx-background-color:  rgba(255,165,0)");
+		//weighT.setOpacity(0.5);
 		label7.setOpacity(0.5);
 		EWeight.setVisible(false);
 		
