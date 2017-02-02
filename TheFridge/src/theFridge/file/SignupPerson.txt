@@ -1,10 +1,2 @@
-2;12;32
-xxx;;xxx
-ds;ds;ds
-xz;xz;xz
-Wei Xuan;Email;ILoveStraightMen
-Xuan Zheng;Email;BlueWaffles
-WX;Love;Men
-Xuan Zheng;Email;BlueWaffles
-mrloo;mrloo;mrloo
-FoodFromTheHeart;HopeThisEmailDoesntExist@pleasedont.com;1234
+xxx;xxx@gmail.com;100001111000011110000111
+ds;ds@gmail.com;1001101110001100
