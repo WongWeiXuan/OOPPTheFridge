@@ -338,6 +338,12 @@ public class Profile2Controller {
 				sg = u.getPerson(n); //Changed from SignupDAO.getPerson(n) to u.getPerson(n)
 				sg.setPassword(password);
 				sg.updatePerson();
+				vbOx.setVisible(false);
+				
+				Epassword.setVisible(true);
+				hBox2.setVisible(true);
+				passworD.setOpacity(1);
+				label2.setOpacity(1);
 			}
 			else{
 				alerting.setText("Password does not match");
@@ -351,13 +357,6 @@ public class Profile2Controller {
 		CurrPass.setText("");
 		PassText.setText("");
 		RePassText.setText("");
-		vbOx.setVisible(false);
-		
-		Epassword.setVisible(true);
-		hBox2.setVisible(true);
-		passworD.setOpacity(1);
-		label2.setOpacity(1);
-		
 		
 	}
 	// Event Listener on JFXButton[#btnCancel2].onAction
