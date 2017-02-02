@@ -44,26 +44,22 @@ public class ShoppingListAddPageModel {
     		ServingDAO servingdao = new ServingDAO();
     		ServingToGrams s2g = new ServingToGrams();
 		    	if(source == "Stock"){
+		    		//Edit Button
 			    	if(edit == true){
 			    		StockModel s = stockModel;
-			    		try{
-			    			listModel = ShoppingListModel.getListModelByName(s.getName());
-						    s.setName(name);
-						    s.setAmount(amount);
-				    		ShoppingListModel.setStocklistViewNode(index, s);
-				    		listModel.setName(name);
-				    		if(listModel.getAmount() > s.getMaxAmount()- s.getAmount()){
-				    			ShoppingListModel.setListlistViewNode(index, listModel, true);
-				    		}
-				    		else{
-				    			ShoppingListModel.setListlistViewNode(index, listModel);
-				    		}
-			    		}catch(Exception e){
-			    			s.setName(name);
-						    s.setAmount(amount);
-				    		ShoppingListModel.setStocklistViewNode(index, s);
+		    			listModel = ShoppingListModel.getListModelByName(s.getName());
+					    s.setName(name);
+					    s.setAmount(amount);
+			    		ShoppingListModel.setStocklistViewNode(index, s);
+			    		listModel.setName(name);
+			    		if(listModel.getAmount() > s.getMaxAmount()- s.getAmount()){
+			    			ShoppingListModel.setListlistViewNode(index, listModel, true);
+			    		}
+			    		else{
+			    			ShoppingListModel.setListlistViewNode(index, listModel);
 			    		}
 			    	}
+			    	//Add Button
 			    	else{
 					    StockModel s = new StockModel(name, amount, servingdao.getServingWithName(name));
 					    s.setGrams(s2g.ServingToGramsReturn(servingdao.getServingWithName(name), servingdao.checkType(name)));
@@ -84,35 +80,27 @@ public class ShoppingListAddPageModel {
 		    		}catch(NullPointerException e){
 		    			l = new ListModel(name, amount);
 		    		}
-		    		
 		    		if(edit == true){
-		    			try{
-			    			if(amount > stockModel.getMaxAmount() - stockModel.getAmount()){
-			    				//Alert Box
-			    	    		Alert alert = new Alert(AlertType.CONFIRMATION);
-			    	    		alert.setTitle("Confirmation Dialog");
-			    	    		alert.setHeaderText("You have entered an amount higher than the maximum");
-			    	    		alert.setContentText("Are you sure you want to continue?");
-			    	
-			    	    		Optional<ButtonType> result = alert.showAndWait();
-			    	    		if (result.get() == ButtonType.OK){
-						    		ShoppingListModel.setListlistViewNode(index, l, true);
-						    		ShoppingListDAO a = new ShoppingListDAO();
-						    		a.writeToListFile(ShoppingListModel.getListlistArray());
-						    		
-			    	    		}
-			    	    		else{
-			        				return false;
-			        			}
-			    	    		//--------
-			    			}
-			    			else{
-			    				ShoppingListDAO a = new ShoppingListDAO();
-			    				ShoppingListModel.setListlistViewNode(index, l);
-			    				a.writeToListFile(ShoppingListModel.getListlistArray());
-			    				return true;
-			    			}
-		    			}catch(NullPointerException e){
+		    			if(amount > stockModel.getMaxAmount() - stockModel.getAmount()){
+		    				//Alert Box
+		    	    		Alert alert = new Alert(AlertType.CONFIRMATION);
+		    	    		alert.setTitle("Confirmation Dialog");
+		    	    		alert.setHeaderText("You have entered an amount higher than the maximum");
+		    	    		alert.setContentText("Are you sure you want to continue?");
+		    	
+		    	    		Optional<ButtonType> result = alert.showAndWait();
+		    	    		if (result.get() == ButtonType.OK){
+					    		ShoppingListModel.setListlistViewNode(index, l, true);
+					    		ShoppingListDAO a = new ShoppingListDAO();
+					    		a.writeToListFile(ShoppingListModel.getListlistArray());
+					    		
+		    	    		}
+		    	    		else{
+		        				return false;
+		        			}
+		    	    		//--------
+		    			}
+		    			else{
 		    				ShoppingListDAO a = new ShoppingListDAO();
 		    				ShoppingListModel.setListlistViewNode(index, l);
 		    				a.writeToListFile(ShoppingListModel.getListlistArray());

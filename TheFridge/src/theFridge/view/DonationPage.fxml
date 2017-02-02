@@ -6,8 +6,6 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -164,218 +162,202 @@
                   <Insets right="150.0" />
                </HBox.margin>
                <children>
-                  <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" tabMaxWidth="1000.0" tabMinWidth="775.0" VBox.vgrow="ALWAYS">
-                    <tabs>
-                      <Tab text="Traveling now">
-                        <content>
-                              <ScrollPane fitToWidth="true" hbarPolicy="NEVER" style="-fx-background-color: transparent;" vvalue="1.0">
-                                 <content>
-                                    <VBox>
+                  <ScrollPane fitToWidth="true" hbarPolicy="NEVER" style="-fx-background-color: transparent;" vvalue="1.0">
+                     <content>
+                        <VBox>
+                           <children>
+                              <TextFlow prefHeight="37.0" prefWidth="900.0" textAlignment="CENTER">
+                                 <children>
+                                    <Text fx:id="OrganizationTxt" fill="#ff0059" strokeType="OUTSIDE" strokeWidth="0.0" text="Food From The Heart" translateX="20.0">
+                                       <font>
+                                          <Font name="System Bold" size="40.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </TextFlow>
+                              <VBox>
+                                 <VBox.margin>
+                                    <Insets left="40.0" right="40.0" top="40.0" />
+                                 </VBox.margin>
+                                 <children>
+                                    <TextFlow prefHeight="37.0" prefWidth="900.0">
                                        <children>
-                                          <TextFlow prefHeight="37.0" prefWidth="900.0" textAlignment="CENTER">
+                                          <Text fill="#e91e63" strokeType="OUTSIDE" strokeWidth="0.0" text="Your Infomation" translateX="20.0">
+                                             <font>
+                                                <Font name="System Bold" size="27.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                    </TextFlow>
+                                    <GridPane alignment="TOP_CENTER" prefHeight="284.0" prefWidth="900.0" style="-fx-background-color: white; -fx-background-radius: 20;">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <TextFlow>
                                              <children>
-                                                <Text fx:id="OrganizationTxt" fill="#ff0059" strokeType="OUTSIDE" strokeWidth="0.0" text="Food From The Heart" translateX="20.0">
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Name: " />
+                                                <JFXTextField fx:id="nameField" />
+                                             </children>
+                                          </TextFlow>
+                                          <TextFlow GridPane.columnIndex="1">
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Email: " />
+                                                <JFXTextField fx:id="emailField" />
+                                             </children>
+                                          </TextFlow>
+                                          <TextFlow prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Contact Number: " />
+                                                <JFXTextField fx:id="contactField" />
+                                             </children>
+                                          </TextFlow>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                       </padding>
+                                    </GridPane>
+                                 </children>
+                              </VBox>
+                              <VBox>
+                                 <children>
+                                    <TextFlow prefHeight="37.0" prefWidth="900.0">
+                                       <children>
+                                          <Text fill="#e91e63" strokeType="OUTSIDE" strokeWidth="0.0" text="Food Details" translateX="20.0">
+                                             <font>
+                                                <Font name="System Bold" size="27.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                    </TextFlow>
+                                    <VBox alignment="CENTER" style="-fx-background-color: white; -fx-background-radius: 20;">
+                                       <children>
+                                          <TextFlow textAlignment="CENTER" VBox.vgrow="ALWAYS">
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Choose how you want to enter the food to donate" wrappingWidth="763.6513671875">
                                                    <font>
-                                                      <Font name="System Bold" size="40.0" />
+                                                      <Font size="22.0" />
                                                    </font>
                                                 </Text>
                                              </children>
                                           </TextFlow>
-                                          <VBox>
-                                             <VBox.margin>
-                                                <Insets left="40.0" right="40.0" top="40.0" />
-                                             </VBox.margin>
+                                          <HBox alignment="CENTER">
                                              <children>
-                                                <TextFlow prefHeight="37.0" prefWidth="900.0">
-                                                   <children>
-                                                      <Text fill="#e91e63" strokeType="OUTSIDE" strokeWidth="0.0" text="Your Infomation" translateX="20.0">
-                                                         <font>
-                                                            <Font name="System Bold" size="27.0" />
-                                                         </font>
-                                                      </Text>
-                                                   </children>
-                                                </TextFlow>
-                                                <GridPane alignment="TOP_CENTER" prefHeight="284.0" prefWidth="900.0" style="-fx-background-color: white; -fx-background-radius: 20;">
-                                                  <columnConstraints>
-                                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                  </columnConstraints>
-                                                  <rowConstraints>
-                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                  </rowConstraints>
-                                                   <children>
-                                                      <TextFlow>
-                                                         <children>
-                                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Name: " />
-                                                            <JFXTextField fx:id="nameField" />
-                                                         </children>
-                                                      </TextFlow>
-                                                      <TextFlow GridPane.columnIndex="1">
-                                                         <children>
-                                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Email: " />
-                                                            <JFXTextField fx:id="emailField" />
-                                                         </children>
-                                                      </TextFlow>
-                                                      <TextFlow prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
-                                                         <children>
-                                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Contact Number: " />
-                                                            <JFXTextField fx:id="contactField" />
-                                                         </children>
-                                                      </TextFlow>
-                                                   </children>
-                                                   <padding>
-                                                      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                                                   </padding>
-                                                </GridPane>
-                                             </children>
-                                          </VBox>
-                                          <VBox>
-                                             <children>
-                                                <TextFlow prefHeight="37.0" prefWidth="900.0">
-                                                   <children>
-                                                      <Text fill="#e91e63" strokeType="OUTSIDE" strokeWidth="0.0" text="Food Details" translateX="20.0">
-                                                         <font>
-                                                            <Font name="System Bold" size="27.0" />
-                                                         </font>
-                                                      </Text>
-                                                   </children>
-                                                </TextFlow>
-                                                <VBox alignment="CENTER" style="-fx-background-color: white; -fx-background-radius: 20;">
-                                                   <children>
-                                                      <TextFlow textAlignment="CENTER" VBox.vgrow="ALWAYS">
-                                                         <children>
-                                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Choose how you want to enter the food to donate" wrappingWidth="763.6513671875">
-                                                               <font>
-                                                                  <Font size="22.0" />
-                                                               </font>
-                                                            </Text>
-                                                         </children>
-                                                      </TextFlow>
-                                                      <HBox alignment="CENTER">
-                                                         <children>
-                                                            <JFXRadioButton fx:id="ManualEnterRadio" onAction="#openPopup" text="Manually enter the food">
-                                                               <HBox.margin>
-                                                                  <Insets />
-                                                               </HBox.margin>
-                                                               <toggleGroup>
-                                                                  <ToggleGroup fx:id="food" />
-                                                               </toggleGroup>
-                                                               <cursor>
-                                                                  <Cursor fx:constant="HAND" />
-                                                               </cursor>
-                                                            </JFXRadioButton>
-                                                            <JFXRadioButton fx:id="ManualSelectRadio" onAction="#openPopup" text="Manually select from my food stocks" toggleGroup="$food">
-                                                               <HBox.margin>
-                                                                  <Insets left="10.0" />
-                                                               </HBox.margin>
-                                                               <cursor>
-                                                                  <Cursor fx:constant="HAND" />
-                                                               </cursor>
-                                                            </JFXRadioButton>
-                                                            <JFXRadioButton fx:id="AutomaticRadio" onAction="#showFood" text="Automatic select my excess food from my food stocks" toggleGroup="$food">
-                                                               <HBox.margin>
-                                                                  <Insets left="10.0" right="10.0" />
-                                                               </HBox.margin>
-                                                               <cursor>
-                                                                  <Cursor fx:constant="HAND" />
-                                                               </cursor>
-                                                            </JFXRadioButton>
-                                                         </children>
-                                                         <padding>
-                                                            <Insets bottom="20.0" top="20.0" />
-                                                         </padding>
-                                                      </HBox>
-                                                      <VBox fx:id="enterFoodVBox" />
-                                                   </children>
-                                                   <VBox.margin>
+                                                <JFXRadioButton fx:id="ManualEnterRadio" onMouseClicked="#openPopup" text="Manually enter the food">
+                                                   <HBox.margin>
                                                       <Insets />
-                                                   </VBox.margin>
-                                                   <padding>
-                                                      <Insets top="20.0" />
-                                                   </padding>
-                                                </VBox>
+                                                   </HBox.margin>
+                                                   <toggleGroup>
+                                                      <ToggleGroup fx:id="food" />
+                                                   </toggleGroup>
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                </JFXRadioButton>
+                                                <JFXRadioButton fx:id="ManualSelectRadio" onMouseClicked="#openPopup" text="Manually select from my food stocks" toggleGroup="$food">
+                                                   <HBox.margin>
+                                                      <Insets left="10.0" />
+                                                   </HBox.margin>
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                </JFXRadioButton>
+                                                <JFXRadioButton fx:id="AutomaticRadio" onAction="#showFood" text="Automatic select my excess food from my food stocks" toggleGroup="$food">
+                                                   <HBox.margin>
+                                                      <Insets left="10.0" right="10.0" />
+                                                   </HBox.margin>
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                </JFXRadioButton>
                                              </children>
-                                             <VBox.margin>
-                                                <Insets left="40.0" right="40.0" top="40.0" />
-                                             </VBox.margin>
-                                          </VBox>
-                                          <VBox>
-                                             <children>
-                                                <TextFlow prefHeight="37.0" prefWidth="900.0">
-                                                   <children>
-                                                      <Text fill="#e91e63" strokeType="OUTSIDE" strokeWidth="0.0" text="Donation Details" translateX="20.0">
-                                                         <font>
-                                                            <Font name="System Bold" size="27.0" />
-                                                         </font>
-                                                      </Text>
-                                                   </children>
-                                                </TextFlow>
-                                                <VBox alignment="CENTER" style="-fx-background-color: white; -fx-background-radius: 20;">
-                                                   <children>
-                                                      <TextFlow textAlignment="CENTER" VBox.vgrow="ALWAYS">
-                                                         <children>
-                                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Time" wrappingWidth="763.6513671875">
-                                                               <font>
-                                                                  <Font size="22.0" />
-                                                               </font>
-                                                            </Text>
-                                                         </children>
-                                                      </TextFlow>
-                                                      <TextFlow textAlignment="CENTER">
-                                                         <children>
-                                                            <Text fx:id="timeLbl" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="763.6513671875">
-                                                               <font>
-                                                                  <Font size="22.0" />
-                                                               </font>
-                                                            </Text>
-                                                         </children>
-                                                      </TextFlow>
-                                                      <TextFlow textAlignment="CENTER">
-                                                         <VBox.margin>
-                                                            <Insets top="20.0" />
-                                                         </VBox.margin>
-                                                         <children>
-                                                            <Text fx:id="operationLbl" strokeType="OUTSIDE" strokeWidth="0.0" text="Operation Hours: 9a.m till 6p.m" />
-                                                         </children>
-                                                      </TextFlow>
-                                                   </children>
-                                                   <padding>
-                                                      <Insets bottom="20.0" top="20.0" />
-                                                   </padding>
-                                                   <VBox.margin>
-                                                      <Insets />
-                                                   </VBox.margin>
-                                                </VBox>
-                                             </children>
-                                             <VBox.margin>
-                                                <Insets left="40.0" right="40.0" top="40.0" />
-                                             </VBox.margin>
-                                          </VBox>
-                                          <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
-                                             <children>
-                                                <JFXButton onAction="#cancelDonation" text="Cancel" />
-                                                <JFXButton fx:id="resetBtn" onAction="#clearAllFields" text="Reset" />
-                                                <JFXButton fx:id="submitBtn" onAction="#submitDonation" text="Submit" />
-                                             </children>
+                                             <padding>
+                                                <Insets bottom="20.0" top="20.0" />
+                                             </padding>
                                           </HBox>
+                                          <VBox fx:id="enterFoodVBox" alignment="CENTER" style="-fx-background-color: grey; -fx-background-radius: 0 0 20 20;" />
                                        </children>
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                       <padding>
+                                          <Insets top="20.0" />
+                                       </padding>
                                     </VBox>
-                                 </content>
-                              </ScrollPane>
-                        </content>
-                      </Tab>
-                      <Tab text="Travel Later">
-                        <content>
-                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                        </content>
-                      </Tab>
-                    </tabs>
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                  </TabPane>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets left="40.0" right="40.0" top="40.0" />
+                                 </VBox.margin>
+                              </VBox>
+                              <VBox>
+                                 <children>
+                                    <TextFlow prefHeight="37.0" prefWidth="900.0">
+                                       <children>
+                                          <Text fill="#e91e63" strokeType="OUTSIDE" strokeWidth="0.0" text="Donation Details" translateX="20.0">
+                                             <font>
+                                                <Font name="System Bold" size="27.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                    </TextFlow>
+                                    <VBox alignment="CENTER" style="-fx-background-color: white; -fx-background-radius: 20;">
+                                       <children>
+                                          <TextFlow textAlignment="CENTER" VBox.vgrow="ALWAYS">
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Time" wrappingWidth="763.6513671875">
+                                                   <font>
+                                                      <Font size="22.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                          </TextFlow>
+                                          <TextFlow textAlignment="CENTER">
+                                             <children>
+                                                <Text fx:id="timeLbl" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="763.6513671875">
+                                                   <font>
+                                                      <Font size="22.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                          </TextFlow>
+                                          <TextFlow textAlignment="CENTER">
+                                             <VBox.margin>
+                                                <Insets top="20.0" />
+                                             </VBox.margin>
+                                             <children>
+                                                <Text fx:id="operationLbl" strokeType="OUTSIDE" strokeWidth="0.0" text="Operation Hours: 9a.m till 6p.m" />
+                                             </children>
+                                          </TextFlow>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="20.0" top="20.0" />
+                                       </padding>
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                    </VBox>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets left="40.0" right="40.0" top="40.0" />
+                                 </VBox.margin>
+                              </VBox>
+                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
+                                 <children>
+                                    <JFXButton onAction="#cancelDonation" text="Cancel" />
+                                    <JFXButton fx:id="resetBtn" onAction="#clearAllFields" text="Reset" />
+                                    <JFXButton fx:id="submitBtn" onAction="#submitDonation" text="Submit" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </content>
+                  </ScrollPane>
                </children>
             </VBox>
          </children>

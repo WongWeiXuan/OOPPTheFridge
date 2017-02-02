@@ -484,7 +484,6 @@ public class CharityFoodDonationGoogleMapModel implements DirectionsServiceCallb
 		}
 		
 		Collections.reverse(pL);
-		pL.remove(0);
 		return pL;
 	}
 	

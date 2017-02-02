@@ -4,13 +4,16 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextField;
 
@@ -19,16 +22,25 @@ import javafx.animation.KeyValue;
 import javafx.animation.RotateTransition;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.DateCell;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Dialog;
+import javafx.scene.control.Label;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -36,9 +48,12 @@ import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import javafx.util.Callback;
 import javafx.util.Duration;
 import theFridge.model.CharityFoodDonationGoogleMapModel;
 import theFridge.model.DonationPageModel;
+import theFridge.model.ListModel;
 import theFridge.model.User;
 
 public class DonationPageController {
@@ -100,9 +115,13 @@ public class DonationPageController {
 	private JFXTextField emailField;
 	@FXML
 	private JFXTextField contactField;
+	@FXML
+	private VBox enterFoodVBox;
+	public static boolean first = true;
 
 	@FXML
 	public void initialize() throws FileNotFoundException{
+		DonationPageModel.enterFoodVBox = enterFoodVBox;
 		//Show profile image
 		Image img = new Image("theFridge/picture/Profile Image.jpg");
 		profileCircle.setFill(new ImagePattern(img));
@@ -175,14 +194,14 @@ public class DonationPageController {
 	}
 	
 	@FXML 
-	public void openPopup(ActionEvent event) throws IOException {
+	public void openPopup(MouseEvent event) throws IOException {
 		Dialog<?> dialog = new Dialog<Object>();
 		Stage stage = (Stage) dialog.getDialogPane().getScene().getWindow();
 		Parent root = null;
-		if(event.getSource().equals("ManualEnterRadio")){
+		if(event.getSource().equals(ManualEnterRadio)){
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/ManualEnterPage.fxml"));
 		}
-		else if(event.getSource().equals("ManualSelectRadio")){
+		else if(event.getSource().equals(ManualSelectRadio)){
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/ManualSelectPage.fxml"));
 		}
 		stage.setScene(new Scene(root));
@@ -190,10 +209,32 @@ public class DonationPageController {
 	}
 	
 	@FXML 
-	public void showFood(ActionEvent event) {
-		
+	public void showFood(ActionEvent event) throws FileNotFoundException {
+		Label q = new Label("Name");
+		q.setPrefWidth(400);
+		Label w = new Label("Amount");
+		w.setPrefWidth(200);
+		HBox title = new HBox(q, w);
+		title.setAlignment(Pos.CENTER);
+		enterFoodVBox.getChildren().add(0, title);
+		for(ListModel a:DonationPageModel.getAutomaticFood()){
+			Label name = new Label(a.getName());
+			name.setPrefWidth(400);
+			Label amount = new Label(String.valueOf((int)a.getAmount()));
+			amount.setPrefWidth(200);
+			HBox hbox = new HBox(name, amount);
+			hbox.setAlignment(Pos.CENTER);
+			hbox.setPadding(new Insets(10));
+			hbox.setOnMouseClicked(new EventHandler<MouseEvent>() {
+				public void handle(MouseEvent event) {
+					enterFoodVBox.getChildren().remove(hbox);
+				}
+			});
+			enterFoodVBox.getChildren().add(hbox);
+		}
+		first = false;
 	}
-	
+
 	@FXML 
 	public void cancelDonation(ActionEvent event) throws IOException {
 		Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -207,16 +248,79 @@ public class DonationPageController {
 		nameField.clear();
 		emailField.clear();
 		contactField.clear();
+		ManualEnterRadio.setSelected(false);
+		ManualSelectRadio.setSelected(false);
+		AutomaticRadio.setSelected(false);
+		enterFoodVBox.getChildren().clear();
+		first = true;
 	}
 	
 	@FXML 
 	public void submitDonation(ActionEvent event) throws IOException {
-		//submitForm();
-		Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-		Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/CharityFoodDonationPage.fxml"));
-		stage.setScene(new Scene(root));
-		stage.show();
+		DonationSubmitConfirmPopupPageController.stage1 = (Stage)((Node)event.getSource()).getScene().getWindow();
+		DonationSubmitConfirmPopupPageController.name = nameField.getText();
+		if(!nameField.getText().isEmpty() && !nameField.getText().equals(null)){
+			DonationSubmitConfirmPopupPageController.email = emailField.getText();
+			if(!emailField.getText().isEmpty() && !emailField.getText().equals(null)){
+				DonationSubmitConfirmPopupPageController.contact = contactField.getText();
+				if(!contactField.getText().isEmpty() && !contactField.getText().equals(null)){
+					CharityFoodDonationGoogleMapModel a = new CharityFoodDonationGoogleMapModel();
+					DonationSubmitConfirmPopupPageController.location = a.getDestination(CharityFoodDonationGoogleMapModel.OrganizationTxt);
+					if(enterFoodVBox.getChildren().size() > 1){
+						try{
+							DonationSubmitConfirmPopupPageController.allm.clear();
+							for(int i = 1; i < enterFoodVBox.getChildren().size(); i++){
+								HBox hbox = (HBox) enterFoodVBox.getChildren().get(i);
+								Label name = (Label) hbox.getChildren().get(0);
+								Label amount = (Label) hbox.getChildren().get(1);
+								ListModel lm = new ListModel(name.getText(), Double.parseDouble(amount.getText()));
+								DonationSubmitConfirmPopupPageController.allm.add(lm);
+							}
+							Dialog<?> dialog = new Dialog<Object>();
+							Stage stage = (Stage) (dialog.getDialogPane()).getScene().getWindow();
+							stage.initStyle(StageStyle.TRANSPARENT);
+							Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/DonationSubmitConfirmPopupPage.fxml"));
+							Scene scene = new Scene(root);
+							scene.setFill(Color.TRANSPARENT);
+							stage.setScene(scene);
+							stage.show();
+						}catch(Exception e){
+							System.out.println("Error");
+						}
+					}else{
+						Alert alert = new Alert(AlertType.WARNING);
+						alert.setTitle("Warning Dialog");
+						alert.setHeaderText("No Food Items Entered");
+						alert.setContentText("Please enter the food to donate using the either 3 radio buttons");
+
+						alert.showAndWait();
+					}
+				}else{
+					Alert alert = new Alert(AlertType.WARNING);
+					alert.setTitle("Warning Dialog");
+					alert.setHeaderText("Unfilled field");
+					alert.setContentText("Please enter your contact number");
+
+					alert.showAndWait();
+				}
+			}else{
+				Alert alert = new Alert(AlertType.WARNING);
+				alert.setTitle("Warning Dialog");
+				alert.setHeaderText("Unfilled field");
+				alert.setContentText("Please enter your email");
+
+				alert.showAndWait();
+			}
+		}else{
+			Alert alert = new Alert(AlertType.WARNING);
+			alert.setTitle("Warning Dialog");
+			alert.setHeaderText("Unfilled field");
+			alert.setContentText("Please enter your name");
+
+			alert.showAndWait();
+		}
 	}
+	
 	
 	//Animation for the Dropdown(Profile Dropdown)
 	@FXML

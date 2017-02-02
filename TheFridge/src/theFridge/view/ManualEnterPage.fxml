@@ -8,6 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
@@ -20,13 +21,18 @@
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Food Item" />
                   <TextFlow>
                      <children>
-                        <TextField prefWidth="330.0" promptText="Banana" />
+                        <TextField fx:id="foodNameField" prefWidth="330.0" promptText="Banana" />
                         <Spinner fx:id="firstSpinner" editable="true" prefWidth="70.0" />
                      </children>
                   </TextFlow>
+                  <Text fx:id="warningText" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="330.04833984375">
+                     <font>
+                        <Font name="Serif Regular" size="15.0" />
+                     </font>
+                  </Text>
                </children>
                <padding>
-                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                  <Insets left="20.0" right="20.0" top="20.0" />
                </padding>
             </VBox>
             <HBox alignment="CENTER" prefHeight="51.0" prefWidth="200.0" spacing="80.0">

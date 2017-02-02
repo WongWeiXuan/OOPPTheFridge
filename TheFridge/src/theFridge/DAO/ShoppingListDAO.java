@@ -76,13 +76,17 @@ public class ShoppingListDAO {
 				userName = sc.next();
 				i++;
 			}
-			line = sc.next();
-			fields = line.split("~");
-			String name = fields[0];
-			double amount = Double.parseDouble(fields[1]);
-			double serving = Double.parseDouble(fields[2]);
-			StockModel a = new StockModel(name, amount, serving);
-			stocks.add(a);
+			try{
+				line = sc.next();
+				fields = line.split("~");
+				String name = fields[0];
+				double amount = Double.parseDouble(fields[1]);
+				double serving = Double.parseDouble(fields[2]);
+				int grams = Integer.parseInt(fields[3]);
+				double maxAmount = Double.parseDouble(fields[4]);
+				StockModel a = new StockModel(name, amount, serving, grams, maxAmount, false);
+				stocks.add(a);
+			}catch(NoSuchElementException e){}
 		}
 		sc.close();
 		UserStockListModel b = new UserStockListModel(userName, stocks);
@@ -177,8 +181,10 @@ public class ShoppingListDAO {
 	}
 	
 	public StockModel getStockModelByName(String name) throws FileNotFoundException{
+		User u = new User();
+		u = u.getCurrentUser();
 		StockModel model = null;
-		for(StockModel sm:getAllStock(name)){
+		for(StockModel sm:getAllStock(u.getUsername())){
 			if(sm.getName().equalsIgnoreCase(name)){
 				model = sm;
 			}
@@ -187,8 +193,10 @@ public class ShoppingListDAO {
 	}
 	
 	public ListModel getListModelByName(String name) throws FileNotFoundException{
+		User u = new User();
+		u = u.getCurrentUser();
 		ListModel model = null;
-		for(ListModel lm:getAllListWithName(name)){
+		for(ListModel lm:getAllListWithName(u.getUsername())){
 			if(lm.getName().equalsIgnoreCase(name)){
 				model = lm;
 			}

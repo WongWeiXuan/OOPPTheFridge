@@ -5,7 +5,9 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import theFridge.model.DonationHistoryModel;
 import theFridge.model.DonationPageModel;
+import theFridge.model.ListModel;
 import theFridge.model.StockModel;
 
 public class DonationPageDAO {
@@ -70,6 +72,40 @@ public class DonationPageDAO {
 		return aldpm;
 	}
 	
-	public 
+	public ArrayList<DonationHistoryModel> getAllHistory() throws FileNotFoundException{
+		ArrayList<DonationHistoryModel> aldhm = new ArrayList<DonationHistoryModel>();
+		Scanner sc = new Scanner(donationHistoryFile);
+		String line=null;
+		String[] fields;
+		
+		while (sc.hasNextLine()) {
+			line = sc.nextLine();
+			fields = line.split("-");
+			String userName = fields[0];
+			String organizationName = fields[1];
+			String foodList = fields[2];
+			ListModel lm = seperateFoodList(foodList);
+			String time = fields[3];
+			String timeLeft = fields[4];
+			DonationHistoryModel a = new DonationHistoryModel(userName, organizationName, lm, time, timeLeft);
+			aldhm.add(a);
+		}
+		sc.close();
+		return null;
+	}
 	
+	private ListModel seperateFoodList(String foodList){
+		Scanner sc = new Scanner(foodList);
+		String line=null;
+		String[] fields;
+		
+		line = sc.nextLine();
+		fields = line.split(":");
+		String name = fields[0];
+		double amount = Double.parseDouble(fields[1]);
+		sc.close();
+		
+		ListModel lm = new ListModel(name, amount);
+		return lm;
+	}
 }

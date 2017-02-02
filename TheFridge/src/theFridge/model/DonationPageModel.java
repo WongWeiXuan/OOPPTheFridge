@@ -3,7 +3,19 @@ package theFridge.model;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
+import com.jfoenix.controls.JFXPopup;
+
+import javafx.event.EventHandler;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.control.Label;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import theFridge.DAO.DonationPageDAO;
+import theFridge.DAO.ShoppingListDAO;
+import theFridge.controller.DonationPageController;
 
 public class DonationPageModel {
 	String organizationName;
@@ -119,5 +131,50 @@ public class DonationPageModel {
 	
 	public static void submitForm(){
 		
+	}
+	
+	public static ArrayList<ListModel> getAutomaticFood() throws FileNotFoundException{
+		ArrayList<ListModel> allm = new ArrayList<ListModel>();
+		User u = new User();
+		u = u.getCurrentUser();
+		ShoppingListDAO dao = new ShoppingListDAO();
+		ArrayList<StockModel> alsm = dao.getAllStock(u.getUsername());
+		for(StockModel a:alsm){
+			if(a.getAmount() > a.getMaxAmount()){
+				double amount = a.getAmount() - a.getMaxAmount();
+				ListModel lm = new ListModel(a.getName(), amount);
+				allm.add(lm);
+			}
+		}
+		
+		return allm;
+	}
+	
+	public static VBox enterFoodVBox;
+	
+	public void addFood(ListModel lm){
+		if(DonationPageController.first == true){
+			Label q = new Label("Name");
+			q.setPrefWidth(400);
+			Label w = new Label("Amount");
+			w.setPrefWidth(200);
+			HBox title = new HBox(q, w);
+			title.setAlignment(Pos.CENTER);
+			enterFoodVBox.getChildren().add(0, title);
+		}
+		Label name = new Label(lm.getName());
+		name.setPrefWidth(400);
+		Label amount = new Label(String.valueOf((int)lm.getAmount()));
+		amount.setPrefWidth(200);
+		HBox hbox = new HBox(name, amount);
+		hbox.setAlignment(Pos.CENTER);
+		hbox.setPadding(new Insets(10));
+		hbox.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent event) {
+				enterFoodVBox.getChildren().remove(hbox);
+			}
+		});
+		enterFoodVBox.getChildren().add(hbox);
+		DonationPageController.first = false;
 	}
 }

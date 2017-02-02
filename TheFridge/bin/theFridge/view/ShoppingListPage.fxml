@@ -16,11 +16,200 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1280.0" style="-fx-background-image: url(&quot;theFridge/picture/ZhGEqAP.jpg&quot;);" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="theFridge.controller.ShoppingListController">
+<AnchorPane prefHeight="800.0" prefWidth="1280.0" style="-fx-background-image: url(&quot;theFridge/picture/ZhGEqAP.jpg&quot;);" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="theFridge.controller.ShoppingListController">
    <children>
-      <VBox prefHeight="1080.0" prefWidth="1920.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <HBox layoutY="54.0" style="-fx-background-color: rgba(240, 98, 146, 0.25);" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="65.0">
          <children>
-            <TextFlow maxHeight="100.0" prefHeight="65.0" prefWidth="200.0" style="-fx-background-color: #C2185B;" textAlignment="CENTER" VBox.vgrow="NEVER">
+            <AnchorPane fx:id="Anchor" prefHeight="903.0" prefWidth="150.0">
+               <children>
+                  <VBox fx:id="naviPreview" alignment="CENTER" maxWidth="150.0" onMouseEntered="#showNavigation" prefHeight="600.0" prefWidth="150.0" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Circle fill="#dde6f0" radius="15.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle fill="#dde6f0" radius="15.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle fill="#dde6f0" radius="15.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle fill="#f7c048c0" radius="15.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle fill="#dde6f0" radius="15.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle fill="#dde6f0" radius="15.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                     </children>
+                  </VBox>
+                  <VBox fx:id="navi" alignment="CENTER" layoutX="-150.0" maxWidth="150.0" onMouseExited="#hideNavigation" prefHeight="600.0" prefWidth="150.0" spacing="20.0" style="-fx-background-color: rgba(233, 30, 99, 0.25);" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <VBox fx:id="homeScene" alignment="TOP_CENTER" onMouseClicked="#changeScene">
+                           <children>
+                              <StackPane prefHeight="150.0" prefWidth="100.0">
+                                 <children>
+                                    <Circle fill="#dde6f0" radius="25.0" stroke="#ffffff00" strokeType="INSIDE" />
+                                    <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
+                                       <image>
+                                          <Image url="theFridge/picture/home.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </StackPane>
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Garamond;" text="Home" />
+                           </children>
+                           <VBox.margin>
+                              <Insets top="20.0" />
+                           </VBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </VBox>
+                        <VBox fx:id="recipeScene" alignment="TOP_CENTER" onMouseClicked="#changeScene" VBox.vgrow="ALWAYS">
+                           <children>
+                              <StackPane prefHeight="150.0" prefWidth="100.0">
+                                 <children>
+                                    <Circle fill="#dde6f0" radius="25.0" stroke="#ffffff00" strokeType="INSIDE" />
+                                    <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
+                                       <image>
+                                          <Image url="theFridge/picture/open-book.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </StackPane>
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Garamond;" text="Recipe Book" />
+                           </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </VBox>
+                        <VBox fx:id="compostScene" alignment="TOP_CENTER" onMouseClicked="#changeScene" VBox.vgrow="ALWAYS">
+                           <children>
+                              <StackPane prefHeight="150.0" prefWidth="100.0">
+                                 <children>
+                                    <Circle fill="#dde6f0" radius="25.0" stroke="#ffffff00" strokeType="INSIDE" />
+                                    <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
+                                       <image>
+                                          <Image url="theFridge/picture/fertillizer.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </StackPane>
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Garamond;" text="Compost Guide" />
+                           </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </VBox>
+                        <VBox fx:id="foodScene" alignment="TOP_CENTER" onMouseClicked="#changeScene" VBox.vgrow="ALWAYS">
+                           <children>
+                              <StackPane prefHeight="150.0" prefWidth="100.0">
+                                 <children>
+                                    <Circle fill="#f7c048be" radius="25.0" stroke="#ffffff00" strokeType="INSIDE" />
+                                    <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
+                                       <image>
+                                          <Image url="theFridge/picture/chicken.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </StackPane>
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Garamond;" text="Food Calculator" />
+                           </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </VBox>
+                        <VBox fx:id="quizScene" alignment="TOP_CENTER" onMouseClicked="#changeScene" VBox.vgrow="ALWAYS">
+                           <children>
+                              <StackPane prefHeight="150.0" prefWidth="100.0">
+                                 <children>
+                                    <Circle fill="#dde6f0" radius="25.0" stroke="#ffffff00" strokeType="INSIDE" />
+                                    <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
+                                       <image>
+                                          <Image url="theFridge/picture/quiz-on-computer-with-question-signs-around.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </StackPane>
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Garamond;" text="Quiz" />
+                           </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </VBox>
+                        <VBox fx:id="prizeScene" alignment="TOP_CENTER" onMouseClicked="#changeScene" VBox.vgrow="ALWAYS">
+                           <children>
+                              <StackPane prefHeight="150.0" prefWidth="100.0">
+                                 <children>
+                                    <Circle fill="#dde6f0" radius="25.0" stroke="#ffffff00" strokeType="INSIDE" />
+                                    <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
+                                       <image>
+                                          <Image url="theFridge/picture/gift.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </StackPane>
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Garamond;" text="Redeem Prizes" />
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="20.0" />
+                           </VBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </VBox>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+            <HBox style="-fx-background-color: #FCE4EC;" HBox.hgrow="SOMETIMES">
+               <children>
+                  <VBox HBox.hgrow="ALWAYS">
+                     <children>
+                        <VBox prefHeight="794.0" prefWidth="968.0">
+                           <VBox.margin>
+                              <Insets left="20.0" right="20.0" top="20.0" />
+                           </VBox.margin>
+                           <children>
+                              <JFXListView fx:id="StocklistView" VBox.vgrow="SOMETIMES" />
+                              <JFXButton fx:id="addStocks" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" onAction="#addItems" prefHeight="65.0" prefWidth="1084.0" ripplerFill="#3c71dd" style="-fx-background-color: #2258c3;" text="Add.." textFill="WHITE">
+                                 <VBox.margin>
+                                    <Insets bottom="30.0" top="5.0" />
+                                 </VBox.margin>
+                              </JFXButton>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="903.0" prefWidth="622.0" HBox.hgrow="SOMETIMES">
+                     <children>
+                        <VBox>
+                           <children>
+                              <JFXListView fx:id="ListlistView" VBox.vgrow="ALWAYS">
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </JFXListView>
+                              <JFXButton fx:id="addList" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" onAction="#addItems" prefHeight="65.0" prefWidth="623.0" ripplerFill="#3c71dd" style="-fx-background-color: #2258c3;" text="Add.." textFill="WHITE">
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </JFXButton>
+                              <TextFlow textAlignment="CENTER">
+                                 <VBox.margin>
+                                    <Insets bottom="30.0" top="20.0" />
+                                 </VBox.margin>
+                                 <children>
+                                    <JFXButton alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" onAction="#changeToGeneratePage" prefHeight="65.0" prefWidth="151.0" ripplerFill="#1868c4" style="-fx-background-color: #2258c3;" text="Generate " textAlignment="CENTER" textFill="WHITE" />
+                                 </children>
+                              </TextFlow>
+                           </children>
+                           <VBox.margin>
+                              <Insets right="20.0" top="20.0" />
+                           </VBox.margin>
+                        </VBox>
+                     </children>
+                  </VBox>
+               </children>
+               <HBox.margin>
+                  <Insets right="150.0" />
+               </HBox.margin>
+            </HBox>
+         </children>
+      </HBox>
+      <AnchorPane AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <TextFlow maxHeight="65.0" minHeight="65.0" minWidth="357.0" prefHeight="65.0" style="-fx-background-color: #C2185B;" textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="The Fridge">
                      <font>
@@ -28,198 +217,52 @@
                      </font>
                   </Text>
                </children>
+               <padding>
+                  <Insets left="64.0" right="64.0" />
+               </padding>
             </TextFlow>
-            <HBox style="-fx-background-color: rgba(240, 98, 146, 0.25);" VBox.vgrow="ALWAYS">
+            <StackPane fx:id="dropdownMenu" layoutX="357.0" layoutY="-135.0" style="-fx-background-color: #FCE4EC;" AnchorPane.rightAnchor="-150.0" AnchorPane.topAnchor="-255.0">
                <children>
-                  <AnchorPane fx:id="Anchor" prefHeight="903.0" prefWidth="150.0">
+                  <VBox fx:id="dropdownBackground" maxHeight="200.0" maxWidth="150.0" minHeight="200.0" minWidth="150.0" prefHeight="200.0" prefWidth="150.0" />
+                  <VBox fx:id="dropdownWord" alignment="TOP_CENTER" maxHeight="320.0" maxWidth="150.0" minHeight="320.0" minWidth="150.0" opacity="0.0" prefHeight="320.0" prefWidth="150.0">
                      <children>
-                        <VBox fx:id="naviPreview" alignment="CENTER" maxWidth="150.0" onMouseEntered="#showNavigation" prefHeight="600.0" prefWidth="150.0" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <VBox fx:id="ProfileMenu" alignment="CENTER" maxHeight="80.0" maxWidth="150.0" minHeight="80.0" minWidth="150.0" onMouseClicked="#menuChangeScene" prefHeight="80.0" prefWidth="150.0">
                            <children>
-                              <Circle fill="#dde6f0" radius="15.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                              <Circle fill="#dde6f0" radius="15.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                              <Circle fill="#dde6f0" radius="15.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                              <Circle fill="#f7c048c0" radius="15.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                              <Circle fill="#dde6f0" radius="15.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                              <Circle fill="#dde6f0" radius="15.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                              <TextFlow textAlignment="CENTER">
+                                 <children>
+                                    <Text fill="#c2185b" strokeType="OUTSIDE" strokeWidth="0.0" text="Profile" />
+                                 </children>
+                              </TextFlow>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="80.0" />
+                           </VBox.margin>
+                        </VBox>
+                        <VBox fx:id="SettingMenu" alignment="CENTER" maxHeight="80.0" maxWidth="150.0" minHeight="80.0" minWidth="150.0" onMouseClicked="#menuChangeScene" prefHeight="80.0" prefWidth="150.0">
+                           <children>
+                              <TextFlow textAlignment="CENTER">
+                                 <children>
+                                    <Text fill="#c2185b" strokeType="OUTSIDE" strokeWidth="0.0" text="Setting" />
+                                 </children>
+                              </TextFlow>
                            </children>
                         </VBox>
-                        <VBox fx:id="navi" alignment="CENTER" layoutX="-150.0" maxWidth="150.0" onMouseExited="#hideNavigation" prefHeight="600.0" prefWidth="150.0" spacing="20.0" style="-fx-background-color: rgba(233, 30, 99, 0.25);" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <VBox fx:id="LogoutMenu" alignment="CENTER" maxHeight="80.0" maxWidth="150.0" minHeight="80.0" minWidth="150.0" onMouseClicked="#menuChangeScene" prefHeight="80.0" prefWidth="150.0">
                            <children>
-                              <VBox fx:id="homeScene" alignment="TOP_CENTER" onMouseClicked="#changeScene">
+                              <TextFlow textAlignment="CENTER">
                                  <children>
-                                    <StackPane prefHeight="150.0" prefWidth="100.0">
-                                       <children>
-                                          <Circle fill="#dde6f0" radius="25.0" stroke="#ffffff00" strokeType="INSIDE" />
-                                          <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
-                                             <image>
-                                                <Image url="theFridge/picture/home.png" />
-                                             </image>
-                                          </ImageView>
-                                       </children>
-                                    </StackPane>
-                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Garamond;" text="Home" />
+                                    <Text fill="#c2185b" strokeType="OUTSIDE" strokeWidth="0.0" text="Logout" />
                                  </children>
-                                 <VBox.margin>
-                                    <Insets top="20.0" />
-                                 </VBox.margin>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </VBox>
-                              <VBox fx:id="recipeScene" alignment="TOP_CENTER" onMouseClicked="#changeScene" VBox.vgrow="ALWAYS">
-                                 <children>
-                                    <StackPane prefHeight="150.0" prefWidth="100.0">
-                                       <children>
-                                          <Circle fill="#dde6f0" radius="25.0" stroke="#ffffff00" strokeType="INSIDE" />
-                                          <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
-                                             <image>
-                                                <Image url="theFridge/picture/open-book.png" />
-                                             </image>
-                                          </ImageView>
-                                       </children>
-                                    </StackPane>
-                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Garamond;" text="Recipe Book" />
-                                 </children>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </VBox>
-                              <VBox fx:id="compostScene" alignment="TOP_CENTER" onMouseClicked="#changeScene" VBox.vgrow="ALWAYS">
-                                 <children>
-                                    <StackPane prefHeight="150.0" prefWidth="100.0">
-                                       <children>
-                                          <Circle fill="#dde6f0" radius="25.0" stroke="#ffffff00" strokeType="INSIDE" />
-                                          <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
-                                             <image>
-                                                <Image url="theFridge/picture/fertillizer.png" />
-                                             </image>
-                                          </ImageView>
-                                       </children>
-                                    </StackPane>
-                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Garamond;" text="Compost Guide" />
-                                 </children>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </VBox>
-                              <VBox fx:id="foodScene" alignment="TOP_CENTER" onMouseClicked="#changeScene" VBox.vgrow="ALWAYS">
-                                 <children>
-                                    <StackPane prefHeight="150.0" prefWidth="100.0">
-                                       <children>
-                                          <Circle fill="#f7c048be" radius="25.0" stroke="#ffffff00" strokeType="INSIDE" />
-                                          <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
-                                             <image>
-                                                <Image url="theFridge/picture/chicken.png" />
-                                             </image>
-                                          </ImageView>
-                                       </children>
-                                    </StackPane>
-                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Garamond;" text="Food Calculator" />
-                                 </children>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </VBox>
-                              <VBox fx:id="quizScene" alignment="TOP_CENTER" onMouseClicked="#changeScene" VBox.vgrow="ALWAYS">
-                                 <children>
-                                    <StackPane prefHeight="150.0" prefWidth="100.0">
-                                       <children>
-                                          <Circle fill="#dde6f0" radius="25.0" stroke="#ffffff00" strokeType="INSIDE" />
-                                          <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
-                                             <image>
-                                                <Image url="theFridge/picture/quiz-on-computer-with-question-signs-around.png" />
-                                             </image>
-                                          </ImageView>
-                                       </children>
-                                    </StackPane>
-                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Garamond;" text="Quiz" />
-                                 </children>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </VBox>
-                              <VBox fx:id="prizeScene" alignment="TOP_CENTER" onMouseClicked="#changeScene" VBox.vgrow="ALWAYS">
-                                 <children>
-                                    <StackPane prefHeight="150.0" prefWidth="100.0">
-                                       <children>
-                                          <Circle fill="#dde6f0" radius="25.0" stroke="#ffffff00" strokeType="INSIDE" />
-                                          <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
-                                             <image>
-                                                <Image url="theFridge/picture/gift.png" />
-                                             </image>
-                                          </ImageView>
-                                       </children>
-                                    </StackPane>
-                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Garamond;" text="Redeem Prizes" />
-                                 </children>
-                                 <VBox.margin>
-                                    <Insets bottom="20.0" />
-                                 </VBox.margin>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </VBox>
+                              </TextFlow>
                            </children>
                         </VBox>
                      </children>
-                  </AnchorPane>
-                  <HBox style="-fx-background-color: #FCE4EC;" HBox.hgrow="SOMETIMES">
-                     <children>
-                        <VBox HBox.hgrow="ALWAYS">
-                           <children>
-                              <VBox prefHeight="794.0" prefWidth="968.0">
-                                 <VBox.margin>
-                                    <Insets left="20.0" right="20.0" top="20.0" />
-                                 </VBox.margin>
-                                 <children>
-                                    <JFXListView fx:id="StocklistView" VBox.vgrow="SOMETIMES" />
-                                    <JFXButton fx:id="addStocks" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" onAction="#addItems" prefHeight="65.0" prefWidth="1084.0" ripplerFill="#3c71dd" style="-fx-background-color: #2258c3;" text="Add.." textFill="WHITE">
-                                       <VBox.margin>
-                                          <Insets bottom="30.0" top="5.0" />
-                                       </VBox.margin>
-                                    </JFXButton>
-                                 </children>
-                              </VBox>
-                           </children>
-                        </VBox>
-                        <VBox prefHeight="903.0" prefWidth="622.0" HBox.hgrow="SOMETIMES">
-                           <children>
-                              <VBox>
-                                 <children>
-                                    <JFXListView fx:id="ListlistView" VBox.vgrow="ALWAYS">
-                                       <VBox.margin>
-                                          <Insets />
-                                       </VBox.margin>
-                                    </JFXListView>
-                                    <JFXButton fx:id="addList" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" onAction="#addItems" prefHeight="65.0" prefWidth="623.0" ripplerFill="#3c71dd" style="-fx-background-color: #2258c3;" text="Add.." textFill="WHITE">
-                                       <VBox.margin>
-                                          <Insets top="5.0" />
-                                       </VBox.margin>
-                                    </JFXButton>
-                                    <TextFlow textAlignment="CENTER">
-                                       <VBox.margin>
-                                          <Insets bottom="30.0" top="20.0" />
-                                       </VBox.margin>
-                                       <children>
-                                          <JFXButton alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" onAction="#changeToGeneratePage" prefHeight="65.0" prefWidth="151.0" ripplerFill="#1868c4" style="-fx-background-color: #2258c3;" text="Generate " textAlignment="CENTER" textFill="WHITE" />
-                                       </children>
-                                    </TextFlow>
-                                 </children>
-                                 <VBox.margin>
-                                    <Insets right="20.0" top="20.0" />
-                                 </VBox.margin>
-                              </VBox>
-                           </children>
-                        </VBox>
-                     </children>
-                     <HBox.margin>
-                        <Insets right="150.0" />
-                     </HBox.margin>
-                  </HBox>
+                  </VBox>
                </children>
-            </HBox>
+            </StackPane>
+            <Circle fx:id="profileCircle" fill="WHITE" layoutX="32.0" layoutY="97.0" onMouseClicked="#showUserDropdown" radius="32.0" stroke="#ffffff00" strokeType="INSIDE" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
          </children>
-      </VBox>
+      </AnchorPane>
       <JFXPopup fx:id="Popup" />
       <JFXPopup fx:id="Popup1" layoutX="10.0" layoutY="10.0" />
    </children>
