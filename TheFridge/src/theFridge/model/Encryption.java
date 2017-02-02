@@ -60,14 +60,16 @@ public class Encryption {
 
 
 
-    /*public static void main(String[] args) throws UnsupportedEncodingException{
+    public static void main(String[] args) throws UnsupportedEncodingException{
+    	/*
         Encryption ec = new Encryption("Hello");
         System.out.println(ec.getBinary());
         System.out.println(ec.encryptLine());
         System.out.println(ec.getString());
         System.out.println(ec.encryptLine());
         System.out.println(ec.getString());
+        */
     }
-    */
+    
 }
 
