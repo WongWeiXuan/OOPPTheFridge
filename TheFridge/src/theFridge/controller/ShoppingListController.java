@@ -1,21 +1,25 @@
 package theFridge.controller;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
+
 import com.google.zxing.WriterException;
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXListView;
+import com.jfoenix.controls.JFXPopup;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
-
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -23,11 +27,6 @@ import theFridge.model.ShoppingListAddPageModel;
 import theFridge.model.ShoppingListModel;
 import theFridge.model.ShoppingListQRCodePageModel;
 import theFridge.model.User;
-import javafx.event.ActionEvent;
-import javafx.scene.layout.HBox;
-import com.jfoenix.controls.JFXListView;
-import com.jfoenix.controls.JFXPopup;
-import com.jfoenix.controls.JFXComboBox;
 
 public class ShoppingListController {
 	@FXML

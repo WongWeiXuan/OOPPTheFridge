@@ -3,7 +3,6 @@ package theFridge.controller;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import application.Main;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -88,7 +87,7 @@ public class ViewRecipesController {
 	@FXML
 	private Text recipebytxt;
 	
-	private Main mainApp;
+	//private Main mainApp;
 	private ArrayList <RecipeBook> bookList;
 	private int currIndex=-1;
 	
@@ -248,10 +247,9 @@ public class ViewRecipesController {
  		stage.setScene(new Scene(root));
  	    stage.show();
 	}
-	public void setMain(Main main) {
-		this.mainApp = mainApp;
-		
-	}
+	//public void setMain(Main main) {
+		//this.mainApp = mainApp;
+	//}
 	public void setRecipeBookList(ArrayList<RecipeBook> allRecipeBook) {
 		if (allRecipeBook!=null && allRecipeBook.size()>0) {
 			this.bookList = allRecipeBook;

@@ -1,29 +1,16 @@
 package theFridge.controller;
 
 import javafx.fxml.FXML;
-import javafx.geometry.Insets;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
-import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 
-import java.util.ArrayList;
-
 import com.jfoenix.controls.JFXButton;
-import com.lynden.gmapsfx.javascript.object.GoogleMap;
-import com.lynden.gmapsfx.service.directions.DirectionsRenderer;
-import com.lynden.gmapsfx.service.directions.DirectionsRequest;
-import com.lynden.gmapsfx.service.directions.TravelModes;
-
 import javafx.event.ActionEvent;
 import javafx.scene.Node;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
-import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
-
-import javafx.scene.input.MouseEvent;
 
 public class ManualEnterPageController {
 	@FXML

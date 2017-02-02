@@ -7,7 +7,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
 
 import com.jfoenix.controls.JFXButton;
@@ -20,7 +19,6 @@ import javafx.animation.Timeline;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -35,8 +33,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import theFridge.DAO.FoodCompostDatasDAO;
@@ -86,7 +82,7 @@ public class Page1Controller{
     @FXML
     private JFXButton delete;
     @FXML
-    private JFXComboBox showFiles;
+    private JFXComboBox<String> showFiles;
     @FXML
     private JFXButton showing;
     @FXML
@@ -232,7 +228,7 @@ public class Page1Controller{
 	        choice.setItems(data); 
 	        listView.setItems(a);
 	        //foodCom.setItems(a);
-	        
+	        sc.close();
 	    }
 	   public void deleteAll(ActionEvent event){
 		   listView.getItems().remove(listView.getSelectionModel().getSelectedItem());
@@ -279,7 +275,7 @@ public class Page1Controller{
 		   fg.deleteFoodCompost();
 		   fg.updateFoodCompostDatas();
 		   
-		   
+		   sc1.close();
 		   
 	   }
 	   

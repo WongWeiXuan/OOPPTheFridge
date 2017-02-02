@@ -265,7 +265,7 @@
                                                 </ImageView>
                                                 <TextFlow prefHeight="92.0" prefWidth="680.0" style="-fx-background-color: #D3D3D3;">
                                                    <children>
-                                                      <Label fx:id="UNLabel" prefWidth="400.0" text="Label">
+                                                      <Label fx:id="UNLabel" prefHeight="53.0" prefWidth="666.0" text="Label" wrapText="true">
                                                          <padding>
                                                             <Insets left="80.0" />
                                                          </padding>
@@ -311,7 +311,7 @@
                                                 </ImageView>
                                                 <TextFlow prefHeight="53.0" prefWidth="681.0" style="-fx-background-color: #D3D3D3;">
                                                    <children>
-                                                      <Label fx:id="PassLabel" prefWidth="400.0" text="Label">
+                                                      <Label fx:id="PassLabel" prefHeight="53.0" prefWidth="666.0" text="Label" wrapText="true">
                                                          <padding>
                                                             <Insets left="80.0" />
                                                          </padding>
@@ -357,7 +357,7 @@
                                                 </ImageView>
                                                 <TextFlow prefHeight="53.0" prefWidth="726.0" style="-fx-background-color: #D3D3D3;">
                                                    <children>
-                                                      <Label fx:id="EMLabel" prefWidth="400.0" text="Label">
+                                                      <Label fx:id="EMLabel" prefHeight="53.0" prefWidth="667.0" text="Label" wrapText="true">
                                                          <padding>
                                                             <Insets left="80.0" />
                                                          </padding>
@@ -403,7 +403,7 @@
                                                 </ImageView>
                                                 <TextFlow prefHeight="53.0" prefWidth="677.0" style="-fx-background-color: #D3D3D3;">
                                                    <children>
-                                                      <Label fx:id="LLabel" prefHeight="48.0" prefWidth="400.0" text="Label">
+                                                      <Label fx:id="LLabel" prefHeight="53.0" prefWidth="660.0" text="Label" wrapText="true">
                                                          <font>
                                                             <Font size="36.0" />
                                                          </font>
@@ -449,7 +449,7 @@
                                                 </ImageView>
                                                 <TextFlow prefHeight="53.0" prefWidth="696.0" style="-fx-background-color: #D3D3D3;">
                                                    <children>
-                                                      <Label fx:id="AgeLabel" text="Label">
+                                                      <Label fx:id="AgeLabel" prefHeight="53.0" prefWidth="661.0" text="Label" wrapText="true">
                                                          <font>
                                                             <Font size="36.0" />
                                                          </font>
@@ -495,7 +495,7 @@
                                                 </ImageView>
                                                 <TextFlow prefHeight="53.0" prefWidth="687.0" style="-fx-background-color: #D3D3D3;">
                                                    <children>
-                                                      <Label fx:id="HeightLabel" text="Label">
+                                                      <Label fx:id="HeightLabel" prefHeight="53.0" prefWidth="665.0" text="Label" wrapText="true">
                                                          <font>
                                                             <Font size="36.0" />
                                                          </font>
@@ -538,7 +538,7 @@
                                                 </ImageView>
                                                 <TextFlow prefHeight="53.0" prefWidth="680.0" style="-fx-background-color: #D3D3D3;">
                                                    <children>
-                                                      <Label fx:id="WeightLabel" text="Label">
+                                                      <Label fx:id="WeightLabel" prefHeight="53.0" prefWidth="663.0" text="Label" wrapText="true">
                                                          <font>
                                                             <Font size="36.0" />
                                                          </font>
@@ -578,7 +578,7 @@
                                                 </ImageView>
                                                 <TextFlow prefHeight="53.0" prefWidth="683.0" style="-fx-background-color: #D3D3D3;">
                                                    <children>
-                                                      <Label fx:id="PointsLabel" text="Label">
+                                                      <Label fx:id="PointsLabel" prefHeight="53.0" prefWidth="661.0" text="Label" wrapText="true">
                                                          <font>
                                                             <Font size="36.0" />
                                                          </font>

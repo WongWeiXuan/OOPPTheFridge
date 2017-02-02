@@ -23,7 +23,7 @@ public class ProfileDAO {
 		Scanner in;
 		String record = null;
 		String[] fields;
-		String[] s;
+		//String[] s;
 		ArrayList<User> user=new ArrayList<User>();
 		try {
 			in = new Scanner(dataFile);

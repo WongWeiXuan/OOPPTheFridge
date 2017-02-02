@@ -1,28 +1,5 @@
 package theFridge.controller;
 
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.text.Text;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
-import javafx.util.Duration;
-import theFridge.model.CharityFoodDonationGoogleMapModel;
-import theFridge.model.DonationPageModel;
-import theFridge.model.User;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Dialog;
-import javafx.scene.control.ToggleGroup;
-import javafx.scene.image.Image;
-import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
-import javafx.animation.RotateTransition;
-import javafx.animation.Timeline;
-import javafx.event.ActionEvent;
-
-import javafx.scene.layout.AnchorPane;
-
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.DateFormat;
@@ -33,18 +10,36 @@ import java.util.GregorianCalendar;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextField;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.RotateTransition;
+import javafx.animation.Timeline;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Dialog;
+import javafx.scene.control.ToggleGroup;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
-
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
-
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
-import com.jfoenix.controls.JFXButton;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
+import javafx.util.Duration;
+import theFridge.model.CharityFoodDonationGoogleMapModel;
+import theFridge.model.DonationPageModel;
+import theFridge.model.User;
 
 public class DonationPageController {
 	@FXML

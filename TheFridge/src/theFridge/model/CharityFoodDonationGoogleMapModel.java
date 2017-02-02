@@ -9,8 +9,6 @@ import com.lynden.gmapsfx.GoogleMapView;
 import com.lynden.gmapsfx.javascript.object.Animation;
 import com.lynden.gmapsfx.javascript.object.DirectionsPane;
 import com.lynden.gmapsfx.javascript.object.GoogleMap;
-import com.lynden.gmapsfx.javascript.object.InfoWindow;
-import com.lynden.gmapsfx.javascript.object.InfoWindowOptions;
 import com.lynden.gmapsfx.javascript.object.LatLong;
 import com.lynden.gmapsfx.javascript.object.MapOptions;
 import com.lynden.gmapsfx.javascript.object.MapTypeIdEnum;
@@ -23,8 +21,6 @@ import com.lynden.gmapsfx.service.directions.DirectionsResult;
 import com.lynden.gmapsfx.service.directions.DirectionsService;
 import com.lynden.gmapsfx.service.directions.DirectionsServiceCallback;
 import com.lynden.gmapsfx.service.directions.TravelModes;
-import com.lynden.gmapsfx.service.geocoding.GeocoderGeometry;
-
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -33,7 +29,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Text;
 import theFridge.DAO.MapPlacesDAO;
 import theFridge.controller.CharityFoodDonationGoogleMapController;
 
@@ -47,9 +42,11 @@ public class CharityFoodDonationGoogleMapModel implements DirectionsServiceCallb
     private VBox vboxInScroll;
     private VBox donationVbox;
     private JFXButton donateBtn;
+	@SuppressWarnings("unused")
 	private JFXButton moreInfoBtn;
 	private String name;
 	public static String OrganizationTxt;
+	@SuppressWarnings("unused")
 	private LatLong currentLatLong;
 
 	public CharityFoodDonationGoogleMapModel(GoogleMapView mapView, VBox vboxInScroll, VBox donationVbox,

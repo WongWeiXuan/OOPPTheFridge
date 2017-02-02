@@ -1,10 +1,6 @@
 package theFridge.model;
 
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Scanner;
-
-import theFridge.DAO.ProfileDAO;
 
 public class CaloriesCalculatorInputModel {
 	public double getBMR() throws FileNotFoundException{

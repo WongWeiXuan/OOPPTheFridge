@@ -5,8 +5,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
 import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -39,7 +37,6 @@ import javafx.event.EventHandler;
 import javafx.scene.control.Label;
 
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -192,6 +189,7 @@ public class Page2Controller {
 			System.out.println(ded);
 		}
 		if(ded.equals("savedone")){
+			@SuppressWarnings("unused")
 			File file2=new File("src/theFridge/file/foodcheck.txt");
 			Scanner sc2=new Scanner(file) ;
 			String load = sc2.nextLine();
@@ -212,6 +210,8 @@ public class Page2Controller {
 			});
 			textF.setVisible(false);
 			saveBtn.setVisible(false);
+			sc.close();
+			sc2.close();
 		}
 		else{
 		FoodCompostDAO f = new FoodCompostDAO();
@@ -243,6 +243,7 @@ public class Page2Controller {
 		File file1=new File("src/theFridge/file/confirm.txt");
 		Scanner sc1=new Scanner(file1) ;
 		String n = sc1.nextLine();
+		sc1.close();
 		ProfileDAO profileDAO = new ProfileDAO();
 		User uu = new User();
 		uu = profileDAO.getUser(n);
@@ -288,6 +289,7 @@ public class Page2Controller {
 			String nn = sc9.nextLine();
 			saving.add(nn);
 		}
+		sc9.close();
 		String saved = saving.toString();
 		FoodCompostDatas fc = new FoodCompostDatas();
 		fc.setTitle(save0);
@@ -335,6 +337,7 @@ public class Page2Controller {
 		c = f.getFoodCompost(n);
 		steps.setText(c.getInstruction());
 		steps.setFont(Font.font ("Verdana", 24));
+		sc.close();
 		}
 		
 		

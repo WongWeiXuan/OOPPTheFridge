@@ -7,11 +7,7 @@ import java.util.ResourceBundle;
 
 import com.lynden.gmapsfx.GoogleMapView;
 import com.lynden.gmapsfx.MapComponentInitializedListener;
-import com.lynden.gmapsfx.service.directions.DirectionStatus;
 import com.lynden.gmapsfx.service.directions.DirectionsResult;
-import com.lynden.gmapsfx.service.directions.DirectionsService;
-import com.lynden.gmapsfx.service.directions.DirectionsServiceCallback;
-
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.RotateTransition;

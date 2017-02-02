@@ -109,6 +109,7 @@ public class EditRecipeController {
 		String steps   = stepstxt.getText();
 		RecipeBook rbb = new RecipeBook(addedBy,name,ingre1,ingre2,ingre3,steps);
 		
+		@SuppressWarnings("static-access")
 		ArrayList <RecipeBook> bookList = rbb.getAllRecipeBook();
 		
 		bookList.add(rbb);

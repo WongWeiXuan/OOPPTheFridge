@@ -56,6 +56,7 @@ public class Page4Controller {
 		me = new Media(new File(path).toURI().toString());
 		mp = new MediaPlayer(me);
 		video.setMediaPlayer(mp);
+		sc.close();
 	}
 	public void backToMain(ActionEvent event) throws IOException{
 		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();

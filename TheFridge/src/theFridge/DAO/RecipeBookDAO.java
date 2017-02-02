@@ -133,6 +133,7 @@ public class RecipeBookDAO {
 	
 	public static void main(String args[]) {
 		
+		@SuppressWarnings("unused")
 		RecipeBookDAO RecipeBookDao=new RecipeBookDAO();
 		
 		//create RecipeBook 

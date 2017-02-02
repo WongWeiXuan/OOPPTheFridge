@@ -2,18 +2,11 @@ package theFridge.controller.foodCalculator;
 
 import javafx.fxml.FXML;
 
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.Random;
-import java.util.Scanner;
-
 import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
-import theFridge.DAO.FoodCalculatorCaloriesCalculatorRecipeDAO;
 
 public class FoodCalculatorCaloriesCalculatorRecipeController {
 	@FXML

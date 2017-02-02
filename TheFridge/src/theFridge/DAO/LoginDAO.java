@@ -3,6 +3,7 @@ package theFridge.DAO;
 import java.io.File;
 
 public class LoginDAO {
+	@SuppressWarnings("unused")
 	private File dataFile;
 	
 	public LoginDAO() {

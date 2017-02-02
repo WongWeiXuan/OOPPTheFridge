@@ -1,11 +1,6 @@
 package theFridge.model;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
-
 import theFridge.DAO.FoodCompostDatasDAO;
-import theFridge.DAO.ProfileDAO;
 
 public class FoodCompostDatas {
 	String title;
