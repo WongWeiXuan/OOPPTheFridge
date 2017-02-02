@@ -14,6 +14,7 @@ import java.util.Scanner;
 
 import theFridge.DAO.ProfileDAO;
 import theFridge.DAO.SignupDAO;
+import theFridge.model.Encryption;
 import theFridge.model.SignupModel;
 import theFridge.model.User;
 
@@ -355,14 +356,19 @@ public class Profile2Controller {
 		User uu = new User();
 		uu = profileDAO.getUser(n);
 		String oldalready = uu.getPassword();
-		if(oldpassword.equals(oldalready)){
+		Encryption old1 = new Encryption(oldalready, false);
+		old1.encryptLine();
+		if(oldpassword.equals(old1.getString())){
 			if(password.equals(repassword)){
-				uu.setPassword(password);
+				Encryption new1 = new Encryption(repassword);
+				new1.getBinary();
+				String newnew = new1.encryptLine();
+				uu.setPassword(newnew);
 				profileDAO.updateUser(uu);
 				SignupDAO u = new SignupDAO();
 				SignupModel sg = new SignupModel();
 				sg = u.getPerson(n); //Changed from SignupDAO.getPerson(n) to u.getPerson(n)
-				sg.setPassword(password);
+				sg.setPassword(newnew);
 				sg.updatePerson();
 				vbOx.setVisible(false);
 				
