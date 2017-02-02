@@ -219,7 +219,23 @@ public class Profile2Controller {
 	@FXML
 	private Label alerting;
 
-	// Event Listener on VBox[#naviPreview].onMouseEntered
+	public void initialize() throws FileNotFoundException{
+		File file=new File("src/theFridge/file/confirm.txt");
+		Scanner sc=new Scanner(file) ;
+		String n = sc.nextLine();
+		sc.close();
+		ProfileDAO profileDAO = new ProfileDAO();
+		User uu = new User();
+		uu = profileDAO.getUser(n);
+		label0.setText(uu.getName());
+		label2.setText(uu.getPassword());
+		label3.setText(uu.getEmail());
+		label4.setText(uu.getCountry());
+		label5.setText(uu.getAge());
+		label6.setText(uu.getHeight());
+		label7.setText(uu.getWeight());
+		
+	}
 	@FXML
 	public void showNavigation(MouseEvent event) {
 		Timeline timeline = new Timeline();
@@ -283,7 +299,7 @@ public class Profile2Controller {
 	}
 	// Event Listener on JFXButton[#btnSave0].onAction
 	@FXML
-	public void save0(ActionEvent event) throws FileNotFoundException {
+	public void save0(ActionEvent event) throws IOException {
 		String name= NText.getText();
 		if(name.equals("")){
 			label0.setText("Please enter a value");
@@ -305,19 +321,29 @@ public class Profile2Controller {
 		hBox0.setVisible(true);
 		namE.setOpacity(1);
 		label0.setOpacity(1);
+		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/Profile2.fxml"));
+		root = FXMLLoader.load(getClass().getResource("/theFridge/view/Profile2.fxml"));
+		stage.setScene(new Scene(root));
+ 	    stage.show();
 		}
 	}
 	// Event Listener on JFXButton[#btnCancel0].onAction
 	@FXML
-	public void cancel0(ActionEvent event) {
+	public void cancel0(ActionEvent event) throws IOException {
 		hbox.setVisible(false);
 		NText.setText("");
 		Ename.setVisible(true);
 		hBox0.setVisible(true);
 		namE.setOpacity(1);
 		label0.setOpacity(1);
+		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/Profile2.fxml"));
+		root = FXMLLoader.load(getClass().getResource("/theFridge/view/Profile2.fxml"));
+		stage.setScene(new Scene(root));
+ 	    stage.show();
 	}
-	public void save2(ActionEvent event) throws FileNotFoundException {
+	public void save2(ActionEvent event) throws IOException {
 		String oldpassword = CurrPass.getText();
 		String password= PassText.getText();
 		String repassword = RePassText.getText();
@@ -344,6 +370,11 @@ public class Profile2Controller {
 				hBox2.setVisible(true);
 				passworD.setOpacity(1);
 				label2.setOpacity(1);
+				Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+				Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/Profile2.fxml"));
+				root = FXMLLoader.load(getClass().getResource("/theFridge/view/Profile2.fxml"));
+				stage.setScene(new Scene(root));
+		 	    stage.show();
 			}
 			else{
 				alerting.setText("Password does not match");
@@ -361,7 +392,7 @@ public class Profile2Controller {
 	}
 	// Event Listener on JFXButton[#btnCancel2].onAction
 	@FXML
-	public void cancel2(ActionEvent event) {
+	public void cancel2(ActionEvent event) throws IOException {
 		vbOx.setVisible(false);
 		CurrPass.setText("");
 		PassText.setText("");
@@ -370,10 +401,15 @@ public class Profile2Controller {
 		hBox2.setVisible(true);
 		passworD.setOpacity(1);
 		label2.setOpacity(1);
+		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/Profile2.fxml"));
+		root = FXMLLoader.load(getClass().getResource("/theFridge/view/Profile2.fxml"));
+		stage.setScene(new Scene(root));
+ 	    stage.show();
 	}
 	// Event Listener on JFXButton[#btnSave3].onAction
 	@FXML
-	public void save3(ActionEvent event) throws FileNotFoundException {
+	public void save3(ActionEvent event) throws IOException {
 		String email= EMText.getText();
 		if(email.equals("")){
 			label3.setText("Please enter a value");
@@ -400,22 +436,32 @@ public class Profile2Controller {
 		hBox3.setVisible(true);
 		emaiL.setOpacity(1);
 		label3.setOpacity(1);
+		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/Profile2.fxml"));
+		root = FXMLLoader.load(getClass().getResource("/theFridge/view/Profile2.fxml"));
+		stage.setScene(new Scene(root));
+ 	    stage.show();
 		}
 	}
 	// Event Listener on JFXButton[#btnCancel3].onAction
 	@FXML
-	public void cancel3(ActionEvent event) {
+	public void cancel3(ActionEvent event) throws IOException {
 		hbox6.setVisible(false);
 		EMText.setText("");
 		Eemail.setVisible(true);
 		hBox3.setVisible(true);
 		emaiL.setOpacity(1);
 		label3.setOpacity(1);
+		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/Profile2.fxml"));
+		root = FXMLLoader.load(getClass().getResource("/theFridge/view/Profile2.fxml"));
+		stage.setScene(new Scene(root));
+ 	    stage.show();
 		
 	}
 	// Event Listener on JFXButton[#btnSave4].onAction
 	@FXML
-	public void save4(ActionEvent event) throws FileNotFoundException {
+	public void save4(ActionEvent event) throws IOException {
 		String location= LText.getText();
 		if(location.equals("")){
 			label4.setText("Please enter a value");
@@ -437,20 +483,30 @@ public class Profile2Controller {
 		hBox4.setVisible(true);
 		locatioN.setOpacity(1);
 		label4.setOpacity(1);
+		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/Profile2.fxml"));
+		root = FXMLLoader.load(getClass().getResource("/theFridge/view/Profile2.fxml"));
+		stage.setScene(new Scene(root));
+ 	    stage.show();
 		}
 	}
 	// Event Listener on JFXButton[#btnCancel4].onAction
 	@FXML
-	public void cancel4(ActionEvent event) {
+	public void cancel4(ActionEvent event) throws IOException {
 		hbox7.setVisible(false);
 		LText.setText("");
 		Elocation.setVisible(true);
 		hBox4.setVisible(true);
 		locatioN.setOpacity(1);
 		label4.setOpacity(1);
+		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/Profile2.fxml"));
+		root = FXMLLoader.load(getClass().getResource("/theFridge/view/Profile2.fxml"));
+		stage.setScene(new Scene(root));
+ 	    stage.show();
 	}
 	
-	public void save5(ActionEvent event) throws FileNotFoundException {
+	public void save5(ActionEvent event) throws IOException {
 		String Age= AText.getText();
 		if(Age.equals("")){
 			label5.setText("Please enter a value");
@@ -472,19 +528,29 @@ public class Profile2Controller {
 		hBox5.setVisible(true);
 		agE.setOpacity(1);
 		label5.setOpacity(1);
+		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/Profile2.fxml"));
+		root = FXMLLoader.load(getClass().getResource("/theFridge/view/Profile2.fxml"));
+		stage.setScene(new Scene(root));
+ 	    stage.show();
 		}
 	}
 	@FXML
-	public void cancel5(ActionEvent event) {
+	public void cancel5(ActionEvent event) throws IOException {
 		hbox8.setVisible(false);
 		AText.setText("");
 		EAge.setVisible(true);
 		hBox5.setVisible(true);
 		agE.setOpacity(1);
 		label5.setOpacity(1);
+		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/Profile2.fxml"));
+		root = FXMLLoader.load(getClass().getResource("/theFridge/view/Profile2.fxml"));
+		stage.setScene(new Scene(root));
+ 	    stage.show();
 	}
 	
-	public void save6(ActionEvent event) throws FileNotFoundException {
+	public void save6(ActionEvent event) throws IOException {
 		String height= HText.getText();
 		if(height.equals("")){
 			label6.setText("Please enter a value");
@@ -506,20 +572,30 @@ public class Profile2Controller {
 		hBox6.setVisible(true);
 		heighT.setOpacity(1);
 		label6.setOpacity(1);
+		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/Profile2.fxml"));
+		root = FXMLLoader.load(getClass().getResource("/theFridge/view/Profile2.fxml"));
+		stage.setScene(new Scene(root));
+ 	    stage.show();
 		}
 	}
 	// Event Listener on JFXButton[#btnCancel4].onAction
 	@FXML
-	public void cancel6(ActionEvent event) {
+	public void cancel6(ActionEvent event) throws IOException {
 		hbox9.setVisible(false);
 		HText.setText("");
 		EHeight.setVisible(true);
 		hBox6.setVisible(true);
 		heighT.setOpacity(1);
 		label6.setOpacity(1);
+		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/Profile2.fxml"));
+		root = FXMLLoader.load(getClass().getResource("/theFridge/view/Profile2.fxml"));
+		stage.setScene(new Scene(root));
+ 	    stage.show();
 	}
 	
-	public void save7(ActionEvent event) throws FileNotFoundException {
+	public void save7(ActionEvent event) throws IOException {
 		String weight= WText.getText();
 		if(weight.equals("")){
 			label7.setText("Please enter a value");
@@ -541,16 +617,26 @@ public class Profile2Controller {
 		hBox7.setVisible(true);
 		weighT.setOpacity(1);
 		label7.setOpacity(1);
+		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/Profile2.fxml"));
+		root = FXMLLoader.load(getClass().getResource("/theFridge/view/Profile2.fxml"));
+		stage.setScene(new Scene(root));
+ 	    stage.show();
 		}
 	}
 	@FXML
-	public void cancel7(ActionEvent event) {
+	public void cancel7(ActionEvent event) throws IOException {
 		hbox10.setVisible(false);
 		WText.setText("");
 		EWeight.setVisible(true);
 		hBox7.setVisible(true);
 		weighT.setOpacity(1);
 		label7.setOpacity(1);
+		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/Profile2.fxml"));
+		root = FXMLLoader.load(getClass().getResource("/theFridge/view/Profile2.fxml"));
+		stage.setScene(new Scene(root));
+ 	    stage.show();
 	}
 	@FXML
 	public void goToMain(ActionEvent event)throws IOException {
