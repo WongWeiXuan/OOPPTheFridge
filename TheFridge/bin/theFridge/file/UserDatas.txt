@@ -1,2 +1,2 @@
 FFTH;FoodFromTheHeart;11001110110011011100110011001011;HopeThisEmailDoesntExist@pleasedont.com;130 Joo Seng Road #03-01, 368357;172;72;23;null;80;null;0;[]
-null;xxx;100001111000011110000111;xxx@gmail.com;NanYangPolyTechnic;null;null;null;null;0;null;0;[]
+null;xxx;100001111000011110000111;xxx@gmail.com;Geylang;null;null;null;null;0;null;0;[]
