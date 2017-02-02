@@ -49,6 +49,10 @@ public class CharityFoodDonationGoogleMapModel implements DirectionsServiceCallb
 	@SuppressWarnings("unused")
 	private LatLong currentLatLong;
 
+	public CharityFoodDonationGoogleMapModel() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public CharityFoodDonationGoogleMapModel(GoogleMapView mapView, VBox vboxInScroll, VBox donationVbox,
 			JFXButton donateBtn, JFXButton moreInfoBtn) {
 		super();
@@ -591,46 +595,78 @@ public class CharityFoodDonationGoogleMapModel implements DirectionsServiceCallb
 		}
 	}
 
-	public void displayMoreInfo(){
-		
+	public void displayRouteAgain(String name){
+		User u = new User();
+		try {
+			u = u.getCurrentUser();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		String destination = null;
 		if(name.equalsIgnoreCase("Hougang Mall")){
+			destination = "Hougang Mall, 90 Hougang Ave 10, Singapore 538766";
 		}
 		else if(name.equalsIgnoreCase("Food From The Heart")){
+			destination = "Food From The Heart, 130 Joo Seng Road #03-01, 368357";
 		}
 		else if(name.equalsIgnoreCase("Willing Hearts")){
+			destination = "Willing Hearts, 11 Jalan Ubi Blk 6, #01-51 Chai Chee Community Hub, 409074";
 		}
 		else if(name.equalsIgnoreCase("Parkway Parade")){
+			destination = "Giant Hypermarket - Parkway Parade, 03-27/28, Parkway Parade, 80 Marine Parade Rd, Din Tai Fung, Singapore 449269";
 		}
 		else if(name.equalsIgnoreCase("Tampines 1")){
+			destination = "Tampines 1, 10 Tampines Central 1, 529536";
 		}
 		else if(name.equalsIgnoreCase("Century Square")){
+			destination = "Century Square, 2 Tampines Central 5, Singapore 529509";
 		}
 		else if(name.equalsIgnoreCase("100 Sims Ave")){
+			destination = "100 Sims Ave, 387426";
 		}
 		else if(name.equalsIgnoreCase("NUS Engineering")){
+			destination = "NUS Engineering, 9 Engineering Drive 1, Blk EA, #06-10, 117575";
 		}
 		else if(name.equalsIgnoreCase("NUS Arts & Social Sciences")){
+			destination = "NUS Arts & Social Sciences, 5 Arts Link, Block AS7, Level 5 The Shaw Foundation Building, 117570";
 		}
 		else if(name.equalsIgnoreCase("NUS Computing")){
+			destination = "NUS Computing, 13 Computing Dr, Singapore 117417";
 		}
 		else if(name.equalsIgnoreCase("The Grandstand")){
+			destination = "The Grandstand, 200 Turf Club Rd, Singapore 287994";
 		}
 		else if(name.equalsIgnoreCase("BIG BOX")){
+			destination = "BIG BOX, 1 Venture Ave, Singapore 608521";
 		}
 		else if(name.equalsIgnoreCase("City Square Mall")){
+			destination = "City Square Mall, 180 Kitchener Rd, Singapore 208539";
 		}
 		else if(name.equalsIgnoreCase("Armf II (Liang Court) Pte Ltd")){
+			destination = "Armf II (Liang Court) Pte Ltd, 177 River Valley Rd, Singapore 179030";
 		}
 		else if(name.equalsIgnoreCase("Quayside Isle")){
+			destination = "Quayside Isle, 31 Ocean Way, Sentosa Cove, Singapore, 098375";
 		}
 		else if(name.equalsIgnoreCase("Giant, VivoCity")){
+			destination = "Giant, 1 Harbourfront Walk, 23, VivoCity, Singapore 098585";
 		}
 		else if(name.equalsIgnoreCase("VivoCity")){
+			destination = "VivoCity, #02-123/124, 1 Harbourfront Walk, Singapore 098585";
 		}
 		else if(name.equalsIgnoreCase("Chrysler Jeep Automotive of Singapore Pte Ltd")){
+			destination = "Chrysler Jeep Automotive of Singapore Pte Ltd, 1 Chang Charn Rd, Singapore 159630";
 		}
 		else if(name.equalsIgnoreCase("Food Bank Singapore")){
+			destination = "The Food Bank Singapore Ltd, 39 Keppel Road #03-08, Tanjong Pagar Distripark, Singapore 089065";
 		}
+		DirectionsRequest request = new DirectionsRequest(u.getCountry(), destination, TravelModes.DRIVING);
+        DirectionsRenderer directionsDisplay = new DirectionsRenderer(true, mapView.getMap(), directionsPane);
+        GoogleMap map2 = mapView.createMap(mapOptions);
+        addMarkerAfterCreating(map2, name);
+        directionsDisplay.setMap(map2);
+        directionsService.getRoute(request, this, directionsDisplay);
+        this.name = name;
 	}
 
 	

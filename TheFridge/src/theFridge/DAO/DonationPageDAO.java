@@ -11,10 +11,12 @@ import theFridge.model.StockModel;
 public class DonationPageDAO {
 	File donateFoodFile;
 	File operationTimeFile;
+	File donationHistoryFile;
 	
 	public DonationPageDAO(){
 		donateFoodFile = new File("src/theFridge/file/foodDonate.txt");
 		operationTimeFile = new File("src/theFridge/file/operationTime.txt");
+		donationHistoryFile = new File("src/theFridge/file/donationHistory.txt");
 	}
 	
 	public ArrayList<StockModel> getAllFood() throws FileNotFoundException{
@@ -67,5 +69,7 @@ public class DonationPageDAO {
 		
 		return aldpm;
 	}
+	
+	public 
 	
 }

@@ -123,55 +123,59 @@ public class ShoppingListModel {
 
 	public void displayShopping() throws FileNotFoundException {
 		ShoppingListDAO s = new ShoppingListDAO();
-		ArrayList<ListModel> listlist = s.getAllList(numOfPeople);
-		for (ListModel m : listlist) {
-			HBox hbox = new HBox();
-			Label nameLbl = new Label(m.getName());
-			nameLbl.setMinWidth(400);
-			nameLbl.setPrefWidth(400);
-			nameLbl.setAlignment(Pos.CENTER_LEFT);
-			Label amountLbl = new Label(String.valueOf(m.getAmount()));
-			amountLbl.setMinWidth(100);
-			amountLbl.setPrefWidth(100);
-			amountLbl.setAlignment(Pos.CENTER);
-			try{
-				StockModel sm = getStockModelByNameFromStockListArray(m.getName());
-				if (m.getAmount() > sm.getMaxAmount() - sm.getAmount()) {
-					amountLbl.setStyle("-fx-text-fill: red");
-				} else {
-					amountLbl.setStyle("-fx-text-fill: black");
-				}
-			}catch(Exception e){}
-			hbox.getChildren().addAll(nameLbl, amountLbl);
-			hbox.setOnMouseClicked(new EventHandler<MouseEvent>() {
-				public void handle(MouseEvent event) {
-					if(event.getButton().equals(MouseButton.PRIMARY)){
-			            if(event.getClickCount() == 2){
-			            	try{
-			            		doubleClick();
-			            		ShoppingListDAO a = new ShoppingListDAO();
-								try {
-									a.writeToStockFile(ShoppingListModel.getStocklistArray());
-									a.writeToListFile(ShoppingListModel.getListlistArray());
-								} catch (IOException e) {
-									e.printStackTrace();
-								}
-			            	}catch(StackOverflowError e){}
-			            }
-			        }
-					else if(event.getButton() == MouseButton.SECONDARY) {
-						Popup1.show(JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.RIGHT);
+		try{
+			ArrayList<ListModel> listlist = s.getAllList(numOfPeople);
+			for (ListModel m : listlist) {
+				HBox hbox = new HBox();
+				Label nameLbl = new Label(m.getName());
+				nameLbl.setMinWidth(400);
+				nameLbl.setPrefWidth(400);
+				nameLbl.setAlignment(Pos.CENTER_LEFT);
+				Label amountLbl = new Label(String.valueOf(m.getAmount()));
+				amountLbl.setMinWidth(100);
+				amountLbl.setPrefWidth(100);
+				amountLbl.setAlignment(Pos.CENTER);
+				try{
+					StockModel sm = getStockModelByNameFromStockListArray(m.getName());
+					if (m.getAmount() > sm.getMaxAmount() - sm.getAmount()) {
+						amountLbl.setStyle("-fx-text-fill: red");
+					} else {
+						amountLbl.setStyle("-fx-text-fill: black");
 					}
+				}catch(Exception e){}
+				hbox.getChildren().addAll(nameLbl, amountLbl);
+				hbox.setOnMouseClicked(new EventHandler<MouseEvent>() {
+					public void handle(MouseEvent event) {
+						if(event.getButton().equals(MouseButton.PRIMARY)){
+				            if(event.getClickCount() == 2){
+				            	try{
+				            		doubleClick();
+				            		ShoppingListDAO a = new ShoppingListDAO();
+									try {
+										a.writeToStockFile(ShoppingListModel.getStocklistArray());
+										a.writeToListFile(ShoppingListModel.getListlistArray());
+									} catch (IOException e) {
+										e.printStackTrace();
+									}
+				            	}catch(StackOverflowError e){}
+				            }
+				        }
+						else if(event.getButton() == MouseButton.SECONDARY) {
+							Popup1.show(JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.RIGHT);
+						}
+					}
+				});
+	
+				ListlistView.getItems().add(hbox);
+				try {
+					ShoppingListDAO a = new ShoppingListDAO();
+					a.writeToListFile(ShoppingListModel.getListlistArray());
+				} catch (IOException e) {
+					e.printStackTrace();
 				}
-			});
-
-			ListlistView.getItems().add(hbox);
-			try {
-				ShoppingListDAO a = new ShoppingListDAO();
-				a.writeToListFile(ShoppingListModel.getListlistArray());
-			} catch (IOException e) {
-				e.printStackTrace();
 			}
+		}catch(NullPointerException e){
+				
 		}
 	}
 

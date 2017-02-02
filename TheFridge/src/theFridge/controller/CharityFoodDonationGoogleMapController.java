@@ -127,7 +127,6 @@ public class CharityFoodDonationGoogleMapController implements Initializable, Ma
 	@FXML 
 	public void showMoreInfo(ActionEvent event) {
 		double lat = results.getRoutes().get(0).getLegs().get(0).getEndLocation().getLatitude();
-		System.out.println("lat" + lat);
 		Timeline timeline = new Timeline();
     	KeyValue keyValue = new KeyValue(moreInfo.translateYProperty(), 0);
     	KeyFrame KeyFrame = new KeyFrame(Duration.millis(200), keyValue);

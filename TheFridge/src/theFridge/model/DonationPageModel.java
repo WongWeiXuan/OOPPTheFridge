@@ -117,4 +117,7 @@ public class DonationPageModel {
 		return null;
 	}
 	
+	public static void submitForm(){
+		
+	}
 }

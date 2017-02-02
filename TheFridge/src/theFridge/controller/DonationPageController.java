@@ -173,6 +173,7 @@ public class DonationPageController {
 		};
 		timer.scheduleAtFixedRate(timerTask, 0, 1000);
 	}
+	
 	@FXML 
 	public void openPopup(ActionEvent event) throws IOException {
 		Dialog<?> dialog = new Dialog<Object>();
@@ -209,8 +210,12 @@ public class DonationPageController {
 	}
 	
 	@FXML 
-	public void submitDonation(ActionEvent event) {
-		
+	public void submitDonation(ActionEvent event) throws IOException {
+		//submitForm();
+		Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+		Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/CharityFoodDonationPage.fxml"));
+		stage.setScene(new Scene(root));
+		stage.show();
 	}
 	
 	//Animation for the Dropdown(Profile Dropdown)

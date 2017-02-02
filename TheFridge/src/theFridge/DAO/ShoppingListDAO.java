@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 import theFridge.model.ListModel;
@@ -102,14 +103,15 @@ public class ShoppingListDAO {
 				userName = sc.next();
 				i++;
 			}
-			line = sc.next();
-			System.out.println(line);
-			fields = line.split("~");
-			String name = fields[0];
-			double amount = Double.parseDouble(fields[1]);
-			double maxAmount = Double.parseDouble(fields[2]);
-			ListModel a = new ListModel(name, amount, maxAmount);
-			lists.add(a);
+			try{
+				line = sc.next();
+				fields = line.split("~");
+				String name = fields[0];
+				double amount = Double.parseDouble(fields[1]);
+				double maxAmount = Double.parseDouble(fields[2]);
+				ListModel a = new ListModel(name, amount, maxAmount);
+				lists.add(a);
+			}catch(NoSuchElementException e){}
 		}
 		sc.close();
 		UserListListModel b = new UserListListModel(userName, lists);
@@ -126,8 +128,13 @@ public class ShoppingListDAO {
 		User u = new User();
 		u = u.getCurrentUser();
 		name = u.getUsername();
-		ArrayList<ListModel> lm = getUserList(name).getListList();
-		return lm;
+		try{
+			ArrayList<ListModel> lm = getUserList(name).getListList();
+			return lm;
+		}catch(NullPointerException e){
+			return null;
+		}
+		
 	}
 	
 	public ArrayList<ListModel> initializeList(int numberOfPeople) throws FileNotFoundException{
