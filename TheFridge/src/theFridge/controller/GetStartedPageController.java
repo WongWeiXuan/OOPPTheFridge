@@ -1,5 +1,6 @@
 package theFridge.controller;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import javafx.animation.KeyFrame;
@@ -82,8 +83,10 @@ public class GetStartedPageController {
 	@FXML
 	private VBox LogoutMenu;
 	
-	public void initialize(){
-		Image img = new Image("theFridge/picture/Profile Image.jpg");
+	public void initialize() throws FileNotFoundException{
+		User u = new User();
+        u = u.getCurrentUser();
+        Image img = new Image(u.getProfileImage());
 		profileCircle.setFill(new ImagePattern(img));
 	}
 

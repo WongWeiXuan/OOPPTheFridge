@@ -97,7 +97,9 @@ public class QuizEndPageController {
 	@FXML
 	public void initialize() throws FileNotFoundException {
 		//Show profile image
-		Image img = new Image("theFridge/picture/Profile Image.jpg");
+		User u = new User();
+        u = u.getCurrentUser();
+        Image img = new Image(u.getProfileImage());
 		profileCircle.setFill(new ImagePattern(img));
 		
 		User user = new User();

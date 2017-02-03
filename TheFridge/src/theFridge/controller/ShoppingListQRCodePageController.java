@@ -23,6 +23,7 @@ import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import theFridge.model.ShoppingListQRCodePageModel;
+import theFridge.model.User;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.event.ActionEvent;
@@ -74,7 +75,9 @@ public class ShoppingListQRCodePageController {
 	//Show profile image
 	@FXML
 	public void initialize() throws WriterException, IOException{
-		Image img = new Image("theFridge/picture/Profile Image.jpg");
+		User u = new User();
+        u = u.getCurrentUser();
+        Image img = new Image(u.getProfileImage());
 		profileCircle.setFill(new ImagePattern(img));
 		BufferedImage bImage = ShoppingListQRCodePageModel.createQRImage();
 		Image image = SwingFXUtils.toFXImage(bImage, null);

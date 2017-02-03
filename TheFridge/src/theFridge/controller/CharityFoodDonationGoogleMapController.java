@@ -29,6 +29,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import theFridge.model.CharityFoodDonationGoogleMapModel;
+import theFridge.model.User;
 import javafx.event.ActionEvent;
 import com.jfoenix.controls.JFXButton;
 import javafx.scene.control.TextArea;
@@ -99,7 +100,14 @@ public class CharityFoodDonationGoogleMapController implements Initializable, Ma
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         mapView.addMapInializedListener(this);
-        Image img = new Image("theFridge/picture/Profile Image.jpg");
+        User u = new User();
+        try {
+			u = u.getCurrentUser();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        Image img = new Image(u.getProfileImage());
 		profileCircle.setFill(new ImagePattern(img));
     }     
 	

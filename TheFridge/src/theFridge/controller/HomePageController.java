@@ -1,5 +1,6 @@
 package theFridge.controller;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import com.jfoenix.controls.JFXButton;
@@ -18,6 +19,7 @@ import javafx.scene.image.Image;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import theFridge.model.User;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
@@ -41,8 +43,10 @@ public class HomePageController {
 	private boolean open = false;
     
 	@FXML
-	public void initialize(){
-		Image img = new Image("theFridge/picture/Profile Image.jpg");
+	public void initialize() throws FileNotFoundException{
+		User u = new User();
+        u = u.getCurrentUser();
+        Image img = new Image(u.getProfileImage());
 		profileCircle.setFill(new ImagePattern(img));
 	}
 	

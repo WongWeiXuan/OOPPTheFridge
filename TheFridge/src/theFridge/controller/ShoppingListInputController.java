@@ -1,5 +1,6 @@
 package theFridge.controller;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import javafx.animation.KeyFrame;
@@ -25,6 +26,7 @@ import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import theFridge.model.ShoppingListModel;
+import theFridge.model.User;
 
 import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
@@ -69,9 +71,11 @@ public class ShoppingListInputController {
 
 	//Show profile image
 	@FXML
-	public void initialize(){
+	public void initialize() throws FileNotFoundException{
 		spinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 15, 4));
-		Image img = new Image("theFridge/picture/Profile Image.jpg");
+		User u = new User();
+        u = u.getCurrentUser();
+        Image img = new Image(u.getProfileImage());
 		profileCircle.setFill(new ImagePattern(img));
 		
 		//get calculateBMR
