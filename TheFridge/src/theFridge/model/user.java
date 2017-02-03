@@ -2,10 +2,9 @@ package theFridge.model;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Scanner;
+
 import theFridge.DAO.ProfileDAO;
 
 public class User {
