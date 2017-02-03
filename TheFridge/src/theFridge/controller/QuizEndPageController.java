@@ -101,10 +101,17 @@ public class QuizEndPageController {
 	@FXML
 	public void initialize() throws FileNotFoundException {
 		//Show profile image
+<<<<<<< HEAD
 		User u = new User();
         u = u.getCurrentUser();
         Image img = new Image(u.getProfileImage());
 		profileCircle.setFill(new ImagePattern(img));
+=======
+		User user = new User();
+        user = user.getCurrentUser();
+        String h = user.getProfileImage();
+      
+>>>>>>> origin/master
 		
 		User user = new User();
 		user = user.getCurrentUser();

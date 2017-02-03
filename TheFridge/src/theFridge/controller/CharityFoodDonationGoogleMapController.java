@@ -107,8 +107,8 @@ public class CharityFoodDonationGoogleMapController implements Initializable, Ma
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        Image img = new Image(u.getProfileImage());
-		profileCircle.setFill(new ImagePattern(img));
+        
+		
     }     
 	
     @FXML 
