@@ -103,6 +103,86 @@ public class QuizPageController {
 	}
 	
 	@FXML
+	public void initialize() throws FileNotFoundException {
+		QuizQuestionsModel quizQ = new QuizQuestionsModel();
+		questionsList = QuizQuestionsModel.getAllQuestions();
+		
+		QuizQuestionsModel.setPointsAttained(0);
+		
+		if (questionsList != null && questionsList.size() > 0) {
+			currIndex = 0;
+			showQuestion(questionsList.get(0));
+		}
+		
+		toolTip = new Tooltip("Click here for explanation");
+		quizQ.hackTooltipStartTiming(toolTip);
+		Tooltip.install(infoImg, toolTip);
+		questionNo.setText(String.valueOf(pageNo) + "/10");
+		pointsEarned.setText("Points earned: " + QuizQuestionsModel.getPointsAttained());
+		
+		//For Quiz Timer
+		timerOutput.setText("10");
+		timeline = new Timeline();
+	    timeline.setCycleCount(Timeline.INDEFINITE);
+	    timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(1), new EventHandler<ActionEvent>() {
+	    	@Override
+			public void handle(ActionEvent event) {
+	    		timeSeconds--;
+
+	    		if (timeSeconds >= 0) {
+	    			timerOutput.setText(timeSeconds.toString());
+	    			System.out.println(timeSeconds.toString());
+	    		}
+	    		else {
+	    			timeline.stop();
+	    			System.out.println("Timer has stopped.");
+	    		}
+	        }				
+	    }));
+	    timeline.playFromStart();
+
+		timerOutput.textProperty().addListener(new ChangeListener<String>() {
+			@Override
+			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+				if (newValue.equals("5")) {
+					timerOutput.setStyle("-fx-text-fill: #E91E63");
+				}
+				else if (newValue.equals("0")) {
+					vBoxInfoImg.setVisible(true);
+					vBoxInfoImg.setDisable(false);
+					continueBtn.setVisible(true);
+					continueBtn.setDisable(false);
+					quizQ.disableButtons(choiceBtn1, choiceBtn2, choiceBtn3, choiceBtn4);
+					
+					timeLeft.setText("Out of time!");
+					
+					if (QuizQuestionsModel.isDontShowAgain() == true) {
+						Platform.runLater(new Runnable() {
+							@Override
+							public void run() {
+								try {
+									@SuppressWarnings("rawtypes")
+									Dialog dialog = new Dialog();
+									Parent root;
+									root = FXMLLoader.load(getClass().getResource("/theFridge/view/QuizExplanationPopup.fxml"));
+									Stage stage = (Stage) dialog.getDialogPane().getScene().getWindow();
+									stage.initStyle(StageStyle.TRANSPARENT);
+									Scene scene = new Scene(root);
+									stage.setX(650);
+									stage.setY(400);
+									stage.setScene(scene);
+									stage.showAndWait();
+								} catch (IOException e) {
+									e.printStackTrace();
+								}
+						}});
+					}
+				}
+			}});
+	}
+	
+	
+	@FXML
 	public void handleNext(ActionEvent event) throws IOException {	
 		QuizQuestionsModel quizQ = new QuizQuestionsModel();
 		pageNo++;
@@ -562,85 +642,7 @@ public class QuizPageController {
 			}
 		}
 	}
-	
-	@FXML
-	public void initialize() throws FileNotFoundException {
-		QuizQuestionsModel quizQ = new QuizQuestionsModel();
-		questionsList = QuizQuestionsModel.getAllQuestions();
-		
-		QuizQuestionsModel.setPointsAttained(0);
-		
-		if (questionsList != null && questionsList.size() > 0) {
-			currIndex = 0;
-			showQuestion(questionsList.get(0));
-		}
-		
-		toolTip = new Tooltip("Click here for more information");
-		quizQ.hackTooltipStartTiming(toolTip);
-		Tooltip.install(vBoxInfoImg, toolTip);
-		questionNo.setText(String.valueOf(pageNo) + "/10");
-		pointsEarned.setText("Points earned: " + QuizQuestionsModel.getPointsAttained());
-		
-		//For Quiz Timer
-		timerOutput.setText("10");
-		timeline = new Timeline();
-	    timeline.setCycleCount(Timeline.INDEFINITE);
-	    timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(1), new EventHandler<ActionEvent>() {
-	    	@Override
-			public void handle(ActionEvent event) {
-	    		timeSeconds--;
 
-	    		if (timeSeconds >= 0) {
-	    			timerOutput.setText(timeSeconds.toString());
-	    			System.out.println(timeSeconds.toString());
-	    		}
-	    		else {
-	    			timeline.stop();
-	    			System.out.println("Timer has stopped.");
-	    		}
-	        }				
-	    }));
-	    timeline.playFromStart();
-
-		timerOutput.textProperty().addListener(new ChangeListener<String>() {
-			@Override
-			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-				if (newValue.equals("5")) {
-					timerOutput.setStyle("-fx-text-fill: #E91E63");
-				}
-				else if (newValue.equals("0")) {
-					vBoxInfoImg.setVisible(true);
-					vBoxInfoImg.setDisable(false);
-					continueBtn.setVisible(true);
-					continueBtn.setDisable(false);
-					quizQ.disableButtons(choiceBtn1, choiceBtn2, choiceBtn3, choiceBtn4);
-					
-					timeLeft.setText("Out of time!");
-					
-					if (QuizQuestionsModel.isDontShowAgain() == true) {
-						Platform.runLater(new Runnable() {
-							@Override
-							public void run() {
-								try {
-									@SuppressWarnings("rawtypes")
-									Dialog dialog = new Dialog();
-									Parent root;
-									root = FXMLLoader.load(getClass().getResource("/theFridge/view/QuizExplanationPopup.fxml"));
-									Stage stage = (Stage) dialog.getDialogPane().getScene().getWindow();
-									stage.initStyle(StageStyle.TRANSPARENT);
-									Scene scene = new Scene(root);
-									stage.setX(650);
-									stage.setY(400);
-									stage.setScene(scene);
-									stage.showAndWait();
-								} catch (IOException e) {
-									e.printStackTrace();
-								}
-						}});
-					}
-				}
-			}});
-	}
 	
 	@FXML
 	public void showExplanations(MouseEvent event) {

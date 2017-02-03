@@ -233,11 +233,11 @@
                         </VBox>
                         <HBox spacing="10.0">
                            <children>
-                              <VBox prefHeight="304.0" prefWidth="490.0" HBox.hgrow="ALWAYS">
+                              <VBox prefHeight="305.0" prefWidth="490.0" HBox.hgrow="ALWAYS">
                                  <children>
                                     <TextFlow prefHeight="60.0" prefWidth="320.0" style="-fx-background-color: #009688;" textAlignment="CENTER">
                                        <children>
-                                          <Label alignment="CENTER" prefHeight="60.0" prefWidth="320.0" text="Points" textFill="WHITE">
+                                          <Label alignment="CENTER" prefHeight="60.0" prefWidth="320.0" text="Current Points" textFill="WHITE">
                                              <font>
                                                 <Font name="Garamond Bold" size="24.0" />
                                              </font>
@@ -273,11 +273,11 @@
                                     </VBox>
                                  </children>
                               </VBox>
-                              <VBox prefHeight="304.0" prefWidth="490.0" HBox.hgrow="ALWAYS">
+                              <VBox prefHeight="305.0" prefWidth="490.0" HBox.hgrow="ALWAYS">
                                  <children>
                                     <TextFlow prefHeight="60.0" prefWidth="320.0" style="-fx-background-color: #009688;" textAlignment="CENTER">
                                        <children>
-                                          <Label alignment="CENTER" prefHeight="60.0" prefWidth="320.0" text="Points" textFill="WHITE">
+                                          <Label alignment="CENTER" prefHeight="60.0" prefWidth="320.0" text="Total Points" textFill="WHITE">
                                              <font>
                                                 <Font name="Garamond Bold" size="24.0" />
                                              </font>
@@ -320,7 +320,7 @@
                         </HBox>
                         <HBox alignment="CENTER" spacing="10.0" VBox.vgrow="ALWAYS">
                            <children>
-                              <VBox prefHeight="304.0" prefWidth="310.0" HBox.hgrow="ALWAYS">
+                              <VBox prefHeight="305.0" prefWidth="310.0" HBox.hgrow="ALWAYS">
                                  <children>
                                     <TextFlow prefHeight="60.0" prefWidth="320.0" style="-fx-background-color: #009688;" textAlignment="CENTER">
                                        <children>
@@ -340,7 +340,7 @@
                                           </ProgressIndicator>
                                           <Label fx:id="scoreLabel" alignment="CENTER" prefHeight="40.0" prefWidth="320.0" text="4/10 questions answered correctly" textAlignment="CENTER">
                                              <font>
-                                                <Font name="Garamond Bold" size="22.0" />
+                                                <Font name="Garamond Bold" size="20.0" />
                                              </font>
                                              <VBox.margin>
                                                 <Insets top="50.0" />
@@ -353,11 +353,11 @@
                                     <Insets />
                                  </HBox.margin>
                               </VBox>
-                              <VBox prefHeight="304.0" prefWidth="310.0" HBox.hgrow="ALWAYS">
+                              <VBox prefHeight="305.0" prefWidth="310.0" HBox.hgrow="ALWAYS">
                                  <children>
                                     <TextFlow prefHeight="60.0" prefWidth="320.0" style="-fx-background-color: #009688;" textAlignment="CENTER">
                                        <children>
-                                          <Label alignment="CENTER" prefHeight="60.0" prefWidth="320.0" text="Details" textFill="WHITE">
+                                          <Label alignment="CENTER" prefHeight="60.0" prefWidth="320.0" text="Current Quiz" textFill="WHITE">
                                              <font>
                                                 <Font name="Garamond Bold" size="24.0" />
                                              </font>
@@ -368,12 +368,12 @@
                                        <children>
                                           <AnchorPane style="-fx-background-color: white;" VBox.vgrow="ALWAYS">
                                              <children>
-                                                <LineChart fx:id="lineChart" axisSortingPolicy="NONE" prefHeight="253.0" prefWidth="320.0" title="Quiz Details" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                <LineChart fx:id="lineChart" axisSortingPolicy="NONE" prefHeight="253.0" prefWidth="320.0" title="Current Quiz Details" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                   <xAxis>
                                                     <CategoryAxis label="Question number" side="BOTTOM" fx:id="xAxis" />
                                                   </xAxis>
                                                   <yAxis>
-                                                    <NumberAxis fx:id="yAxis" label="Points earned" side="LEFT" />
+                                                    <NumberAxis fx:id="yAxis" autoRanging="false" label="Points earned" side="LEFT" />
                                                   </yAxis>
                                                 </LineChart>
                                              </children>
@@ -385,11 +385,11 @@
                                     <Insets />
                                  </HBox.margin>
                               </VBox>
-                              <VBox prefHeight="304.0" prefWidth="310.0">
+                              <VBox prefHeight="305.0" prefWidth="310.0" HBox.hgrow="ALWAYS">
                                  <children>
                                     <TextFlow prefHeight="60.0" prefWidth="320.0" style="-fx-background-color: #009688;" textAlignment="CENTER">
                                        <children>
-                                          <Label alignment="CENTER" prefHeight="60.0" prefWidth="320.0" text="Points" textFill="WHITE">
+                                          <Label alignment="CENTER" prefHeight="60.0" prefWidth="320.0" text="Past Quiz" textFill="WHITE">
                                              <font>
                                                 <Font name="Garamond Bold" size="24.0" />
                                              </font>
@@ -407,22 +407,18 @@
                                           <Insets />
                                        </VBox.margin>
                                        <children>
-                                          <VBox alignment="CENTER" prefHeight="253.0" prefWidth="320.0" style="-fx-background-color: white;" VBox.vgrow="ALWAYS">
+                                          <AnchorPane style="-fx-background-color: white;" VBox.vgrow="ALWAYS">
                                              <children>
-                                                <AnchorPane VBox.vgrow="ALWAYS">
-                                                   <children>
-                                                      <LineChart fx:id="lineChart2" title="Past Quiz">
-                                                        <xAxis>
-                                                          <CategoryAxis label="Date finished" side="BOTTOM" fx:id="xAxis2" />
-                                                        </xAxis>
-                                                        <yAxis>
-                                                          <NumberAxis fx:id="yAxis2" label="Points earned" side="LEFT" />
-                                                        </yAxis>
-                                                      </LineChart>
-                                                   </children>
-                                                </AnchorPane>
+                                                <LineChart fx:id="lineChart2" axisSortingPolicy="NONE" title="Past Quiz Details" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                  <xAxis>
+                                                    <CategoryAxis label="Date finished" side="BOTTOM" fx:id="xAxis2" />
+                                                  </xAxis>
+                                                  <yAxis>
+                                                    <NumberAxis fx:id="yAxis2" label="Points earned" side="LEFT" />
+                                                  </yAxis>
+                                                </LineChart>
                                              </children>
-                                          </VBox>
+                                          </AnchorPane>
                                        </children>
                                     </VBox>
                                  </children>

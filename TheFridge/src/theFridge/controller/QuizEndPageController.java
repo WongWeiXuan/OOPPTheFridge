@@ -2,6 +2,10 @@ package theFridge.controller;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
 
 import com.jfoenix.controls.JFXButton;
 
@@ -101,13 +105,67 @@ public class QuizEndPageController {
 		profileCircle.setFill(new ImagePattern(img));
 		
 		User user = new User();
-		user.getCurrentUser();
+		user = user.getCurrentUser();
 		
-		//int endPointsAttained = user.getEndPointsAttained();
-		//String pastDate = user.getPastDate();
+		String endPointsAttained1 = user.getEndPointsAttained();
+		String endPointsAttained2 = null;
+		if (endPointsAttained1.equals("[]")) {
+			String newValue = ( "[" + String.valueOf(QuizQuestionsModel.getPointsAttained() + "]"));
+			user.setEndPointsAttained(newValue);
+			user.updateUser();
+		}
+		else {
+			String R1 = endPointsAttained1.replace("[", "");
+			String R2 = R1.replace("]", "");
+			ArrayList<String> endPointsAttainedList = new ArrayList<String>(Arrays.asList(R2.split(",")));
+			for (int i = 0; i < endPointsAttainedList.size(); i++) {
+				String S1 = endPointsAttainedList.get(i);
+				S1.replaceAll("\\s+", "");
+				endPointsAttained2 = String.valueOf(QuizQuestionsModel.getPointsAttained());
+			}
+			if (endPointsAttainedList.size() == 3) {
+				endPointsAttainedList.remove(0);
+				endPointsAttainedList.add(endPointsAttained2);
+			}
+			else {
+				endPointsAttainedList.add(endPointsAttained2);
+			}
+			String endPointsAttained3 = endPointsAttainedList.toString();
+			user.setEndPointsAttained(endPointsAttained3);
+			user.updateUser();
+		}
+		
+		String pastDate1 = user.getPastDate();
+		String pastDate2 = null;
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/M/yyyy");
+		String pastDate = sdf.format(new Date());
+		if (pastDate1.equals("[]")) {
+			String newValue = ( "[" + pastDate + "]");
+			user.setPastDate(newValue);
+			user.updateUser();
+		}
+		else {
+			String R1 = pastDate1.replace("[","");
+			String R2 = R1.replace("]","");
+			ArrayList<String> pastDateList = new ArrayList<String>(Arrays.asList(R2.split(",")));
+			for (int i = 0; i < pastDateList.size(); i++) {
+				String S1 = pastDateList.get(i);
+				S1.replaceAll("\\s+", "");
+				pastDate2 = pastDate;
+			}
+			if (pastDateList.size() == 3) {
+				pastDateList.remove(0);
+				pastDateList.add(pastDate2);
+			}
+			else {
+				pastDateList.add(pastDate2);
+			}
+			String pastDate3 = pastDateList.toString();
+			user.setPastDate(pastDate3);
+			user.updateUser();
+		}
 		
 		QuizLineChartDetails qLCD = new QuizLineChartDetails();
-		
 		XYChart.Series series = new XYChart.Series();
 		series.setName("My Quiz Details");
 		series.getData().add(new XYChart.Data("1", qLCD.getQ1P1()));
@@ -122,11 +180,68 @@ public class QuizEndPageController {
 		series.getData().add(new XYChart.Data("10", qLCD.getQ10P10()));
 		lineChart.getData().add(series);
 		
+		String str1 = user.getEndPointsAttained();
+		String[] str1Array = str1.split(",");
+		String PA1 = null;
+		String PA2 = null;
+		String PA3 = null;
+		if (str1Array.length == 1) {
+			PA1 = str1Array[0].replace("[", "").replace(" ", "").replace("]", "");
+			PA2 = "0";
+			PA3 = "0";
+		}
+		else if (str1Array.length == 2) {
+			PA1 = str1Array[0].replace("[", "").replace(" ", "").replace("]", "");
+			PA2 = str1Array[1].replace("[", "").replace(" ", "").replace("]", "");
+			PA3 = "0";
+		}
+		else if (str1Array.length == 3) {
+			PA1 = str1Array[0].replace("[", "").replace(" ", "").replace("]", "");
+			PA2 = str1Array[1].replace("[", "").replace(" ", "").replace("]", "");
+			PA3 = str1Array[2].replace("[", "").replace(" ", "").replace("]", "");
+		}
+		
+		String str2 = user.getPastDate();
+		String[] str2Array = str2.split(",");
+		String PD1 = null;
+		String PD2 = null;
+		String PD3 = null;
+		if (str2Array.length == 1) {
+			PD1 = str2Array[0].replace("[", "").replace(" ", "").replace("]", "");
+			PD2 = "Nil";
+			PD3 = "Nil";
+		}
+		else if (str2Array.length == 2) {
+			PD1 = str2Array[0].replace("[", "").replace(" ", "").replace("]", "");
+			PD2 = str2Array[1].replace("[", "").replace(" ", "").replace("]", "");
+			PD3 = "Nil";
+		}
+		else if (str2Array.length == 3) {
+			PD1 = str2Array[0].replace("[", "").replace(" ", "").replace("]", "");
+			PD2 = str2Array[1].replace("[", "").replace(" ", "").replace("]", "");
+			PD3 = str2Array[2].replace("[", "").replace(" ", "").replace("]", "");
+		}
+		
+		XYChart.Series series2 = new XYChart.Series();
+		series2.setName("Past Quiz Details");
+		if (str1Array.length == 1 && str2Array.length == 1) {
+			series2.getData().add(new XYChart.Data(PD1, Integer.parseInt(PA1)));
+		}
+		else if (str1Array.length == 2 && str2Array.length == 2) {
+			series2.getData().add(new XYChart.Data(PD1, Integer.parseInt(PA1)));
+			series2.getData().add(new XYChart.Data(PD2, Integer.parseInt(PA2)));
+		}
+		else if (str1Array.length == 3 && str2Array.length == 3) {
+			series2.getData().add(new XYChart.Data(PD1, Integer.parseInt(PA1)));
+			series2.getData().add(new XYChart.Data(PD2, Integer.parseInt(PA2)));
+			series2.getData().add(new XYChart.Data(PD3, Integer.parseInt(PA3)));
+		}
+		lineChart2.getData().add(series2);
+		
+		pointsLabel.setText(String.valueOf(QuizQuestionsModel.getPointsAttained()));
+		totalPointsLabel.setText(Integer.toString(user.getTotalPoints()));
 		progressIndicator.setProgress(QuizQuestionsModel.getPointsAttained() / 100.0);
 		scoreLabel.setText((QuizQuestionsModel.getPointsAttained() / 10) + "/10 questions answered correctly");
-		pointsLabel.setText(String.valueOf(QuizQuestionsModel.getPointsAttained()));
-		totalPointsLabel.setText(String.valueOf(user.getTotalPoints()));
-		System.out.println(user.getTotalPoints());
 	}
 	
 	@FXML
