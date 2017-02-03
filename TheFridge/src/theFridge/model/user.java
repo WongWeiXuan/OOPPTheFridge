@@ -25,7 +25,16 @@ public class User {
 		private boolean rememberMe;
 		private int endPointsAttained;
 		private String pastDate;
+		private String profileImage;
 		
+		public String getProfileImage() {
+			return profileImage;
+		}
+
+		public void setProfileImage(String profileImage) {
+			this.profileImage = profileImage;
+		}
+
 		public User() {
 			super();
 		}
@@ -65,7 +74,7 @@ public class User {
 		}
 
 		public User(String name, String username, String password, String email, String country, String height,
-				String weight, String age, String gender, int totalPoints, String promoCode, long endTime, String chosenFC, int endPointsAttained, String pastDate, boolean rememberMe) {
+				String weight, String age, String gender, int totalPoints, String promoCode, long endTime, String chosenFC, int endPointsAttained, String pastDate, boolean rememberMe, String profileImage) {
 			super();
 			this.username = username;
 			this.password = password;
@@ -83,10 +92,11 @@ public class User {
 			this.endPointsAttained = endPointsAttained;
 			this.pastDate = pastDate;
 			this.rememberMe = rememberMe;
+			this.profileImage = profileImage;
 		}
 		
 		public String toString() {
-			return name + ";" + username + ";" + password + ";"+ email + ";" + country + ";" + height + ";" + weight + ";" + age + ";" + gender + ";" + totalPoints + ";" + promoCode + ";" + endTime + ";" + chosenFC + ";" + endPointsAttained + ";" + pastDate + ";" + rememberMe;
+			return name + ";" + username + ";" + password + ";"+ email + ";" + country + ";" + height + ";" + weight + ";" + age + ";" + gender + ";" + totalPoints + ";" + promoCode + ";" + endTime + ";" + chosenFC + ";" + endPointsAttained + ";" + pastDate + ";" + rememberMe + ";" + profileImage;
 		}
 		
 		public static ArrayList<User> getAllUser() {
@@ -112,6 +122,7 @@ public class User {
 			setRememberMe(user1.isRememberMe());
 			setEndPointsAttained(user1.getEndPointsAttained());
 			setPastDate(user1.getPastDate());
+			setProfileImage(user1.getProfileImage());
 		}
 		
 		public void updateUser() {
