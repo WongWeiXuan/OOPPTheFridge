@@ -334,7 +334,22 @@ public class Page2Controller {
 		FoodCompostDAO f = new FoodCompostDAO();
 		FoodCompost c = new FoodCompost();
 		c = f.getFoodCompost(n);
-		steps.setText(c.getInstruction());
+		
+		String haha = c.getInstruction();
+		String replace = haha.replace("[","");
+		String replace1 = replace.replace("]","");
+		ArrayList<String> myList = new ArrayList<String>(Arrays.asList(replace1.split("@")));
+		StringBuilder msg = new StringBuilder();
+			//Label label = new Label();
+			for (int i = 0; i <myList.size(); i++) {
+				msg.append(Integer.toString(i + 1) );
+				msg.append(" ");
+			    msg.append(myList.get(i));
+			    msg.append("\n");  //this is the new line you need
+			}
+			//System.out.println(msg.toString());
+		String comeon = msg.toString();
+		steps.setText(comeon);
 		steps.setFont(Font.font ("Verdana", 24));
 		sc.close();
 		}
