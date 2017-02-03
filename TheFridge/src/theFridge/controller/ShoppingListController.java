@@ -89,8 +89,7 @@ public class ShoppingListController {
 	public void initialize() throws FileNotFoundException, IOException{
 		User u = new User();
         u = u.getCurrentUser();
-        Image img = new Image(u.getProfileImage());
-		profileCircle.setFill(new ImagePattern(img));
+  
 		
 		ShoppingListModel first = new ShoppingListModel(StocklistView, Popup, ListlistView, Popup1);
 		ShoppingListAddPageModel.model = first;

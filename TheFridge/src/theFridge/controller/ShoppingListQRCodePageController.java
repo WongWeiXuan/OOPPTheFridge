@@ -77,8 +77,6 @@ public class ShoppingListQRCodePageController {
 	public void initialize() throws WriterException, IOException{
 		User u = new User();
         u = u.getCurrentUser();
-        Image img = new Image(u.getProfileImage());
-		profileCircle.setFill(new ImagePattern(img));
 		BufferedImage bImage = ShoppingListQRCodePageModel.createQRImage();
 		Image image = SwingFXUtils.toFXImage(bImage, null);
 		Testing.setImage(image);
