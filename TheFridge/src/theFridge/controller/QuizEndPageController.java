@@ -1,5 +1,6 @@
 package theFridge.controller;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import com.jfoenix.controls.JFXButton;
@@ -31,6 +32,7 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import theFridge.model.QuizLineChartDetails;
 import theFridge.model.QuizQuestionsModel;
+import theFridge.model.User;
 
 public class QuizEndPageController {
 	@FXML
@@ -79,16 +81,30 @@ public class QuizEndPageController {
 	private NumberAxis yAxis;
 	@FXML
 	private Label pointsLabel;
+	@FXML
+	private Label totalPointsLabel;
+	@FXML
+	private LineChart<?, ?> lineChart2;
+	@FXML
+	private CategoryAxis xAxis2;
+	@FXML
+	private NumberAxis yAxis2;
 	
 	//For profile dropdown (Profile dropdown)
 	private boolean open = false;
 	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@FXML
-	public void initialize() {
+	public void initialize() throws FileNotFoundException {
 		//Show profile image
 		Image img = new Image("theFridge/picture/Profile Image.jpg");
 		profileCircle.setFill(new ImagePattern(img));
+		
+		User user = new User();
+		user.getCurrentUser();
+		
+		//int endPointsAttained = user.getEndPointsAttained();
+		//String pastDate = user.getPastDate();
 		
 		QuizLineChartDetails qLCD = new QuizLineChartDetails();
 		
@@ -109,6 +125,8 @@ public class QuizEndPageController {
 		progressIndicator.setProgress(QuizQuestionsModel.getPointsAttained() / 100.0);
 		scoreLabel.setText((QuizQuestionsModel.getPointsAttained() / 10) + "/10 questions answered correctly");
 		pointsLabel.setText(String.valueOf(QuizQuestionsModel.getPointsAttained()));
+		totalPointsLabel.setText(String.valueOf(user.getTotalPoints()));
+		System.out.println(user.getTotalPoints());
 	}
 	
 	@FXML

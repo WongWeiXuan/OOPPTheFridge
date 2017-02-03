@@ -5,17 +5,17 @@ import java.util.ArrayList;
 import theFridge.DAO.QuizLineChartDetailsDAO;
 
 public class QuizLineChartDetails {
-	private int q0P0;
-	private int q1P1;
-	private int q2P2;
-	private int q3P3;
-	private int q4P4;
-	private int q5P5;
-	private int q6P6;
-	private int q7P7;
-	private int q8P8;
-	private int q9P9;
-	private int q10P10;
+	private static int q0P0;
+	private static int q1P1;
+	private static int q2P2;
+	private static int q3P3;
+	private static int q4P4;
+	private static int q5P5;
+	private static int q6P6;
+	private static int q7P7;
+	private static int q8P8;
+	private static int q9P9;
+	private static int q10P10;
 	
 	public QuizLineChartDetails() {
 		super();
@@ -23,17 +23,17 @@ public class QuizLineChartDetails {
 	
 	public QuizLineChartDetails(int q0P0, int q1p1, int q2p2, int q3p3, int q4p4, int q5p5, int q6p6, int q7p7, int q8p8, int q9p9, int q10p10) {
 		super();
-		this.q0P0 = q0P0;
-		this.q1P1 = q1p1;
-		this.q2P2 = q2p2;
-		this.q3P3 = q3p3;
-		this.q4P4 = q4p4;
-		this.q5P5 = q5p5;
-		this.q6P6 = q6p6;
-		this.q7P7 = q7p7;
-		this.q8P8 = q8p8;
-		this.q9P9 = q9p9;
-		this.q10P10 = q10p10;
+		QuizLineChartDetails.q0P0 = q0P0;
+		QuizLineChartDetails.q1P1 = q1p1;
+		QuizLineChartDetails.q2P2 = q2p2;
+		QuizLineChartDetails.q3P3 = q3p3;
+		QuizLineChartDetails.q4P4 = q4p4;
+		QuizLineChartDetails.q5P5 = q5p5;
+		QuizLineChartDetails.q6P6 = q6p6;
+		QuizLineChartDetails.q7P7 = q7p7;
+		QuizLineChartDetails.q8P8 = q8p8;
+		QuizLineChartDetails.q9P9 = q9p9;
+		QuizLineChartDetails.q10P10 = q10p10;
 	}
 	
 	public int getQ0P0() {
@@ -41,7 +41,7 @@ public class QuizLineChartDetails {
 	}
 	
 	public void setQ0P0(int q0P0) {
-		this.q0P0 = q0P0;
+		QuizLineChartDetails.q0P0 = q0P0;
 	}
 
 	public int getQ1P1() {
@@ -49,7 +49,7 @@ public class QuizLineChartDetails {
 	}
 
 	public void setQ1P1(int q1p1) {
-		this.q1P1 = q1p1;
+		QuizLineChartDetails.q1P1 = q1p1;
 	}
 
 	public int getQ2P2() {
@@ -57,7 +57,7 @@ public class QuizLineChartDetails {
 	}
 
 	public void setQ2P2(int q2p2) {
-		this.q2P2 = q2p2;
+		QuizLineChartDetails.q2P2 = q2p2;
 	}
 
 	public int getQ3P3() {
@@ -65,7 +65,7 @@ public class QuizLineChartDetails {
 	}
 
 	public void setQ3P3(int q3p3) {
-		this.q3P3 = q3p3;
+		QuizLineChartDetails.q3P3 = q3p3;
 	}
 
 	public int getQ4P4() {
@@ -73,7 +73,7 @@ public class QuizLineChartDetails {
 	}
 
 	public void setQ4P4(int q4p4) {
-		this.q4P4 = q4p4;
+		QuizLineChartDetails.q4P4 = q4p4;
 	}
 
 	public int getQ5P5() {
@@ -81,7 +81,7 @@ public class QuizLineChartDetails {
 	}
 
 	public void setQ5P5(int q5p5) {
-		this.q5P5 = q5p5;
+		QuizLineChartDetails.q5P5 = q5p5;
 	}
 
 	public int getQ6P6() {
@@ -89,7 +89,7 @@ public class QuizLineChartDetails {
 	}
 
 	public void setQ6P6(int q6p6) {
-		this.q6P6 = q6p6;
+		QuizLineChartDetails.q6P6 = q6p6;
 	}
 
 	public int getQ7P7() {
@@ -97,7 +97,7 @@ public class QuizLineChartDetails {
 	}
 
 	public void setQ7P7(int q7p7) {
-		this.q7P7 = q7p7;
+		QuizLineChartDetails.q7P7 = q7p7;
 	}
 
 	public int getQ8P8() {
@@ -105,7 +105,7 @@ public class QuizLineChartDetails {
 	}
 
 	public void setQ8P8(int q8p8) {
-		this.q8P8 = q8p8;
+		QuizLineChartDetails.q8P8 = q8p8;
 	}
 
 	public int getQ9P9() {
@@ -113,7 +113,7 @@ public class QuizLineChartDetails {
 	}
 
 	public void setQ9P9(int q9p9) {
-		this.q9P9 = q9p9;
+		QuizLineChartDetails.q9P9 = q9p9;
 	}
 
 	public int getQ10P10() {
@@ -121,14 +121,14 @@ public class QuizLineChartDetails {
 	}
 
 	public void setQ10P10(int q10p10) {
-		this.q10P10 = q10p10;
+		QuizLineChartDetails.q10P10 = q10p10;
 	}
 	
 	public String toString() {
 		return q0P0 + ";" + q1P1 + ";" + q2P2 + ";" + q3P3 + ";" + q4P4 + ";" + q5P5 + ";" + q6P6 + ";" + q7P7 + ";" + q8P8 + ";" + q9P9 + ";" + q10P10;
 	}
 	
-	public static ArrayList<QuizLineChartDetails> getAllDetails() {
+	public static QuizLineChartDetails getAllDetails() {
 		QuizLineChartDetailsDAO quizLineChartDetailsDAO = new QuizLineChartDetailsDAO();
 		return quizLineChartDetailsDAO.getAllDetails();
 	}
@@ -156,7 +156,7 @@ public class QuizLineChartDetails {
 	
 	public boolean createDetails() {
 		QuizLineChartDetailsDAO quizLineChartDetailsDAO = new QuizLineChartDetailsDAO();
-		return quizLineChartDetailsDAO.createDetails(this);
+		return quizLineChartDetailsDAO.createDetails();
 	}
 	
 	public void addPoints(int pageNo) {
@@ -166,9 +166,8 @@ public class QuizLineChartDetails {
 		//lineChartDetailsList.clear();
 		//lineChartDetails.synToFile(lineChartDetailsList);
 
-		createDetails();
-		
 		if (pageNo == 1) {
+			createDetails();
 			setQ1P1(QuizQuestionsModel.getPointsAttained());
 			System.out.println("Page 1");
 		}
@@ -216,11 +215,7 @@ public class QuizLineChartDetails {
 	}
 
 	public static void main(String[] args) {
-		QuizLineChartDetails qLCD = new QuizLineChartDetails();
-		QuizQuestionsModel.setPointsAttained(10);
-		qLCD.setQ1P1(QuizQuestionsModel.getPointsAttained());
-		System.out.println(String.valueOf(qLCD.getQ1P1()));
-		QuizQuestionsModel.setPointsAttained(0);
+		
 	}
 
 }

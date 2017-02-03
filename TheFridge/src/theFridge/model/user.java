@@ -2,7 +2,9 @@ package theFridge.model;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Scanner;
 import theFridge.DAO.ProfileDAO;
 
@@ -20,6 +22,9 @@ public class User {
 		private String promoCode;
 		private long endTime;
 		private String chosenFC;
+		private boolean rememberMe;
+		private int endPointsAttained;
+		private String pastDate;
 		
 		public User() {
 			super();
@@ -33,10 +38,34 @@ public class User {
 			this.chosenFC = chosenFC;
 		}
 
+		public boolean isRememberMe() {
+			return rememberMe;
+		}
 
+		public void setRememberMe(boolean rememberMe) {
+			this.rememberMe = rememberMe;
+		}
+
+		public int getEndPointsAttained() {
+			return endPointsAttained;
+		}
+
+		public void setEndPointsAttained(int endPointsAttained) {
+			this.endPointsAttained = endPointsAttained;
+		}
+
+		public String getPastDate() {
+			SimpleDateFormat sdf = new SimpleDateFormat("dd/M/yyyy");
+			String pastDate = sdf.format(new Date());
+			return pastDate;
+		}
+
+		public void setPastDate(String pastDate) {
+			this.pastDate = pastDate;
+		}
 
 		public User(String name, String username, String password, String email, String country, String height,
-				String weight, String age, String gender, int totalPoints, String promoCode, long endTime, String chosenFC) {
+				String weight, String age, String gender, int totalPoints, String promoCode, long endTime, String chosenFC, int endPointsAttained, String pastDate, boolean rememberMe) {
 			super();
 			this.username = username;
 			this.password = password;
@@ -51,10 +80,13 @@ public class User {
 			this.promoCode = promoCode;
 			this.endTime = endTime;
 			this.chosenFC = chosenFC;
+			this.endPointsAttained = endPointsAttained;
+			this.pastDate = pastDate;
+			this.rememberMe = rememberMe;
 		}
 		
 		public String toString() {
-			return name + ";" + username + ";" + password + ";"+ email + ";" + country + ";" + height + ";" + weight + ";" + age + ";" + gender + ";" + totalPoints + ";" + promoCode + ";" + endTime + ";" + chosenFC;
+			return name + ";" + username + ";" + password + ";"+ email + ";" + country + ";" + height + ";" + weight + ";" + age + ";" + gender + ";" + totalPoints + ";" + promoCode + ";" + endTime + ";" + chosenFC + ";" + endPointsAttained + ";" + pastDate + ";" + rememberMe;
 		}
 		
 		public static ArrayList<User> getAllUser() {
@@ -77,7 +109,9 @@ public class User {
 			setPromoCode(user1.getPromoCode());
 			setEndTime(user1.getEndTime());
 			setChosenFC(user1.getChosenFC());
-			
+			setRememberMe(user1.isRememberMe());
+			setEndPointsAttained(user1.getEndPointsAttained());
+			setPastDate(user1.getPastDate());
 		}
 		
 		public void updateUser() {

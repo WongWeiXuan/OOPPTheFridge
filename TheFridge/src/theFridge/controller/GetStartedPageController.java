@@ -20,6 +20,7 @@ import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import theFridge.model.User;
 
 public class GetStartedPageController {
 	@FXML
@@ -224,43 +225,59 @@ public class GetStartedPageController {
 	
 	@FXML
 	public void changeScene(MouseEvent event) throws IOException {
+		User user = new User();
+		user = user.getCurrentUser();
+		
 		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
 		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/LoginSignupPage.fxml"));
-		
+		Scene scene = null;
 		
 		if(event.getSource().equals(Profile)){
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/Profile.fxml"));
+			scene = new Scene(root);
 		}
 		else if(event.getSource().equals(Recipes)){
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/ViewRecipes.fxml"));
+			scene = new Scene(root);
 		}
 		else if(event.getSource().equals(Compost)){
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/Page1.fxml"));
+			scene = new Scene(root);
 		}
 		else if(event.getSource().equals(Random)){
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/foodCalculator/CaloriesCalculatorInput.fxml"));
+			scene = new Scene(root);
 		}
 		else if(event.getSource().equals(Quiz)){
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/QuizBeginPage.fxml"));
+			scene = new Scene(root);
 		}
 		else if(event.getSource().equals(Redeem)){
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemVoucherPage.fxml"));
+			scene = new Scene(root);
 		}
 		else if(event.getSource().equals(Shopping)){
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/ShoppingListInput.fxml"));
+			scene = new Scene(root);
 		}
 		else if(event.getSource().equals(Leftover)){
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/FindingDish.fxml"));
+			scene = new Scene(root);
 		}
 		else if(event.getSource().equals(Charity)){
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/CharityFoodDonationPage.fxml"));
+			scene = new Scene(root);
 		}
 		else if(event.getSource().equals(Logout)){
+			user.setRememberMe(false);
+			user.updateUser();
+			
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/LoginSignupPage.fxml"));
 			stage.setMaximized(false);
+			scene = new Scene(root, 1000, 600);
 		}
 		
- 		stage.setScene(new Scene(root));
+ 		stage.setScene(scene);
  	    stage.show();
 	}
 

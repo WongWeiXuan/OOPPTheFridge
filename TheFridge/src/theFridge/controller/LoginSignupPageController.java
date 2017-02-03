@@ -100,6 +100,12 @@ public class LoginSignupPageController {
 			comment.setText("Please fill in your password.");
 		}
 		else if (!Username.equals("") || !Username.equals(null) && !Password.equals("") || !Password.equals(null)) {
+			if (loginCheckBox.isSelected()) {
+				User user = new User();
+				user = user.getCurrentUser();
+				user.setRememberMe(true);
+				user.updateUser();
+			}
 			for (SignupModel s : personList) {
 				Encryption ew = new Encryption(s.getPassword(),true);
 				ew.encryptLine();
@@ -110,6 +116,8 @@ public class LoginSignupPageController {
 					eng.getBinary();
 					one.setPassword(eng.encryptLine());
 					one.setChosenFC("[]");
+					one.setEndPointsAttained(Integer.parseInt("[]"));
+					one.setPastDate("[]");
 					SignupModel p = signupDAO.getPerson(Username);
 					one.setEmail(p.getEmail());
 					one.createUser();

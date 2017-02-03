@@ -281,7 +281,7 @@ public class DonationPageController {
 							stage.initStyle(StageStyle.TRANSPARENT);
 							Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/DonationSubmitConfirmPopupPage.fxml"));
 							Scene scene = new Scene(root);
-							scene.setFill(Color.TRANSPARENT);
+							scene.setFill(null);
 							stage.setScene(scene);
 							stage.show();
 						}catch(Exception e){

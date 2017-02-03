@@ -43,7 +43,10 @@ public class ProfileDAO {
 				String promoCode = fields[10];
 				long endTime = Long.parseLong(fields[11]);
 				String chosenFC =  fields[12];
-				User u = new User(name, username, password, email, location, height, weight, age, gender, totalPoints, promoCode, endTime,chosenFC);
+				int endPointsAttained = Integer.parseInt(fields[13]);
+				String pastDate = fields[14];
+				boolean rememberMe = Boolean.parseBoolean(fields[15]);
+				User u = new User(name, username, password, email, location, height, weight, age, gender, totalPoints, promoCode, endTime, chosenFC, endPointsAttained, pastDate, rememberMe);
 				user.add(u);
 			}
 			in.close();

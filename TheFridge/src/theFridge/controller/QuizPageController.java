@@ -175,7 +175,7 @@ public class QuizPageController {
 		if (ans == 1){
 			timeline.stop();
 			QuizQuestionsModel.setPointsAttained(QuizQuestionsModel.getPointsAttained() + 10);
-			user.setTotalPoints(QuizQuestionsModel.getPointsAttained());
+			user.setTotalPoints(user.getTotalPoints() + 10);
 			user.updateUser();
 			pointsEarned.setText("Points earned: " + String.valueOf(QuizQuestionsModel.getPointsAttained()));
 			timeLeft.setText("Correct answer!");
@@ -241,6 +241,7 @@ public class QuizPageController {
 			}
 			quizQ.disableButtons(choiceBtn1, choiceBtn2, choiceBtn3, choiceBtn4);
 			qLCD.addPoints(pageNo);
+
 			
 			if (QuizQuestionsModel.isDontShowAgain() == true) {
 				try {
@@ -275,7 +276,7 @@ public class QuizPageController {
 		if (ans == 2){
 			timeline.stop();
 			QuizQuestionsModel.setPointsAttained(QuizQuestionsModel.getPointsAttained() + 10);
-			user.setTotalPoints(QuizQuestionsModel.getPointsAttained());
+			user.setTotalPoints(user.getTotalPoints() + 10);
 			user.updateUser();
 			pointsEarned.setText("Points earned: " + String.valueOf(QuizQuestionsModel.getPointsAttained()));
 			timeLeft.setText("Correct answer!");
@@ -375,7 +376,7 @@ public class QuizPageController {
 		if (ans == 3){
 			timeline.stop();
 			QuizQuestionsModel.setPointsAttained(QuizQuestionsModel.getPointsAttained() + 10);
-			user.setTotalPoints(QuizQuestionsModel.getPointsAttained());
+			user.setTotalPoints(user.getTotalPoints() + 10);
 			user.updateUser();
 			pointsEarned.setText("Points earned: " + String.valueOf(QuizQuestionsModel.getPointsAttained()));
 			timeLeft.setText("Correct answer!");
@@ -475,7 +476,7 @@ public class QuizPageController {
 		if (ans == 4){
 			timeline.stop();
 			QuizQuestionsModel.setPointsAttained(QuizQuestionsModel.getPointsAttained() + 10);
-			user.setTotalPoints(QuizQuestionsModel.getPointsAttained());
+			user.setTotalPoints(user.getTotalPoints() + 10);
 			user.updateUser();
 			pointsEarned.setText("Points earned: " + String.valueOf(QuizQuestionsModel.getPointsAttained()));
 			timeLeft.setText("Correct answer!");
