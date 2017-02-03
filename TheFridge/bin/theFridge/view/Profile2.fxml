@@ -174,9 +174,9 @@
                                     <Insets left="5.0" />
                                  </VBox.margin>
                                  <center>
-                                    <ImageView fitHeight="196.0" fitWidth="190.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fx:id="face" fitHeight="196.0" fitWidth="190.0" onMouseClicked="#changeFace" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
                                        <image>
-                                          <Image url="@../picture/Profile%20Image.jpg" />
+                                          <Image url="@../picture/head.png" />
                                        </image>
                                        <BorderPane.margin>
                                           <Insets bottom="10.0" />

@@ -16,6 +16,8 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
@@ -102,6 +104,8 @@ public class ProfileController {
     
     @FXML
     private Label PointsLabel;
+    @FXML
+    private ImageView face2;
     
     public void initialize() throws FileNotFoundException{
 		File file=new File("src/theFridge/file/confirm.txt");
@@ -123,6 +127,14 @@ public class ProfileController {
 		WeightLabel.setText(uu.getWeight());
 		String g = Integer.toString(uu.getTotalPoints());
 		PointsLabel.setText(g);
+		String myface = uu.getProfileImage();
+		if(myface.equals("null")){
+			
+		}
+		else{
+		Image image22 = new Image(myface);
+		face2.setImage(image22);
+		}
 		
 	}
     

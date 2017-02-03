@@ -7,10 +7,16 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 
+import java.awt.Desktop;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.URL;
 import java.util.Scanner;
+
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 
 import theFridge.DAO.ProfileDAO;
 import theFridge.DAO.SignupDAO;
@@ -21,6 +27,7 @@ import theFridge.model.User;
 import com.jfoenix.controls.JFXButton;
 
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -35,6 +42,7 @@ import javafx.scene.input.MouseEvent;
 
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -219,6 +227,8 @@ public class Profile2Controller {
 	private PasswordField RePassText;
 	@FXML
 	private Label alerting;
+	@FXML
+	private ImageView face;
 
 	public void initialize() throws FileNotFoundException{
 		File file=new File("src/theFridge/file/confirm.txt");
@@ -235,6 +245,15 @@ public class Profile2Controller {
 		label5.setText(uu.getAge());
 		label6.setText(uu.getHeight());
 		label7.setText(uu.getWeight());
+		String myface = uu.getProfileImage();
+		if(myface.equals("null")){
+			
+		}
+		else{
+		Image image22 = new Image(myface);
+		face.setImage(image22);
+		}
+		
 		
 	}
 	@FXML
@@ -298,7 +317,32 @@ public class Profile2Controller {
 		stage.setScene(new Scene(root));
  	    stage.show();
 	}
-	// Event Listener on JFXButton[#btnSave0].onAction
+	public void changeFace(MouseEvent event) throws IOException{
+		String filename = null;
+		File f = null;
+		JFileChooser chooser = new JFileChooser();
+		chooser.setCurrentDirectory(new java.io.File("C:/Users"));
+		chooser.showOpenDialog(null);
+		if(chooser.getSelectedFile() == null){
+			System.out.println("nothing");
+		}
+		else{
+		f = chooser.getSelectedFile();
+		filename = f.getAbsolutePath();
+		}
+		//Image image = new ImageIcon("C:/Users/Lim Xuan Zheng/Desktop").getImage();
+		Image image = new Image(f.toURL().toString());
+		face.setImage(image);
+		File file=new File("src/theFridge/file/confirm.txt");
+		Scanner sc=new Scanner(file) ;
+		String n = sc.nextLine();
+		ProfileDAO profileDAO = new ProfileDAO();
+		User uu = new User();
+		uu = profileDAO.getUser(n);
+		uu.setProfileImage(f.toURL().toString());
+		uu.updateUser();
+		
+	}
 	@FXML
 	public void save0(ActionEvent event) throws IOException {
 		String name= NText.getText();

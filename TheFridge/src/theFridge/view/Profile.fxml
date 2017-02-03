@@ -172,9 +172,9 @@
                                     <Insets left="5.0" />
                                  </VBox.margin>
                                  <center>
-                                    <ImageView fitHeight="196.0" fitWidth="190.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fx:id="face2" fitHeight="196.0" fitWidth="190.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../picture/Profile%20Image.jpg" />
+                                          <Image url="@../picture/head.png" />
                                        </image>
                                        <BorderPane.margin>
                                           <Insets bottom="10.0" />
