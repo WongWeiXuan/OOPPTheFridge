@@ -179,8 +179,7 @@ public class QuizPageController {
 					}
 				}
 			}});
-	}
-	
+	}	
 	
 	@FXML
 	public void handleNext(ActionEvent event) throws IOException {	
