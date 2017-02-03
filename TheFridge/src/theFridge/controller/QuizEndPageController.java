@@ -104,14 +104,7 @@ public class QuizEndPageController {
 		User user = new User();
         user = user.getCurrentUser();
         String h = user.getProfileImage();
-        if(h.equals("null")){
-            Image img2 = new Image("/theFridge/picture/head.png");
-            profileCircle.setFill(new ImagePattern(img2));
-        }
-        else{
-        Image img = new Image(h);
-        profileCircle.setFill(new ImagePattern(img));
-        }
+      
 		
 		//User user = new User();
 		//user = user.getCurrentUser();

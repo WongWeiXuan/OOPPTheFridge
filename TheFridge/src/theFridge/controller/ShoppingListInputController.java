@@ -75,8 +75,6 @@ public class ShoppingListInputController {
 		spinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 15, 4));
 		User u = new User();
         u = u.getCurrentUser();
-        Image img = new Image(u.getProfileImage());
-		profileCircle.setFill(new ImagePattern(img));
 		
 		//get calculateBMR
 		

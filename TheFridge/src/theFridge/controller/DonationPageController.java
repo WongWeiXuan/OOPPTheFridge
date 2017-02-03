@@ -125,8 +125,8 @@ public class DonationPageController {
 		//Show profile image
 		User u = new User();
         u = u.getCurrentUser();
-        Image img = new Image(u.getProfileImage());
-		profileCircle.setFill(new ImagePattern(img));
+        
+		
 		//Get user and Replace to correct Organization name and Operation Timings
 		User user = new User();
 		user = user.getCurrentUser();
