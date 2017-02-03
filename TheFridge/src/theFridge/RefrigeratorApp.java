@@ -17,6 +17,18 @@ public class RefrigeratorApp extends Application{
 	public void start(Stage primaryStage) throws Exception{
 		User user = new User();
 		user = user.getCurrentUser();
+		if(user == null){
+			Parent root;
+			root = FXMLLoader.load(getClass().getResource("/theFridge/view/LoginSignupPage.fxml"));
+			Scene scene = new Scene(root);
+			primaryStage.setScene(scene);
+			primaryStage.getIcons().add(new Image("/theFridge/picture/fridge.png"));
+			primaryStage.setTitle("TheFridge");
+			//primaryStage.initStyle(StageStyle.UNDECORATED);
+			primaryStage.show();
+			System.out.println("hello");
+		}
+		else{
 		
 		try {
 			
@@ -43,6 +55,7 @@ public class RefrigeratorApp extends Application{
 		} 
 		catch(Exception e) {
 			e.printStackTrace();
+		}
 		}
 	}
 	
