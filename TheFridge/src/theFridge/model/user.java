@@ -242,5 +242,8 @@ public class User {
 			this.endTime = endTime;
 		}
 		
+		public static void main(String args[]) throws FileNotFoundException {
+			
+		}
 }
 

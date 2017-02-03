@@ -45,14 +45,10 @@ public class HeaderFXMLController {
 	//Show profile image
 	@FXML
 	public void initialize() throws FileNotFoundException{
-		try {
-        	User u = new User();
-			u = u.getCurrentUser();
-			Image img = new Image(u.getProfileImage());
-			profileCircle.setFill(new ImagePattern(img));
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		User u = new User();
+        u = u.getCurrentUser();
+        Image img = new Image(u.getProfileImage());
+		profileCircle.setFill(new ImagePattern(img));
 	}
 	
 	//Animation for the Dropdown(Profile Dropdown)

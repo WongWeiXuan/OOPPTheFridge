@@ -100,15 +100,15 @@ public class CharityFoodDonationGoogleMapController implements Initializable, Ma
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         mapView.addMapInializedListener(this);
+        User u = new User();
         try {
-        	User u = new User();
 			u = u.getCurrentUser();
-			Image img = new Image(u.getProfileImage());
-			profileCircle.setFill(new ImagePattern(img));
-		} catch (Exception e) {
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        
+        Image img = new Image(u.getProfileImage());
+		profileCircle.setFill(new ImagePattern(img));
     }     
 	
     @FXML 
