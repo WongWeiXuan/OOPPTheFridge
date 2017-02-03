@@ -42,13 +42,21 @@ public class HomePageController {
 	@FXML VBox LogoutMenu;
 	private boolean open = false;
     
-	@FXML
+	
 	public void initialize() throws FileNotFoundException{
 		User u = new User();
         u = u.getCurrentUser();
-        Image img = new Image(u.getProfileImage());
+        String h = u.getProfileImage();
+        if(h.equals("null")){
+        	Image img2 = new Image("/theFridge/picture/head.png");
+        	profileCircle.setFill(new ImagePattern(img2));
+        }
+        else{
+        Image img = new Image(h);
 		profileCircle.setFill(new ImagePattern(img));
+        }
 	}
+
 	
 	//Animation for the Dropdown(Profile Dropdown)
 	@FXML
