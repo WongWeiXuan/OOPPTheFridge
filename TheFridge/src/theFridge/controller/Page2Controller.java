@@ -328,7 +328,6 @@ public class Page2Controller {
 			steps.setText("Please enter a integer");
 		}
 		else{
-		//steps.setText("You have entered " + weight + "grams of food\n" + "Please give me a A FOR MY HARDWORK");
 		File file=new File("src/theFridge/file/foodcheck.txt");
 		Scanner sc=new Scanner(file) ;
 		String n = sc.nextLine();
