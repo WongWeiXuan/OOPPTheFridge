@@ -23,7 +23,7 @@ public class User {
 		private long endTime;
 		private String chosenFC;
 		private boolean rememberMe;
-		private int endPointsAttained;
+		private String endPointsAttained;
 		private String pastDate;
 		private String profileImage;
 		
@@ -55,17 +55,15 @@ public class User {
 			this.rememberMe = rememberMe;
 		}
 
-		public int getEndPointsAttained() {
+		public String getEndPointsAttained() {
 			return endPointsAttained;
 		}
 
-		public void setEndPointsAttained(int endPointsAttained) {
+		public void setEndPointsAttained(String endPointsAttained) {
 			this.endPointsAttained = endPointsAttained;
 		}
 
 		public String getPastDate() {
-			SimpleDateFormat sdf = new SimpleDateFormat("dd/M/yyyy");
-			String pastDate = sdf.format(new Date());
 			return pastDate;
 		}
 
@@ -74,7 +72,11 @@ public class User {
 		}
 
 		public User(String name, String username, String password, String email, String country, String height,
+<<<<<<< HEAD
+				String weight, String age, String gender, int totalPoints, String promoCode, long endTime, String chosenFC, String endPointsAttained, String pastDate, boolean rememberMe) {
+=======
 				String weight, String age, String gender, int totalPoints, String promoCode, long endTime, String chosenFC, int endPointsAttained, String pastDate, boolean rememberMe, String profileImage) {
+>>>>>>> origin/master
 			super();
 			this.username = username;
 			this.password = password;
@@ -119,10 +121,13 @@ public class User {
 			setPromoCode(user1.getPromoCode());
 			setEndTime(user1.getEndTime());
 			setChosenFC(user1.getChosenFC());
-			setRememberMe(user1.isRememberMe());
 			setEndPointsAttained(user1.getEndPointsAttained());
 			setPastDate(user1.getPastDate());
+<<<<<<< HEAD
+			setRememberMe(user1.isRememberMe());
+=======
 			setProfileImage(user1.getProfileImage());
+>>>>>>> origin/master
 		}
 		
 		public void updateUser() {
@@ -244,5 +249,8 @@ public class User {
 			this.endTime = endTime;
 		}
 		
+		public static void main(String args[]) throws FileNotFoundException {
+			
+		}
 }
 

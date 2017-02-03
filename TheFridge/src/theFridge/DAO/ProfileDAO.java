@@ -43,7 +43,7 @@ public class ProfileDAO {
 				String promoCode = fields[10];
 				long endTime = Long.parseLong(fields[11]);
 				String chosenFC =  fields[12];
-				int endPointsAttained = Integer.parseInt(fields[13]);
+				String endPointsAttained = fields[13];
 				String pastDate = fields[14];
 				boolean rememberMe = Boolean.parseBoolean(fields[15]);
 				String profileImage = fields[16];

@@ -1,7 +1,5 @@
 package theFridge.model;
 
-import java.util.ArrayList;
-
 import theFridge.DAO.QuizLineChartDetailsDAO;
 
 public class QuizLineChartDetails {
@@ -169,49 +167,35 @@ public class QuizLineChartDetails {
 		if (pageNo == 1) {
 			createDetails();
 			setQ1P1(QuizQuestionsModel.getPointsAttained());
-			System.out.println("Page 1");
 		}
 		else if (pageNo == 2) {
 			setQ2P2(QuizQuestionsModel.getPointsAttained());
-			System.out.println("Page 2");
 		}
 		else if (pageNo == 3) {
 			setQ3P3(QuizQuestionsModel.getPointsAttained());
-			System.out.println("Page 3");
 		}
 		else if (pageNo == 4) {
 			setQ4P4(QuizQuestionsModel.getPointsAttained());
-			System.out.println("Page 4");
 		}
 		else if (pageNo == 5) {
 			setQ5P5(QuizQuestionsModel.getPointsAttained());
-			System.out.println("Page 5");
 		}
 		else if (pageNo == 6) {
 			setQ6P6(QuizQuestionsModel.getPointsAttained());
-			System.out.println("Page 6");
 		}
 		else if (pageNo == 7) {
 			setQ7P7(QuizQuestionsModel.getPointsAttained());
-			System.out.println("Page 7");
 		}
 		else if (pageNo == 8) {
 			setQ8P8(QuizQuestionsModel.getPointsAttained());
-			System.out.println("Page 8");
 		}
 		else if (pageNo == 9) {
 			setQ9P9(QuizQuestionsModel.getPointsAttained());
-			System.out.println("Page 9");
 		}
 		else if (pageNo == 10) {
 			setQ10P10(QuizQuestionsModel.getPointsAttained());
-			System.out.println("Page 10");
 		}
-		
 		updateDetails();
-		System.out.println("Out of IF & ELSE IF");
-		System.out.println(String.valueOf(getQ1P1()));
-		System.out.println(String.valueOf(getQ2P2()));
 	}
 
 	public static void main(String[] args) {

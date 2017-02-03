@@ -213,17 +213,17 @@
                                           </Label>
                                           <StackPane>
                                              <children>
-                                                <Label fx:id="timerOutput" textFill="#4caf50">
+                                                <Label fx:id="timerOutput" alignment="CENTER" textFill="#4caf50">
                                                    <font>
                                                       <Font name="Garamond Bold" size="48.0" />
                                                    </font>
                                                 </Label>
-                                                <ImageView fx:id="correctImg" fitHeight="70.0" fitWidth="70.0" visible="false">
+                                                <ImageView fx:id="correctImg" fitHeight="70.0" fitWidth="70.0" visible="false" StackPane.alignment="CENTER">
                                                    <image>
                                                       <Image url="@../picture/Confirm2.png" />
                                                    </image>
                                                 </ImageView>
-                                                <ImageView fx:id="incorrectImg" fitHeight="70.0" fitWidth="70.0" visible="false">
+                                                <ImageView fx:id="incorrectImg" fitHeight="70.0" fitWidth="70.0" visible="false" StackPane.alignment="CENTER">
                                                    <image>
                                                       <Image url="@../picture/error.png" />
                                                    </image>
@@ -232,11 +232,11 @@
                                           </StackPane>
                                        </children>
                                     </VBox>
-                                    <VBox fx:id="vBoxInfoImg" alignment="CENTER_RIGHT" disable="true" onMouseClicked="#showExplanations" visible="false">
+                                    <VBox fx:id="vBoxInfoImg" alignment="CENTER_RIGHT" disable="true" visible="false">
                                        <children>
-                                          <ImageView fx:id="infoImg" fitHeight="50.0" fitWidth="50.0">
+                                          <ImageView fx:id="infoImg" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#showExplanations">
                                              <image>
-                                                <Image url="@../picture/Info.png" />
+                                                <Image url="@../picture/Information.png" />
                                              </image>
                                              <VBox.margin>
                                                 <Insets right="10.0" />
@@ -249,9 +249,6 @@
                                        <StackPane.margin>
                                           <Insets />
                                        </StackPane.margin>
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
                                     </VBox>
                                  </children>
                               </StackPane>

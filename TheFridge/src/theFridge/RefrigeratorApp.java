@@ -15,11 +15,11 @@ public class RefrigeratorApp extends Application{
 	
 	@Override
 	public void start(Stage primaryStage) throws Exception{
-		//User user = new User();
-		//user = user.getCurrentUser();
+		User user = new User();
+		user = user.getCurrentUser();
 		
 		try {
-			/*
+			
 			Parent root;
 			if (user.isRememberMe() == true) {
 				root = FXMLLoader.load(getClass().getResource("/theFridge/view/GetStartedPage.fxml"));
@@ -32,9 +32,8 @@ public class RefrigeratorApp extends Application{
 				primaryStage.setMaximized(true);
 			}
 			else {
-			*/
-				Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/LoginSignupPage.fxml"));
-			//}
+				root = FXMLLoader.load(getClass().getResource("/theFridge/view/LoginSignupPage.fxml"));
+			}
 			Scene scene = new Scene(root);
 			primaryStage.setScene(scene);
 			primaryStage.getIcons().add(new Image("/theFridge/picture/fridge.png"));

@@ -340,8 +340,6 @@ public class Profile2Controller {
 		else{
 		f = chooser.getSelectedFile();
 		filename = f.getAbsolutePath();
-		}
-		//Image image = new ImageIcon("C:/Users/Lim Xuan Zheng/Desktop").getImage();
 		Image image = new Image(f.toURL().toString());
 		face.setImage(image);
 		File file=new File("src/theFridge/file/confirm.txt");
@@ -352,6 +350,7 @@ public class Profile2Controller {
 		uu = profileDAO.getUser(n);
 		uu.setProfileImage(f.toURL().toString());
 		uu.updateUser();
+		}
 		
 	}
 	@FXML
