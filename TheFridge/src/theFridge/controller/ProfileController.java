@@ -106,6 +106,15 @@ public class ProfileController {
     private Label PointsLabel;
     @FXML
     private ImageView face2;
+    @FXML
+    private JFXButton buton3;
+    public void donation(ActionEvent event) throws IOException{
+    	Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/Profile.fxml"));
+		root = FXMLLoader.load(getClass().getResource("/theFridge/view/Profile3.fxml"));
+		stage.setScene(new Scene(root));
+ 	    stage.show();
+    }
     
     public void initialize() throws FileNotFoundException{
 		File file=new File("src/theFridge/file/confirm.txt");

@@ -167,7 +167,7 @@
                      <children>
                         <VBox prefHeight="735.0" prefWidth="192.0">
                            <children>
-                              <BorderPane prefHeight="300.0" prefWidth="187.0" style="-fx-background-color: rgba(240, 98, 146, 0.5);">
+                              <BorderPane prefHeight="300.0" prefWidth="190.0" style="-fx-background-color: rgba(240, 98, 146, 0.5);">
                                  <VBox.margin>
                                     <Insets left="5.0" />
                                  </VBox.margin>
@@ -182,7 +182,7 @@
                                     </ImageView>
                                  </center>
                                  <bottom>
-                                    <VBox prefHeight="120.0" prefWidth="187.0" BorderPane.alignment="CENTER">
+                                    <VBox prefHeight="172.0" prefWidth="185.0" BorderPane.alignment="CENTER">
                                        <children>
                                           <HBox alignment="TOP_RIGHT" prefHeight="60.0" prefWidth="180.0" style="-fx-background-color: rgba(0,0,0,1);">
                                              <children>
@@ -207,6 +207,18 @@
                                                    </font>
                                                 </JFXButton>
                                              </children>
+                                          </HBox>
+                                          <HBox alignment="TOP_RIGHT" style="-fx-background-color: rgba(0,0,0,0.5);">
+                                             <children>
+                                                <JFXButton fx:id="buton3" onAction="#donation" prefHeight="60.0" prefWidth="165.0" style="-fx-background-color: white;" text="Donation History">
+                                                   <font>
+                                                      <Font name="Garamond" size="18.0" />
+                                                   </font>
+                                                </JFXButton>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets right="5.0" top="10.0" />
+                                             </VBox.margin>
                                           </HBox>
                                        </children>
                                        <BorderPane.margin>

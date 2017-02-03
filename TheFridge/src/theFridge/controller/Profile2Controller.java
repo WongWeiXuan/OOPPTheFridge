@@ -229,6 +229,8 @@ public class Profile2Controller {
 	private Label alerting;
 	@FXML
 	private ImageView face;
+	@FXML
+	private JFXButton btnProfile3;
 
 	public void initialize() throws FileNotFoundException{
 		File file=new File("src/theFridge/file/confirm.txt");
@@ -253,8 +255,17 @@ public class Profile2Controller {
 		Image image22 = new Image(myface);
 		face.setImage(image22);
 		}
+	
+	
 		
-		
+	}
+	
+	public void letsgo(ActionEvent event) throws IOException{
+		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/Profile2.fxml"));
+		root = FXMLLoader.load(getClass().getResource("/theFridge/view/Profile3.fxml"));
+		stage.setScene(new Scene(root));
+ 	    stage.show();
 	}
 	@FXML
 	public void showNavigation(MouseEvent event) {
