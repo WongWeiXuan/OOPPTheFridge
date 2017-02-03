@@ -123,10 +123,14 @@ public class DonationPageController {
 	public void initialize() throws FileNotFoundException{
 		DonationPageModel.enterFoodVBox = enterFoodVBox;
 		//Show profile image
-		User u = new User();
-        u = u.getCurrentUser();
-        Image img = new Image(u.getProfileImage());
-		profileCircle.setFill(new ImagePattern(img));
+		try {
+        	User u = new User();
+			u = u.getCurrentUser();
+			Image img = new Image(u.getProfileImage());
+			profileCircle.setFill(new ImagePattern(img));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		//Get user and Replace to correct Organization name and Operation Timings
 		User user = new User();
 		user = user.getCurrentUser();

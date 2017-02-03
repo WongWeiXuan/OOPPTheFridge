@@ -87,10 +87,14 @@ public class ShoppingListController {
 	//Show profile image
 	@FXML
 	public void initialize() throws FileNotFoundException, IOException{
-		User u = new User();
-        u = u.getCurrentUser();
-        Image img = new Image(u.getProfileImage());
-		profileCircle.setFill(new ImagePattern(img));
+		try {
+        	User u = new User();
+			u = u.getCurrentUser();
+			Image img = new Image(u.getProfileImage());
+			profileCircle.setFill(new ImagePattern(img));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 		ShoppingListModel first = new ShoppingListModel(StocklistView, Popup, ListlistView, Popup1);
 		ShoppingListAddPageModel.model = first;

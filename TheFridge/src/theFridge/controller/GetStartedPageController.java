@@ -84,10 +84,14 @@ public class GetStartedPageController {
 	private VBox LogoutMenu;
 	
 	public void initialize() throws FileNotFoundException{
-		User u = new User();
-        u = u.getCurrentUser();
-        Image img = new Image(u.getProfileImage());
-		profileCircle.setFill(new ImagePattern(img));
+		try {
+        	User u = new User();
+			u = u.getCurrentUser();
+			Image img = new Image(u.getProfileImage());
+			profileCircle.setFill(new ImagePattern(img));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	@FXML public void hideExtraInfo(MouseEvent event) {

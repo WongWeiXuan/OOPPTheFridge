@@ -75,10 +75,14 @@ public class ShoppingListQRCodePageController {
 	//Show profile image
 	@FXML
 	public void initialize() throws WriterException, IOException{
-		User u = new User();
-        u = u.getCurrentUser();
-        Image img = new Image(u.getProfileImage());
-		profileCircle.setFill(new ImagePattern(img));
+		try {
+        	User u = new User();
+			u = u.getCurrentUser();
+			Image img = new Image(u.getProfileImage());
+			profileCircle.setFill(new ImagePattern(img));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		BufferedImage bImage = ShoppingListQRCodePageModel.createQRImage();
 		Image image = SwingFXUtils.toFXImage(bImage, null);
 		Testing.setImage(image);

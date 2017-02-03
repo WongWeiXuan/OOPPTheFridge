@@ -64,10 +64,14 @@ public class DefaultLayoutFXMLController {
 	//Show profile image
 	@FXML
 	public void initialize() throws FileNotFoundException{
-		User u = new User();
-        u = u.getCurrentUser();
-        Image img = new Image(u.getProfileImage());
-		profileCircle.setFill(new ImagePattern(img));
+		try {
+        	User u = new User();
+			u = u.getCurrentUser();
+			Image img = new Image(u.getProfileImage());
+			profileCircle.setFill(new ImagePattern(img));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	//Animation for the Dropdown(Profile Dropdown)
