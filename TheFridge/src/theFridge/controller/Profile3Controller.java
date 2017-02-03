@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import com.jfoenix.controls.JFXButton;
@@ -17,9 +18,11 @@ import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -30,9 +33,14 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
 import javafx.scene.shape.Circle;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import theFridge.DAO.DonationPageDAO;
 import theFridge.DAO.ProfileDAO;
+import theFridge.model.DonationHistoryModel;
+import theFridge.model.ListModel;
 import theFridge.model.User;
 
 public class Profile3Controller {
@@ -78,6 +86,7 @@ public class Profile3Controller {
 	private Circle profileCircle;
 	
 	private boolean open = false;
+	@FXML VBox VBoxadd;
 	
 	public void initialize() throws FileNotFoundException{
 		File file=new File("src/theFridge/file/confirm.txt");
@@ -94,6 +103,15 @@ public class Profile3Controller {
 		else{
 		Image image22 = new Image(myface);
 		image8.setImage(image22);
+		}
+		
+		User u = new User();
+		u = u.getCurrentUser();
+		DonationPageDAO dao = new DonationPageDAO();
+		ArrayList<DonationHistoryModel> aldhm = dao.getAllHistoryWithUser(u.getName());
+		for(DonationHistoryModel a:aldhm){
+			System.out.println(a.getUser().getName());
+			VBoxadd.getChildren().add(0, DonationHistoryModel.initializeVBox(a));
 		}
 	}
 	

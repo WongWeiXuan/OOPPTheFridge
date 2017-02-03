@@ -76,8 +76,6 @@ public class ShoppingListInputController {
 		User u = new User();
         u = u.getCurrentUser();
 		
-		//get calculateBMR
-		
 	}
 
 	@FXML 
