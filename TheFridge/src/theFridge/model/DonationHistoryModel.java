@@ -1,27 +1,42 @@
 package theFridge.model;
 
+import java.io.IOException;
+import java.util.ArrayList;
+
+import theFridge.DAO.DonationPageDAO;
+
 public class DonationHistoryModel {
-	String userName;
+	User user;
 	String organization;
-	ListModel foodItems;
+	String contact;
+	ArrayList<ListModel> foodItems;
 	String time;
-	String timeTaken;
+	int timeTaken;
 	
-	public DonationHistoryModel(String userName, String organization, ListModel foodItems, String time, String timeTaken) {
+	public DonationHistoryModel(User user, String organization, String contact, ArrayList<ListModel> foodItems, String time, int timeTaken) {
 		super();
-		this.userName = userName;
+		this.user = user;
+		this.contact = contact;
 		this.organization = organization;
 		this.foodItems = foodItems;
 		this.time = time;
 		this.timeTaken = timeTaken;
 	}
 
-	public String getUserName() {
-		return userName;
+	public User getUser() {
+		return user;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public String getContact() {
+		return contact;
+	}
+
+	public void setContact(String contact) {
+		this.contact = contact;
 	}
 
 	public String getOrganization() {
@@ -32,11 +47,11 @@ public class DonationHistoryModel {
 		this.organization = organization;
 	}
 
-	public ListModel getFoodItems() {
+	public ArrayList<ListModel> getFoodItems() {
 		return foodItems;
 	}
 
-	public void setFoodItems(ListModel foodItems) {
+	public void setFoodItems(ArrayList<ListModel> foodItems) {
 		this.foodItems = foodItems;
 	}
 
@@ -48,12 +63,16 @@ public class DonationHistoryModel {
 		this.time = time;
 	}
 
-	public String getTimeTaken() {
+	public int getTimeTaken() {
 		return timeTaken;
 	}
 
-	public void setTimeTaken(String timeTaken) {
+	public void setTimeTaken(int timeTaken) {
 		this.timeTaken = timeTaken;
 	}
 	
+	public void submitForm(DonationHistoryModel dhm) throws IOException{
+		DonationPageDAO dao = new DonationPageDAO();
+		dao.writeToDonationHistoryFile(dhm);
+	}
 }

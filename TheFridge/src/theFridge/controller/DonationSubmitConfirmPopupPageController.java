@@ -6,7 +6,10 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import theFridge.model.CharityFoodDonationGoogleMapModel;
+import theFridge.model.DonationHistoryModel;
 import theFridge.model.ListModel;
+import theFridge.model.User;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -47,6 +50,8 @@ public class DonationSubmitConfirmPopupPageController {
 	static String contact;
 	static String location;
 	static ArrayList<ListModel> allm = new ArrayList<ListModel>();
+	static String time;
+	static int timeTaken;
 	static Stage stage1;
 
 	public void initialize(){
@@ -75,7 +80,12 @@ public class DonationSubmitConfirmPopupPageController {
 	// Event Listener on JFXButton[#confirmBtn].onAction
 	@FXML
 	public void submitForm(ActionEvent event) throws IOException {
-		//submitform();
+		User user = new User();
+		user.setName(name);
+		user.setEmail(email);
+		user.setCountry(location);
+		DonationHistoryModel dhm = new DonationHistoryModel(user, CharityFoodDonationGoogleMapModel.OrganizationTxt, contact, allm, time, timeTaken);
+		dhm.submitForm(dhm);
 		Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 		stage.close();
 		Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/CharityFoodDonationPage.fxml"));

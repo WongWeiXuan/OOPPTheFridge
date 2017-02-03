@@ -23,7 +23,7 @@ public class ShoppingListQRCodePageModel {
 	final static File FILEPATH = new File("src/theFridge/picture/QrCode.png");
 	final File ShoppingPath = new File("src/theFridge/file/StockList.txt");
 	
-	public static void createQRImage() throws WriterException, IOException {
+	public static BufferedImage createQRImage() throws WriterException, IOException {
 		// Change ShoppingPath to String
 		ShoppingListDAO a =new ShoppingListDAO();
 		ArrayList<ListModel> shoppingListArrayList = a.getAllList();
@@ -57,5 +57,6 @@ public class ShoppingListQRCodePageModel {
 			}
 		}
 		ImageIO.write(image, "png", FILEPATH);
+		return image;
 	}
 }

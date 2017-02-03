@@ -6,6 +6,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
@@ -14,18 +15,18 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1280.0" style="-fx-background-image: url(&quot;theFridge/picture/ZhGEqAP.jpg&quot;);" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="theFridge.controller.ShoppingListQRCodePageController">
+<AnchorPane prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="theFridge.controller.Profile3Controller">
    <children>
       <HBox layoutY="65.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: rgba(240, 98, 146, 0.25);" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="65.0">
          <children>
-            <AnchorPane fx:id="Anchor" maxWidth="300.0" prefHeight="600.0" prefWidth="150.0">
+            <AnchorPane fx:id="Anchor" maxWidth="300.0" prefHeight="600.0" prefWidth="150.0" HBox.hgrow="NEVER">
                <children>
-                  <VBox fx:id="naviPreview" alignment="CENTER" maxWidth="150.0" minWidth="150.0" onMouseEntered="#showNavigation" prefHeight="600.0" prefWidth="150.0" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <VBox fx:id="naviPreview" alignment="CENTER" maxWidth="150.0" onMouseEntered="#showNavigation" prefHeight="600.0" prefWidth="150.0" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <Circle fill="#dde6f0" radius="15.0" stroke="TRANSPARENT" strokeType="INSIDE" />
                         <Circle fill="#dde6f0" radius="15.0" stroke="TRANSPARENT" strokeType="INSIDE" />
                         <Circle fill="#dde6f0" radius="15.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle fill="#f5bf49c0" radius="15.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle fill="#dde6f0" radius="15.0" stroke="TRANSPARENT" strokeType="INSIDE" />
                         <Circle fill="#dde6f0" radius="15.0" stroke="TRANSPARENT" strokeType="INSIDE" />
                         <Circle fill="#dde6f0" radius="15.0" stroke="TRANSPARENT" strokeType="INSIDE" />
                      </children>
@@ -93,7 +94,7 @@
                            <children>
                               <StackPane prefHeight="150.0" prefWidth="100.0">
                                  <children>
-                                    <Circle fill="#f5bf49c0" radius="25.0" stroke="#ffffff00" strokeType="INSIDE" />
+                                    <Circle fill="#dde6f0" radius="25.0" stroke="#ffffff00" strokeType="INSIDE" />
                                     <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
                                        <image>
                                           <Image url="theFridge/picture/chicken.png" />
@@ -150,34 +151,75 @@
                   </VBox>
                </children>
             </AnchorPane>
-            <AnchorPane style="-fx-background-color: #FCE4EC;" HBox.hgrow="ALWAYS">
-               <children>
-                  <HBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <ImageView fx:id="Testing" fitHeight="531.0" fitWidth="707.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../picture/QrCode.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                  </HBox>
-                  <HBox alignment="BOTTOM_RIGHT" layoutX="914.0" layoutY="668.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-                     <children>
-                        <JFXButton fx:id="backBtn" buttonType="RAISED" onAction="#goBack" prefHeight="44.0" prefWidth="109.0" style="-fx-background-color: #3c71dd;" text="Back" textFill="WHITE">
-                           <HBox.margin>
-                              <Insets bottom="50.0" right="50.0" />
-                           </HBox.margin>
-                           <font>
-                              <Font name="Garamond Bold" size="21.0" />
-                           </font>
-                        </JFXButton>
-                     </children>
-                  </HBox>
-               </children>
+            <HBox prefHeight="735.0" prefWidth="1141.0">
                <HBox.margin>
                   <Insets right="150.0" />
                </HBox.margin>
-            </AnchorPane>
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <BorderPane prefHeight="200.0" prefWidth="200.0">
+                           <center>
+                              <ImageView fx:id="image8" fitHeight="196.0" fitWidth="190.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                                 <image>
+                                    <Image url="@../picture/head.png" />
+                                 </image>
+                                 <BorderPane.margin>
+                                    <Insets bottom="10.0" />
+                                 </BorderPane.margin>
+                              </ImageView>
+                           </center>
+                           <bottom>
+                              <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <HBox alignment="TOP_RIGHT" style="-fx-background-color: rgba(0,0,0,0.5);">
+                                       <children>
+                                          <JFXButton fx:id="button1" onAction="#goToMain" prefHeight="45.0" prefWidth="165.0" style="-fx-background-color: white;" text="Basic Details">
+                                             <font>
+                                                <Font name="Garamond" size="24.0" />
+                                             </font>
+                                          </JFXButton>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" right="5.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox alignment="TOP_RIGHT" style="-fx-background-color: rgba(0,0,0,0.5);">
+                                       <children>
+                                          <JFXButton fx:id="button2" onAction="#goToSettings" prefHeight="45.0" prefWidth="165.0" style="-fx-background-color: white;" text="Settings">
+                                             <font>
+                                                <Font size="24.0" />
+                                             </font>
+                                          </JFXButton>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets right="5.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox alignment="TOP_RIGHT" style="-fx-background-color: rgba(0,0,0,1);">
+                                       <children>
+                                          <JFXButton fx:id="button3" onAction="#staying" prefHeight="45.0" prefWidth="165.0" style="-fx-background-color: white;" text="Donation History">
+                                             <font>
+                                                <Font name="Garamond" size="18.0" />
+                                             </font>
+                                          </JFXButton>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets right="5.0" top="10.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                 </children>
+                                 <BorderPane.margin>
+                                    <Insets left="5.0" />
+                                 </BorderPane.margin>
+                              </VBox>
+                           </bottom>
+                        </BorderPane>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="735.0" prefWidth="886.0" />
+               </children>
+            </HBox>
          </children>
       </HBox>
       <AnchorPane AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">

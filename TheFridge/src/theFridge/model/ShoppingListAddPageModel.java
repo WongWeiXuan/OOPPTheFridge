@@ -2,10 +2,13 @@ package theFridge.model;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Optional;
 
 import com.jfoenix.controls.JFXComboBox;
 
+import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
@@ -46,25 +49,37 @@ public class ShoppingListAddPageModel {
 		    	if(source == "Stock"){
 		    		//Edit Button
 			    	if(edit == true){
-			    		StockModel s = stockModel;
-		    			listModel = ShoppingListModel.getListModelByName(s.getName());
-					    s.setName(name);
-					    s.setAmount(amount);
-			    		ShoppingListModel.setStocklistViewNode(index, s);
-			    		listModel.setName(name);
-			    		if(listModel.getAmount() > s.getMaxAmount()- s.getAmount()){
-			    			ShoppingListModel.setListlistViewNode(index, listModel, true);
-			    		}
-			    		else{
-			    			ShoppingListModel.setListlistViewNode(index, listModel);
+			    		try{
+				    		StockModel s = stockModel;
+			    			listModel = ShoppingListModel.getListModelByName(s.getName());
+			    			s.setAmount(amount);
+			    			listModel.setName(name);
+			    			if(listModel.getAmount() > s.getMaxAmount()- s.getAmount()){
+				    			ShoppingListModel.setListlistViewNode(ShoppingListModel.getListModelIndexByName(s.getName()), listModel, true);
+				    		}
+				    		else{
+				    			ShoppingListModel.setListlistViewNode(ShoppingListModel.getListModelIndexByName(s.getName()), listModel);
+				    		}
+						    s.setName(name);
+				    		ShoppingListModel.setStocklistViewNode(index, s);
+			    		}catch(NullPointerException e){
+			    			StockModel s = stockModel;
+			    			s.setName(name);
+						    s.setAmount(amount);
+				    		ShoppingListModel.setStocklistViewNode(index, s);
 			    		}
 			    	}
 			    	//Add Button
 			    	else{
-					    StockModel s = new StockModel(name, amount, servingdao.getServingWithName(name));
-					    s.setGrams(s2g.ServingToGramsReturn(servingdao.getServingWithName(name), servingdao.checkType(name)));
-					    s.setMaxAmount(ShoppingListModel.calculateMaxAmount(s));
-						model.addStocks(s);
+			    		try{
+		    				ShoppingListModel.getStockModelByNameFromStockListArray(name).equals(null);
+		    				return false;
+		    			}catch(NullPointerException e){
+		    				StockModel s = new StockModel(name, amount, servingdao.getServingWithName(name));
+						    s.setGrams(s2g.ServingToGramsReturn(servingdao.getServingWithName(name), servingdao.checkType(name)));
+						    s.setMaxAmount(ShoppingListModel.calculateMaxAmount(s));
+							model.addStocks(s);
+		    			}
 			    	}
 			    	ShoppingListDAO a = new ShoppingListDAO();
 		    		a.writeToStockFile(ShoppingListModel.getStocklistArray());
@@ -72,6 +87,7 @@ public class ShoppingListAddPageModel {
 		    		edit = false;
 		    		return true;
 		    	}
+		    	//List
 		    	else if(source == "List"){
 		    		ListModel l = listModel;
 		    		try{
@@ -107,12 +123,23 @@ public class ShoppingListAddPageModel {
 		    				return true;
 		    			}
 		    		}
+		    		//Add button
 		    		else{
-		    			StockModel stm = new StockModel(l.getName(), 0, servingdao.getServingWithName(l.getName()), 1, 0, true);
-		    			stm.setGrams(s2g.ServingToGramsReturn(servingdao.getServingWithName(l.getName()), servingdao.checkType(l.getName())));
-		    			stm.setMaxAmount(ShoppingListModel.calculateMaxAmount(stm));
-						model.addStocks(stm);
-						model.addShopping(l);
+		    			try{
+		    				ShoppingListModel.getListModelByName(name).equals(null);
+		    				return false;
+		    			}catch(NullPointerException e){
+		    				try{
+			    				ShoppingListModel.getStockModelByNameFromStockListArray(name).equals(null);
+			    				model.addShopping(l);
+			    			}catch(NullPointerException r){
+			    				StockModel stm = new StockModel(l.getName(), 0, servingdao.getServingWithName(l.getName()), 1, 0, true);
+				    			stm.setGrams(s2g.ServingToGramsReturn(servingdao.getServingWithName(l.getName()), servingdao.checkType(l.getName())));
+				    			stm.setMaxAmount(ShoppingListModel.calculateMaxAmount(stm));
+								model.addStocks(stm);
+								model.addShopping(l);
+			    			}
+		    			}
 			    	}
 		    		ShoppingListDAO a = new ShoppingListDAO();
 		    		a.writeToStockFile(ShoppingListModel.getStocklistArray());
@@ -154,6 +181,29 @@ public class ShoppingListAddPageModel {
 	
 	public void initializeComboBox() throws FileNotFoundException{
 		ServingDAO dao = new ServingDAO();
-		nameField.getItems().addAll(dao.getAllFoodName());
+		ArrayList<String> als = dao.getAllFoodName();
+		Collections.sort(als);
+		nameField.getItems().addAll(als);
+	}
+	
+	public static void sortBySearch(String enter) throws FileNotFoundException{
+		ServingDAO dao = new ServingDAO();
+		ArrayList<String> als = dao.getAllFoodName();
+		ArrayList<String> updated = new ArrayList<String>();
+		for(String a:als){
+			if(a.toLowerCase().contains(enter.toLowerCase())){
+				updated.add(a);
+			}
+		}
+		nameField.getItems().clear();
+		if(nameField.getValue().equals(null) || nameField.getValue().equals("")){
+			Collections.sort(als);
+			nameField.getItems().addAll(als);
+			nameField.show();
+		}else{
+			Collections.sort(updated);
+			nameField.getItems().addAll(updated);
+			nameField.show();
+		}
 	}
 }

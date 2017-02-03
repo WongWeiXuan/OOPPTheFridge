@@ -2,6 +2,8 @@ package theFridge.DAO;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -9,6 +11,8 @@ import theFridge.model.DonationHistoryModel;
 import theFridge.model.DonationPageModel;
 import theFridge.model.ListModel;
 import theFridge.model.StockModel;
+import theFridge.model.User;
+import theFridge.model.UserStockListModel;
 
 public class DonationPageDAO {
 	File donateFoodFile;
@@ -81,31 +85,85 @@ public class DonationPageDAO {
 		while (sc.hasNextLine()) {
 			line = sc.nextLine();
 			fields = line.split("-");
-			String userName = fields[0];
+			String user = fields[0];
+			User userName = seperateUser(user);
 			String organizationName = fields[1];
-			String foodList = fields[2];
-			ListModel lm = seperateFoodList(foodList);
-			String time = fields[3];
-			String timeLeft = fields[4];
-			DonationHistoryModel a = new DonationHistoryModel(userName, organizationName, lm, time, timeLeft);
+			String contact = fields[2];
+			String foodList = fields[3];
+			ArrayList<ListModel> lm = seperateFoodList(foodList);
+			String time = fields[4];
+			int timeLeft = Integer.parseInt(fields[5]);
+			DonationHistoryModel a = new DonationHistoryModel(userName, organizationName, contact, lm, time, timeLeft);
 			aldhm.add(a);
 		}
 		sc.close();
-		return null;
+		return aldhm;
 	}
 	
-	private ListModel seperateFoodList(String foodList){
+	private ArrayList<ListModel> seperateFoodList(String foodList){
+		ArrayList<ListModel> allm = new ArrayList<ListModel>();
 		Scanner sc = new Scanner(foodList);
+		String line=null;
+		String[] fields;
+		
+		sc.useDelimiter(";");
+		while(sc.hasNext()){
+			line = sc.next();
+			fields = line.split(":");
+			String name = fields[0];
+			double amount = Double.parseDouble(fields[1]);
+			
+			ListModel lm = new ListModel(name, amount);
+			allm.add(lm);
+		}
+		sc.close();
+		return allm;
+	}
+	
+	private User seperateUser(String user){
+		Scanner sc = new Scanner(user);
 		String line=null;
 		String[] fields;
 		
 		line = sc.nextLine();
 		fields = line.split(":");
 		String name = fields[0];
-		double amount = Double.parseDouble(fields[1]);
+		String email = fields[1];
 		sc.close();
 		
-		ListModel lm = new ListModel(name, amount);
+		User lm = new User();
+		lm.setName(name);
+		lm.setEmail(email);
 		return lm;
+	}
+	
+	public void writeToDonationHistoryFile(DonationHistoryModel aldhm) throws IOException{
+		ArrayList<DonationHistoryModel> aldhmm = getAllHistory();
+		if(getAllHistory().isEmpty()){
+			aldhmm = new ArrayList<DonationHistoryModel>();
+		}
+		//System.out.println(aluslm.get(0).getName());
+		aldhmm.add(aldhm);
+		
+		String line = "";
+		for(DonationHistoryModel a:aldhmm){
+			line += a.getUser().getName() + ":" + a.getUser().getEmail() + "-" + a.getOrganization() + "-" + a.getContact() + "-";
+			boolean first = true;
+			for(ListModel b:a.getFoodItems()){
+				String name = b.getName();
+				String amount = String.valueOf((int)b.getAmount());
+				if(first == true){
+					line += name + ":" + amount;
+					first = false;
+				}else{
+					line += ";" + name + ":" + amount;
+				}
+			}
+			line +=  "-" + a.getTime() + "-" + a.getTimeTaken() + "\n";
+		}
+		FileWriter writer = new FileWriter(donationHistoryFile);
+		writer.write(line);
+		writer.flush();
+		writer.close();
 	}
 }

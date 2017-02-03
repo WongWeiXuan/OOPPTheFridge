@@ -46,7 +46,8 @@ public class ProfileDAO {
 				String endPointsAttained = fields[13];
 				String pastDate = fields[14];
 				boolean rememberMe = Boolean.parseBoolean(fields[15]);
-				User u = new User(name, username, password, email, location, height, weight, age, gender, totalPoints, promoCode, endTime, chosenFC, endPointsAttained, pastDate, rememberMe);
+				String profileImage = fields[16];
+				User u = new User(name, username, password, email, location, height, weight, age, gender, totalPoints, promoCode, endTime, chosenFC, endPointsAttained, pastDate, rememberMe, profileImage);
 				user.add(u);
 			}
 			in.close();
