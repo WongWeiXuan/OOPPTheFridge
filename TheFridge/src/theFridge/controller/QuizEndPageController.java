@@ -25,12 +25,10 @@ import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressIndicator;
-import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -100,18 +98,8 @@ public class QuizEndPageController {
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@FXML
 	public void initialize() throws FileNotFoundException {
-		//Show profile image
-		User u = new User();
-        u = u.getCurrentUser();
-        Image img = new Image(u.getProfileImage());
-		profileCircle.setFill(new ImagePattern(img));
-
 		User user = new User();
-        user = user.getCurrentUser();
-        String h = user.getProfileImage();
-		
-		//User user = new User();
-		//user = user.getCurrentUser();
+		user = user.getCurrentUser();
 		
 		String endPointsAttained1 = user.getEndPointsAttained();
 		String endPointsAttained2 = null;
@@ -281,7 +269,8 @@ public class QuizEndPageController {
 					
 					timeline3.getKeyFrames().addAll(keyFrame3);
 					timeline3.play();
-				});
+				}
+			);
 						
 			open = true;
 			timeline.getKeyFrames().addAll(keyFrame1, WaitingFrame1);
@@ -305,7 +294,8 @@ public class QuizEndPageController {
 					
 					timeline3.getKeyFrames().addAll(keyFrame3);
 					timeline3.play();
-				});
+				}
+			);
 						
 			open = false;
 			timeline.getKeyFrames().addAll(keyFrame1, WaitingFrame1);
@@ -317,7 +307,6 @@ public class QuizEndPageController {
 	@FXML public void menuChangeScene(MouseEvent event) throws IOException {
 		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
 		Parent root = null; //(Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/HomePage.fxml"));
-		
 		
 		if(event.getSource().equals(ProfileMenu)){
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/Profile.fxml"));
@@ -361,7 +350,6 @@ public class QuizEndPageController {
 	public void changeScene(MouseEvent event) throws IOException {
 		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
 		Parent root = null; //(Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/HomePage.fxml"));
-		
 		
 		if(event.getSource().equals(homeScene)){
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/GetStartedPage.fxml"));
