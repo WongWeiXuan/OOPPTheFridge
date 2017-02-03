@@ -72,11 +72,7 @@ public class User {
 		}
 
 		public User(String name, String username, String password, String email, String country, String height,
-<<<<<<< HEAD
-				String weight, String age, String gender, int totalPoints, String promoCode, long endTime, String chosenFC, String endPointsAttained, String pastDate, boolean rememberMe) {
-=======
-				String weight, String age, String gender, int totalPoints, String promoCode, long endTime, String chosenFC, int endPointsAttained, String pastDate, boolean rememberMe, String profileImage) {
->>>>>>> origin/master
+				String weight, String age, String gender, int totalPoints, String promoCode, long endTime, String chosenFC, String endPointsAttained, String pastDate, boolean rememberMe, String profileImage) {
 			super();
 			this.username = username;
 			this.password = password;
@@ -123,11 +119,8 @@ public class User {
 			setChosenFC(user1.getChosenFC());
 			setEndPointsAttained(user1.getEndPointsAttained());
 			setPastDate(user1.getPastDate());
-<<<<<<< HEAD
 			setRememberMe(user1.isRememberMe());
-=======
 			setProfileImage(user1.getProfileImage());
->>>>>>> origin/master
 		}
 		
 		public void updateUser() {
