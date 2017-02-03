@@ -241,6 +241,7 @@ public class DonationPageController {
 		Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/CharityFoodDonationPage.fxml"));
 		stage.setScene(new Scene(root));
 		stage.show();
+		first = true;
 	}
 	
 	@FXML 
@@ -276,6 +277,7 @@ public class DonationPageController {
 								ListModel lm = new ListModel(name.getText(), Double.parseDouble(amount.getText()));
 								DonationSubmitConfirmPopupPageController.allm.add(lm);
 							}
+							DonationSubmitConfirmPopupPageController.time = timeLbl.getText().substring(0, 19);
 							Dialog<?> dialog = new Dialog<Object>();
 							Stage stage = (Stage) (dialog.getDialogPane()).getScene().getWindow();
 							stage.initStyle(StageStyle.TRANSPARENT);
@@ -284,6 +286,7 @@ public class DonationPageController {
 							scene.setFill(null);
 							stage.setScene(scene);
 							stage.show();
+							first = true;
 						}catch(Exception e){
 							System.out.println("Error");
 						}

@@ -109,14 +109,17 @@ public class CharityFoodDonationGoogleMapController implements Initializable, Ma
     	if(lat == 1.3375365){
     		System.out.println("Food From The Heart");
     		CharityFoodDonationGoogleMapModel.OrganizationTxt = "Food From The Heart";
+    		DonationSubmitConfirmPopupPageController.timeTaken = 17;
     	}
     	else if(lat == 1.3176681){
     		System.out.println("Willing Hearts");
     		CharityFoodDonationGoogleMapModel.OrganizationTxt = "Willing Hearts";
+    		DonationSubmitConfirmPopupPageController.timeTaken = 18;
     	}
     	else if(lat == 1.2723219){
 			System.out.println("Food Bank WareHouse");
 			CharityFoodDonationGoogleMapModel.OrganizationTxt = "Food Bank Singapore";
+			DonationSubmitConfirmPopupPageController.timeTaken = 21;
 		}
     	Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
  		Parent root =  FXMLLoader.load(getClass().getResource("/theFridge/view/DonationPage.fxml"));
