@@ -47,14 +47,6 @@ public class HomePageController {
 		User u = new User();
         u = u.getCurrentUser();
         String h = u.getProfileImage();
-        if(h.equals("null")){
-        	Image img2 = new Image("/theFridge/picture/head.png");
-        	profileCircle.setFill(new ImagePattern(img2));
-        }
-        else{
-        Image img = new Image(h);
-		profileCircle.setFill(new ImagePattern(img));
-        }
 	}
 
 	
