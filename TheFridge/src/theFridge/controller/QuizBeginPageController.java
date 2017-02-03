@@ -66,13 +66,11 @@ public class QuizBeginPageController {
 	@FXML
 	private VBox LogoutMenu;
 	
-	//Show profile image
+	
 	@FXML
 	public void initialize() throws FileNotFoundException{
-		User u = new User();
-        u = u.getCurrentUser();
-        String h = u.getProfileImage();
-       
+		//Show profile image
+		
 	}
 	
 	//Animation for the Dropdown(Profile Dropdown)
@@ -88,16 +86,16 @@ public class QuizBeginPageController {
 			KeyFrame keyFrame1 = new KeyFrame(Duration.millis(200), MenuHalf, CircleLeft); //1st KeyFrame with duration of 300ms
 			//Wait
 			KeyFrame WaitingFrame1 = new KeyFrame(
-					Duration.millis(200), 
-					first -> {
-								Timeline timeline3 = new Timeline();
-								KeyValue MenuDown = new KeyValue(dropdownMenu.translateYProperty(), 255); //Move dropdownMenu(dropdownWord & dropdownBackground) translateY to 135
-								KeyValue ShowWord = new KeyValue(dropdownWord.opacityProperty(), 1);
-								KeyFrame keyFrame3 = new KeyFrame(Duration.millis(200), MenuDown, ShowWord); //1st KeyFrame with duration of 300ms
-								
-								timeline3.getKeyFrames().addAll(keyFrame3);
-								timeline3.play();
-					});
+				Duration.millis(200), 
+				first -> {
+					Timeline timeline3 = new Timeline();
+					KeyValue MenuDown = new KeyValue(dropdownMenu.translateYProperty(), 255); //Move dropdownMenu(dropdownWord & dropdownBackground) translateY to 135
+					KeyValue ShowWord = new KeyValue(dropdownWord.opacityProperty(), 1);
+					KeyFrame keyFrame3 = new KeyFrame(Duration.millis(200), MenuDown, ShowWord); //1st KeyFrame with duration of 300ms
+					
+					timeline3.getKeyFrames().addAll(keyFrame3);
+					timeline3.play();
+				});
 						
 			open = true;
 			timeline.getKeyFrames().addAll(keyFrame1, WaitingFrame1);
@@ -112,31 +110,27 @@ public class QuizBeginPageController {
 			KeyFrame keyFrame1 = new KeyFrame(Duration.millis(200), MenuDown, HideWord); //1st KeyFrame with duration of 300ms
 			//Wait
 			KeyFrame WaitingFrame1 = new KeyFrame(
-					Duration.millis(200), 
-					first -> {
-								Timeline timeline3 = new Timeline();
-								KeyValue CircleRight = new KeyValue(profileCircle.translateXProperty(), 0);
-								KeyValue MenuHalf = new KeyValue(dropdownMenu.translateXProperty(), 0); //Move dropdownMenu(dropdownWord & dropdownBackground) translateX to -100
-								KeyFrame keyFrame3 = new KeyFrame(Duration.millis(200), MenuHalf, CircleRight); //1st KeyFrame with duration of 300ms
-								
-								timeline3.getKeyFrames().addAll(keyFrame3);
-								timeline3.play();
-					});
+				Duration.millis(200), 
+				first -> {
+					Timeline timeline3 = new Timeline();
+					KeyValue CircleRight = new KeyValue(profileCircle.translateXProperty(), 0);
+					KeyValue MenuHalf = new KeyValue(dropdownMenu.translateXProperty(), 0); //Move dropdownMenu(dropdownWord & dropdownBackground) translateX to -100
+					KeyFrame keyFrame3 = new KeyFrame(Duration.millis(200), MenuHalf, CircleRight); //1st KeyFrame with duration of 300ms
+					
+					timeline3.getKeyFrames().addAll(keyFrame3);
+					timeline3.play();
+				});
 						
 			open = false;
 			timeline.getKeyFrames().addAll(keyFrame1, WaitingFrame1);
 			timeline.play();
 		}
-		
-		
-		
 	}
 	
 	//Change scene for dropdown(Profile dropdown)
 	@FXML public void menuChangeScene(MouseEvent event) throws IOException {
 		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
 		Parent root = null; //(Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/HomePage.fxml"));
-		
 		
 		if(event.getSource().equals(ProfileMenu)){
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/Profile.fxml"));
@@ -149,7 +143,7 @@ public class QuizBeginPageController {
 			stage.setMaximized(false);
 		}
 		stage.setScene(new Scene(root));
- 	    stage.show();
+	    stage.show();
 	}
 
 	@FXML
