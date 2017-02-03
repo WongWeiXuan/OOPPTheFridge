@@ -100,6 +100,17 @@ public class DonationPageDAO {
 		return aldhm;
 	}
 	
+	public ArrayList<DonationHistoryModel> getAllHistoryWithUser(String userName) throws FileNotFoundException{
+		ArrayList<DonationHistoryModel> medium = new ArrayList<DonationHistoryModel>();
+		for(DonationHistoryModel a:getAllHistory()){
+			if(a.getUser().getName().equals(userName)){
+				medium.add(a);
+			}
+		}
+		
+		return medium;
+	}
+	
 	private ArrayList<ListModel> seperateFoodList(String foodList){
 		ArrayList<ListModel> allm = new ArrayList<ListModel>();
 		Scanner sc = new Scanner(foodList);

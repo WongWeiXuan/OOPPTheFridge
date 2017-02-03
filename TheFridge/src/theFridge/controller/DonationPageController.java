@@ -123,8 +123,6 @@ public class DonationPageController {
 	public void initialize() throws FileNotFoundException{
 		DonationPageModel.enterFoodVBox = enterFoodVBox;
 		//Show profile image
-		User u = new User();
-        u = u.getCurrentUser();
         
 		
 		//Get user and Replace to correct Organization name and Operation Timings
