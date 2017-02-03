@@ -71,8 +71,8 @@ public class User {
 			this.pastDate = pastDate;
 		}
 
-		public User(String name, String username, String password, String email, String country, String height, 
-			String weight, String age, String gender, int totalPoints, String promoCode, long endTime, String chosenFC, String endPointsAttained, String pastDate, boolean rememberMe, String profileImage) {
+		public User(String name, String username, String password, String email, String country, String height,
+				String weight, String age, String gender, int totalPoints, String promoCode, long endTime, String chosenFC, String endPointsAttained, String pastDate, boolean rememberMe, String profileImage) {
 			super();
 			this.username = username;
 			this.password = password;
