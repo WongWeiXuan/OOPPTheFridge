@@ -192,7 +192,7 @@
             </VBox>
          </children>
       </HBox>
-      <AnchorPane AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane AnchorPane.bottomAnchor="735.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <TextFlow maxHeight="65.0" minHeight="65.0" minWidth="357.0" prefHeight="65.0" style="-fx-background-color: #C2185B;" textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
