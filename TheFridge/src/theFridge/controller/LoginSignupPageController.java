@@ -116,7 +116,7 @@ public class LoginSignupPageController {
 					eng.getBinary();
 					one.setPassword(eng.encryptLine());
 					one.setChosenFC("[]");
-					one.setEndPointsAttained(Integer.parseInt("[]"));
+					//one.setEndPointsAttained(Integer.parseInt("[]"));
 					one.setPastDate("[]");
 					SignupModel p = signupDAO.getPerson(Username);
 					one.setEmail(p.getEmail());

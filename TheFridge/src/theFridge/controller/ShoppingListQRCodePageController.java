@@ -1,11 +1,13 @@
 package theFridge.controller;
 
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.RotateTransition;
 import javafx.animation.Timeline;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
@@ -20,9 +22,12 @@ import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import theFridge.model.ShoppingListQRCodePageModel;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.event.ActionEvent;
+
+import com.google.zxing.WriterException;
 import com.jfoenix.controls.JFXButton;
 
 public class ShoppingListQRCodePageController {
@@ -68,15 +73,12 @@ public class ShoppingListQRCodePageController {
 
 	//Show profile image
 	@FXML
-	public void initialize(){
+	public void initialize() throws WriterException, IOException{
 		Image img = new Image("theFridge/picture/Profile Image.jpg");
 		profileCircle.setFill(new ImagePattern(img));
-		Testing.setImage(new Image("/theFridge/picture/QrCode.png"));
-	}
-	
-	@FXML 
-	public void updateQR(MouseEvent event) {
-		Testing.setImage(new Image("/theFridge/picture/QrCode.png"));
+		BufferedImage bImage = ShoppingListQRCodePageModel.createQRImage();
+		Image image = SwingFXUtils.toFXImage(bImage, null);
+		Testing.setImage(image);
 	}
 	
 	//Animation for the Dropdown(Profile Dropdown)
