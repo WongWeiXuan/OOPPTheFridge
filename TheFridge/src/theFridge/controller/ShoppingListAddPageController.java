@@ -18,6 +18,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import theFridge.model.ShoppingListAddPageModel;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 
 public class ShoppingListAddPageController {
 	
@@ -41,6 +43,18 @@ public class ShoppingListAddPageController {
 		ShoppingListAddPageModel first = new ShoppingListAddPageModel(nameField, amountSpinner);
 		amountSpinner.setValueFactory(new SpinnerValueFactory.DoubleSpinnerValueFactory(0, 50, 1));
 		first.initializeComboBox();
+	}
+	
+	@FXML 
+	public void searchIngredient(KeyEvent event) throws FileNotFoundException {
+		if(event.getCode().equals(KeyCode.ENTER)){
+			try{
+				nameField.getValue().equals(null);
+				ShoppingListAddPageModel.sortBySearch(nameField.getValue());
+			}catch(NullPointerException e){
+				ShoppingListAddPageModel.sortBySearch(event.getText());
+			}
+		}
 	}
 	
     @FXML
@@ -84,5 +98,7 @@ public class ShoppingListAddPageController {
 		stage.setX(event.getScreenX() - xOffset);
         stage.setY(event.getScreenY() - yOffset);
     }
+
+	
 
 }

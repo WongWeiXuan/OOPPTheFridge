@@ -228,8 +228,8 @@ public class ShoppingListModel {
 				HBox selectedItem = StocklistView.getSelectionModel().getSelectedItem();
 				int selectedIdx = StocklistView.getSelectionModel().getSelectedIndex();
 				ObservableList<Node> Label = selectedItem.getChildren();
-				String name = nodeToString(Label.get(0));
-				String amount = nodeToString(Label.get(1));
+				String name = ((Label)(Label.get(0))).getText();
+				String amount = ((Label)(Label.get(1))).getText();
 				String serving = nodeToString(Label.get(2));
 				String grams = nodeToString(Label.get(3));
 				String maxAmount = nodeToString(Label.get(4));
@@ -286,8 +286,8 @@ public class ShoppingListModel {
 				HBox selectedItem = ListlistView.getSelectionModel().getSelectedItem();
 				int selectedIdx = ListlistView.getSelectionModel().getSelectedIndex();
 				ObservableList<Node> Label = selectedItem.getChildren();
-				String name = nodeToString(Label.get(0));
-				String amount = nodeToString(Label.get(1));
+				String name = ((Label)(Label.get(0))).getText();
+				String amount = ((Label)(Label.get(1))).getText();
 
 				try {
 					showStage(selectedIdx);
@@ -542,7 +542,7 @@ public class ShoppingListModel {
 				continue;
 			} else {
 				ObservableList<Node> NodeList = a.getChildren();
-				String name = nodeToString(NodeList.get(0));
+				String name = ((Label)NodeList.get(0)).getText();
 				double amount = Double.parseDouble(nodeToString(NodeList.get(1)));
 				double serving = Double.parseDouble(nodeToString(NodeList.get(2)));
 				int grams = Integer.parseInt(nodeToString(NodeList.get(3)));
@@ -577,6 +577,17 @@ public class ShoppingListModel {
 		return model;
 	}
 
+	public static int getListModelIndexByName(String name) {
+		int i = 1;
+		for (ListModel lm : getListlistArray()) {
+			if (lm.getName().equalsIgnoreCase(name)) {
+				return i;
+			}
+			i++;
+		}
+		return 0;
+	}
+	
 	public static ArrayList<ListModel> getListlistArray() {
 		ArrayList<ListModel> listArray = new ArrayList<ListModel>();
 		ObservableList<HBox> HboxList = ListlistView.getItems();
@@ -587,7 +598,7 @@ public class ShoppingListModel {
 				continue;
 			} else {
 				ObservableList<Node> NodeList = a.getChildren();
-				String name = nodeToString(NodeList.get(0));
+				String name = ((Label)NodeList.get(0)).getText();
 				double amount = Double.parseDouble(nodeToString(NodeList.get(1)));
 				ListModel listModel;
 				try {
@@ -612,8 +623,8 @@ public class ShoppingListModel {
 		HBox selectedItem = ListlistView.getSelectionModel().getSelectedItem();
 		int selectedIdx = ListlistView.getSelectionModel().getSelectedIndex();
 		ObservableList<Node> Label = selectedItem.getChildren();
-		String name = nodeToString(Label.get(0));
-		String amount = nodeToString(Label.get(1));
+		String name = ((Label)Label.get(0)).getText();
+		String amount = ((Label)(Label.get(1))).getText();
 		StockModel model = getStockModelByNameFromStockListArray(name);
 		model.setAmount(model.getAmount() + Double.parseDouble(amount));
 		model.setMaxAmount(ShoppingListModel.calculateMaxAmount(model));
