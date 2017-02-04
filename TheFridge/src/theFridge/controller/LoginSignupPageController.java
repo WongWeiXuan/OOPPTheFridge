@@ -1,6 +1,7 @@
 package theFridge.controller;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
@@ -136,42 +137,89 @@ public class LoginSignupPageController {
 					spinner.setOpacity(1);
 					loginBtn.setOpacity(0);
 					
-					Timeline timeline = new Timeline();
-					KeyFrame keyFrame = new KeyFrame(
-						Duration.seconds(2), 
-						first -> {
-							Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-							Parent root = null;
-							try {
-								root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/HomePage.fxml"));
-							} catch (IOException e) {
-								// TODO Auto-generated catch block
-								e.printStackTrace();
-							}
-							
-							Screen screen = Screen.getPrimary();
-							Rectangle2D bounds = screen.getVisualBounds();
-							stage.setX(bounds.getMinX());
-							stage.setY(bounds.getMinY());
-							stage.setWidth(bounds.getWidth());
-							stage.setHeight(bounds.getHeight());
-							stage.setMaximized(true);
-							stage.setScene(new Scene(root));
-					 	    stage.show();
-							
-					 	    //Quack2 is the new Quack
-							String quack = "src/theFridge/sound/quack2.mp3";
-
-							Media sound = new Media(new File(quack).toURI().toString());
-							MediaPlayer mediaPlayer = new MediaPlayer(sound);
-							mediaPlayer.play();
-						}
-					);
-			    	timeline.getKeyFrames().addAll(keyFrame);
-					timeline.play();
+					User user = new User();
+					user = user.getCurrentUser();
 					
-					comment.setOpacity(0);
+					if (user.getUsername().equals("FoodFromTheHeart") || user.getUsername().equals("WillingHearts") || user.getUsername().equals("FoodBankSingapore")) {
+						Timeline adTimeline = new Timeline();
+						KeyFrame adKeyFrame = new KeyFrame(
+							Duration.seconds(2), 
+							first -> {
+								Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+								Parent root = null;
+								try {
+									root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/AdminPage.fxml"));
+								} catch (IOException e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								}
+								
+								Screen screen = Screen.getPrimary();
+								Rectangle2D bounds = screen.getVisualBounds();
+								stage.setX(bounds.getMinX());
+								stage.setY(bounds.getMinY());
+								stage.setWidth(bounds.getWidth());
+								stage.setHeight(bounds.getHeight());
+								stage.setMaximized(true);
+								stage.setScene(new Scene(root));
+						 	    stage.show();
+						 	    
+						 	    //Quack2 is the new Quack
+								String quack = "src/theFridge/sound/quack2.mp3";
+
+								Media sound = new Media(new File(quack).toURI().toString());
+								MediaPlayer mediaPlayer = new MediaPlayer(sound);
+								mediaPlayer.play();
+							}
+						);
+						adTimeline.getKeyFrames().addAll(adKeyFrame);
+						adTimeline.play();
+						
+						comment.setOpacity(0);
+					}
+					
+					else {
+						Timeline timeline = new Timeline();
+						KeyFrame keyFrame = new KeyFrame(
+							Duration.seconds(2), 
+							first -> {
+								Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+								Parent root = null;
+								try {
+									root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/HomePage.fxml"));
+								} catch (IOException e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								}
+								
+								Screen screen = Screen.getPrimary();
+								Rectangle2D bounds = screen.getVisualBounds();
+								stage.setX(bounds.getMinX());
+								stage.setY(bounds.getMinY());
+								stage.setWidth(bounds.getWidth());
+								stage.setHeight(bounds.getHeight());
+								stage.setMaximized(true);
+								stage.setScene(new Scene(root));
+						 	    stage.show();
+								
+						 	    //Quack2 is the new Quack
+								String quack = "src/theFridge/sound/quack2.mp3";
+
+								Media sound = new Media(new File(quack).toURI().toString());
+								MediaPlayer mediaPlayer = new MediaPlayer(sound);
+								mediaPlayer.play();
+							}
+						);
+				    	timeline.getKeyFrames().addAll(keyFrame);
+						timeline.play();
+						
+						comment.setOpacity(0);
+					}
+					
+					
+					
 				}
+				
 				else {
 					comment.setText("Error! You are not registered yet.");
 				}
@@ -259,7 +307,7 @@ public class LoginSignupPageController {
 	}
 	
 	@FXML
-	public void checkEnter(KeyEvent event) throws UnsupportedEncodingException{
+	public void checkEnter(KeyEvent event) throws UnsupportedEncodingException, FileNotFoundException{
 		if(event.getCode().getName().equals("Enter")){
 			SignupDAO signupDAO = new SignupDAO();
 			ArrayList<SignupModel> personList = signupDAO.getAllPerson();
@@ -275,6 +323,12 @@ public class LoginSignupPageController {
 				comment.setText("Please fill in your password.");
 			}
 			else if (!Username.equals("") || !Username.equals(null) && !Password.equals("") || !Password.equals(null)) {
+				if (loginCheckBox.isSelected()) {
+					User user = new User();
+					user = user.getCurrentUser();
+					user.setRememberMe(true);
+					user.updateUser();
+				}
 				for (SignupModel s : personList) {
 					Encryption ew = new Encryption(s.getPassword(),true);
 					ew.encryptLine();
@@ -285,6 +339,8 @@ public class LoginSignupPageController {
 						eng.getBinary();
 						one.setPassword(eng.encryptLine());
 						one.setChosenFC("[]");
+						one.setEndPointsAttained("[]");
+						one.setPastDate("[]");
 						SignupModel p = signupDAO.getPerson(Username);
 						one.setEmail(p.getEmail());
 						one.createUser();
@@ -303,41 +359,86 @@ public class LoginSignupPageController {
 						spinner.setOpacity(1);
 						loginBtn.setOpacity(0);
 						
-						Timeline timeline = new Timeline();
-						KeyFrame keyFrame = new KeyFrame(
-							Duration.seconds(2), 
-							first -> {
-								Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-								Parent root = null;
-								try {
-									root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/HomePage.fxml"));
-								} catch (IOException e) {
-									// TODO Auto-generated catch block
-									e.printStackTrace();
-								}
-								
-								Screen screen = Screen.getPrimary();
-								Rectangle2D bounds = screen.getVisualBounds();
-								stage.setX(bounds.getMinX());
-								stage.setY(bounds.getMinY());
-								stage.setWidth(bounds.getWidth());
-								stage.setHeight(bounds.getHeight());
-								stage.setMaximized(true);
-								stage.setScene(new Scene(root));
-						 	    stage.show();
-								
-						 	    //Quack2 is the new Quack
-								String quack = "src/theFridge/sound/quack2.mp3";
-	
-								Media sound = new Media(new File(quack).toURI().toString());
-								MediaPlayer mediaPlayer = new MediaPlayer(sound);
-								mediaPlayer.play();
-							});
-				    	timeline.getKeyFrames().addAll(keyFrame);
-						timeline.play();
+						User user = new User();
+						user = user.getCurrentUser();
 						
-						comment.setOpacity(0);
+						if (user.getUsername().equals("FoodFromTheHeart") || user.getUsername().equals("WillingHearts") || user.getUsername().equals("FoodBankSingapore")) {
+							Timeline adTimeline = new Timeline();
+							KeyFrame adKeyFrame = new KeyFrame(
+								Duration.seconds(2), 
+								first -> {
+									Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+									Parent root = null;
+									try {
+										root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/AdminPage.fxml"));
+									} catch (IOException e) {
+										// TODO Auto-generated catch block
+										e.printStackTrace();
+									}
+									
+									Screen screen = Screen.getPrimary();
+									Rectangle2D bounds = screen.getVisualBounds();
+									stage.setX(bounds.getMinX());
+									stage.setY(bounds.getMinY());
+									stage.setWidth(bounds.getWidth());
+									stage.setHeight(bounds.getHeight());
+									stage.setMaximized(true);
+									stage.setScene(new Scene(root));
+							 	    stage.show();
+							 	    
+							 	    //Quack2 is the new Quack
+									String quack = "src/theFridge/sound/quack2.mp3";
+
+									Media sound = new Media(new File(quack).toURI().toString());
+									MediaPlayer mediaPlayer = new MediaPlayer(sound);
+									mediaPlayer.play();
+								}
+							);
+							adTimeline.getKeyFrames().addAll(adKeyFrame);
+							adTimeline.play();
+							
+							comment.setOpacity(0);
+						}
+						
+						else {
+							Timeline timeline = new Timeline();
+							KeyFrame keyFrame = new KeyFrame(
+								Duration.seconds(2), 
+								first -> {
+									Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+									Parent root = null;
+									try {
+										root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/HomePage.fxml"));
+									} catch (IOException e) {
+										// TODO Auto-generated catch block
+										e.printStackTrace();
+									}
+									
+									Screen screen = Screen.getPrimary();
+									Rectangle2D bounds = screen.getVisualBounds();
+									stage.setX(bounds.getMinX());
+									stage.setY(bounds.getMinY());
+									stage.setWidth(bounds.getWidth());
+									stage.setHeight(bounds.getHeight());
+									stage.setMaximized(true);
+									stage.setScene(new Scene(root));
+							 	    stage.show();
+									
+							 	    //Quack2 is the new Quack
+									String quack = "src/theFridge/sound/quack2.mp3";
+
+									Media sound = new Media(new File(quack).toURI().toString());
+									MediaPlayer mediaPlayer = new MediaPlayer(sound);
+									mediaPlayer.play();
+								}
+							);
+					    	timeline.getKeyFrames().addAll(keyFrame);
+							timeline.play();
+							
+							comment.setOpacity(0);
+						}
 					}
+					
 					else {
 						comment.setText("Error! You are not registered yet.");
 					}
