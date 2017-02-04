@@ -81,7 +81,7 @@
          <effect>
             <ImageInput>
                <source>
-                  <Image url="file:/C:/Users/Nic/Desktop/leftarrow.png" />
+                  <Image url="file:/C:/Users/Wei%20Xuan/Documents/GitHub/OOPPTheFridge/TheFridge/src/theFridge/picture/leftarrow.png" />
                </source>
             </ImageInput>
          </effect></Button>
@@ -89,7 +89,7 @@
          <effect>
             <ImageInput>
                <source>
-                  <Image url="file:/C:/Users/Nic/Desktop/rightarrow.png" />
+                  <Image url="file:/C:/Users/Wei%20Xuan/Documents/GitHub/OOPPTheFridge/TheFridge/src/theFridge/picture/rightarrow.png" />
                </source>
             </ImageInput>
          </effect></Button>

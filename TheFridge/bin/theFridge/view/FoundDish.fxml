@@ -77,10 +77,20 @@
             <Font size="21.0" />
          </font>
       </TextField>
-      <Button fx:id="leftbtn" layoutX="406.0" layoutY="637.0" mnemonicParsing="false" onMouseClicked="#goLeft" prefHeight="164.0" prefWidth="186.0" scaleX="0.33" scaleY="0.33" text="Button" />
+      <Button fx:id="leftbtn" layoutX="406.0" layoutY="637.0" mnemonicParsing="false" onMouseClicked="#goLeft" prefHeight="164.0" prefWidth="186.0" scaleX="0.33" scaleY="0.33" text="Button">
+         <effect>
+            <ImageInput>
+               <source>
+                  <Image url="file:/C:/Users/Wei%20Xuan/Documents/GitHub/OOPPTheFridge/TheFridge/src/theFridge/picture/leftarrow.png" />
+               </source>
+            </ImageInput>
+         </effect></Button>
       <Button fx:id="rightbtn" layoutX="765.0" layoutY="624.0" mnemonicParsing="false" onMouseClicked="#goRight" prefHeight="200.0" prefWidth="200.0" scaleX="0.33" scaleY="0.33" text="Button">
          <effect>
-            <ImageInput />
+            <ImageInput>
+               <source>
+                  <Image url="file:/C:/Users/Wei%20Xuan/Documents/GitHub/OOPPTheFridge/TheFridge/src/theFridge/picture/rightarrow.png" />
+               </source></ImageInput>
          </effect></Button>
       <Text layoutX="710.0" layoutY="387.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Steps:" wrappingWidth="87.59999424219131">
          <font>
