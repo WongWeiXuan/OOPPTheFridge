@@ -151,48 +151,43 @@
                   </VBox>
                </children>
             </AnchorPane>
-            <VBox alignment="CENTER" prefHeight="743.0" prefWidth="994.0" style="-fx-background-color: #FCE4EC;" HBox.hgrow="ALWAYS">
+            <VBox alignment="CENTER" prefHeight="735.0" prefWidth="980.0" style="-fx-background-color: #FCE4EC;" HBox.hgrow="ALWAYS">
                <children>
-                  <Label text="Welcome to the Fridge Quiz" textFill="#e91e63">
-                     <font>
-                        <Font name="Garamond" size="48.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets right="110.0" />
-                     </VBox.margin>
-                  </Label>
-                  <Label text="Are you a food saver? Or a food waster?" textFill="#e91e63">
-                     <font>
-                        <Font name="Garamond" size="24.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets right="110.0" />
-                     </VBox.margin>
-                  </Label>
-                  <Label text="Click &quot;Begin&quot; to find out!" textFill="#e91e63">
-                     <font>
-                        <Font name="Garamond" size="24.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets right="110.0" />
-                     </VBox.margin>
-                  </Label>
-                  <JFXButton fx:id="beginBtn" buttonType="RAISED" onAction="#goToQuizPage" prefHeight="70.0" prefWidth="200.0" ripplerFill="BLACK" style="-fx-background-color: #009688;" text="Begin" textFill="WHITE">
-                     <font>
-                        <Font name="Garamond" size="36.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets right="110.0" top="30.0" />
-                     </VBox.margin>
-                  </JFXButton>
+                  <VBox alignment="CENTER">
+                     <children>
+                        <Label alignment="CENTER" text="Welcome to the Fridge Quiz" textFill="#e91e63">
+                           <font>
+                              <Font name="Garamond" size="48.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" text="Are you a food saver? Or a food waster?" textFill="#e91e63">
+                           <font>
+                              <Font name="Garamond" size="24.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" text="Click &quot;Begin&quot; to find out!" textFill="#e91e63">
+                           <font>
+                              <Font name="Garamond" size="24.0" />
+                           </font>
+                        </Label>
+                        <JFXButton fx:id="beginBtn" buttonType="RAISED" onAction="#goToQuizPage" prefHeight="70.0" prefWidth="200.0" ripplerFill="BLACK" style="-fx-background-color: #009688;" text="Begin" textFill="WHITE">
+                           <font>
+                              <Font name="Garamond" size="36.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="30.0" />
+                           </VBox.margin>
+                        </JFXButton>
+                     </children>
+                  </VBox>
                </children>
                <HBox.margin>
-                  <Insets />
+                  <Insets right="150.0" />
                </HBox.margin>
             </VBox>
          </children>
       </HBox>
-      <AnchorPane AnchorPane.bottomAnchor="735.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <TextFlow maxHeight="65.0" minHeight="65.0" minWidth="357.0" prefHeight="65.0" style="-fx-background-color: #C2185B;" textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>

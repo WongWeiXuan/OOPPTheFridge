@@ -154,17 +154,14 @@
                   </VBox>
                </children>
             </AnchorPane>
-            <VBox alignment="TOP_CENTER" prefHeight="728.0" prefWidth="1123.0" style="-fx-background-color: #FCE4EC;" HBox.hgrow="ALWAYS">
+            <VBox alignment="TOP_CENTER" prefHeight="735.0" prefWidth="980.0" style="-fx-background-color: #FCE4EC;" HBox.hgrow="ALWAYS">
                <children>
-                  <TextFlow prefHeight="96.0" prefWidth="980.0" textAlignment="CENTER">
+                  <TextFlow prefHeight="100.0" prefWidth="980.0" textAlignment="CENTER">
                      <children>
-                        <Label fx:id="questionLabel" text="Question" textFill="#e91e63">
+                        <Label fx:id="questionLabel" alignment="CENTER" prefHeight="100.0" prefWidth="980.0" text="Question" textFill="#e91e63">
                            <font>
                               <Font name="Garamond" size="36.0" />
                            </font>
-                           <padding>
-                              <Insets top="20.0" />
-                           </padding>
                         </Label>
                      </children>
                      <VBox.margin>
@@ -329,7 +326,7 @@
             </VBox>
          </children>
       </HBox>
-      <AnchorPane AnchorPane.bottomAnchor="735.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <TextFlow maxHeight="65.0" minHeight="65.0" minWidth="357.0" prefHeight="65.0" style="-fx-background-color: #C2185B;" textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
