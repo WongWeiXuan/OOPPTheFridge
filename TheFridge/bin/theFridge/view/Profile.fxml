@@ -157,7 +157,7 @@
 						<HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-image: url(&quot;theFridge/picture/tryBackground.jpg&quot;);" HBox.hgrow="ALWAYS">
 							<VBox prefHeight="803.0" prefWidth="1135.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="65.0">
 								<children>
-									<HBox prefHeight="100.0" prefWidth="980.0" style="-fx-background-color: rgba(240, 98, 146, 0.25);" VBox.vgrow="ALWAYS">
+									<HBox prefHeight="100.0" prefWidth="980.0" VBox.vgrow="ALWAYS">
 										<children>
 											<VBox prefHeight="735.0" prefWidth="192.0">
 												<children>
@@ -226,12 +226,12 @@
 													<Insets />
 												</HBox.margin>
 											</VBox>
-											<VBox>
+											<VBox style="-fx-background-color: ;">
 												<HBox.margin>
 													<Insets />
 												</HBox.margin>
 												<children>
-													<VBox alignment="TOP_CENTER" prefHeight="723.0" prefWidth="741.0" style="-fx-background-color: rgba(240, 98, 146, 0.5);">
+													<VBox alignment="TOP_CENTER" prefHeight="650.0" prefWidth="741.0" style="-fx-background-color: rgba(240, 98, 146, 0.5);">
 														<children>
 															<VBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="741.0" style="-fx-background-color: black;">
 																<children>
@@ -301,6 +301,9 @@
 																				</font>
 																			</Text>
 																		</children>
+                                                      <VBox.margin>
+                                                         <Insets left="5.0" />
+                                                      </VBox.margin>
 																	</TextFlow>
 																	<HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #808080;">
 																		<children>
