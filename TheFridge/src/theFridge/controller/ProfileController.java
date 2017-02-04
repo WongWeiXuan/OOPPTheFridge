@@ -125,6 +125,8 @@ public class ProfileController {
 	private VBox LogoutMenu;
 	@FXML
 	private Circle profileCircle;
+	@FXML
+	private Label GLabel;
 	
 	private boolean open = false;
     public void donation(ActionEvent event) throws IOException{
@@ -155,6 +157,7 @@ public class ProfileController {
 		WeightLabel.setText(uu.getWeight());
 		String g = Integer.toString(uu.getTotalPoints());
 		PointsLabel.setText(g);
+		GLabel.setText(uu.getGender());
 		String myface = uu.getProfileImage();
 		if(myface.equals("null")){
 			
