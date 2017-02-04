@@ -238,6 +238,22 @@ public class Profile2Controller {
 	private VBox LogoutMenu;
 	@FXML
 	private Circle profileCircle;
+	@FXML
+	private Label label8;
+	@FXML
+	private JFXButton EGender;
+	@FXML
+	private ImageView image8;
+	@FXML
+	private TextField GText;
+	@FXML
+	private JFXButton btnSave8;
+	@FXML
+	private JFXButton btnCancel8;
+	@FXML
+	private HBox hbox11;
+	@FXML
+	private HBox hBox8;
 	
 	private boolean open = false;
 
@@ -256,6 +272,7 @@ public class Profile2Controller {
 		label5.setText(uu.getAge());
 		label6.setText(uu.getHeight());
 		label7.setText(uu.getWeight());
+		label8.setText(uu.getGender());
 		String myface = uu.getProfileImage();
 		if(myface.equals("null")){
 			
@@ -707,6 +724,51 @@ public class Profile2Controller {
 		stage.setScene(new Scene(root));
  	    stage.show();
 	}
+	
+	public void save8(ActionEvent event) throws IOException {
+		String gender= GText.getText();
+		if(gender.equals("")){
+			label8.setText("Please enter a value");
+			label8.setOpacity(1);
+		}
+		else{
+		File file=new File("src/theFridge/file/confirm.txt");
+		Scanner sc=new Scanner(file) ;
+		String n = sc.nextLine();
+		sc.close();
+		ProfileDAO profileDAO = new ProfileDAO();
+		User uu = new User();
+		uu = profileDAO.getUser(n);
+		uu.setGender(gender);
+		profileDAO.updateUser(uu);
+		GText.setText("");
+		hbox11.setVisible(false);
+		EGender.setVisible(true);
+		hBox8.setVisible(true);
+		//weighT.setOpacity(1);
+		label8.setOpacity(1);
+		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/Profile2.fxml"));
+		root = FXMLLoader.load(getClass().getResource("/theFridge/view/Profile2.fxml"));
+		stage.setScene(new Scene(root));
+ 	    stage.show();
+		}
+	}
+	@FXML
+	public void cancel8(ActionEvent event) throws IOException {
+		hbox11.setVisible(false);
+		GText.setText("");
+		EGender.setVisible(true);
+		hBox8.setVisible(true);
+		//weighT.setOpacity(1);
+		label8.setOpacity(1);
+		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/Profile2.fxml"));
+		root = FXMLLoader.load(getClass().getResource("/theFridge/view/Profile2.fxml"));
+		stage.setScene(new Scene(root));
+ 	    stage.show();
+	}
+	
 	@FXML
 	public void goToMain(ActionEvent event)throws IOException {
 		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
@@ -749,6 +811,13 @@ public class Profile2Controller {
 		label4.setOpacity(0.5);
 		Elocation.setVisible(false);
 		//hBox4.setVisible(false);
+	}
+	
+	public void editgender(ActionEvent event){
+		hbox11.setVisible(true);
+		hbox11.setStyle("-fx-background-color:  rgb(255,255,0)");
+		label8.setOpacity(0.5);
+		EGender.setVisible(false);
 	}
 	
 	public void editage(ActionEvent event){
@@ -830,6 +899,14 @@ public class Profile2Controller {
 	
 	public void hideImage7 (MouseEvent event) {
 		image7.setOpacity(0);
+	}
+	
+	public void showImage8 (MouseEvent event) {
+		image8.setOpacity(1);
+	}
+	
+	public void hideImage8 (MouseEvent event) {
+		image8.setOpacity(0);
 	}
 	
 	public void menuChangeScene(MouseEvent event) throws IOException {

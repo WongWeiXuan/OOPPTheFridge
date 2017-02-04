@@ -452,6 +452,67 @@
                                           <Insets bottom="10.0" left="5.0" right="5.0" />
                                        </VBox.margin>
                                     </VBox>
+                                       <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: yellow; -fx-border-radius: 5; -fx-border-width: 2;">
+                                          <children>
+                                             <HBox fx:id="hBox8" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: rgb(255,255,0);">
+                                                <children>
+                                                   <TextFlow prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: black;">
+                                                      <children>
+                                                         <Text fill="AQUA" strokeType="OUTSIDE" strokeWidth="0.0" text="Gender">
+                                                            <font>
+                                                               <Font size="20.0" />
+                                                            </font>
+                                                         </Text>
+                                                      </children>
+                                                   </TextFlow>
+                                                   <Label fx:id="label8" prefHeight="31.0" prefWidth="500.0" style="-fx-background-color: white;" text="Label" />
+                                                   <StackPane>
+                                                      <children>
+                                                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                            <image>
+                                                               <Image url="@../picture/attl.png" />
+                                                            </image>
+                                                         </ImageView>
+                                                         <JFXButton fx:id="EGender" onAction="#editgender" onMouseEntered="#showImage8" onMouseExited="#hideImage8" prefWidth="75.0" />
+                                                      </children>
+                                                   </StackPane>
+                                                   <ImageView fx:id="image8" fitHeight="25.0" fitWidth="30.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+                                                      <image>
+                                                         <Image url="@../picture/pen2.png" />
+                                                      </image>
+                                                      <HBox.margin>
+                                                         <Insets top="5.0" />
+                                                      </HBox.margin>
+                                                   </ImageView>
+                                                </children>
+                                             </HBox>
+                                             <HBox fx:id="hbox11" prefHeight="100.0" prefWidth="200.0" visible="false">
+                                                <children>
+                                                   <TextFlow prefHeight="0.0" prefWidth="130.0" style="-fx-background-color: black;">
+                                                      <children>
+                                                         <Text fill="#fffa00" strokeType="OUTSIDE" strokeWidth="0.0" text="New Gender">
+                                                            <font>
+                                                               <Font size="18.0" />
+                                                            </font>
+                                                         </Text>
+                                                      </children>
+                                                   </TextFlow>
+                                                   <TextField fx:id="GText" prefWidth="350.0" />
+                                                   <JFXButton fx:id="btnSave8" buttonType="RAISED" onAction="#save8" prefWidth="65.0" style="-fx-background-color: grey; -fx-cursor: hand; -fx-border-color: black;" text="Save">
+                                                      <HBox.margin>
+                                                         <Insets left="85.0" />
+                                                      </HBox.margin></JFXButton>
+                                                   <JFXButton fx:id="btnCancel8" buttonType="RAISED" onAction="#cancel8" prefWidth="70.0" style="-fx-background-color: grey; -fx-cursor: hand; -fx-border-color: black;" text="Cancel">
+                                                      <HBox.margin>
+                                                         <Insets left="20.0" />
+                                                      </HBox.margin></JFXButton>
+                                                </children>
+                                             </HBox>
+                                          </children>
+                                          <VBox.margin>
+                                             <Insets bottom="10.0" left="5.0" />
+                                          </VBox.margin>
+                                       </VBox>
                                     <VBox prefHeight="15.0" prefWidth="741.0" style="-fx-border-color: purple; -fx-border-radius: 5; -fx-border-width: 2;">
                                        <children>
                                           <HBox fx:id="hBox5" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: rgb(128,0,128);">
