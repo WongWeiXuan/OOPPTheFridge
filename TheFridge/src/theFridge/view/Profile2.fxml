@@ -20,64 +20,8 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="theFridge.controller.Profile2Controller">
    <children>
-      <VBox prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="65.0">
          <children>
-            <AnchorPane>
-               <children>
-                  <TextFlow maxHeight="65.0" minHeight="65.0" minWidth="357.0" prefHeight="65.0" style="-fx-background-color: #C2185B;" textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="The Fridge">
-                           <font>
-                              <Font name="Garamond Bold" size="48.0" />
-                           </font>
-                        </Text>
-                     </children>
-                     <padding>
-                        <Insets left="64.0" right="64.0" />
-                     </padding>
-                  </TextFlow>
-                  <StackPane fx:id="dropdownMenu" layoutX="357.0" layoutY="-135.0" style="-fx-background-color: #FCE4EC;" AnchorPane.rightAnchor="-150.0" AnchorPane.topAnchor="-255.0">
-                     <children>
-                        <VBox fx:id="dropdownBackground" maxHeight="200.0" maxWidth="150.0" minHeight="200.0" minWidth="150.0" prefHeight="200.0" prefWidth="150.0" />
-                        <VBox fx:id="dropdownWord" alignment="TOP_CENTER" maxHeight="320.0" maxWidth="150.0" minHeight="320.0" minWidth="150.0" opacity="0.0" prefHeight="320.0" prefWidth="150.0">
-                           <children>
-                              <VBox fx:id="ProfileMenu" alignment="CENTER" maxHeight="80.0" maxWidth="150.0" minHeight="80.0" minWidth="150.0" onMouseClicked="#menuChangeScene" prefHeight="80.0" prefWidth="150.0">
-                                 <children>
-                                    <TextFlow textAlignment="CENTER">
-                                       <children>
-                                          <Text fill="#c2185b" strokeType="OUTSIDE" strokeWidth="0.0" text="Profile" />
-                                       </children>
-                                    </TextFlow>
-                                 </children>
-                                 <VBox.margin>
-                                    <Insets top="80.0" />
-                                 </VBox.margin>
-                              </VBox>
-                              <VBox fx:id="SettingMenu" alignment="CENTER" maxHeight="80.0" maxWidth="150.0" minHeight="80.0" minWidth="150.0" onMouseClicked="#menuChangeScene" prefHeight="80.0" prefWidth="150.0">
-                                 <children>
-                                    <TextFlow textAlignment="CENTER">
-                                       <children>
-                                          <Text fill="#c2185b" strokeType="OUTSIDE" strokeWidth="0.0" text="Setting" />
-                                       </children>
-                                    </TextFlow>
-                                 </children>
-                              </VBox>
-                              <VBox fx:id="LogoutMenu" alignment="CENTER" maxHeight="80.0" maxWidth="150.0" minHeight="80.0" minWidth="150.0" onMouseClicked="#menuChangeScene" prefHeight="80.0" prefWidth="150.0">
-                                 <children>
-                                    <TextFlow textAlignment="CENTER">
-                                       <children>
-                                          <Text fill="#c2185b" strokeType="OUTSIDE" strokeWidth="0.0" text="Logout" />
-                                       </children>
-                                    </TextFlow>
-                                 </children>
-                              </VBox>
-                           </children>
-                        </VBox>
-                     </children>
-                  </StackPane>
-                  <Circle fx:id="profileCircle" fill="WHITE" layoutX="32.0" layoutY="97.0" onMouseClicked="#showUserDropdown" radius="32.0" stroke="#ffffff00" strokeType="INSIDE" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-               </children>
-            </AnchorPane>
             <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: rgba(240, 98, 146, 0.25);" VBox.vgrow="ALWAYS">
                <children>
                   <AnchorPane fx:id="Anchor" maxWidth="300.0" prefHeight="600.0" prefWidth="150.0">
@@ -309,15 +253,16 @@
                                                       <Insets />
                                                    </HBox.margin>
                                                 </Label>
-                                                <JFXButton fx:id="Ename" onAction="#editname" onMouseEntered="#showImage0" onMouseExited="#hideImage0" prefHeight="31.0" prefWidth="75.0" style="-fx-background-image: url(&quot;theFridge/picture/attl.png&quot;);" />
-                                                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../picture/attl.png" />
-                                                   </image>
-                                                   <HBox.margin>
-                                                      <Insets />
-                                                   </HBox.margin>
-                                                </ImageView>
+                                                <StackPane>
+                                                   <children>
+                                                      <JFXButton fx:id="Ename" onAction="#editname" onMouseEntered="#showImage0" onMouseExited="#hideImage0" prefHeight="31.0" prefWidth="75.0" style="-fx-background-image: url(&quot;theFridge/picture/attl.png&quot;);" />
+                                                      <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../picture/attl.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </StackPane>
                                                 <ImageView fx:id="image0" fitHeight="25.0" fitWidth="30.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
                                                       <Image url="@../picture/pen2.png" />
@@ -379,19 +324,16 @@
                                                       <Insets />
                                                    </HBox.margin>
                                                 </Label>
-                                                <JFXButton fx:id="Eemail" onAction="#editemail" onMouseEntered="#showImage3" onMouseExited="#hideImage3" prefHeight="31.0" prefWidth="75.0">
-                                                   <HBox.margin>
-                                                      <Insets />
-                                                   </HBox.margin>
-                                                </JFXButton>
-                                                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../picture/attl.png" />
-                                                   </image>
-                                                   <HBox.margin>
-                                                      <Insets />
-                                                   </HBox.margin>
-                                                </ImageView>
+                                                <StackPane>
+                                                   <children>
+                                                      <JFXButton fx:id="Eemail" onAction="#editemail" onMouseEntered="#showImage3" onMouseExited="#hideImage3" prefHeight="31.0" prefWidth="75.0" />
+                                                      <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../picture/attl.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </StackPane>
                                                 <ImageView fx:id="image3" fitHeight="25.0" fitWidth="30.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
                                                       <Image url="@../picture/pen2.png" />
@@ -456,16 +398,16 @@
                                                       <Insets />
                                                    </HBox.margin>
                                                 </Label>
-                                                <JFXButton fx:id="Elocation" onAction="#editlocation" onMouseEntered="#showImage4" onMouseExited="#hideImage4" prefWidth="75.0">
-                                                   <HBox.margin>
-                                                      <Insets />
-                                                   </HBox.margin>
-                                                </JFXButton>
-                                                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../picture/attl.png" />
-                                                   </image>
-                                                </ImageView>
+                                                <StackPane>
+                                                   <children>
+                                                      <JFXButton fx:id="Elocation" onAction="#editlocation" onMouseEntered="#showImage4" onMouseExited="#hideImage4" prefWidth="75.0" />
+                                                      <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../picture/attl.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </StackPane>
                                                 <ImageView fx:id="image4" fitHeight="25.0" fitWidth="30.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
                                                       <Image url="@../picture/pen2.png" />
@@ -527,19 +469,16 @@
                                                       <Insets />
                                                    </HBox.margin>
                                                 </Label>
-                                                <JFXButton fx:id="EAge" onAction="#editage" onMouseEntered="#showImage5" onMouseExited="#hideImage5" prefHeight="31.0" prefWidth="75.0">
-                                                   <HBox.margin>
-                                                      <Insets />
-                                                   </HBox.margin>
-                                                </JFXButton>
-                                                <ImageView fitHeight="30.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../picture/attl.png" />
-                                                   </image>
-                                                   <HBox.margin>
-                                                      <Insets top="5.0" />
-                                                   </HBox.margin>
-                                                </ImageView>
+                                                <StackPane>
+                                                   <children>
+                                                      <JFXButton fx:id="EAge" onAction="#editage" onMouseEntered="#showImage5" onMouseExited="#hideImage5" prefHeight="31.0" prefWidth="75.0" />
+                                                      <ImageView fitHeight="30.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../picture/attl.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </StackPane>
                                                 <ImageView fx:id="image5" fitHeight="20.0" fitWidth="20.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
                                                       <Image url="@../picture/pen2.png" />
@@ -604,19 +543,16 @@
                                                       <Insets />
                                                    </HBox.margin>
                                                 </Label>
-                                                <JFXButton fx:id="EHeight" onAction="#editheight" onMouseEntered="#showImage6" onMouseExited="#hideImage6" prefWidth="75.0">
-                                                   <HBox.margin>
-                                                      <Insets />
-                                                   </HBox.margin>
-                                                </JFXButton>
-                                                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../picture/attl.png" />
-                                                   </image>
-                                                   <HBox.margin>
-                                                      <Insets top="5.0" />
-                                                   </HBox.margin>
-                                                </ImageView>
+                                                <StackPane>
+                                                   <children>
+                                                      <JFXButton fx:id="EHeight" onAction="#editheight" onMouseEntered="#showImage6" onMouseExited="#hideImage6" prefWidth="75.0" />
+                                                      <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../picture/attl.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </StackPane>
                                                 <ImageView fx:id="image6" fitHeight="20.0" fitWidth="20.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
                                                       <Image url="@../picture/pen2.png" />
@@ -681,19 +617,16 @@
                                                       <Insets />
                                                    </HBox.margin>
                                                 </Label>
-                                                <JFXButton fx:id="EWeight" onAction="#editweight" onMouseEntered="#showImage7" onMouseExited="#hideImage7" prefHeight="31.0" prefWidth="75.0">
-                                                   <HBox.margin>
-                                                      <Insets />
-                                                   </HBox.margin>
-                                                </JFXButton>
-                                                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../picture/attl.png" />
-                                                   </image>
-                                                   <HBox.margin>
-                                                      <Insets top="5.0" />
-                                                   </HBox.margin>
-                                                </ImageView>
+                                                <StackPane>
+                                                   <children>
+                                                      <JFXButton fx:id="EWeight" onAction="#editweight" onMouseEntered="#showImage7" onMouseExited="#hideImage7" prefHeight="31.0" prefWidth="75.0" />
+                                                      <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../picture/attl.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </StackPane>
                                                 <ImageView fx:id="image7" fitHeight="25.0" fitWidth="30.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
                                                       <Image url="@../picture/pen2.png" />
@@ -755,16 +688,16 @@
                                                       <Insets />
                                                    </HBox.margin>
                                                 </Label>
-                                                <JFXButton fx:id="Epassword" onAction="#editpassword" onMouseEntered="#showImage2" onMouseExited="#hideImage2" prefHeight="31.0" prefWidth="75.0">
-                                                   <HBox.margin>
-                                                      <Insets />
-                                                   </HBox.margin>
-                                                </JFXButton>
-                                                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../picture/attl.png" />
-                                                   </image>
-                                                </ImageView>
+                                                <StackPane>
+                                                   <children>
+                                                      <JFXButton fx:id="Epassword" onAction="#editpassword" onMouseEntered="#showImage2" onMouseExited="#hideImage2" prefHeight="31.0" prefWidth="75.0" />
+                                                      <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../picture/attl.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </StackPane>
                                                 <ImageView fx:id="image2" fitHeight="25.0" fitWidth="30.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
                                                       <Image url="@../picture/pen2.png" />
@@ -883,5 +816,61 @@
             </HBox>
          </children>
       </VBox>
+      <AnchorPane AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <TextFlow maxHeight="65.0" minHeight="65.0" minWidth="357.0" prefHeight="65.0" style="-fx-background-color: #C2185B;" textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="The Fridge">
+                     <font>
+                        <Font name="Garamond Bold" size="48.0" />
+                     </font>
+                  </Text>
+               </children>
+               <padding>
+                  <Insets left="64.0" right="64.0" />
+               </padding>
+            </TextFlow>
+            <StackPane fx:id="dropdownMenu" layoutX="357.0" layoutY="-135.0" style="-fx-background-color: #FCE4EC;" AnchorPane.rightAnchor="-150.0" AnchorPane.topAnchor="-255.0">
+               <children>
+                  <VBox fx:id="dropdownBackground" maxHeight="200.0" maxWidth="150.0" minHeight="200.0" minWidth="150.0" prefHeight="200.0" prefWidth="150.0" />
+                  <VBox fx:id="dropdownWord" alignment="TOP_CENTER" maxHeight="320.0" maxWidth="150.0" minHeight="320.0" minWidth="150.0" opacity="0.0" prefHeight="320.0" prefWidth="150.0">
+                     <children>
+                        <VBox fx:id="ProfileMenu" alignment="CENTER" maxHeight="80.0" maxWidth="150.0" minHeight="80.0" minWidth="150.0" onMouseClicked="#menuChangeScene" prefHeight="80.0" prefWidth="150.0">
+                           <children>
+                              <TextFlow textAlignment="CENTER">
+                                 <children>
+                                    <Text fill="#c2185b" strokeType="OUTSIDE" strokeWidth="0.0" text="Profile" />
+                                 </children>
+                              </TextFlow>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="80.0" />
+                           </VBox.margin>
+                        </VBox>
+                        <VBox fx:id="SettingMenu" alignment="CENTER" maxHeight="80.0" maxWidth="150.0" minHeight="80.0" minWidth="150.0" onMouseClicked="#menuChangeScene" prefHeight="80.0" prefWidth="150.0">
+                           <children>
+                              <TextFlow textAlignment="CENTER">
+                                 <children>
+                                    <Text fill="#c2185b" strokeType="OUTSIDE" strokeWidth="0.0" text="Setting" />
+                                 </children>
+                              </TextFlow>
+                           </children>
+                        </VBox>
+                        <VBox fx:id="LogoutMenu" alignment="CENTER" maxHeight="80.0" maxWidth="150.0" minHeight="80.0" minWidth="150.0" onMouseClicked="#menuChangeScene" prefHeight="80.0" prefWidth="150.0">
+                           <children>
+                              <TextFlow textAlignment="CENTER">
+                                 <children>
+                                    <Text fill="#c2185b" strokeType="OUTSIDE" strokeWidth="0.0" text="Logout" />
+                                 </children>
+                              </TextFlow>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+               </children>
+            </StackPane>
+            <Circle fx:id="profileCircle" fill="WHITE" layoutX="32.0" layoutY="97.0" onMouseClicked="#showUserDropdown" radius="32.0" stroke="#ffffff00" strokeType="INSIDE" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>
