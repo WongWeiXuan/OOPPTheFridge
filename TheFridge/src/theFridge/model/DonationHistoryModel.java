@@ -11,6 +11,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import theFridge.DAO.DonationPageDAO;
+import theFridge.model.User;
 
 public class DonationHistoryModel {
 	User user;
