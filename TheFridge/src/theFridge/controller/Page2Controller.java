@@ -339,6 +339,7 @@ public class Page2Controller {
 				msg.append(Integer.toString(i + 1) );
 				msg.append(" ");
 			    msg.append(myList.get(i));
+			    msg.append("\n");
 			    msg.append("\n");  //this is the new line you need
 			}
 			//System.out.println(msg.toString());

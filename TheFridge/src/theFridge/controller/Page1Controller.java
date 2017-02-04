@@ -193,8 +193,8 @@ public class Page1Controller{
 		            );
 	
 	
-	ObservableList<String> data = FXCollections.observableArrayList("Seaweed","Rabbit-Manure","Coffee-Grounds","Mouldy-Cheese","Crab-or-Lobster-Shell",
-			"Fish-bones","Citrus-Peel","Apple","Old-Pasta");
+	ObservableList<String> data = FXCollections.observableArrayList("Seaweed","Spoiled-soy","Rabbit-Manure","Cooked-rice","Coffee-Grounds","Tofu","Mouldy-Cheese","Stale-pretzels","Crab-or-Lobster-Shell",
+			"Pizza-crusts","Fish-bones","Peanut-shells","Citrus-Peel","Old-jam","Apple","Cupcake-or-Muffin","Old-Pasta","Egg-Shell");
 	ObservableList<String> a = FXCollections.observableArrayList();
 	ObservableList<String> b = FXCollections.observableArrayList();
 	ObservableList<String> c = FXCollections.observableArrayList();
