@@ -1,5 +1,5 @@
-Almond, banana & passion fruit smoothie-1:large ripe:banana~500:ml:almond milk~4:ripe:passion Fruit-111-theFridge/picture/recipes/Almond, banana & passion fruit smoothie.jpg-1
+Almond, banana & passion fruit smoothie-1:large ripe:banana~500:ml:milk~4:ripe:passion Fruit-111-theFridge/picture/recipes/Almond, banana & passion fruit smoothie.jpg-1
 Fruit salad-1:cup of:strawberries~1:cup of:blueberries-133-theFridge/picture/recipes/Fruit salad.jpg-1
-Strawberry smoothie-14:frozen:strawberries~1:cup:soy milk~1:large ripe:banana~2:teaspoon:sugar~1:teaspoon:valilla extract-160-theFridge/picture/recipes/Strawberry smoothie.jpg-1
-Simple cheese omelette-2:large:eggs~0.5:cup:olive oil~10:g:cheese-241-theFridge/picture/recipes/Simple cheese omelette.jpg-1
-Banana bread muffins-1:large:Egg~0.5:cup:vegetable oil~1:cup:sugar~3:large:bananas~0.25:cup:walnuts~2:cup:flour~1:teaspoon:baking soda~0.5:teaspoon:salt-270-theFridge/picture/recipes/Banana muffins.jpg-1
+Strawberry smoothie-14:frozen:strawberries~1:cup:milk~1:large ripe:banana-160-theFridge/picture/recipes/Strawberry smoothie.jpg-1
+Simple cheese omelette-2:large:eggs~10:g:cheese-241-theFridge/picture/recipes/Simple cheese omelette.jpg-1
+Banana bread muffins-1:large:Egg~3:large:banana~0.25:cup:walnuts-270-theFridge/picture/recipes/Banana muffins.jpg-1
