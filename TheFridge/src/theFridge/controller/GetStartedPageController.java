@@ -290,7 +290,7 @@ public class GetStartedPageController {
 			
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/LoginSignupPage.fxml"));
 			stage.setMaximized(false);
-			scene = new Scene(root, 1000, 600);
+			scene = new Scene(root);
 		}
 		
  		stage.setScene(scene);

@@ -370,7 +370,7 @@ public class LoginSignupPageController {
 									Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
 									Parent root = null;
 									try {
-										root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/AdminPage.fxml"));
+										root = FXMLLoader.load(getClass().getResource("/theFridge/view/AdminPage.fxml"));
 									} catch (IOException e) {
 										// TODO Auto-generated catch block
 										e.printStackTrace();
