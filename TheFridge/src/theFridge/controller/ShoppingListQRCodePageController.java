@@ -3,33 +3,31 @@ package theFridge.controller;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
+import com.google.zxing.WriterException;
+import com.jfoenix.controls.JFXButton;
+
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.RotateTransition;
 import javafx.animation.Timeline;
 import javafx.embed.swing.SwingFXUtils;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.StackPane;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import theFridge.model.ShoppingListQRCodePageModel;
 import theFridge.model.User;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.event.ActionEvent;
-
-import com.google.zxing.WriterException;
-import com.jfoenix.controls.JFXButton;
 
 public class ShoppingListQRCodePageController {
 	@FXML

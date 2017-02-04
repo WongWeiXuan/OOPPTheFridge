@@ -8,7 +8,6 @@ import java.util.Optional;
 
 import com.jfoenix.controls.JFXComboBox;
 
-import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;

@@ -1,9 +1,9 @@
 package theFridge.controller.foodCalculator;
 
-import javafx.fxml.FXML;
-
 import java.io.FileNotFoundException;
+
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;

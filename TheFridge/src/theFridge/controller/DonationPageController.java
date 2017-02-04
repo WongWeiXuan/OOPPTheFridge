@@ -4,16 +4,13 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
-import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextField;
 
@@ -32,24 +29,19 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.DateCell;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.control.ToggleGroup;
-import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import javafx.util.Callback;
 import javafx.util.Duration;
 import theFridge.model.CharityFoodDonationGoogleMapModel;
 import theFridge.model.DonationPageModel;
@@ -210,13 +202,15 @@ public class DonationPageController {
 	
 	@FXML 
 	public void showFood(ActionEvent event) throws FileNotFoundException {
-		Label q = new Label("Name");
-		q.setPrefWidth(400);
-		Label w = new Label("Amount");
-		w.setPrefWidth(200);
-		HBox title = new HBox(q, w);
-		title.setAlignment(Pos.CENTER);
-		enterFoodVBox.getChildren().add(0, title);
+		if(enterFoodVBox.getChildren().size() == 0){
+			Label q = new Label("Name");
+			q.setPrefWidth(400);
+			Label w = new Label("Amount");
+			w.setPrefWidth(200);
+			HBox title = new HBox(q, w);
+			title.setAlignment(Pos.CENTER);
+			enterFoodVBox.getChildren().add(0, title);
+		}
 		for(ListModel a:DonationPageModel.getAutomaticFood()){
 			Label name = new Label(a.getName());
 			name.setPrefWidth(400);
