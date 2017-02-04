@@ -619,6 +619,9 @@
 									</HBox>
 								</children>
 							</VBox>
+                     <HBox.margin>
+                        <Insets right="150.0" />
+                     </HBox.margin>
 						</HBox>
 					</children>
 				</HBox>
