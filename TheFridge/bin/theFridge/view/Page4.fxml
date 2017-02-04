@@ -1,59 +1,108 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.media.MediaView?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.TextFlow?>
 
-<AnchorPane prefHeight="504.0" prefWidth="601.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="theFridge.controller.Page4Controller">
+<AnchorPane fx:id="darren1" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="theFridge.controller.Page4Controller">
    <children>
-      <VBox alignment="CENTER" layoutX="1.0" prefHeight="731.0" prefWidth="600.0" style="-fx-background-color: white;">
+      <VBox fx:id="nick" alignment="CENTER" layoutX="321.0" layoutY="20.0" prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <GridPane prefHeight="21.0" prefWidth="251.0">
-               <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="358.0" minWidth="10.0" prefWidth="300.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="382.0" minWidth="10.0" prefWidth="280.0" />
-               </columnConstraints>
-               <rowConstraints>
-                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-               </rowConstraints>
-               <children>
-                  <Label fx:id="label0" prefHeight="21.0" prefWidth="299.0" text="Label" GridPane.columnIndex="1">
-                     <GridPane.margin>
-                        <Insets left="10.0" />
-                     </GridPane.margin>
-                  </Label>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="You have selected :" textAlignment="RIGHT" wrappingWidth="300.42041015625">
-                     <GridPane.margin>
-                        <Insets />
-                     </GridPane.margin>
-                  </Text>
-               </children>
-            </GridPane>
-            <BorderPane>
+            <BorderPane VBox.vgrow="ALWAYS">
                <center>
                   <MediaView fx:id="video" fitHeight="640.0" fitWidth="600.0" />
                </center>
                <bottom>
-                  <HBox prefHeight="45.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+                  <HBox alignment="CENTER" prefHeight="45.0" prefWidth="600.0" BorderPane.alignment="CENTER">
                      <children>
-                        <JFXButton fx:id="play" onAction="#play1" prefHeight="58.0" prefWidth="126.0" text="play" />
-                        <JFXButton fx:id="pause" onAction="#pause1" prefHeight="61.0" prefWidth="125.0" text="pause" />
-                        <JFXButton fx:id="fast" onAction="#fast1" prefHeight="63.0" prefWidth="121.0" text="fast" />
-                        <JFXButton fx:id="slow" onAction="#slow1" prefHeight="66.0" prefWidth="128.0" text="slow" />
-                        <JFXButton fx:id="stop" onAction="#stop1" prefHeight="52.0" prefWidth="101.0" text="stop" />
+                        <StackPane>
+                           <children>
+                              <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../picture/smooth.png" />
+                                 </image>
+                              </ImageView>
+                              <JFXButton fx:id="play" onAction="#play1" prefHeight="60.0" prefWidth="125.0" />
+                           </children>
+                        </StackPane>
+                        <StackPane>
+                           <children>
+                              <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../picture/pause1.png" />
+                                 </image>
+                              </ImageView>
+                              <JFXButton fx:id="pause" onAction="#pause1" prefHeight="60.0" prefWidth="125.0" text="Pause" />
+                           </children>
+                        </StackPane>
+                        <StackPane>
+                           <children>
+                              <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../picture/fastforward.png" />
+                                 </image>
+                              </ImageView>
+                              <JFXButton fx:id="fast" onAction="#fast1" prefHeight="60.0" prefWidth="125.0" text="Fast" />
+                           </children>
+                        </StackPane>
+                        <StackPane>
+                           <children>
+                              <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../picture/slowslow.png" />
+                                 </image>
+                              </ImageView>
+                              <JFXButton fx:id="slow" onAction="#slow1" prefHeight="60.0" prefWidth="125.0" text="slow" />
+                           </children>
+                        </StackPane>
+                        <StackPane>
+                           <children>
+                              <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../picture/stopping.png" />
+                                 </image>
+                              </ImageView>
+                              <JFXButton fx:id="stop" onAction="#stop1" prefHeight="60.0" prefWidth="125.0" text="stop" />
+                           </children>
+                        </StackPane>
+                        <StackPane>
+                           <children>
+                              <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../picture/idea.png" />
+                                 </image>
+                              </ImageView>
+                              <JFXButton fx:id="darren" onAction="#darrenlights" prefHeight="60.0" prefWidth="125.0" text="Lights: ON" />
+                           </children>
+                        </StackPane>
                      </children>
                   </HBox>
                </bottom>
+               <top>
+                  <HBox alignment="CENTER" BorderPane.alignment="CENTER">
+                     <children>
+                        <TextFlow prefHeight="35.0" prefWidth="1324.0" textAlignment="CENTER">
+                           <children>
+                              <Label fx:id="label0" alignment="CENTER" prefHeight="35.0" prefWidth="1279.0" text="Label" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </TextFlow>
+                     </children>
+                  </HBox>
+               </top>
             </BorderPane>
             <Button fx:id="buttonClose" mnemonicParsing="false" onAction="#backToMain" prefHeight="43.0" prefWidth="600.0" text="Close" />
          </children>
