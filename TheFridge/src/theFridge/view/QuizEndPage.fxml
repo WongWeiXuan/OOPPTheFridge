@@ -376,6 +376,9 @@
                            <font>
                               <Font name="Garamond" size="36.0" />
                            </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </JFXButton>
                      </children>
                      <VBox.margin>

@@ -170,13 +170,16 @@
                               <Font name="Garamond" size="24.0" />
                            </font>
                         </Label>
-                        <JFXButton fx:id="beginBtn" buttonType="RAISED" onAction="#goToQuizPage" prefHeight="70.0" prefWidth="200.0" ripplerFill="BLACK" style="-fx-background-color: #009688;" text="Begin" textFill="WHITE">
+                        <JFXButton fx:id="beginBtn" buttonType="RAISED" onAction="#goToQuizPage" prefHeight="70.0" prefWidth="200.0" ripplerFill="BLACK" style="-fx-background-color: #009688;" text="Begin" textAlignment="CENTER" textFill="WHITE">
                            <font>
                               <Font name="Garamond" size="36.0" />
                            </font>
                            <VBox.margin>
                               <Insets top="30.0" />
                            </VBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </JFXButton>
                      </children>
                   </VBox>

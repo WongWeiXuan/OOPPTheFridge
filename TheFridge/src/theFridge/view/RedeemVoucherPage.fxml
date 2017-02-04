@@ -235,6 +235,9 @@
                                        <GridPane.margin>
                                           <Insets left="50.0" />
                                        </GridPane.margin>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
                                     </JFXButton>
                                     <JFXButton fx:id="TwelveCharacterBtn2" alignment="CENTER" buttonType="RAISED" layoutX="25.0" layoutY="135.0" onAction="#goToPromoPage" ripplerFill="BLACK" style="-fx-background-color: yellow;" text="Promo Code" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                        <font>
@@ -243,6 +246,9 @@
                                        <GridPane.margin>
                                           <Insets left="50.0" />
                                        </GridPane.margin>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
                                     </JFXButton>
                                     <JFXButton fx:id="TwelveCharacterBtn3" alignment="CENTER" buttonType="RAISED" layoutX="25.0" layoutY="135.0" onAction="#goToPromoPage" ripplerFill="BLACK" style="-fx-background-color: yellow;" text="Promo Code" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                        <font>
@@ -251,6 +257,9 @@
                                        <GridPane.margin>
                                           <Insets left="50.0" />
                                        </GridPane.margin>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
                                     </JFXButton>
                                     <JFXButton fx:id="TwelveCharacterBtn4" alignment="CENTER" buttonType="RAISED" layoutX="25.0" layoutY="135.0" onAction="#goToPromoPage" ripplerFill="BLACK" style="-fx-background-color: yellow;" text="Promo Code" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="1">
                                        <font>
@@ -259,6 +268,9 @@
                                        <GridPane.margin>
                                           <Insets left="50.0" />
                                        </GridPane.margin>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
                                     </JFXButton>
                                     <VBox fx:id="voucher1" alignment="CENTER" onMouseClicked="#showPopup" onMouseEntered="#show" onMouseExited="#hide" prefHeight="150.0" prefWidth="250.0" style="-fx-background-color: rgba(240, 98, 146, 0.25); -fx-background-radius: 20;">
                                        <children>
@@ -312,6 +324,9 @@
                                              </children>
                                           </StackPane>
                                        </children>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
                                     </VBox>
                                     <VBox fx:id="voucher2" alignment="CENTER" layoutX="10.0" layoutY="10.0" onMouseClicked="#showPopup" onMouseEntered="#show" onMouseExited="#hide" prefHeight="150.0" prefWidth="250.0" style="-fx-background-color: rgba(240, 98, 146, 0.25); -fx-background-radius: 20;" GridPane.columnIndex="1">
                                        <children>
@@ -365,6 +380,9 @@
                                              </children>
                                           </StackPane>
                                        </children>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
                                     </VBox>
                                     <VBox fx:id="voucher3" alignment="CENTER" layoutX="10.0" layoutY="10.0" onMouseClicked="#showPopup" onMouseEntered="#show" onMouseExited="#hide" prefHeight="150.0" prefWidth="250.0" style="-fx-background-color: rgba(240, 98, 146, 0.25); -fx-background-radius: 20;" GridPane.columnIndex="2">
                                        <children>
@@ -418,6 +436,9 @@
                                              </children>
                                           </StackPane>
                                        </children>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
                                     </VBox>
                                     <VBox fx:id="voucher4" alignment="CENTER" layoutX="10.0" layoutY="10.0" onMouseClicked="#showPopup" onMouseEntered="#show" onMouseExited="#hide" prefHeight="150.0" prefWidth="250.0" style="-fx-background-color: rgba(240, 98, 146, 0.25); -fx-background-radius: 20;" GridPane.columnIndex="3">
                                        <children>
@@ -471,6 +492,9 @@
                                              </children>
                                           </StackPane>
                                        </children>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
                                     </VBox>
                                  </children>
                                  <VBox.margin>
