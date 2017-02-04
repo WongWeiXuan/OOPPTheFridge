@@ -17,8 +17,7 @@ public class Ingredient {
 	}
 	
 	public String getMeasurement(){
-		String line = amount + " " + unit;
-		return line;
+		return unit;
 	}
 
 	public double getAmount() {

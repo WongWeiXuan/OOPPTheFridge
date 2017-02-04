@@ -95,6 +95,8 @@ public class CharityFoodDonationGoogleMapController implements Initializable, Ma
 	@FXML Text moreInfoTitle;
 	@FXML TextFlow closeMoreInfoBtn;
 	@FXML AnchorPane moreInfo;
+	int LENGTH;
+	@FXML TextArea locationArea;
 	
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -137,6 +139,7 @@ public class CharityFoodDonationGoogleMapController implements Initializable, Ma
 	@FXML 
 	public void showMoreInfo(ActionEvent event) {
 		double lat = results.getRoutes().get(0).getLegs().get(0).getEndLocation().getLatitude();
+		System.out.println(lat);
 		Timeline timeline = new Timeline();
     	KeyValue keyValue = new KeyValue(moreInfo.translateYProperty(), 0);
     	KeyFrame KeyFrame = new KeyFrame(Duration.millis(200), keyValue);
@@ -145,7 +148,7 @@ public class CharityFoodDonationGoogleMapController implements Initializable, Ma
 		timeline.play();
 		if(lat == 1.3729919){
 			System.out.println("Hougang Mall");
-			moreInfoInfo1.insertText(moreInfoInfo1.getLength(), "\n\nHougang Mall, Level 3 (Opposite Customer Service Counter), 90 Hougang Avenue 10 Singapore 538766 \n(Operating hours: 10am to 10pm daily)");
+			locationArea.setText("Hougang Mall, Level 3 (Opposite Customer Service Counter), 90 Hougang Avenue 10 Singapore 538766 \n(Operating hours: 10am to 10pm daily)");
 		}
 		else if(lat == 1.3375365){
 			System.out.println("Food From The Heart");
@@ -155,67 +158,67 @@ public class CharityFoodDonationGoogleMapController implements Initializable, Ma
 		}
 		else if(lat == 1.3016873){
 			System.out.println("Parkway Parade");
-			moreInfoInfo1.insertText(moreInfoInfo1.getLength(), "\n\nGiant Hypermarket Parkway Parade, Self-Checkout Area, 80 Marine Parade Road #03-27/30 Singapore 449269 \n(Operating hours: 9am to 10pm)");
+			locationArea.setText("Giant Hypermarket Parkway Parade, Self-Checkout Area, 80 Marine Parade Road #03-27/30 Singapore 449269 \n(Operating hours: 9am to 10pm)");
 		}
 		else if(lat == 1.3545257){
 			System.out.println("Tampines 1");
-			moreInfoInfo1.insertText(moreInfoInfo1.getLength(), "\n\nTampines 1, B1 Customer Service Counter, 10 Tampines Central 1, Singapore 529536 \n(Operating hours: 10am to 10pm daily)");
+			locationArea.setText("Tampines 1, B1 Customer Service Counter, 10 Tampines Central 1, Singapore 529536 \n(Operating hours: 10am to 10pm daily)");
 		}
 		else if(lat == 1.352816){
 			System.out.println("Century Square");
-			moreInfoInfo1.insertText(moreInfoInfo1.getLength(), "\n\nCentury Square, Level 2 Play & Learn Corner (near Customer Service counter), 2 Tampines Central 5 Singapore 529509 \n(Operating hours: 10am to 10pm daily)");
+			locationArea.setText("Century Square, Level 2 Play & Learn Corner (near Customer Service counter), 2 Tampines Central 5 Singapore 529509 \n(Operating hours: 10am to 10pm daily)");
 		}
-		else if(lat == 1.3140081){
+		else if(lat == 1.3140091){
 			System.out.println("100 Sims Ave");
-			moreInfoInfo1.insertText(moreInfoInfo1.getLength(), "\n\nThe Food Pantry, 100 Sims Avenue Singapore 387426 \n(Operating hours: 10am to 10pm daily)");
+			locationArea.setText("The Food Pantry, 100 Sims Avenue Singapore 387426 \n(Operating hours: 10am to 10pm daily)");
 		}
 		else if(lat == 1.3009035){
 			System.out.println("NUS Engineering");
-			moreInfoInfo1.insertText(moreInfoInfo1.getLength(), "\n\nNational University of Singapore: \nSchool of Engineering, Techno Edge Canteen");
+			locationArea.setText("National University of Singapore: \nSchool of Engineering, Techno Edge Canteen");
 		}
 		else if(lat == 1.2952865){
 			System.out.println("NUS Arts & Social Sciences");
-			moreInfoInfo1.insertText(moreInfoInfo1.getLength(), "\n\nNational University of Singapore: \nFaculty of Arts & Social Sciences, The Deck Canteen");
+			locationArea.setText("National University of Singapore: \nFaculty of Arts & Social Sciences, The Deck Canteen");
 		}
 		else if(lat == 1.2948112){
 			System.out.println("NUS Computing");
-			moreInfoInfo1.insertText(moreInfoInfo1.getLength(), "\n\nNational University of Singapore: \nSchool of Computing, The Terrace Canteen");
+			locationArea.setText("National University of Singapore: \nSchool of Computing, The Terrace Canteen");
 		}
 		else if(lat == 1.3391538){
 			System.out.println("The Grandstand");
-			moreInfoInfo1.insertText(moreInfoInfo1.getLength(), "\n\nGiant Hypermarket Grand Stand , Entrance 200 Turf Club Road #01-1 Singapore 287994 \n(Operating hours: Sun-Thurs: 9am - 10pm, Fri-Sat: 9am - 11pm)");
+			locationArea.setText("Giant Hypermarket Grand Stand , Entrance 200 Turf Club Road #01-1 Singapore 287994 \n(Operating hours: Sun-Thurs: 9am - 10pm, Fri-Sat: 9am - 11pm)");
 		}
 		else if(lat == 1.3311433){
 			System.out.println("BIG BOX");
-			moreInfoInfo1.insertText(moreInfoInfo1.getLength(), "\n\nBig Box, Level 1, Check-out exit at Supermarket, 1 Venture Ave Singapore 608521 \n(Operating hours: 10am to 10pm)");
+			locationArea.setText("Big Box, Level 1, Check-out exit at Supermarket, 1 Venture Ave Singapore 608521 \n(Operating hours: 10am to 10pm)");
 		}
 		else if(lat == 1.3118848){
 			System.out.println("City Square Mall");
-			moreInfoInfo1.insertText(moreInfoInfo1.getLength(), "\n\nCity Square Mall, Level 2 (Beside Customer Service Counter)\n180 Kitchener Road, Singapore 208539\n(Operating hours: Mon to Sun 10am to 10pm)");
+			locationArea.setText("City Square Mall, Level 2 (Beside Customer Service Counter)\n180 Kitchener Road, Singapore 208539\n(Operating hours: Mon to Sun 10am to 10pm)");
 		}
 		else if(lat == 1.2919945){
 			System.out.println("Armf II (Liang Court) Pte Ltd");
-			moreInfoInfo1.insertText(moreInfoInfo1.getLength(), "Liang Court Shopping Mall, L2 Customer Service Counter, 177 River Valley Road, Singapore 179030 \n(Operating hours: 10am to 10pm)");
+			locationArea.setText("Liang Court Shopping Mall, L2 Customer Service Counter, 177 River Valley Road, Singapore 179030 \n(Operating hours: 10am to 10pm)");
 		}
 		else if(lat == 1.2477918){
 			System.out.println("Quayside Isle");
-			moreInfoInfo1.insertText(moreInfoInfo1.getLength(), "\n\nQuayside Isle, Sentosa Cove: B1, outside Management Office \n(Operating hours: Mon to Sun 10am to 10pm)");
+			locationArea.setText("Quayside Isle, Sentosa Cove: B1, outside Management Office \n(Operating hours: Mon to Sun 10am to 10pm)");
 		}
 		else if(lat == 1.2639856){
 			System.out.println("Giant, VivoCity");
-			moreInfoInfo1.insertText(moreInfoInfo1.getLength(), "\n\nGiant Hypermarket Vivocity B2, beside the customer service counter \n(Operating hours: Mon to Sun 10am to 10pm)");
+			locationArea.setText("Giant Hypermarket Vivocity B2, beside the customer service counter \n(Operating hours: Mon to Sun 10am to 10pm)");
 		}
 		else if(lat == 1.2655133){
 			System.out.println("VivoCity");
-			moreInfoInfo1.insertText(moreInfoInfo1.getLength(), "\n\nVivocity, Lobby N Level 3, Sentosa Concourse \n(Operating hours: Mon to Sun 10am to 10pm)");
+			locationArea.setText("Vivocity, Lobby N Level 3, Sentosa Concourse \n(Operating hours: Mon to Sun 10am to 10pm)");
 		}
 		else if(lat == 1.2888443){
 			System.out.println("Chrysler Jeep Automotive of Singapore Pte Ltd");
-			moreInfoInfo1.insertText(moreInfoInfo1.getLength(), "\n\nChrysler Jeep Automotive of Singapore, 1 Chang Charn Road, Singapore 159630 \n(Operating hours: 9am to 7pm daily)");
+			locationArea.setText("Chrysler Jeep Automotive of Singapore, 1 Chang Charn Road, Singapore 159630 \n(Operating hours: 9am to 7pm daily)");
 		}
 		else if(lat == 1.2723219){
 			System.out.println("Food Bank WareHouse");
-			moreInfoInfo1.setText("Mission and Vision\nThe Food Bank Singapore is a registered charity founded by Nichol and Nicholas Ng in January 2012 and was given charity status in August 2012 (UEN: 201200654E). \nThe Food Bank Singapore strives to bridge the gap in the market by collecting surplus food in the market and providing it to organisations and people in need of food.\n\nVision: \n\nTo be the prevailing centralised coordinating organisation for all food donations and play a key role in the reduction of food wastage within the whole supply chain.\n\nMission:\n\nTo bridge potential donors and members\nTo provide access to and knowledge of cheaper sources of food for members\nTo spread the word on the importance of food resource planning to ensure long-term providence of food for everyone\nTo look at ways to reduce food wastage by giving food a new lease of life through creative and alternative ways\nTarget Donors\n\nFood companies\nRetailers\nCharities with excess donations\nHome consumers\nTarget Beneficiaries (Members)\n\nFamily service centres\nVarious types of homes\nSoup kitchens\nOther VWOs ");
+			locationArea.setText("Mission and Vision\nThe Food Bank Singapore is a registered charity founded by Nichol and Nicholas Ng in January 2012 and was given charity status in August 2012 (UEN: 201200654E). \nThe Food Bank Singapore strives to bridge the gap in the market by collecting surplus food in the market and providing it to organisations and people in need of food.\n\nVision: \n\nTo be the prevailing centralised coordinating organisation for all food donations and play a key role in the reduction of food wastage within the whole supply chain.\n\nMission:\n\nTo bridge potential donors and members\nTo provide access to and knowledge of cheaper sources of food for members\nTo spread the word on the importance of food resource planning to ensure long-term providence of food for everyone\nTo look at ways to reduce food wastage by giving food a new lease of life through creative and alternative ways\nTarget Donors\n\nFood companies\nRetailers\nCharities with excess donations\nHome consumers\nTarget Beneficiaries (Members)\n\nFamily service centres\nVarious types of homes\nSoup kitchens\nOther VWOs ");
 		}
 	}
     
@@ -300,6 +303,9 @@ public class CharityFoodDonationGoogleMapController implements Initializable, Ma
  	
  	//Change scene for dropdown(Profile dropdown)
  	@FXML public void menuChangeScene(MouseEvent event) throws IOException {
+ 		User user = new User();
+		user = user.getCurrentUser();
+		
  		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
  		Parent root = null; //(Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/HomePage.fxml"));
  		
@@ -311,6 +317,14 @@ public class CharityFoodDonationGoogleMapController implements Initializable, Ma
  			root = FXMLLoader.load(getClass().getResource("/theFridge/view/Profile2.fxml"));
  		}
  		else if(event.getSource().equals(LogoutMenu)){
+ 			user.setRememberMe(false);
+			user.updateUser();
+			
+			stage.setX(450);
+			stage.setY(128);
+			stage.setWidth(1020);
+			stage.setHeight(650);
+			
  			root = FXMLLoader.load(getClass().getResource("/theFridge/view/LoginSignupPage.fxml"));
  			stage.setMaximized(false);
  		}

@@ -111,6 +111,17 @@ public class DonationPageDAO {
 		return medium;
 	}
 	
+	public ArrayList<DonationHistoryModel> getAllHistoryWithOrganization(String organization) throws FileNotFoundException{
+		ArrayList<DonationHistoryModel> medium = new ArrayList<DonationHistoryModel>();
+		for(DonationHistoryModel a:getAllHistory()){
+			if(a.getOrganization().equalsIgnoreCase(organization)){
+				medium.add(a);
+			}
+		}
+		
+		return medium;
+	}
+	
 	private ArrayList<ListModel> seperateFoodList(String foodList){
 		ArrayList<ListModel> allm = new ArrayList<ListModel>();
 		Scanner sc = new Scanner(foodList);

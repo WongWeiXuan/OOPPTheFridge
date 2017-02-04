@@ -234,6 +234,9 @@
                                                 <Font name="Garamond Bold" size="18.0" />
                                              </font></Text>
                                        </children>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" />
+                                       </VBox.margin>
                                     </TextFlow>
                                     <VBox fx:id="ingredientVBox" prefHeight="200.0" prefWidth="0.0" />
                                  </children>
@@ -262,7 +265,50 @@
                         </HBox>
                      </children>
                   </AnchorPane>
-                  <JFXButton fx:id="eatenBtn" buttonType="RAISED" prefHeight="64.0" prefWidth="898.0" style="-fx-background-color: #ffff66; -fx-background-radius: 10;" text="I Made It">
+                  <HBox alignment="CENTER_LEFT" prefHeight="48.0" prefWidth="960.0">
+                     <VBox.margin>
+                        <Insets right="500.0" />
+                     </VBox.margin>
+                     <children>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../picture/cancel.png" />
+                           </image>
+                        </ImageView>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Out of stocks">
+                           <HBox.margin>
+                              <Insets left="5.0" />
+                           </HBox.margin>
+                        </Text>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../picture/yellowCheck.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Not enough">
+                           <HBox.margin>
+                              <Insets left="5.0" />
+                           </HBox.margin>
+                        </Text>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../picture/checked.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Available">
+                           <HBox.margin>
+                              <Insets left="5.0" />
+                           </HBox.margin>
+                        </Text>
+                     </children>
+                  </HBox>
+                  <JFXButton fx:id="eatenBtn" buttonType="RAISED" onAction="#updateStockList" prefHeight="64.0" prefWidth="898.0" style="-fx-background-color: #ffff66; -fx-background-radius: 10;" text="I Made It">
                      <VBox.margin>
                         <Insets top="20.0" />
                      </VBox.margin>
