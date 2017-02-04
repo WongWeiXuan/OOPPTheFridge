@@ -17,6 +17,7 @@ public class RefrigeratorApp extends Application{
 	public void start(Stage primaryStage) throws Exception{
 		User user = new User();
 		user = user.getCurrentUser();
+		
 		if(user == null){
 			Parent root;
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/LoginSignupPage.fxml"));
@@ -28,33 +29,31 @@ public class RefrigeratorApp extends Application{
 			primaryStage.show();
 		}
 		else{
-		
-		try {
-			
-			Parent root;
-			if (user.isRememberMe() == true) {
-				root = FXMLLoader.load(getClass().getResource("/theFridge/view/GetStartedPage.fxml"));
-				Screen screen = Screen.getPrimary();
-				Rectangle2D bounds = screen.getVisualBounds();
-				primaryStage.setX(bounds.getMinX());
-				primaryStage.setY(bounds.getMinY());
-				primaryStage.setWidth(bounds.getWidth());
-				primaryStage.setHeight(bounds.getHeight());
-				primaryStage.setMaximized(true);
+			try {
+				Parent root;
+				if (user.isRememberMe() == true) {
+					root = FXMLLoader.load(getClass().getResource("/theFridge/view/GetStartedPage.fxml"));
+					Screen screen = Screen.getPrimary();
+					Rectangle2D bounds = screen.getVisualBounds();
+					primaryStage.setX(bounds.getMinX());
+					primaryStage.setY(bounds.getMinY());
+					primaryStage.setWidth(bounds.getWidth());
+					primaryStage.setHeight(bounds.getHeight());
+					primaryStage.setMaximized(true);
+				}
+				else {
+					root = FXMLLoader.load(getClass().getResource("/theFridge/view/LoginSignupPage.fxml"));
+				}
+				Scene scene = new Scene(root);
+				primaryStage.setScene(scene);
+				primaryStage.getIcons().add(new Image("/theFridge/picture/fridge.png"));
+				primaryStage.setTitle("TheFridge");
+				//primaryStage.initStyle(StageStyle.UNDECORATED);
+				primaryStage.show();
+			} 
+			catch(Exception e) {
+				e.printStackTrace();
 			}
-			else {
-				root = FXMLLoader.load(getClass().getResource("/theFridge/view/LoginSignupPage.fxml"));
-			}
-			Scene scene = new Scene(root);
-			primaryStage.setScene(scene);
-			primaryStage.getIcons().add(new Image("/theFridge/picture/fridge.png"));
-			primaryStage.setTitle("TheFridge");
-			//primaryStage.initStyle(StageStyle.UNDECORATED);
-			primaryStage.show();
-		} 
-		catch(Exception e) {
-			e.printStackTrace();
-		}
 		}
 	}
 	
