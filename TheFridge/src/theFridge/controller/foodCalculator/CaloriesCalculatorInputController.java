@@ -18,16 +18,16 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Spinner;
 import javafx.scene.image.Image;
-import javafx.stage.Stage;
-import javafx.util.Duration;
-import theFridge.model.CaloriesCalculatorInputModel;
-import theFridge.model.FoodCalculatorCaloriesCalculatorRecipeModel;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.shape.Circle;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Circle;
+import javafx.stage.Stage;
+import javafx.util.Duration;
+import theFridge.model.CaloriesCalculatorInputModel;
+import theFridge.model.FoodCalculatorCaloriesCalculatorRecipeModel;
 
 public class CaloriesCalculatorInputController {
 

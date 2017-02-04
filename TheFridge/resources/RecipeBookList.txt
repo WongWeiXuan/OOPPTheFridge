@@ -1,0 +1,10 @@
+mudkip;Fried Murloc Tails;Murloc Tails;Chili;Palm Oil;Heat up the pan with oil before searing the tails until golden green. Add chili afterwards
+mudkip;Fried Murloc 1;Murloc Tails;Chili;Palm Oil;Heat up the pan with oil before searing the tails until golden green. Add chili afterwards
+mudkip;Fried Murloc 3;Murloc Tails;Chili;Palm Oil;Heat up the pan with oil before searing the tails until golden green. Add chili afterwards
+mudkip;Fried Murloc 4;Murloc Tails;Chili;Palm Oil;Heat up the pan with oil before searing the tails until golden green. Add chili afterwards
+PLS GET USERNAME;test;t;e;st;concatenate all ingredients
+PLS GET USERNAME;Testing;tes;tin;g;concatenate all characters
+PLS GET USERNAME;Testing3;test;ing;3;concatenate all letters~
+PLS GET USERNAME;testest10;tes;tes;t10;test
+PLS GET USERNAME;jmr;j;m;r;join all characters together
+null;1231;12;32;;Enter steps in here

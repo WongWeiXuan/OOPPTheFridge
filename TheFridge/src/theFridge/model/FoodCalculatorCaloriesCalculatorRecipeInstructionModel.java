@@ -1,10 +1,5 @@
 package theFridge.model;
 
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.HBox;
-import javafx.scene.text.TextFlow;
-
 @SuppressWarnings("unused")
 public class FoodCalculatorCaloriesCalculatorRecipeInstructionModel {
 	/*

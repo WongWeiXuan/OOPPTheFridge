@@ -12,7 +12,6 @@ import theFridge.model.DonationPageModel;
 import theFridge.model.ListModel;
 import theFridge.model.StockModel;
 import theFridge.model.User;
-import theFridge.model.UserStockListModel;
 
 public class DonationPageDAO {
 	File donateFoodFile;
@@ -93,7 +92,8 @@ public class DonationPageDAO {
 			ArrayList<ListModel> lm = seperateFoodList(foodList);
 			String time = fields[4];
 			int timeLeft = Integer.parseInt(fields[5]);
-			DonationHistoryModel a = new DonationHistoryModel(userName, organizationName, contact, lm, time, timeLeft);
+			String comment = fields[6];
+			DonationHistoryModel a = new DonationHistoryModel(userName, organizationName, contact, lm, time, timeLeft, comment);
 			aldhm.add(a);
 		}
 		sc.close();
@@ -170,7 +170,7 @@ public class DonationPageDAO {
 					line += ";" + name + ":" + amount;
 				}
 			}
-			line +=  "-" + a.getTime() + "-" + a.getTimeTaken() + "\n";
+			line +=  "-" + a.getTime() + "-" + a.getTimeTaken() + "-" + a.getComment() + "\n";
 		}
 		FileWriter writer = new FileWriter(donationHistoryFile);
 		writer.write(line);

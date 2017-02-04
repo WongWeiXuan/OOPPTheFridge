@@ -1,5 +1,6 @@
 package theFridge.controller;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -19,6 +20,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import theFridge.model.RecipeBook;
+import theFridge.model.User;
 
 public class EditRecipeController {
 	
@@ -99,9 +101,11 @@ public class EditRecipeController {
 	//////////
 	//////////
 	//////////
-	public void handleSubmit(MouseEvent event) {
+	public void handleSubmit(MouseEvent event) throws FileNotFoundException {
 		
-		String addedBy = "PLS GET USERNAME";
+		User user = new User();
+		user.getCurrentUser();
+		String addedBy = user.getUsername();
 		String name    = recipenametxt.getText();
 		String ingre1  = ingre1txt.getText();
 		String ingre2  = ingre2txt.getText();
@@ -109,7 +113,6 @@ public class EditRecipeController {
 		String steps   = stepstxt.getText();
 		RecipeBook rbb = new RecipeBook(addedBy,name,ingre1,ingre2,ingre3,steps);
 		
-		@SuppressWarnings("static-access")
 		ArrayList <RecipeBook> bookList = rbb.getAllRecipeBook();
 		
 		bookList.add(rbb);
@@ -156,26 +159,26 @@ public class EditRecipeController {
 	
 	public void changeScene(MouseEvent event) throws IOException {
 		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-		Parent root = null; //(Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/HomePage.fxml"));
+		Parent root = null; //(Parent)FXMLLoader.load(getClass().getResource("/thefridge/view/HomePage.fxml"));
 		
 		
 		if(event.getSource().equals(homeScene)){
-			root = FXMLLoader.load(getClass().getResource("/theFridge/view/HomePage.fxml"));
+			root = FXMLLoader.load(getClass().getResource("/thefridge/view/HomePage.fxml"));
 		}
 		else if(event.getSource().equals(recipeScene)){
-			root = FXMLLoader.load(getClass().getResource("/theFridge/view/FindingDish.fxml"));
+			root = FXMLLoader.load(getClass().getResource("/thefridge/view/FindingDish.fxml"));
 		}
 		else if(event.getSource().equals(compostScene)){
-			root = FXMLLoader.load(getClass().getResource("/theFridge/view/Page1.fxml"));
+			root = FXMLLoader.load(getClass().getResource("/thefridge/view/Page1.fxml"));
 		}
 		else if(event.getSource().equals(foodScene)){
-			root = FXMLLoader.load(getClass().getResource("/theFridge/view/foodCalculator/FoodCalculatorNavigation.fxml"));
+			root = FXMLLoader.load(getClass().getResource("/thefridge/view/ShoppingListPage.fxml"));
 		}
 		else if(event.getSource().equals(quizScene)){
-			root = FXMLLoader.load(getClass().getResource("/theFridge/view/QuizPage.fxml"));
+			root = FXMLLoader.load(getClass().getResource("/thefridge/view/QuizPage.fxml"));
 		}
 		else if(event.getSource().equals(prizeScene)){
-			root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemVoucherPage.fxml"));
+			root = FXMLLoader.load(getClass().getResource(""));
 		}
 		stage.setMaximized(true);
  		stage.setScene(new Scene(root));

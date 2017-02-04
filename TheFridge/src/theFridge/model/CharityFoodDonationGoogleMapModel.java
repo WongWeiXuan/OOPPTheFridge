@@ -21,6 +21,7 @@ import com.lynden.gmapsfx.service.directions.DirectionsResult;
 import com.lynden.gmapsfx.service.directions.DirectionsService;
 import com.lynden.gmapsfx.service.directions.DirectionsServiceCallback;
 import com.lynden.gmapsfx.service.directions.TravelModes;
+
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;

@@ -3,33 +3,29 @@ package theFridge.controller;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+import com.jfoenix.controls.JFXButton;
+
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.RotateTransition;
 import javafx.animation.Timeline;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.layout.AnchorPane;
-
-import javafx.scene.input.MouseEvent;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
-import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
-
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import theFridge.model.ShoppingListModel;
 import theFridge.model.User;
-
-import com.jfoenix.controls.JFXButton;
-import javafx.event.ActionEvent;
 
 public class ShoppingListInputController {
 	@FXML

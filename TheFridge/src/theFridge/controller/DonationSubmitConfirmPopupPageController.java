@@ -1,28 +1,28 @@
 package theFridge.controller;
 
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
-import javafx.scene.text.Text;
-import javafx.stage.Stage;
-import theFridge.model.CharityFoodDonationGoogleMapModel;
-import theFridge.model.DonationHistoryModel;
-import theFridge.model.ListModel;
-import theFridge.model.User;
-
 import java.io.IOException;
 import java.util.ArrayList;
 
 import com.jfoenix.controls.JFXButton;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
+import theFridge.model.CharityFoodDonationGoogleMapModel;
+import theFridge.model.DonationHistoryModel;
+import theFridge.model.ListModel;
+import theFridge.model.User;
+import javafx.scene.control.TextArea;
 
 public class DonationSubmitConfirmPopupPageController {
 	@FXML
@@ -41,6 +41,8 @@ public class DonationSubmitConfirmPopupPageController {
 	private Text contactLbl;
 	@FXML
 	private Text locationLbl1;
+	@FXML 
+	private TextArea commentArea;
 	@FXML
 	private JFXButton changeBtn;
 	@FXML
@@ -53,6 +55,7 @@ public class DonationSubmitConfirmPopupPageController {
 	static String time;
 	static int timeTaken;
 	static Stage stage1;
+	
 
 	public void initialize(){
 		nameLbl.setText(name);
@@ -84,7 +87,7 @@ public class DonationSubmitConfirmPopupPageController {
 		user.setName(name);
 		user.setEmail(email);
 		user.setCountry(location);
-		DonationHistoryModel dhm = new DonationHistoryModel(user, CharityFoodDonationGoogleMapModel.OrganizationTxt, contact, allm, time, timeTaken);
+		DonationHistoryModel dhm = new DonationHistoryModel(user, CharityFoodDonationGoogleMapModel.OrganizationTxt, contact, allm, time, timeTaken, commentArea.getText());
 		dhm.submitForm(dhm);
 		Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 		stage.close();
