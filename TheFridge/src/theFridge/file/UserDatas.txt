@@ -1,2 +1,1 @@
-xxx;xxx;100001111000011110000111;xxx@gmail.com;Tampines Mall;null;null;null;null;360;null;0;[];[  40,  40, 40];[  04/2/2017,  05/2/2017, 07/2/2017];true;file:null
 null;anything;110011101100110111001100;anything@gmail.com;Geylang;null;null;null;null;0;null;0;[];null;null;false;null
