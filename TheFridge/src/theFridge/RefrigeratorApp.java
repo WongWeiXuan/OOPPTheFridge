@@ -26,7 +26,6 @@ public class RefrigeratorApp extends Application{
 			primaryStage.setTitle("TheFridge");
 			//primaryStage.initStyle(StageStyle.UNDECORATED);
 			primaryStage.show();
-			System.out.println("hello");
 		}
 		else{
 		

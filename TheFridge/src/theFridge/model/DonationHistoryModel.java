@@ -2,8 +2,10 @@ package theFridge.model;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
@@ -112,9 +114,14 @@ public class DonationHistoryModel {
 		TextFlow txtfw4 = new TextFlow(new Label("Time"));
 		TextFlow txtfw5 = new TextFlow(new Label(a.getTime()));
 		TextFlow txtfw6 = new TextFlow(new Label("Comment"));
-		TextFlow txtfw7 = new TextFlow(new Label(a.getComment()));
+		String comment = a.getComment();
+		comment = comment.replaceAll("@", "\n");
+		TextArea txtArea = new TextArea(comment);
+		txtArea.setEditable(false);
 		VBox vbox1 = new VBox();
-		vbox1.getChildren().addAll(txtfw1, txtfw2, vbox3, txtfw4, txtfw5, txtfw6, txtfw7);
+		vbox1.getChildren().addAll(txtfw1, txtfw2, vbox3, txtfw4, txtfw5, txtfw6, txtArea);
+		if(vbox1.equals(null))
+			System.out.println("null");
 		return vbox1;
 	}
 }

@@ -3,6 +3,7 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -151,7 +152,7 @@
                   </VBox>
                </children>
             </AnchorPane>
-            <HBox prefHeight="735.0" prefWidth="1141.0">
+            <HBox prefHeight="735.0" prefWidth="1141.0" HBox.hgrow="ALWAYS">
                <HBox.margin>
                   <Insets right="150.0" />
                </HBox.margin>
@@ -217,7 +218,14 @@
                         </BorderPane>
                      </children>
                   </VBox>
-                  <VBox prefHeight="735.0" prefWidth="886.0" />
+                  <VBox prefHeight="735.0" prefWidth="886.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                          <content>
+                              <VBox fx:id="VBoxadd" alignment="CENTER" />
+                          </content>
+                        </ScrollPane>
+                     </children></VBox>
                </children>
             </HBox>
          </children>

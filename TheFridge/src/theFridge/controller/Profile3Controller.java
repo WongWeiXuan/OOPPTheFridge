@@ -99,9 +99,7 @@ public class Profile3Controller {
 		u = u.getCurrentUser();
 		DonationPageDAO dao = new DonationPageDAO();
 		ArrayList<DonationHistoryModel> aldhm = dao.getAllHistoryWithUser(u.getName());
-		System.out.println(aldhm.size());
 		for(DonationHistoryModel a:aldhm){
-			System.out.println(a.getUser().getName());
 			VBoxadd.getChildren().add(0, DonationHistoryModel.initializeVBox(a));
 		}
 	}

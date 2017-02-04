@@ -87,7 +87,9 @@ public class DonationSubmitConfirmPopupPageController {
 		user.setName(name);
 		user.setEmail(email);
 		user.setCountry(location);
-		DonationHistoryModel dhm = new DonationHistoryModel(user, CharityFoodDonationGoogleMapModel.OrganizationTxt, contact, allm, time, timeTaken, commentArea.getText());
+		String comment = commentArea.getText();
+		comment = comment.replaceAll("\n", "@");
+		DonationHistoryModel dhm = new DonationHistoryModel(user, CharityFoodDonationGoogleMapModel.OrganizationTxt, contact, allm, time, timeTaken, comment);
 		dhm.submitForm(dhm);
 		Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 		stage.close();
