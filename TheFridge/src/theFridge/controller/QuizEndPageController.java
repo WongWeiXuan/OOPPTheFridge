@@ -131,7 +131,7 @@ public class QuizEndPageController {
 		
 		String pastDate1 = user.getPastDate();
 		String pastDate2 = null;
-		SimpleDateFormat sdf = new SimpleDateFormat("dd/M/yyyy");
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/M/yyyy - hh:mm:a");
 		String pastDate = sdf.format(new Date());
 		if (pastDate1.equals("[]")) {
 			String newValue = ( "[" + pastDate + "]");
@@ -201,19 +201,19 @@ public class QuizEndPageController {
 		String PD2 = null;
 		String PD3 = null;
 		if (str2Array.length == 1) {
-			PD1 = str2Array[0].replace("[", "").replace(" ", "").replace("]", "");
+			PD1 = str2Array[0].replace("[", "").replace(" ", "").replace("]", "").replace("-", " at ");
 			PD2 = "Nil";
 			PD3 = "Nil";
 		}
 		else if (str2Array.length == 2) {
-			PD1 = str2Array[0].replace("[", "").replace(" ", "").replace("]", "");
-			PD2 = str2Array[1].replace("[", "").replace(" ", "").replace("]", "");
+			PD1 = str2Array[0].replace("[", "").replace(" ", "").replace("]", "").replace("-", " at ");
+			PD2 = str2Array[1].replace("[", "").replace(" ", "").replace("]", "").replace("-", " at ");
 			PD3 = "Nil";
 		}
 		else if (str2Array.length == 3) {
-			PD1 = str2Array[0].replace("[", "").replace(" ", "").replace("]", "");
-			PD2 = str2Array[1].replace("[", "").replace(" ", "").replace("]", "");
-			PD3 = str2Array[2].replace("[", "").replace(" ", "").replace("]", "");
+			PD1 = str2Array[0].replace("[", "").replace(" ", "").replace("]", "").replace("-", " at ");
+			PD2 = str2Array[1].replace("[", "").replace(" ", "").replace("]", "").replace("-", " at ");
+			PD3 = str2Array[2].replace("[", "").replace(" ", "").replace("]", "").replace("-", " at ");
 		}
 		
 		XYChart.Series series2 = new XYChart.Series();

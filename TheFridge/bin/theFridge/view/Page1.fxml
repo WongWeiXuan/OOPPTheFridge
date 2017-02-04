@@ -155,99 +155,141 @@
                   </VBox>
                </children>
             </AnchorPane>
-            <VBox style="-fx-background-color: #FCE4EC;" HBox.hgrow="ALWAYS">
-               <children>
-                  <VBox alignment="CENTER" prefHeight="236.0" prefWidth="980.0" VBox.vgrow="ALWAYS">
-                     <children>
-                        <TextFlow textAlignment="CENTER">
-                           <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Guide on how to compost food waste" textAlignment="CENTER" wrappingWidth="1126.57275390625">
-                                 <font>
-                                    <Font size="24.0" />
-                                 </font>
-                              </Text>
-                           </children>
-                        </TextFlow>
-                        <TableView fx:id="tableView1" prefHeight="200.0" prefWidth="980.0">
-                          <columns>
-                            <TableColumn fx:id="table1" prefWidth="565.0" text="Common Food You Can Compost" />
-                            <TableColumn fx:id="table2" prefWidth="565.0" text="Common Food You Cannot Compost" />
-                          </columns>
-                           <columnResizePolicy>
-                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                           </columnResizePolicy>
-                           <VBox.margin>
-                              <Insets />
-                           </VBox.margin>
-                        </TableView>
-                     </children>
-                  </VBox>
-                  <VBox alignment="CENTER" prefHeight="471.0" prefWidth="980.0" VBox.vgrow="ALWAYS">
-                     <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Compost Single/ Multiple Food Waste" textAlignment="CENTER" wrappingWidth="979.000024497509">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <HBox alignment="CENTER">
-                           <VBox.margin>
-                              <Insets top="20.0" />
-                           </VBox.margin>
-                           <children>
-                              <JFXComboBox fx:id="showFiles" prefHeight="31.0" prefWidth="125.0" promptText="Files saved" />
-                              <JFXButton fx:id="going" onAction="#again" prefHeight="31.0" prefWidth="71.0" style="-fx-background-color: blue;" text="Go">
-                                 <font>
-                                    <Font name="Arial Black" size="16.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets left="5.0" right="5.0" />
-                                 </HBox.margin>
-                              </JFXButton>
-                              <JFXButton fx:id="buton" onAction="#deleting" style="-fx-background-color: blue;" text="Delete">
-                                 <font>
-                                    <Font name="Arial Black" size="16.0" />
-                                 </font>
-                              </JFXButton>
-                              <JFXComboBox fx:id="choice" onAction="#chosen1" prefHeight="31.0" prefWidth="586.0" promptText="Select Food You Want To Compost">
-                                 <HBox.margin>
-                                    <Insets />
-                                 </HBox.margin>
-                              </JFXComboBox>
-                              <JFXButton fx:id="clear" onAction="#clearAll" opacity="0.2" style="-fx-border-color: red; -fx-border-radius: 5; -fx-background-color: red;" text="Clear">
-                                 <HBox.margin>
-                                    <Insets bottom="5.0" left="10.0" top="5.0" />
-                                 </HBox.margin>
-                                 <font>
-                                    <Font name="Arial Black" size="16.0" />
-                                 </font>
-                              </JFXButton>
-                              <JFXButton fx:id="delete" onAction="#deleteAll" opacity="0.2" style="-fx-background-color: red;" text="Delete">
-                                 <font>
-                                    <Font name="Arial Black" size="16.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets left="10.0" />
-                                 </HBox.margin>
-                              </JFXButton>
-                           </children>
-                        </HBox>
-                        <JFXListView fx:id="listView" prefHeight="219.0" prefWidth="980.0" />
-                        <Label fx:id="alert" prefHeight="21.0" prefWidth="293.0" text="d" textAlignment="CENTER" visible="false" />
-                        <JFXButton fx:id="btnGenerate" onAction="#generateTwo" prefHeight="80.0" prefWidth="210.0" style="-fx-border-color: red; -fx-border-radius: 5; -fx-background-color: orange;" text="Generate" textFill="#1c08fc">
-                           <VBox.margin>
-                              <Insets top="50.0" />
-                           </VBox.margin>
-                           <font>
-                              <Font name="Marlett" size="36.0" />
-                           </font>
-                        </JFXButton>
-                     </children>
-                  </VBox>
-               </children>
+            <StackPane HBox.hgrow="ALWAYS">
                <HBox.margin>
                   <Insets right="150.0" />
                </HBox.margin>
-            </VBox>
+               <children>
+                  <VBox alignment="BOTTOM_CENTER" style="-fx-background-image: url(&quot;theFridge/picture/gg.jpg&quot;); -fx-opacity: 0.5;" StackPane.alignment="BOTTOM_CENTER" />
+                  <VBox>
+                     <children>
+                        <VBox alignment="CENTER" prefHeight="236.0" prefWidth="980.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <TextFlow maxWidth="700.0" style="-fx-background-color: black; -fx-background-radius: 10;" textAlignment="CENTER">
+                                 <children>
+                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Guide on how to compost food waste" textAlignment="CENTER" wrappingWidth="515.341796875">
+                                       <font>
+                                          <Font size="36.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" />
+                                 </VBox.margin>
+                              </TextFlow>
+                              <TableView fx:id="tableView1" maxWidth="1200.0" prefHeight="192.0" style="-fx-border-color: black; -fx-border-width: 3;">
+                                <columns>
+                                  <TableColumn fx:id="table1" prefWidth="565.0" text="Common Food You Can Compost" />
+                                  <TableColumn fx:id="table2" prefWidth="565.0" text="Common Food You Cannot Compost" />
+                                </columns>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </TableView>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="471.0" prefWidth="980.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <TextFlow maxWidth="400.0" style="-fx-background-color: black; -fx-background-radius: 10;" textAlignment="CENTER">
+                                 <children>
+                                    <Text fill="#ff5500" strokeType="OUTSIDE" strokeWidth="0.0" text="Compost Single/ Multiple Food Waste" textAlignment="CENTER" wrappingWidth="979.000024497509">
+                                       <font>
+                                          <Font name="Symbol" size="24.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" top="5.0" />
+                                 </VBox.margin>
+                              </TextFlow>
+                              <HBox alignment="CENTER_LEFT" prefHeight="445.0" prefWidth="980.0" VBox.vgrow="ALWAYS">
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                                 <children>
+                                    <VBox prefHeight="380.0" prefWidth="300.0">
+                                       <children>
+                                          <HBox prefHeight="184.0" prefWidth="243.0" style="-fx-background-color: E1E0D8; -fx-border-color: yellow; -fx-border-width: 5;">
+                                             <children>
+                                                <JFXComboBox fx:id="showFiles" prefHeight="31.0" prefWidth="125.0" promptText="Files saved" />
+                                                <JFXButton fx:id="going" onAction="#again" prefHeight="31.0" prefWidth="71.0" style="-fx-background-color: blue;" text="Go">
+                                                   <font>
+                                                      <Font name="Arial Black" size="16.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets left="5.0" right="5.0" />
+                                                   </HBox.margin>
+                                                </JFXButton>
+                                                <JFXButton fx:id="buton" onAction="#deleting" style="-fx-background-color: blue;" text="Delete">
+                                                   <font>
+                                                      <Font name="Arial Black" size="16.0" />
+                                                   </font>
+                                                </JFXButton>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </VBox>
+                                    <VBox alignment="CENTER" prefHeight="200.0" prefWidth="760.0" style="-fx-background-color: D3D3CE; -fx-border-color: yellow; -fx-border-width: 5;" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <HBox alignment="CENTER" prefHeight="25.0" prefWidth="700.0">
+                                             <children>
+                                                <JFXComboBox fx:id="choice" onAction="#chosen1" prefHeight="31.0" prefWidth="586.0" promptText="Select Food You Want To Compost">
+                                                   <HBox.margin>
+                                                      <Insets />
+                                                   </HBox.margin></JFXComboBox>
+                                                <JFXButton fx:id="clear" onAction="#clearAll" opacity="0.2" style="-fx-border-color: red; -fx-border-radius: 5; -fx-background-color: red;" text="Clear">
+                                                   <HBox.margin>
+                                                      <Insets bottom="5.0" left="10.0" top="5.0" />
+                                                   </HBox.margin>
+                                                   <font>
+                                                      <Font name="Arial Black" size="16.0" />
+                                                   </font>
+                                                </JFXButton>
+                                                <JFXButton fx:id="delete" onAction="#deleteAll" opacity="0.2" prefHeight="38.0" style="-fx-background-color: red;" text="Delete">
+                                                   <font>
+                                                      <Font name="Arial Black" size="16.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets bottom="5.0" left="10.0" top="5.0" />
+                                                   </HBox.margin>
+                                                </JFXButton>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets />
+                                             </VBox.margin>
+                                          </HBox>
+                                          <JFXListView fx:id="listView" prefHeight="388.0" prefWidth="680.0">
+                                             <VBox.margin>
+                                                <Insets left="10.0" right="10.0" />
+                                             </VBox.margin></JFXListView>
+                                          <Label fx:id="alert" prefHeight="21.0" prefWidth="293.0" text="d" textAlignment="CENTER" visible="false" />
+                                          <JFXButton fx:id="btnGenerate" onAction="#generateTwo" prefHeight="80.0" prefWidth="210.0" style="-fx-border-color: red; -fx-border-radius: 5; -fx-background-color: orange;" text="Generate" textFill="#1c08fc">
+                                             <VBox.margin>
+                                                <Insets bottom="40.0" top="50.0" />
+                                             </VBox.margin>
+                                             <font>
+                                                <Font name="Marlett" size="36.0" />
+                                             </font>
+                                          </JFXButton>
+                                       </children>
+                                       <HBox.margin>
+                                          <Insets bottom="20.0" left="20.0" />
+                                       </HBox.margin>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+               </children>
+            </StackPane>
          </children>
       </HBox>
       <AnchorPane AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">

@@ -58,6 +58,20 @@ public class QuizPageController {
 	@FXML
 	private VBox prizeScene;
 	@FXML
+	private Circle profileCircle;
+	@FXML 
+	private StackPane dropdownMenu;
+	@FXML 
+	private VBox dropdownWord;
+	@FXML 
+	private VBox dropdownBackground;
+	@FXML 
+	private VBox ProfileMenu;
+	@FXML 
+	private VBox SettingMenu;
+	@FXML
+	private VBox LogoutMenu;
+	@FXML
 	private JFXButton choiceBtn1;
 	@FXML
 	private JFXButton choiceBtn2;
@@ -86,19 +100,7 @@ public class QuizPageController {
 	@FXML
 	private JFXButton continueBtn;
 	@FXML
-	private Circle profileCircle;
-	@FXML 
-	private StackPane dropdownMenu;
-	@FXML 
-	private VBox dropdownWord;
-	@FXML 
-	private VBox dropdownBackground;
-	@FXML 
-	private VBox ProfileMenu;
-	@FXML 
-	private VBox SettingMenu;
-	@FXML
-	private VBox LogoutMenu;
+	private JFXButton infoBtn;
 	
 	//For profile dropdown(Profile dropdown)
 	private boolean open = false;
@@ -136,7 +138,7 @@ public class QuizPageController {
 		
 		toolTip = new Tooltip("Click here for explanation");
 		quizQ.hackTooltipStartTiming(toolTip);
-		Tooltip.install(infoImg, toolTip);
+		infoBtn.setTooltip(toolTip);
 		questionNo.setText(String.valueOf(pageNo) + "/10");
 		pointsEarned.setText("Points earned: " + QuizQuestionsModel.getPointsAttained());
 		
@@ -664,7 +666,7 @@ public class QuizPageController {
 
 	
 	@FXML
-	public void showExplanations(MouseEvent event) {
+	public void showExplanations(ActionEvent event) {
 		QuizQuestionsModel.setDontShowAgain(true);
 		try {
 			@SuppressWarnings("rawtypes")
@@ -741,6 +743,10 @@ public class QuizPageController {
 		
 	//Change scene for dropdown(Profile dropdown)
 	@FXML public void menuChangeScene(MouseEvent event) throws IOException {
+		if (timeline.getStatus().equals(Status.RUNNING)) {
+			timeline.stop();
+		}
+		
 		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
 		Parent root = null; //(Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/HomePage.fxml"));
 		
