@@ -1,5 +1,6 @@
 package theFridge.controller.foodCalculator;
 
+import java.awt.Insets;
 import java.io.IOException;
 
 import javafx.animation.KeyFrame;
@@ -12,17 +13,26 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import theFridge.DAO.ShoppingListDAO;
+import theFridge.model.FoodCalculatorCaloriesCalculatorRecipeInstructionModel;
 import theFridge.model.FoodCalculatorCaloriesCalculatorRecipeModel;
+import theFridge.model.Ingredient;
+import theFridge.model.IngredientModel;
+
+import com.jfoenix.controls.JFXButton;
 
 public class CaloriesCalculatorController {
 	@FXML
@@ -73,21 +83,51 @@ public class CaloriesCalculatorController {
 	@FXML
 	private VBox dropdownBackground;
 	private boolean open = false;
-	@FXML ImageView downArrow;
+	@FXML 
+	private ImageView downArrow;
+	@FXML 
+	private VBox InstructionVBox;
+	@FXML 
+	private JFXButton eatenBtn;
+	@FXML 
+	private VBox ingredientVBox;
 	
 	@FXML
 	public void initialize() throws IOException{
 		String meal = FoodCalculatorCaloriesCalculatorRecipeModel.getMeal();
 		int calories = FoodCalculatorCaloriesCalculatorRecipeModel.getTargetCalories();
-		System.out.println(meal);
-		System.out.println(calories);
 		FoodCalculatorCaloriesCalculatorRecipeModel i = new FoodCalculatorCaloriesCalculatorRecipeModel(meal, calories);
-		System.out.println(i.getRecipeWithinCalories().getCalories());
+		//First Box
 		Time.setText(meal);
 		NumberOfCalories.setText(i.getRecipeWithinCalories().getCalories() + " Calories");
 		Measurements.setText(i.getRecipeWithinCalories().getServing() + " Serving");
 		FoodName.setText(i.getRecipeWithinCalories().getName());
 		FoodImage.setImage(new Image(i.getRecipeWithinCalories().getPicture()));
+		//Second Box
+		for(Ingredient a:i.getRecipeWithinCalories().getIngredient()){
+			ShoppingListDAO dao = new ShoppingListDAO();
+			ImageView iv;
+			try{
+				dao.getStockModelByName(a.getName()).equals(null);
+				iv = new ImageView(new Image("/theFridge/picture/checked.png"));
+			}catch(NullPointerException e){
+				iv = new ImageView(new Image("/theFridge/picture/cancel.png"));
+			}
+			System.out.println(a.getAmount());
+			String line = a.getAmount() + " " + a.getMeasurement() + " " + a.getName();
+			Label lbl = new Label(line);
+			lbl.setFont(new Font(18));
+			lbl.setStyle("-fx-padding: 10 0 10 10");
+			iv.setFitWidth(30);
+			iv.setFitHeight(30);
+			iv.setStyle("-fx-padding: 10 0 0 10");
+			HBox hbox = new HBox(iv, lbl);
+			ingredientVBox.getChildren().add(hbox);
+		}
+		TextArea txta = new TextArea(FoodCalculatorCaloriesCalculatorRecipeInstructionModel.printInstruction(i.getRecipeWithinCalories().getName()));
+		txta.setEditable(false);
+		txta.setWrapText(true);
+		InstructionVBox.getChildren().addAll(txta);
 		
 		//Show Profile Picture on Circle
 		Image img = new Image("theFridge/picture/Profile Image.jpg");

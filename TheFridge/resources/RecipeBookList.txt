@@ -7,4 +7,3 @@ PLS GET USERNAME;Testing;tes;tin;g;concatenate all characters
 PLS GET USERNAME;Testing3;test;ing;3;concatenate all letters~
 PLS GET USERNAME;testest10;tes;tes;t10;test
 PLS GET USERNAME;jmr;j;m;r;join all characters together
-null;1231;12;32;;Enter steps in here
