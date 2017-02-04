@@ -28,6 +28,7 @@ import theFridge.DAO.ShoppingListDAO;
 
 public class ShoppingListModel {
 	public static int numOfPeople;
+	public static int numOfDays;
 	static JFXListView<HBox> StocklistView;
 	static JFXPopup Popup;
 	static JFXListView<HBox> ListlistView;
@@ -120,6 +121,7 @@ public class ShoppingListModel {
 
 			StocklistView.getItems().add(hbox);
 		}
+		s.writeToStockFile(ShoppingListModel.getStocklistArray());
 	}
 
 	public void displayShopping() throws FileNotFoundException {
@@ -615,7 +617,7 @@ public class ShoppingListModel {
 	}
 
 	public static double calculateMaxAmount(StockModel stock) {
-		double maxAmount = stock.getServing() * numOfPeople;
+		double maxAmount = (int) (numOfDays / (stock.getServing() / numOfPeople));
 		stock.setMaxAmount(maxAmount);
 		return maxAmount;
 	}

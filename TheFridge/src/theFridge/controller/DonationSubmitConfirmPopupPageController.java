@@ -14,15 +14,19 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import theFridge.DAO.ShoppingListDAO;
 import theFridge.model.CharityFoodDonationGoogleMapModel;
 import theFridge.model.DonationHistoryModel;
+import theFridge.model.DonationPageModel;
+import theFridge.model.Ingredient;
 import theFridge.model.ListModel;
+import theFridge.model.StockModel;
 import theFridge.model.User;
-import javafx.scene.control.TextArea;
 
 public class DonationSubmitConfirmPopupPageController {
 	@FXML
@@ -95,5 +99,7 @@ public class DonationSubmitConfirmPopupPageController {
 		stage.close();
 		Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/CharityFoodDonationPage.fxml"));
 		stage1.setScene(new Scene(root));
+		
+		DonationPageModel.updateStockList(allm);
 	}
 }

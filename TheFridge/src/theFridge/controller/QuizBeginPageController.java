@@ -22,6 +22,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import theFridge.model.User;
 
 public class QuizBeginPageController {
 	@FXML
@@ -125,6 +126,9 @@ public class QuizBeginPageController {
 	
 	//Change scene for dropdown(Profile dropdown)
 	@FXML public void menuChangeScene(MouseEvent event) throws IOException {
+		User user = new User();
+		user = user.getCurrentUser();
+		
 		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
 		Parent root = null; //(Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/HomePage.fxml"));
 		
@@ -135,6 +139,14 @@ public class QuizBeginPageController {
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/Profile.fxml"));
 		}
 		else if(event.getSource().equals(LogoutMenu)){
+			user.setRememberMe(false);
+			user.updateUser();
+			
+			stage.setX(450);
+			stage.setY(128);
+			stage.setWidth(1020);
+			stage.setHeight(650);
+			
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/LoginSignupPage.fxml"));
 			stage.setMaximized(false);
 		}

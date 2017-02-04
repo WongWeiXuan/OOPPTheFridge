@@ -15,9 +15,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import theFridge.DAO.FoodCompostDAO;
 import theFridge.model.FoodCompost;
@@ -43,6 +47,29 @@ public class Page4Controller {
 	private Media me;
 	@FXML
 	private MediaView video;
+	@FXML
+	private AnchorPane darren1;
+	@FXML
+	private JFXButton darren;
+	@FXML
+	private VBox nick;
+	
+	private String darrenwhy = "haha";
+	
+	public void darrenlights(ActionEvent event){
+		if(darrenwhy.equals("haha")){
+			darren.setText("Lights: OFF");
+			nick.setStyle("-fx-background-color: black");
+			label0.setStyle("-fx-text-fill: #FFFFFF");
+			darrenwhy = "hahaha";
+		}
+		else{
+			darren.setText("Lights: ON");
+			nick.setStyle("-fx-background-color: white");
+			label0.setStyle("-fx-text-fill: #000000");
+			darrenwhy = "haha";
+		}
+	}
 	
 	public void initialize() throws FileNotFoundException{
 		File file=new File("src/theFridge/file/video.txt");
@@ -51,7 +78,7 @@ public class Page4Controller {
 		FoodCompostDAO f = new FoodCompostDAO();
 		FoodCompost c = new FoodCompost();
 		c = f.getFoodCompost(n);
-		label0.setText(c.getFoodName());
+		label0.setText("You have Selected : " + c.getFoodName());
 		String path = new File(c.getVideoURL()).getAbsolutePath();
 		me = new Media(new File(path).toURI().toString());
 		mp = new MediaPlayer(me);

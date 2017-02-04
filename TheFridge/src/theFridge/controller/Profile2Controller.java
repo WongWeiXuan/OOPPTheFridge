@@ -910,6 +910,9 @@ public class Profile2Controller {
 	}
 	
 	public void menuChangeScene(MouseEvent event) throws IOException {
+		User user = new User();
+		user = user.getCurrentUser();
+		
 		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
 		Parent root = null; //(Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/HomePage.fxml"));
 		
@@ -921,6 +924,14 @@ public class Profile2Controller {
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/Profile2.fxml"));
 		}
 		else if(event.getSource().equals(LogoutMenu)){
+			user.setRememberMe(false);
+			user.updateUser();
+			
+			stage.setX(450);
+			stage.setY(128);
+			stage.setWidth(1020);
+			stage.setHeight(650);
+			
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/LoginSignupPage.fxml"));
 			stage.setMaximized(false);
 		}
