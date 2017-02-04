@@ -37,6 +37,8 @@ import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.scene.text.TextAlignment;
+import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import theFridge.DAO.FoodCompostDAO;
@@ -181,12 +183,11 @@ public class Page3Controller {
 			FoodCompostDAO f = new FoodCompostDAO();
 			FoodCompost c = new FoodCompost();
 			for(int p=0;p<a1.size();p++){
+				TextFlow tf = new TextFlow();
+				TextFlow tf1 = new TextFlow();
 				String job = a1.get(p);
 				job = job.replaceAll("\\s+", "");
 				c = f.getFoodCompost(job);
-				
-				
-				
 				
 				Label a = new Label(c.getFoodName());
 				a.setFont(Font.font("Amble CN", FontWeight.BOLD, 18));
@@ -228,7 +229,7 @@ public class Page3Controller {
 				});
 				TextField b = new TextField();
 				b.setId(job);
-				b.setMaxWidth(50);
+				b.setMaxWidth(100);
 				//b.setMinWidth(90);
 				b.setPadding(new Insets(0,5,0,5));
 				Label cc = new Label("No Content");
@@ -242,15 +243,24 @@ public class Page3Controller {
 						
 						total = total + score;
 						double percentage = (score/calPercentage())*100;
-						cc.setText(percentage + "%");
+						NumberFormat formatter = new DecimalFormat("#0.00");     
+						cc.setText(formatter.format(percentage) + "%");
 						}
 						catch(Exception e){
 							cc.setText("Please enter a value only");
 						}
 					}
 					});
-				gp.add(a, i, 0);
-				gp.add(b, i, 1);
+				tf.getChildren().add(a);
+				tf.setMinWidth(150);
+				tf.setTextAlignment(TextAlignment.CENTER);
+				tf.setStyle("-fx-padding: 10 0 0 0;");
+				tf1.getChildren().add(b);
+				tf1.setMinWidth(100);
+				tf1.setTextAlignment(TextAlignment.CENTER);
+				tf1.setStyle("-fx-padding: 20 0 0 0;");
+				gp.add(tf, i, 0);
+				gp.add(tf1, i, 1);
 				gp.add(cc, i, 2);
 				
 				i++;
@@ -266,11 +276,23 @@ public class Page3Controller {
 			FoodCompostDAO f = new FoodCompostDAO();
 			FoodCompost c = new FoodCompost();
 			for(int h=0;h<a1.size();h++){
+			TextFlow tf = new TextFlow();
+			TextFlow tf1 = new TextFlow();
 			String jop = a1.get(i);
 			c = f.getFoodCompost(jop);
 			Label a = new Label(c.getFoodName());
 			a.setFont(Font.font("Amble CN", FontWeight.BOLD, 18));
 			a.setMinWidth(100);
+			a.setOnMouseEntered(new EventHandler<MouseEvent>(){
+				public void handle(MouseEvent event) {
+					a.setStyle("-fx-cursor: hand;");
+				}
+			});
+			a.setOnMouseExited(new EventHandler<MouseEvent>(){
+				public void handle(MouseEvent event) {
+					a.setStyle("-fx-cursor: default;");
+				}
+			});
 			a.setOnMouseClicked(new EventHandler<MouseEvent>(){
 				public void handle(MouseEvent event) {
 					String P="src/theFridge/file/video.txt";
@@ -299,8 +321,8 @@ public class Page3Controller {
 			});
 			TextField b = new TextField();
 			b.setId(jop);
-			//b.setMinWidth(90);
-			b.setPadding(new Insets(0,5,0,5));
+			b.setMaxWidth(100);
+			//b.setPadding(new Insets(0,5,0,5));
 			Label cc = new Label("No Content");
 			cc.setFont(Font.font("Amble CN", FontWeight.BOLD, 18));
 			cc.setMinWidth(100);
@@ -320,8 +342,17 @@ public class Page3Controller {
 					}
 				}
 				});
-			gp.add(a, i, 0);
-			gp.add(b, i, 1);
+			tf.getChildren().add(a);
+			tf.setMinWidth(150);
+			tf.setTextAlignment(TextAlignment.CENTER);
+			tf.setStyle("-fx-padding: 10 0 0 0;");
+			tf1.getChildren().add(b);
+			tf1.setMinWidth(100);
+			tf1.setTextAlignment(TextAlignment.CENTER);
+			tf1.setStyle("-fx-padding: 20 0 0 0;");
+			
+			gp.add(tf, i, 0);
+			gp.add(tf1, i, 1);
 			gp.add(cc, i, 2);
 			i++;
 			
