@@ -35,7 +35,7 @@ public class RecipeBookDAO {
 			in=new Scanner(dataFile);
 			while (in.hasNextLine()) {
 				record=in.nextLine();
-				System.out.println("Record:" + record);
+				//System.out.println("Record:" + record);
 				fields=record.split(";");
 				String addedBy=fields[0];
 				String recipeName=fields[1];

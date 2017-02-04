@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Dialog;
 import theFridge.model.Ingredient;
 import theFridge.model.Recipe;
 
@@ -15,17 +18,17 @@ public class FoodCalculatorCaloriesCalculatorRecipeDAO{
 	
 	//Initializing recipeFile...
 	public FoodCalculatorCaloriesCalculatorRecipeDAO(String meal, int targetCalories) throws FileNotFoundException{
-		if(meal == "breakfast"){
+		if(meal.equalsIgnoreCase("breakfast")){
 			recipeFile = new File("src/theFridge/file/Recipes.txt");
 		}
-		else if(meal == "lunch"){
-			recipeFile = new File("src/theFridge/file/RecipesLunch.txt");
+		else if(meal.equalsIgnoreCase("lunch")){
+			recipeFile = new File("src/theFridge/file/RecipeLunch.txt");
 		}
-		else if(meal == "dinner"){
-			recipeFile = new File("src/theFridge/file/RecipesDinner.txt");
+		else if(meal.equalsIgnoreCase("dinner")){
+			recipeFile = new File("src/theFridge/file/RecipeDinner.txt");
 		}
-		else if(meal == "snack"){
-			recipeFile = new File("src/theFridge/file/RecipesSnacks.txt");
+		else if(meal.equalsIgnoreCase("snacks")){
+			recipeFile = new File("src/theFridge/file/RecipeSnacks.txt");
 		}
 		this.targetCalories = targetCalories;
 	}
@@ -94,6 +97,12 @@ public class FoodCalculatorCaloriesCalculatorRecipeDAO{
 					}
 					catch(Exception exce){
 						//Recipe a = new Recipe("Death", , -1, "src/theFridge/picture/Strawberry smoothie.jpg", 1);
+						Alert alert = new Alert(AlertType.ERROR);
+						alert.setTitle("Error Dialog");
+						alert.setHeaderText("Calories Out Of Bound");
+						alert.setContentText("Ooops, We dont cater to fat people");
+
+						alert.showAndWait();
 						System.out.println("Anymore and you will be dead... Sorry :(");
 						System.out.println("Stop playing with the system, enter something realistic please...");
 						return null;
