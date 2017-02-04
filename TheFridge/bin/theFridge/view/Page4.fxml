@@ -42,7 +42,7 @@
                                     <Image url="@../picture/pause1.png" />
                                  </image>
                               </ImageView>
-                              <JFXButton fx:id="pause" onAction="#pause1" prefHeight="60.0" prefWidth="125.0" text="Pause" />
+                              <JFXButton fx:id="pause" onAction="#pause1" prefHeight="60.0" prefWidth="125.0" />
                            </children>
                         </StackPane>
                         <StackPane>
@@ -52,7 +52,7 @@
                                     <Image url="@../picture/fastforward.png" />
                                  </image>
                               </ImageView>
-                              <JFXButton fx:id="fast" onAction="#fast1" prefHeight="60.0" prefWidth="125.0" text="Fast" />
+                              <JFXButton fx:id="fast" onAction="#fast1" prefHeight="60.0" prefWidth="125.0" />
                            </children>
                         </StackPane>
                         <StackPane>
@@ -62,7 +62,7 @@
                                     <Image url="@../picture/slowslow.png" />
                                  </image>
                               </ImageView>
-                              <JFXButton fx:id="slow" onAction="#slow1" prefHeight="60.0" prefWidth="125.0" text="slow" />
+                              <JFXButton fx:id="slow" onAction="#slow1" prefHeight="60.0" prefWidth="125.0" />
                            </children>
                         </StackPane>
                         <StackPane>
@@ -72,7 +72,7 @@
                                     <Image url="@../picture/stopping.png" />
                                  </image>
                               </ImageView>
-                              <JFXButton fx:id="stop" onAction="#stop1" prefHeight="60.0" prefWidth="125.0" text="stop" />
+                              <JFXButton fx:id="stop" onAction="#stop1" prefHeight="60.0" prefWidth="125.0" />
                            </children>
                         </StackPane>
                         <StackPane>
@@ -82,7 +82,7 @@
                                     <Image url="@../picture/idea.png" />
                                  </image>
                               </ImageView>
-                              <JFXButton fx:id="darren" onAction="#darrenlights" prefHeight="60.0" prefWidth="125.0" text="Lights: ON" />
+                              <JFXButton fx:id="darren" onAction="#darrenlights" prefHeight="60.0" prefWidth="125.0" />
                            </children>
                         </StackPane>
                      </children>
