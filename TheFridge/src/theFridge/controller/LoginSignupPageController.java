@@ -137,7 +137,10 @@ public class LoginSignupPageController {
 					spinner.setOpacity(1);
 					loginBtn.setOpacity(0);
 					
-					if (s.getUsername().equals("FoodFromTheHeart") || s.getUsername().equals("WillingHearts") || s.getUsername().equals("FoodBankSingapore")) {
+					User user = new User();
+					user = user.getCurrentUser();
+					
+					if (user.getUsername().equals("FoodFromTheHeart") || user.getUsername().equals("WillingHearts") || user.getUsername().equals("FoodBankSingapore")) {
 						Timeline adTimeline = new Timeline();
 						KeyFrame adKeyFrame = new KeyFrame(
 							Duration.seconds(2), 
