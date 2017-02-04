@@ -8,7 +8,6 @@ import java.util.Scanner;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.Dialog;
 import theFridge.model.Ingredient;
 import theFridge.model.Recipe;
 

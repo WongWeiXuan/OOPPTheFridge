@@ -49,6 +49,8 @@ public class ShoppingListInputController {
 	@FXML
 	private Spinner<Integer> spinner;
 	@FXML
+	private Spinner<Integer> spinner1;
+	@FXML
 	private StackPane dropdownMenu;
 	@FXML
 	private VBox dropdownBackground;
@@ -69,6 +71,7 @@ public class ShoppingListInputController {
 	@FXML
 	public void initialize() throws FileNotFoundException{
 		spinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 15, 4));
+		spinner1.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 28, 7));
 		User u = new User();
         u = u.getCurrentUser();
 		
@@ -77,6 +80,7 @@ public class ShoppingListInputController {
 	@FXML 
 	public void goShoppingPage(ActionEvent event) throws IOException {
 		ShoppingListModel.numOfPeople = spinner.getValue();
+		ShoppingListModel.numOfDays = spinner1.getValue();
 		Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 		Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/ShoppingListPage.fxml"));
 		stage.setScene(new Scene(root));
@@ -140,6 +144,9 @@ public class ShoppingListInputController {
 	
 	//Change scene for dropdown(Profile dropdown)
 	@FXML public void menuChangeScene(MouseEvent event) throws IOException {
+		User user = new User();
+		user = user.getCurrentUser();
+		
 		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
 		Parent root = null; //(Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/HomePage.fxml"));
 		
@@ -151,6 +158,14 @@ public class ShoppingListInputController {
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/Profile2.fxml"));
 		}
 		else if(event.getSource().equals(LogoutMenu)){
+			user.setRememberMe(false);
+			user.updateUser();
+			
+			stage.setX(450);
+			stage.setY(128);
+			stage.setWidth(1020);
+			stage.setHeight(650);
+			
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/LoginSignupPage.fxml"));
 			stage.setMaximized(false);
 		}

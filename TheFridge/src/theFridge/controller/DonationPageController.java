@@ -158,10 +158,12 @@ public class DonationPageController {
 					if(calendar.get(Calendar.HOUR_OF_DAY) >= current.getOpeningHours() && calendar.get(Calendar.HOUR_OF_DAY) < current.getClosingHours()){
 						timeLbl.setFill(Color.GREEN);
 						timeLbl.setText(dateFormat.format(date) + " (OPEN)");
+						submitBtn.setDisable(false);
 					}
 					else{
 						timeLbl.setFill(Color.RED);
 						timeLbl.setText(dateFormat.format(date) + " (CLOSED)");
+						//submitBtn.setDisable(true);
 					}
 				}
 				else{
@@ -169,15 +171,18 @@ public class DonationPageController {
 						if(calendar.get(Calendar.HOUR_OF_DAY) >= current.getSecondaryOpeningHours() && calendar.get(Calendar.HOUR_OF_DAY) < current.getSecondaryClosingHours()){
 							timeLbl.setFill(Color.GREEN);
 							timeLbl.setText(dateFormat.format(date) + " (OPEN)");
+							submitBtn.setDisable(false);
 						}
 						else{
 							timeLbl.setFill(Color.RED);
 							timeLbl.setText(dateFormat.format(date) + " (CLOSED)");
+							//submitBtn.setDisable(true);
 						}
 					}
 					else{
 						timeLbl.setFill(Color.RED);
 						timeLbl.setText(dateFormat.format(date) + " (CLOSED)");
+						//submitBtn.setDisable(true);
 					}
 				}
 			}
@@ -375,6 +380,9 @@ public class DonationPageController {
 	
 	//Change scene for dropdown(Profile dropdown)
 	@FXML public void menuChangeScene(MouseEvent event) throws IOException {
+		User user = new User();
+		user = user.getCurrentUser();
+		
 		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
 		Parent root = null; //(Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/HomePage.fxml"));
 		
@@ -386,6 +394,14 @@ public class DonationPageController {
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/Profile2.fxml"));
 		}
 		else if(event.getSource().equals(LogoutMenu)){
+			user.setRememberMe(false);
+			user.updateUser();
+			
+			stage.setX(450);
+			stage.setY(128);
+			stage.setWidth(1020);
+			stage.setHeight(650);
+			
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/LoginSignupPage.fxml"));
 			stage.setMaximized(false);
 		}

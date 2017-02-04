@@ -2,7 +2,6 @@ package theFridge.model;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -11,7 +10,6 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import theFridge.DAO.DonationPageDAO;
-import theFridge.model.User;
 
 public class DonationHistoryModel {
 	User user;

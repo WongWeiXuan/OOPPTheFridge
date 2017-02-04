@@ -1,9 +1,12 @@
 package theFridge.model;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
@@ -173,5 +176,32 @@ public class DonationPageModel {
 		});
 		enterFoodVBox.getChildren().add(hbox);
 		DonationPageController.first = false;
+	}
+	
+	public static void updateStockList(ArrayList<ListModel> lm) throws IOException {
+		User u = new User();
+		u = u.getCurrentUser();
+		
+		for(ListModel l:lm){
+			ShoppingListDAO dao = new ShoppingListDAO();
+			try{
+				StockModel sm = dao.getStockModelByName(l.getName());
+				sm.equals(null);
+				if(l.getAmount() < sm.getAmount()){
+					sm.setAmount(sm.getAmount() - l.getAmount());
+				}else{
+					sm.setAmount(0);
+				}
+				ArrayList<StockModel> alsm = dao.getAllStock(u.getUsername());
+				for(StockModel stock:alsm){
+					if(stock.getName().equalsIgnoreCase(sm.getName())){
+						stock.setAmount(sm.getAmount());
+					}
+				}
+				dao.writeToStockFile(alsm);
+			}catch(NullPointerException e){
+				
+			}
+		}
 	}
 }

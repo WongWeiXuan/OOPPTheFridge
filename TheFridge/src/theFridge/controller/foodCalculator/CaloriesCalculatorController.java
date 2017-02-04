@@ -1,7 +1,10 @@
 package theFridge.controller.foodCalculator;
 
-import java.awt.Insets;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
+
+import com.jfoenix.controls.JFXButton;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -30,9 +33,10 @@ import theFridge.DAO.ShoppingListDAO;
 import theFridge.model.FoodCalculatorCaloriesCalculatorRecipeInstructionModel;
 import theFridge.model.FoodCalculatorCaloriesCalculatorRecipeModel;
 import theFridge.model.Ingredient;
-import theFridge.model.IngredientModel;
-
-import com.jfoenix.controls.JFXButton;
+import theFridge.model.Recipe;
+import theFridge.model.StockModel;
+import theFridge.model.User;
+import javafx.event.ActionEvent;
 
 public class CaloriesCalculatorController {
 	@FXML
@@ -58,7 +62,7 @@ public class CaloriesCalculatorController {
 	@FXML
 	private VBox vboxContainer;
 	@FXML 
-	private VBox Recipe;
+	private VBox Recipe1;
 	@FXML 
 	private Label Time;
 	@FXML 
@@ -91,7 +95,7 @@ public class CaloriesCalculatorController {
 	private JFXButton eatenBtn;
 	@FXML 
 	private VBox ingredientVBox;
-	
+	private Recipe recipe;
 	@FXML
 	public void initialize() throws IOException{
 		String meal = FoodCalculatorCaloriesCalculatorRecipeModel.getMeal();
@@ -99,28 +103,34 @@ public class CaloriesCalculatorController {
 		FoodCalculatorCaloriesCalculatorRecipeModel i = new FoodCalculatorCaloriesCalculatorRecipeModel(meal, calories);
 		//First Box
 		Time.setText(meal);
-		NumberOfCalories.setText(i.getRecipeWithinCalories().getCalories() + " Calories");
-		Measurements.setText(i.getRecipeWithinCalories().getServing() + " Serving");
-		FoodName.setText(i.getRecipeWithinCalories().getName());
-		FoodImage.setImage(new Image(i.getRecipeWithinCalories().getPicture()));
+		Recipe j = i.getRecipeWithinCalories();
+		this.recipe = j;
+		NumberOfCalories.setText(j.getCalories() + " Calories");
+		Measurements.setText(j.getServing() + " Serving");
+		FoodName.setText(j.getName());
+		FoodImage.setImage(new Image(j.getPicture()));
 		//Second Box
-		for(Ingredient a:i.getRecipeWithinCalories().getIngredient()){
+		for(Ingredient a:j.getIngredient()){
 			ShoppingListDAO dao = new ShoppingListDAO();
 			ImageView iv;
 			try{
-				dao.getStockModelByName(a.getName()).equals(null);
-				iv = new ImageView(new Image("/theFridge/picture/checked.png"));
+				StockModel sm = dao.getStockModelByName(a.getName());
+				sm.equals(null);
+				if(a.getAmount() <= sm.getAmount()){
+					iv = new ImageView(new Image("/theFridge/picture/checked.png"));
+				}else{
+					iv = new ImageView(new Image("/theFridge/picture/yellowCheck.png"));
+				}
 			}catch(NullPointerException e){
 				iv = new ImageView(new Image("/theFridge/picture/cancel.png"));
 			}
-			System.out.println(a.getAmount());
 			String line = a.getAmount() + " " + a.getMeasurement() + " " + a.getName();
 			Label lbl = new Label(line);
 			lbl.setFont(new Font(18));
-			lbl.setStyle("-fx-padding: 10 0 10 10");
+			lbl.setStyle("-fx-padding: 0 0 10 10");
 			iv.setFitWidth(30);
 			iv.setFitHeight(30);
-			iv.setStyle("-fx-padding: 10 0 0 10");
+			iv.setStyle("-fx-padding: 0 0 0 10");
 			HBox hbox = new HBox(iv, lbl);
 			ingredientVBox.getChildren().add(hbox);
 		}
@@ -135,6 +145,33 @@ public class CaloriesCalculatorController {
 		//--------------------------------
 	}
 	
+	@FXML 
+	public void updateStockList(ActionEvent event) throws IOException {
+		User u = new User();
+		u = u.getCurrentUser();
+		for(Ingredient a:recipe.getIngredient()){
+			ShoppingListDAO dao = new ShoppingListDAO();
+			try{
+				StockModel sm = dao.getStockModelByName(a.getName());
+				sm.equals(null);
+				if(a.getAmount() < sm.getAmount()){
+					sm.setAmount(sm.getAmount() - a.getAmount());
+				}else{
+					sm.setAmount(0);
+				}
+				ArrayList<StockModel> alsm = dao.getAllStock(u.getUsername());
+				for(StockModel stock:alsm){
+					if(stock.getName().equalsIgnoreCase(sm.getName())){
+						stock.setAmount(sm.getAmount());
+					}
+				}
+				dao.writeToStockFile(alsm);
+			}catch(NullPointerException e){
+				
+			}
+		}
+	}
+
 	@FXML
 	public void showUserDropdown(MouseEvent event) {
 		RotateTransition rt = new RotateTransition(Duration.millis(400), profileCircle);
@@ -186,8 +223,6 @@ public class CaloriesCalculatorController {
 			timeline.getKeyFrames().addAll(keyFrame1, WaitingFrame1);
 			timeline.play();
 		}
-		
-		
 		
 	}
 	
@@ -264,8 +299,4 @@ public class CaloriesCalculatorController {
  	    stage.show();
 	}
 
-	@FXML
-	public void showInstructions(MouseEvent event) {
-		
-	}
 }

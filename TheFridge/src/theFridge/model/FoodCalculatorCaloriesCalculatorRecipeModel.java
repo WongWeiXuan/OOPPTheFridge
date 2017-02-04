@@ -48,14 +48,4 @@ public class FoodCalculatorCaloriesCalculatorRecipeModel {
 	public static void setTargetCalories(int targetCalorie) {
 		targetCalories = targetCalorie;
 	}
-	
-	public static void main(String args[]) throws FileNotFoundException{
-		FoodCalculatorCaloriesCalculatorRecipeModel i = new FoodCalculatorCaloriesCalculatorRecipeModel("breakfast", 133);
-		System.out.println("Printing recipe...");
-		System.out.println("Meal: " + meal);
-		System.out.println("Calories: " + i.getRecipeWithinCalories().getCalories() + " Calories");
-		System.out.println("Measurement: " + i.getRecipeWithinCalories().getServing() + " Serving");
-		System.out.println("Name: " + i.getRecipeWithinCalories().getName());
-		System.out.println("Image: " + (i.getRecipeWithinCalories().getPicture()));
-	}
 }
