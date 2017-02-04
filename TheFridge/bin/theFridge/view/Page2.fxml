@@ -161,7 +161,24 @@
                   <Insets right="150.0" />
                </HBox.margin>
                <children>
-                  <VBox fx:id="vboxing" alignment="BOTTOM_CENTER" minHeight="735.0" minWidth="980.0" style="-fx-background-color: white;" StackPane.alignment="CENTER" />
+                  <VBox fx:id="vboxing" alignment="BOTTOM_CENTER" minHeight="735.0" minWidth="980.0" style="-fx-background-color: white;" StackPane.alignment="CENTER">
+                     <children>
+                        <MediaView fx:id="mediaa" fitHeight="700.0" fitWidth="980.0" style="-fx-cursor: hand;" />
+                        <HBox fx:id="hboxingg" onMouseEntered="#darker" onMouseExited="#lighter" opacity="0.1" prefHeight="67.0" prefWidth="980.0" style="-fx-background-color: green;">
+                           <children>
+                              <StackPane>
+                                 <children>
+                                    <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../picture/smaller.png" />
+                                       </image>
+                                    </ImageView>
+                                    <JFXButton fx:id="buttonback" onAction="#hiding" style="-fx-cursor: hand;" />
+                                 </children>
+                              </StackPane>
+                           </children>
+                        </HBox>
+                     </children></VBox>
                   <VBox alignment="TOP_CENTER" prefHeight="798.0" prefWidth="1130.0" style="-fx-background-color: #FCE4EC;">
                      <children>
                         <HBox alignment="CENTER" prefHeight="32.0" prefWidth="980.0">

@@ -135,9 +135,32 @@ public class Page2Controller {
 	private AnchorPane apane;
 	@FXML
 	private VBox vboxing;
+	@FXML
+	private MediaView mediaa;
+	@FXML
+	private MediaPlayer mediap;
+	@FXML
+	private JFXButton buttonback;
+	@FXML
+	private HBox hboxingg;
+	
+	String checking = "play";
 	
 	public void tried(ActionEvent event){
-		HBox pannel = new HBox();
+		//final Timeline slideIn = new Timeline();
+		//final Timeline slideOut = new Timeline();
+		/*hboxingg.setOnMouseEntered(new EventHandler<MouseEvent>(){
+			public void handle(MouseEvent mouseEvent){
+				slideIn.play();
+			}
+		});
+		hboxingg.setOnMouseExited(new EventHandler<MouseEvent>(){
+			public void handle(MouseEvent mouseEvent){
+				slideOut.play();
+			}
+			
+		});*/
+		/*HBox pannel = new HBox();
 		JFXButton btn = new JFXButton("Close");
 		btn.setStyle("-fx-background-color: rgba(211, 211, 206,1);");
 		pannel.setStyle("-fx-background-color: rgba(211, 211, 206,1);");
@@ -148,7 +171,76 @@ public class Page2Controller {
 		pannel.getChildren().add(btn);
 		vboxing.getChildren().add(video);
 		vboxing.getChildren().add(pannel);
+		
+		*/
+		double wid = vboxing.getWidth();
+		double hei = vboxing.getHeight();
+		mediaa.setFitWidth(wid);
+		mediaa.setFitHeight(hei);
+		mediap = new MediaPlayer(me);
+		mediaa.setMediaPlayer(mediap);
+		mediaa.setOnMouseClicked(new EventHandler<MouseEvent>(){
+				public void handle(MouseEvent event) {
+					if(checking.equalsIgnoreCase("play")){
+					mediap.play();
+					checking = "playing";
+					}
+					else if(checking.equalsIgnoreCase("playing")){
+						mediap.pause();
+						checking = "play";
+					}
+					
+				}
+				});
 		vboxing.toFront();
+		
+		/*mediap.setOnReady(new Runnable(){
+			public void run(){
+				int w = mediap.getMedia().getWidth();
+				int h = mediap.getMedia().getHeight();
+			
+				
+				slideOut.getKeyFrames().addAll(
+						new KeyFrame(new Duration(0),
+								new KeyValue(hboxingg.translateYProperty(), h-100),
+								new KeyValue(hboxingg.opacityProperty(), 0.9)
+								),
+						new KeyFrame(new Duration(300),
+								new KeyValue(hboxingg.translateYProperty(), h),
+								new KeyValue(hboxingg.opacityProperty(), 0.0)
+								)
+						);
+				
+				
+			
+			slideIn.getKeyFrames().addAll(
+					new KeyFrame(new Duration(0),
+							new KeyValue(hboxingg.translateYProperty(), h),
+							new KeyValue(hboxingg.opacityProperty(), 0.0)
+							),
+					new KeyFrame(new Duration(300),
+							new KeyValue(hboxingg.translateYProperty(), h-100),
+							new KeyValue(hboxingg.opacityProperty(), 0.9)
+							)
+					);
+				
+			
+			
+			}
+		});	
+		*/
+	}
+	public void darker(MouseEvent event){
+		hboxingg.setOpacity(1);
+	}
+	
+	public void lighter(MouseEvent event){
+		hboxingg.setOpacity(0.1);
+	}
+	
+	public void hiding(ActionEvent event){
+		mediap.stop();
+		vboxing.toBack();
 	}
 
 	// Event Listener on VBox[#naviPreview].onMouseEntered
@@ -443,7 +535,6 @@ public class Page2Controller {
 		
 		
 	}
-	String checking = "play";
 	public void fullVideo(MouseEvent event){
 		DoubleProperty width = video.fitWidthProperty();
 		DoubleProperty height = video.fitHeightProperty();
