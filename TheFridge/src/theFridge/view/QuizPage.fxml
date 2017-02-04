@@ -322,6 +322,9 @@
                            <font>
                               <Font name="Garamond" size="18.0" />
                            </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </JFXButton>
                      </children>
                      <padding>

@@ -25,6 +25,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
+import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -37,6 +38,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
@@ -122,6 +124,32 @@ public class Page2Controller {
 	
 	private boolean open = false;
 	private Label lbl;
+	
+	@FXML
+	private JFXButton tryy;
+	
+	@FXML
+	private StackPane sp;
+	
+	@FXML
+	private AnchorPane apane;
+	@FXML
+	private VBox vboxing;
+	
+	public void tried(ActionEvent event){
+		HBox pannel = new HBox();
+		JFXButton btn = new JFXButton("Close");
+		btn.setStyle("-fx-background-color: rgba(211, 211, 206,1);");
+		pannel.setStyle("-fx-background-color: rgba(211, 211, 206,1);");
+		double wid = vboxing.getWidth();
+		double hei = vboxing.getHeight();
+		video.setFitHeight(hei);
+		video.setFitWidth(wid);
+		pannel.getChildren().add(btn);
+		vboxing.getChildren().add(video);
+		vboxing.getChildren().add(pannel);
+		vboxing.toFront();
+	}
 
 	// Event Listener on VBox[#naviPreview].onMouseEntered
 	@FXML
@@ -243,6 +271,7 @@ public class Page2Controller {
 		}
 		
 	}
+	
 	public void saving(ActionEvent event) throws FileNotFoundException{	
 		String save0 = textF.getText();
 		String or = null;

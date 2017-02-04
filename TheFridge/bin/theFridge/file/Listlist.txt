@@ -1,3 +1,2 @@
-xxx:Apple~4.0~20.0:Dayplus Maple Bread~2.0~20.0:Apricots~2.0~20.0:Kellogg's Frosties Cereal~1.0~2.0:Gardenia HiFibre White Bread~3.0~2.0:Corn~3.0~20.0:Sunshine Cookies And Cream Wholemeal Cream Bun~1.0~20.0:Pomegranate~1.0~20.0
+xxx:Apple~4.0~28.0:Dayplus Maple Bread~2.0~28.0:Apricots~2.0~28.0:Kellogg's Frosties Cereal~1.0~2.0:Gardenia HiFibre White Bread~2.0~4.0:Corn~3.0~28.0:Sunshine Cookies And Cream Wholemeal Cream Bun~1.0~28.0:Pomegranate~1.0~28.0
 FoodFromTheHeart:Carrot~6.0~16.0
-ds:
