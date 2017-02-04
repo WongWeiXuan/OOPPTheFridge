@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -163,6 +165,7 @@ public class Page3Controller {
 	
 	private double total = 0;
 	public void initialize() throws FileNotFoundException{
+		gp.setStyle("-fx-background-color: #C2D7E5");
 		ArrayList<String> a1 = new ArrayList<String>();
 		String nope = "savedone";
 		File file=new File("src/theFridge/file/foodcheck.txt");
@@ -188,6 +191,16 @@ public class Page3Controller {
 				Label a = new Label(c.getFoodName());
 				a.setFont(Font.font("Amble CN", FontWeight.BOLD, 18));
 				a.setMinWidth(100);
+				a.setOnMouseEntered(new EventHandler<MouseEvent>(){
+					public void handle(MouseEvent event) {
+						a.setStyle("-fx-cursor: hand;");
+					}
+				});
+				a.setOnMouseExited(new EventHandler<MouseEvent>(){
+					public void handle(MouseEvent event) {
+						a.setStyle("-fx-cursor: default;");
+					}
+				});
 				a.setOnMouseClicked(new EventHandler<MouseEvent>(){
 					public void handle(MouseEvent event) {
 						String P="src/theFridge/file/video.txt";
@@ -211,11 +224,11 @@ public class Page3Controller {
 						}
 						stage.setScene(new Scene(root));
 				 	    stage.show();
-						System.out.println("Yes finally");
 					}
 				});
 				TextField b = new TextField();
 				b.setId(job);
+				b.setMaxWidth(50);
 				//b.setMinWidth(90);
 				b.setPadding(new Insets(0,5,0,5));
 				Label cc = new Label("No Content");
@@ -239,6 +252,7 @@ public class Page3Controller {
 				gp.add(a, i, 0);
 				gp.add(b, i, 1);
 				gp.add(cc, i, 2);
+				
 				i++;
 				
 				
@@ -298,7 +312,8 @@ public class Page3Controller {
 					
 					total = total + score;
 					double percentage = (score/calPercentage())*100;
-					cc.setText(percentage + "%");
+					NumberFormat formatter = new DecimalFormat("#0.00");     
+					cc.setText(formatter.format(percentage) + "%");
 					}
 					catch(Exception e){
 						cc.setText("Please enter a value only");
@@ -317,7 +332,22 @@ public class Page3Controller {
 		}
 	}
 	public void showSteps(ActionEvent event) throws IOException{
-		
+		File file=new File("src/theFridge/file/multipleguide.txt");
+		Scanner sc=new Scanner(file) ;
+		String n = sc.nextLine();
+		ArrayList<String> myList = new ArrayList<String>(Arrays.asList(n.split("@")));
+		StringBuilder msg = new StringBuilder();
+			//Label label = new Label();
+			for (int i = 0; i <myList.size(); i++) {
+				msg.append(Integer.toString(i + 1) );
+				msg.append(" ");
+			    msg.append(myList.get(i));
+			    msg.append("\n");
+			    msg.append("\n");  //this is the new line you need
+			}
+			//System.out.println(msg.toString());
+		String comeon = msg.toString();
+		steps.setText(comeon);
 	}
 	
 	public double calPercentage(){

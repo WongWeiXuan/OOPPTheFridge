@@ -123,10 +123,8 @@ public class Page2Controller {
 	private Circle profileCircle;
 	
 	private boolean open = false;
-	private Label lbl;
-	
 	@FXML
-	private JFXButton tryy;
+	private Label lbl;
 	
 	@FXML
 	private StackPane sp;
@@ -143,10 +141,19 @@ public class Page2Controller {
 	private JFXButton buttonback;
 	@FXML
 	private HBox hboxingg;
+	@FXML
+	private JFXButton playingBtn;
+	@FXML
+	private ImageView ignn;
+	@FXML
+	private JFXSlider sliderr;
+	@FXML
+	private ImageView firstone;
 	
 	String checking = "play";
 	
-	public void tried(ActionEvent event){
+	public void fullVideo(MouseEvent event){
+		mp.stop();
 		//final Timeline slideIn = new Timeline();
 		//final Timeline slideOut = new Timeline();
 		/*hboxingg.setOnMouseEntered(new EventHandler<MouseEvent>(){
@@ -173,6 +180,7 @@ public class Page2Controller {
 		vboxing.getChildren().add(pannel);
 		
 		*/
+		vboxing.setStyle("-fx-background-color: black;");
 		double wid = vboxing.getWidth();
 		double hei = vboxing.getHeight();
 		mediaa.setFitWidth(wid);
@@ -192,6 +200,14 @@ public class Page2Controller {
 					
 				}
 				});
+		
+		sliderr.setValue(mediap.getVolume() * 100);
+		sliderr.valueProperty().addListener(new InvalidationListener(){
+			@Override
+			public void invalidated(Observable observable) {
+				mediap.setVolume(sliderr.getValue() / 100);
+			}
+		});
 		vboxing.toFront();
 		
 		/*mediap.setOnReady(new Runnable(){
@@ -229,6 +245,23 @@ public class Page2Controller {
 			}
 		});	
 		*/
+	}
+	public void showignn(MouseEvent event){
+		sliderr.setVisible(true);
+	}
+	public void hideignn(MouseEvent event){
+		sliderr.setVisible(false);
+	}
+	String checks = "h";
+	public void playplay(ActionEvent event){
+		if(checks.equals("h")){
+		mediap.play();
+		checks = "n";
+		}
+		else{
+			mediap.pause();
+			checks = "h";
+		}
 	}
 	public void darker(MouseEvent event){
 		hboxingg.setOpacity(1);
@@ -368,7 +401,7 @@ public class Page2Controller {
 		String save0 = textF.getText();
 		String or = null;
 		String gh = null;
-		if(save0.equals("")){
+		if(save0.equals("") || save0.equals("null")){
 			lbl.setVisible(true);
 		}
 		else{
@@ -535,7 +568,7 @@ public class Page2Controller {
 		
 		
 	}
-	public void fullVideo(MouseEvent event){
+	/*public void fullVideo(MouseEvent event){
 		DoubleProperty width = video.fitWidthProperty();
 		DoubleProperty height = video.fitHeightProperty();
 		width.bind(Bindings.selectDouble(video.sceneProperty(), "width"));
@@ -597,6 +630,7 @@ public class Page2Controller {
 	      });
 	    
 	}
+	*/
 	
 	
 	public void menuChangeScene(MouseEvent event) throws IOException {
