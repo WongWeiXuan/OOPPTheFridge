@@ -306,6 +306,9 @@
                            </VBox.margin>
                         </VBox>
                      </children>
+                     <HBox.margin>
+                        <Insets right="150.0" />
+                     </HBox.margin>
                   </VBox>
                </children>
                <VBox.margin>
