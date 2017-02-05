@@ -19,6 +19,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Tooltip;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
@@ -27,6 +28,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import theFridge.controller.foodCalculator.CaloriesCalculatorInputController;
 import theFridge.model.ShoppingListAddPageModel;
 import theFridge.model.ShoppingListModel;
 import theFridge.model.ShoppingListQRCodePageModel;
@@ -100,6 +102,13 @@ public class ShoppingListController {
 		}
 			
 		first.startPopup();
+		
+		Tooltip toolTip = new Tooltip("Right-click to edit or delete");
+		Tooltip toolTip1 = new Tooltip("Right-click to edit or delete\nDouble click to update stock list");
+		CaloriesCalculatorInputController.hackTooltipStartTiming(toolTip);
+		CaloriesCalculatorInputController.hackTooltipStartTiming(toolTip1);
+		Tooltip.install(StocklistView, toolTip);
+		Tooltip.install(ListlistView, toolTip1);
 	}
 	
 	//Animation for the Dropdown(Profile Dropdown)

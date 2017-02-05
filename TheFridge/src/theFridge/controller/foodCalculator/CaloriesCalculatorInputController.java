@@ -100,7 +100,7 @@ public class CaloriesCalculatorInputController {
 		Tooltip.install(infoLbl, toolTip);
     }
     
-    public void hackTooltipStartTiming(Tooltip tooltip) {
+    public static void hackTooltipStartTiming(Tooltip tooltip) {
         try {
             Field fieldBehavior = tooltip.getClass().getDeclaredField("BEHAVIOR");
             fieldBehavior.setAccessible(true);
@@ -136,7 +136,13 @@ public class CaloriesCalculatorInputController {
     @FXML
     void goNext(ActionEvent event) throws IOException {
     	String caloriesText = calories.getText();
-    	int NumberOfCalories = Integer.parseInt(caloriesText);
+    	int NumberOfCalories;
+    	try{
+    		NumberOfCalories = Integer.parseInt(caloriesText);
+    	}catch(Exception e){
+    		double NumberOfCalories1 = Double.parseDouble(caloriesText);
+    		NumberOfCalories = (int)NumberOfCalories1;
+    	}
     	
     	FoodCalculatorCaloriesCalculatorRecipeModel.setMeal(NumOfMeals);
     	FoodCalculatorCaloriesCalculatorRecipeModel.setTargetCalories(NumberOfCalories);
@@ -285,10 +291,10 @@ public class CaloriesCalculatorInputController {
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/Page1.fxml"));
 		}
 		else if(event.getSource().equals(foodScene)){
-			root = FXMLLoader.load(getClass().getResource("/theFridge/view/ShoppingListPage.fxml"));
+			root = FXMLLoader.load(getClass().getResource("/theFridge/view/foodCalculator/FoodCalculatorNavigation.fxml"));
 		}
 		else if(event.getSource().equals(quizScene)){
-			root = FXMLLoader.load(getClass().getResource("/theFridge/view/QuizPage.fxml"));
+			root = FXMLLoader.load(getClass().getResource("/theFridge/view/QuizBeginPage.fxml"));
 		}
 		else if(event.getSource().equals(prizeScene)){
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/RedeemVoucherPage.fxml"));
