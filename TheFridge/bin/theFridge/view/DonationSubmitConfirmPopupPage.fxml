@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Point3D?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="theFridge.controller.DonationSubmitConfirmPopupPageController">
+   <children>
+      <TextFlow maxHeight="50.0" maxWidth="500.0" prefHeight="50.0" prefWidth="500.0" style="-fx-background-radius: 30 30 0 0; -fx-background-color: rgb(255, 51, 51);" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Confirm" translateX="30.0" translateY="4.0" wrappingWidth="191.0546875">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Text>
+         </children>
+      </TextFlow>
+      <VBox maxWidth="500.0" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: rgb(255, 230, 230); -fx-background-radius: 0 0 30 30;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+         <children>
+            <TextFlow prefHeight="30.0" prefWidth="500.0">
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Your Food Donation" translateX="20.0" wrappingWidth="234.322265625">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Text>
+               </children>
+            </TextFlow>
+            <VBox fx:id="foodItemListVBox" style="-fx-border-color: rgb(102, 255, 102);">
+               <VBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" />
+               </VBox.margin>
+            </VBox>
+            <TextFlow prefHeight="30.0" prefWidth="500.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Personal Details" translateX="20.0" wrappingWidth="234.322265625">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Text>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="10.0" top="20.0" />
+               </VBox.margin>
+            </TextFlow>
+            <TextFlow prefHeight="30.0" prefWidth="500.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Name:" wrappingWidth="234.322265625">
+                     <font>
+                        <Font name="Georgia Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="nameLbl" strokeType="OUTSIDE" strokeWidth="0.0" text="Mr. McDonald" translateX="30.0" />
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <padding>
+                  <Insets left="40.0" right="20.0" />
+               </padding>
+            </TextFlow>
+            <TextFlow prefHeight="30.0" prefWidth="500.0">
+               <children>
+                  <Text fx:id="locationLbl2" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:" wrappingWidth="234.322265625">
+                     <font>
+                        <Font name="Georgia Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="emailLbl" strokeType="OUTSIDE" strokeWidth="0.0" text="love@d.va" translateX="30.0" />
+               </children>
+               <padding>
+                  <Insets left="40.0" right="20.0" />
+               </padding>
+            </TextFlow>
+            <TextFlow prefHeight="30.0" prefWidth="500.0">
+               <children>
+                  <Text fx:id="locationLbl3" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact:" wrappingWidth="234.322265625">
+                     <font>
+                        <Font name="Georgia Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="contactLbl" strokeType="OUTSIDE" strokeWidth="0.0" text="9123 4567" translateX="13.0" />
+               </children>
+               <padding>
+                  <Insets left="40.0" right="20.0" />
+               </padding>
+            </TextFlow>
+            <TextFlow prefHeight="30.0" prefWidth="500.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Donation Details" translateX="20.0" wrappingWidth="234.322265625">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Text>
+               </children>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </TextFlow>
+            <TextFlow prefHeight="30.0" prefWidth="500.0">
+               <children>
+                  <Text fx:id="locationLbl" strokeType="OUTSIDE" strokeWidth="0.0" text="test, Singapore 123456" wrappingWidth="447.4765625">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <rotationAxis>
+                        <Point3D />
+                     </rotationAxis>
+                  </Text>
+               </children>
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets left="40.0" right="20.0" />
+               </padding>
+            </TextFlow>
+            <TextFlow prefHeight="30.0" prefWidth="500.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Comments" translateX="20.0" wrappingWidth="234.322265625">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Text>
+               </children>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </TextFlow>
+            <TextArea fx:id="commentArea" minHeight="100.0" prefHeight="300.0" prefWidth="200.0" promptText="Inside the plastic bag is the red packets" text="&#10;" wrapText="true">
+               <VBox.margin>
+                  <Insets bottom="30.0" left="20.0" right="20.0" top="5.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextArea>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="150.0">
+               <children>
+                  <JFXButton fx:id="changeBtn" buttonType="RAISED" onAction="#closeStage" ripplerFill="#da1616" style="-fx-background-color: rgb(255, 26, 26); -fx-background-radius: 8;" text="Change" textFill="WHITE">
+                     <font>
+                        <Font name="Imprint MT Shadow" size="18.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets bottom="20.0" top="20.0" />
+                     </HBox.margin>
+                  </JFXButton>
+                  <JFXButton fx:id="confirmBtn" buttonType="RAISED" onAction="#submitForm" ripplerFill="#00ff4d" style="-fx-background-color: rgb(51, 255, 51); -fx-background-radius: 8;" text="Confirm" textFill="WHITE">
+                     <font>
+                        <Font name="Imprint MT Shadow" size="18.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets bottom="20.0" top="20.0" />
+                     </HBox.margin>
+                  </JFXButton>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
