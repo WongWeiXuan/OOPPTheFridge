@@ -3,10 +3,13 @@ package theFridge.model;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import theFridge.DAO.DonationPageDAO;
@@ -94,10 +97,14 @@ public class DonationHistoryModel {
 	}
 	
 	public static VBox initializeVBox(DonationHistoryModel a){
-		TextFlow txtfw1 = new TextFlow(new Text("Organization Name"));
+		Text txt1 = new Text("Organization Name");
+		txt1.setFont(Font.font("System", FontWeight.BOLD, 24));
+		Text txt2 = new Text("Food Donation");
+		txt2.setFont(Font.font("System", FontWeight.BOLD, 24));
+		TextFlow txtfw1 = new TextFlow(txt1);
 		TextFlow txtfw2 = new TextFlow(new Text(a.getOrganization()));
-		TextFlow txtfw3 = new TextFlow(new Text("Food Donation"));
-		VBox vbox2 = new VBox();
+		TextFlow txtfw3 = new TextFlow(txt2);
+		VBox vbox2 = new VBox(); // Store Food Item
 		Label lbl1 = new Label("Name");
 		Label lbl2 = new Label("Amount");
 		HBox hbox = new HBox(lbl1, lbl2);
@@ -110,17 +117,20 @@ public class DonationHistoryModel {
 		}
 		VBox vbox3 = new VBox();
 		vbox3.getChildren().addAll(txtfw3, vbox2);
-		TextFlow txtfw4 = new TextFlow(new Label("Time"));
+		Text txt4 = new Text("Time");
+		txt4.setFont(Font.font("System", FontWeight.BOLD, 24));
+		Text txt6 = new Text("Comment");
+		txt6.setFont(Font.font("System", FontWeight.BOLD, 24));
+		TextFlow txtfw4 = new TextFlow(txt4);
 		TextFlow txtfw5 = new TextFlow(new Label(a.getTime()));
-		TextFlow txtfw6 = new TextFlow(new Label("Comment"));
+		TextFlow txtfw6 = new TextFlow(txt6);
 		String comment = a.getComment();
 		comment = comment.replaceAll("@", "\n");
 		TextArea txtArea = new TextArea(comment);
 		txtArea.setEditable(false);
 		VBox vbox1 = new VBox();
 		vbox1.getChildren().addAll(txtfw1, txtfw2, vbox3, txtfw4, txtfw5, txtfw6, txtArea);
-		if(vbox1.equals(null))
-			System.out.println("null");
+		vbox1.setAlignment(Pos.TOP_CENTER);
 		return vbox1;
 	}
 }
