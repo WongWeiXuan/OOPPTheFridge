@@ -178,7 +178,8 @@
                               <JFXButton fx:id="buttonmain" onAction="#backToMain" prefHeight="31.0" prefWidth="100.0" style="-fx-background-color: red; -fx-cursor: hand;" text="Main">
                                  <HBox.margin>
                                     <Insets left="70.0" />
-                                 </HBox.margin></JFXButton>
+                                 </HBox.margin>
+                              </JFXButton>
                            </children>
                         </HBox>
                         <VBox alignment="CENTER_RIGHT">
@@ -281,7 +282,8 @@
                               <Button fx:id="Generate" alignment="CENTER" mnemonicParsing="false" onAction="#showSteps" prefHeight="47.0" prefWidth="312.0" style="-fx-background-color: green;" text="Generate" VBox.vgrow="ALWAYS">
                                  <font>
                                     <Font size="27.0" />
-                                 </font></Button>
+                                 </font>
+                              </Button>
                            </children>
                            <VBox.margin>
                               <Insets top="35.0" />
@@ -294,7 +296,8 @@
                                     <Label fx:id="steps" alignment="CENTER" maxWidth="1600.0" text="Nothing to be displayed" wrapText="true">
                                        <font>
                                           <Font name="Arial" size="24.0" />
-                                       </font></Label>
+                                       </font>
+                                    </Label>
                                  </content>
                               </ScrollPane>
                            </children>

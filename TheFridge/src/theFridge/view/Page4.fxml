@@ -104,7 +104,7 @@
                   </HBox>
                </top>
             </BorderPane>
-            <Button fx:id="buttonClose" mnemonicParsing="false" onAction="#backToMain" prefHeight="43.0" prefWidth="600.0" text="Close" />
+            <Button fx:id="buttonClose" mnemonicParsing="false" onAction="#backToMain" prefHeight="43.0" prefWidth="600.0" style="-fx-cursor: hand; -fx-background-color: silver;" text="Close" />
          </children>
       </VBox>
    </children>
