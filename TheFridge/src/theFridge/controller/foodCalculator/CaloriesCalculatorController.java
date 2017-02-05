@@ -1,6 +1,5 @@
 package theFridge.controller.foodCalculator;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -10,6 +9,7 @@ import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.RotateTransition;
 import javafx.animation.Timeline;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -36,7 +36,6 @@ import theFridge.model.Ingredient;
 import theFridge.model.Recipe;
 import theFridge.model.StockModel;
 import theFridge.model.User;
-import javafx.event.ActionEvent;
 
 public class CaloriesCalculatorController {
 	@FXML
