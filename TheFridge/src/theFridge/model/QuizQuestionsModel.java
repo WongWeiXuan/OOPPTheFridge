@@ -69,6 +69,7 @@ public class QuizQuestionsModel {
 		QuizQuestionsModel.pointsAttained = pointsAttained;
 	}
 
+	@Override
 	public String toString() {
 		return questions + ";" + choices + ";" + explanations;
 	}

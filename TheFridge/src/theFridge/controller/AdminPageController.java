@@ -111,6 +111,7 @@ public class AdminPageController {
             VBox TitleUserName = new VBox(userbox, timebox);
             TitleUserName.setOnMouseClicked(new EventHandler<MouseEvent>() {
             	boolean open = false;
+				@Override
 				public void handle(MouseEvent event) {
 					if(open == true){
 						hidden.setVisible(false);

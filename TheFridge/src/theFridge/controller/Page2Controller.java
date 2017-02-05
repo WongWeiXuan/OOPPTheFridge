@@ -182,6 +182,7 @@ public class Page2Controller {
 		mediap = new MediaPlayer(me);
 		mediaa.setMediaPlayer(mediap);
 		mediaa.setOnMouseClicked(new EventHandler<MouseEvent>(){
+				@Override
 				public void handle(MouseEvent event) {
 					if(checking.equalsIgnoreCase("play")){
 					mediap.play();

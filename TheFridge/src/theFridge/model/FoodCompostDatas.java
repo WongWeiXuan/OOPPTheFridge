@@ -27,6 +27,7 @@ public class FoodCompostDatas {
 		this.foodType = foodType;
 	}
 	
+	@Override
 	public String toString() {
 		return title + ";" + foodType;
 	}

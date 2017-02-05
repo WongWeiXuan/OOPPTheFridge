@@ -6,7 +6,6 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -150,7 +149,7 @@ public class DonationPageController {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				Calendar calendar = GregorianCalendar.getInstance();
+				Calendar calendar = Calendar.getInstance();
 				calendar.setTime(date); 
 				if(calendar.get(Calendar.DAY_OF_WEEK) >= current.getOpeningDay() && calendar.get(Calendar.DAY_OF_WEEK) <= current.getClosingDay()){
 					if(calendar.get(Calendar.HOUR_OF_DAY) >= current.getOpeningHours() && calendar.get(Calendar.HOUR_OF_DAY) < current.getClosingHours()){
@@ -217,6 +216,7 @@ public class DonationPageController {
 			hbox.setAlignment(Pos.CENTER);
 			hbox.setPadding(new Insets(10));
 			hbox.setOnMouseClicked(new EventHandler<MouseEvent>() {
+				@Override
 				public void handle(MouseEvent event) {
 					enterFoodVBox.getChildren().remove(hbox);
 				}

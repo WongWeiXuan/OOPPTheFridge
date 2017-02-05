@@ -122,6 +122,7 @@ public class QuizLineChartDetails {
 		QuizLineChartDetails.q10P10 = q10p10;
 	}
 	
+	@Override
 	public String toString() {
 		return q0P0 + ";" + q1P1 + ";" + q2P2 + ";" + q3P3 + ";" + q4P4 + ";" + q5P5 + ";" + q6P6 + ";" + q7P7 + ";" + q8P8 + ";" + q9P9 + ";" + q10P10;
 	}

@@ -231,7 +231,7 @@ public class LoginSignupPageController {
 		//Email validation
 		String regex = "^(.+)@(.+)$";
 	    Pattern pattern = Pattern.compile(regex);
-	    Matcher matcher = pattern.matcher((CharSequence) Email);
+	    Matcher matcher = pattern.matcher(Email);
 		
 		if (Username.equals("") || Username.equals(null)) {
 			comment1.setText("Please fill in your username.");
@@ -450,7 +450,7 @@ public class LoginSignupPageController {
 			//Email validation
 			String regex = "^(.+)@(.+)$";
 		    Pattern pattern = Pattern.compile(regex);
-		    Matcher matcher = pattern.matcher((CharSequence) Email);
+		    Matcher matcher = pattern.matcher(Email);
 			
 			if (Username.equals("") || Username.equals(null)) {
 				comment1.setText("Please fill in your username.");

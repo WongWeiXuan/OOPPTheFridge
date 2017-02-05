@@ -112,6 +112,7 @@ public class ShoppingListModel {
 			m.setMaxAmount(calculateMaxAmount(m));
 			hbox.getChildren().addAll(nameLbl, amountLbl, servingLbl, gramslbl, maxAmountlbl);
 			hbox.setOnMouseClicked(new EventHandler<MouseEvent>() {
+				@Override
 				public void handle(MouseEvent event) {
 					if(event.getButton() == MouseButton.SECONDARY) {
 						Popup.show(JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.RIGHT);
@@ -148,6 +149,7 @@ public class ShoppingListModel {
 				}catch(Exception e){}
 				hbox.getChildren().addAll(nameLbl, amountLbl);
 				hbox.setOnMouseClicked(new EventHandler<MouseEvent>() {
+					@Override
 					public void handle(MouseEvent event) {
 						if(event.getButton().equals(MouseButton.PRIMARY)){
 				            if(event.getClickCount() == 2){
@@ -202,6 +204,7 @@ public class ShoppingListModel {
 		list.setMaxAmount(stock.getMaxAmount());
 		hbox.getChildren().addAll(nameLbl, amountLbl);
 		hbox.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			@Override
 			public void handle(MouseEvent event) {
 				if(event.getButton() == MouseButton.PRIMARY)
 					if(event.getClickCount() == 2){
@@ -226,6 +229,7 @@ public class ShoppingListModel {
 		lbl1.setPadding(new Insets(10));
 		// Edit Items
 		lbl1.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			@Override
 			public void handle(MouseEvent event) {
 				ShoppingListAddPageModel.source = "Stock";
 				HBox selectedItem = StocklistView.getSelectionModel().getSelectedItem();
@@ -258,6 +262,7 @@ public class ShoppingListModel {
 		lbl2.setPadding(new Insets(10));
 		// Remove Items
 		lbl2.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			@Override
 			public void handle(MouseEvent event) {
 				int selectedIdx = StocklistView.getSelectionModel().getSelectedIndex();
 				if (selectedIdx != 0) {
@@ -284,6 +289,7 @@ public class ShoppingListModel {
 		lbl11.setPadding(new Insets(10));
 		// Edit Items
 		lbl11.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			@Override
 			public void handle(MouseEvent event) {
 				ShoppingListAddPageModel.source = "List";
 				HBox selectedItem = ListlistView.getSelectionModel().getSelectedItem();
@@ -318,6 +324,7 @@ public class ShoppingListModel {
 		lbl12.setPadding(new Insets(10));
 		// Remove Items
 		lbl12.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			@Override
 			public void handle(MouseEvent event) {
 				int selectedIdx = ListlistView.getSelectionModel().getSelectedIndex();
 				if (selectedIdx != 0) {
@@ -400,6 +407,7 @@ public class ShoppingListModel {
 		hbox.getChildren().addAll(lbl1, lbl2, lbl3, lbl4, lbl5);
 		StocklistView.getItems().add(hbox);
 		hbox.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			@Override
 			public void handle(MouseEvent event) {
 				if(event.getButton() == MouseButton.SECONDARY) {
 					Popup.show(JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.RIGHT);
@@ -421,6 +429,7 @@ public class ShoppingListModel {
 		hbox.getChildren().addAll(lbl1, lbl2);
 		ListlistView.getItems().add(hbox);
 		hbox.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			@Override
 			public void handle(MouseEvent event) {
 				if(event.getButton().equals(MouseButton.PRIMARY)){
 					if(event.getClickCount() == 2){
@@ -457,6 +466,7 @@ public class ShoppingListModel {
 		amountLbl.setStyle("-fx-text-fill: black");
 		hbox.getChildren().addAll(nameLbl, amountLbl);
 		hbox.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			@Override
 			public void handle(MouseEvent event) {
 				if(event.getButton().equals(MouseButton.PRIMARY)){
 					if(event.getClickCount() == 2){
@@ -486,6 +496,7 @@ public class ShoppingListModel {
 		amountLbl.setStyle("-fx-text-fill: red");
 		hbox.getChildren().addAll(nameLbl, amountLbl);
 		hbox.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			@Override
 			public void handle(MouseEvent event) {
 				if(event.getButton().equals(MouseButton.PRIMARY)){
 		            if(event.getClickCount() == 2){
@@ -526,6 +537,7 @@ public class ShoppingListModel {
 		maxAmountlbl.setAlignment(Pos.CENTER);
 		hbox.getChildren().addAll(nameLbl, amountLbl, servingLbl, gramslbl, maxAmountlbl);
 		hbox.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			@Override
 			public void handle(MouseEvent event) {
 				if(event.getButton() == MouseButton.SECONDARY) {
 					Popup.show(JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.RIGHT);

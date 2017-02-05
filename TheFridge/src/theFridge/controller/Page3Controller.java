@@ -17,7 +17,6 @@ import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.RotateTransition;
 import javafx.animation.Timeline;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -195,16 +194,19 @@ public class Page3Controller {
 				a.setFont(Font.font("Amble CN", FontWeight.BOLD, 18));
 				a.setMinWidth(100);
 				a.setOnMouseEntered(new EventHandler<MouseEvent>(){
+					@Override
 					public void handle(MouseEvent event) {
 						a.setStyle("-fx-cursor: hand;");
 					}
 				});
 				a.setOnMouseExited(new EventHandler<MouseEvent>(){
+					@Override
 					public void handle(MouseEvent event) {
 						a.setStyle("-fx-cursor: default;");
 					}
 				});
 				a.setOnMouseClicked(new EventHandler<MouseEvent>(){
+					@Override
 					public void handle(MouseEvent event) {
 						String P="src/theFridge/file/video.txt";
 						try{
@@ -238,6 +240,7 @@ public class Page3Controller {
 				cc.setFont(Font.font("Amble CN", FontWeight.BOLD, 18));
 				cc.setMinWidth(100);
 				b.setOnAction(new EventHandler<ActionEvent>(){
+					@Override
 					public void handle(ActionEvent event) {
 						String percent = b.getText();
 						try{
@@ -290,16 +293,19 @@ public class Page3Controller {
 			a.setFont(Font.font("Amble CN", FontWeight.BOLD, 18));
 			a.setMinWidth(100);
 			a.setOnMouseEntered(new EventHandler<MouseEvent>(){
+				@Override
 				public void handle(MouseEvent event) {
 					a.setStyle("-fx-cursor: hand;");
 				}
 			});
 			a.setOnMouseExited(new EventHandler<MouseEvent>(){
+				@Override
 				public void handle(MouseEvent event) {
 					a.setStyle("-fx-cursor: default;");
 				}
 			});
 			a.setOnMouseClicked(new EventHandler<MouseEvent>(){
+				@Override
 				public void handle(MouseEvent event) {
 					String P="src/theFridge/file/video.txt";
 					try{
@@ -332,6 +338,7 @@ public class Page3Controller {
 			cc.setFont(Font.font("Amble CN", FontWeight.BOLD, 18));
 			cc.setMinWidth(100);
 			b.setOnAction(new EventHandler<ActionEvent>(){
+				@Override
 				public void handle(ActionEvent event) {
 					String percent = b.getText();
 					try{

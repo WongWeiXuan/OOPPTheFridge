@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import com.jfoenix.controls.JFXButton;
 
+import javafx.animation.Animation;
 import javafx.animation.Animation.Status;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -145,7 +146,7 @@ public class QuizPageController {
 		//For Quiz Timer
 		timerOutput.setText("10");
 		timeline = new Timeline();
-	    timeline.setCycleCount(Timeline.INDEFINITE);
+	    timeline.setCycleCount(Animation.INDEFINITE);
 	    timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(1), new EventHandler<ActionEvent>() {
 	    	@Override
 			public void handle(ActionEvent event) {
@@ -233,7 +234,7 @@ public class QuizPageController {
 			timeSeconds = 10;
 			timerOutput.setText("10");
 			timeline = new Timeline();
-		    timeline.setCycleCount(Timeline.INDEFINITE);
+		    timeline.setCycleCount(Animation.INDEFINITE);
 		    timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(1), new EventHandler<ActionEvent>() {
 		    	@Override
 				public void handle(ActionEvent event) {
