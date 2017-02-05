@@ -1,7 +1,12 @@
 # OOPPTheFridge
 Sem2 OOPP Project
 
-Oh! You're here?
+1. Clone project from https://wongweixuan.github.io/OOPPTheFridge/
+2. Import to eclipse
+3. Run OOPPTheFridge > TheFridge > src > theFridge > RefrigeratorApp.java
+4. Signup
+5. Login
+
 You must be bored huh?(and totally not spying on us...)
 Let me show you a recipe to a delicious Banana Creamed Pie!
 
