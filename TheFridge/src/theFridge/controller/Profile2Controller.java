@@ -254,6 +254,22 @@ public class Profile2Controller {
 	private HBox hbox11;
 	@FXML
 	private HBox hBox8;
+	@FXML
+	private VBox vbbox1;
+	@FXML
+	private VBox vbbox2;
+	@FXML
+	private VBox vbbox3;
+	@FXML
+	private VBox vbbox4;
+	@FXML
+	private VBox vbbox5;
+	@FXML
+	private VBox vbbox6;
+	@FXML
+	private VBox vbbox7;
+	@FXML
+	private VBox vbbox8;
 	
 	private boolean open = false;
 
@@ -420,6 +436,7 @@ public class Profile2Controller {
 		hBox0.setVisible(true);
 		namE.setOpacity(1);
 		label0.setOpacity(1);
+		//vbbox1.setStyle(null);
 		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
 		Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/Profile2.fxml"));
 		root = FXMLLoader.load(getClass().getResource("/theFridge/view/Profile2.fxml"));
@@ -785,6 +802,7 @@ public class Profile2Controller {
 		//namE.setOpacity(0.5);
 		label0.setOpacity(0.5);
 		Ename.setVisible(false);
+		vbbox1.setStyle("-fx-border-color: blue; -fx-border-width: 2; -fx-border-radius: 5;");
 		
 	}
 	
@@ -795,6 +813,7 @@ public class Profile2Controller {
 		label2.setOpacity(0.5);
 		Epassword.setVisible(false);
 		//hBox2.setVisible(false);
+		vbbox8.setStyle("-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 5;");
 	}
 	
 	public void editemail(ActionEvent event){
@@ -804,6 +823,7 @@ public class Profile2Controller {
 		label3.setOpacity(0.5);
 		Eemail.setVisible(false);
 		//hBox3.setVisible(false);
+		vbbox2.setStyle("-fx-border-color: red; -fx-border-width: 2; -fx-border-radius: 5;");
 	}
 	
 	public void editlocation(ActionEvent event){
@@ -812,6 +832,7 @@ public class Profile2Controller {
 		//locatioN.setOpacity(0.5);
 		label4.setOpacity(0.5);
 		Elocation.setVisible(false);
+		vbbox3.setStyle("-fx-border-color: yellow; -fx-border-width: 2; -fx-border-radius: 5;");
 		//hBox4.setVisible(false);
 	}
 	
@@ -820,6 +841,7 @@ public class Profile2Controller {
 		hbox11.setStyle("-fx-background-color:  rgb(255,255,0)");
 		label8.setOpacity(0.5);
 		EGender.setVisible(false);
+		vbbox4.setStyle("-fx-border-color: yellow; -fx-border-width: 2; -fx-border-radius: 5;");
 	}
 	
 	public void editage(ActionEvent event){
@@ -828,6 +850,7 @@ public class Profile2Controller {
 		//agE.setOpacity(0.5);
 		label5.setOpacity(0.5);
 		EAge.setVisible(false);
+		vbbox5.setStyle("-fx-border-color: purple; -fx-border-width: 2; -fx-border-radius: 5;");
 	}
 	
 	public void editheight(ActionEvent event){
@@ -836,6 +859,7 @@ public class Profile2Controller {
 		//heighT.setOpacity(0.5);
 		label6.setOpacity(0.5);
 		EHeight.setVisible(false);
+		vbbox6.setStyle("-fx-border-color: green; -fx-border-width: 2; -fx-border-radius: 5;");
 	}
 	
 	public void editweight(ActionEvent event){
@@ -844,6 +868,7 @@ public class Profile2Controller {
 		//weighT.setOpacity(0.5);
 		label7.setOpacity(0.5);
 		EWeight.setVisible(false);
+		vbbox7.setStyle("-fx-border-color: orange; -fx-border-width: 2; -fx-border-radius: 5;");
 		
 	}
 	
