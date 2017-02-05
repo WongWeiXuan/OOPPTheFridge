@@ -74,8 +74,6 @@ public class DonationPageController {
 	@FXML
 	private ToggleGroup food;
 	@FXML
-	private JFXRadioButton ManualSelectRadio;
-	@FXML
 	private JFXRadioButton AutomaticRadio;
 	@FXML
 	private Text timeLbl;
@@ -194,13 +192,7 @@ public class DonationPageController {
 	public void openPopup(MouseEvent event) throws IOException {
 		Dialog<?> dialog = new Dialog<Object>();
 		Stage stage = (Stage) dialog.getDialogPane().getScene().getWindow();
-		Parent root = null;
-		if(event.getSource().equals(ManualEnterRadio)){
-			root = FXMLLoader.load(getClass().getResource("/theFridge/view/ManualEnterPage.fxml"));
-		}
-		else if(event.getSource().equals(ManualSelectRadio)){
-			root = FXMLLoader.load(getClass().getResource("/theFridge/view/ManualSelectPage.fxml"));
-		}
+		Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/ManualEnterPage.fxml"));
 		stage.setScene(new Scene(root));
 		stage.show();
 	}
@@ -249,7 +241,6 @@ public class DonationPageController {
 		emailField.clear();
 		contactField.clear();
 		ManualEnterRadio.setSelected(false);
-		ManualSelectRadio.setSelected(false);
 		AutomaticRadio.setSelected(false);
 		enterFoodVBox.getChildren().clear();
 		first = true;

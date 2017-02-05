@@ -2,6 +2,7 @@ package theFridge.controller.foodCalculator;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.lang.reflect.Field;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
@@ -16,7 +17,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.Spinner;
+import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -24,6 +27,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import theFridge.model.CaloriesCalculatorInputModel;
@@ -80,6 +84,8 @@ public class CaloriesCalculatorInputController {
 	private Circle Dinner;
 	@FXML
 	private Circle Snacks;
+	@FXML
+	private Text infoLbl;
 	
     public String NumOfMeals = "breakfast";
     
@@ -89,6 +95,26 @@ public class CaloriesCalculatorInputController {
 		profileCircle.setFill(new ImagePattern(img));
 		CaloriesCalculatorInputModel ccim = new CaloriesCalculatorInputModel();
 		calories.setText(String.valueOf(ccim.getBMR()));
+		Tooltip toolTip = new Tooltip("For men: \nBMR = 10 x weight (kg) + 6.25 x height (cm) – 5 x age (years) + 5\nFor women: \nBMR = 10 x weight (kg) + 6.25 x height (cm) – 5 x age (years) – 161");
+		hackTooltipStartTiming(toolTip);
+		Tooltip.install(infoLbl, toolTip);
+    }
+    
+    public void hackTooltipStartTiming(Tooltip tooltip) {
+        try {
+            Field fieldBehavior = tooltip.getClass().getDeclaredField("BEHAVIOR");
+            fieldBehavior.setAccessible(true);
+            Object objBehavior = fieldBehavior.get(tooltip);
+
+            Field fieldTimer = objBehavior.getClass().getDeclaredField("activationTimer");
+            fieldTimer.setAccessible(true);
+            Timeline objTimer = (Timeline) fieldTimer.get(objBehavior);
+
+            objTimer.getKeyFrames().clear();
+            objTimer.getKeyFrames().add(new KeyFrame(new Duration(150)));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     
     @FXML
