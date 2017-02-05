@@ -262,7 +262,7 @@ public class Page1Controller{
 		   listView.getItems().clear();
 	   }
 	   
-	   public void deleting(ActionEvent event) throws FileNotFoundException{
+	   public void deleting(ActionEvent event) throws IOException{
 		   String de = showFiles.getValue().toString();
 		   de = de.replaceAll("\\s+", "");
 		   
@@ -293,6 +293,12 @@ public class Page1Controller{
 		   fg = lol.getFoodCompostDatas(de);
 		   fg.deleteFoodCompost();
 		   fg.updateFoodCompostDatas();
+		   
+		   Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+			Parent root = (Parent)FXMLLoader.load(getClass().getResource("/theFridge/view/Page1.fxml"));
+			root = FXMLLoader.load(getClass().getResource("/theFridge/view/Page1.fxml"));
+			stage.setScene(new Scene(root));
+	 	    stage.show();
 		   
 		   sc1.close();
 		   

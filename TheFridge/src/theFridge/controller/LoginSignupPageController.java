@@ -214,10 +214,7 @@ public class LoginSignupPageController {
 						timeline.play();
 						
 						comment.setOpacity(0);
-					}
-					
-					
-					
+					}	
 				}
 				
 				else {

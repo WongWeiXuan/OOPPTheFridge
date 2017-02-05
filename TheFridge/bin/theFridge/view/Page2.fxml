@@ -161,16 +161,62 @@
                   <Insets right="150.0" />
                </HBox.margin>
                <children>
-                  <VBox fx:id="vboxing" alignment="BOTTOM_CENTER" minHeight="735.0" minWidth="980.0" style="-fx-background-color: white;" StackPane.alignment="CENTER" />
-                  <VBox alignment="TOP_CENTER" prefHeight="798.0" prefWidth="1130.0" style="-fx-background-color: #FCE4EC;">
+                  <VBox fx:id="vboxing" alignment="BOTTOM_CENTER" minHeight="735.0" minWidth="980.0" style="-fx-background-color: white;" StackPane.alignment="CENTER">
+                     <children>
+                        <MediaView fx:id="mediaa" fitHeight="700.0" fitWidth="980.0" style="-fx-cursor: hand;" />
+                        <HBox fx:id="hboxingg" maxHeight="40.0" onMouseEntered="#darker" onMouseExited="#lighter" prefHeight="40.0" prefWidth="980.0" style="-fx-background-color: green;">
+                           <children>
+                              <StackPane prefHeight="55.0">
+                                 <children>
+                                    <ImageView fx:id="firstone" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../picture/smooth.png" />
+                                       </image>
+                                    </ImageView>
+                                    <JFXButton fx:id="playingBtn" onAction="#playplay" prefHeight="35.0" prefWidth="83.0" />
+                                 </children>
+                              </StackPane>
+                              <ImageView fx:id="ignn" fitHeight="35.0" fitWidth="35.0" onMouseEntered="#showignn" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../picture/speaker.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <JFXSlider fx:id="sliderr" onMouseExited="#hideignn" prefHeight="35.0" prefWidth="140.0" visible="false">
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                              </JFXSlider>
+                              <StackPane maxHeight="35.0">
+                                 <children>
+                                    <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../picture/smaller.png" />
+                                       </image>
+                                       <StackPane.margin>
+                                          <Insets />
+                                       </StackPane.margin>
+                                    </ImageView>
+                                    <JFXButton fx:id="buttonback" onAction="#hiding" style="-fx-cursor: hand;" />
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                              </StackPane>
+                           </children>
+                        </HBox>
+                     </children></VBox>
+                  <VBox alignment="TOP_CENTER" prefHeight="798.0" prefWidth="1130.0" style="-fx-background-color: #FCE4EC; -fx-background-image: url(&quot;theFridge/picture/plantation.jpg&quot;);">
                      <children>
                         <HBox alignment="CENTER" prefHeight="32.0" prefWidth="980.0">
                            <children>
-                              <TextFlow textAlignment="CENTER">
+                              <TextFlow prefWidth="650.0" style="-fx-background-color: rgba(1,147,215,0.8);" textAlignment="CENTER">
                                  <children>
-                                    <Text fill="#e91e63" strokeType="OUTSIDE" strokeWidth="0.0" text="Compost Single Food Waste" textAlignment="CENTER" wrappingWidth="1129.9999713897705">
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Compost Single Food Waste" textAlignment="CENTER" wrappingWidth="1129.9999713897705">
                                        <font>
-                                          <Font size="24.0" />
+                                          <Font size="36.0" />
                                        </font>
                                     </Text>
                                  </children>
@@ -179,7 +225,7 @@
                         </HBox>
                         <TextFlow fx:id="stacking" prefHeight="31.0" prefWidth="980.0" textAlignment="RIGHT">
                            <VBox.margin>
-                              <Insets />
+                              <Insets right="5.0" top="10.0" />
                            </VBox.margin>
                            <children>
                               <Label fx:id="lbl" prefHeight="21.0" prefWidth="175.0" text="Please enter a file name!" visible="false" />
@@ -199,10 +245,10 @@
                            <children>
                               <Text fill="#e91e63" strokeType="OUTSIDE" strokeWidth="0.0" text="You Have Chosen To Compost :" textAlignment="CENTER" wrappingWidth="238.52880859375">
                                  <font>
-                                    <Font size="24.0" />
+                                    <Font name="Algerian" size="24.0" />
                                  </font>
                               </Text>
-                              <Label fx:id="chosenFood" prefHeight="21.0" prefWidth="247.0" text="Label" textAlignment="CENTER" textFill="#e91e63">
+                              <Label fx:id="chosenFood" prefHeight="21.0" prefWidth="400.0" text="Label" textAlignment="CENTER" textFill="#e91e63">
                                  <padding>
                                     <Insets left="80.0" />
                                  </padding>
@@ -215,7 +261,7 @@
                               <Insets top="10.0" />
                            </VBox.margin>
                         </TextFlow>
-                        <VBox alignment="CENTER" prefHeight="310.0" prefWidth="980.0" style="-fx-background-color: black;">
+                        <VBox alignment="CENTER" maxWidth="1200.0" prefHeight="365.0" prefWidth="987.0" style="-fx-background-color: black;">
                            <children>
                               <MediaView fx:id="video" fitHeight="310.0" fitWidth="600.0" />
                               <HBox alignment="CENTER" prefHeight="13.0" prefWidth="980.0" style="-fx-background-color: orange;">
@@ -253,12 +299,15 @@
                                  </VBox.margin>
                               </HBox>
                            </children>
+                           <VBox.margin>
+                              <Insets left="20.0" right="20.0" />
+                           </VBox.margin>
                         </VBox>
-                        <VBox alignment="TOP_CENTER" prefHeight="499.0" prefWidth="980.0" style="-fx-background-color: white;">
+                        <VBox alignment="TOP_CENTER" maxWidth="1200.0" prefHeight="499.0" prefWidth="980.0" style="-fx-background-color: #7D7C7D;">
                            <children>
                               <HBox alignment="TOP_CENTER" prefHeight="31.0" prefWidth="980.0">
                                  <children>
-                                    <Text fill="#e91e63" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter Amount In Grams" textAlignment="CENTER" wrappingWidth="228.6708984375">
+                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter Amount In Grams" textAlignment="CENTER" wrappingWidth="228.6708984375">
                                        <font>
                                           <Font size="18.0" />
                                        </font>
@@ -268,17 +317,16 @@
                                           <Insets left="20.0" />
                                        </HBox.margin>
                                     </TextField>
-                                    <JFXButton fx:id="btnGo" onAction="#getGrams" text="Go" textFill="#eb0c0c">
+                                    <JFXButton fx:id="btnGo" onAction="#getGrams" style="-fx-border-color: white; -fx-border-radius: 3; -fx-background-color: #545054;" text="Go" textFill="WHITE">
                                        <HBox.margin>
-                                          <Insets left="20.0" />
+                                          <Insets bottom="2.0" left="20.0" top="2.0" />
                                        </HBox.margin>
                                     </JFXButton>
-                                    <JFXButton fx:id="tryy" onAction="#tried" text="trying" />
                                  </children>
                               </HBox>
                               <ScrollPane prefHeight="324.0" prefWidth="980.0" style="-fx-border-color: red;" VBox.vgrow="ALWAYS">
                                  <content>
-                                    <Label fx:id="steps" alignment="TOP_LEFT" maxWidth="1600.0" prefHeight="700.0" text="Nothing to be displayed" textFill="#e91e63" wrapText="true">
+                                    <Label fx:id="steps" alignment="TOP_LEFT" maxWidth="1500.0" prefHeight="700.0" text="Nothing to be displayed" textFill="#e91e63" wrapText="true">
                                        <padding>
                                           <Insets left="30.0" />
                                        </padding>
@@ -286,6 +334,9 @@
                                  </content>
                               </ScrollPane>
                            </children>
+                           <VBox.margin>
+                              <Insets left="20.0" right="20.0" />
+                           </VBox.margin>
                         </VBox>
                      </children>
                   </VBox>
