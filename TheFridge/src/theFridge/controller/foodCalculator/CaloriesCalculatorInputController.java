@@ -31,6 +31,7 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import theFridge.model.CaloriesCalculatorInputModel;
 import theFridge.model.FoodCalculatorCaloriesCalculatorRecipeModel;
+import theFridge.model.User;
 
 public class CaloriesCalculatorInputController {
 
@@ -90,8 +91,19 @@ public class CaloriesCalculatorInputController {
     
     @FXML
     void initialize() throws FileNotFoundException{
-    	Image img = new Image("theFridge/picture/Profile Image.jpg");
-		profileCircle.setFill(new ImagePattern(img));
+    	User user = new User();
+		user = user.getCurrentUser();
+        String myface = user.getProfileImage();
+		String gf = "/theFridge/picture/head.png";
+	        if (myface.equals("null")) {
+	            Image dd = new Image(gf);
+	            profileCircle.setFill(new ImagePattern(dd));
+	        }
+	        else {
+	            Image image21 = new Image(myface);
+	            profileCircle.setFill(new ImagePattern(image21));
+	        }
+	        
 		CaloriesCalculatorInputModel ccim = new CaloriesCalculatorInputModel();
 		calories.setText(String.valueOf(ccim.getBMR()));
 		Tooltip toolTip = new Tooltip("For men: \nBMR = 10 x weight (kg) + 6.25 x height (cm) – 5 x age (years) + 5\nFor women: \nBMR = 10 x weight (kg) + 6.25 x height (cm) – 5 x age (years) – 161");

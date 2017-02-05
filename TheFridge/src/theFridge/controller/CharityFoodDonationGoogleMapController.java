@@ -23,11 +23,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
@@ -101,13 +103,23 @@ public class CharityFoodDonationGoogleMapController implements Initializable, Ma
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         mapView.addMapInializedListener(this);
-        User u = new User();
-        try {
-			u = u.getCurrentUser();
+        User user = new User();
+		try {
+			user = user.getCurrentUser();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+        String myface = user.getProfileImage();
+		String gf = "/theFridge/picture/head.png";
+	        if (myface.equals("null")) {
+	            Image dd = new Image(gf);
+	            profileCircle.setFill(new ImagePattern(dd));
+	        }
+	        else {
+	            Image image21 = new Image(myface);
+	            profileCircle.setFill(new ImagePattern(image21));
+	        }
         
 		
     }     

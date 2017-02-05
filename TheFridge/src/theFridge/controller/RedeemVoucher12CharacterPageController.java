@@ -1,5 +1,6 @@
 package theFridge.controller;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import com.jfoenix.controls.JFXButton;
@@ -16,10 +17,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -79,7 +82,20 @@ public class RedeemVoucher12CharacterPageController {
 	private boolean open = false;
 	
 	@FXML
-	public void initialize() {
+	public void initialize() throws FileNotFoundException {
+		User user = new User();
+		user = user.getCurrentUser();
+        String myface = user.getProfileImage();
+		String gf = "/theFridge/picture/head.png";
+	        if (myface.equals("null")) {
+	            Image dd = new Image(gf);
+	            profileCircle.setFill(new ImagePattern(dd));
+	        }
+	        else {
+	            Image image21 = new Image(myface);
+	            profileCircle.setFill(new ImagePattern(image21));
+	        }
+	        
 		voucherTypeLabel.setText("For a 10% off " + RedeemVoucherModel.getVoucherType() + " voucher");
 	}
 	

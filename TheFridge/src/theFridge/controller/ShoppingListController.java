@@ -20,11 +20,13 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Tooltip;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -87,15 +89,24 @@ public class ShoppingListController {
 	//Show profile image
 	@FXML
 	public void initialize() throws FileNotFoundException, IOException{
-		User u = new User();
-        u = u.getCurrentUser();
+		User user = new User();
+		user = user.getCurrentUser();
+        String myface = user.getProfileImage();
+		String gf = "/theFridge/picture/head.png";
+	        if (myface.equals("null")) {
+	            Image dd = new Image(gf);
+	            profileCircle.setFill(new ImagePattern(dd));
+	        }
+	        else {
+	            Image image21 = new Image(myface);
+	            profileCircle.setFill(new ImagePattern(image21));
+	        }
   
 		
 		ShoppingListModel first = new ShoppingListModel(StocklistView, Popup, ListlistView, Popup1);
 		ShoppingListAddPageModel.model = first;
 		first.createTitle();
-		User user = new User();
-		user = user.getCurrentUser();
+
 		if(first.checkUser(user.getUsername())){
 			first.displayStocks();
 			first.displayShopping();

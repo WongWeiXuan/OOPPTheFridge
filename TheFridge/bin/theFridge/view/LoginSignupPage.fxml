@@ -146,9 +146,9 @@
                      <children>
                         <TextFlow prefHeight="50.0" prefWidth="320.0" style="-fx-background-color: #009688;" textAlignment="CENTER">
                            <children>
-                              <Label text="Success!">
+                              <Label text="Success!" textFill="WHITE">
                                  <font>
-                                    <Font name="Garamond" size="36.0" />
+                                    <Font name="Garamond Bold" size="36.0" />
                                  </font>
                               </Label>
                            </children>

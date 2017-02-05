@@ -20,11 +20,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -123,6 +125,16 @@ public class RedeemVoucherPageController {
 	public void initialize() throws FileNotFoundException {
 		User user = new User();
 		user = user.getCurrentUser();
+        String myface = user.getProfileImage();
+		String gf = "/theFridge/picture/head.png";
+	        if (myface.equals("null")) {
+	            Image dd = new Image(gf);
+	            profileCircle.setFill(new ImagePattern(dd));
+	        }
+	        else {
+	            Image image21 = new Image(myface);
+	            profileCircle.setFill(new ImagePattern(image21));
+	        }
 		
 		RedeemVoucherModel rDV = new RedeemVoucherModel();
 		String points = Integer.toString(user.getTotalPoints());
@@ -136,7 +148,6 @@ public class RedeemVoucherPageController {
 		
 		//Show the date user can redeem again if endTime is not 0
 		if (user.getEndTime() != 0) {
-			System.out.println("RedeemVoucherPageController - IF");
 			System.out.println("Promo code: " + user.getPromoCode());
 			System.out.println("End time: " + user.getEndTime());
 			
@@ -160,7 +171,6 @@ public class RedeemVoucherPageController {
 			};
 			timer.scheduleAtFixedRate(timerTask, 0, 1000);
 			
-			
 			//redeemAgainDate.setText(rDV.changeToDateFormat(user.getEndTime()));
 			redeemAgainDate.setOpacity(1);
 			
@@ -172,7 +182,6 @@ public class RedeemVoucherPageController {
 			
 			//Allow user to redeem again if currentTime reaches the endTime
 			if (rDV.getCurrentTime() >= user.getEndTime()) {
-				System.out.println("RedeemVoucherPageController - IF within IF");
 				System.out.println("Current time: " + rDV.getCurrentTime());
 				System.out.println("End time: " + user.getEndTime());
 				

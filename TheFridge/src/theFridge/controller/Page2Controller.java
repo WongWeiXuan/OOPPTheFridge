@@ -39,6 +39,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
 import javafx.scene.text.TextFlow;
@@ -340,6 +341,19 @@ public class Page2Controller {
  	    mp.stop();
 	}
 	public void initialize() throws FileNotFoundException {
+		User user = new User();
+		user = user.getCurrentUser();
+        String myface = user.getProfileImage();
+		String gf = "/theFridge/picture/head.png";
+	        if (myface.equals("null")) {
+	            Image dd = new Image(gf);
+	            profileCircle.setFill(new ImagePattern(dd));
+	        }
+	        else {
+	            Image image21 = new Image(myface);
+	            profileCircle.setFill(new ImagePattern(image21));
+	        }
+	        
 		String ded = null;
 		File file=new File("src/theFridge/file/foodcheck.txt");
 		Scanner sc=new Scanner(file) ;

@@ -25,11 +25,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -127,6 +129,19 @@ public class QuizPageController {
 	
 	@FXML
 	public void initialize() throws FileNotFoundException {
+		User user = new User();
+		user = user.getCurrentUser();
+        String myface = user.getProfileImage();
+		String gf = "/theFridge/picture/head.png";
+	        if (myface.equals("null")) {
+	            Image dd = new Image(gf);
+	            profileCircle.setFill(new ImagePattern(dd));
+	        }
+	        else {
+	            Image image21 = new Image(myface);
+	            profileCircle.setFill(new ImagePattern(image21));
+	        }
+	        
 		QuizQuestionsModel quizQ = new QuizQuestionsModel();
 		questionsList = QuizQuestionsModel.getAllQuestions();
 		
@@ -154,11 +169,9 @@ public class QuizPageController {
 
 	    		if (timeSeconds >= 0) {
 	    			timerOutput.setText(timeSeconds.toString());
-	    			System.out.println(timeSeconds.toString());
 	    		}
 	    		else {
 	    			timeline.stop();
-	    			System.out.println("Timer has stopped.");
 	    		}
 	        }				
 	    }));
@@ -178,6 +191,8 @@ public class QuizPageController {
 					quizQ.disableButtons(choiceBtn1, choiceBtn2, choiceBtn3, choiceBtn4);
 					
 					timeLeft.setText("Out of time!");
+					QuizLineChartDetails qLCD = new QuizLineChartDetails();
+					qLCD.addPoints(pageNo);
 					
 					if (QuizQuestionsModel.isDontShowAgain() == true) {
 						Platform.runLater(new Runnable() {
@@ -242,7 +257,6 @@ public class QuizPageController {
 
 		    		if (timeSeconds >= 0) {
 		    			timerOutput.setText(timeSeconds.toString());
-		    			System.out.println(timeSeconds.toString());
 		    		}
 		    		else {
 		    			timeline.stop();
@@ -250,7 +264,6 @@ public class QuizPageController {
 						vBoxInfoImg.setDisable(false);
 						continueBtn.setVisible(true);
 						continueBtn.setDisable(false);
-		    			System.out.println("Timer has stopped.");
 		    		}
 		        }				
 		    }));

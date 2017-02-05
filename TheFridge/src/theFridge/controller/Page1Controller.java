@@ -30,10 +30,12 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
@@ -219,6 +221,19 @@ public class Page1Controller{
 	ObservableList<String> c = FXCollections.observableArrayList();
 	
 	    public void initialize() throws FileNotFoundException {
+	    	User user = new User();
+			user = user.getCurrentUser();
+	        String myface = user.getProfileImage();
+			String gf = "/theFridge/picture/head.png";
+		        if (myface.equals("null")) {
+		            Image dd = new Image(gf);
+		            profileCircle.setFill(new ImagePattern(dd));
+		        }
+		        else {
+		            Image image21 = new Image(myface);
+		            profileCircle.setFill(new ImagePattern(image21));
+		        }
+		        
 	    	File file=new File("src/theFridge/file/confirm.txt");
 			Scanner sc=new Scanner(file) ;
 			String n = sc.nextLine();

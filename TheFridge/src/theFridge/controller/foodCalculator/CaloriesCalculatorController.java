@@ -139,8 +139,18 @@ public class CaloriesCalculatorController {
 		InstructionVBox.getChildren().addAll(txta);
 		
 		//Show Profile Picture on Circle
-		Image img = new Image("theFridge/picture/Profile Image.jpg");
-		profileCircle.setFill(new ImagePattern(img));
+		User user = new User();
+		user = user.getCurrentUser();
+        String myface = user.getProfileImage();
+		String gf = "/theFridge/picture/head.png";
+	        if (myface.equals("null")) {
+	            Image dd = new Image(gf);
+	            profileCircle.setFill(new ImagePattern(dd));
+	        }
+	        else {
+	            Image image21 = new Image(myface);
+	            profileCircle.setFill(new ImagePattern(image21));
+	        }
 		//--------------------------------
 	}
 	
@@ -169,6 +179,10 @@ public class CaloriesCalculatorController {
 				
 			}
 		}
+		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+		Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/foodCalculator/CaloriesCalculatorInput.fxml"));
+		stage.setScene(new Scene(root));
+ 	    stage.show();
 	}
 
 	@FXML

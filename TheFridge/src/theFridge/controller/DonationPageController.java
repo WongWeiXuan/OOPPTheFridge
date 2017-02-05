@@ -28,6 +28,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.image.Image;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.control.ToggleGroup;
@@ -37,6 +38,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -112,11 +114,20 @@ public class DonationPageController {
 	public void initialize() throws FileNotFoundException{
 		DonationPageModel.enterFoodVBox = enterFoodVBox;
 		//Show profile image
-        
-		
-		//Get user and Replace to correct Organization name and Operation Timings
 		User user = new User();
 		user = user.getCurrentUser();
+        String myface = user.getProfileImage();
+		String gf = "/theFridge/picture/head.png";
+	        if (myface.equals("null")) {
+	            Image dd = new Image(gf);
+	            profileCircle.setFill(new ImagePattern(dd));
+	        }
+	        else {
+	            Image image21 = new Image(myface);
+	            profileCircle.setFill(new ImagePattern(image21));
+	        }
+		
+		//Get user and Replace to correct Organization name and Operation Timings
 		nameField.setText(user.getName());
 		emailField.setText(user.getEmail());
 		String organizationName = CharityFoodDonationGoogleMapModel.OrganizationTxt;
@@ -160,7 +171,7 @@ public class DonationPageController {
 					else{
 						timeLbl.setFill(Color.RED);
 						timeLbl.setText(dateFormat.format(date) + " (CLOSED)");
-						//submitBtn.setDisable(true);
+						submitBtn.setDisable(true);
 					}
 				}
 				else{
@@ -173,13 +184,13 @@ public class DonationPageController {
 						else{
 							timeLbl.setFill(Color.RED);
 							timeLbl.setText(dateFormat.format(date) + " (CLOSED)");
-							//submitBtn.setDisable(true);
+							submitBtn.setDisable(true);
 						}
 					}
 					else{
 						timeLbl.setFill(Color.RED);
 						timeLbl.setText(dateFormat.format(date) + " (CLOSED)");
-						//submitBtn.setDisable(true);
+						submitBtn.setDisable(true);
 					}
 				}
 			}
@@ -284,7 +295,7 @@ public class DonationPageController {
 						Alert alert = new Alert(AlertType.WARNING);
 						alert.setTitle("Warning Dialog");
 						alert.setHeaderText("No Food Items Entered");
-						alert.setContentText("Please enter the food to donate using the either 3 radio buttons");
+						alert.setContentText("Please enter the food to donate using the either 2 radio buttons");
 
 						alert.showAndWait();
 					}
