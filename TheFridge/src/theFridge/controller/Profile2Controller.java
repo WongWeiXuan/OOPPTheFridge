@@ -354,6 +354,7 @@ public class Profile2Controller {
 		stage.setScene(new Scene(root));
  	    stage.show();
 	}
+	@SuppressWarnings({ "unused", "deprecation" })
 	public void changeFace(MouseEvent event) throws IOException{
 		String filename = null;
 		File f = null;
@@ -364,18 +365,19 @@ public class Profile2Controller {
 			System.out.println("nothing");
 		}
 		else{
-		f = chooser.getSelectedFile();
-		filename = f.getAbsolutePath();
-		Image image = new Image(f.toURL().toString());
-		face.setImage(image);
-		File file=new File("src/theFridge/file/confirm.txt");
-		Scanner sc=new Scanner(file) ;
-		String n = sc.nextLine();
-		ProfileDAO profileDAO = new ProfileDAO();
-		User uu = new User();
-		uu = profileDAO.getUser(n);
-		uu.setProfileImage(f.toURL().toString());
-		uu.updateUser();
+			f = chooser.getSelectedFile();
+			filename = f.getAbsolutePath();
+			Image image = new Image(f.toURL().toString());
+			face.setImage(image);
+			File file=new File("src/theFridge/file/confirm.txt");
+			Scanner sc=new Scanner(file) ;
+			String n = sc.nextLine();
+			ProfileDAO profileDAO = new ProfileDAO();
+			User uu = new User();
+			uu = profileDAO.getUser(n);
+			uu.setProfileImage(f.toURL().toString());
+			uu.updateUser();
+			sc.close();
 		}
 		
 	}

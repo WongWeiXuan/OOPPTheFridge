@@ -19,13 +19,10 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import theFridge.DAO.ShoppingListDAO;
 import theFridge.model.CharityFoodDonationGoogleMapModel;
 import theFridge.model.DonationHistoryModel;
 import theFridge.model.DonationPageModel;
-import theFridge.model.Ingredient;
 import theFridge.model.ListModel;
-import theFridge.model.StockModel;
 import theFridge.model.User;
 
 public class DonationSubmitConfirmPopupPageController {

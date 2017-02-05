@@ -390,6 +390,7 @@ public class Page3Controller {
 			//System.out.println(msg.toString());
 		String comeon = msg.toString();
 		steps.setText(comeon);
+		sc.close();
 	}
 	
 	public double calPercentage(){

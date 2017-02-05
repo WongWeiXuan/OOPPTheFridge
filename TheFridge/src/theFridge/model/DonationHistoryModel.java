@@ -3,6 +3,7 @@ package theFridge.model;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -107,14 +108,23 @@ public class DonationHistoryModel {
 		VBox vbox2 = new VBox(); // Store Food Item
 		Label lbl1 = new Label("Name");
 		Label lbl2 = new Label("Amount");
+		lbl1.setPrefWidth(400);
+		lbl2.setPrefWidth(400);
+		lbl1.setFont(Font.font("System", FontWeight.BOLD, 16));
+		lbl2.setFont(Font.font("System", FontWeight.BOLD, 16));
 		HBox hbox = new HBox(lbl1, lbl2);
+		hbox.setAlignment(Pos.TOP_CENTER);
 		vbox2.getChildren().add(0, hbox);
 		for(ListModel b:a.getFoodItems()){
 			Label lbl3 = new Label(b.getName());
 			Label lbl4 = new Label(String.valueOf((int)b.getAmount()));
+			lbl3.setPrefWidth(400);
+			lbl4.setPrefWidth(400);
 			HBox hbox1 = new HBox(lbl3, lbl4);
+			hbox1.setAlignment(Pos.TOP_CENTER);
 			vbox2.getChildren().add(hbox1);
 		}
+		vbox2.setStyle("-fx-border-style: segments(10, 15, 15, 15)  line-cap round");
 		VBox vbox3 = new VBox();
 		vbox3.getChildren().addAll(txtfw3, vbox2);
 		Text txt4 = new Text("Time");
@@ -131,6 +141,8 @@ public class DonationHistoryModel {
 		VBox vbox1 = new VBox();
 		vbox1.getChildren().addAll(txtfw1, txtfw2, vbox3, txtfw4, txtfw5, txtfw6, txtArea);
 		vbox1.setAlignment(Pos.TOP_CENTER);
+		vbox1.setPadding(new Insets(20, 20, 20, 20));
+		vbox1.setStyle("-fx-border-style: segments(10, 15, 15, 15)  line-cap round; -fx-border-color: pink");
 		return vbox1;
 	}
 }

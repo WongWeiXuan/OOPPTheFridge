@@ -44,7 +44,7 @@ public class HomePageController {
 	public void initialize() throws FileNotFoundException{
 		User u = new User();
         u = u.getCurrentUser();
-        String h = u.getProfileImage();
+        //String h = u.getProfileImage();
 	}
 
 	

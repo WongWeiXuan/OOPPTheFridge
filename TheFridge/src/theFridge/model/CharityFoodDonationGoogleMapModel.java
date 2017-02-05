@@ -45,7 +45,6 @@ public class CharityFoodDonationGoogleMapModel implements DirectionsServiceCallb
     private JFXButton donateBtn;
 	@SuppressWarnings("unused")
 	private JFXButton moreInfoBtn;
-	private String name;
 	public static String OrganizationTxt;
 	@SuppressWarnings("unused")
 	private LatLong currentLatLong;
@@ -525,7 +524,6 @@ public class CharityFoodDonationGoogleMapModel implements DirectionsServiceCallb
 		        addMarkerAfterCreating(map2, name);
 		        directionsDisplay.setMap(map2);
 		        directionsService.getRoute(request, this, directionsDisplay);
-		        this.name = name;
 			});
 			
 			vboxInScroll.getChildren().add(stackPane);
@@ -666,7 +664,6 @@ public class CharityFoodDonationGoogleMapModel implements DirectionsServiceCallb
         addMarkerAfterCreating(map2, name);
         directionsDisplay.setMap(map2);
         directionsService.getRoute(request, this, directionsDisplay);
-        this.name = name;
 	}
 
 	
