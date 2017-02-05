@@ -17,6 +17,7 @@ import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.RotateTransition;
 import javafx.animation.Timeline;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -165,7 +166,7 @@ public class Page3Controller {
  	    stage.show();
 	}
 	
-	private double total = 0;
+	private double total = 130;
 	public void initialize() throws FileNotFoundException{
 		gp.setStyle("-fx-background-color: #C2D7E5");
 		ArrayList<String> a1 = new ArrayList<String>();
@@ -185,6 +186,7 @@ public class Page3Controller {
 			for(int p=0;p<a1.size();p++){
 				TextFlow tf = new TextFlow();
 				TextFlow tf1 = new TextFlow();
+				TextFlow tf2 = new TextFlow();
 				String job = a1.get(p);
 				job = job.replaceAll("\\s+", "");
 				c = f.getFoodCompost(job);
@@ -259,9 +261,12 @@ public class Page3Controller {
 				tf1.setMinWidth(100);
 				tf1.setTextAlignment(TextAlignment.CENTER);
 				tf1.setStyle("-fx-padding: 20 0 0 0;");
+				tf2.getChildren().add(cc);
+				tf2.setTextAlignment(TextAlignment.CENTER);
+				tf2.setStyle("-fx-padding: 20 0 0 0;");
 				gp.add(tf, i, 0);
 				gp.add(tf1, i, 1);
-				gp.add(cc, i, 2);
+				gp.add(tf2, i, 2);
 				
 				i++;
 				
@@ -278,6 +283,7 @@ public class Page3Controller {
 			for(int h=0;h<a1.size();h++){
 			TextFlow tf = new TextFlow();
 			TextFlow tf1 = new TextFlow();
+			TextFlow tf2 = new TextFlow();
 			String jop = a1.get(i);
 			c = f.getFoodCompost(jop);
 			Label a = new Label(c.getFoodName());
@@ -316,7 +322,6 @@ public class Page3Controller {
 					}
 					stage.setScene(new Scene(root));
 			 	    stage.show();
-					System.out.println("Yes finally");
 				}
 			});
 			TextField b = new TextField();
@@ -331,7 +336,6 @@ public class Page3Controller {
 					String percent = b.getText();
 					try{
 					double score = Double.parseDouble(percent);
-					
 					total = total + score;
 					double percentage = (score/calPercentage())*100;
 					NumberFormat formatter = new DecimalFormat("#0.00");     
@@ -350,10 +354,13 @@ public class Page3Controller {
 			tf1.setMinWidth(100);
 			tf1.setTextAlignment(TextAlignment.CENTER);
 			tf1.setStyle("-fx-padding: 20 0 0 0;");
+			tf2.getChildren().add(cc);
+			tf2.setTextAlignment(TextAlignment.CENTER);
+			tf2.setStyle("-fx-padding: 20 0 0 0;");
 			
 			gp.add(tf, i, 0);
 			gp.add(tf1, i, 1);
-			gp.add(cc, i, 2);
+			gp.add(tf2, i, 2);
 			i++;
 			
 			
@@ -362,6 +369,10 @@ public class Page3Controller {
 		
 		}
 	}
+	
+
+	
+	
 	public void showSteps(ActionEvent event) throws IOException{
 		File file=new File("src/theFridge/file/multipleguide.txt");
 		Scanner sc=new Scanner(file) ;
