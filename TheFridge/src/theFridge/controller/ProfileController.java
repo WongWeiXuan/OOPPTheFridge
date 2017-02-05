@@ -24,6 +24,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
@@ -165,6 +166,16 @@ public class ProfileController {
 		else{
 		Image image22 = new Image(myface);
 		face2.setImage(image22);
+		}
+		
+		String gf = "/theFridge/picture/head.png";
+		if(myface.equals("null")){
+			Image dd = new Image(gf);
+			profileCircle.setFill(new ImagePattern(dd));
+		}
+		else{
+			Image image21 = new Image(myface);
+			profileCircle.setFill(new ImagePattern(image21));
 		}
 		
 	}

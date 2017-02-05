@@ -24,6 +24,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -95,6 +96,16 @@ public class Profile3Controller {
 		image8.setImage(image22);
 		}
 		
+		String gf = "/theFridge/picture/head.png";
+		if(myface.equals("null")){
+			Image dd = new Image(gf);
+			profileCircle.setFill(new ImagePattern(dd));
+		}
+		else{
+			Image image21 = new Image(myface);
+			profileCircle.setFill(new ImagePattern(image21));
+		}
+		
 		User u = new User();
 		u = u.getCurrentUser();
 		DonationPageDAO dao = new DonationPageDAO();
@@ -102,6 +113,7 @@ public class Profile3Controller {
 		for(DonationHistoryModel a:aldhm){
 			VBoxadd.getChildren().add(0, DonationHistoryModel.initializeVBox(a));
 		}
+		
 	}
 	
 	@FXML
