@@ -140,7 +140,7 @@ public class LoginSignupPageController {
 					User user = new User();
 					user = user.getCurrentUser();
 					
-					if (user.getUsername().equals("FoodFromTheHeart") || user.getUsername().equals("WillingHearts") || user.getUsername().equals("FoodBankSingapore")) {
+					if (user.getUsername().equals("Food From The Heart") || user.getUsername().equals("Willing Hearts") || user.getUsername().equals("Food Bank Singapore")) {
 						Timeline adTimeline = new Timeline();
 						KeyFrame adKeyFrame = new KeyFrame(
 							Duration.seconds(2), 
@@ -362,7 +362,7 @@ public class LoginSignupPageController {
 						User user = new User();
 						user = user.getCurrentUser();
 						
-						if (user.getUsername().equals("FoodFromTheHeart") || user.getUsername().equals("WillingHearts") || user.getUsername().equals("FoodBankSingapore")) {
+						if (user.getUsername().equals("Food From The Heart") || user.getUsername().equals("Willing Hearts") || user.getUsername().equals("Food Bank Singapore")) {
 							Timeline adTimeline = new Timeline();
 							KeyFrame adKeyFrame = new KeyFrame(
 								Duration.seconds(2), 

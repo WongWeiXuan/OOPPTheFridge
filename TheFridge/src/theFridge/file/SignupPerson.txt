@@ -1,6 +1,6 @@
 xxx;xxx@gmail.com;100001111000011110000111
 ds;ds@gmail.com;1001101110001100
-FoodFromTheHeart;HopeThisEmailDoesntExist@pleasedont.com;11001110110011011100110011001011
+Food From The Heart;HopeThisEmailDoesntExist@pleasedont.com;11001110110011011100110011001011
 anything;anything@gmail.com;110011101100110111001100
-WillingHearts;HopeThisEmailDoesntExist@pleasedont.com;11001011110011001100110111001110
-FoodBankSingapore;HopeThisEmailDoesntExist@pleasedont.com;101110011011110110101100
+Willing Hearts;HopeThisEmailDoesntExist@pleasedont.com;11001011110011001100110111001110
+Food Bank Singapore;HopeThisEmailDoesntExist@pleasedont.com;101110011011110110101100

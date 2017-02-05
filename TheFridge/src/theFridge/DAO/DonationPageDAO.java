@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Scanner;
 
 import theFridge.model.DonationHistoryModel;
@@ -118,7 +119,6 @@ public class DonationPageDAO {
 				medium.add(a);
 			}
 		}
-		
 		return medium;
 	}
 	
@@ -165,7 +165,7 @@ public class DonationPageDAO {
 			aldhmm = new ArrayList<DonationHistoryModel>();
 		}
 		//System.out.println(aluslm.get(0).getName());
-		aldhmm.add(aldhm);
+		aldhmm.add(0, aldhm);
 		
 		String line = "";
 		for(DonationHistoryModel a:aldhmm){
