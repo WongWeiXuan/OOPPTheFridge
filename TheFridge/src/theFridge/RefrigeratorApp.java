@@ -32,6 +32,7 @@ public class RefrigeratorApp extends Application{
 			try {
 				Parent root;
 				if (user.isRememberMe() == true) {
+<<<<<<< HEAD
 					if(user.getUsername().equals("Food From The Heart") || user.getUsername().equals("Willing Hearts") || user.getUsername().equals("Food Bank Singapore")){
 						root = FXMLLoader.load(getClass().getResource("/theFridge/view/AdminPage.fxml"));
 					}else{
@@ -44,10 +45,27 @@ public class RefrigeratorApp extends Application{
 						primaryStage.setWidth(bounds.getWidth());
 						primaryStage.setHeight(bounds.getHeight());
 						primaryStage.setMaximized(true);
+=======
+					if (user.getUsername().equals("Food From The Heart") || user.getUsername().equals("Willing Hearts") || user.getUsername().equals("Food Bank Singapore")) {
+						root = FXMLLoader.load(getClass().getResource("/theFridge/view/AdminPage.fxml"));
+					}
+					else {
+						root = FXMLLoader.load(getClass().getResource("/theFridge/view/GetStartedPage.fxml"));
+					}
+					
+					Screen screen = Screen.getPrimary();
+					Rectangle2D bounds = screen.getVisualBounds();
+					primaryStage.setX(bounds.getMinX());
+					primaryStage.setY(bounds.getMinY());
+					primaryStage.setWidth(bounds.getWidth());
+					primaryStage.setHeight(bounds.getHeight());
+					primaryStage.setMaximized(true);
+>>>>>>> origin/master
 				}
 				else {
 					root = FXMLLoader.load(getClass().getResource("/theFridge/view/LoginSignupPage.fxml"));
 				}
+				
 				Scene scene = new Scene(root);
 				primaryStage.setScene(scene);
 				primaryStage.getIcons().add(new Image("/theFridge/picture/fridge.png"));
