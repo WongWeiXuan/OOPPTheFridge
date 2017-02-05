@@ -16,7 +16,7 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: #FCE4EC;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="theFridge.controller.FoundDishController">
+<AnchorPane prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: #FCE4EC;" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="theFridge.controller.FoundDishController">
    <children>
       <Button fx:id="viewrecipebtn" layoutX="230.0" layoutY="160.0" mnemonicParsing="false" onMouseClicked="#viewRecipe" prefHeight="100.0" prefWidth="300.0" style="-fx-background-color: orange; -fx-border-color: black;" text="View Recipes">
          <font>
@@ -81,7 +81,7 @@
          <effect>
             <ImageInput>
                <source>
-                  <Image url="file:/C:/Users/Wei%20Xuan/Documents/GitHub/OOPPTheFridge/TheFridge/src/theFridge/picture/leftarrow.png" />
+                  <Image url="file:/C:/Users/Lim%20Xuan%20Zheng/Documents/GitHub/OOPPTheFridge/TheFridge/src/theFridge/picture/leftarrow.png" />
                </source>
             </ImageInput>
          </effect></Button>
@@ -89,7 +89,7 @@
          <effect>
             <ImageInput>
                <source>
-                  <Image url="file:/C:/Users/Wei%20Xuan/Documents/GitHub/OOPPTheFridge/TheFridge/src/theFridge/picture/rightarrow.png" />
+                  <Image url="file:/C:/Users/Lim%20Xuan%20Zheng/Documents/GitHub/OOPPTheFridge/TheFridge/src/theFridge/picture/rightarrow.png" />
                </source></ImageInput>
          </effect></Button>
       <Text layoutX="710.0" layoutY="387.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Steps:" wrappingWidth="87.59999424219131">
