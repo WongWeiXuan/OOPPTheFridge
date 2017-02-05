@@ -136,11 +136,9 @@ public class LoginSignupPageController {
 					
 					spinner.setOpacity(1);
 					loginBtn.setOpacity(0);
+					loginBtn.setDisable(true);
 					
-					User user = new User();
-					user = user.getCurrentUser();
-					
-					if (user.getUsername().equals("Food From The Heart") || user.getUsername().equals("Willing Hearts") || user.getUsername().equals("Food Bank Singapore")) {
+					if (s.getUsername().equals("Food From The Heart") || s.getUsername().equals("Willing Hearts") || s.getUsername().equals("Food Bank Singapore")) {
 						Timeline adTimeline = new Timeline();
 						KeyFrame adKeyFrame = new KeyFrame(
 							Duration.seconds(2), 
@@ -355,11 +353,9 @@ public class LoginSignupPageController {
 						
 						spinner.setOpacity(1);
 						loginBtn.setOpacity(0);
+						loginBtn.setDisable(true);
 						
-						User user = new User();
-						user = user.getCurrentUser();
-						
-						if (user.getUsername().equals("Food From The Heart") || user.getUsername().equals("Willing Hearts") || user.getUsername().equals("Food Bank Singapore")) {
+						if (s.getUsername().equals("Food From The Heart") || s.getUsername().equals("Willing Hearts") || s.getUsername().equals("Food Bank Singapore")) {
 							Timeline adTimeline = new Timeline();
 							KeyFrame adKeyFrame = new KeyFrame(
 								Duration.seconds(2), 
