@@ -58,13 +58,11 @@ public class Page4Controller {
 	
 	public void darrenlights(ActionEvent event){
 		if(darrenwhy.equals("haha")){
-			darren.setText("Lights: OFF");
 			nick.setStyle("-fx-background-color: black");
 			label0.setStyle("-fx-text-fill: #FFFFFF");
 			darrenwhy = "hahaha";
 		}
 		else{
-			darren.setText("Lights: ON");
 			nick.setStyle("-fx-background-color: white");
 			label0.setStyle("-fx-text-fill: #000000");
 			darrenwhy = "haha";
