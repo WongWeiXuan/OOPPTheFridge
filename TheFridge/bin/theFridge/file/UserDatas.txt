@@ -1,5 +1,5 @@
 xxx;xxx;100001111000011110000111;dr.que9@gmail.com;Nanyang polytechnix;120;80;42;female;50000;null;0;[];[  40,  40, 40];[  04/2/2017,  05/2/2017, 07/2/2017];false;file:null
 null;anything;110011101100110111001100;anything@gmail.com;Geylang;null;null;null;null;0;null;0;[];null;null;false;null
-null;Food From The Heart;11001110110011011100110011001011;HopeThisEmailDoesntExist@pleasedont.com;null;null;null;null;null;0;null;0;[];[];[];false;null
+null;Food From The Heart;11001110110011011100110011001011;HopeThisEmailDoesntExist@pleasedont.com;null;null;null;null;null;0;null;0;[];[];[];true;null
 null;Willing Hearts;11001011110011001100110111001110;HopeThisEmailDoesntExist@pleasedont.com;null;null;null;null;null;0;null;0;[];[];[];false;null
 null;Food Bank Singapore;101110011011110110101100;HopeThisEmailDoesntExist@pleasedont.com;null;null;null;null;null;0;null;0;[];[];[];false;null
