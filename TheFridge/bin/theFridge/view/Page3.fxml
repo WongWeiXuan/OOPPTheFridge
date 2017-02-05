@@ -222,7 +222,7 @@
                                  <children>
                                     <VBox prefHeight="236.0" prefWidth="326.0">
                                        <children>
-                                          <GridPane gridLinesVisible="true" prefHeight="271.0" prefWidth="257.0" style="-fx-background-color: #C2D7E5;">
+                                          <GridPane gridLinesVisible="true" prefHeight="271.0" prefWidth="257.0" style="-fx-background-color: #C2D7E5; -fx-border-color: red;">
                                             <columnConstraints>
                                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                             </columnConstraints>
@@ -236,7 +236,7 @@
                                                    <children>
                                                       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Food Type :">
                                                          <font>
-                                                            <Font size="24.0" />
+                                                            <Font name="Algerian" size="24.0" />
                                                          </font>
                                                       </Text>
                                                    </children>
@@ -245,16 +245,16 @@
                                                    <children>
                                                       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Enter Amount in Grams " wrappingWidth="160.0546875">
                                                          <font>
-                                                            <Font size="24.0" />
+                                                            <Font name="Algerian" size="24.0" />
                                                          </font>
                                                       </Text>
                                                    </children>
                                                 </TextFlow>
                                                 <TextFlow GridPane.rowIndex="2">
                                                    <children>
-                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Fertilizer Contents">
+                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Maximum Fertilizer Contents" wrappingWidth="197.2431640625">
                                                          <font>
-                                                            <Font size="24.0" />
+                                                            <Font name="Algerian" size="20.0" />
                                                          </font>
                                                       </Text>
                                                    </children>
@@ -279,7 +279,7 @@
                         </VBox>
                         <VBox alignment="CENTER" prefHeight="47.0" prefWidth="980.0">
                            <children>
-                              <Button fx:id="Generate" alignment="CENTER" mnemonicParsing="false" onAction="#showSteps" prefHeight="47.0" prefWidth="312.0" style="-fx-background-color: green;" text="Generate" VBox.vgrow="ALWAYS">
+                              <Button fx:id="Generate" alignment="CENTER" mnemonicParsing="false" onAction="#showSteps" prefHeight="47.0" prefWidth="312.0" style="-fx-background-color: green; -fx-cursor: hand;" text="Generate" VBox.vgrow="ALWAYS">
                                  <font>
                                     <Font size="27.0" />
                                  </font>
@@ -291,7 +291,7 @@
                         </VBox>
                         <VBox alignment="CENTER" prefHeight="368.0" prefWidth="980.0">
                            <children>
-                              <ScrollPane maxWidth="1200.0" prefHeight="370.0" prefWidth="980.0" style="-fx-border-color: #55FB00; -fx-border-width: 8;">
+                              <ScrollPane maxWidth="1200.0" prefHeight="370.0" prefWidth="980.0" style="-fx-border-color: #DC143C; -fx-border-width: 8;">
                                  <content>
                                     <Label fx:id="steps" alignment="CENTER" maxWidth="1600.0" text="Nothing to be displayed" wrapText="true">
                                        <font>
