@@ -29,6 +29,7 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import theFridge.model.User;
 
+
 public class Page5Controller {
 	@FXML
 	private AnchorPane Anchor;
