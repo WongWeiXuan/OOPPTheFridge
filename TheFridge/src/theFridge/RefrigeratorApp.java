@@ -12,12 +12,12 @@ import theFridge.model.User;
 //import javafx.stage.StageStyle;
 
 public class RefrigeratorApp extends Application{
-	
+
 	@Override
 	public void start(Stage primaryStage) throws Exception{
 		User user = new User();
 		user = user.getCurrentUser();
-		
+
 		if(user == null){
 			Parent root;
 			root = FXMLLoader.load(getClass().getResource("/theFridge/view/LoginSignupPage.fxml"));
@@ -38,7 +38,7 @@ public class RefrigeratorApp extends Application{
 					else {
 						root = FXMLLoader.load(getClass().getResource("/theFridge/view/GetStartedPage.fxml"));
 					}
-					
+
 					Screen screen = Screen.getPrimary();
 					Rectangle2D bounds = screen.getVisualBounds();
 					primaryStage.setX(bounds.getMinX());
@@ -50,7 +50,7 @@ public class RefrigeratorApp extends Application{
 				else {
 					root = FXMLLoader.load(getClass().getResource("/theFridge/view/LoginSignupPage.fxml"));
 				}
-				
+
 				Scene scene = new Scene(root);
 				primaryStage.setScene(scene);
 				primaryStage.getIcons().add(new Image("/theFridge/picture/fridge.png"));
@@ -63,9 +63,9 @@ public class RefrigeratorApp extends Application{
 			}
 		}
 	}
-	
+
 	public static void main(String[] args) {
 		launch(args);
 	}
-	
+
 }
