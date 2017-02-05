@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -13,8 +16,7 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-
-<AnchorPane prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="theFridge.controller.Page5Controller">
    <children>
       <HBox layoutY="65.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: rgba(240, 98, 146, 0.25);" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="65.0">
          <children>
@@ -154,6 +156,80 @@
                <HBox.margin>
                   <Insets right="150.0" />
                </HBox.margin>
+               <children>
+                  <ScrollPane prefHeight="754.0" prefWidth="980.0" VBox.vgrow="ALWAYS">
+                    <content>
+                        <VBox alignment="TOP_CENTER" prefHeight="735.0" prefWidth="980.0">
+                           <children>
+                              <VBox alignment="CENTER" prefHeight="350.0" prefWidth="1025.0" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <ImageView fitHeight="350.0" fitWidth="500.0" pickOnBounds="true">
+                                       <image>
+                                          <Image url="@../picture/first.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <Label fx:id="ins1" text="Label" wrapText="true" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="30.0" />
+                                 </VBox.margin>
+                              </VBox>
+                              <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <ImageView fitHeight="350.0" fitWidth="500.0" pickOnBounds="true">
+                                       <image>
+                                          <Image url="@../picture/second.jpg" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" top="50.0" />
+                                 </VBox.margin>
+                              </VBox>
+                              <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <ImageView fitHeight="350.0" fitWidth="500.0" pickOnBounds="true">
+                                       <image>
+                                          <Image url="@../picture/third.jpg" />
+                                       </image>
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                    </ImageView>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="50.0" />
+                                 </VBox.margin>
+                              </VBox>
+                              <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <ImageView fitHeight="350.0" fitWidth="500.0" pickOnBounds="true">
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                       <image>
+                                          <Image url="@../picture/forth.jpg" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="50.0" />
+                                 </VBox.margin>
+                              </VBox>
+                              <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <ImageView fitHeight="350.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="true" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="50.0" />
+                                 </VBox.margin>
+                              </VBox>
+                              <JFXButton fx:id="backto" onAction="#goback" />
+                           </children>
+                        </VBox>
+                    </content>
+                  </ScrollPane>
+               </children>
             </VBox>
          </children>
       </HBox>
