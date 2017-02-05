@@ -209,7 +209,6 @@ public class EditRecipeController {
 	
 
 	// Event Listener on Button[#submitbtn].onMouseClicked
-	@SuppressWarnings("static-access")
 	@FXML
 	
 	
@@ -230,7 +229,7 @@ public class EditRecipeController {
 		String steps   = stepstxt.getText();
 		RecipeBook rbb = new RecipeBook(addedBy,name,ingre1,ingre2,ingre3,steps);
 		
-		ArrayList <RecipeBook> bookList = rbb.getAllRecipeBook();
+		ArrayList <RecipeBook> bookList = RecipeBook.getAllRecipeBook();
 		
 		bookList.add(rbb);
 		

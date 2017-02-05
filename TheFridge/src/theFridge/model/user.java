@@ -92,6 +92,7 @@ public class User {
 			this.profileImage = profileImage;
 		}
 		
+		@Override
 		public String toString() {
 			return name + ";" + username + ";" + password + ";"+ email + ";" + country + ";" + height + ";" + weight + ";" + age + ";" + gender + ";" + totalPoints + ";" + promoCode + ";" + endTime + ";" + chosenFC + ";" + endPointsAttained + ";" + pastDate + ";" + rememberMe + ";" + profileImage;
 		}

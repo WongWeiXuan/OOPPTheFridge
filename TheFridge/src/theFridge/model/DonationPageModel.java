@@ -168,6 +168,7 @@ public class DonationPageModel {
 		hbox.setAlignment(Pos.CENTER);
 		hbox.setPadding(new Insets(10));
 		hbox.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			@Override
 			public void handle(MouseEvent event) {
 				enterFoodVBox.getChildren().remove(hbox);
 			}

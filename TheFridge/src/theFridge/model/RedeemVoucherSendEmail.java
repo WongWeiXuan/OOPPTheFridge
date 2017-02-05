@@ -40,7 +40,8 @@ public class RedeemVoucherSendEmail {
 	      // Get the Session object.
 	      Session session = Session.getInstance(props,
 	      new javax.mail.Authenticator() {
-	         protected PasswordAuthentication getPasswordAuthentication() {
+	         @Override
+			protected PasswordAuthentication getPasswordAuthentication() {
 	            return new PasswordAuthentication(username, password);
 	         }
 	      });

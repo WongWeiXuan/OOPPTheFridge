@@ -36,6 +36,7 @@ public class FoodCompost {
 		this.instruction = instrustion;
 	}
 	
+	@Override
 	public String toString() {
 		return foodName + ";"+ videoURL+";"+ instruction;
 	}
@@ -61,6 +62,7 @@ public class FoodCompost {
 		foodDao.updateFood(this);
 	}
 	
+	@Override
 	public boolean equals(Object obj){
 		if (!(obj instanceof FoodCompost)){
 			return false;
