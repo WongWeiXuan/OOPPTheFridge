@@ -171,7 +171,7 @@ public class DonationPageController {
 					else{
 						timeLbl.setFill(Color.RED);
 						timeLbl.setText(dateFormat.format(date) + " (CLOSED)");
-						submitBtn.setDisable(true);
+						//submitBtn.setDisable(true);
 					}
 				}
 				else{
@@ -184,13 +184,13 @@ public class DonationPageController {
 						else{
 							timeLbl.setFill(Color.RED);
 							timeLbl.setText(dateFormat.format(date) + " (CLOSED)");
-							submitBtn.setDisable(true);
+							//submitBtn.setDisable(true);
 						}
 					}
 					else{
 						timeLbl.setFill(Color.RED);
 						timeLbl.setText(dateFormat.format(date) + " (CLOSED)");
-						submitBtn.setDisable(true);
+						//submitBtn.setDisable(true);
 					}
 				}
 			}

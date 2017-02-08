@@ -4,6 +4,9 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,11 +16,13 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
@@ -26,16 +31,31 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.TextAlignment;
 import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
-import theFridge.DAO.DonationPageDAO;
+import javafx.util.Duration;
 import theFridge.model.DonationHistoryModel;
 import theFridge.model.ListModel;
 import theFridge.model.User;
+import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXButton;
 
 public class AdminPageController {
 	@FXML
 	private VBox donationVbox;
 	@FXML
 	private Circle logout;
+	@FXML JFXComboBox<Integer> yearCombo;
+	@FXML JFXButton January;
+	@FXML JFXButton February;
+	@FXML JFXButton March;
+	@FXML JFXButton April;
+	@FXML JFXButton May;
+	@FXML JFXButton June;
+	@FXML JFXButton July;
+	@FXML JFXButton August;
+	@FXML JFXButton September;
+	@FXML JFXButton October;
+	@FXML JFXButton November;
+	@FXML JFXButton December;
 
 	@FXML
 	public void initialize() throws FileNotFoundException{
@@ -43,8 +63,8 @@ public class AdminPageController {
         logout.setFill(new ImagePattern(img));
         User u = new User();
         u = u.getCurrentUser();
-        DonationPageDAO dao = new DonationPageDAO();
-        ArrayList<DonationHistoryModel> aldhm = dao.getAllHistoryWithOrganization(u.getUsername());
+        yearCombo.getItems().addAll(DonationHistoryModel.getAllYear(u.getUsername()));
+        ArrayList<DonationHistoryModel> aldhm = DonationHistoryModel.getAllHistoryWithOrganization(u.getUsername());
         for(DonationHistoryModel dhm:aldhm){
         	Label FoodTitleName = new Label("Name");
             Label FoodTitleAmount = new Label("Amount");
@@ -113,19 +133,30 @@ public class AdminPageController {
             	boolean open = false;
 				@Override
 				public void handle(MouseEvent event) {
+					Timeline timeline = new Timeline();
+					KeyFrame keyFrame;
 					if(open == true){
-						hidden.setVisible(false);
+						KeyValue naviXValue = new KeyValue(hidden.layoutYProperty(), 0); //(naviXValue) Move navi from x = -150 to x = 0
+						KeyValue naviPreviewOpacity = new KeyValue(hidden.opacityProperty(), 0); //(naviPreviewOpacity) Change naviPreview from opacity 1 to 0
+						
+						keyFrame = new KeyFrame(Duration.millis(300), naviXValue, naviPreviewOpacity); //1st KeyFrame with duration of 300ms
 						open = false;
 					}else{
-						hidden.setVisible(true);
+						KeyValue naviXValue = new KeyValue(hidden.layoutYProperty(), 150); //(naviXValue) Move navi from x = -150 to x = 0
+						KeyValue naviPreviewOpacity = new KeyValue(hidden.opacityProperty(), 0); //(naviPreviewOpacity) Change naviPreview from opacity 1 to 0
+						
+						keyFrame = new KeyFrame(Duration.millis(300), naviXValue, naviPreviewOpacity); //1st KeyFrame with duration of 300ms
 						open = true;
 					}
+					timeline.getKeyFrames().add(keyFrame);
+					timeline.play();
 				}
 			 });
             TitleUserName.setCursor(Cursor.HAND);
             TitleUserName.setAlignment(Pos.CENTER);
             TitleUserName.setFillWidth(true);
-            VBox vbox = new VBox(TitleUserName, hidden);
+            StackPane vbox = new StackPane(TitleUserName, hidden);
+            vbox.setStyle("-fx-border-style: segments(10, 15, 15, 15)  line-cap round; -fx-border-color: #ffff33");
             donationVbox.getChildren().add(vbox);
         }
        

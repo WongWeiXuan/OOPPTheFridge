@@ -488,8 +488,15 @@ public class CharityFoodDonationGoogleMapModel implements DirectionsServiceCallb
 	}
 	
 	public void setTextLabels(DirectionsService directionsService) throws FileNotFoundException{
+		User u = new User();
+		u = u.getCurrentUser();
 		MapPlacesDAO dao = new MapPlacesDAO();
-		ArrayList<PlaceModel>placeList = PlaceModelArrayListBasedOnTimeAndDistance(dao.getAllPlace());
+		ArrayList<PlaceModel>placeList;
+		if(u.getCountry().equalsIgnoreCase("Jurong West")){
+			placeList = PlaceModelArrayListBasedOnTimeAndDistance(dao.getAllPlace1());
+		}else{
+			placeList = PlaceModelArrayListBasedOnTimeAndDistance(dao.getAllPlace());
+		}
 		for(int i = 0; i < placeList.size(); i++){
 			String name = placeList.get(i).getName();
 			ImageView imageView = new ImageView();
@@ -511,14 +518,14 @@ public class CharityFoodDonationGoogleMapModel implements DirectionsServiceCallb
 					"-fx-padding: 20 30 0 30; -fx-border-insets: 20 30 0 30; -fx-background-insets: 20 30 0 30; -fx-background-color: white; -fx-background-radius: 20;"
 			);
 			stackPane.setOnMouseClicked((MouseEvent event) -> {
-				User u = new User();
+				User user = new User();
 				try {
-					u = u.getCurrentUser();
+					user = user.getCurrentUser();
 				} catch (FileNotFoundException e) {
 					e.printStackTrace();
 				}
 				String destination = getDestination(name);
-		        DirectionsRequest request = new DirectionsRequest(u.getCountry(), destination, TravelModes.DRIVING);
+		        DirectionsRequest request = new DirectionsRequest(user.getCountry(), destination, TravelModes.DRIVING);
 		        DirectionsRenderer directionsDisplay = new DirectionsRenderer(true, mapView.getMap(), directionsPane);
 		        GoogleMap map2 = mapView.createMap(mapOptions);
 		        addMarkerAfterCreating(map2, name);

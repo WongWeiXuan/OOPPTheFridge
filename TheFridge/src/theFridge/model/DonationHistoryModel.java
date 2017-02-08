@@ -1,5 +1,6 @@
 package theFridge.model;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -144,5 +145,23 @@ public class DonationHistoryModel {
 		vbox1.setPadding(new Insets(20, 20, 20, 20));
 		vbox1.setStyle("-fx-border-style: segments(10, 15, 15, 15)  line-cap round; -fx-border-color: pink");
 		return vbox1;
+	}
+	
+	public static ArrayList<DonationHistoryModel> getAllHistoryWithOrganization(String name) throws FileNotFoundException{
+		DonationPageDAO dao = new DonationPageDAO();
+		return dao.getAllHistoryWithOrganization(name);
+	}
+	
+	public static ArrayList<Integer> getAllYear(String name) throws FileNotFoundException{
+		DonationPageDAO dao = new DonationPageDAO();
+		ArrayList<Integer> ali = new ArrayList<Integer>();
+		ArrayList<DonationHistoryModel> aldhm = dao.getAllHistoryWithOrganization(name);
+		for(DonationHistoryModel a:aldhm){
+			String time = a.getTime();
+			time = time.substring(4, 8);
+			System.out.println(time);
+			ali.add(Integer.parseInt(time));
+		}
+		return ali;
 	}
 }

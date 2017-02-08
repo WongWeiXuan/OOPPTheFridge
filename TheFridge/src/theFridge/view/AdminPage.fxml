@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -18,11 +20,44 @@
                   <Insets left="150.0" right="150.0" />
                </HBox.margin>
                <children>
-                  <VBox fx:id="donationVbox" prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS">
+                  <HBox VBox.vgrow="ALWAYS">
                      <VBox.margin>
                         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                      </VBox.margin>
-                  </VBox>
+                     <children>
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="5.0">
+                           <children>
+                              <JFXComboBox fx:id="yearCombo" promptText="2017" />
+                              <JFXButton fx:id="January" buttonType="RAISED" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #2258c3;" text="January" textFill="WHITE" />
+                              <JFXButton fx:id="February" buttonType="RAISED" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #2258c3;" text="February" textFill="WHITE" />
+                              <JFXButton fx:id="March" buttonType="RAISED" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #2258c3;" text="March" textFill="WHITE" />
+                              <JFXButton fx:id="April" buttonType="RAISED" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #2258c3;" text="April" textFill="WHITE" />
+                              <JFXButton fx:id="May" buttonType="RAISED" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #2258c3;" text="May" textFill="WHITE" />
+                              <JFXButton fx:id="June" buttonType="RAISED" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #2258c3;" text="June" textFill="WHITE" />
+                              <JFXButton fx:id="July" buttonType="RAISED" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #2258c3;" text="July" textFill="WHITE" />
+                              <JFXButton fx:id="August" buttonType="RAISED" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #2258c3;" text="August" textFill="WHITE" />
+                              <JFXButton fx:id="September" buttonType="RAISED" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #2258c3;" text="September" textFill="WHITE" />
+                              <JFXButton fx:id="October" buttonType="RAISED" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #2258c3;" text="October" textFill="WHITE" />
+                              <JFXButton fx:id="November" buttonType="RAISED" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #2258c3;" text="November" textFill="WHITE" />
+                              <JFXButton fx:id="December" buttonType="RAISED" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #2258c3;" text="December" textFill="WHITE" />
+                           </children>
+                        </VBox>
+                        <VBox HBox.hgrow="ALWAYS">
+                           <children>
+                              <TextFlow textAlignment="CENTER">
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="February">
+                                       <font>
+                                          <Font size="34.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </TextFlow>
+                              <VBox fx:id="donationVbox" prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
                </children>
             </VBox>
          </children>

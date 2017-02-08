@@ -1,0 +1,19 @@
+Hougang Mall-32.4-52-theFridge/picture/places/HougangMall.jpg
+Food From The Heart-31.2-45-theFridge/picture/places/FoodFromTheHeart.png
+Willing Hearts-26.6-49-theFridge/picture/places/WillingHearts.png
+Parkway Parade-30.1-45-theFridge/picture/places/ParkwayParade.jpg
+Tampines 1-38.2-57-theFridge/picture/places/Tampines1.jpg
+Century Square-33.5-60-theFridge/picture/places/CenturySquare.jpg
+100 Sims Ave-24.2-43-theFridge/picture/places/100SimsAve.png
+NUS Engineering-10.6-18-theFridge/picture/places/NUSEngineering.jpg
+NUS Arts & Social Sciences-11.3-19-theFridge/picture/places/NUSArts&SocialSciences.jpg
+NUS Computing-11.9-21-theFridge/picture/places/NUSComputing.jpg
+The Grandstand-12.7-25-theFridge/picture/places/TheGrandstand.jpg
+BIG BOX-4.8-12-theFridge/picture/places/BIGBOX.png
+City Square Mall-24.8-43-theFridge/picture/places/CitySquareMall.jpg
+Armf II (Liang Court) Pte Ltd-20.1-35-theFridge/picture/places/LiangCourt.jpg
+Quayside Isle-24.8-48-theFridge/picture/places/QuaysideIsle.jpg
+Giant, VivoCity-18.6-33-theFridge/picture/places/Giant,VivoCity.jpg
+VivoCity-18.8-37-theFridge/picture/places/VivoCity.jpg
+Chrysler Jeep Automotive of Singapore Pte Ltd-15.7-28-theFridge/picture/places/ChryslerJeepAutomotiveofSingaporePteLtd.png
+Food Bank Singapore-19.6-32-theFridge/picture/places/FoodBankSingapore.jpg
