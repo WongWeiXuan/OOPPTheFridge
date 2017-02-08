@@ -109,6 +109,7 @@ public class DonationPageController {
 	@FXML
 	private VBox enterFoodVBox;
 	public static boolean first = true;
+	public static String OrganizationTxt1;
 
 	@FXML
 	public void initialize() throws FileNotFoundException{
@@ -130,7 +131,7 @@ public class DonationPageController {
 		//Get user and Replace to correct Organization name and Operation Timings
 		nameField.setText(user.getName());
 		emailField.setText(user.getEmail());
-		String organizationName = CharityFoodDonationGoogleMapModel.OrganizationTxt;
+		String organizationName = OrganizationTxt1;
 		if(organizationName != null && organizationName != ""){
 			OrganizationTxt.setText(organizationName);
 			if(organizationName.equalsIgnoreCase("Food From The Heart")){
@@ -155,9 +156,8 @@ public class DonationPageController {
 				Date date = new Date();
 				DonationPageModel current = null;
 				try {
-					current = DonationPageModel.getThisModel(CharityFoodDonationGoogleMapModel.OrganizationTxt);
+					current = DonationPageModel.getThisModel(OrganizationTxt1);
 				} catch (FileNotFoundException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				Calendar calendar = Calendar.getInstance();
@@ -267,7 +267,7 @@ public class DonationPageController {
 				DonationSubmitConfirmPopupPageController.contact = contactField.getText();
 				if(!contactField.getText().isEmpty() && !contactField.getText().equals(null)){
 					CharityFoodDonationGoogleMapModel a = new CharityFoodDonationGoogleMapModel();
-					DonationSubmitConfirmPopupPageController.location = a.getDestination(CharityFoodDonationGoogleMapModel.OrganizationTxt);
+					DonationSubmitConfirmPopupPageController.location = a.getDestination(OrganizationTxt1);
 					if(enterFoodVBox.getChildren().size() > 1){
 						try{
 							DonationSubmitConfirmPopupPageController.allm.clear();

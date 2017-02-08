@@ -1,4 +1,4 @@
 xxx:Apple~4.0~28.0:Dayplus Maple Bread~2.0~28.0:Apricots~2.0~28.0:Kellogg's Frosties Cereal~1.0~2.0:Gardenia HiFibre White Bread~2.0~4.0:Corn~3.0~28.0:Sunshine Cookies And Cream Wholemeal Cream Bun~1.0~28.0:Pomegranate~2.0~28.0
 FoodFromTheHeart:Carrot~6.0~16.0
-ds:
+ds:Arugula~4.0~28.0:Kale~6.0~28.0:Jordans Country Crisp Chunky Nuts~2.0~2.0
 Testing1:

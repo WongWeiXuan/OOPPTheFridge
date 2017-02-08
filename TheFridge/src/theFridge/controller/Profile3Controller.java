@@ -111,7 +111,7 @@ public class Profile3Controller {
 		DonationPageDAO dao = new DonationPageDAO();
 		ArrayList<DonationHistoryModel> aldhm = dao.getAllHistoryWithUser(u.getName());
 		for(DonationHistoryModel a:aldhm){
-			VBoxadd.getChildren().add(0, DonationHistoryModel.initializeVBox(a));
+			VBoxadd.getChildren().add(DonationHistoryModel.initializeVBox(a));
 		}
 		
 	}

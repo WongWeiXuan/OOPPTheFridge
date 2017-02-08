@@ -90,7 +90,7 @@ public class DonationSubmitConfirmPopupPageController {
 		user.setCountry(location);
 		String comment = commentArea.getText();
 		comment = comment.replaceAll("\n", "@");
-		DonationHistoryModel dhm = new DonationHistoryModel(user, CharityFoodDonationGoogleMapModel.OrganizationTxt, contact, allm, time, timeTaken, comment);
+		DonationHistoryModel dhm = new DonationHistoryModel(user, DonationPageController.OrganizationTxt1, contact, allm, time, timeTaken, comment);
 		dhm.submitForm(dhm);
 		Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 		stage.close();

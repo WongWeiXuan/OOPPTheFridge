@@ -4,3 +4,5 @@ Testing1;Testing1;10101011100110101000110010001011100101101001000110011000110011
 Testing2;Testing2;1010101110011010100011001000101110010110100100011001100011001101;Testing2@gmail.com;null;null;null;null;null;0;null;0;[];[];[];false;null
 Testing3;Testing3;1010101110011010100011001000101110010110100100011001100011001100;Testing3@gmail.com;null;null;null;null;null;0;null;0;[];[];[];false;null
 null;Willing Hearts;11001011110011001100110111001110;HopeThisEmailDoesntExist@pleasedont.com;null;null;null;null;null;0;null;0;[];[];[];false;null
+Not null;ds;1001101110001100;ds@gmail.com;Nanyang Polytechnic;null;null;null;null;0;null;0;[];[];[];false;null
+null;Food Bank Singapore;11001110110011011100110011001011;HopeThisEmailDoesntExist@pleasedont.com;null;null;null;null;null;0;null;0;[];[];[];false;null

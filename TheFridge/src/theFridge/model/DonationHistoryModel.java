@@ -3,6 +3,10 @@ package theFridge.model;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -152,16 +156,59 @@ public class DonationHistoryModel {
 		return dao.getAllHistoryWithOrganization(name);
 	}
 	
-	public static ArrayList<Integer> getAllYear(String name) throws FileNotFoundException{
+	public static ArrayList<Integer> getAllYear() throws FileNotFoundException{
+		User u = new User();
+		u = u.getCurrentUser();
 		DonationPageDAO dao = new DonationPageDAO();
 		ArrayList<Integer> ali = new ArrayList<Integer>();
-		ArrayList<DonationHistoryModel> aldhm = dao.getAllHistoryWithOrganization(name);
+		ArrayList<DonationHistoryModel> aldhm = dao.getAllHistoryWithOrganization(u.getUsername());
 		for(DonationHistoryModel a:aldhm){
 			String time = a.getTime();
-			time = time.substring(4, 8);
-			System.out.println(time);
-			ali.add(Integer.parseInt(time));
+			time = time.substring(0, 4);
+			Integer timeNum = Integer.parseInt(time);
+			ali.add(timeNum);
+		}
+		Set<Integer> hs = new HashSet<>();
+		hs.addAll(ali);
+		ali.clear();
+		ali.addAll(hs);
+		Collections.reverse(ali);
+		return ali;
+	}
+	
+	public static ArrayList<DonationHistoryModel> getAllYearHistory(int year) throws FileNotFoundException{
+		User u = new User();
+		u = u.getCurrentUser();
+		DonationPageDAO dao = new DonationPageDAO();
+		ArrayList<DonationHistoryModel> ali = new ArrayList<DonationHistoryModel>();
+		ArrayList<DonationHistoryModel> aldhm = dao.getAllHistoryWithOrganization(u.getUsername());
+		for(DonationHistoryModel a:aldhm){
+			String time = a.getTime();
+			time = time.substring(0, 4);
+			Integer timeNum = Integer.parseInt(time);
+			if(timeNum == year){
+				ali.add(a);
+			}
 		}
 		return ali;
+	}
+	
+	public static ArrayList<DonationHistoryModel> getAllMonth(int year, int month) throws FileNotFoundException{
+		ArrayList<DonationHistoryModel> aldhm = new ArrayList<DonationHistoryModel>();
+		ArrayList<DonationHistoryModel> history = getAllYearHistory(year);
+		for(DonationHistoryModel a:history){
+			String time = a.getTime();
+			if(month < 10){
+				time = time.substring(6, 7);
+			}
+			else{
+				time = time.substring(5, 7);
+			}
+			Integer timeNum = Integer.parseInt(time);
+			if(timeNum == month){
+				aldhm.add(a);
+			}
+		}
+		return aldhm;
 	}
 }

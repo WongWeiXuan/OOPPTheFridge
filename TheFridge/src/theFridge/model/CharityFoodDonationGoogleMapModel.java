@@ -45,7 +45,6 @@ public class CharityFoodDonationGoogleMapModel implements DirectionsServiceCallb
     private JFXButton donateBtn;
 	@SuppressWarnings("unused")
 	private JFXButton moreInfoBtn;
-	public static String OrganizationTxt;
 	@SuppressWarnings("unused")
 	private LatLong currentLatLong;
 

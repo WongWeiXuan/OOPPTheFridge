@@ -120,8 +120,6 @@ public class CharityFoodDonationGoogleMapController implements Initializable, Ma
 	            Image image21 = new Image(myface);
 	            profileCircle.setFill(new ImagePattern(image21));
 	        }
-        
-		
     }     
 	
     @FXML 
@@ -129,17 +127,17 @@ public class CharityFoodDonationGoogleMapController implements Initializable, Ma
     	double lat = results.getRoutes().get(0).getLegs().get(0).getEndLocation().getLatitude();
     	if(lat == 1.3375365){
     		System.out.println("Food From The Heart");
-    		CharityFoodDonationGoogleMapModel.OrganizationTxt = "Food From The Heart";
+    		DonationPageController.OrganizationTxt1 = "Food From The Heart";
     		DonationSubmitConfirmPopupPageController.timeTaken = 17;
     	}
     	else if(lat == 1.3176681){
     		System.out.println("Willing Hearts");
-    		CharityFoodDonationGoogleMapModel.OrganizationTxt = "Willing Hearts";
+    		DonationPageController.OrganizationTxt1 = "Willing Hearts";
     		DonationSubmitConfirmPopupPageController.timeTaken = 18;
     	}
-    	else if(lat == 1.2723219){
+    	else if(lat == 1.2723387){
 			System.out.println("Food Bank WareHouse");
-			CharityFoodDonationGoogleMapModel.OrganizationTxt = "Food Bank Singapore";
+			DonationPageController.OrganizationTxt1 = "Food Bank Singapore";
 			DonationSubmitConfirmPopupPageController.timeTaken = 21;
 		}
     	Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
@@ -192,15 +190,15 @@ public class CharityFoodDonationGoogleMapController implements Initializable, Ma
 			System.out.println("NUS Arts & Social Sciences");
 			locationArea.setText("National University of Singapore: \nFaculty of Arts & Social Sciences, The Deck Canteen");
 		}
-		else if(lat == 1.2948112){
+		else if(lat == 1.2948026){
 			System.out.println("NUS Computing");
 			locationArea.setText("National University of Singapore: \nSchool of Computing, The Terrace Canteen");
 		}
-		else if(lat == 1.3391538){
+		else if(lat == 1.3334895){
 			System.out.println("The Grandstand");
 			locationArea.setText("Giant Hypermarket Grand Stand , Entrance 200 Turf Club Road #01-1 Singapore 287994 \n(Operating hours: Sun-Thurs: 9am - 10pm, Fri-Sat: 9am - 11pm)");
 		}
-		else if(lat == 1.3311433){
+		else if(lat == 1.3311022){
 			System.out.println("BIG BOX");
 			locationArea.setText("Big Box, Level 1, Check-out exit at Supermarket, 1 Venture Ave Singapore 608521 \n(Operating hours: 10am to 10pm)");
 		}
