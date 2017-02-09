@@ -8,16 +8,30 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.jfoenix.controls.JFXButton;
+
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 import javafx.scene.text.TextFlow;
+import javafx.stage.Stage;
 import theFridge.DAO.DonationPageDAO;
 
 public class DonationHistoryModel {
@@ -28,6 +42,8 @@ public class DonationHistoryModel {
 	String time;
 	int timeTaken;
 	String comment;
+	boolean cancel;
+	int i = 0;
 
 	public DonationHistoryModel(User user, String organization, String contact, ArrayList<ListModel> foodItems,
 			String time, int timeTaken, String comment) {
@@ -96,6 +112,14 @@ public class DonationHistoryModel {
 	public void setComment(String comment) {
 		this.comment = comment;
 	}
+	
+	public boolean isCancel() {
+		return cancel;
+	}
+
+	public void setCancel(boolean cancel) {
+		this.cancel = cancel;
+	}
 
 	public void submitForm(DonationHistoryModel dhm) throws IOException{
 		DonationPageDAO dao = new DonationPageDAO();
@@ -107,8 +131,6 @@ public class DonationHistoryModel {
 		txt1.setFont(Font.font("System", FontWeight.BOLD, 24));
 		Text txt2 = new Text("Food Donation");
 		txt2.setFont(Font.font("System", FontWeight.BOLD, 24));
-		TextFlow txtfw1 = new TextFlow(txt1);
-		TextFlow txtfw2 = new TextFlow(new Text(a.getOrganization()));
 		TextFlow txtfw3 = new TextFlow(txt2);
 		VBox vbox2 = new VBox(); // Store Food Item
 		Label lbl1 = new Label("Name");
@@ -144,7 +166,46 @@ public class DonationHistoryModel {
 		TextArea txtArea = new TextArea(comment);
 		txtArea.setEditable(false);
 		VBox vbox1 = new VBox();
-		vbox1.getChildren().addAll(txtfw1, txtfw2, vbox3, txtfw4, txtfw5, txtfw6, txtArea);
+		if(a.isCancel()){
+			TextFlow txtfw1 = new TextFlow(txt1);
+			TextFlow txtfw2 = new TextFlow(new Text(a.getOrganization()));
+			VBox txtfw12Vbox = new VBox(txtfw1, txtfw2);
+			ImageView cancelImg = new ImageView(new Image("theFridge/picture/error (2).png"));
+			cancelImg.setFitHeight(100);
+			cancelImg.setFitWidth(100);
+			StackPane.setAlignment(cancelImg, Pos.CENTER_RIGHT);
+			StackPane.setAlignment(txtfw1, Pos.TOP_LEFT);
+			StackPane imageViewStack = new StackPane(txtfw12Vbox, cancelImg);
+			vbox1.getChildren().addAll(imageViewStack, vbox3, txtfw4, txtfw5, txtfw6, txtArea);
+			vbox1.setOpacity(0.3);
+		}else{
+			TextFlow txtfw1 = new TextFlow(txt1);
+			TextFlow txtfw2 = new TextFlow(new Text(a.getOrganization()));
+			JFXButton cancelBtn = new JFXButton("Cancel Donation");
+			cancelBtn.setOnAction(new EventHandler<ActionEvent>() {
+					@Override
+					public void handle(ActionEvent event) {
+						try {
+							DonationPageDAO dao = new DonationPageDAO();
+							User u = new User();
+							u = u.getCurrentUser();
+							DonationHistoryModel dhm= dao.getHistoryWithUserTime(u.getName(), a.getTime());
+							dhm.setCancel(true);
+							dao.writeToEditDonationHistoryFile(dhm);
+							Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+							Parent root = FXMLLoader.load(getClass().getResource("/theFridge/view/Profile3.fxml"));
+							stage.setScene(new Scene(root));
+							stage.show();
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
+					}
+				 });
+			TextFlow cancelFlow = new TextFlow(cancelBtn);
+			cancelFlow.setTextAlignment(TextAlignment.CENTER);
+			vbox1.getChildren().addAll(txtfw1, txtfw2, vbox3, txtfw4, txtfw5, txtfw6, txtArea, cancelFlow);
+		}
+		
 		vbox1.setAlignment(Pos.TOP_CENTER);
 		vbox1.setPadding(new Insets(20, 20, 20, 20));
 		vbox1.setStyle("-fx-border-style: segments(10, 15, 15, 15)  line-cap round; -fx-border-color: pink");

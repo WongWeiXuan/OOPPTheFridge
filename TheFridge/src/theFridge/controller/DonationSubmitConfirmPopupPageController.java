@@ -91,6 +91,7 @@ public class DonationSubmitConfirmPopupPageController {
 		String comment = commentArea.getText();
 		comment = comment.replaceAll("\n", "@");
 		DonationHistoryModel dhm = new DonationHistoryModel(user, DonationPageController.OrganizationTxt1, contact, allm, time, timeTaken, comment);
+		dhm.setCancel(false);
 		dhm.submitForm(dhm);
 		Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 		stage.close();

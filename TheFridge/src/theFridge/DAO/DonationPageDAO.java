@@ -92,8 +92,10 @@ public class DonationPageDAO {
 			ArrayList<ListModel> lm = seperateFoodList(foodList);
 			String time = fields[4];
 			int timeLeft = Integer.parseInt(fields[5]);
-			String comment = fields[6];
+			boolean cancel = Boolean.parseBoolean(fields[6]);
+			String comment = fields[7];
 			DonationHistoryModel a = new DonationHistoryModel(userName, organizationName, contact, lm, time, timeLeft, comment);
+			a.setCancel(cancel);
 			aldhm.add(a);
 		}
 		sc.close();
@@ -119,6 +121,16 @@ public class DonationPageDAO {
 			}
 		}
 		return medium;
+	}
+	
+	public DonationHistoryModel getHistoryWithUserTime(String userName, String time) throws FileNotFoundException{
+		ArrayList<DonationHistoryModel> aldhm = getAllHistoryWithUser(userName);
+		for(DonationHistoryModel a:aldhm){
+			if(a.getTime().equals(time)){
+				return a;
+			}
+		}
+		return null;
 	}
 	
 	private ArrayList<ListModel> seperateFoodList(String foodList){
@@ -180,7 +192,37 @@ public class DonationPageDAO {
 					line += ";" + name + ":" + amount;
 				}
 			}
-			line +=  "-" + a.getTime() + "-" + a.getTimeTaken() + "-" + a.getComment() + "\n";
+			line +=  "-" + a.getTime() + "-" + a.getTimeTaken() + "-" + a.isCancel() + "-" + a.getComment() + "\n";
+		}
+		FileWriter writer = new FileWriter(donationHistoryFile);
+		writer.write(line);
+		writer.flush();
+		writer.close();
+	}
+	
+	public void writeToEditDonationHistoryFile(DonationHistoryModel aldhm) throws IOException{
+		ArrayList<DonationHistoryModel> aldhmm = getAllHistory();
+		for(int i = 0; i < aldhmm.size(); i++){
+			if(aldhmm.get(i).getTime().equals(aldhm.getTime())){
+				aldhmm.set(i, aldhm);
+			}
+		}
+		
+		String line = "";
+		for(DonationHistoryModel a:aldhmm){
+			line += a.getUser().getName() + ":" + a.getUser().getEmail() + "-" + a.getOrganization() + "-" + a.getContact() + "-";
+			boolean first = true;
+			for(ListModel b:a.getFoodItems()){
+				String name = b.getName();
+				String amount = String.valueOf((int)b.getAmount());
+				if(first == true){
+					line += name + ":" + amount;
+					first = false;
+				}else{
+					line += ";" + name + ":" + amount;
+				}
+			}
+			line +=  "-" + a.getTime() + "-" + a.getTimeTaken() + "-" + a.isCancel() + "-" + a.getComment() + "\n";
 		}
 		FileWriter writer = new FileWriter(donationHistoryFile);
 		writer.write(line);
