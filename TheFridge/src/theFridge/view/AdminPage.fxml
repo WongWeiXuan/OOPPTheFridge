@@ -30,7 +30,7 @@
                      <children>
                         <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="5.0">
                            <children>
-                              <JFXCheckBox fx:id="cancelCheck" onAction="#showCancelOrder" text="Show cancel'd orders" wrapText="true" />
+                              <JFXCheckBox fx:id="cancelCheck" onAction="#showCancelOrder" text="Show cancel'd donations" wrapText="true" />
                               <JFXComboBox fx:id="yearCombo" onAction="#showYearHistory" promptText="2017" />
                               <JFXButton fx:id="January" buttonType="RAISED" onAction="#showMonths" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #2258c3;" text="January" textFill="WHITE" />
                               <JFXButton fx:id="February" buttonType="RAISED" onAction="#showMonths" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #2258c3;" text="February" textFill="WHITE" />
